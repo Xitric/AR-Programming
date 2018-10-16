@@ -15,7 +15,7 @@ struct Card {
     public var type : CardType
 }
 
-enum CardType {
-    case action
-    case control
+enum CardType: String {
+    case action = "Action"
+    case control = "Control"
 }
