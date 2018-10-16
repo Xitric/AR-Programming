@@ -82,7 +82,7 @@ class ScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate
         if let card = cardDatabase.cards[optName ?? ""] {
             self.cardNameLabel.text = card.name + " | " + card.type.rawValue + " Card"
             self.cardDescriptionLabel.text = card.description
-            self.cardImage.image = UIImage(named: optName!)
+            self.cardImage.image = UIImage(named: optName! + "Card")
         } else {
             self.cardNameLabel.text = "No card"
             self.cardDescriptionLabel.text = "Point the circle in the center of the screen at a card to learn more about it!"
