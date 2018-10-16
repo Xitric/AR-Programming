@@ -10,7 +10,7 @@ import UIKit
 import SceneKit
 import ARKit
 
-class ScanViewController: UIViewController, ARSCNViewDelegate {
+class ScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet weak var cardNameLabel: UILabel!
@@ -20,6 +20,7 @@ class ScanViewController: UIViewController, ARSCNViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         sceneView.delegate = self
+        sceneView.session.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -28,6 +29,7 @@ class ScanViewController: UIViewController, ARSCNViewDelegate {
         // Create a session configuration
         let configuration = ARWorldTrackingConfiguration()
         configuration.detectionImages = ARReferenceImage.referenceImages(inGroupNamed: "Cards", bundle: nil)
+        configuration.maximumNumberOfTrackedImages = 25
         
         // Run the view's session
         let options: ARSession.RunOptions = [.resetTracking, .removeExistingAnchors]
@@ -44,13 +46,17 @@ class ScanViewController: UIViewController, ARSCNViewDelegate {
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
-    func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
-        if !sceneView.isNode(node, insideFrustumOf: sceneView.pointOfView!) {
-            sceneView.session.remove(anchor: anchor)
-            
-            DispatchQueue.main.async {
-                self.cardNameLabel.text = "No card"
-                self.cardDescriptionLabel.text = "No card"
+    func session(_ session: ARSession, didUpdate anchors: [ARAnchor]) {
+        for anchor in anchors {
+            if let imageAnchor = anchor as? ARImageAnchor {
+                if !imageAnchor.isTracked {
+                    sceneView.session.remove(anchor: anchor)
+    
+                    DispatchQueue.main.async {
+                        self.cardNameLabel.text = "No card"
+                        self.cardDescriptionLabel.text = "No card"
+                    }
+                }
             }
         }
     }
