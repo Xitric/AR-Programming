@@ -12,7 +12,6 @@
 		9057369D2175D29B00F231E1 /* CardDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057369C2175D29B00F231E1 /* CardDatabase.swift */; };
 		905736A02175D44000F231E1 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057369F2175D44000F231E1 /* ScanViewController.swift */; };
 		90DF7330216F441E00F51E0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DF732F216F441E00F51E0C /* AppDelegate.swift */; };
-		90DF7332216F441E00F51E0C /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 90DF7331216F441E00F51E0C /* art.scnassets */; };
 		90DF7334216F441E00F51E0C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DF7333216F441E00F51E0C /* ViewController.swift */; };
 		90DF7337216F441E00F51E0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90DF7335216F441E00F51E0C /* Main.storyboard */; };
 		90DF7339216F442000F51E0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90DF7338216F442000F51E0C /* Assets.xcassets */; };
@@ -37,7 +36,6 @@
 		9057369F2175D44000F231E1 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		90DF732C216F441E00F51E0C /* AR Programming.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AR Programming.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		90DF732F216F441E00F51E0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		90DF7331216F441E00F51E0C /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		90DF7333216F441E00F51E0C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		90DF7336216F441E00F51E0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		90DF7338216F442000F51E0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -107,7 +105,6 @@
 				9057369E2175D42900F231E1 /* Controller */,
 				905736992175D19000F231E1 /* Model */,
 				90DF732F216F441E00F51E0C /* AppDelegate.swift */,
-				90DF7331216F441E00F51E0C /* art.scnassets */,
 				90DF7333216F441E00F51E0C /* ViewController.swift */,
 				90DF7335216F441E00F51E0C /* Main.storyboard */,
 				90DF7338216F442000F51E0C /* Assets.xcassets */,
@@ -208,7 +205,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90DF7332216F441E00F51E0C /* art.scnassets in Resources */,
 				90DF733C216F442000F51E0C /* LaunchScreen.storyboard in Resources */,
 				90DF7339216F442000F51E0C /* Assets.xcassets in Resources */,
 				90DF7337216F441E00F51E0C /* Main.storyboard in Resources */,
@@ -397,13 +393,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T8D932Y62R;
+				DEVELOPMENT_TEAM = 5E6DK5G4XC;
 				INFOPLIST_FILE = "AR Programming/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "dk.sdu.group10.AR-Programming";
+				PRODUCT_BUNDLE_IDENTIFIER = "dk.sdu.group10.AR-Programming1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -415,13 +411,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T8D932Y62R;
+				DEVELOPMENT_TEAM = 5E6DK5G4XC;
 				INFOPLIST_FILE = "AR Programming/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "dk.sdu.group10.AR-Programming";
+				PRODUCT_BUNDLE_IDENTIFIER = "dk.sdu.group10.AR-Programming1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

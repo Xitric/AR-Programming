@@ -21,9 +21,37 @@ class PlayViewController: UIViewController, ARSCNViewDelegate {
         // Set the view's delegate
         sceneView.delegate = self
         
+        // For debugging
+        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
+        
         // Show statistics such as fps and timing information
         sceneView.showsStatistics = true
+        
+        // Creates a new scene, which holds 3d objects
+        let scene : SCNScene = SCNScene()
+        
+        // 3d box
+        let box : SCNBox = SCNBox(width: 0.1,height: 0.1,length: 0.1,chamferRadius: 0)
+        
+        // Wrap box in a node
+        let boxNode : SCNNode = SCNNode(geometry: box)
+        
+        //Set the box position
+        boxNode.position = SCNVector3Make(0, 0, -1)
+        
+        // Add the boxNode to the root
+        scene.rootNode.addChildNode(boxNode)
+        
+        // Set the scene to the view
+        sceneView.scene = scene
+        
+        // Enable lighting in the scene
+        sceneView.autoenablesDefaultLighting = true
+        
+        
+        
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -31,6 +59,8 @@ class PlayViewController: UIViewController, ARSCNViewDelegate {
         // Create a session configuration
         let configuration = ARWorldTrackingConfiguration()
         configuration.detectionImages = ARReferenceImage.referenceImages(inGroupNamed: "Cards", bundle: nil)
+        // Detect horizontal planes
+        configuration.planeDetection = .horizontal
         
         // Run the view's session
         let options: ARSession.RunOptions = [.resetTracking, .removeExistingAnchors]
@@ -50,42 +80,43 @@ class PlayViewController: UIViewController, ARSCNViewDelegate {
     
     // MARK: - ARSCNViewDelegate
     
-     // Override to create and configure nodes for anchors added to the view's session.
+    var currentPlane: SCNNode?
+    // Override to create and configure nodes for anchors added to the view's session.
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-        guard let imageAnchor = anchor as? ARImageAnchor else { return }
-        
-        let referenceImage = imageAnchor.referenceImage
-        let imageName = referenceImage.name ?? "no name"
-        
-        let plane = SCNPlane(width: referenceImage.physicalSize.width, height: referenceImage.physicalSize.height)
-        let planeNode = SCNNode(geometry: plane)
-        planeNode.opacity = 0.20
-        planeNode.eulerAngles.x = -.pi / 2
-        
-        //planeNode.runAction(imageHighlightAction)
-        
-        if (node.childNodes.count == 0) {
-            node.addChildNode(planeNode)
+        guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
+
+        if currentPlane == nil{
+            
+            let plane = SCNPlane(width: CGFloat(planeAnchor.extent.x), height: CGFloat(planeAnchor.extent.z))
+            
+            plane.materials.first?.diffuse.contents = UIImage(named: "tron_grid")
+            
+            let planeNode = SCNNode(geometry: plane)
+            planeNode.position = SCNVector3Make(planeAnchor.center.x, 0, planeAnchor.center.z)
+            
+            planeNode.eulerAngles.x = -.pi / 2
+            currentPlane = planeNode
+            node.addChildNode(currentPlane!)
+        } else {
+            var currentAnchor = sceneView.anchor(for: currentPlane!)
+            sceneView.session.remove(anchor: currentAnchor!)
+            node.addChildNode(currentPlane!)
         }
-        
-        DispatchQueue.main.async {
-            self.label.text = "Image detected: \"\(imageName)\""
-        }
     }
+
+func session(_ session: ARSession, didFailWithError error: Error) {
+    // Present an error message to the user
     
-    func session(_ session: ARSession, didFailWithError error: Error) {
-        // Present an error message to the user
-        
-    }
-    
-    func sessionWasInterrupted(_ session: ARSession) {
-        // Inform the user that the session has been interrupted, for example, by presenting an overlay
-        
-    }
-    
-    func sessionInterruptionEnded(_ session: ARSession) {
-        // Reset tracking and/or remove existing anchors if consistent tracking is required
-        
-    }
 }
 
+func sessionWasInterrupted(_ session: ARSession) {
+    // Inform the user that the session has been interrupted, for example, by presenting an overlay
+    
+}
+
+func sessionInterruptionEnded(_ session: ARSession) {
+    // Reset tracking and/or remove existing anchors if consistent tracking is required
+    
+}
+
+}
