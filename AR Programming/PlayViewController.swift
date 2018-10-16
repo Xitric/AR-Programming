@@ -13,6 +13,7 @@ import ARKit
 class PlayViewController: UIViewController, ARSCNViewDelegate {
     
     @IBOutlet var sceneView: ARSCNView!
+    @IBOutlet weak var label: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,10 +36,11 @@ class PlayViewController: UIViewController, ARSCNViewDelegate {
         
         // Create a session configuration
         let configuration = ARWorldTrackingConfiguration()
-        configuration.detectionImages.insert(ARReferenceImage())
+        configuration.detectionImages = ARReferenceImage.referenceImages(inGroupNamed: "Cards", bundle: nil)
         
         // Run the view's session
-        sceneView.session.run(configuration)
+        let options: ARSession.RunOptions = [.resetTracking, .removeExistingAnchors]
+        sceneView.session.run(configuration, options: options)
         
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
@@ -54,14 +56,28 @@ class PlayViewController: UIViewController, ARSCNViewDelegate {
     
     // MARK: - ARSCNViewDelegate
     
-    /*
      // Override to create and configure nodes for anchors added to the view's session.
-     func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
-     let node = SCNNode()
-     
-     return node
-     }
-     */
+    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+        guard let imageAnchor = anchor as? ARImageAnchor else { return }
+        
+        let referenceImage = imageAnchor.referenceImage
+        let imageName = referenceImage.name ?? "no name"
+        
+        let plane = SCNPlane(width: referenceImage.physicalSize.width, height: referenceImage.physicalSize.height)
+        let planeNode = SCNNode(geometry: plane)
+        planeNode.opacity = 0.20
+        planeNode.eulerAngles.x = -.pi / 2
+        
+        //planeNode.runAction(imageHighlightAction)
+        
+        if (node.childNodes.count == 0) {
+            node.addChildNode(planeNode)
+        }
+        
+        DispatchQueue.main.async {
+            self.label.text = "Image detected: \"\(imageName)\""
+        }
+    }
     
     func session(_ session: ARSession, didFailWithError error: Error) {
         // Present an error message to the user

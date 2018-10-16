@@ -4,6 +4,23 @@
     "author" : "xcode"
   },
   "resources" : [
-
+    {
+      "filename" : "BranchD.arreferenceimage"
+    },
+    {
+      "filename" : "JumpD.arreferenceimage"
+    },
+    {
+      "filename" : "LeftD.arreferenceimage"
+    },
+    {
+      "filename" : "MoveD.arreferenceimage"
+    },
+    {
+      "filename" : "RightD.arreferenceimage"
+    },
+    {
+      "filename" : "StartD.arreferenceimage"
+    }
   ]
 }
