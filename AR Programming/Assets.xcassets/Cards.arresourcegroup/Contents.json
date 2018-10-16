@@ -5,22 +5,22 @@
   },
   "resources" : [
     {
-      "filename" : "BranchD.arreferenceimage"
+      "filename" : "Branch.arreferenceimage"
     },
     {
-      "filename" : "JumpD.arreferenceimage"
+      "filename" : "Jump.arreferenceimage"
     },
     {
-      "filename" : "LeftD.arreferenceimage"
+      "filename" : "Left.arreferenceimage"
     },
     {
-      "filename" : "MoveD.arreferenceimage"
+      "filename" : "Move.arreferenceimage"
     },
     {
-      "filename" : "RightD.arreferenceimage"
+      "filename" : "Right.arreferenceimage"
     },
     {
-      "filename" : "StartD.arreferenceimage"
+      "filename" : "Start.arreferenceimage"
     }
   ]
 }

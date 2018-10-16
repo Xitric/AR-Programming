@@ -15,6 +15,7 @@ class ScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet weak var cardNameLabel: UILabel!
     @IBOutlet weak var cardDescriptionLabel: UILabel!
+    @IBOutlet weak var cardImage: UIImageView!
     var cardDatabase = CardDatabase()
     
     override func viewDidLoad() {
@@ -29,35 +30,63 @@ class ScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate
         // Create a session configuration
         let configuration = ARWorldTrackingConfiguration()
         configuration.detectionImages = ARReferenceImage.referenceImages(inGroupNamed: "Cards", bundle: nil)
-        configuration.maximumNumberOfTrackedImages = 25
+        configuration.maximumNumberOfTrackedImages = 10
         
         // Run the view's session
         let options: ARSession.RunOptions = [.resetTracking, .removeExistingAnchors]
         sceneView.session.run(configuration, options: options)
-        
-        self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         sceneView.session.pause()
-        
-        self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
+    
+    let sphere = SCNNode(geometry: SCNSphere(radius: 0.005))
     
     func session(_ session: ARSession, didUpdate anchors: [ARAnchor]) {
         for anchor in anchors {
             if let imageAnchor = anchor as? ARImageAnchor {
                 if !imageAnchor.isTracked {
                     sceneView.session.remove(anchor: anchor)
-    
-                    DispatchQueue.main.async {
-                        self.cardNameLabel.text = "No card"
-                        self.cardDescriptionLabel.text = "No card"
-                    }
                 }
             }
+        }
+    }
+    
+    func session(_ session: ARSession, didUpdate frame: ARFrame) {
+        detectFocusedCard()
+    }
+    
+    private func detectFocusedCard() {
+        let hitResults = sceneView.hitTest(CGPoint(x: sceneView.frame.width / 2, y: sceneView.frame.height / 2), options: nil)
+        
+        if let result = hitResults.first {
+            let anchor = sceneView.anchor(for: result.node)
+            
+            if let imageAnchor = anchor as? ARImageAnchor, let cardName = imageAnchor.referenceImage.name {
+                DispatchQueue.main.async {
+                    self.displayCard(withName: cardName)
+                }
+                return
+            }
+        }
+        
+        DispatchQueue.main.async {
+            self.displayCard(withName: nil)
+        }
+    }
+    
+    private func displayCard(withName optName: String?) {
+        if let card = cardDatabase.cards[optName ?? ""] {
+            self.cardNameLabel.text = card.name + " | " + card.type.rawValue + " Card"
+            self.cardDescriptionLabel.text = card.description
+            self.cardImage.image = UIImage(named: optName! + "Card")
+        } else {
+            self.cardNameLabel.text = "No card"
+            self.cardDescriptionLabel.text = "Point the circle in the center of the screen at a card to learn more about it!"
+            self.cardImage.image = nil
         }
     }
     
@@ -65,23 +94,12 @@ class ScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate
         guard let imageAnchor = anchor as? ARImageAnchor else { return }
         
         let referenceImage = imageAnchor.referenceImage
-        let imageName = referenceImage.name ?? "?"
-        
-        if let card = cardDatabase.cards[imageName] {
-            DispatchQueue.main.async {
-                self.cardNameLabel.text = card.name
-                self.cardDescriptionLabel.text = card.description
-            }
-        }
-        
         let plane = SCNPlane(width: referenceImage.physicalSize.width, height: referenceImage.physicalSize.height)
         let planeNode = SCNNode(geometry: plane)
         planeNode.opacity = 0.20
         planeNode.eulerAngles.x = -.pi / 2
         
-        if (node.childNodes.count == 0) {
-            node.addChildNode(planeNode)
-        }
+        node.addChildNode(planeNode)
     }
     
     func session(_ session: ARSession, didFailWithError error: Error) {
