@@ -126,7 +126,7 @@
         <!--Card Information-->
         <scene sceneID="Bra-qg-qDa">
             <objects>
-                <viewController id="QG9-3Q-2YK" customClass="ViewController" customModule="AR_Programming" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="QG9-3Q-2YK" customClass="ScanViewController" customModule="AR_Programming" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4bQ-yH-PDw">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -134,6 +134,18 @@
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IdX-Vf-dAy">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="974"/>
                             </arscnView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4S-qS-HQT">
+                                <rect key="frame" x="113" y="884" width="295" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7f8-pb-nhJ">
+                                <rect key="frame" x="113" y="913" width="570" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -141,17 +153,21 @@
                             <constraint firstItem="IdX-Vf-dAy" firstAttribute="top" secondItem="4bQ-yH-PDw" secondAttribute="top" id="FdS-f8-bse"/>
                             <constraint firstItem="IdX-Vf-dAy" firstAttribute="bottom" secondItem="IJ6-e5-RsX" secondAttribute="bottom" id="UR9-AU-EJO"/>
                             <constraint firstItem="IdX-Vf-dAy" firstAttribute="trailing" secondItem="IJ6-e5-RsX" secondAttribute="trailing" id="hIy-d7-3Ks"/>
+                            <constraint firstItem="7f8-pb-nhJ" firstAttribute="top" secondItem="A4S-qS-HQT" secondAttribute="bottom" constant="8" id="jcZ-vy-YZU"/>
+                            <constraint firstItem="IJ6-e5-RsX" firstAttribute="bottom" secondItem="7f8-pb-nhJ" secondAttribute="bottom" constant="40" id="kfk-iA-Ui3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="IJ6-e5-RsX"/>
                     </view>
                     <navigationItem key="navigationItem" title="Card Information" id="2wx-dn-Mmf"/>
                     <connections>
+                        <outlet property="cardDescriptionLabel" destination="7f8-pb-nhJ" id="Bzq-Io-Slz"/>
+                        <outlet property="cardNameLabel" destination="A4S-qS-HQT" id="Kaz-me-fXS"/>
                         <outlet property="sceneView" destination="IdX-Vf-dAy" id="lGX-QQ-fv6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nVr-g6-cCy" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2890" y="112"/>
+            <point key="canvasLocation" x="2889.84375" y="111.91406249999999"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="VBc-Ne-lvc">
