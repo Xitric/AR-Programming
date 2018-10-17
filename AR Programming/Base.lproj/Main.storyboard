@@ -74,12 +74,52 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m4o-f7-5rT" userLabel="Detect">
+                                <rect key="frame" x="692" y="594" width="60" height="60"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="U9d-Qu-3KV"/>
+                                    <constraint firstAttribute="width" constant="60" id="zWW-Lt-heU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Detect">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="detectPlane:" destination="BV1-FR-VrT" eventType="touchUpInside" id="ZPE-gF-kCj"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBB-xC-iTf">
                                 <rect key="frame" x="197" y="862" width="386" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V1o-j7-ycN">
+                                <rect key="frame" x="692" y="670" width="60" height="60"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="GtC-ia-jMz"/>
+                                    <constraint firstAttribute="width" constant="60" id="Q0O-xs-mIR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Place">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="placeObjectOnPlane:" destination="BV1-FR-VrT" eventType="touchUpInside" id="83e-pd-Pj9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -88,12 +128,16 @@
                             <constraint firstItem="wHf-aE-ray" firstAttribute="top" secondItem="1BO-PT-ePY" secondAttribute="bottom" constant="16" id="EJS-pb-wzc"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" id="GsS-dJ-CKf"/>
                             <constraint firstItem="fQZ-KI-GVf" firstAttribute="trailing" secondItem="1BO-PT-ePY" secondAttribute="trailing" constant="16" id="Hgh-fM-d6l"/>
+                            <constraint firstItem="fQZ-KI-GVf" firstAttribute="trailing" secondItem="V1o-j7-ycN" secondAttribute="trailing" constant="16" id="IKT-pP-Kyj"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="bottom" secondItem="fQZ-KI-GVf" secondAttribute="bottom" id="VpT-BR-CcM"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="trailing" secondItem="fQZ-KI-GVf" secondAttribute="trailing" id="XyZ-9z-H8e"/>
+                            <constraint firstItem="RJJ-8k-yUk" firstAttribute="top" secondItem="V1o-j7-ycN" secondAttribute="bottom" constant="16" id="YEe-f7-fmF"/>
                             <constraint firstItem="1BO-PT-ePY" firstAttribute="top" secondItem="RJJ-8k-yUk" secondAttribute="bottom" constant="16" id="cBQ-L8-ANI"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="top" secondItem="U0K-SW-4ec" secondAttribute="top" id="rJc-2c-zQA"/>
                             <constraint firstItem="fQZ-KI-GVf" firstAttribute="trailing" secondItem="RJJ-8k-yUk" secondAttribute="trailing" constant="16" id="tPS-Ku-zP0"/>
+                            <constraint firstItem="V1o-j7-ycN" firstAttribute="top" secondItem="m4o-f7-5rT" secondAttribute="bottom" constant="16" id="vVP-zE-zmO"/>
                             <constraint firstItem="fQZ-KI-GVf" firstAttribute="trailing" secondItem="wHf-aE-ray" secondAttribute="trailing" constant="16" id="vwf-Xh-HI0"/>
+                            <constraint firstItem="fQZ-KI-GVf" firstAttribute="trailing" secondItem="m4o-f7-5rT" secondAttribute="trailing" constant="16" id="zWF-Rf-uIG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fQZ-KI-GVf"/>
                     </view>
@@ -169,7 +213,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dx0-an-zaa">
-                                                        <rect key="frame" x="0.0" y="73" width="240" height="39"/>
+                                                        <rect key="frame" x="0.0" y="73" width="231" height="39"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </view>
                                                 </subviews>
@@ -270,7 +314,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ARKit-Control-Label-Icon" width="25" height="25"/>
+        <image name="ARKit-Control-Label-Icon" width="78" height="78"/>
         <image name="Reticle" width="128" height="128"/>
     </resources>
 </document>
