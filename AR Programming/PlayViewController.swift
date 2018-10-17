@@ -84,22 +84,15 @@ class PlayViewController: UIViewController, ARSCNViewDelegate {
     // Override to create and configure nodes for anchors added to the view's session.
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
-
-        if currentPlane == nil{
-            
-            let plane = SCNPlane(width: CGFloat(planeAnchor.extent.x), height: CGFloat(planeAnchor.extent.z))
-            
-            plane.materials.first?.diffuse.contents = UIImage(named: "tron_grid")
-            
-            let planeNode = SCNNode(geometry: plane)
-            planeNode.position = SCNVector3Make(planeAnchor.center.x, 0, planeAnchor.center.z)
-            
-            planeNode.eulerAngles.x = -.pi / 2
-            currentPlane = planeNode
-            node.addChildNode(currentPlane!)
-        } else {
-            var currentAnchor = sceneView.anchor(for: currentPlane!)
+        
+        if let plane = currentPlane {
+            let currentAnchor = sceneView.anchor(for: plane)
             sceneView.session.remove(anchor: currentAnchor!)
+            node.addChildNode(plane)
+        } else {
+            let plane = Plane(anchor: planeAnchor)
+            plane.planeGeometry.materials.first?.diffuse.contents = UIImage(named: "tron_grid")
+            currentPlane = plane.planeNode
             node.addChildNode(currentPlane!)
         }
     }
