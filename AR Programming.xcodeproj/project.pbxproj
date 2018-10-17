@@ -22,6 +22,11 @@
 		90DF733C216F442000F51E0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90DF733A216F442000F51E0C /* LaunchScreen.storyboard */; };
 		90DF7347216F442100F51E0C /* AR_ProgrammingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DF7346216F442100F51E0C /* AR_ProgrammingTests.swift */; };
 		C7273114217714E900754543 /* Plane.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7273113217714E900754543 /* Plane.swift */; };
+		C7273118217752C400754543 /* CardCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7273117217752C400754543 /* CardCommand.swift */; };
+		C727311A2177539300754543 /* MoveCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72731192177539300754543 /* MoveCommand.swift */; };
+		C727311C2177581400754543 /* RightCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C727311B2177581400754543 /* RightCommand.swift */; };
+		C727311E21775A1100754543 /* LeftCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C727311D21775A1100754543 /* LeftCommand.swift */; };
+		C727312021775A5B00754543 /* JumpCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C727311F21775A5B00754543 /* JumpCommand.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +59,11 @@
 		90DF7346216F442100F51E0C /* AR_ProgrammingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AR_ProgrammingTests.swift; sourceTree = "<group>"; };
 		90DF7348216F442100F51E0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7273113217714E900754543 /* Plane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plane.swift; sourceTree = "<group>"; };
+		C7273117217752C400754543 /* CardCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCommand.swift; sourceTree = "<group>"; };
+		C72731192177539300754543 /* MoveCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveCommand.swift; sourceTree = "<group>"; };
+		C727311B2177581400754543 /* RightCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightCommand.swift; sourceTree = "<group>"; };
+		C727311D21775A1100754543 /* LeftCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftCommand.swift; sourceTree = "<group>"; };
+		C727311F21775A5B00754543 /* JumpCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JumpCommand.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +91,11 @@
 				9057369C2175D29B00F231E1 /* CardDatabase.swift */,
 				C7273113217714E900754543 /* Plane.swift */,
 				90CDABC32177425200664640 /* AnimatableNode.swift */,
+				C7273117217752C400754543 /* CardCommand.swift */,
+				C72731192177539300754543 /* MoveCommand.swift */,
+				C727311B2177581400754543 /* RightCommand.swift */,
+				C727311D21775A1100754543 /* LeftCommand.swift */,
+				C727311F21775A5B00754543 /* JumpCommand.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -246,10 +261,15 @@
 				9057369B2175D1C200F231E1 /* Card.swift in Sources */,
 				90CDABB821771D7200664640 /* CardDetectorDelegate.swift in Sources */,
 				6CEF68612174D11E006E62B8 /* PlayViewController.swift in Sources */,
+				C727312021775A5B00754543 /* JumpCommand.swift in Sources */,
 				90CDABC42177425200664640 /* AnimatableNode.swift in Sources */,
+				C727311C2177581400754543 /* RightCommand.swift in Sources */,
 				90CDABB62177191A00664640 /* CardDetector.swift in Sources */,
 				90DF7330216F441E00F51E0C /* AppDelegate.swift in Sources */,
 				905736A02175D44000F231E1 /* ScanViewController.swift in Sources */,
+				C7273118217752C400754543 /* CardCommand.swift in Sources */,
+				C727311A2177539300754543 /* MoveCommand.swift in Sources */,
+				C727311E21775A1100754543 /* LeftCommand.swift in Sources */,
 				C7273114217714E900754543 /* Plane.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
