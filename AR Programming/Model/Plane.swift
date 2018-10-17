@@ -17,9 +17,8 @@ class Plane {
 
     init(anchor: ARPlaneAnchor){
         self.planeAnchor = anchor
-        planeGeometry = SCNPlane(width: CGFloat(planeAnchor.extent.x), height: CGFloat(planeAnchor.extent.z))
+        planeGeometry = SCNPlane(width: 0.2, height: 0.2)
         planeNode = SCNNode(geometry: planeGeometry)
-        planeNode.position = SCNVector3Make(anchor.center.x, 0,  planeAnchor.center.z)
         planeNode.eulerAngles.x = -.pi / 2
     }
 }
