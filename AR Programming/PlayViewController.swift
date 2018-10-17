@@ -13,11 +13,15 @@ import ARKit
 class PlayViewController: UIViewController, ARSCNViewDelegate {
     
     var currentPlane: SCNNode?
-    var detectPlane: Bool = false;
+    var detectPlane: Bool = false {
+        didSet {
+            planeDetectionLabel.isHidden = !detectPlane
+        }
+    }
     var boxNode: SCNNode?
     
     @IBOutlet var sceneView: ARSCNView!
-    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var planeDetectionLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
