@@ -270,7 +270,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ARKit-Control-Label-Icon" width="25" height="25"/>
+        <image name="ARKit-Control-Label-Icon" width="78" height="78"/>
         <image name="Reticle" width="128" height="128"/>
     </resources>
 </document>
