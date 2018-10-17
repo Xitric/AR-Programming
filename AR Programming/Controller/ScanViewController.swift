@@ -7,74 +7,42 @@
 //
 
 import UIKit
-import SceneKit
 import ARKit
 
-class ScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
+class ScanViewController: UIViewController, CardDetectorDelegate {
     
-    @IBOutlet var sceneView: ARSCNView!
+    @IBOutlet var sceneView: ARSCNView! {
+        didSet {
+            cardScanner = CardDetector(with: sceneView)
+        }
+    }
     @IBOutlet weak var cardNameLabel: UILabel!
     @IBOutlet weak var cardDescriptionLabel: UILabel!
     @IBOutlet weak var cardImage: UIImageView!
+    var cardScanner : CardDetector? {
+        didSet {
+            cardScanner?.delegate = self
+        }
+    }
     var cardDatabase = CardDatabase()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        sceneView.delegate = self
-        sceneView.session.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        // Create a session configuration
-        let configuration = ARWorldTrackingConfiguration()
-        configuration.detectionImages = ARReferenceImage.referenceImages(inGroupNamed: "Cards", bundle: nil)
-        configuration.maximumNumberOfTrackedImages = 10
-        
-        // Run the view's session
-        let options: ARSession.RunOptions = [.resetTracking, .removeExistingAnchors]
-        sceneView.session.run(configuration, options: options)
+        if let scanner = cardScanner {
+            scanner.start(withImages: "Cards")
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        sceneView.session.pause()
-    }
-    
-    let sphere = SCNNode(geometry: SCNSphere(radius: 0.005))
-    
-    func session(_ session: ARSession, didUpdate anchors: [ARAnchor]) {
-        for anchor in anchors {
-            if let imageAnchor = anchor as? ARImageAnchor {
-                if !imageAnchor.isTracked {
-                    sceneView.session.remove(anchor: anchor)
-                }
-            }
-        }
-    }
-    
-    func session(_ session: ARSession, didUpdate frame: ARFrame) {
-        detectFocusedCard()
-    }
-    
-    private func detectFocusedCard() {
-        let hitResults = sceneView.hitTest(CGPoint(x: sceneView.frame.width / 2, y: sceneView.frame.height / 2), options: nil)
-        
-        if let result = hitResults.first {
-            let anchor = sceneView.anchor(for: result.node)
-            
-            if let imageAnchor = anchor as? ARImageAnchor, let cardName = imageAnchor.referenceImage.name {
-                DispatchQueue.main.async {
-                    self.displayCard(withName: cardName)
-                }
-                return
-            }
-        }
-        
-        DispatchQueue.main.async {
-            self.displayCard(withName: nil)
+        if let scanner = cardScanner {
+            scanner.stop()
         }
     }
     
@@ -90,28 +58,23 @@ class ScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate
         }
     }
     
-    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-        guard let imageAnchor = anchor as? ARImageAnchor else { return }
+    func cardDetector(_ detector: CardDetector, added cardName: String) {
         
-        let referenceImage = imageAnchor.referenceImage
-        let plane = SCNPlane(width: referenceImage.physicalSize.width, height: referenceImage.physicalSize.height)
-        let planeNode = SCNNode(geometry: plane)
-        planeNode.opacity = 0.20
-        planeNode.eulerAngles.x = -.pi / 2
+    }
+    
+    func cardDetector(_ detector: CardDetector, removed cardName: String) {
         
-        node.addChildNode(planeNode)
     }
     
-    func session(_ session: ARSession, didFailWithError error: Error) {
-        // Present an error message to the user
+    func cardDetector(_ detector: CardDetector, scanned cardName: String) {
+        DispatchQueue.main.async {
+            self.displayCard(withName: cardName)
+        }
     }
     
-    func sessionWasInterrupted(_ session: ARSession) {
-        // Inform the user that the session has been interrupted, for example, by presenting an overlay
-    }
-    
-    func sessionInterruptionEnded(_ session: ARSession) {
-        // Reset tracking and/or remove existing anchors if consistent tracking is required
+    func cardDetectorLostCard(_ detector: CardDetector) {
+        DispatchQueue.main.async {
+            self.displayCard(withName: nil)
+        }
     }
 }
-
