@@ -12,6 +12,10 @@ import ARKit
 
 class PlayViewController: UIViewController, ARSCNViewDelegate {
     
+    var currentPlane: SCNNode?
+    var detectPlane: Bool = false;
+    var boxNode: SCNNode?
+    
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet weak var label: UILabel!
     
@@ -27,31 +31,9 @@ class PlayViewController: UIViewController, ARSCNViewDelegate {
         // Show statistics such as fps and timing information
         sceneView.showsStatistics = true
         
-        // Creates a new scene, which holds 3d objects
-        let scene : SCNScene = SCNScene()
-        
-        // 3d box
-        let box : SCNBox = SCNBox(width: 0.1,height: 0.1,length: 0.1,chamferRadius: 0)
-        
-        // Wrap box in a node
-        let boxNode : SCNNode = SCNNode(geometry: box)
-        
-        //Set the box position
-        boxNode.position = SCNVector3Make(0, 0, -1)
-        
-        // Add the boxNode to the root
-        scene.rootNode.addChildNode(boxNode)
-        
-        // Set the scene to the view
-        sceneView.scene = scene
-        
-        // Enable lighting in the scene
         sceneView.autoenablesDefaultLighting = true
         
-        
-        
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -78,38 +60,64 @@ class PlayViewController: UIViewController, ARSCNViewDelegate {
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
-    // MARK: - ARSCNViewDelegate
-    
-    var currentPlane: SCNNode?
     // Override to create and configure nodes for anchors added to the view's session.
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-        guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
-        
-        if let plane = currentPlane {
-            let currentAnchor = sceneView.anchor(for: plane)
-            sceneView.session.remove(anchor: currentAnchor!)
-            node.addChildNode(plane)
-        } else {
-            let plane = Plane(anchor: planeAnchor)
-            plane.planeGeometry.materials.first?.diffuse.contents = UIImage(named: "tron_grid")
-            currentPlane = plane.planeNode
-            node.addChildNode(currentPlane!)
+        if (detectPlane){
+            guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
+            
+            if let plane = currentPlane {
+                if let currentAnchor = sceneView.anchor(for: plane){
+                    sceneView.session.remove(anchor: (currentAnchor))
+                }
+                node.addChildNode(plane)
+            } else {
+                let plane = Plane(anchor: planeAnchor)
+                plane.planeGeometry.materials.first?.diffuse.contents = UIImage(named: "tron_grid")
+                currentPlane = plane.planeNode
+                node.addChildNode(currentPlane!)
+            }
+            node.addChildNode(showModelAtDetectedPlane())
         }
     }
-
-func session(_ session: ARSession, didFailWithError error: Error) {
-    // Present an error message to the user
     
-}
+    func showModelAtDetectedPlane() -> SCNNode{
 
-func sessionWasInterrupted(_ session: ARSession) {
-    // Inform the user that the session has been interrupted, for example, by presenting an overlay
+        let box : SCNBox = SCNBox(width: 0.1,height: 0.1,length: 0.1,chamferRadius: 0)
+        
+        box.firstMaterial?.diffuse.contents = UIColor.purple
+        
+        // Wrap box in a node
+        boxNode = SCNNode(geometry: box)
+        
+        boxNode?.position = SCNVector3Make(0, 0.05, 0)
+        
+        return boxNode!
+    }
     
-}
-
-func sessionInterruptionEnded(_ session: ARSession) {
-    // Reset tracking and/or remove existing anchors if consistent tracking is required
+    @IBAction func detectPlane(_ sender: UIButton) {
+        detectPlane = true
+    }
     
-}
-
+    @IBAction func placeObjectOnPlane(_ sender: UIButton) {
+        currentPlane?.removeFromParentNode()
+       
+        detectPlane = false
+    }
+    
+    
+    func session(_ session: ARSession, didFailWithError error: Error) {
+        // Present an error message to the user
+        
+    }
+    
+    func sessionWasInterrupted(_ session: ARSession) {
+        // Inform the user that the session has been interrupted, for example, by presenting an overlay
+        
+    }
+    
+    func sessionInterruptionEnded(_ session: ARSession) {
+        // Reset tracking and/or remove existing anchors if consistent tracking is required
+        
+    }
+    
 }
