@@ -13,37 +13,20 @@ import UIKit
 class CardDetector: NSObject, ARSCNViewDelegate, ARSessionDelegate {
     
     private var sceneView : ARSCNView
-    private var configuration : ARWorldTrackingConfiguration?
-    private var options : ARSession.RunOptions?
     private var removeTimers = [String:Timer]()
+    public var cardPlanes = [Plane]()
     weak var delegate: CardDetectorDelegate?
     
     init(with sceneView: ARSCNView) {
         self.sceneView = sceneView
         super.init()
-        
-        self.sceneView.delegate = self
-        self.sceneView.session.delegate = self
     }
     
-    private func configureAR(withImages imageGroup: String) {
-        configuration = ARWorldTrackingConfiguration()
-        configuration!.detectionImages = ARReferenceImage.referenceImages(inGroupNamed: imageGroup, bundle: nil)
-        configuration!.maximumNumberOfTrackedImages = 6
+    public func start() {
         
-        options = [.resetTracking, .removeExistingAnchors]
-    }
-    
-    public func start(withImages imageGroup: String) {
-        self.configureAR(withImages: imageGroup)
-        
-        if let conf = configuration, let opt = options {
-            sceneView.session.run(conf, options: opt)
-        }
     }
     
     public func stop() {
-        sceneView.session.pause()
         stopAllTimers()
     }
     
@@ -94,12 +77,11 @@ class CardDetector: NSObject, ARSCNViewDelegate, ARSessionDelegate {
         guard let imageAnchor = anchor as? ARImageAnchor else { return }
         
         let referenceImage = imageAnchor.referenceImage
-        let plane = SCNPlane(width: referenceImage.physicalSize.width, height: referenceImage.physicalSize.height)
-        let planeNode = SCNNode(geometry: plane)
-        planeNode.opacity = 0.20
-        planeNode.eulerAngles.x = -.pi / 2
-        
-        node.addChildNode(planeNode)
+        let plane = Plane(width: referenceImage.physicalSize.width, height: referenceImage.physicalSize.height, anchor: anchor)
+        cardPlanes.append(plane)
+
+        node.addChildNode(plane.planeNode)
+
         if let name = referenceImage.name {
             delegate?.cardDetector(self, added: name)
         }

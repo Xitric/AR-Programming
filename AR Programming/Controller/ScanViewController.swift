@@ -14,17 +14,22 @@ class ScanViewController: UIViewController, CardDetectorDelegate {
     @IBOutlet var sceneView: ARSCNView! {
         didSet {
             cardScanner = CardDetector(with: sceneView)
+            environment = CardScannerEnvironment(sceneView: sceneView)
+            environment!.add(scnDelegate: cardScanner!)
+            environment!.add(sessDelegate: cardScanner!)
         }
     }
     @IBOutlet weak var cardNameLabel: UILabel!
     @IBOutlet weak var cardDescriptionLabel: UILabel!
     @IBOutlet weak var cardImage: UIImageView!
-    var cardScanner : CardDetector? {
+    
+    private var environment : CardScannerEnvironment?
+    private var cardScanner : CardDetector? {
         didSet {
             cardScanner?.delegate = self
         }
     }
-    var cardDatabase = CardDatabase()
+    private var cardDatabase = CardDatabase()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +39,8 @@ class ScanViewController: UIViewController, CardDetectorDelegate {
         super.viewWillAppear(animated)
         
         if let scanner = cardScanner {
-            scanner.start(withImages: "Cards")
+            scanner.start()
+            environment!.start(withImages: "Cards")
         }
     }
     
@@ -43,6 +49,7 @@ class ScanViewController: UIViewController, CardDetectorDelegate {
         
         if let scanner = cardScanner {
             scanner.stop()
+            environment!.stop()
         }
     }
     

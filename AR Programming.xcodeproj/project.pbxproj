@@ -15,6 +15,10 @@
 		90CDABB821771D7200664640 /* CardDetectorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CDABB721771D7200664640 /* CardDetectorDelegate.swift */; };
 		90CDABC221773E2700664640 /* Meshes.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 90CDABC121773E2700664640 /* Meshes.scnassets */; };
 		90CDABC42177425200664640 /* AnimatableNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CDABC32177425200664640 /* AnimatableNode.swift */; };
+		90CDABC62177623100664640 /* CardSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CDABC52177623100664640 /* CardSequence.swift */; };
+		90CDABCC21776F4C00664640 /* CardScannerEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CDABCB21776F4C00664640 /* CardScannerEnvironment.swift */; };
+		90CDABCE21776F5700664640 /* PlayEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CDABCD21776F5700664640 /* PlayEnvironment.swift */; };
+		90CDABD021776F7200664640 /* AREnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CDABCF21776F7200664640 /* AREnvironment.swift */; };
 		90DF7330216F441E00F51E0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DF732F216F441E00F51E0C /* AppDelegate.swift */; };
 		90DF7334216F441E00F51E0C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DF7333216F441E00F51E0C /* ViewController.swift */; };
 		90DF7337216F441E00F51E0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90DF7335216F441E00F51E0C /* Main.storyboard */; };
@@ -48,6 +52,10 @@
 		90CDABB721771D7200664640 /* CardDetectorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetectorDelegate.swift; sourceTree = "<group>"; };
 		90CDABC121773E2700664640 /* Meshes.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Meshes.scnassets; sourceTree = "<group>"; };
 		90CDABC32177425200664640 /* AnimatableNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableNode.swift; sourceTree = "<group>"; };
+		90CDABC52177623100664640 /* CardSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSequence.swift; sourceTree = "<group>"; };
+		90CDABCB21776F4C00664640 /* CardScannerEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardScannerEnvironment.swift; sourceTree = "<group>"; };
+		90CDABCD21776F5700664640 /* PlayEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayEnvironment.swift; sourceTree = "<group>"; };
+		90CDABCF21776F7200664640 /* AREnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AREnvironment.swift; sourceTree = "<group>"; };
 		90DF732C216F441E00F51E0C /* AR Programming.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AR Programming.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		90DF732F216F441E00F51E0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90DF7333216F441E00F51E0C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +104,7 @@
 				C727311B2177581400754543 /* RightCommand.swift */,
 				C727311D21775A1100754543 /* LeftCommand.swift */,
 				C727311F21775A5B00754543 /* JumpCommand.swift */,
+				90CDABC52177623100664640 /* CardSequence.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -106,6 +115,9 @@
 				9057369F2175D44000F231E1 /* ScanViewController.swift */,
 				90CDABB52177191A00664640 /* CardDetector.swift */,
 				90CDABB721771D7200664640 /* CardDetectorDelegate.swift */,
+				90CDABCB21776F4C00664640 /* CardScannerEnvironment.swift */,
+				90CDABCD21776F5700664640 /* PlayEnvironment.swift */,
+				90CDABCF21776F7200664640 /* AREnvironment.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -256,15 +268,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90CDABC62177623100664640 /* CardSequence.swift in Sources */,
 				9057369D2175D29B00F231E1 /* CardDatabase.swift in Sources */,
 				90DF7334216F441E00F51E0C /* ViewController.swift in Sources */,
 				9057369B2175D1C200F231E1 /* Card.swift in Sources */,
+				90CDABCC21776F4C00664640 /* CardScannerEnvironment.swift in Sources */,
+				90CDABD021776F7200664640 /* AREnvironment.swift in Sources */,
 				90CDABB821771D7200664640 /* CardDetectorDelegate.swift in Sources */,
 				6CEF68612174D11E006E62B8 /* PlayViewController.swift in Sources */,
 				C727312021775A5B00754543 /* JumpCommand.swift in Sources */,
 				90CDABC42177425200664640 /* AnimatableNode.swift in Sources */,
 				C727311C2177581400754543 /* RightCommand.swift in Sources */,
 				90CDABB62177191A00664640 /* CardDetector.swift in Sources */,
+				90CDABCE21776F5700664640 /* PlayEnvironment.swift in Sources */,
 				90DF7330216F441E00F51E0C /* AppDelegate.swift in Sources */,
 				905736A02175D44000F231E1 /* ScanViewController.swift in Sources */,
 				C7273118217752C400754543 /* CardCommand.swift in Sources */,
@@ -433,13 +449,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5E6DK5G4XC;
+				DEVELOPMENT_TEAM = T8D932Y62R;
 				INFOPLIST_FILE = "AR Programming/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "dk.sdu.group10.AR-Programming1";
+				PRODUCT_BUNDLE_IDENTIFIER = "dk.sdu.group10.AR-Programming";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -451,13 +467,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5E6DK5G4XC;
+				DEVELOPMENT_TEAM = T8D932Y62R;
 				INFOPLIST_FILE = "AR Programming/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "dk.sdu.group10.AR-Programming1";
+				PRODUCT_BUNDLE_IDENTIFIER = "dk.sdu.group10.AR-Programming";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
