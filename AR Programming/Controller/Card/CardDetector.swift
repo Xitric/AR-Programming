@@ -83,7 +83,7 @@ class CardDetector: NSObject, ARSessionDelegate, ARSCNViewDelegate {
         
         if let number = Int(referenceImage.name!) {
             let card = cardMapper?.getCard(i: number)
-            cardWorld.addCard(node: plane.planeNode, card: card!)
+            cardWorld.addCard(node: plane.node, card: card!)
             delegate?.cardDetector(self, found: card!)
         }
         

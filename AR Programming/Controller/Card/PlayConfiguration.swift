@@ -32,6 +32,15 @@ class PlayConfiguration: ARConfiguration, ARSessionDelegate, ARSCNViewDelegate {
         }
     }
     
+    var cardMapper : CardMapper? {
+        get {
+            return cardDetector.cardMapper
+        }
+        set {
+            cardDetector.cardMapper = newValue
+        }
+    }
+    
     override init(with scene: ARSCNView, with cards: CardWorld) {
         cardDetector = CardDetector(with: scene, with: cards )
         planeDetector = PlaneDetector(with: scene)

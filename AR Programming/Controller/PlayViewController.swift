@@ -22,14 +22,18 @@ class PlayViewController: UIViewController, CardDetectorDelegate, PlaneDetectorD
     private var environment: PlayConfiguration?
     //private var cardMapper: CardMapper?
     private var levelDatabase: LevelDatabase?
+    private var cardWorld = CardWorld()
     
     @IBOutlet weak var placeBtn: UIButton!
     @IBOutlet var sceneView: ARSCNView! {
         didSet {
-            environment = PlayConfiguration(with: sceneView, with: CardWorld())
+            environment = PlayConfiguration(with: sceneView, with: cardWorld)
             environment?.cardDetectorDelegate = self
             environment?.planeDetectorDelegate = self
             levelDatabase = LevelDatabase()
+            environment?.cardMapper = Level(cards:[
+                1: Card(name: "Start", description: "Use the Start card to indicate where the program starts. Whenever the program is executed, it will begin at this card.", type: CardType.control, command: nil),
+                2: Card(name: "Jump", description: "Use the Jump card to make the robot jump in place.", type: CardType.action, command: JumpCommand())])
             //cardMapper = levelDatabase?.levels[0]
         }
     }
@@ -106,7 +110,9 @@ class PlayViewController: UIViewController, CardDetectorDelegate, PlaneDetectorD
     }
     
     func cardDetector(_ detector: CardDetector, found card: Card) {
-        
+        for c in cardWorld.allCards() {
+            print(c.name)
+        }
     }
     
     func cardDetector(_ detector: CardDetector, lost card: Card) {

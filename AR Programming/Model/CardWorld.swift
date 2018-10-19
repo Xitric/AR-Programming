@@ -29,8 +29,7 @@ class CardWorld {
         return cards[node]!
     }
     
-    // TODO
-    public func allCards () {
-        
+    public func allCards () -> [Card] {
+        return cards.values.map{$0}
     }
 }
