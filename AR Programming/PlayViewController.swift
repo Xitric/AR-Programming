@@ -16,11 +16,17 @@ class PlayViewController: UIViewController, ARSCNViewDelegate {
     var detectPlane: Bool = false;
     var boxNode: SCNNode?
     
+    @IBOutlet weak var detectBtn: UIButton!
+    @IBOutlet weak var placeBtn: UIButton!
+    
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet weak var label: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        placeBtn.isEnabled = false
+        placeBtn.isHidden = true
         
         // Set the view's delegate
         sceneView.delegate = self
@@ -76,32 +82,39 @@ class PlayViewController: UIViewController, ARSCNViewDelegate {
                 currentPlane = plane.planeNode
                 node.addChildNode(currentPlane!)
             }
-            node.addChildNode(showModelAtDetectedPlane())
+            boxNode?.removeFromParentNode()
+            boxNode = showModelAtDetectedPlane()
+            node.addChildNode(boxNode!)
         }
     }
     
     func showModelAtDetectedPlane() -> SCNNode{
-
-        let box : SCNBox = SCNBox(width: 0.1,height: 0.1,length: 0.1,chamferRadius: 0)
         
+        let box : SCNBox = SCNBox(width: 0.1,height: 0.1,length: 0.1,chamferRadius: 0)
         box.firstMaterial?.diffuse.contents = UIColor.purple
         
         // Wrap box in a node
-        boxNode = SCNNode(geometry: box)
-        
-        boxNode?.position = SCNVector3Make(0, 0.05, 0)
-        
-        return boxNode!
+        let node = SCNNode(geometry: box)
+        node.position = SCNVector3Make(0, 0.05, 0)
+
+        return node
     }
     
     @IBAction func detectPlane(_ sender: UIButton) {
         detectPlane = true
+        placeBtn.isEnabled = true
+        placeBtn.isHidden = false
+        detectBtn.isEnabled = false
+        detectBtn.isHidden = true
     }
     
     @IBAction func placeObjectOnPlane(_ sender: UIButton) {
-        currentPlane?.removeFromParentNode()
-       
         detectPlane = false
+        currentPlane?.removeFromParentNode()
+        detectBtn.isEnabled = true
+        detectBtn.isHidden = false
+        placeBtn.isEnabled = false
+        placeBtn.isHidden = true
     }
     
     
