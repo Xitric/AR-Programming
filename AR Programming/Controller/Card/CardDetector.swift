@@ -12,11 +12,17 @@ import ARKit
 class CardDetector: NSObject, ARSessionDelegate, ARSCNViewDelegate {
     
     weak var delegate : CardDetectorDelegate?
+    var cardMapper: CardMapper?
+//    var levelDatabase: LevelDatabase?
+    private var cardWorld: CardWorld
     private var removeTimers = [String:Timer]()
     private var sceneView: ARSCNView
     
-    init(with scene: ARSCNView) {
+    init(with scene: ARSCNView, with cardWorld: CardWorld) {
         self.sceneView = scene
+        self.cardWorld = cardWorld
+//        levelDatabase = LevelDatabase()
+//        cardMapper = levelDatabase?.levels[0]
     }
     
     public func stop() {
@@ -47,8 +53,9 @@ class CardDetector: NSObject, ARSessionDelegate, ARSCNViewDelegate {
     @objc public func remove(_ timer: Timer) {
         if let anchor = timer.userInfo as? ARImageAnchor {
             sceneView.session.remove(anchor: anchor)
-            if let name = anchor.referenceImage.name {
-                delegate?.cardDetector(self, lost: name)
+            if let number = Int(anchor.referenceImage.name!) {
+                let card = cardMapper?.getCard(i: number)
+                delegate?.cardDetector(self, lost: card!)
             }
         }
     }
@@ -74,8 +81,15 @@ class CardDetector: NSObject, ARSessionDelegate, ARSCNViewDelegate {
         
         node.addChildNode(plane.node)
         
-        if let name = referenceImage.name {
-            delegate?.cardDetector(self, found: name)
+        if let number = Int(referenceImage.name!) {
+            let card = cardMapper?.getCard(i: number)
+            cardWorld.addCard(node: plane.planeNode, card: card!)
+            delegate?.cardDetector(self, found: card!)
         }
+        
+//        if let name = referenceImage.name {
+//            delegate?.cardDetector(self, found: name)
+//         
+//        }
     }
 }

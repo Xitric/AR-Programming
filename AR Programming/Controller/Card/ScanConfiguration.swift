@@ -32,10 +32,19 @@ class ScanConfiguration: ARConfiguration, ARSessionDelegate, ARSCNViewDelegate {
         }
     }
     
-    init(with scene: ARSCNView, for imageGroup: String) {
-        cardDetector = CardDetector(with: scene)
-        cardScanner = CardScanner(with: scene)
-        super.init(with: scene)
+    var cardMapper : CardMapper? {
+        get {
+            return cardDetector.cardMapper
+        }
+        set {
+            cardDetector.cardMapper = newValue
+        }
+    }
+    
+    init(with scene: ARSCNView, for imageGroup: String, with cardWorld: CardWorld) {
+        cardDetector = CardDetector(with: scene, with: cardWorld)
+        cardScanner = CardScanner(with: scene,  with: cardWorld)
+        super.init(with: scene, with: cardWorld)
         
         self.sceneView.delegate = self
         self.sceneView.session.delegate = self
