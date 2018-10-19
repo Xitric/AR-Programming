@@ -120,6 +120,7 @@
 			children = (
 				905A3C782179BDC3005E3AA5 /* Card */,
 				9057369F2175D44000F231E1 /* ScanViewController.swift */,
+				6CEF68602174D11E006E62B8 /* PlayViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -164,7 +165,6 @@
 				9057369E2175D42900F231E1 /* Controller */,
 				905736992175D19000F231E1 /* Model */,
 				90DF732F216F441E00F51E0C /* AppDelegate.swift */,
-				6CEF68602174D11E006E62B8 /* PlayViewController.swift */,
 				90DF7335216F441E00F51E0C /* Main.storyboard */,
 				90DF7338216F442000F51E0C /* Assets.xcassets */,
 				90DF733A216F442000F51E0C /* LaunchScreen.storyboard */,

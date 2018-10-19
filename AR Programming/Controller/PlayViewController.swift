@@ -17,6 +17,8 @@ class PlayViewController: UIViewController, CardDetectorDelegate, PlaneDetectorD
             planeDetectionLabel.isHidden = !detectPlane
         }
     }
+    var robotNode: SCNNode?
+    var robot: AnimatableNode?
     private var currentPlane: Plane?
     private var environment: PlayConfiguration?
     
@@ -62,6 +64,11 @@ class PlayViewController: UIViewController, CardDetectorDelegate, PlaneDetectorD
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
+    @IBAction func testMoveRobot(_ sender: UIButton) {
+        //robot?.move(by: SCNVector3(1,0,0))
+        robot?.jump(by: 0.1, in: 0.3)
+    }
+    
     @IBAction func detectPlane(_ sender: UIButton) {
         detectPlane = true
         placeBtn.isEnabled = true
@@ -83,11 +90,10 @@ class PlayViewController: UIViewController, CardDetectorDelegate, PlaneDetectorD
     }
     
     func showModelAtDetectedPlane(plane: Plane) {
-        let box = SCNBox(width: 0.1, height: 0.1, length: 0.1, chamferRadius: 0)
-        box.firstMaterial?.diffuse.contents = UIColor.purple
-        
-        let node = SCNNode(geometry: box)
-        node.position = SCNVector3Make(0, 0.05, 0)
+        robot = AnimatableNode(modelSource: "Meshes.scnassets/uglyBot.dae")
+        robot!.model.scale = SCNVector3(0.1, 0.1, 0.1)
+        let node = robot!.model
+        node.position = SCNVector3(0, 0, 0)
         
         let parent = sceneView.node(for: plane.anchor)
         parent?.addChildNode(node)
