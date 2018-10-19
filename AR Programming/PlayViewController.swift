@@ -26,6 +26,7 @@ class PlayViewController: UIViewController, ARSCNViewDelegate, CardDetectorDeleg
         }
     }
     
+    @IBOutlet weak var placeBtn: UIButton!
     @IBOutlet var sceneView: ARSCNView! {
         didSet {
             cardDetector = CardDetector(with: sceneView)
@@ -36,10 +37,13 @@ class PlayViewController: UIViewController, ARSCNViewDelegate, CardDetectorDeleg
         }
     }
     @IBOutlet weak var planeDetectionLabel: UILabel!
+    @IBOutlet weak var detectBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        placeBtn.isEnabled = false
+        placeBtn.isHidden = true
         // For debugging
         sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
         
@@ -102,12 +106,19 @@ class PlayViewController: UIViewController, ARSCNViewDelegate, CardDetectorDeleg
     
     @IBAction func detectPlane(_ sender: UIButton) {
         detectPlane = true
+        placeBtn.isEnabled = true
+        placeBtn.isHidden = false
+        detectBtn.isEnabled = false
+        detectBtn.isHidden = true
     }
     
     @IBAction func placeObjectOnPlane(_ sender: UIButton) {
-//        currentPlane?.plan$eNode.removeFromParentNode()
-       
         detectPlane = false
+        currentPlane?.planeNode.removeFromParentNode()
+        detectBtn.isEnabled = true
+        detectBtn.isHidden = false
+        placeBtn.isEnabled = false
+        placeBtn.isHidden = true
     }
     
     //TODO: START
