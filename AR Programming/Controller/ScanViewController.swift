@@ -9,26 +9,19 @@
 import UIKit
 import ARKit
 
-class ScanViewController: UIViewController, CardDetectorDelegate {
+class ScanViewController: UIViewController, CardScannerDelegate {
     
     @IBOutlet var sceneView: ARSCNView! {
         didSet {
-            cardScanner = CardDetector(with: sceneView)
-            environment = CardScannerEnvironment(sceneView: sceneView)
-            environment!.add(scnDelegate: cardScanner!)
-            environment!.add(sessDelegate: cardScanner!)
+            environment = ScanConfiguration(with: sceneView, for: "Cards")
+            environment?.cardScannerDelegate = self
         }
     }
     @IBOutlet weak var cardNameLabel: UILabel!
     @IBOutlet weak var cardDescriptionLabel: UILabel!
     @IBOutlet weak var cardImage: UIImageView!
     
-    private var environment : CardScannerEnvironment?
-    private var cardScanner : CardDetector? {
-        didSet {
-            cardScanner?.delegate = self
-        }
-    }
+    private var environment : ScanConfiguration?
     private var cardDatabase = CardDatabase()
     
     override func viewDidLoad() {
@@ -38,18 +31,16 @@ class ScanViewController: UIViewController, CardDetectorDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if let scanner = cardScanner {
-            scanner.start()
-            environment!.start(withImages: "Cards")
+        if let env = environment {
+            env.start()
         }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        if let scanner = cardScanner {
-            scanner.stop()
-            environment!.stop()
+        if let env = environment {
+            env.stop()
         }
     }
     
@@ -65,21 +56,13 @@ class ScanViewController: UIViewController, CardDetectorDelegate {
         }
     }
     
-    func cardDetector(_ detector: CardDetector, added cardName: String) {
-        
-    }
-    
-    func cardDetector(_ detector: CardDetector, removed cardName: String) {
-        
-    }
-    
-    func cardDetector(_ detector: CardDetector, scanned cardName: String) {
+    func cardScanner(_ scanner: CardScanner, scanned cardName: String) {
         DispatchQueue.main.async {
             self.displayCard(withName: cardName)
         }
     }
     
-    func cardDetectorLostCard(_ detector: CardDetector) {
+    func cardScannerLostCard(_ scanner: CardScanner) {
         DispatchQueue.main.async {
             self.displayCard(withName: nil)
         }

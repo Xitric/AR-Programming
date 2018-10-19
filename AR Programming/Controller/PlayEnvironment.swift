@@ -21,7 +21,7 @@ class PlayEnvironment: AREnvironment {
         
         // Run the view's session
         let options: ARSession.RunOptions = [.resetTracking, .removeExistingAnchors]
-        sceneView.session.run(configuration, options: options)
+        
     }
     
     public func stop() {

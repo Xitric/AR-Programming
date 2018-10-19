@@ -1,29 +1,22 @@
 //
-//  CardScanner.swift
+//  CardDetector.swift
 //  AR Programming
 //
-//  Created by Kasper Schultz Davidsen on 17/10/2018.
+//  Created by Kasper Schultz Davidsen on 19/10/2018.
 //  Copyright © 2018 Kasper Schultz Davidsen. All rights reserved.
 //
 
 import Foundation
 import ARKit
-import UIKit
 
-class CardDetector: NSObject, ARSCNViewDelegate, ARSessionDelegate {
+class CardDetector: NSObject, ARSessionDelegate, ARSCNViewDelegate {
     
-    private var sceneView : ARSCNView
+    weak var delegate : CardDetectorDelegate?
     private var removeTimers = [String:Timer]()
-    public var cardPlanes = [Plane]()
-    weak var delegate: CardDetectorDelegate?
+    private var sceneView: ARSCNView
     
-    init(with sceneView: ARSCNView) {
-        self.sceneView = sceneView
-        super.init()
-    }
-    
-    public func start() {
-        
+    init(with scene: ARSCNView) {
+        self.sceneView = scene
     }
     
     public func stop() {
@@ -55,7 +48,7 @@ class CardDetector: NSObject, ARSCNViewDelegate, ARSessionDelegate {
         if let anchor = timer.userInfo as? ARImageAnchor {
             sceneView.session.remove(anchor: anchor)
             if let name = anchor.referenceImage.name {
-                delegate?.cardDetector(self, removed: name)
+                delegate?.cardDetector(self, lost: name)
             }
         }
     }
@@ -65,7 +58,7 @@ class CardDetector: NSObject, ARSCNViewDelegate, ARSessionDelegate {
             if let imageAnchor = anchor as? ARImageAnchor, let name = imageAnchor.referenceImage.name {
                 if !imageAnchor.isTracked {
                     //TODO: Temporarily disabled anchor removal due to ARKit instability
-//                    startTimer(for: imageAnchor, with: name)
+                    //                    startTimer(for: imageAnchor, with: name)
                 } else {
                     stopTimer(for: name)
                 }
@@ -78,27 +71,11 @@ class CardDetector: NSObject, ARSCNViewDelegate, ARSessionDelegate {
         
         let referenceImage = imageAnchor.referenceImage
         let plane = Plane(width: referenceImage.physicalSize.width, height: referenceImage.physicalSize.height, anchor: anchor)
-        cardPlanes.append(plane)
-
+        
         node.addChildNode(plane.planeNode)
-
+        
         if let name = referenceImage.name {
-            delegate?.cardDetector(self, added: name)
+            delegate?.cardDetector(self, found: name)
         }
-    }
-    
-    func session(_ session: ARSession, didUpdate frame: ARFrame) {
-        let hitResults = sceneView.hitTest(CGPoint(x: sceneView.frame.width / 2, y: sceneView.frame.height / 2), options: nil)
-        
-        if let result = hitResults.first {
-            let anchor = sceneView.anchor(for: result.node)
-            
-            if let imageAnchor = anchor as? ARImageAnchor, let name = imageAnchor.referenceImage.name {
-                delegate?.cardDetector(self, scanned: name)
-                return
-            }
-        }
-        
-        delegate?.cardDetectorLostCard(self)
     }
 }

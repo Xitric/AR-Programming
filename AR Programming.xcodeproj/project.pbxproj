@@ -11,12 +11,18 @@
 		9057369B2175D1C200F231E1 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057369A2175D1C200F231E1 /* Card.swift */; };
 		9057369D2175D29B00F231E1 /* CardDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057369C2175D29B00F231E1 /* CardDatabase.swift */; };
 		905736A02175D44000F231E1 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057369F2175D44000F231E1 /* ScanViewController.swift */; };
-		90CDABB62177191A00664640 /* CardDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CDABB52177191A00664640 /* CardDetector.swift */; };
-		90CDABB821771D7200664640 /* CardDetectorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CDABB721771D7200664640 /* CardDetectorDelegate.swift */; };
+		905A3C7A2179BE05005E3AA5 /* ScanConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905A3C792179BE05005E3AA5 /* ScanConfiguration.swift */; };
+		905A3C7C2179BE0E005E3AA5 /* PlayConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905A3C7B2179BE0E005E3AA5 /* PlayConfiguration.swift */; };
+		905A3C7E2179BE2D005E3AA5 /* CardScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905A3C7D2179BE2D005E3AA5 /* CardScanner.swift */; };
+		905A3C802179BE3B005E3AA5 /* CardDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905A3C7F2179BE3B005E3AA5 /* CardDetector.swift */; };
+		905A3C822179BE45005E3AA5 /* PlaneDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905A3C812179BE45005E3AA5 /* PlaneDetector.swift */; };
+		905A3C842179BE54005E3AA5 /* CardScannerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905A3C832179BE54005E3AA5 /* CardScannerDelegate.swift */; };
+		905A3C862179BE6A005E3AA5 /* CardDetectorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905A3C852179BE6A005E3AA5 /* CardDetectorDelegate.swift */; };
+		905A3C882179BE74005E3AA5 /* PlaneDetectorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905A3C872179BE74005E3AA5 /* PlaneDetectorDelegate.swift */; };
+		905A3C8A2179C58A005E3AA5 /* ARConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905A3C892179C58A005E3AA5 /* ARConfiguration.swift */; };
 		90CDABC221773E2700664640 /* Meshes.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 90CDABC121773E2700664640 /* Meshes.scnassets */; };
 		90CDABC42177425200664640 /* AnimatableNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CDABC32177425200664640 /* AnimatableNode.swift */; };
 		90CDABC62177623100664640 /* CardSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CDABC52177623100664640 /* CardSequence.swift */; };
-		90CDABCC21776F4C00664640 /* CardScannerEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CDABCB21776F4C00664640 /* CardScannerEnvironment.swift */; };
 		90CDABCE21776F5700664640 /* PlayEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CDABCD21776F5700664640 /* PlayEnvironment.swift */; };
 		90CDABD021776F7200664640 /* AREnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CDABCF21776F7200664640 /* AREnvironment.swift */; };
 		90DF7330216F441E00F51E0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DF732F216F441E00F51E0C /* AppDelegate.swift */; };
@@ -48,12 +54,18 @@
 		9057369A2175D1C200F231E1 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		9057369C2175D29B00F231E1 /* CardDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDatabase.swift; sourceTree = "<group>"; };
 		9057369F2175D44000F231E1 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
-		90CDABB52177191A00664640 /* CardDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetector.swift; sourceTree = "<group>"; };
-		90CDABB721771D7200664640 /* CardDetectorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetectorDelegate.swift; sourceTree = "<group>"; };
+		905A3C792179BE05005E3AA5 /* ScanConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanConfiguration.swift; sourceTree = "<group>"; };
+		905A3C7B2179BE0E005E3AA5 /* PlayConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayConfiguration.swift; sourceTree = "<group>"; };
+		905A3C7D2179BE2D005E3AA5 /* CardScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardScanner.swift; sourceTree = "<group>"; };
+		905A3C7F2179BE3B005E3AA5 /* CardDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetector.swift; sourceTree = "<group>"; };
+		905A3C812179BE45005E3AA5 /* PlaneDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaneDetector.swift; sourceTree = "<group>"; };
+		905A3C832179BE54005E3AA5 /* CardScannerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardScannerDelegate.swift; sourceTree = "<group>"; };
+		905A3C852179BE6A005E3AA5 /* CardDetectorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetectorDelegate.swift; sourceTree = "<group>"; };
+		905A3C872179BE74005E3AA5 /* PlaneDetectorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaneDetectorDelegate.swift; sourceTree = "<group>"; };
+		905A3C892179C58A005E3AA5 /* ARConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARConfiguration.swift; sourceTree = "<group>"; };
 		90CDABC121773E2700664640 /* Meshes.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Meshes.scnassets; sourceTree = "<group>"; };
 		90CDABC32177425200664640 /* AnimatableNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableNode.swift; sourceTree = "<group>"; };
 		90CDABC52177623100664640 /* CardSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSequence.swift; sourceTree = "<group>"; };
-		90CDABCB21776F4C00664640 /* CardScannerEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardScannerEnvironment.swift; sourceTree = "<group>"; };
 		90CDABCD21776F5700664640 /* PlayEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayEnvironment.swift; sourceTree = "<group>"; };
 		90CDABCF21776F7200664640 /* AREnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AREnvironment.swift; sourceTree = "<group>"; };
 		90DF732C216F441E00F51E0C /* AR Programming.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AR Programming.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,14 +124,28 @@
 		9057369E2175D42900F231E1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				905A3C782179BDC3005E3AA5 /* Card */,
 				9057369F2175D44000F231E1 /* ScanViewController.swift */,
-				90CDABB52177191A00664640 /* CardDetector.swift */,
-				90CDABB721771D7200664640 /* CardDetectorDelegate.swift */,
-				90CDABCB21776F4C00664640 /* CardScannerEnvironment.swift */,
 				90CDABCD21776F5700664640 /* PlayEnvironment.swift */,
 				90CDABCF21776F7200664640 /* AREnvironment.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		905A3C782179BDC3005E3AA5 /* Card */ = {
+			isa = PBXGroup;
+			children = (
+				905A3C792179BE05005E3AA5 /* ScanConfiguration.swift */,
+				905A3C7B2179BE0E005E3AA5 /* PlayConfiguration.swift */,
+				905A3C7D2179BE2D005E3AA5 /* CardScanner.swift */,
+				905A3C7F2179BE3B005E3AA5 /* CardDetector.swift */,
+				905A3C812179BE45005E3AA5 /* PlaneDetector.swift */,
+				905A3C832179BE54005E3AA5 /* CardScannerDelegate.swift */,
+				905A3C852179BE6A005E3AA5 /* CardDetectorDelegate.swift */,
+				905A3C872179BE74005E3AA5 /* PlaneDetectorDelegate.swift */,
+				905A3C892179C58A005E3AA5 /* ARConfiguration.swift */,
+			);
+			path = Card;
 			sourceTree = "<group>";
 		};
 		90DF7323216F441E00F51E0C = {
@@ -268,18 +294,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				905A3C7E2179BE2D005E3AA5 /* CardScanner.swift in Sources */,
 				90CDABC62177623100664640 /* CardSequence.swift in Sources */,
 				9057369D2175D29B00F231E1 /* CardDatabase.swift in Sources */,
 				90DF7334216F441E00F51E0C /* ViewController.swift in Sources */,
 				9057369B2175D1C200F231E1 /* Card.swift in Sources */,
-				90CDABCC21776F4C00664640 /* CardScannerEnvironment.swift in Sources */,
+				905A3C842179BE54005E3AA5 /* CardScannerDelegate.swift in Sources */,
 				90CDABD021776F7200664640 /* AREnvironment.swift in Sources */,
-				90CDABB821771D7200664640 /* CardDetectorDelegate.swift in Sources */,
+				905A3C822179BE45005E3AA5 /* PlaneDetector.swift in Sources */,
 				6CEF68612174D11E006E62B8 /* PlayViewController.swift in Sources */,
+				905A3C7C2179BE0E005E3AA5 /* PlayConfiguration.swift in Sources */,
 				C727312021775A5B00754543 /* JumpCommand.swift in Sources */,
 				90CDABC42177425200664640 /* AnimatableNode.swift in Sources */,
 				C727311C2177581400754543 /* RightCommand.swift in Sources */,
-				90CDABB62177191A00664640 /* CardDetector.swift in Sources */,
+				905A3C8A2179C58A005E3AA5 /* ARConfiguration.swift in Sources */,
 				90CDABCE21776F5700664640 /* PlayEnvironment.swift in Sources */,
 				90DF7330216F441E00F51E0C /* AppDelegate.swift in Sources */,
 				905736A02175D44000F231E1 /* ScanViewController.swift in Sources */,
@@ -287,6 +315,10 @@
 				C727311A2177539300754543 /* MoveCommand.swift in Sources */,
 				C727311E21775A1100754543 /* LeftCommand.swift in Sources */,
 				C7273114217714E900754543 /* Plane.swift in Sources */,
+				905A3C882179BE74005E3AA5 /* PlaneDetectorDelegate.swift in Sources */,
+				905A3C7A2179BE05005E3AA5 /* ScanConfiguration.swift in Sources */,
+				905A3C862179BE6A005E3AA5 /* CardDetectorDelegate.swift in Sources */,
+				905A3C802179BE3B005E3AA5 /* CardDetector.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

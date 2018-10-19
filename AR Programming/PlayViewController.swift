@@ -12,13 +12,13 @@ import ARKit
 
 class PlayViewController: UIViewController, ARSCNViewDelegate, CardDetectorDelegate {
     
-    var currentPlane: Plane?
+//    var currentPlane: Plane?
     var detectPlane: Bool = false {
         didSet {
             planeDetectionLabel.isHidden = !detectPlane
         }
     }
-    var boxNode: SCNNode?
+//    var boxNode: SCNNode?
     private var environment: PlayEnvironment?
     private var cardDetector: CardDetector? {
         didSet {
@@ -67,38 +67,38 @@ class PlayViewController: UIViewController, ARSCNViewDelegate, CardDetectorDeleg
     }
     
     // Override to create and configure nodes for anchors added to the view's session.
-    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-        if (detectPlane){
-            guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
-            
-            if let plane = currentPlane {
-                if let currentAnchor = sceneView.anchor(for: plane.planeNode){
-                    sceneView.session.remove(anchor: (currentAnchor))
-                }
-                node.addChildNode(plane.planeNode)
-            } else {
-                let plane = Plane(width: 0.2, height: 0.2, anchor: anchor)
-                plane.planeGeometry.materials.first?.diffuse.contents = UIImage(named: "tron_grid")
-                currentPlane = plane
-                node.addChildNode(currentPlane!.planeNode)
-            }
-//            node.addChildNode(showModelAtDetectedPlane())
-        }
-    }
-    
-    func showModelAtDetectedPlane() -> SCNNode{
-
-        let box : SCNBox = SCNBox(width: 0.1,height: 0.1,length: 0.1,chamferRadius: 0)
-        
-        box.firstMaterial?.diffuse.contents = UIColor.purple
-        
-        // Wrap box in a node
-        boxNode = SCNNode(geometry: box)
-        
-        boxNode?.position = SCNVector3Make(0, 0.05, 0)
-        
-        return boxNode!
-    }
+//    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+//        if (detectPlane){
+//            guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
+//
+//            if let plane = currentPlane {
+//                if let currentAnchor = sceneView.anchor(for: plane.planeNode){
+//                    sceneView.session.remove(anchor: (currentAnchor))
+//                }
+//                node.addChildNode(plane.planeNode)
+//            } else {
+//                let plane = Plane(width: 0.2, height: 0.2, anchor: anchor)
+//                plane.planeGeometry.materials.first?.diffuse.contents = UIImage(named: "tron_grid")
+//                currentPlane = plane
+//                node.addChildNode(currentPlane!.planeNode)
+//            }
+////            node.addChildNode(showModelAtDetectedPlane())
+//        }
+//    }
+//
+//    func showModelAtDetectedPlane() -> SCNNode{
+//
+//        let box : SCNBox = SCNBox(width: 0.1,height: 0.1,length: 0.1,chamferRadius: 0)
+//
+//        box.firstMaterial?.diffuse.contents = UIColor.purple
+//
+//        // Wrap box in a node
+//        boxNode = SCNNode(geometry: box)
+//
+//        boxNode?.position = SCNVector3Make(0, 0.05, 0)
+//
+//        return boxNode!
+//    }
     
     @IBAction func detectPlane(_ sender: UIButton) {
         detectPlane = true
