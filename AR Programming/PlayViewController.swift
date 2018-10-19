@@ -93,14 +93,10 @@ class PlayViewController: UIViewController, ARSCNViewDelegate, CardDetectorDeleg
     }
     
     func showModelAtDetectedPlane() -> SCNNode{
-        
-        let box : SCNBox = SCNBox(width: 0.1,height: 0.1,length: 0.1,chamferRadius: 0)
-        box.firstMaterial?.diffuse.contents = UIColor.purple
-        
-        // Wrap box in a node
-        let node = SCNNode(geometry: box)
-        node.position = SCNVector3Make(0, 0.05, 0)
-
+        let robot = AnimatableNode(modelSource: "Meshes.scnassets/uglyBot.dae")
+        robot.model.scale = SCNVector3(0.1, 0.1, 0.1)
+        let node = robot.model
+        node.position = SCNVector3(0, 0, 0)
         return node
     }
     
