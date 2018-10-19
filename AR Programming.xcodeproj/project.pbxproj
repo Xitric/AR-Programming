@@ -20,6 +20,8 @@
 		905A3C862179BE6A005E3AA5 /* CardDetectorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905A3C852179BE6A005E3AA5 /* CardDetectorDelegate.swift */; };
 		905A3C882179BE74005E3AA5 /* PlaneDetectorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905A3C872179BE74005E3AA5 /* PlaneDetectorDelegate.swift */; };
 		905A3C8A2179C58A005E3AA5 /* ARConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905A3C892179C58A005E3AA5 /* ARConfiguration.swift */; };
+		905A3C92217A0891005E3AA5 /* LevelSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905A3C91217A0891005E3AA5 /* LevelSelectViewController.swift */; };
+		905A3C94217A09D0005E3AA5 /* LevelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905A3C93217A09D0005E3AA5 /* LevelCollectionViewCell.swift */; };
 		90CDABC221773E2700664640 /* Meshes.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 90CDABC121773E2700664640 /* Meshes.scnassets */; };
 		90CDABC42177425200664640 /* AnimatableNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CDABC32177425200664640 /* AnimatableNode.swift */; };
 		90CDABC62177623100664640 /* CardSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CDABC52177623100664640 /* CardSequence.swift */; };
@@ -60,6 +62,8 @@
 		905A3C852179BE6A005E3AA5 /* CardDetectorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetectorDelegate.swift; sourceTree = "<group>"; };
 		905A3C872179BE74005E3AA5 /* PlaneDetectorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaneDetectorDelegate.swift; sourceTree = "<group>"; };
 		905A3C892179C58A005E3AA5 /* ARConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARConfiguration.swift; sourceTree = "<group>"; };
+		905A3C91217A0891005E3AA5 /* LevelSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSelectViewController.swift; sourceTree = "<group>"; };
+		905A3C93217A09D0005E3AA5 /* LevelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelCollectionViewCell.swift; sourceTree = "<group>"; };
 		90CDABC121773E2700664640 /* Meshes.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Meshes.scnassets; sourceTree = "<group>"; };
 		90CDABC32177425200664640 /* AnimatableNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableNode.swift; sourceTree = "<group>"; };
 		90CDABC52177623100664640 /* CardSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSequence.swift; sourceTree = "<group>"; };
@@ -121,6 +125,8 @@
 				905A3C782179BDC3005E3AA5 /* Card */,
 				9057369F2175D44000F231E1 /* ScanViewController.swift */,
 				6CEF68602174D11E006E62B8 /* PlayViewController.swift */,
+				905A3C91217A0891005E3AA5 /* LevelSelectViewController.swift */,
+				905A3C93217A09D0005E3AA5 /* LevelCollectionViewCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -299,6 +305,8 @@
 				905A3C8A2179C58A005E3AA5 /* ARConfiguration.swift in Sources */,
 				90DF7330216F441E00F51E0C /* AppDelegate.swift in Sources */,
 				905736A02175D44000F231E1 /* ScanViewController.swift in Sources */,
+				905A3C92217A0891005E3AA5 /* LevelSelectViewController.swift in Sources */,
+				905A3C94217A09D0005E3AA5 /* LevelCollectionViewCell.swift in Sources */,
 				C7273118217752C400754543 /* CardCommand.swift in Sources */,
 				C727311A2177539300754543 /* MoveCommand.swift in Sources */,
 				C727311E21775A1100754543 /* LeftCommand.swift in Sources */,
