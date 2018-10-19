@@ -17,8 +17,7 @@ class PlayViewController: UIViewController, CardDetectorDelegate, PlaneDetectorD
             planeDetectionLabel.isHidden = !detectPlane
         }
     }
-    var robotNode: SCNNode?
-    var robot: AnimatableNode?
+    var playingField: PlayingField?
     private var currentPlane: Plane?
     private var environment: PlayConfiguration?
     
@@ -64,25 +63,26 @@ class PlayViewController: UIViewController, CardDetectorDelegate, PlaneDetectorD
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
-    @IBAction func testMoveRobot(_ sender: UIButton) {
-        //robot?.move(by: SCNVector3(1,0,0))
-        robot?.jump(by: 0.1, in: 0.3)
-    }
-    
     @IBAction func detectPlane(_ sender: UIButton) {
         detectPlane = true
         placeBtn.isEnabled = true
         placeBtn.isHidden = false
         detectBtn.isEnabled = false
         detectBtn.isHidden = true
+        
+        //Remove current plane
+        if let field = playingField {
+            sceneView.session.remove(anchor: field.origo.anchor)
+            currentPlane = nil
+        }
     }
     
     @IBAction func placeObjectOnPlane(_ sender: UIButton) {
         detectPlane = false
-        currentPlane?.planeNode.removeFromParentNode()
         if let plane = currentPlane {
             showModelAtDetectedPlane(plane: plane)
         }
+        currentPlane?.node.removeFromParentNode()
         detectBtn.isEnabled = true
         detectBtn.isHidden = false
         placeBtn.isEnabled = false
@@ -90,13 +90,15 @@ class PlayViewController: UIViewController, CardDetectorDelegate, PlaneDetectorD
     }
     
     func showModelAtDetectedPlane(plane: Plane) {
-        robot = AnimatableNode(modelSource: "Meshes.scnassets/uglyBot.dae")
-        robot!.model.scale = SCNVector3(0.1, 0.1, 0.1)
-        let node = robot!.model
-        node.position = SCNVector3(0, 0, 0)
+        let origo = AnchoredNode(anchor: plane.anchor, node: plane.node.parent!)
         
-        let parent = sceneView.node(for: plane.anchor)
-        parent?.addChildNode(node)
+        let robot = AnimatableNode(modelSource: "Meshes.scnassets/uglyBot.dae")
+        robot.model.scale = SCNVector3(0.1, 0.1, 0.1)
+        robot.model.position = SCNVector3(0, 0, 0)
+        
+        playingField = PlayingField(origo: origo, ground: plane, robot: robot)
+        
+        origo.node.addChildNode(robot.model)
     }
     
     func cardDetector(_ detector: CardDetector, found cardName: String) {

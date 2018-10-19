@@ -72,7 +72,7 @@ class CardDetector: NSObject, ARSessionDelegate, ARSCNViewDelegate {
         let referenceImage = imageAnchor.referenceImage
         let plane = Plane(width: referenceImage.physicalSize.width, height: referenceImage.physicalSize.height, anchor: anchor)
         
-        node.addChildNode(plane.planeNode)
+        node.addChildNode(plane.node)
         
         if let name = referenceImage.name {
             delegate?.cardDetector(self, found: name)
