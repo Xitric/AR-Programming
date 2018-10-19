@@ -41,4 +41,11 @@ class AnimatableNode {
         let action = SCNAction.rotate(by: CGFloat(angle), around: convertedAxis, duration: TimeInterval(3))
         model.runAction(action)
     }
+    
+    public func jump(by height: Float, in time: Float){
+        let jump = SCNAction.moveBy(x: 0, y: CGFloat(height), z: 0, duration: TimeInterval(time))
+        let gravity = SCNAction.moveBy(x: 0, y: CGFloat(-height), z:0, duration: TimeInterval(time))
+        let action = SCNAction.sequence([jump, gravity])
+        model.runAction(action)
+    }
 }

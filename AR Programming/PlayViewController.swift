@@ -18,7 +18,8 @@ class PlayViewController: UIViewController, ARSCNViewDelegate, CardDetectorDeleg
             planeDetectionLabel.isHidden = !detectPlane
         }
     }
-    var boxNode: SCNNode?
+    var robotNode: SCNNode?
+    var robot: AnimatableNode?
     private var environment: PlayEnvironment?
     private var cardDetector: CardDetector? {
         didSet {
@@ -86,18 +87,22 @@ class PlayViewController: UIViewController, ARSCNViewDelegate, CardDetectorDeleg
                 currentPlane = plane
                 node.addChildNode(currentPlane!.planeNode)
             }
-            boxNode?.removeFromParentNode()
-            boxNode = showModelAtDetectedPlane()
-            node.addChildNode(boxNode!)
+            robotNode?.removeFromParentNode()
+            robotNode = showModelAtDetectedPlane()
+            node.addChildNode(robotNode!)
         }
     }
     
     func showModelAtDetectedPlane() -> SCNNode{
-        let robot = AnimatableNode(modelSource: "Meshes.scnassets/uglyBot.dae")
-        robot.model.scale = SCNVector3(0.1, 0.1, 0.1)
-        let node = robot.model
+        robot = AnimatableNode(modelSource: "Meshes.scnassets/uglyBot.dae")
+        robot!.model.scale = SCNVector3(0.1, 0.1, 0.1)
+        let node = robot!.model
         node.position = SCNVector3(0, 0, 0)
         return node
+    }
+    @IBAction func testMoveRobot(_ sender: UIButton) {
+        //robot?.move(by: SCNVector3(1,0,0))
+        robot?.jump(by: 0.1, in: 0.3)
     }
     
     @IBAction func detectPlane(_ sender: UIButton) {

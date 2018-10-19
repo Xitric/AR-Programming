@@ -11,7 +11,6 @@ import SceneKit
 
 class JumpCommand: CardCommand {
     func execute(modelIn3D animatableNode: AnimatableNode) {
-        // TODO: Make it jump...
-        print("\(animatableNode) is jumping...")
+        animatableNode.jump(by: 0.1, in: 0.3)
     }
 }

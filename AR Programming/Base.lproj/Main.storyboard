@@ -73,6 +73,9 @@
                                         <integer key="value" value="30"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="testMoveRobot:" destination="BV1-FR-VrT" eventType="touchUpInside" id="6Qm-gb-jvi"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V1o-j7-ycN">
                                 <rect key="frame" x="692" y="670" width="60" height="60"/>
