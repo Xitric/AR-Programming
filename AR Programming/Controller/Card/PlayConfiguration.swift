@@ -9,7 +9,7 @@
 import Foundation
 import ARKit
 
-class PlayConfiguration: ARConfiguration, ARSCNViewDelegate {
+class PlayConfiguration: ARConfiguration, ARSessionDelegate, ARSCNViewDelegate {
 
     private var cardDetector: CardDetector
     private var planeDetector: PlaneDetector
@@ -38,6 +38,7 @@ class PlayConfiguration: ARConfiguration, ARSCNViewDelegate {
         super.init(with: scene)
         
         self.sceneView.delegate = self
+        self.sceneView.session.delegate = self
         
         configuration = ARWorldTrackingConfiguration()
         configuration!.detectionImages = ARReferenceImage.referenceImages(inGroupNamed: "Cards", bundle: nil)
@@ -46,5 +47,14 @@ class PlayConfiguration: ARConfiguration, ARSCNViewDelegate {
         configuration!.planeDetection = .horizontal
         
         options = [.resetTracking, .removeExistingAnchors]
+    }
+    
+    func session(_ session: ARSession, didUpdate anchors: [ARAnchor]) {
+        cardDetector.session(session, didUpdate: anchors)
+    }
+    
+    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+        planeDetector.renderer(renderer, didAdd: node, for: anchor)
+        cardDetector.renderer(renderer, didAdd: node, for: anchor)
     }
 }

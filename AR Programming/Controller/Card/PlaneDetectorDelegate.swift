@@ -11,4 +11,6 @@ import Foundation
 protocol PlaneDetectorDelegate: AnyObject {
     
     func shouldDetectPlanes(_ detector: PlaneDetector) -> Bool
+    
+    func planeDetector(_ detector: PlaneDetector, found plane: Plane)
 }

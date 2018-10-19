@@ -14,7 +14,6 @@ class PlaneDetector {
     weak var delegate: PlaneDetectorDelegate?
     private var sceneView: ARSCNView
     var currentPlane: Plane?
-    var boxNode: SCNNode?
     
     init(with scene: ARSCNView) {
         self.sceneView = scene
@@ -22,7 +21,7 @@ class PlaneDetector {
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         if delegate?.shouldDetectPlanes(self) ?? false {
-            guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
+            guard anchor is ARPlaneAnchor else { return }
             
             if let plane = currentPlane {
                 if let currentAnchor = sceneView.anchor(for: plane.planeNode){
@@ -34,22 +33,8 @@ class PlaneDetector {
                 plane.planeGeometry.materials.first?.diffuse.contents = UIImage(named: "tron_grid")
                 currentPlane = plane
                 node.addChildNode(currentPlane!.planeNode)
+                delegate?.planeDetector(self, found: plane)
             }
-            boxNode?.removeFromParentNode()
-            boxNode = showModelAtDetectedPlane()
-            node.addChildNode(boxNode!)
         }
-    }
-    
-    func showModelAtDetectedPlane() -> SCNNode{
-        
-        let box : SCNBox = SCNBox(width: 0.1,height: 0.1,length: 0.1,chamferRadius: 0)
-        box.firstMaterial?.diffuse.contents = UIColor.purple
-        
-        // Wrap box in a node
-        let node = SCNNode(geometry: box)
-        node.position = SCNVector3Make(0, 0.05, 0)
-        
-        return node
     }
 }

@@ -31,17 +31,13 @@ class ScanViewController: UIViewController, CardScannerDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if let env = environment {
-            env.start()
-        }
+        environment?.start()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        if let env = environment {
-            env.stop()
-        }
+        environment?.stop()
     }
     
     private func displayCard(withName optName: String?) {

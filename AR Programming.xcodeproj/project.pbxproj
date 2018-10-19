@@ -23,10 +23,7 @@
 		90CDABC221773E2700664640 /* Meshes.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 90CDABC121773E2700664640 /* Meshes.scnassets */; };
 		90CDABC42177425200664640 /* AnimatableNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CDABC32177425200664640 /* AnimatableNode.swift */; };
 		90CDABC62177623100664640 /* CardSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CDABC52177623100664640 /* CardSequence.swift */; };
-		90CDABCE21776F5700664640 /* PlayEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CDABCD21776F5700664640 /* PlayEnvironment.swift */; };
-		90CDABD021776F7200664640 /* AREnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CDABCF21776F7200664640 /* AREnvironment.swift */; };
 		90DF7330216F441E00F51E0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DF732F216F441E00F51E0C /* AppDelegate.swift */; };
-		90DF7334216F441E00F51E0C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DF7333216F441E00F51E0C /* ViewController.swift */; };
 		90DF7337216F441E00F51E0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90DF7335216F441E00F51E0C /* Main.storyboard */; };
 		90DF7339216F442000F51E0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90DF7338216F442000F51E0C /* Assets.xcassets */; };
 		90DF733C216F442000F51E0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90DF733A216F442000F51E0C /* LaunchScreen.storyboard */; };
@@ -66,11 +63,8 @@
 		90CDABC121773E2700664640 /* Meshes.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Meshes.scnassets; sourceTree = "<group>"; };
 		90CDABC32177425200664640 /* AnimatableNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableNode.swift; sourceTree = "<group>"; };
 		90CDABC52177623100664640 /* CardSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSequence.swift; sourceTree = "<group>"; };
-		90CDABCD21776F5700664640 /* PlayEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayEnvironment.swift; sourceTree = "<group>"; };
-		90CDABCF21776F7200664640 /* AREnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AREnvironment.swift; sourceTree = "<group>"; };
 		90DF732C216F441E00F51E0C /* AR Programming.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AR Programming.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		90DF732F216F441E00F51E0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		90DF7333216F441E00F51E0C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		90DF7336216F441E00F51E0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		90DF7338216F442000F51E0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		90DF733B216F442000F51E0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -126,8 +120,6 @@
 			children = (
 				905A3C782179BDC3005E3AA5 /* Card */,
 				9057369F2175D44000F231E1 /* ScanViewController.swift */,
-				90CDABCD21776F5700664640 /* PlayEnvironment.swift */,
-				90CDABCF21776F7200664640 /* AREnvironment.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -172,12 +164,11 @@
 				9057369E2175D42900F231E1 /* Controller */,
 				905736992175D19000F231E1 /* Model */,
 				90DF732F216F441E00F51E0C /* AppDelegate.swift */,
-				90DF7333216F441E00F51E0C /* ViewController.swift */,
+				6CEF68602174D11E006E62B8 /* PlayViewController.swift */,
 				90DF7335216F441E00F51E0C /* Main.storyboard */,
 				90DF7338216F442000F51E0C /* Assets.xcassets */,
 				90DF733A216F442000F51E0C /* LaunchScreen.storyboard */,
 				90DF733D216F442000F51E0C /* Info.plist */,
-				6CEF68602174D11E006E62B8 /* PlayViewController.swift */,
 				90CDABC121773E2700664640 /* Meshes.scnassets */,
 			);
 			path = "AR Programming";
@@ -297,10 +288,8 @@
 				905A3C7E2179BE2D005E3AA5 /* CardScanner.swift in Sources */,
 				90CDABC62177623100664640 /* CardSequence.swift in Sources */,
 				9057369D2175D29B00F231E1 /* CardDatabase.swift in Sources */,
-				90DF7334216F441E00F51E0C /* ViewController.swift in Sources */,
 				9057369B2175D1C200F231E1 /* Card.swift in Sources */,
 				905A3C842179BE54005E3AA5 /* CardScannerDelegate.swift in Sources */,
-				90CDABD021776F7200664640 /* AREnvironment.swift in Sources */,
 				905A3C822179BE45005E3AA5 /* PlaneDetector.swift in Sources */,
 				6CEF68612174D11E006E62B8 /* PlayViewController.swift in Sources */,
 				905A3C7C2179BE0E005E3AA5 /* PlayConfiguration.swift in Sources */,
@@ -308,7 +297,6 @@
 				90CDABC42177425200664640 /* AnimatableNode.swift in Sources */,
 				C727311C2177581400754543 /* RightCommand.swift in Sources */,
 				905A3C8A2179C58A005E3AA5 /* ARConfiguration.swift in Sources */,
-				90CDABCE21776F5700664640 /* PlayEnvironment.swift in Sources */,
 				90DF7330216F441E00F51E0C /* AppDelegate.swift in Sources */,
 				905736A02175D44000F231E1 /* ScanViewController.swift in Sources */,
 				C7273118217752C400754543 /* CardCommand.swift in Sources */,
