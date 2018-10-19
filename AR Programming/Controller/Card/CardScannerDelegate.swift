@@ -10,7 +10,7 @@ import Foundation
 
 protocol CardScannerDelegate: AnyObject {
     
-    func cardScanner(_ scanner: CardScanner, scanned cardName: String)
+    func cardScanner(_ scanner: CardScanner, scanned card: Card)
     
     func cardScannerLostCard(_ scanner: CardScanner)
 }

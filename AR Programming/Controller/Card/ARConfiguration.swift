@@ -14,9 +14,11 @@ class ARConfiguration: NSObject {
     var sceneView: ARSCNView
     var configuration : ARWorldTrackingConfiguration?
     var options : ARSession.RunOptions?
+    var cardWorld : CardWorld
     
-    init(with scene: ARSCNView) {
+    init(with scene: ARSCNView, with cards: CardWorld) {
         self.sceneView = scene
+        self.cardWorld = CardWorld()
     }
     
     public func start() {

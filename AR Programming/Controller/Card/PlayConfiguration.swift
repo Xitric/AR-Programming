@@ -32,10 +32,10 @@ class PlayConfiguration: ARConfiguration, ARSessionDelegate, ARSCNViewDelegate {
         }
     }
     
-    override init(with scene: ARSCNView) {
-        cardDetector = CardDetector(with: scene)
+    override init(with scene: ARSCNView, with cards: CardWorld) {
+        cardDetector = CardDetector(with: scene, with: cards )
         planeDetector = PlaneDetector(with: scene)
-        super.init(with: scene)
+        super.init(with: scene, with: cards)
         
         self.sceneView.delegate = self
         self.sceneView.session.delegate = self

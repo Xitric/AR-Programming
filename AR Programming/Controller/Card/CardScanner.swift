@@ -13,9 +13,16 @@ class CardScanner: NSObject, ARSessionDelegate {
     
     weak var delegate : CardScannerDelegate?
     private var sceneView: ARSCNView
+//    var cardMapper: CardMapper?
+//    var levelDatabase: LevelDatabase?
+   var cardWorld: CardWorld?
     
-    init(with scene: ARSCNView) {
+    init(with scene: ARSCNView, with cardWorld: CardWorld) {
         self.sceneView = scene
+        self.cardWorld = cardWorld
+//        levelDatabase = LevelDatabase()
+//        cardMapper = levelDatabase?.levels[0]
+
     }
     
     func session(_ session: ARSession, didUpdate frame: ARFrame) {
@@ -24,8 +31,11 @@ class CardScanner: NSObject, ARSessionDelegate {
         if let result = hitResults.first {
             let anchor = sceneView.anchor(for: result.node)
             
-            if let imageAnchor = anchor as? ARImageAnchor, let name = imageAnchor.referenceImage.name {
-                delegate?.cardScanner(self, scanned: name)
+            if let imageAnchor = anchor as? ARImageAnchor, let number = Int(imageAnchor.referenceImage.name!) {
+                let card = cardWorld?.cardFromNode(node: result.node)
+                delegate?.cardScanner(self, scanned: card!)
+//                let card = cardMapper?.getCard(i: number)
+//                delegate?.cardScanner(self, scanned: card!)
                 return
             }
         }

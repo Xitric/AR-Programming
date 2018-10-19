@@ -21,13 +21,17 @@ class PlayViewController: UIViewController, CardDetectorDelegate, PlaneDetectorD
     var robot: AnimatableNode?
     private var currentPlane: Plane?
     private var environment: PlayConfiguration?
+    //private var cardMapper: CardMapper?
+    private var levelDatabase: LevelDatabase?
     
     @IBOutlet weak var placeBtn: UIButton!
     @IBOutlet var sceneView: ARSCNView! {
         didSet {
-            environment = PlayConfiguration(with: sceneView)
+            environment = PlayConfiguration(with: sceneView, with: CardWorld())
             environment?.cardDetectorDelegate = self
             environment?.planeDetectorDelegate = self
+            levelDatabase = LevelDatabase()
+            //cardMapper = levelDatabase?.levels[0]
         }
     }
     @IBOutlet weak var planeDetectionLabel: UILabel!
@@ -99,11 +103,11 @@ class PlayViewController: UIViewController, CardDetectorDelegate, PlaneDetectorD
         parent?.addChildNode(node)
     }
     
-    func cardDetector(_ detector: CardDetector, found cardName: String) {
+    func cardDetector(_ detector: CardDetector, found card: Card) {
         
     }
     
-    func cardDetector(_ detector: CardDetector, lost cardName: String) {
+    func cardDetector(_ detector: CardDetector, lost card: Card) {
         
     }
     
