@@ -74,12 +74,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBB-xC-iTf">
-                                <rect key="frame" x="197" y="862" width="386" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V1o-j7-ycN">
                                 <rect key="frame" x="692" y="670" width="60" height="60"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -120,15 +114,22 @@
                                     <action selector="detectPlane:" destination="BV1-FR-VrT" eventType="touchUpInside" id="ZPE-gF-kCj"/>
                                 </connections>
                             </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Move around to find a playable surface. Press the Place button when you are happy with the playing area." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="73a-SS-UTE">
+                                <rect key="frame" x="71" y="134" width="626" height="41"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="fQZ-KI-GVf" firstAttribute="bottom" secondItem="EBB-xC-iTf" secondAttribute="bottom" constant="92" id="2ML-Gn-dK4"/>
+                            <constraint firstItem="73a-SS-UTE" firstAttribute="top" secondItem="fQZ-KI-GVf" secondAttribute="top" constant="64" id="5aa-9M-GH1"/>
                             <constraint firstItem="fQZ-KI-GVf" firstAttribute="bottom" secondItem="wHf-aE-ray" secondAttribute="bottom" constant="16" id="C4V-pn-5Op"/>
                             <constraint firstItem="wHf-aE-ray" firstAttribute="top" secondItem="1BO-PT-ePY" secondAttribute="bottom" constant="16" id="EJS-pb-wzc"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" id="GsS-dJ-CKf"/>
                             <constraint firstItem="fQZ-KI-GVf" firstAttribute="trailing" secondItem="1BO-PT-ePY" secondAttribute="trailing" constant="16" id="Hgh-fM-d6l"/>
                             <constraint firstItem="fQZ-KI-GVf" firstAttribute="trailing" secondItem="V1o-j7-ycN" secondAttribute="trailing" constant="16" id="IKT-pP-Kyj"/>
+                            <constraint firstItem="73a-SS-UTE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fQZ-KI-GVf" secondAttribute="leading" constant="64" id="Pv1-Ne-AgC"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="bottom" secondItem="fQZ-KI-GVf" secondAttribute="bottom" id="VpT-BR-CcM"/>
                             <constraint firstItem="fQZ-KI-GVf" firstAttribute="bottom" secondItem="m4o-f7-5rT" secondAttribute="bottom" constant="244" id="XN5-he-J7b"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="trailing" secondItem="fQZ-KI-GVf" secondAttribute="trailing" id="XyZ-9z-H8e"/>
@@ -136,6 +137,7 @@
                             <constraint firstItem="fQZ-KI-GVf" firstAttribute="trailing" secondItem="m4o-f7-5rT" secondAttribute="trailing" constant="16" id="b4e-ei-Ob8"/>
                             <constraint firstItem="1BO-PT-ePY" firstAttribute="top" secondItem="RJJ-8k-yUk" secondAttribute="bottom" constant="16" id="cBQ-L8-ANI"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="top" secondItem="U0K-SW-4ec" secondAttribute="top" id="rJc-2c-zQA"/>
+                            <constraint firstItem="73a-SS-UTE" firstAttribute="centerX" secondItem="fQZ-KI-GVf" secondAttribute="centerX" id="rZ6-Mv-on6"/>
                             <constraint firstItem="fQZ-KI-GVf" firstAttribute="trailing" secondItem="RJJ-8k-yUk" secondAttribute="trailing" constant="16" id="tPS-Ku-zP0"/>
                             <constraint firstItem="fQZ-KI-GVf" firstAttribute="trailing" secondItem="wHf-aE-ray" secondAttribute="trailing" constant="16" id="vwf-Xh-HI0"/>
                             <constraint firstItem="fQZ-KI-GVf" firstAttribute="trailing" secondItem="m4o-f7-5rT" secondAttribute="trailing" constant="16" id="zWF-Rf-uIG"/>
@@ -145,8 +147,8 @@
                     <navigationItem key="navigationItem" id="9kE-Wt-QrW"/>
                     <connections>
                         <outlet property="detectBtn" destination="m4o-f7-5rT" id="W9y-A4-GLt"/>
-                        <outlet property="label" destination="EBB-xC-iTf" id="hJI-zN-rWe"/>
                         <outlet property="placeBtn" destination="V1o-j7-ycN" id="pIc-tn-moM"/>
+                        <outlet property="planeDetectionLabel" destination="73a-SS-UTE" id="Auw-KL-pPE"/>
                         <outlet property="sceneView" destination="BrB-h1-WRS" id="5nT-qQ-ynl"/>
                     </connections>
                 </viewController>

@@ -10,27 +10,40 @@ import UIKit
 import SceneKit
 import ARKit
 
-class PlayViewController: UIViewController, ARSCNViewDelegate {
+class PlayViewController: UIViewController, ARSCNViewDelegate, CardDetectorDelegate {
     
-    var currentPlane: SCNNode?
-    var detectPlane: Bool = false;
+    var currentPlane: Plane?
+    var detectPlane: Bool = false {
+        didSet {
+            planeDetectionLabel.isHidden = !detectPlane
+        }
+    }
     var boxNode: SCNNode?
+    private var environment: PlayEnvironment?
+    private var cardDetector: CardDetector? {
+        didSet {
+            cardDetector?.delegate = self
+        }
+    }
     
-    @IBOutlet weak var detectBtn: UIButton!
     @IBOutlet weak var placeBtn: UIButton!
-    
-    @IBOutlet var sceneView: ARSCNView!
-    @IBOutlet weak var label: UILabel!
+    @IBOutlet var sceneView: ARSCNView! {
+        didSet {
+            cardDetector = CardDetector(with: sceneView)
+            environment = PlayEnvironment(sceneView: sceneView)
+            environment?.add(scnDelegate: self)
+            environment?.add(scnDelegate: cardDetector!)
+            environment?.add(sessDelegate: cardDetector!)
+        }
+    }
+    @IBOutlet weak var planeDetectionLabel: UILabel!
+    @IBOutlet weak var detectBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         placeBtn.isEnabled = false
         placeBtn.isHidden = true
-        
-        // Set the view's delegate
-        sceneView.delegate = self
-        
         // For debugging
         sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
         
@@ -44,15 +57,7 @@ class PlayViewController: UIViewController, ARSCNViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        // Create a session configuration
-        let configuration = ARWorldTrackingConfiguration()
-        configuration.detectionImages = ARReferenceImage.referenceImages(inGroupNamed: "Cards", bundle: nil)
-        // Detect horizontal planes
-        configuration.planeDetection = .horizontal
-        
-        // Run the view's session
-        let options: ARSession.RunOptions = [.resetTracking, .removeExistingAnchors]
-        sceneView.session.run(configuration, options: options)
+        environment?.start()
         
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
@@ -60,8 +65,7 @@ class PlayViewController: UIViewController, ARSCNViewDelegate {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        // Pause the view's session
-        sceneView.session.pause()
+        environment?.stop()
         
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
@@ -72,15 +76,15 @@ class PlayViewController: UIViewController, ARSCNViewDelegate {
             guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
             
             if let plane = currentPlane {
-                if let currentAnchor = sceneView.anchor(for: plane){
+                if let currentAnchor = sceneView.anchor(for: plane.planeNode){
                     sceneView.session.remove(anchor: (currentAnchor))
                 }
-                node.addChildNode(plane)
+                node.addChildNode(plane.planeNode)
             } else {
-                let plane = Plane(anchor: planeAnchor)
+                let plane = Plane(width: 0.2, height: 0.2, anchor: anchor)
                 plane.planeGeometry.materials.first?.diffuse.contents = UIImage(named: "tron_grid")
-                currentPlane = plane.planeNode
-                node.addChildNode(currentPlane!)
+                currentPlane = plane
+                node.addChildNode(currentPlane!.planeNode)
             }
             boxNode?.removeFromParentNode()
             boxNode = showModelAtDetectedPlane()
@@ -110,27 +114,51 @@ class PlayViewController: UIViewController, ARSCNViewDelegate {
     
     @IBAction func placeObjectOnPlane(_ sender: UIButton) {
         detectPlane = false
-        currentPlane?.removeFromParentNode()
+        currentPlane?.planeNode.removeFromParentNode()
         detectBtn.isEnabled = true
         detectBtn.isHidden = false
         placeBtn.isEnabled = false
         placeBtn.isHidden = true
     }
     
+    //TODO: START
+    private var spheres = [SCNNode]()
     
-    func session(_ session: ARSession, didFailWithError error: Error) {
-        // Present an error message to the user
+    func cardDetector(_ detector: CardDetector, added cardName: String) {
+        if let plane = currentPlane {
+            for sphere in spheres {
+                sphere.removeFromParentNode()
+            }
+            
+            for cardPlane in (cardDetector?.cardPlanes)! {
+                let center = cardPlane.center
+                let projection = plane.project(point: center)
+                
+//                print("---------")
+//                print(center)
+//                print(projection)
+//                print(plane.planeNode.position)
+                
+                let sphereGeometry = SCNSphere(radius: 0.005)
+                let sphere = SCNNode(geometry: sphereGeometry)
+                sphere.position = SCNVector3(projection.x, projection.y, 0)
+//                sphere.position = center
+                plane.planeNode.addChildNode(sphere)
+//                sceneView.scene.rootNode.addChildNode(sphere)
+                spheres.append(sphere)
+            }
+        }
+    }
+    
+    func cardDetector(_ detector: CardDetector, removed cardName: String) {
         
     }
     
-    func sessionWasInterrupted(_ session: ARSession) {
-        // Inform the user that the session has been interrupted, for example, by presenting an overlay
+    func cardDetector(_ detector: CardDetector, scanned cardName: String) {
         
     }
     
-    func sessionInterruptionEnded(_ session: ARSession) {
-        // Reset tracking and/or remove existing anchors if consistent tracking is required
+    func cardDetectorLostCard(_ detector: CardDetector) {
         
     }
-    
 }

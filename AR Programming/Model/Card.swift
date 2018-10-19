@@ -13,6 +13,7 @@ struct Card {
     public var name : String
     public var description : String
     public var type : CardType
+    public var command : CardCommand?
 }
 
 enum CardType: String {
