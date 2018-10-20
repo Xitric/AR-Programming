@@ -11,25 +11,39 @@ import ARKit
 
 class CardWorld {
     
-    public var cards : [SCNNode:Card]
+    public var cards = [Plane:Card]()
     
-    init() {
-        cards = [SCNNode:Card]()
+    public func addCard(plane: Plane, card: Card) {
+        cards[plane] = card
     }
     
-    public func addCard (node: SCNNode, card: Card) {
-        cards[node] = card
+    public func removeCard(plane: Plane) {
+        cards[plane] = nil
     }
     
-    public func removeCard (node: SCNNode) {
-        cards[node] = nil
+    public func plane(from node: SCNNode) -> Plane? {
+        return cards.first(where: { pair -> Bool in
+            return pair.key.node == node
+        })?.key
     }
     
-    public func cardFromNode (node: SCNNode) -> Card {
-        return cards[node]!
+    public func card(from node: SCNNode) -> Card? {
+        if let plane = plane(from: node) {
+            return card(from: plane)
+        }
+        
+        return nil
     }
     
-    public func allCards () -> [Card] {
+    public func card(from plane: Plane) -> Card? {
+        return cards[plane]
+    }
+    
+    public func allCards() -> [Card] {
         return cards.values.map{$0}
+    }
+    
+    public func allPlanes() -> [Plane] {
+        return cards.keys.map{$0}
     }
 }

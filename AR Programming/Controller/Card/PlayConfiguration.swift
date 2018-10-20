@@ -9,20 +9,9 @@
 import Foundation
 import ARKit
 
-class PlayConfiguration: ARConfiguration, ARSessionDelegate, ARSCNViewDelegate {
+class PlayConfiguration: ARConfiguration {
 
-    private var cardDetector: CardDetector
     private var planeDetector: PlaneDetector
-    
-    var cardDetectorDelegate : CardDetectorDelegate? {
-        get {
-            return cardDetector.delegate
-        }
-        set {
-            cardDetector.delegate = newValue
-        }
-    }
-    
     var planeDetectorDelegate : PlaneDetectorDelegate? {
         get {
             return planeDetector.delegate
@@ -32,38 +21,15 @@ class PlayConfiguration: ARConfiguration, ARSessionDelegate, ARSCNViewDelegate {
         }
     }
     
-    var cardMapper : CardMapper? {
-        get {
-            return cardDetector.cardMapper
-        }
-        set {
-            cardDetector.cardMapper = newValue
-        }
-    }
-    
-    override init(with scene: ARSCNView, with cards: CardWorld) {
-        cardDetector = CardDetector(with: scene, with: cards )
+    override init(with scene: ARSCNView, for imageGroup: String) {
         planeDetector = PlaneDetector(with: scene)
-        super.init(with: scene, with: cards)
+        super.init(with: scene, for: imageGroup)
         
-        self.sceneView.delegate = self
-        self.sceneView.session.delegate = self
-        
-        configuration = ARWorldTrackingConfiguration()
-        configuration!.detectionImages = ARReferenceImage.referenceImages(inGroupNamed: "Cards", bundle: nil)
-        configuration!.maximumNumberOfTrackedImages = 6
-        // Detect horizontal planes
-        configuration!.planeDetection = .horizontal
-        
-        options = [.resetTracking, .removeExistingAnchors]
+        configuration.planeDetection = .horizontal
     }
     
-    func session(_ session: ARSession, didUpdate anchors: [ARAnchor]) {
-        cardDetector.session(session, didUpdate: anchors)
-    }
-    
-    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+    override func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         planeDetector.renderer(renderer, didAdd: node, for: anchor)
-        cardDetector.renderer(renderer, didAdd: node, for: anchor)
+        super.renderer(renderer, didAdd: node, for: anchor)
     }
 }

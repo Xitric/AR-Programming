@@ -9,10 +9,18 @@
 import ARKit
 import SceneKit
 
-class AnchoredNode {
+class AnchoredNode: Hashable, Equatable {
+    
+    var hashValue: Int {
+        return node.hashValue
+    }
     
     var anchor: ARAnchor
     var node: SCNNode
+    
+    static func == (lhs: AnchoredNode, rhs: AnchoredNode) -> Bool {
+        return lhs.node == rhs.node
+    }
     
     init(anchor: ARAnchor, node: SCNNode) {
         self.anchor = anchor

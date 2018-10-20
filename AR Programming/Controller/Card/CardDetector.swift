@@ -13,7 +13,6 @@ class CardDetector: NSObject, ARSessionDelegate, ARSCNViewDelegate {
     
     weak var delegate : CardDetectorDelegate?
     var cardMapper: CardMapper?
-//    var levelDatabase: LevelDatabase?
     private var cardWorld: CardWorld
     private var removeTimers = [String:Timer]()
     private var sceneView: ARSCNView
@@ -21,8 +20,6 @@ class CardDetector: NSObject, ARSessionDelegate, ARSCNViewDelegate {
     init(with scene: ARSCNView, with cardWorld: CardWorld) {
         self.sceneView = scene
         self.cardWorld = cardWorld
-//        levelDatabase = LevelDatabase()
-//        cardMapper = levelDatabase?.levels[0]
     }
     
     public func stop() {
@@ -53,8 +50,10 @@ class CardDetector: NSObject, ARSessionDelegate, ARSCNViewDelegate {
     @objc public func remove(_ timer: Timer) {
         if let anchor = timer.userInfo as? ARImageAnchor {
             sceneView.session.remove(anchor: anchor)
-            if let number = Int(anchor.referenceImage.name!) {
-                let card = cardMapper?.getCard(i: number)
+            
+            if let node = sceneView.node(for: anchor), let plane = cardWorld.plane(from: node) {
+                let card = cardWorld.card(from: plane)
+                cardWorld.removeCard(plane: plane)
                 delegate?.cardDetector(self, lost: card!)
             }
         }
@@ -81,15 +80,11 @@ class CardDetector: NSObject, ARSessionDelegate, ARSCNViewDelegate {
         
         node.addChildNode(plane.node)
         
-        if let number = Int(referenceImage.name!) {
-            let card = cardMapper?.getCard(i: number)
-            cardWorld.addCard(node: plane.node, card: card!)
-            delegate?.cardDetector(self, found: card!)
+        if let cardIdentifier = Int(referenceImage.name!) {
+            if let card = cardMapper?.getCard(i: cardIdentifier) {
+                cardWorld.addCard(plane: plane, card: card)
+                delegate?.cardDetector(self, found: card)
+            }
         }
-        
-//        if let name = referenceImage.name {
-//            delegate?.cardDetector(self, found: name)
-//         
-//        }
     }
 }

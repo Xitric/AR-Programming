@@ -12,53 +12,48 @@ import ARKit
 
 class PlayViewController: UIViewController, CardDetectorDelegate, PlaneDetectorDelegate {
     
-    private var detectPlane: Bool = false {
-        didSet {
-            planeDetectionLabel.isHidden = !detectPlane
-        }
-    }
-    var playingField: PlayingField?
-    private var currentPlane: Plane?
-    private var environment: PlayConfiguration?
-    //private var cardMapper: CardMapper?
-    private var levelDatabase: LevelDatabase?
-    private var cardWorld = CardWorld()
-    
     @IBOutlet weak var placeBtn: UIButton!
     @IBOutlet var sceneView: ARSCNView! {
         didSet {
-            environment = PlayConfiguration(with: sceneView, with: cardWorld)
-            environment?.cardDetectorDelegate = self
-            environment?.planeDetectorDelegate = self
-            levelDatabase = LevelDatabase()
-            environment?.cardMapper = Level(cards:[
+            arCardFinder = PlayConfiguration(with: sceneView, for: "Cards")
+            arCardFinder?.cardDetectorDelegate = self
+            arCardFinder?.planeDetectorDelegate = self
+            
+            //TODO: Temporary
+            arCardFinder?.cardMapper = Level(cards:[
                 1: Card(name: "Start", description: "Use the Start card to indicate where the program starts. Whenever the program is executed, it will begin at this card.", type: CardType.control, command: nil),
                 2: Card(name: "Jump", description: "Use the Jump card to make the robot jump in place.", type: CardType.action, command: JumpCommand())])
-            //cardMapper = levelDatabase?.levels[0]
         }
     }
     @IBOutlet weak var planeDetectionLabel: UILabel!
     @IBOutlet weak var detectBtn: UIButton!
     
+    private var detectPlane: Bool = false {
+        didSet {
+            planeDetectionLabel.isHidden = !detectPlane
+            detectBtn.isEnabled = !detectPlane
+            detectBtn.isHidden = detectPlane
+            placeBtn.isEnabled = detectPlane
+            placeBtn.isEnabled = !detectPlane
+        }
+    }
+    private var playingField: PlayingField? //TODO: Can we do something about this?
+    private var currentPlane: Plane? //TODO: Can we do something about this?
+    private var arCardFinder: PlayConfiguration?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        placeBtn.isEnabled = false
-        placeBtn.isHidden = true
-        // For debugging
+        //TODO: For debugging
         sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
         
-        // Show statistics such as fps and timing information
-        sceneView.showsStatistics = true
-        
         sceneView.autoenablesDefaultLighting = true
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        environment?.start()
+        arCardFinder?.start()
         
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
@@ -66,17 +61,13 @@ class PlayViewController: UIViewController, CardDetectorDelegate, PlaneDetectorD
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        environment?.stop()
+        arCardFinder?.stop()
         
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     @IBAction func detectPlane(_ sender: UIButton) {
         detectPlane = true
-        placeBtn.isEnabled = true
-        placeBtn.isHidden = false
-        detectBtn.isEnabled = false
-        detectBtn.isHidden = true
         
         //Remove current plane
         if let field = playingField {
@@ -91,10 +82,6 @@ class PlayViewController: UIViewController, CardDetectorDelegate, PlaneDetectorD
             showModelAtDetectedPlane(plane: plane)
         }
         currentPlane?.node.removeFromParentNode()
-        detectBtn.isEnabled = true
-        detectBtn.isHidden = false
-        placeBtn.isEnabled = false
-        placeBtn.isHidden = true
     }
     
     func showModelAtDetectedPlane(plane: Plane) {
@@ -110,7 +97,7 @@ class PlayViewController: UIViewController, CardDetectorDelegate, PlaneDetectorD
     }
     
     func cardDetector(_ detector: CardDetector, found card: Card) {
-        for c in cardWorld.allCards() {
+        for c in arCardFinder!.cardWorld.allCards() {
             print(c.name)
         }
     }
@@ -127,7 +114,7 @@ class PlayViewController: UIViewController, CardDetectorDelegate, PlaneDetectorD
         currentPlane = plane
     }
     
-    //TODO: START
+    //TODO: Card projection logic - very important!
 //    private var spheres = [SCNNode]()
 //    
 //    func cardDetector(_ detector: CardDetector, added cardName: String) {
@@ -147,17 +134,5 @@ class PlayViewController: UIViewController, CardDetectorDelegate, PlaneDetectorD
 //                spheres.append(sphere)
 //            }
 //        }
-//    }
-//    
-//    func cardDetector(_ detector: CardDetector, removed cardName: String) {
-//        
-//    }
-//    
-//    func cardDetector(_ detector: CardDetector, scanned cardName: String) {
-//        
-//    }
-//    
-//    func cardDetectorLostCard(_ detector: CardDetector) {
-//        
 //    }
 }
