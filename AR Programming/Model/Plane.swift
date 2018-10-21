@@ -37,7 +37,7 @@ class Plane: AnchoredNode {
     public func project(point: SCNVector3) -> CGPoint {
         let inverse = simd_inverse(anchor.transform)
         let localPoint = inverse * simd_float4(point.x, point.y, point.z, 1)
-        let convertedPoint = SCNVector3(localPoint.x, localPoint.y, localPoint.z)
-        return CGPoint(x: Double(convertedPoint.x), y: Double(convertedPoint.z))
+        let projectedPoint = SCNVector3(localPoint.x, 0, localPoint.z)
+        return CGPoint(x: Double(projectedPoint.x), y: Double(projectedPoint.z))
     }
 }

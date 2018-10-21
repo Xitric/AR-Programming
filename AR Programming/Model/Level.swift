@@ -16,7 +16,7 @@ class Level: CardMapper {
         self.cards = cards
     }
     
-    func getCard(i: Int) -> Card {
-        return cards[i]!
+    func getCard(identifier: Int) -> Card? {
+        return cards[identifier]
     }
 }

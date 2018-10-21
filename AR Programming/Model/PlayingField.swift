@@ -11,6 +11,6 @@ import SceneKit
 struct PlayingField {
     
     var origo: AnchoredNode
-    var ground: AnchoredNode
+    var ground: Plane
     var robot: AnimatableNode
 }

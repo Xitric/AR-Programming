@@ -40,6 +40,7 @@ class PlayViewController: UIViewController, CardDetectorDelegate, PlaneDetectorD
     private var playingField: PlayingField? //TODO: Can we do something about this?
     private var currentPlane: Plane? //TODO: Can we do something about this?
     private var arCardFinder: PlayConfiguration?
+    private var cardSequence : CardSequence?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,13 +98,17 @@ class PlayViewController: UIViewController, CardDetectorDelegate, PlaneDetectorD
     }
     
     func cardDetector(_ detector: CardDetector, found card: Card) {
-        for c in arCardFinder!.cardWorld.allCards() {
-            print(c.name)
-        }
+        recreateCardSequence()
     }
     
     func cardDetector(_ detector: CardDetector, lost card: Card) {
-        
+        recreateCardSequence()
+    }
+    
+    private func recreateCardSequence() {
+        if let field = playingField {
+            cardSequence = CardSequence(cards: arCardFinder!.cardWorld, on: field.ground)
+        }
     }
     
     func shouldDetectPlanes(_ detector: PlaneDetector) -> Bool {
@@ -113,26 +118,4 @@ class PlayViewController: UIViewController, CardDetectorDelegate, PlaneDetectorD
     func planeDetector(_ detector: PlaneDetector, found plane: Plane) {
         currentPlane = plane
     }
-    
-    //TODO: Card projection logic - very important!
-//    private var spheres = [SCNNode]()
-//    
-//    func cardDetector(_ detector: CardDetector, added cardName: String) {
-//        if let plane = currentPlane {
-//            for sphere in spheres {
-//                sphere.removeFromParentNode()
-//            }
-//            
-//            for cardPlane in (cardDetector?.cardPlanes)! {
-//                let center = cardPlane.center
-//                let projection = plane.project(point: center)
-//                
-//                let sphereGeometry = SCNSphere(radius: 0.005)
-//                let sphere = SCNNode(geometry: sphereGeometry)
-//                sphere.position = SCNVector3(projection.x, projection.y, 0)
-//                plane.planeNode.addChildNode(sphere)
-//                spheres.append(sphere)
-//            }
-//        }
-//    }
 }

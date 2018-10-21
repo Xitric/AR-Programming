@@ -9,5 +9,6 @@
 import Foundation
 
 protocol CardMapper {
-    func getCard(i: Int) -> Card
+    
+    func getCard(identifier: Int) -> Card?
 }
