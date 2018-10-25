@@ -36,7 +36,7 @@ class CardDetector: NSObject, ARSessionDelegate, ARSCNViewDelegate {
     
     private func startTimer(for anchor: ARImageAnchor, with name: String) {
         if removeTimers[name] == nil {
-            removeTimers[name] = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(self.remove(_:)), userInfo: anchor, repeats: false)
+            removeTimers[name] = Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(self.remove(_:)), userInfo: anchor, repeats: false)
         }
     }
     
@@ -63,8 +63,7 @@ class CardDetector: NSObject, ARSessionDelegate, ARSCNViewDelegate {
         for anchor in anchors {
             if let imageAnchor = anchor as? ARImageAnchor, let name = imageAnchor.referenceImage.name {
                 if !imageAnchor.isTracked {
-                    //TODO: Temporarily disabled anchor removal due to ARKit instability
-                    //                    startTimer(for: imageAnchor, with: name)
+                    startTimer(for: imageAnchor, with: name)
                 } else {
                     stopTimer(for: name)
                 }

@@ -18,6 +18,14 @@ class CardSequence {
             let startProjection = project(plane: splitPlanes.startPlane, onto: surface)
             let projections = project(planes: splitPlanes.planes, onto: surface)
             
+            //TODO: START
+            print("Projection points")
+            print("\(startProjection.x)\t\(startProjection.y)")
+            for proj in projections {
+                print("\(proj.x)\t\(proj.y)")
+            }
+            //TODO: END
+            
             //Find a line that best describes the way the cards are laid out
             let line = RegressionLine(points: projections + [startProjection])
             
