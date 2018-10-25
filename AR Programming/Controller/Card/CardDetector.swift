@@ -63,7 +63,7 @@ class CardDetector: NSObject, ARSessionDelegate, ARSCNViewDelegate {
         for anchor in anchors {
             if let imageAnchor = anchor as? ARImageAnchor, let name = imageAnchor.referenceImage.name {
                 if !imageAnchor.isTracked {
-                    startTimer(for: imageAnchor, with: name)
+                 //   startTimer(for: imageAnchor, with: name)
                 } else {
                     stopTimer(for: name)
                 }

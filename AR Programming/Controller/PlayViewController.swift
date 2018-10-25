@@ -22,7 +22,13 @@ class PlayViewController: UIViewController, CardDetectorDelegate, PlaneDetectorD
             //TODO: Temporary
             arCardFinder?.cardMapper = Level(cards:[
                 1: Card(name: "Start", description: "Use the Start card to indicate where the program starts. Whenever the program is executed, it will begin at this card.", type: CardType.control, command: nil),
-                2: Card(name: "Jump", description: "Use the Jump card to make the robot jump in place.", type: CardType.action, command: JumpCommand())])
+                2: Card(name: "Jump", description: "Use the Jump card to make the robot jump in place.", type: CardType.action, command: JumpCommand()),
+                3: Card(name: "Move", description: "Use the Jump card to make the robot jump in place.", type: CardType.action, command: JumpCommand()),
+                4: Card(name: "WE", description: "Use the Jump card to make the robot jump in place.", type: CardType.action, command: JumpCommand()),
+                5: Card(name: "qqwe", description: "Use the Jump card to make the robot jump in place.", type: CardType.action, command: JumpCommand()),
+                6: Card(name: "wrfr", description: "Use the Jump card to make the robot jump in place.", type: CardType.action, command: JumpCommand())
+                
+                ])
         }
     }
     @IBOutlet weak var planeDetectionLabel: UILabel!
@@ -34,7 +40,7 @@ class PlayViewController: UIViewController, CardDetectorDelegate, PlaneDetectorD
             detectBtn.isEnabled = !detectPlane
             detectBtn.isHidden = detectPlane
             placeBtn.isEnabled = detectPlane
-            placeBtn.isEnabled = !detectPlane
+            placeBtn.isHidden = !detectPlane
         }
     }
     private var playingField: PlayingField? //TODO: Can we do something about this?
@@ -82,7 +88,7 @@ class PlayViewController: UIViewController, CardDetectorDelegate, PlaneDetectorD
         if let plane = currentPlane {
             showModelAtDetectedPlane(plane: plane)
         }
-        currentPlane?.node.removeFromParentNode()
+        //currentPlane?.node.removeFromParentNode()
     }
     
     func showModelAtDetectedPlane(plane: Plane) {
