@@ -14,62 +14,46 @@ class CardSequence {
     private var sequence = [Card]()
     
     init(cards: CardWorld, on surface: Plane) {
-        if let splitPlanes = splitOnStartCard(cards: cards) {
-            let startProjection = project(plane: splitPlanes.startPlane, onto: surface)
-            let projections = project(planes: splitPlanes.planes, onto: surface)
+        let planes = cards.allPlanes()
+        let projections = project(planes: planes, onto: surface)
+        
+        let regressionLine = RegressionLine(points: projections)
+        let regressionDirection = regressionLine.direction.normalize()
+        var distances = projections.map{$0.dot(with: regressionDirection)}
+        
+        let startIndex = planes.firstIndex(where: {cards.card(from: $0)?.name == "Start"})
+        if let i = startIndex {
+            sequence.append(cards.card(from: planes[i])!)
+            distances = update(distances: distances, from: i)
             
-            //TODO: START
-            print("Projection points")
-            print("\(startProjection.x)\t\(startProjection.y)")
-            for proj in projections {
-                print("\(proj.x)\t\(proj.y)")
+            for _ in 0 ..< distances.count - 1 {
+                let smallestIndex = indexOfSmallest(among: distances)
+                if distances[smallestIndex] > 0.07 {
+                    break;
+                }
+                
+                sequence.append(cards.card(from: planes[smallestIndex])!)
+                distances = update(distances: distances, from: smallestIndex)
             }
-            //TODO: END
-            
-            //Find a line that best describes the way the cards are laid out
-            let line = RegressionLine(points: projections + [startProjection])
-            
-            //Calculate the projected points' distances from the starting point along the regression line
-            var dx = Float(1)
-            var dy = line.slope! //TODO: Why is explicit unwrapping necessary here?
-            let len = sqrt(pow(dx, 2) + pow(dy, 2))
-            
-            dx = dx / len
-            dy = dy / len
-            
-            let startPosition = Float(startProjection.x) * dx + Float(startProjection.y) * dy
-            var positions = projections.map{Float($0.x) * dx + Float($0.y) * dy - startPosition}
-            
-            //Find sequence
-            //TODO
         }
     }
     
-    private func splitOnStartCard(cards: CardWorld) -> PlaneCollection? {
-        let allPlanes = cards.allPlanes()
-        var planes = [Plane]()
-        var startPlane: Plane?
-        
-        for plane in allPlanes {
-            if cards.card(from: plane)?.name == "Start" {
-                startPlane = plane
-            } else {
-                planes.append(plane)
-            }
-        }
-        
-        if let start = startPlane {
-            return PlaneCollection(startPlane: start, planes: planes)
-        }
-        
-        return nil
+    private func update(distances: [Float], from index: Int) -> [Float] {
+        let referenceValue = distances[index]
+        var newDistances = distances.map{$0 - referenceValue}
+        newDistances[index] = Float.nan
+        return newDistances
     }
     
-    private func project(planes: [Plane], onto surface: Plane) -> [CGPoint] {
+    private func indexOfSmallest(among distances: [Float]) -> Int {
+        return distances.firstIndex(of: distances.min()!)!
+    }
+    
+    private func project(planes: [Plane], onto surface: Plane) -> [Vector2] {
         return planes.map{project(plane: $0, onto: surface)}
     }
     
-    private func project(plane: Plane, onto surface: Plane) -> CGPoint {
+    private func project(plane: Plane, onto surface: Plane) -> Vector2 {
         return surface.project(point: plane.center)
     }
     

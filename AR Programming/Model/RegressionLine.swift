@@ -11,10 +11,10 @@ import CoreGraphics
 
 class RegressionLine {
     
-    private(set) var slope: Float!
+    private(set) var direction: Vector2!
     private(set) var intercept: Float!
     
-    init(points: [CGPoint]) {
+    init(points: [Vector2]) {
         let primaries = points.map{Float($0.x)}
         let secondaries = points.map{Float($0.y)}
         
@@ -24,8 +24,8 @@ class RegressionLine {
         let sumOfSquaresPrimary = sumOfSquares(withRespectTo: meanPrimary, values: primaries)
         let sumOfAllProducts = sumOfProducts(withRespectTo: meanPrimary, and: meanSecondary, primaries: primaries, secondaries: secondaries)
         
-        slope = sumOfAllProducts / sumOfSquaresPrimary
-        intercept = meanSecondary - slope * meanPrimary
+        direction = Vector2(x: 1, y: sumOfAllProducts / sumOfSquaresPrimary)
+        intercept = meanSecondary - direction.y * meanPrimary
     }
     
     func mean(of values: [Float]) -> Float {

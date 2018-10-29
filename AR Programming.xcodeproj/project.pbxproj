@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C12D9D821873ECD003D0528 /* Vector2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C12D9D721873ECD003D0528 /* Vector2.swift */; };
 		6C1D399F217BA4630053D482 /* CardSequenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1D399E217BA4630053D482 /* CardSequenceTests.swift */; };
 		6C512972217C95EC00421A48 /* RegressionLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C512971217C95EC00421A48 /* RegressionLine.swift */; };
 		6C512974217C978E00421A48 /* RegressionLineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C512973217C978E00421A48 /* RegressionLineTests.swift */; };
@@ -55,6 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6C12D9D721873ECD003D0528 /* Vector2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vector2.swift; sourceTree = "<group>"; };
 		6C1D399E217BA4630053D482 /* CardSequenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSequenceTests.swift; sourceTree = "<group>"; };
 		6C512971217C95EC00421A48 /* RegressionLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegressionLine.swift; sourceTree = "<group>"; };
 		6C512973217C978E00421A48 /* RegressionLineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegressionLineTests.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				C79CED5A2179E62A001487BF /* LevelDatabase.swift */,
 				C79CED5C217A0176001487BF /* CardWorld.swift */,
 				6C512971217C95EC00421A48 /* RegressionLine.swift */,
+				6C12D9D721873ECD003D0528 /* Vector2.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				905A3C8C2179E522005E3AA5 /* PlayingField.swift in Sources */,
 				C79CED572179E175001487BF /* Level.swift in Sources */,
 				C727312021775A5B00754543 /* JumpCommand.swift in Sources */,
+				6C12D9D821873ECD003D0528 /* Vector2.swift in Sources */,
 				6C512972217C95EC00421A48 /* RegressionLine.swift in Sources */,
 				90CDABC42177425200664640 /* AnimatableNode.swift in Sources */,
 				C727311C2177581400754543 /* RightCommand.swift in Sources */,

@@ -105,6 +105,8 @@ class PlayViewController: UIViewController, CardDetectorDelegate, PlaneDetectorD
     
     func cardDetector(_ detector: CardDetector, found card: Card) {
         recreateCardSequence()
+        //TODO
+        cardSequence?.run(on: playingField!.robot)
     }
     
     func cardDetector(_ detector: CardDetector, lost card: Card) {

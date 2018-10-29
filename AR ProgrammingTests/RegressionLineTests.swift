@@ -78,12 +78,12 @@ class RegressionLineTests: XCTestCase {
     
     func testRegressionLine() {
         let points = sampleX.enumerated().map { tuple in
-            return CGPoint(x: CGFloat(tuple.element), y: CGFloat(sampleY[tuple.offset]))
+            return Vector2(x: tuple.element, y: sampleY[tuple.offset])
         }
         
         regression = RegressionLine(points: points)
         
-        XCTAssertEqual(regression.slope, -0.8424, accuracy: RegressionLineTests.accuracy)
+        XCTAssertEqual(regression.direction.y, -0.8424, accuracy: RegressionLineTests.accuracy)
         XCTAssertEqual(regression.intercept, 8.6914, accuracy: RegressionLineTests.accuracy)
     }
 }
