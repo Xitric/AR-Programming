@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreGraphics
+import SceneKit
 
 class CardSequence {
     
@@ -21,14 +22,14 @@ class CardSequence {
         let regressionDirection = regressionLine.direction.normalize()
         var distances = projections.map{$0.dot(with: regressionDirection)}
         
-        let startIndex = planes.firstIndex(where: {cards.card(from: $0)?.name == "Start"})
+         let startIndex = planes.firstIndex(where: {cards.card(from: $0)?.name == "Start"})
         if let i = startIndex {
             sequence.append(cards.card(from: planes[i])!)
             distances = update(distances: distances, from: i)
             
             for _ in 0 ..< distances.count - 1 {
                 let smallestIndex = indexOfSmallest(among: distances)
-                if distances[smallestIndex] > 0.07 {
+                if distances[smallestIndex] > 0.2 { //0.07
                     break;
                 }
                 
@@ -41,7 +42,7 @@ class CardSequence {
     private func update(distances: [Float], from index: Int) -> [Float] {
         let referenceValue = distances[index]
         var newDistances = distances.map{$0 - referenceValue}
-        newDistances[index] = Float.nan
+        newDistances[index] = Float.infinity
         return newDistances
     }
     
@@ -58,9 +59,16 @@ class CardSequence {
     }
     
     public func run(on node: AnimatableNode) {
+        var actions = [SCNAction]()
+        
         for card in sequence {
-            card.command?.execute(modelIn3D: node)
+            if let command = card.command {
+                actions.append(command.execute(modelIn3D: node))
+            }
         }
+        
+        let actionSequence = SCNAction.sequence(actions)
+        node.model.runAction(actionSequence)
     }
     
     private struct PlaneCollection {

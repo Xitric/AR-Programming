@@ -53,6 +53,7 @@ class ARConfiguration: NSObject, ARSessionDelegate, ARSCNViewDelegate {
     
     public func start() {
         sceneView.session.run(configuration, options: options)
+        cardWorld.reset()
     }
     
     public func stop() {

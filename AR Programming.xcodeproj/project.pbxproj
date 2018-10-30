@@ -26,6 +26,7 @@
 		905A3C8A2179C58A005E3AA5 /* ARConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905A3C892179C58A005E3AA5 /* ARConfiguration.swift */; };
 		905A3C8C2179E522005E3AA5 /* PlayingField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905A3C8B2179E522005E3AA5 /* PlayingField.swift */; };
 		905A3C8E2179E582005E3AA5 /* AnchoredNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905A3C8D2179E582005E3AA5 /* AnchoredNode.swift */; };
+		90BA0F5C2188A1D7005B6A6B /* RotationCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BA0F5B2188A1D7005B6A6B /* RotationCommand.swift */; };
 		90CDABC221773E2700664640 /* Meshes.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 90CDABC121773E2700664640 /* Meshes.scnassets */; };
 		90CDABC42177425200664640 /* AnimatableNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CDABC32177425200664640 /* AnimatableNode.swift */; };
 		90CDABC62177623100664640 /* CardSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CDABC52177623100664640 /* CardSequence.swift */; };
@@ -75,6 +76,7 @@
 		905A3C892179C58A005E3AA5 /* ARConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARConfiguration.swift; sourceTree = "<group>"; };
 		905A3C8B2179E522005E3AA5 /* PlayingField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingField.swift; sourceTree = "<group>"; };
 		905A3C8D2179E582005E3AA5 /* AnchoredNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnchoredNode.swift; sourceTree = "<group>"; };
+		90BA0F5B2188A1D7005B6A6B /* RotationCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationCommand.swift; sourceTree = "<group>"; };
 		90CDABC121773E2700664640 /* Meshes.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Meshes.scnassets; sourceTree = "<group>"; };
 		90CDABC32177425200664640 /* AnimatableNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableNode.swift; sourceTree = "<group>"; };
 		90CDABC52177623100664640 /* CardSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSequence.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				C79CED5C217A0176001487BF /* CardWorld.swift */,
 				6C512971217C95EC00421A48 /* RegressionLine.swift */,
 				6C12D9D721873ECD003D0528 /* Vector2.swift */,
+				90BA0F5B2188A1D7005B6A6B /* RotationCommand.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 				C727312021775A5B00754543 /* JumpCommand.swift in Sources */,
 				6C12D9D821873ECD003D0528 /* Vector2.swift in Sources */,
 				6C512972217C95EC00421A48 /* RegressionLine.swift in Sources */,
+				90BA0F5C2188A1D7005B6A6B /* RotationCommand.swift in Sources */,
 				90CDABC42177425200664640 /* AnimatableNode.swift in Sources */,
 				C727311C2177581400754543 /* RightCommand.swift in Sources */,
 				905A3C8A2179C58A005E3AA5 /* ARConfiguration.swift in Sources */,

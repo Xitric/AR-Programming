@@ -46,4 +46,8 @@ class CardWorld {
     public func allPlanes() -> [Plane] {
         return cards.keys.map{$0}
     }
+    
+    public func reset() {
+        cards.removeAll()
+    }
 }
