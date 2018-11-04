@@ -9,58 +9,25 @@
 import Foundation
 import ARKit
 
-class ScanConfiguration: ARConfiguration, ARSessionDelegate, ARSCNViewDelegate {
+class ScanConfiguration: ARConfiguration {
     
-    private var cardDetector: CardDetector
-    private var cardScanner: CardScanner
-    
-    var cardDetectorDelegate : CardDetectorDelegate? {
-        get {
-            return cardDetector.delegate
-        }
-        set {
-            cardDetector.delegate = newValue
-        }
-    }
+    private var cardScanner: CardScanner?
     
     var cardScannerDelegate : CardScannerDelegate? {
         get {
-            return cardScanner.delegate
+            return cardScanner?.delegate
         }
         set {
-            cardScanner.delegate = newValue
+            cardScanner?.delegate = newValue
         }
     }
     
-    init(with scene: ARSCNView, for imageGroup: String) {
-        cardDetector = CardDetector(with: scene)
-        cardScanner = CardScanner(with: scene)
-        super.init(with: scene)
-        
-        self.sceneView.delegate = self
-        self.sceneView.session.delegate = self
-        
-        configuration = ARWorldTrackingConfiguration()
-        configuration!.detectionImages = ARReferenceImage.referenceImages(inGroupNamed: imageGroup, bundle: nil)
-        configuration!.maximumNumberOfTrackedImages = 6
-        
-        options = [.resetTracking, .removeExistingAnchors]
-    }
-    
-    override public func stop() {
-        cardDetector.stop()
-        super.stop()
-    }
-    
-    func session(_ session: ARSession, didUpdate anchors: [ARAnchor]) {
-        cardDetector.session(session, didUpdate: anchors)
-    }
-    
-    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-        cardDetector.renderer(renderer, didAdd: node, for: anchor)
+    override init(with scene: ARSCNView, for imageGroup: String) {
+        super.init(with: scene, for: imageGroup)
+        cardScanner = CardScanner(with: scene,  with: cardWorld)
     }
     
     func session(_ session: ARSession, didUpdate frame: ARFrame) {
-        cardScanner.session(session, didUpdate: frame)
+        cardScanner?.session(session, didUpdate: frame)
     }
 }

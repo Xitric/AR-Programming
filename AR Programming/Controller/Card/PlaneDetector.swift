@@ -24,17 +24,16 @@ class PlaneDetector {
             guard anchor is ARPlaneAnchor else { return }
             
             if let plane = currentPlane {
-                if let currentAnchor = sceneView.anchor(for: plane.planeNode){
-                    sceneView.session.remove(anchor: (currentAnchor))
-                }
-                node.addChildNode(plane.planeNode)
-            } else {
-                let plane = Plane(width: 0.2, height: 0.2, anchor: anchor)
-                plane.planeGeometry.materials.first?.diffuse.contents = UIImage(named: "tron_grid")
-                currentPlane = plane
-                node.addChildNode(currentPlane!.planeNode)
-                delegate?.planeDetector(self, found: plane)
+                sceneView.session.remove(anchor: plane.anchor)
+                plane.node.removeFromParentNode()
             }
+            
+            let plane = Plane(width: 0.2, height: 0.2, anchor: anchor)
+            plane.node.geometry?.materials.first?.diffuse.contents = UIImage(named: "tron_grid")
+            node.addChildNode(plane.node)
+            
+            currentPlane = plane
+            delegate?.planeDetector(self, found: plane)
         }
     }
 }

@@ -12,11 +12,14 @@ import ARKit
 class CardDetector: NSObject, ARSessionDelegate, ARSCNViewDelegate {
     
     weak var delegate : CardDetectorDelegate?
+    var cardMapper: CardMapper?
+    private var cardWorld: CardWorld
     private var removeTimers = [String:Timer]()
     private var sceneView: ARSCNView
     
-    init(with scene: ARSCNView) {
+    init(with scene: ARSCNView, with cardWorld: CardWorld) {
         self.sceneView = scene
+        self.cardWorld = cardWorld
     }
     
     public func stop() {
@@ -33,7 +36,7 @@ class CardDetector: NSObject, ARSessionDelegate, ARSCNViewDelegate {
     
     private func startTimer(for anchor: ARImageAnchor, with name: String) {
         if removeTimers[name] == nil {
-            removeTimers[name] = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(self.remove(_:)), userInfo: anchor, repeats: false)
+            removeTimers[name] = Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(self.remove(_:)), userInfo: anchor, repeats: false)
         }
     }
     
@@ -47,8 +50,11 @@ class CardDetector: NSObject, ARSessionDelegate, ARSCNViewDelegate {
     @objc public func remove(_ timer: Timer) {
         if let anchor = timer.userInfo as? ARImageAnchor {
             sceneView.session.remove(anchor: anchor)
-            if let name = anchor.referenceImage.name {
-                delegate?.cardDetector(self, lost: name)
+            
+            if let node = sceneView.node(for: anchor), let plane = cardWorld.plane(from: node) {
+                let card = cardWorld.card(from: plane)
+                cardWorld.removeCard(plane: plane)
+                delegate?.cardDetector(self, lost: card!)
             }
         }
     }
@@ -57,8 +63,7 @@ class CardDetector: NSObject, ARSessionDelegate, ARSCNViewDelegate {
         for anchor in anchors {
             if let imageAnchor = anchor as? ARImageAnchor, let name = imageAnchor.referenceImage.name {
                 if !imageAnchor.isTracked {
-                    //TODO: Temporarily disabled anchor removal due to ARKit instability
-                    //                    startTimer(for: imageAnchor, with: name)
+                 //   startTimer(for: imageAnchor, with: name)
                 } else {
                     stopTimer(for: name)
                 }
@@ -72,10 +77,13 @@ class CardDetector: NSObject, ARSessionDelegate, ARSCNViewDelegate {
         let referenceImage = imageAnchor.referenceImage
         let plane = Plane(width: referenceImage.physicalSize.width, height: referenceImage.physicalSize.height, anchor: anchor)
         
-        node.addChildNode(plane.planeNode)
+        node.addChildNode(plane.node)
         
-        if let name = referenceImage.name {
-            delegate?.cardDetector(self, found: name)
+        if let cardIdentifier = Int(referenceImage.name!) {
+            if let card = cardMapper?.getCard(identifier: cardIdentifier) {
+                cardWorld.addCard(plane: plane, card: card)
+                delegate?.cardDetector(self, found: card)
+            }
         }
     }
 }
