@@ -37,18 +37,18 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="QG9-3Q-2YK" kind="show" id="vpA-VZ-hQW"/>
+                                    <segue destination="QG9-3Q-2YK" kind="show" identifier="scan" id="vpA-VZ-hQW"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RJJ-8k-yUk">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RJJ-8k-yUk">
                                 <rect key="frame" x="692" y="822" width="60" height="60"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="NIX-ge-JqB"/>
                                     <constraint firstAttribute="height" constant="60" id="YXH-yV-88g"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="H">
+                                <inset key="contentEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
+                                <state key="normal" image="Levels">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -108,7 +108,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nKz-TL-7P4">
                                 <rect key="frame" x="16" y="898" width="196" height="60"/>
-                                <color key="backgroundColor" red="0.0" green="0.50588235294117645" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.074509803921568626" green="0.46274509803921571" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="OIt-PG-Lde"/>
                                     <constraint firstAttribute="width" constant="196" id="hP7-De-HRK"/>
@@ -121,17 +121,15 @@
                                     <action selector="execute:" destination="BV1-FR-VrT" eventType="touchUpInside" id="n8y-54-2PQ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1BO-PT-ePY">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1BO-PT-ePY">
                                 <rect key="frame" x="212" y="898" width="60" height="60"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.074509803921568626" green="0.46274509803921571" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="e1r-sW-b06"/>
                                     <constraint firstAttribute="width" constant="60" id="ge7-pn-HkU"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="R">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
+                                <inset key="contentEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
+                                <state key="normal" image="Retry"/>
                                 <connections>
                                     <action selector="reset:" destination="BV1-FR-VrT" eventType="touchUpInside" id="Mkq-r7-Iok"/>
                                 </connections>
@@ -377,11 +375,13 @@
                     <navigationItem key="navigationItem" title="Level Select" id="B2b-lB-Lab"/>
                     <connections>
                         <outlet property="levelSelectCollectionView" destination="3LD-7s-TaH" id="5iX-Mm-s3L"/>
+                        <segue destination="ias-rg-L5J" kind="unwind" identifier="unwindToPlay" unwindAction="unwindToPlayViewWithSegue:" id="Oum-Q5-tPy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ym8-kf-89I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="ias-rg-L5J" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2890" y="801"/>
+            <point key="canvasLocation" x="2890" y="812"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="VBc-Ne-lvc">
@@ -441,8 +441,10 @@
     </scenes>
     <resources>
         <image name="ARKit-Control-Label-Icon" width="78" height="78"/>
+        <image name="Levels" width="128" height="128"/>
         <image name="Lock" width="156" height="172"/>
         <image name="Reticle" width="128" height="128"/>
+        <image name="Retry" width="128" height="128"/>
         <image name="StartCard" width="623" height="623"/>
     </resources>
 </document>

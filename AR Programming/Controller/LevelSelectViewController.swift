@@ -11,6 +11,7 @@ import UIKit
 class LevelSelectViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
     private var levels = [Level]()
+    var selectedLevel: Level?
     
     @IBOutlet weak var levelSelectCollectionView: UICollectionView! {
         didSet {
@@ -53,10 +54,9 @@ class LevelSelectViewController: UIViewController, UICollectionViewDataSource, U
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.item)
+        selectedLevel = levels[indexPath.item]
+        performSegue(withIdentifier: "unwindToPlay", sender: self)
     }
-    
-    
 
     /*
     // MARK: - Navigation
