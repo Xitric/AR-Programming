@@ -20,15 +20,15 @@ class PlayViewController: UIViewController, CardDetectorDelegate, PlaneDetectorD
             arCardFinder?.planeDetectorDelegate = self
             
             //TODO: Temporary
-            arCardFinder?.cardMapper = Level(cards:[
-                1: Card(name: "Start", description: "Use the Start card to indicate where the program starts. Whenever the program is executed, it will begin at this card.", type: CardType.control, command: nil),
-                2: Card(name: "Jump", description: "Use the Jump card to make the robot jump in place.", type: CardType.action, command: JumpCommand()),
-                3: Card(name: "Move", description: "Use the Jump card to make the robot jump in place.", type: CardType.action, command: MoveCommand()),
-                4: Card(name: "WE", description: "Use the Jump card to make the robot jump in place.", type: CardType.action, command: JumpCommand()),
-                5: Card(name: "qqwe", description: "Use the Jump card to make the robot jump in place.", type: CardType.action, command: JumpCommand()),
-                6: Card(name: "wrfr", description: "Use the Jump card to make the robot jump in place.", type: CardType.action, command: JumpCommand())
-                
-                ])
+//            arCardFinder?.cardMapper = Level(cards:[
+//                1: Card(name: "Start", description: "Use the Start card to indicate where the program starts. Whenever the program is executed, it will begin at this card.", type: CardType.control, command: nil),
+//                2: Card(name: "Jump", description: "Use the Jump card to make the robot jump in place.", type: CardType.action, command: JumpCommand()),
+//                3: Card(name: "Move", description: "Use the Jump card to make the robot jump in place.", type: CardType.action, command: MoveCommand()),
+//                4: Card(name: "WE", description: "Use the Jump card to make the robot jump in place.", type: CardType.action, command: JumpCommand()),
+//                5: Card(name: "qqwe", description: "Use the Jump card to make the robot jump in place.", type: CardType.action, command: JumpCommand()),
+//                6: Card(name: "wrfr", description: "Use the Jump card to make the robot jump in place.", type: CardType.action, command: JumpCommand())
+//                
+//                ])
         }
     }
     @IBOutlet weak var planeDetectionLabel: UILabel!

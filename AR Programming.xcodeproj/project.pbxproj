@@ -11,9 +11,9 @@
 		6C1D399F217BA4630053D482 /* CardSequenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1D399E217BA4630053D482 /* CardSequenceTests.swift */; };
 		6C512972217C95EC00421A48 /* RegressionLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C512971217C95EC00421A48 /* RegressionLine.swift */; };
 		6C512974217C978E00421A48 /* RegressionLineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C512973217C978E00421A48 /* RegressionLineTests.swift */; };
+		6CD69945218F3DE900A9E755 /* CardFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD69944218F3DE900A9E755 /* CardFactory.swift */; };
 		6CEF68612174D11E006E62B8 /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEF68602174D11E006E62B8 /* PlayViewController.swift */; };
 		9057369B2175D1C200F231E1 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057369A2175D1C200F231E1 /* Card.swift */; };
-		9057369D2175D29B00F231E1 /* CardDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057369C2175D29B00F231E1 /* CardDatabase.swift */; };
 		905736A02175D44000F231E1 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057369F2175D44000F231E1 /* ScanViewController.swift */; };
 		905A3C7A2179BE05005E3AA5 /* ScanConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905A3C792179BE05005E3AA5 /* ScanConfiguration.swift */; };
 		905A3C7C2179BE0E005E3AA5 /* PlayConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905A3C7B2179BE0E005E3AA5 /* PlayConfiguration.swift */; };
@@ -24,10 +24,10 @@
 		905A3C862179BE6A005E3AA5 /* CardDetectorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905A3C852179BE6A005E3AA5 /* CardDetectorDelegate.swift */; };
 		905A3C882179BE74005E3AA5 /* PlaneDetectorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905A3C872179BE74005E3AA5 /* PlaneDetectorDelegate.swift */; };
 		905A3C8A2179C58A005E3AA5 /* ARConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905A3C892179C58A005E3AA5 /* ARConfiguration.swift */; };
-		905A3C92217A0891005E3AA5 /* LevelSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905A3C91217A0891005E3AA5 /* LevelSelectViewController.swift */; };
-		905A3C94217A09D0005E3AA5 /* LevelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905A3C93217A09D0005E3AA5 /* LevelCollectionViewCell.swift */; };
 		905A3C8C2179E522005E3AA5 /* PlayingField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905A3C8B2179E522005E3AA5 /* PlayingField.swift */; };
 		905A3C8E2179E582005E3AA5 /* AnchoredNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905A3C8D2179E582005E3AA5 /* AnchoredNode.swift */; };
+		905A3C92217A0891005E3AA5 /* LevelSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905A3C91217A0891005E3AA5 /* LevelSelectViewController.swift */; };
+		905A3C94217A09D0005E3AA5 /* LevelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905A3C93217A09D0005E3AA5 /* LevelCollectionViewCell.swift */; };
 		90BA0F5C2188A1D7005B6A6B /* RotationCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BA0F5B2188A1D7005B6A6B /* RotationCommand.swift */; };
 		90CDABC221773E2700664640 /* Meshes.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 90CDABC121773E2700664640 /* Meshes.scnassets */; };
 		90CDABC42177425200664640 /* AnimatableNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CDABC32177425200664640 /* AnimatableNode.swift */; };
@@ -63,9 +63,9 @@
 		6C1D399E217BA4630053D482 /* CardSequenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSequenceTests.swift; sourceTree = "<group>"; };
 		6C512971217C95EC00421A48 /* RegressionLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegressionLine.swift; sourceTree = "<group>"; };
 		6C512973217C978E00421A48 /* RegressionLineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegressionLineTests.swift; sourceTree = "<group>"; };
+		6CD69944218F3DE900A9E755 /* CardFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFactory.swift; sourceTree = "<group>"; };
 		6CEF68602174D11E006E62B8 /* PlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
 		9057369A2175D1C200F231E1 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
-		9057369C2175D29B00F231E1 /* CardDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDatabase.swift; sourceTree = "<group>"; };
 		9057369F2175D44000F231E1 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		905A3C792179BE05005E3AA5 /* ScanConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanConfiguration.swift; sourceTree = "<group>"; };
 		905A3C7B2179BE0E005E3AA5 /* PlayConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayConfiguration.swift; sourceTree = "<group>"; };
@@ -76,10 +76,10 @@
 		905A3C852179BE6A005E3AA5 /* CardDetectorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetectorDelegate.swift; sourceTree = "<group>"; };
 		905A3C872179BE74005E3AA5 /* PlaneDetectorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaneDetectorDelegate.swift; sourceTree = "<group>"; };
 		905A3C892179C58A005E3AA5 /* ARConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARConfiguration.swift; sourceTree = "<group>"; };
-		905A3C91217A0891005E3AA5 /* LevelSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSelectViewController.swift; sourceTree = "<group>"; };
-		905A3C93217A09D0005E3AA5 /* LevelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelCollectionViewCell.swift; sourceTree = "<group>"; };
 		905A3C8B2179E522005E3AA5 /* PlayingField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingField.swift; sourceTree = "<group>"; };
 		905A3C8D2179E582005E3AA5 /* AnchoredNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnchoredNode.swift; sourceTree = "<group>"; };
+		905A3C91217A0891005E3AA5 /* LevelSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSelectViewController.swift; sourceTree = "<group>"; };
+		905A3C93217A09D0005E3AA5 /* LevelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelCollectionViewCell.swift; sourceTree = "<group>"; };
 		90BA0F5B2188A1D7005B6A6B /* RotationCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationCommand.swift; sourceTree = "<group>"; };
 		90CDABC121773E2700664640 /* Meshes.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Meshes.scnassets; sourceTree = "<group>"; };
 		90CDABC32177425200664640 /* AnimatableNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableNode.swift; sourceTree = "<group>"; };
@@ -122,25 +122,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		905736992175D19000F231E1 /* Model */ = {
+		6CD69940218F392500A9E755 /* Level */ = {
 			isa = PBXGroup;
 			children = (
-				9057369A2175D1C200F231E1 /* Card.swift */,
-				9057369C2175D29B00F231E1 /* CardDatabase.swift */,
-				C7273113217714E900754543 /* Plane.swift */,
-				90CDABC32177425200664640 /* AnimatableNode.swift */,
+				C79CED562179E175001487BF /* Level.swift */,
+			);
+			path = Level;
+			sourceTree = "<group>";
+		};
+		6CD69943218F3DD100A9E755 /* Card */ = {
+			isa = PBXGroup;
+			children = (
+				C79CED582179E193001487BF /* CardMapper.swift */,
+				C79CED5C217A0176001487BF /* CardWorld.swift */,
 				C7273117217752C400754543 /* CardCommand.swift */,
 				C72731192177539300754543 /* MoveCommand.swift */,
 				C727311B2177581400754543 /* RightCommand.swift */,
 				C727311D21775A1100754543 /* LeftCommand.swift */,
 				C727311F21775A5B00754543 /* JumpCommand.swift */,
 				90CDABC52177623100664640 /* CardSequence.swift */,
+				9057369A2175D1C200F231E1 /* Card.swift */,
+				6CD69944218F3DE900A9E755 /* CardFactory.swift */,
+			);
+			path = Card;
+			sourceTree = "<group>";
+		};
+		905736992175D19000F231E1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6CD69943218F3DD100A9E755 /* Card */,
+				6CD69940218F392500A9E755 /* Level */,
+				C7273113217714E900754543 /* Plane.swift */,
+				90CDABC32177425200664640 /* AnimatableNode.swift */,
 				905A3C8B2179E522005E3AA5 /* PlayingField.swift */,
 				905A3C8D2179E582005E3AA5 /* AnchoredNode.swift */,
-				C79CED562179E175001487BF /* Level.swift */,
-				C79CED582179E193001487BF /* CardMapper.swift */,
 				C79CED5A2179E62A001487BF /* LevelDatabase.swift */,
-				C79CED5C217A0176001487BF /* CardWorld.swift */,
 				6C512971217C95EC00421A48 /* RegressionLine.swift */,
 				6C12D9D721873ECD003D0528 /* Vector2.swift */,
 				90BA0F5B2188A1D7005B6A6B /* RotationCommand.swift */,
@@ -325,10 +341,10 @@
 				C79CED5B2179E62A001487BF /* LevelDatabase.swift in Sources */,
 				C79CED5D217A0176001487BF /* CardWorld.swift in Sources */,
 				90CDABC62177623100664640 /* CardSequence.swift in Sources */,
-				9057369D2175D29B00F231E1 /* CardDatabase.swift in Sources */,
 				9057369B2175D1C200F231E1 /* Card.swift in Sources */,
 				905A3C842179BE54005E3AA5 /* CardScannerDelegate.swift in Sources */,
 				905A3C822179BE45005E3AA5 /* PlaneDetector.swift in Sources */,
+				6CD69945218F3DE900A9E755 /* CardFactory.swift in Sources */,
 				6CEF68612174D11E006E62B8 /* PlayViewController.swift in Sources */,
 				905A3C7C2179BE0E005E3AA5 /* PlayConfiguration.swift in Sources */,
 				905A3C8C2179E522005E3AA5 /* PlayingField.swift in Sources */,

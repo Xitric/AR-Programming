@@ -10,6 +10,8 @@ import UIKit
 
 class LevelSelectViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
+    private var levels = [Level]()
+    
     @IBOutlet weak var levelSelectCollectionView: UICollectionView! {
         didSet {
             levelSelectCollectionView.dataSource = self
@@ -21,17 +23,30 @@ class LevelSelectViewController: UIViewController, UICollectionViewDataSource, U
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        //TODO: Single level
+        if let url = try? FileManager.default.url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent("Level1.json") {
+            if let jsonData = try? Data(contentsOf: url) {
+                if let level = Level(json: jsonData) {
+                    levels.append(level)
+                }
+            }
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //TODO: Placeholder
-        return 20
+        return levels.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "levelCell", for: indexPath)
         
         if let levelCell = cell as? LevelCollectionViewCell {
-            levelCell.levelName.text = "Test level"
-            levelCell.completed = indexPath.item < 6
+            let level = levels[indexPath.item]
+            levelCell.levelName.text = level.name
+            levelCell.completed = true
         }
         
         return cell

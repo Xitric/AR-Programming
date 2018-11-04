@@ -17,9 +17,9 @@ class ScanViewController: UIViewController, CardScannerDelegate {
             arScanner?.cardScannerDelegate = self
             
             //TODO: Temporary
-            arScanner?.cardMapper = Level(cards:[
-                    1: Card(name: "Start", description: "Use the Start card to indicate where the program starts. Whenever the program is executed, it will begin at this card.", type: CardType.control, command: nil),
-                    2: Card(name: "Jump", description: "Use the Jump card to make the robot jump in place.", type: CardType.action, command: JumpCommand())])
+//            arScanner?.cardMapper = Level(cards:[
+//                    1: Card(name: "Start", description: "Use the Start card to indicate where the program starts. Whenever the program is executed, it will begin at this card.", type: CardType.control, command: nil),
+//                    2: Card(name: "Jump", description: "Use the Jump card to make the robot jump in place.", type: CardType.action, command: JumpCommand())])
         }
     }
     @IBOutlet weak var cardNameLabel: UILabel!
