@@ -7,7 +7,20 @@
 //
 
 import Foundation
+import SceneKit
 
 protocol CardCommand {
-    func execute(modelIn3D animatableNode: AnimatableNode)
+    func execute(modelIn3D animatableNode: AnimatableNode) -> SCNAction
+}
+
+extension CardCommand {
+    public func convert(axis: SCNVector3, to node: SCNNode) -> SCNVector3 {
+        var convertedAxis = axis
+        
+        if let parent = node.parent {
+            convertedAxis = node.convertVector(axis, to: parent)
+        }
+        
+        return convertedAxis
+    }
 }

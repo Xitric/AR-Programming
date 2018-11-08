@@ -9,8 +9,9 @@
 import Foundation
 import SceneKit
 
-class RightCommand: CardCommand {
-    func execute(modelIn3D animatableNode: AnimatableNode) {
-        animatableNode.rotate(by: 0.5*Float.pi, around: SCNVector3(0, 1, 0))
+class RightCommand: RotationCommand {
+    func execute(modelIn3D animatableNode: AnimatableNode) -> SCNAction {
+        let axis = convert(axis: SCNVector3(0, 1, 0), to: animatableNode.model)
+        return rotationAction(by: 0.5 * Float.pi, around: axis)
     }
 }

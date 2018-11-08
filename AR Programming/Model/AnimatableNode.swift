@@ -18,34 +18,4 @@ class AnimatableNode {
         let scene = SCNScene(named: modelSource)
         model = scene!.rootNode
     }
-    
-    //TODO: Speed
-    public func move(by movement: SCNVector3) {
-        var convertedMovement = movement
-        
-        if let parent = model.parent {
-            convertedMovement = model.convertVector(movement, to: parent)
-        }
-        
-        let action = SCNAction.move(by: convertedMovement, duration: TimeInterval(3))
-        model.runAction(action)
-    }
-    
-    public func rotate(by angle: Float, around axis: SCNVector3) {
-        var convertedAxis = axis
-        
-        if let parent = model.parent {
-            convertedAxis = model.convertVector(axis, to: parent)
-        }
-        
-        let action = SCNAction.rotate(by: CGFloat(angle), around: convertedAxis, duration: TimeInterval(3))
-        model.runAction(action)
-    }
-    
-    public func jump(by height: Float, in time: Float){
-        let jump = SCNAction.moveBy(x: 0, y: CGFloat(height), z: 0, duration: TimeInterval(time))
-        let gravity = SCNAction.moveBy(x: 0, y: CGFloat(-height), z:0, duration: TimeInterval(time))
-        let action = SCNAction.sequence([jump, gravity])
-        model.runAction(action)
-    }
 }

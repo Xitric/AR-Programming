@@ -12,46 +12,55 @@ import ARKit
 
 class PlayViewController: UIViewController, CardDetectorDelegate, PlaneDetectorDelegate {
     
-    private var detectPlane: Bool = false {
-        didSet {
-            planeDetectionLabel.isHidden = !detectPlane
-        }
-    }
-    var robotNode: SCNNode?
-    var robot: AnimatableNode?
-    private var currentPlane: Plane?
-    private var environment: PlayConfiguration?
-    
     @IBOutlet weak var placeBtn: UIButton!
     @IBOutlet var sceneView: ARSCNView! {
         didSet {
-            environment = PlayConfiguration(with: sceneView)
-            environment?.cardDetectorDelegate = self
-            environment?.planeDetectorDelegate = self
+            arCardFinder = PlayConfiguration(with: sceneView, for: "Cards")
+            arCardFinder?.cardDetectorDelegate = self
+            arCardFinder?.planeDetectorDelegate = self
+            
+            //TODO: Temporary
+            arCardFinder?.cardMapper = Level(cards:[
+                1: Card(name: "Start", description: "Use the Start card to indicate where the program starts. Whenever the program is executed, it will begin at this card.", type: CardType.control, command: nil),
+                2: Card(name: "Jump", description: "Use the Jump card to make the robot jump in place.", type: CardType.action, command: JumpCommand()),
+                3: Card(name: "Move", description: "Use the Jump card to make the robot jump in place.", type: CardType.action, command: MoveCommand()),
+                4: Card(name: "WE", description: "Use the Jump card to make the robot jump in place.", type: CardType.action, command: JumpCommand()),
+                5: Card(name: "qqwe", description: "Use the Jump card to make the robot jump in place.", type: CardType.action, command: JumpCommand()),
+                6: Card(name: "wrfr", description: "Use the Jump card to make the robot jump in place.", type: CardType.action, command: JumpCommand())
+                
+                ])
         }
     }
     @IBOutlet weak var planeDetectionLabel: UILabel!
     @IBOutlet weak var detectBtn: UIButton!
     
+    private var detectPlane: Bool = false {
+        didSet {
+            planeDetectionLabel.isHidden = !detectPlane
+            detectBtn.isEnabled = !detectPlane
+            detectBtn.isHidden = detectPlane
+            placeBtn.isEnabled = detectPlane
+            placeBtn.isHidden = !detectPlane
+        }
+    }
+    private var playingField: PlayingField? //TODO: Can we do something about this?
+    private var currentPlane: Plane? //TODO: Can we do something about this?
+    private var arCardFinder: PlayConfiguration?
+    private var cardSequence : CardSequence?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        placeBtn.isEnabled = false
-        placeBtn.isHidden = true
-        // For debugging
+        //TODO: For debugging
         sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
         
-        // Show statistics such as fps and timing information
-        sceneView.showsStatistics = true
-        
         sceneView.autoenablesDefaultLighting = true
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        environment?.start()
+        arCardFinder?.start()
         
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
@@ -59,52 +68,62 @@ class PlayViewController: UIViewController, CardDetectorDelegate, PlaneDetectorD
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        environment?.stop()
+        arCardFinder?.stop()
         
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
-    @IBAction func testMoveRobot(_ sender: UIButton) {
-        //robot?.move(by: SCNVector3(1,0,0))
-        robot?.jump(by: 0.1, in: 0.3)
-    }
-    
     @IBAction func detectPlane(_ sender: UIButton) {
         detectPlane = true
-        placeBtn.isEnabled = true
-        placeBtn.isHidden = false
-        detectBtn.isEnabled = false
-        detectBtn.isHidden = true
+        
+        //Remove current plane
+        if let field = playingField {
+            sceneView.session.remove(anchor: field.origo.anchor)
+            currentPlane = nil
+        }
     }
     
     @IBAction func placeObjectOnPlane(_ sender: UIButton) {
         detectPlane = false
-        currentPlane?.planeNode.removeFromParentNode()
         if let plane = currentPlane {
             showModelAtDetectedPlane(plane: plane)
         }
-        detectBtn.isEnabled = true
-        detectBtn.isHidden = false
-        placeBtn.isEnabled = false
-        placeBtn.isHidden = true
+        //currentPlane?.node.removeFromParentNode()
+    }
+    
+    @IBAction func execute(_ sender: Any) {
+        cardSequence?.run(on: playingField!.robot)
+    }
+    
+    @IBAction func reset(_ sender: Any) {
+        playingField?.robot.model.position = SCNVector3(0, 0, 0)
+        playingField?.robot.model.rotation = SCNVector4(0, 0, 0, 1)
     }
     
     func showModelAtDetectedPlane(plane: Plane) {
-        robot = AnimatableNode(modelSource: "Meshes.scnassets/uglyBot.dae")
-        robot!.model.scale = SCNVector3(0.1, 0.1, 0.1)
-        let node = robot!.model
-        node.position = SCNVector3(0, 0, 0)
+        let origo = AnchoredNode(anchor: plane.anchor, node: plane.node.parent!)
         
-        let parent = sceneView.node(for: plane.anchor)
-        parent?.addChildNode(node)
+        let robot = AnimatableNode(modelSource: "Meshes.scnassets/uglyBot.dae")
+        robot.model.scale = SCNVector3(0.1, 0.1, 0.1)
+        robot.model.position = SCNVector3(0, 0, 0)
+        
+        playingField = PlayingField(origo: origo, ground: plane, robot: robot)
+        
+        origo.node.addChildNode(robot.model)
     }
     
-    func cardDetector(_ detector: CardDetector, found cardName: String) {
-        
+    func cardDetector(_ detector: CardDetector, found card: Card) {
+        recreateCardSequence()
     }
     
-    func cardDetector(_ detector: CardDetector, lost cardName: String) {
-        
+    func cardDetector(_ detector: CardDetector, lost card: Card) {
+        recreateCardSequence()
+    }
+    
+    private func recreateCardSequence() {
+        if let field = playingField {
+            cardSequence = CardSequence(cards: arCardFinder!.cardWorld, on: field.ground)
+        }
     }
     
     func shouldDetectPlanes(_ detector: PlaneDetector) -> Bool {
@@ -114,38 +133,4 @@ class PlayViewController: UIViewController, CardDetectorDelegate, PlaneDetectorD
     func planeDetector(_ detector: PlaneDetector, found plane: Plane) {
         currentPlane = plane
     }
-    
-    //TODO: START
-//    private var spheres = [SCNNode]()
-//    
-//    func cardDetector(_ detector: CardDetector, added cardName: String) {
-//        if let plane = currentPlane {
-//            for sphere in spheres {
-//                sphere.removeFromParentNode()
-//            }
-//            
-//            for cardPlane in (cardDetector?.cardPlanes)! {
-//                let center = cardPlane.center
-//                let projection = plane.project(point: center)
-//                
-//                let sphereGeometry = SCNSphere(radius: 0.005)
-//                let sphere = SCNNode(geometry: sphereGeometry)
-//                sphere.position = SCNVector3(projection.x, projection.y, 0)
-//                plane.planeNode.addChildNode(sphere)
-//                spheres.append(sphere)
-//            }
-//        }
-//    }
-//    
-//    func cardDetector(_ detector: CardDetector, removed cardName: String) {
-//        
-//    }
-//    
-//    func cardDetector(_ detector: CardDetector, scanned cardName: String) {
-//        
-//    }
-//    
-//    func cardDetectorLostCard(_ detector: CardDetector) {
-//        
-//    }
 }

@@ -10,7 +10,7 @@ import Foundation
 
 protocol CardDetectorDelegate: AnyObject {
     
-    func cardDetector(_ detector: CardDetector, found cardName: String)
+    func cardDetector(_ detector: CardDetector, found card: Card)
     
-    func cardDetector(_ detector: CardDetector, lost cardName: String)
+    func cardDetector(_ detector: CardDetector, lost card: Card)
 }
