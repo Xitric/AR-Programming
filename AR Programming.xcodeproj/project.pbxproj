@@ -15,6 +15,7 @@
 		6CEF68612174D11E006E62B8 /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEF68602174D11E006E62B8 /* PlayViewController.swift */; };
 		900F13542194269F001C2DC2 /* TileMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900F13532194269F001C2DC2 /* TileMap.swift */; };
 		900F13582194405D001C2DC2 /* CardSequenceProgressDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900F13572194405D001C2DC2 /* CardSequenceProgressDelegate.swift */; };
+		900F135A219447AF001C2DC2 /* LevelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900F1359219447AF001C2DC2 /* LevelManager.swift */; };
 		9057369B2175D1C200F231E1 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057369A2175D1C200F231E1 /* Card.swift */; };
 		905736A02175D44000F231E1 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057369F2175D44000F231E1 /* ScanViewController.swift */; };
 		905A3C7A2179BE05005E3AA5 /* ScanConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905A3C792179BE05005E3AA5 /* ScanConfiguration.swift */; };
@@ -68,6 +69,7 @@
 		6CEF68602174D11E006E62B8 /* PlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
 		900F13532194269F001C2DC2 /* TileMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileMap.swift; sourceTree = "<group>"; };
 		900F13572194405D001C2DC2 /* CardSequenceProgressDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSequenceProgressDelegate.swift; sourceTree = "<group>"; };
+		900F1359219447AF001C2DC2 /* LevelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelManager.swift; sourceTree = "<group>"; };
 		9057369A2175D1C200F231E1 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		9057369F2175D44000F231E1 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		905A3C792179BE05005E3AA5 /* ScanConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanConfiguration.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 			children = (
 				C79CED562179E175001487BF /* Level.swift */,
 				900F13532194269F001C2DC2 /* TileMap.swift */,
+				900F1359219447AF001C2DC2 /* LevelManager.swift */,
 			);
 			path = Level;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				90BA0F5C2188A1D7005B6A6B /* RotationCommand.swift in Sources */,
 				90CDABC42177425200664640 /* AnimatableNode.swift in Sources */,
 				C727311C2177581400754543 /* RightCommand.swift in Sources */,
+				900F135A219447AF001C2DC2 /* LevelManager.swift in Sources */,
 				905A3C8A2179C58A005E3AA5 /* ARConfiguration.swift in Sources */,
 				90DF7330216F441E00F51E0C /* AppDelegate.swift in Sources */,
 				905736A02175D44000F231E1 /* ScanViewController.swift in Sources */,

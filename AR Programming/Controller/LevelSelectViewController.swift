@@ -26,23 +26,7 @@ class LevelSelectViewController: UIViewController, UICollectionViewDataSource, U
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        if let url = try? FileManager.default.url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: false) {
-            
-            if let files = try? FileManager.default.contentsOfDirectory(at: url, includingPropertiesForKeys: nil) {
-                for file in files {
-                    if let jsonData = try? Data(contentsOf: file) {
-                        if let level = Level(json: jsonData) {
-                            levels.append(level)
-                        }
-                    }
-                }
-                
-                levels.sort { a,b in
-                    return a.levelNumber < b.levelNumber
-                }
-            }
-        }
+        levels.append(contentsOf: LevelManager.loadAllLevels())
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
