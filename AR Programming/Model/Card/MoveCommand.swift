@@ -12,7 +12,7 @@ import SceneKit
 class MoveCommand: CardCommand {
     
     func execute(modelIn3D node: AnimatableNode) -> SCNAction {
-        let movement = convert(axis: SCNVector3(x:2, y:0, z:0), to: node.model)
+        let movement = convert(axis: SCNVector3(x:0.5, y:0, z:0), to: node.model)
         return SCNAction.move(by: movement, duration: TimeInterval(3))
     }
 }

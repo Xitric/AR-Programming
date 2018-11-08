@@ -17,6 +17,7 @@ class LevelCollectionViewCell: UICollectionViewCell {
     var unlocked: Bool? {
         didSet {
             lock.isHidden = unlocked ?? false
+            isUserInteractionEnabled = unlocked ?? false
         }
     }
 }

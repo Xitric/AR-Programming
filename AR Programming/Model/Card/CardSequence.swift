@@ -13,6 +13,7 @@ import SceneKit
 class CardSequence {
     
     private var sequence = [Card]()
+    weak var delegate: CardSequenceProgressDelegate?
     
     init(cards: CardWorld, on surface: Plane) {
         let planes = cards.allPlanes()
@@ -58,17 +59,22 @@ class CardSequence {
         return surface.project(point: plane.center)
     }
     
-    public func run(on node: AnimatableNode) {
+    public func run(on animatable: AnimatableNode) {
         var actions = [SCNAction]()
         
         for card in sequence {
             if let command = card.command {
-                actions.append(command.execute(modelIn3D: node))
+                actions.append(command.execute(modelIn3D: animatable))
+                actions.append(SCNAction.customAction(duration: 0.5) { node, elapsed in
+                    if elapsed > 0.25 {
+                        self.delegate?.cardSequence(robot: animatable, executed: card)
+                    }
+                })
             }
         }
         
         let actionSequence = SCNAction.sequence(actions)
-        node.model.runAction(actionSequence)
+        animatable.model.runAction(actionSequence)
     }
     
     private struct PlaneCollection {

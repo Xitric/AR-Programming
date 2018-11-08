@@ -55,10 +55,7 @@ class LevelSelectViewController: UIViewController, UICollectionViewDataSource, U
         if let levelCell = cell as? LevelCollectionViewCell {
             let level = levels[indexPath.item]
             levelCell.levelName.text = level.name
-            
-            //TODO: Somehow detect unlocked levels. Just put in level file and update it??
-            levelCell.unlocked = levels[indexPath.item].levelNumber == 1
-            levelCell.isUserInteractionEnabled = levelCell.unlocked!
+            levelCell.unlocked = level.unlocked
         }
         
         return cell

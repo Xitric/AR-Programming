@@ -14,6 +14,7 @@ class Level: CardMapper, Codable {
     let levelNumber: Int
     var tiles: TileMap
     var cards: [Int:Card]
+    var unlocked = false
     
     var isComplete: Bool {
         return tiles.allCollectiblesTaken()
@@ -68,6 +69,7 @@ class Level: CardMapper, Codable {
         }
         
         self.tiles = try container.decode(TileMap.self, forKey: CodingKeys.tiles)
+        self.unlocked = try container.decode(Bool.self, forKey: CodingKeys.unlocked)
     }
     
     convenience init?(json: Data) {
@@ -75,6 +77,7 @@ class Level: CardMapper, Codable {
             self.init(name: newValue.name, levelNumber: newValue.levelNumber)
             self.cards = newValue.cards
             self.tiles = newValue.tiles
+            self.unlocked = newValue.unlocked
         } else {
             return nil
         }
@@ -93,6 +96,7 @@ class Level: CardMapper, Codable {
         try container.encode(encodeCards, forKey: .cards)
         
         try container.encode(tiles, forKey: CodingKeys.tiles)
+        try container.encode(unlocked, forKey: CodingKeys.unlocked)
     }
     
     private enum CodingKeys: String, CodingKey {
@@ -100,5 +104,6 @@ class Level: CardMapper, Codable {
         case number
         case cards
         case tiles
+        case unlocked
     }
 }
