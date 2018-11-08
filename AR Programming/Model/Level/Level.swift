@@ -11,8 +11,46 @@ import Foundation
 class Level: CardMapper, Codable {
     
     let name: String
+    let levelNumber: Int
+    var tiles: TileMap
     var cards: [Int:Card]
     
+    var isComplete: Bool {
+        return tiles.allCollectiblesTaken()
+    }
+    
+    private init(name: String, levelNumber: Int) {
+        self.name = name
+        self.levelNumber = levelNumber
+        self.cards = [Int:Card]()
+        self.tiles = TileMap(width: 0, height: 0)
+    }
+    
+    func getCard(identifier: Int) -> Card? {
+        return cards[identifier]
+    }
+    
+    func notifyMovedTo(x: Int, y: Int) {
+        tiles.collectAt(x: x, y: y)
+    }
+    
+    // MARK: TODO, level creator
+    init() {
+        name = "Level 3"
+        levelNumber = 3
+        cards = [Int:Card]()
+        cards[0] = CardFactory.instance.getCard(named: "move")
+        cards[1] = CardFactory.instance.getCard(named: "move")
+        cards[2] = CardFactory.instance.getCard(named: "left")
+        cards[3] = CardFactory.instance.getCard(named: "right")
+        tiles = TileMap(width: 3, height: 3)
+        tiles.setCollectible(x: 1, y: 0)
+        tiles.setCollectible(x: 2, y: 0)
+        tiles.setCollectible(x: 2, y: 1)
+        tiles.setCollectible(x: 2, y: 2)
+    }
+    
+    // MARK: Codable
     var json: Data? {
         return try? JSONEncoder().encode(self)
     }
@@ -21,57 +59,46 @@ class Level: CardMapper, Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
         let name = try container.decode(String.self, forKey: .name)
-        self.init(name: name)
+        let number = try container.decode(Int.self, forKey: CodingKeys.number)
+        self.init(name: name, levelNumber: number)
         
         let decodeCards = try container.decode([Int:String].self, forKey: .cards)
         for (index, cardName) in decodeCards {
             cards[index] = CardFactory.instance.getCard(named: cardName)
         }
+        
+        self.tiles = try container.decode(TileMap.self, forKey: CodingKeys.tiles)
     }
     
     convenience init?(json: Data) {
         if let newValue = try? JSONDecoder().decode(Level.self, from: json) {
-            self.init(name: newValue.name)
+            self.init(name: newValue.name, levelNumber: newValue.levelNumber)
             self.cards = newValue.cards
+            self.tiles = newValue.tiles
         } else {
             return nil
         }
     }
     
-    private init(name: String) {
-        self.name = name
-        self.cards = [Int:Card]()
-    }
-    
-    //TODO: Start
-    init() {
-        name = "Level 1"
-        cards = [Int:Card]()
-        cards[0] = CardFactory.instance.getCard(named: "move")
-        cards[1] = CardFactory.instance.getCard(named: "move")
-        cards[2] = CardFactory.instance.getCard(named: "left")
-        cards[3] = CardFactory.instance.getCard(named: "right")
-    }
-    //TODO: End
-    
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         
         try container.encode(name, forKey: .name)
+        try container.encode(levelNumber, forKey: CodingKeys.number)
         
         var encodeCards = [Int:String]()
         for (index, card) in cards {
             encodeCards[index] = card.name
         }
         try container.encode(encodeCards, forKey: .cards)
-    }
-    
-    func getCard(identifier: Int) -> Card? {
-        return cards[identifier]
+        
+        try container.encode(tiles, forKey: CodingKeys.tiles)
     }
     
     private enum CodingKeys: String, CodingKey {
         case name
+        case number
         case cards
+        case tiles
     }
 }

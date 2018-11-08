@@ -14,13 +14,9 @@ class LevelCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var lock: UIImageView!
     @IBOutlet weak var levelName: UILabel!
     
-    var completed: Bool? {
+    var unlocked: Bool? {
         didSet {
-            lock.isHidden = completed ?? false
+            lock.isHidden = unlocked ?? false
         }
-    }
-    
-    @IBAction func levelInfo(_ sender: UIButton) {
-        
     }
 }

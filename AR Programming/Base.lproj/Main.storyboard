@@ -313,7 +313,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Level Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1A5-Lv-kAM">
-                                                            <rect key="frame" x="20" y="204" width="89.5" height="22"/>
+                                                            <rect key="frame" x="20" y="204" width="89.5" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -321,27 +321,18 @@
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Lock" translatesAutoresizingMaskIntoConstraints="NO" id="DKQ-AF-inF">
                                                             <rect key="frame" x="28" y="28" width="160" height="160"/>
                                                         </imageView>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vg8-n4-8vv">
-                                                            <rect key="frame" x="174" y="204" width="22" height="22"/>
-                                                            <connections>
-                                                                <action selector="levelInfo:" destination="K9N-KL-Hu8" eventType="touchUpInside" id="NIz-nx-k3r"/>
-                                                            </connections>
-                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="Vg8-n4-8vv" secondAttribute="trailing" constant="20" symbolic="YES" id="2KS-xc-aUQ"/>
                                                         <constraint firstItem="DKQ-AF-inF" firstAttribute="top" secondItem="ybR-52-stl" secondAttribute="top" constant="8" id="94h-qA-gks"/>
-                                                        <constraint firstItem="Vg8-n4-8vv" firstAttribute="top" secondItem="ybR-52-stl" secondAttribute="bottom" constant="8" symbolic="YES" id="Eqb-AL-jcL"/>
                                                         <constraint firstItem="ybR-52-stl" firstAttribute="trailing" secondItem="DKQ-AF-inF" secondAttribute="trailing" constant="8" id="GlX-nJ-IOw"/>
                                                         <constraint firstItem="ybR-52-stl" firstAttribute="leading" secondItem="l5y-YH-8nt" secondAttribute="leading" constant="20" symbolic="YES" id="LKJ-H5-1ao"/>
                                                         <constraint firstItem="1A5-Lv-kAM" firstAttribute="leading" secondItem="l5y-YH-8nt" secondAttribute="leading" constant="20" symbolic="YES" id="OG0-GA-qvc"/>
                                                         <constraint firstItem="1A5-Lv-kAM" firstAttribute="top" secondItem="ybR-52-stl" secondAttribute="bottom" constant="8" symbolic="YES" id="Pck-Cq-IZa"/>
                                                         <constraint firstAttribute="trailing" secondItem="ybR-52-stl" secondAttribute="trailing" constant="20" symbolic="YES" id="S0s-K6-6Ji"/>
-                                                        <constraint firstItem="Vg8-n4-8vv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="1A5-Lv-kAM" secondAttribute="trailing" id="Wcm-U9-OY1"/>
+                                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1A5-Lv-kAM" secondAttribute="trailing" id="Y3p-17-6bd"/>
                                                         <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="1A5-Lv-kAM" secondAttribute="bottom" constant="20" symbolic="YES" id="c1W-AS-WeA"/>
                                                         <constraint firstItem="DKQ-AF-inF" firstAttribute="leading" secondItem="ybR-52-stl" secondAttribute="leading" constant="8" id="j0o-FA-nrW"/>
-                                                        <constraint firstItem="Vg8-n4-8vv" firstAttribute="height" secondItem="1A5-Lv-kAM" secondAttribute="height" id="lqU-Pp-5Vg"/>
                                                         <constraint firstItem="ybR-52-stl" firstAttribute="bottom" secondItem="DKQ-AF-inF" secondAttribute="bottom" constant="8" id="oxR-ZR-UEh"/>
                                                         <constraint firstItem="ybR-52-stl" firstAttribute="top" secondItem="l5y-YH-8nt" secondAttribute="top" constant="20" symbolic="YES" id="qYM-Zg-CpJ"/>
                                                     </constraints>

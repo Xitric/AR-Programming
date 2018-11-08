@@ -27,11 +27,19 @@ class LevelSelectViewController: UIViewController, UICollectionViewDataSource, U
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        //TODO: Single level
-        if let url = try? FileManager.default.url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent("Level1.json") {
-            if let jsonData = try? Data(contentsOf: url) {
-                if let level = Level(json: jsonData) {
-                    levels.append(level)
+        if let url = try? FileManager.default.url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: false) {
+            
+            if let files = try? FileManager.default.contentsOfDirectory(at: url, includingPropertiesForKeys: nil) {
+                for file in files {
+                    if let jsonData = try? Data(contentsOf: file) {
+                        if let level = Level(json: jsonData) {
+                            levels.append(level)
+                        }
+                    }
+                }
+                
+                levels.sort { a,b in
+                    return a.levelNumber < b.levelNumber
                 }
             }
         }
@@ -47,7 +55,10 @@ class LevelSelectViewController: UIViewController, UICollectionViewDataSource, U
         if let levelCell = cell as? LevelCollectionViewCell {
             let level = levels[indexPath.item]
             levelCell.levelName.text = level.name
-            levelCell.completed = true
+            
+            //TODO: Somehow detect unlocked levels. Just put in level file and update it??
+            levelCell.unlocked = levels[indexPath.item].levelNumber == 1
+            levelCell.isUserInteractionEnabled = levelCell.unlocked!
         }
         
         return cell
@@ -57,15 +68,4 @@ class LevelSelectViewController: UIViewController, UICollectionViewDataSource, U
         selectedLevel = levels[indexPath.item]
         performSegue(withIdentifier: "unwindToPlay", sender: self)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
