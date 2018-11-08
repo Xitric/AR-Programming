@@ -10,10 +10,10 @@ import Foundation
 
 struct Card {
     
-    public var name : String
-    public var description : String
-    public var type : CardType
-    public var command : CardCommand?
+    public let name : String
+    public let description : String
+    public let type : CardType
+    public let command : CardCommand?
 }
 
 enum CardType: String {

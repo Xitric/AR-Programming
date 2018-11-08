@@ -18,22 +18,16 @@ class PlayViewController: UIViewController, CardDetectorDelegate, PlaneDetectorD
             arCardFinder = PlayConfiguration(with: sceneView, for: "Cards")
             arCardFinder?.cardDetectorDelegate = self
             arCardFinder?.planeDetectorDelegate = self
-            
-            //TODO: Temporary
-            arCardFinder?.cardMapper = Level(cards:[
-                1: Card(name: "Start", description: "Use the Start card to indicate where the program starts. Whenever the program is executed, it will begin at this card.", type: CardType.control, command: nil),
-                2: Card(name: "Jump", description: "Use the Jump card to make the robot jump in place.", type: CardType.action, command: JumpCommand()),
-                3: Card(name: "Move", description: "Use the Jump card to make the robot jump in place.", type: CardType.action, command: MoveCommand()),
-                4: Card(name: "WE", description: "Use the Jump card to make the robot jump in place.", type: CardType.action, command: JumpCommand()),
-                5: Card(name: "qqwe", description: "Use the Jump card to make the robot jump in place.", type: CardType.action, command: JumpCommand()),
-                6: Card(name: "wrfr", description: "Use the Jump card to make the robot jump in place.", type: CardType.action, command: JumpCommand())
-                
-                ])
         }
     }
     @IBOutlet weak var planeDetectionLabel: UILabel!
     @IBOutlet weak var detectBtn: UIButton!
     
+    var level: Level? {
+        didSet {
+            arCardFinder?.cardMapper = level
+        }
+    }
     private var detectPlane: Bool = false {
         didSet {
             planeDetectionLabel.isHidden = !detectPlane
@@ -132,5 +126,19 @@ class PlayViewController: UIViewController, CardDetectorDelegate, PlaneDetectorD
     
     func planeDetector(_ detector: PlaneDetector, found plane: Plane) {
         currentPlane = plane
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "scan" {
+            if let scanner = segue.destination as? ScanViewController {
+                scanner.level = level;
+            }
+        }
+    }
+    
+    @IBAction func unwindToPlayView(segue: UIStoryboardSegue) {
+        if let levelSelector = segue.source as? LevelSelectViewController {
+            level = levelSelector.selectedLevel
+        }
     }
 }
