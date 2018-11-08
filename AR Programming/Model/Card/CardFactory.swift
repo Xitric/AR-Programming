@@ -11,7 +11,7 @@ import Foundation
 class CardFactory {
     
     static var instance = CardFactory();
-    private var cards : [String:Card]
+    var cards : [String:Card]
     
     init() {
         cards = [String:Card]()
