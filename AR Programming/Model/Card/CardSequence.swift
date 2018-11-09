@@ -60,25 +60,36 @@ class CardSequence {
     }
     
     public func run(on animatable: AnimatableNode) {
-        var actions = [SCNAction]()
-        
-        for card in sequence {
-            if let command = card.command {
-                actions.append(command.execute(modelIn3D: animatable))
-                actions.append(SCNAction.customAction(duration: 0.5) { node, elapsed in
-                    if elapsed > 0.25 {
-                        self.delegate?.cardSequence(robot: animatable, executed: card)
-                    }
-                })
+        let remainingSeuence = [Card](sequence)
+        performNextAction(in: remainingSeuence, on: animatable)
+    }
+    
+    private func performNextAction(in remainingSequence: [Card], on animatable: AnimatableNode) {
+        if let card = remainingSequence.first {
+            if let action = card.command?.execute(modelIn3D: animatable) {
+                animatable.model.runAction(action) {
+                    self.delegate?.cardSequence(robot: animatable, executed: card)
+                    self.performNextAction(in: [Card](remainingSequence.dropFirst()), on: animatable)
+                }
+            } else {
+                self.performNextAction(in: [Card](remainingSequence.dropFirst()), on: animatable)
             }
         }
-        
-        let actionSequence = SCNAction.sequence(actions)
-        animatable.model.runAction(actionSequence)
     }
     
     private struct PlaneCollection {
         var startPlane: Plane
         var planes: [Plane]
+    }
+}
+
+private class OneOffDelegation {
+    private var triggered = false
+    
+    public func trigger() -> Bool {
+        let oldVal = triggered;
+        triggered = true;
+        
+        return !oldVal;
     }
 }

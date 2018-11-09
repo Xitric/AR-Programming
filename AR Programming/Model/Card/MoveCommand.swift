@@ -13,6 +13,6 @@ class MoveCommand: CardCommand {
     
     func execute(modelIn3D node: AnimatableNode) -> SCNAction {
         let movement = convert(axis: SCNVector3(x:0.5, y:0, z:0), to: node.model)
-        return SCNAction.move(by: movement, duration: TimeInterval(3))
+        return SCNAction.move(by: movement, duration: TimeInterval(1.5))
     }
 }

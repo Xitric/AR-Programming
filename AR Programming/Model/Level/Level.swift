@@ -36,19 +36,11 @@ class Level: CardMapper, Codable {
     }
     
     // MARK: TODO, level creator
-    init() {
-        name = "Level 3"
-        levelNumber = 3
-        cards = [Int:Card]()
-        cards[0] = CardFactory.instance.getCard(named: "move")
-        cards[1] = CardFactory.instance.getCard(named: "move")
-        cards[2] = CardFactory.instance.getCard(named: "left")
-        cards[3] = CardFactory.instance.getCard(named: "right")
-        tiles = TileMap(width: 3, height: 3)
-        tiles.setCollectible(x: 1, y: 0)
-        tiles.setCollectible(x: 2, y: 0)
-        tiles.setCollectible(x: 2, y: 1)
-        tiles.setCollectible(x: 2, y: 2)
+    init(name: String, number: Int) {
+        self.name = name
+        self.levelNumber = number
+        self.cards = [Int:Card]()
+        self.tiles = TileMap(width: 0, height: 0)
     }
     
     // MARK: Codable
