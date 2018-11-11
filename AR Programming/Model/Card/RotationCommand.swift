@@ -15,6 +15,6 @@ protocol RotationCommand: CardCommand {
 
 extension RotationCommand {
     public func rotationAction(by rotation: Float, around axis: SCNVector3) -> SCNAction {
-        return SCNAction.rotate(by: CGFloat(rotation), around: axis, duration: TimeInterval(3))
+        return SCNAction.rotate(by: CGFloat(rotation), around: axis, duration: TimeInterval(1.5))
     }
 }

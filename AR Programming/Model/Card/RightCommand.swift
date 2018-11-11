@@ -12,6 +12,6 @@ import SceneKit
 class RightCommand: RotationCommand {
     func execute(modelIn3D animatableNode: AnimatableNode) -> SCNAction {
         let axis = convert(axis: SCNVector3(0, 1, 0), to: animatableNode.model)
-        return rotationAction(by: 0.5 * Float.pi, around: axis)
+        return rotationAction(by: -0.5 * Float.pi, around: axis)
     }
 }

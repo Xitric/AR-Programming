@@ -10,7 +10,7 @@ import UIKit
 import SceneKit
 import ARKit
 
-class PlayViewController: UIViewController, CardDetectorDelegate, PlaneDetectorDelegate {
+class PlayViewController: UIViewController, CardDetectorDelegate, PlaneDetectorDelegate, CardSequenceProgressDelegate {
     
     @IBOutlet weak var placeBtn: UIButton!
     @IBOutlet var sceneView: ARSCNView! {
@@ -22,10 +22,14 @@ class PlayViewController: UIViewController, CardDetectorDelegate, PlaneDetectorD
     }
     @IBOutlet weak var planeDetectionLabel: UILabel!
     @IBOutlet weak var detectBtn: UIButton!
+    @IBOutlet weak var executeBtn: UIButton!
+    @IBOutlet weak var detectSequenceBtn: UIButton!
+    @IBOutlet weak var winLabel: UILabel!
     
     var level: Level? {
         didSet {
             arCardFinder?.cardMapper = level
+            winLabel.isHidden = true
         }
     }
     private var detectPlane: Bool = false {
@@ -40,13 +44,18 @@ class PlayViewController: UIViewController, CardDetectorDelegate, PlaneDetectorD
     private var playingField: PlayingField? //TODO: Can we do something about this?
     private var currentPlane: Plane? //TODO: Can we do something about this?
     private var arCardFinder: PlayConfiguration?
-    private var cardSequence : CardSequence?
+    private var cardSequence : CardSequence? {
+        didSet {
+            detectSequenceBtn.isHidden = cardSequence != nil
+            executeBtn.isHidden = cardSequence == nil
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //TODO: For debugging
-        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
+        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
         
         sceneView.autoenablesDefaultLighting = true
     }
@@ -80,7 +89,8 @@ class PlayViewController: UIViewController, CardDetectorDelegate, PlaneDetectorD
     @IBAction func placeObjectOnPlane(_ sender: UIButton) {
         detectPlane = false
         if let plane = currentPlane {
-            showModelAtDetectedPlane(plane: plane)
+            showModelAt(detectedPlane: plane)
+            showLevelAt(detectedPlane: plane)
         }
         //currentPlane?.node.removeFromParentNode()
     }
@@ -92,9 +102,28 @@ class PlayViewController: UIViewController, CardDetectorDelegate, PlaneDetectorD
     @IBAction func reset(_ sender: Any) {
         playingField?.robot.model.position = SCNVector3(0, 0, 0)
         playingField?.robot.model.rotation = SCNVector4(0, 0, 0, 1)
+        cardSequence = nil
     }
     
-    func showModelAtDetectedPlane(plane: Plane) {
+    func cardSequence(robot: AnimatableNode, executed card: Card) {
+        print("Robot performed action")
+        print(robot.model.position)
+        print("--------------------------")
+        
+        if let currentLevel = level {
+            let floatX = (robot.model.position.x / 0.05).rounded()
+            let floatY = (robot.model.position.z / 0.05).rounded()
+            currentLevel.notifyMovedTo(x: Int(floatX), y: Int(floatY))
+            
+            if currentLevel.isComplete {
+                print("You completed \(currentLevel.name)")
+                //TODO: Complete level logic
+                winLabel.isHidden = false
+            }
+        }
+    }
+    
+    func showModelAt(detectedPlane plane: Plane) {
         let origo = AnchoredNode(anchor: plane.anchor, node: plane.node.parent!)
         
         let robot = AnimatableNode(modelSource: "Meshes.scnassets/uglyBot.dae")
@@ -106,17 +135,34 @@ class PlayViewController: UIViewController, CardDetectorDelegate, PlaneDetectorD
         origo.node.addChildNode(robot.model)
     }
     
+    func showLevelAt(detectedPlane plane: Plane) {
+        if let currentLevel = level {
+            for collectible in currentLevel.tiles.collectiblePositions {
+                let sphereGeom = SCNSphere(radius: 0.01)
+                let sphereNode = SCNNode(geometry: sphereGeom)
+                
+                sphereNode.position = SCNVector3(collectible.x * 0.05, 0, collectible.y * 0.05)
+                playingField?.origo.node.addChildNode(sphereNode)
+            }
+        }
+    }
+    
     func cardDetector(_ detector: CardDetector, found card: Card) {
-        recreateCardSequence()
+        
     }
     
     func cardDetector(_ detector: CardDetector, lost card: Card) {
+        
+    }
+    
+    @IBAction func detectCardSequence(_ sender: UIButton) {
         recreateCardSequence()
     }
     
     private func recreateCardSequence() {
         if let field = playingField {
             cardSequence = CardSequence(cards: arCardFinder!.cardWorld, on: field.ground)
+            cardSequence?.delegate = self
         }
     }
     
