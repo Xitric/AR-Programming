@@ -428,16 +428,16 @@
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Branch" translatesAutoresizingMaskIntoConstraints="NO" id="3Ex-3y-xdP">
-                                                    <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3Ex-3y-xdP">
+                                                    <rect key="frame" x="16" y="16" width="168" height="168"/>
                                                 </imageView>
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="3Ex-3y-xdP" firstAttribute="leading" secondItem="Tlx-02-3Ur" secondAttribute="leading" id="aId-Md-gQo"/>
-                                            <constraint firstAttribute="trailing" secondItem="3Ex-3y-xdP" secondAttribute="trailing" id="r3J-5W-8hK"/>
-                                            <constraint firstAttribute="bottom" secondItem="3Ex-3y-xdP" secondAttribute="bottom" id="rtL-Ug-qoD"/>
-                                            <constraint firstItem="3Ex-3y-xdP" firstAttribute="top" secondItem="Tlx-02-3Ur" secondAttribute="top" id="vKX-WT-1x2"/>
+                                            <constraint firstItem="3Ex-3y-xdP" firstAttribute="top" secondItem="Tlx-02-3Ur" secondAttribute="top" constant="16" id="BZt-jx-AS9"/>
+                                            <constraint firstAttribute="bottom" secondItem="3Ex-3y-xdP" secondAttribute="bottom" constant="16" id="KRu-CD-wl2"/>
+                                            <constraint firstItem="3Ex-3y-xdP" firstAttribute="leading" secondItem="Tlx-02-3Ur" secondAttribute="leading" constant="16" id="pkO-zb-Lhf"/>
+                                            <constraint firstAttribute="trailing" secondItem="3Ex-3y-xdP" secondAttribute="trailing" constant="16" id="yrs-mK-lyk"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="image" destination="3Ex-3y-xdP" id="RsY-XD-28j"/>
@@ -473,19 +473,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e94-9d-fz2">
-                                <rect key="frame" x="43" y="169" width="535" height="354"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e94-9d-fz2">
+                                <rect key="frame" x="43" y="169" width="299" height="68"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="urr-0X-9sF">
+                                <rect key="frame" x="43" y="340" width="514" height="251"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lcO-dC-Pvb">
+                                <rect key="frame" x="20" y="277" width="168" height="168"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="OvP-Vf-Q0z"/>
                     </view>
                     <connections>
-                        <outlet property="cardText" destination="e94-9d-fz2" id="FNZ-US-z1J"/>
+                        <outlet property="cardDescriptionLabel" destination="urr-0X-9sF" id="rfa-tX-TKX"/>
+                        <outlet property="cardImageView" destination="lcO-dC-Pvb" id="TI6-sb-63y"/>
+                        <outlet property="cardTitleLabel" destination="e94-9d-fz2" id="37m-98-QNi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zPc-RB-OEI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -533,7 +546,6 @@
     </scenes>
     <resources>
         <image name="ARKit-Control-Label-Icon" width="78" height="78"/>
-        <image name="Branch" width="207" height="207"/>
         <image name="Levels" width="128" height="128"/>
         <image name="Lock" width="156" height="172"/>
         <image name="Reticle" width="128" height="128"/>

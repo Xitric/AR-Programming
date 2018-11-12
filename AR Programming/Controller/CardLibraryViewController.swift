@@ -11,8 +11,10 @@ import UIKit
 
 class CardLibraryViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    private var cardLibrary = [#imageLiteral(resourceName: "Start"),#imageLiteral(resourceName: "Left"),#imageLiteral(resourceName: "Right"),#imageLiteral(resourceName: "Move"),#imageLiteral(resourceName: "Jump"),#imageLiteral(resourceName: "Branch")]
+    //private var cardLibrary = [#imageLiteral(resourceName: "Start"),#imageLiteral(resourceName: "Left"),#imageLiteral(resourceName: "Right"),#imageLiteral(resourceName: "Move"),#imageLiteral(resourceName: "Jump"),#imageLiteral(resourceName: "Branch")]
 
+    private var cardFactory = CardFactory.instance
+    private lazy var cardLibrary = cardFactory.cardLibrary
     
     @IBOutlet weak var CardCollectionView: UICollectionView! {
         didSet {
@@ -37,8 +39,11 @@ class CardLibraryViewController: UIViewController, UICollectionViewDelegate, UIC
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardCell", for: indexPath)
         if let cardCell = cell as? CardCollectionViewCell {
-            let imageFromLibrary = cardLibrary[indexPath.item]
-            cardCell.image.image = imageFromLibrary
+            let card = cardLibrary[indexPath.item]
+            let cardLibraryImage = UIImage(named: card.name)
+            cardCell.image.image = cardLibraryImage
+            cardCell.cardTitle = card.name
+            cardCell.cardDescription = card.description
         }
         return cell
     }
@@ -46,7 +51,11 @@ class CardLibraryViewController: UIViewController, UICollectionViewDelegate, UIC
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Show Card Information" {
             if let cdvc = segue.destination as? CardDetailViewController {
-                cdvc.text = "uygkhi"
+                let card = sender as! CardCollectionViewCell
+                cdvc.cardTitle = card.cardTitle
+                cdvc.cardDescription = card.cardDescription
+                cdvc.cardImage = card.image.image
+            
             }
         }
     }

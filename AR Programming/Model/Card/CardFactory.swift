@@ -11,6 +11,7 @@ import Foundation
 class CardFactory {
     
     static var instance = CardFactory();
+    var cardLibrary: [Card] = []
     var cards : [String:Card]
     
     init() {
@@ -30,6 +31,7 @@ class CardFactory {
     
     private func addCard(_ card: Card) {
         cards[card.name.lowercased()] = card
+        cardLibrary.append(card)
     }
     
     public func getCard(named name: String) -> Card? {

@@ -12,4 +12,6 @@ import UIKit
 class CardCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var image: UIImageView!
+    var cardTitle: String?
+    var cardDescription: String?
 }
