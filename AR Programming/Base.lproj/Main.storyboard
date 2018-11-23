@@ -124,22 +124,6 @@
             </objects>
             <point key="canvasLocation" x="2132.03125" y="111.91406249999999"/>
         </scene>
-        <!--Tutorials-->
-        <scene sceneID="NyI-Kw-ldM">
-            <objects>
-                <viewController id="dKU-5f-5gD" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="kEJ-wn-57q">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="9ue-z0-nAB"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Tutorials" id="azx-eC-tro"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qhR-8y-rmP" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1365.625" y="835.546875"/>
-        </scene>
         <!--Level Select-->
         <scene sceneID="dMt-vf-O2p">
             <objects>
@@ -255,7 +239,6 @@
                     <connections>
                         <segue destination="Ejv-fX-7v8" kind="relationship" relationship="viewControllers" id="OOR-dF-VAf"/>
                         <segue destination="gEk-lW-4Oz" kind="relationship" relationship="viewControllers" id="PT5-jw-3hF"/>
-                        <segue destination="dKU-5f-5gD" kind="relationship" relationship="viewControllers" id="QcV-5M-N2v"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Gy-sZ-D8w" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -427,7 +410,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Move around to find a playable surface. Press the Place button when you are happy with the playing area." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PiF-y1-IPL">
-                                <rect key="frame" x="64" y="64" width="640" height="41"/>
+                                <rect key="frame" x="71" y="64" width="626" height="41"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -466,20 +449,29 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congratulations on unlocking the next level. Find it in level select, or reset this level to play again." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZkL-Ck-Rpp">
+                                <rect key="frame" x="101.5" y="506.5" width="565" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <constraints>
                             <constraint firstItem="PiF-y1-IPL" firstAttribute="top" secondItem="IsN-tU-7YM" secondAttribute="top" constant="64" id="05c-7i-7fd"/>
+                            <constraint firstItem="ZkL-Ck-Rpp" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="r7f-Fu-KoH" secondAttribute="leading" constant="96" id="1Oj-BP-ehO"/>
                             <constraint firstItem="hTh-5f-7nh" firstAttribute="centerX" secondItem="IsN-tU-7YM" secondAttribute="centerX" id="6qW-61-skg"/>
                             <constraint firstAttribute="bottomMargin" secondItem="x2I-t6-tvF" secondAttribute="bottom" constant="16" id="6vV-y2-NCc"/>
                             <constraint firstItem="x2I-t6-tvF" firstAttribute="leading" secondItem="IcD-R1-wft" secondAttribute="trailing" id="8Kv-he-VAe"/>
                             <constraint firstItem="IcD-R1-wft" firstAttribute="leading" secondItem="IsN-tU-7YM" secondAttribute="leading" constant="16" id="GvD-zM-qUh"/>
                             <constraint firstItem="j0e-mD-Rgu" firstAttribute="centerX" secondItem="IsN-tU-7YM" secondAttribute="centerX" id="L74-Kp-XNz"/>
-                            <constraint firstAttribute="trailing" secondItem="PiF-y1-IPL" secondAttribute="trailing" constant="64" id="Rac-9S-3OI"/>
+                            <constraint firstItem="ZkL-Ck-Rpp" firstAttribute="centerX" secondItem="IsN-tU-7YM" secondAttribute="centerX" id="RlL-uA-an0"/>
                             <constraint firstItem="hTh-5f-7nh" firstAttribute="bottom" secondItem="SYT-AS-Sag" secondAttribute="bottom" id="ShC-ll-P8h"/>
+                            <constraint firstItem="ZkL-Ck-Rpp" firstAttribute="top" secondItem="j0e-mD-Rgu" secondAttribute="bottom" constant="16" id="WB5-ZM-iZA"/>
                             <constraint firstAttribute="bottomMargin" secondItem="IcD-R1-wft" secondAttribute="bottom" constant="16" id="YAf-4A-3SA"/>
                             <constraint firstItem="j0e-mD-Rgu" firstAttribute="centerY" secondItem="IsN-tU-7YM" secondAttribute="centerY" id="cve-0c-SK8"/>
-                            <constraint firstItem="PiF-y1-IPL" firstAttribute="leading" secondItem="IsN-tU-7YM" secondAttribute="leading" constant="64" id="dfo-KV-BRQ"/>
+                            <constraint firstItem="PiF-y1-IPL" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="IsN-tU-7YM" secondAttribute="leading" constant="64" id="dfo-KV-BRQ"/>
                             <constraint firstItem="PiF-y1-IPL" firstAttribute="centerX" secondItem="IsN-tU-7YM" secondAttribute="centerX" id="qgS-MQ-t8z"/>
+                            <constraint firstItem="PiF-y1-IPL" firstAttribute="centerX" secondItem="IsN-tU-7YM" secondAttribute="centerX" id="tuG-Mo-zUt"/>
                             <constraint firstItem="SYT-AS-Sag" firstAttribute="leading" secondItem="IcD-R1-wft" secondAttribute="leading" id="wKZ-3x-Ziz"/>
                             <constraint firstAttribute="bottomMargin" secondItem="hTh-5f-7nh" secondAttribute="bottom" constant="16" id="zGt-wQ-VQT"/>
                         </constraints>
@@ -491,6 +483,7 @@
                         <outlet property="placeButton" destination="hTh-5f-7nh" id="aeH-8l-nAq"/>
                         <outlet property="planeDetectionLabel" destination="PiF-y1-IPL" id="ctc-zf-r24"/>
                         <outlet property="resetButton" destination="x2I-t6-tvF" id="hgj-qu-acl"/>
+                        <outlet property="winDescription" destination="ZkL-Ck-Rpp" id="daL-XR-fn7"/>
                         <outlet property="winLabel" destination="j0e-mD-Rgu" id="K3m-H1-kvw"/>
                     </connections>
                 </viewController>

@@ -51,7 +51,7 @@ class LevelSelectViewController: UIViewController, UICollectionViewDataSource, U
     }
     
     @IBAction func recreateLevels(_ sender: Any) {
-        let l1 = Level(name: "Level 1", number: 1)
+        let l1 = Level(name: "Level 1", number: 1, unlocks: "Level 2")
         l1.cards = [Int:Card]()
         l1.cards[0] = CardFactory.instance.getCard(named: "start")
         l1.cards[1] = CardFactory.instance.getCard(named: "move")
@@ -65,7 +65,7 @@ class LevelSelectViewController: UIViewController, UICollectionViewDataSource, U
             }
         }
         
-        let l2 = Level(name: "Level 2", number: 2)
+        let l2 = Level(name: "Level 2", number: 2, unlocks: "Level 3")
         l2.cards = [Int:Card]()
         l2.cards[0] = CardFactory.instance.getCard(named: "start")
         l2.cards[1] = CardFactory.instance.getCard(named: "move")
@@ -86,7 +86,7 @@ class LevelSelectViewController: UIViewController, UICollectionViewDataSource, U
             }
         }
         
-        let l3 = Level(name: "Level 3", number: 3)
+        let l3 = Level(name: "Level 3", number: 3, unlocks: nil)
         l3.cards = [Int:Card]()
         l3.cards[0] = CardFactory.instance.getCard(named: "start")
         l3.cards[1] = CardFactory.instance.getCard(named: "move")
@@ -119,7 +119,5 @@ class LevelSelectViewController: UIViewController, UICollectionViewDataSource, U
         }
         
         LevelManager.markLevel(withName: "Level 1", asUnlocked: true)
-        LevelManager.markLevel(withName: "Level 2", asUnlocked: true)
-        LevelManager.markLevel(withName: "Level 3", asUnlocked: true)
     }
 }

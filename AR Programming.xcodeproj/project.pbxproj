@@ -29,6 +29,7 @@
 		905A3C92217A0891005E3AA5 /* LevelSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905A3C91217A0891005E3AA5 /* LevelSelectViewController.swift */; };
 		905A3C94217A09D0005E3AA5 /* LevelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905A3C93217A09D0005E3AA5 /* LevelCollectionViewCell.swift */; };
 		90A55B0921A83B0700FD7CDD /* AudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A55B0821A83B0700FD7CDD /* AudioController.swift */; };
+		90A55B0E21A84DB000FD7CDD /* win.wav in Resources */ = {isa = PBXBuildFile; fileRef = 90A55B0B21A83E8D00FD7CDD /* win.wav */; };
 		90BA0F5C2188A1D7005B6A6B /* RotationCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BA0F5B2188A1D7005B6A6B /* RotationCommand.swift */; };
 		90CDABC221773E2700664640 /* Meshes.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 90CDABC121773E2700664640 /* Meshes.scnassets */; };
 		90CDABC42177425200664640 /* AnimatableNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CDABC32177425200664640 /* AnimatableNode.swift */; };
@@ -87,7 +88,7 @@
 		905A3C93217A09D0005E3AA5 /* LevelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelCollectionViewCell.swift; sourceTree = "<group>"; };
 		90A55B0621A834FD00FD7CDD /* Pods_AR_ProgrammingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_AR_ProgrammingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		90A55B0821A83B0700FD7CDD /* AudioController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioController.swift; sourceTree = "<group>"; };
-		90A55B0B21A83E8D00FD7CDD /* win.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = win.wav; path = ../win.wav; sourceTree = "<group>"; };
+		90A55B0B21A83E8D00FD7CDD /* win.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = win.wav; sourceTree = "<group>"; };
 		90BA0F5B2188A1D7005B6A6B /* RotationCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationCommand.swift; sourceTree = "<group>"; };
 		90CDABC121773E2700664640 /* Meshes.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Meshes.scnassets; sourceTree = "<group>"; };
 		90CDABC32177425200664640 /* AnimatableNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableNode.swift; sourceTree = "<group>"; };
@@ -191,7 +192,6 @@
 		902AB4202195BFDE00FD49C6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				90A55B0B21A83E8D00FD7CDD /* win.wav */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -238,6 +238,14 @@
 			path = Card;
 			sourceTree = "<group>";
 		};
+		90A55B0D21A84C1A00FD7CDD /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				90A55B0B21A83E8D00FD7CDD /* win.wav */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
 		90DF7323216F441E00F51E0C = {
 			isa = PBXGroup;
 			children = (
@@ -262,6 +270,7 @@
 		90DF732E216F441E00F51E0C /* AR Programming */ = {
 			isa = PBXGroup;
 			children = (
+				90A55B0D21A84C1A00FD7CDD /* resources */,
 				9057369E2175D42900F231E1 /* Controller */,
 				905736992175D19000F231E1 /* Model */,
 				90DF732F216F441E00F51E0C /* AppDelegate.swift */,
@@ -370,6 +379,7 @@
 				90DF733C216F442000F51E0C /* LaunchScreen.storyboard in Resources */,
 				90DF7339216F442000F51E0C /* Assets.xcassets in Resources */,
 				90CDABC221773E2700664640 /* Meshes.scnassets in Resources */,
+				90A55B0E21A84DB000FD7CDD /* win.wav in Resources */,
 				90DF7337216F441E00F51E0C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

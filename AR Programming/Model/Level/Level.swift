@@ -15,16 +15,18 @@ class Level: CardMapper, Codable {
     var tiles: TileMap
     var cards: [Int:Card]
     var unlocked = false
+    var unlocks: String?
     
     var isComplete: Bool {
         return tiles.allCollectiblesTaken()
     }
     
-    private init(name: String, levelNumber: Int) {
+    private init(name: String, levelNumber: Int, unlocks: String?) {
         self.name = name
         self.levelNumber = levelNumber
         self.cards = [Int:Card]()
         self.tiles = TileMap(width: 0, height: 0)
+        self.unlocks = unlocks
     }
     
     func getCard(identifier: Int) -> Card? {
@@ -33,14 +35,21 @@ class Level: CardMapper, Codable {
     
     func notifyMovedTo(x: Int, y: Int) {
         tiles.collectAt(x: x, y: y)
+        
+        if isComplete {
+            if let levelToUnlock = unlocks {
+                LevelManager.markLevel(withName: levelToUnlock, asUnlocked: true)
+            }
+        }
+    }
+    
+    func reset() {
+        tiles.reset()
     }
     
     // MARK: TODO, level creator
-    init(name: String, number: Int) {
-        self.name = name
-        self.levelNumber = number
-        self.cards = [Int:Card]()
-        self.tiles = TileMap(width: 0, height: 0)
+    convenience init(name: String, number: Int, unlocks: String?) {
+        self.init(name: name, levelNumber: number, unlocks: unlocks)
     }
     
     // MARK: Codable
@@ -53,7 +62,8 @@ class Level: CardMapper, Codable {
         
         let name = try container.decode(String.self, forKey: .name)
         let number = try container.decode(Int.self, forKey: CodingKeys.number)
-        self.init(name: name, levelNumber: number)
+        let unlocks = try? container.decode(String.self, forKey: CodingKeys.unlocks)
+        self.init(name: name, levelNumber: number, unlocks: unlocks)
         
         let decodeCards = try container.decode([Int:String].self, forKey: .cards)
         for (index, cardName) in decodeCards {
@@ -66,7 +76,7 @@ class Level: CardMapper, Codable {
     
     convenience init?(json: Data) {
         if let newValue = try? JSONDecoder().decode(Level.self, from: json) {
-            self.init(name: newValue.name, levelNumber: newValue.levelNumber)
+            self.init(name: newValue.name, levelNumber: newValue.levelNumber, unlocks: newValue.unlocks)
             self.cards = newValue.cards
             self.tiles = newValue.tiles
             self.unlocked = newValue.unlocked
@@ -80,6 +90,7 @@ class Level: CardMapper, Codable {
         
         try container.encode(name, forKey: .name)
         try container.encode(levelNumber, forKey: CodingKeys.number)
+        try container.encode(unlocks, forKey: CodingKeys.unlocks)
         
         var encodeCards = [Int:String]()
         for (index, card) in cards {
@@ -97,5 +108,6 @@ class Level: CardMapper, Codable {
         case cards
         case tiles
         case unlocked
+        case unlocks
     }
 }
