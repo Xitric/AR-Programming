@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 class CardLibraryViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -15,6 +16,7 @@ class CardLibraryViewController: UIViewController, UICollectionViewDelegate, UIC
 
     private var cardFactory = CardFactory.instance
     private lazy var cardLibrary = cardFactory.cardLibrary
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     @IBOutlet weak var CardCollectionView: UICollectionView! {
         didSet {
