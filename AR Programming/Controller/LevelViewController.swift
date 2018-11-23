@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import SceneKit
+import AudioKit
 
 class LevelViewController: UIViewController, PlaneDetectorDelegate, CardSequenceProgressDelegate {
     
@@ -18,6 +19,9 @@ class LevelViewController: UIViewController, PlaneDetectorDelegate, CardSequence
     @IBOutlet weak var resetButton: UIButton!
     @IBOutlet weak var planeDetectionLabel: UILabel!
     @IBOutlet weak var winLabel: UILabel!
+    
+    //MARK: Sound
+    var winSound = AudioController.instance.makeSound(withName: "win.wav")
     
     var arController: ARController?
     private var currentPlane: Plane? {
@@ -98,10 +102,14 @@ class LevelViewController: UIViewController, PlaneDetectorDelegate, CardSequence
             cardSequence = CardSequence(cards: arController!.cardWorld, on: field.ground)
             cardSequence?.delegate = self
         }
+        
+        AudioController.instance.start()
+        winSound?.start()
     }
     
     @IBAction func executeSequence(_ sender: UIButton) {
         cardSequence?.run(on: playingField!.robot)
+        winSound?.start()
     }
     
     @IBAction func resetLevel(_ sender: UIButton) {
@@ -123,6 +131,7 @@ class LevelViewController: UIViewController, PlaneDetectorDelegate, CardSequence
             if currentLevel.isComplete {
                 print("You completed \(currentLevel.name)")
                 //TODO: Complete level logic
+                //TODO: Other thread
                 winLabel.isHidden = false
             }
         }
