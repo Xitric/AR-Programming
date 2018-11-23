@@ -31,9 +31,9 @@ class ScanViewController : UIViewController, CardScannerDelegate {
     
     private func display(card optCard: Card?) {
         if let card = optCard {
-            self.cardName.text = card.name + " | " + card.type.rawValue + " Card"
+            self.cardName.text = "\(card.name) | \(card.type.rawValue) Card"
             self.cardDescription.text = card.description
-            self.cardImage.image = UIImage(named: card.name + "Card")
+            self.cardImage.image = UIImage(named: card.name)
         } else {
             self.cardName.text = "No card"
             self.cardDescription.text = "Point the circle in the center of the screen at a card to learn more about it!"

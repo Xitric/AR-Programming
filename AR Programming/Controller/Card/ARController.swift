@@ -71,10 +71,11 @@ class ARController: NSObject, ARSessionDelegate, ARSCNViewDelegate  {
         let referenceImage = imageAnchor.referenceImage
         let plane = Plane(width: referenceImage.physicalSize.width, height: referenceImage.physicalSize.height, anchor: imageAnchor)
         
-        node.addChildNode(plane.node)
-        
         if let cardIdentifier = Int(referenceImage.name!) {
             if let card = cardMapper?.getCard(identifier: cardIdentifier) {
+                plane.node.geometry?.firstMaterial?.diffuse.contents = "Card Library/\(card.name).png"
+                node.addChildNode(plane.node)
+                
                 cardWorld.addCard(plane: plane, card: card)
             }
         }

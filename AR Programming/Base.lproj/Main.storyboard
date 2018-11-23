@@ -483,6 +483,7 @@
                             <constraint firstItem="SYT-AS-Sag" firstAttribute="leading" secondItem="IcD-R1-wft" secondAttribute="leading" id="wKZ-3x-Ziz"/>
                             <constraint firstAttribute="bottomMargin" secondItem="hTh-5f-7nh" secondAttribute="bottom" constant="16" id="zGt-wQ-VQT"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="r7f-Fu-KoH"/>
                     </view>
                     <connections>
                         <outlet property="detectButton" destination="IcD-R1-wft" id="MPK-3x-iGR"/>
@@ -565,6 +566,7 @@
                             <constraint firstItem="a9v-Yi-dFX" firstAttribute="centerY" secondItem="NHh-BU-V60" secondAttribute="centerY" id="M50-SE-b4r"/>
                             <constraint firstItem="rKe-rH-JdA" firstAttribute="leading" secondItem="NHh-BU-V60" secondAttribute="leading" id="N52-K5-R6p"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Os-K7-GeY"/>
                     </view>
                     <connections>
                         <outlet property="cardDescription" destination="cqR-Fp-7sw" id="i4l-De-NQG"/>
