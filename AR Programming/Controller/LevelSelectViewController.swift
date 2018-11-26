@@ -22,6 +22,7 @@ class LevelSelectViewController: UIViewController, UICollectionViewDataSource, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -118,6 +119,7 @@ class LevelSelectViewController: UIViewController, UICollectionViewDataSource, U
             }
         }
         
+       // Call levelManager to save unlocked levels in Core Data
         LevelManager.markLevel(withName: "Level 1", asUnlocked: true)
     }
 }

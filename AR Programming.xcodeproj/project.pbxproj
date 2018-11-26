@@ -41,6 +41,7 @@
 		90DF7337216F441E00F51E0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90DF7335216F441E00F51E0C /* Main.storyboard */; };
 		90DF7339216F442000F51E0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90DF7338216F442000F51E0C /* Assets.xcassets */; };
 		90DF733C216F442000F51E0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90DF733A216F442000F51E0C /* LaunchScreen.storyboard */; };
+		C725B2C321A85A7B00DD147A /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C725B2C121A85A7B00DD147A /* Model.xcdatamodeld */; };
 		B6ABE7E472B14FA62A77B354 /* Pods_AR_Programming.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFCF4F02AC22AD5F7FC35F40 /* Pods_AR_Programming.framework */; };
 		C7273114217714E900754543 /* Plane.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7273113217714E900754543 /* Plane.swift */; };
 		C7273118217752C400754543 /* CardCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7273117217752C400754543 /* CardCommand.swift */; };
@@ -51,6 +52,8 @@
 		C74785E9219427A3000148BC /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74785E8219427A3000148BC /* CardCollectionViewCell.swift */; };
 		C74785EB219427F8000148BC /* CardLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74785EA219427F8000148BC /* CardLibraryViewController.swift */; };
 		C74785ED219448F1000148BC /* CardDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74785EC219448F1000148BC /* CardDetailViewController.swift */; };
+		C76A214721AC1405008A07D9 /* LevelEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76A214521AC1405008A07D9 /* LevelEntity+CoreDataClass.swift */; };
+		C76A214821AC1405008A07D9 /* LevelEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76A214621AC1405008A07D9 /* LevelEntity+CoreDataProperties.swift */; };
 		C79CED572179E175001487BF /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79CED562179E175001487BF /* Level.swift */; };
 		C79CED592179E193001487BF /* CardMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79CED582179E193001487BF /* CardMapper.swift */; };
 		C79CED5D217A0176001487BF /* CardWorld.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79CED5C217A0176001487BF /* CardWorld.swift */; };
@@ -107,6 +110,7 @@
 		90DF733D216F442000F51E0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		90DF7342216F442100F51E0C /* AR ProgrammingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AR ProgrammingTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		90DF7348216F442100F51E0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C725B2C221A85A7B00DD147A /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		9E22EC9C0309734A8EC82229 /* Pods-AR ProgrammingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AR ProgrammingTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AR ProgrammingTests/Pods-AR ProgrammingTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AFCF4F02AC22AD5F7FC35F40 /* Pods_AR_Programming.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AR_Programming.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C572DB0C2C2E8C51CB97FFDF /* Pods-AR ProgrammingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AR ProgrammingTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AR ProgrammingTests/Pods-AR ProgrammingTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -119,6 +123,8 @@
 		C74785E8219427A3000148BC /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
 		C74785EA219427F8000148BC /* CardLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardLibraryViewController.swift; sourceTree = "<group>"; };
 		C74785EC219448F1000148BC /* CardDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewController.swift; sourceTree = "<group>"; };
+		C76A214521AC1405008A07D9 /* LevelEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LevelEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C76A214621AC1405008A07D9 /* LevelEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LevelEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C79CED562179E175001487BF /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		C79CED582179E193001487BF /* CardMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardMapper.swift; sourceTree = "<group>"; };
 		C79CED5C217A0176001487BF /* CardWorld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardWorld.swift; sourceTree = "<group>"; };
@@ -286,6 +292,7 @@
 		90DF732E216F441E00F51E0C /* AR Programming */ = {
 			isa = PBXGroup;
 			children = (
+				C725B2C021A85A6D00DD147A /* Persistence */,
 				90D7538421AC18D900B1F2E4 /* ViewModel */,
 				90A55B0D21A84C1A00FD7CDD /* resources */,
 				9057369E2175D42900F231E1 /* Controller */,
@@ -308,6 +315,16 @@
 				6C512973217C978E00421A48 /* RegressionLineTests.swift */,
 			);
 			path = "AR ProgrammingTests";
+			sourceTree = "<group>";
+		};
+		C725B2C021A85A6D00DD147A /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				C76A214521AC1405008A07D9 /* LevelEntity+CoreDataClass.swift */,
+				C76A214621AC1405008A07D9 /* LevelEntity+CoreDataProperties.swift */,
+				C725B2C121A85A7B00DD147A /* Model.xcdatamodeld */,
+			);
+			path = Persistence;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -463,6 +480,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C76A214721AC1405008A07D9 /* LevelEntity+CoreDataClass.swift in Sources */,
 				900F13542194269F001C2DC2 /* TileMap.swift in Sources */,
 				C79CED5D217A0176001487BF /* CardWorld.swift in Sources */,
 				901584C82199BDF400450E0B /* LevelViewController.swift in Sources */,
@@ -485,7 +503,9 @@
 				90CDABC42177425200664640 /* AnimatableNode.swift in Sources */,
 				C727311C2177581400754543 /* RightCommand.swift in Sources */,
 				900F135A219447AF001C2DC2 /* LevelManager.swift in Sources */,
+				C725B2C321A85A7B00DD147A /* Model.xcdatamodeld in Sources */,
 				C74785E9219427A3000148BC /* CardCollectionViewCell.swift in Sources */,
+				C76A214821AC1405008A07D9 /* LevelEntity+CoreDataProperties.swift in Sources */,
 				90DF7330216F441E00F51E0C /* AppDelegate.swift in Sources */,
 				905A3C92217A0891005E3AA5 /* LevelSelectViewController.swift in Sources */,
 				C74785EB219427F8000148BC /* CardLibraryViewController.swift in Sources */,
@@ -768,6 +788,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C725B2C121A85A7B00DD147A /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C725B2C221A85A7B00DD147A /* Model.xcdatamodel */,
+			);
+			currentVersion = C725B2C221A85A7B00DD147A /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 90DF7324216F441E00F51E0C /* Project object */;
 }
