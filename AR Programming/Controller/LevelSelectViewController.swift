@@ -60,7 +60,7 @@ class LevelSelectViewController: UIViewController, UICollectionViewDataSource, U
         if let url = try? FileManager.default.url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("Level 1.json") {
             do {
                 try l1.json?.write(to: url)
-            } catch let error {
+            } catch {
                 //Ignore
             }
         }
@@ -81,7 +81,7 @@ class LevelSelectViewController: UIViewController, UICollectionViewDataSource, U
         if let url = try? FileManager.default.url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("Level 2.json") {
             do {
                 try l2.json?.write(to: url)
-            } catch let error {
+            } catch {
                 //Ignore
             }
         }
@@ -113,7 +113,7 @@ class LevelSelectViewController: UIViewController, UICollectionViewDataSource, U
         if let url = try? FileManager.default.url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("Level 3.json") {
             do {
                 try l3.json?.write(to: url)
-            } catch let error {
+            } catch {
                 //Ignore
             }
         }

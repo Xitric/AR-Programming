@@ -124,6 +124,7 @@ class LevelViewController: UIViewController, PlaneDetectorDelegate, CardSequence
     @IBAction func executeSequence(_ sender: UIButton) {
         cardSequence?.run(on: playingField!.robot)
         executeButton.isEnabled = false
+        resetButton.isEnabled = false
     }
     
     @IBAction func resetLevel(_ sender: UIButton) {
@@ -141,6 +142,7 @@ class LevelViewController: UIViewController, PlaneDetectorDelegate, CardSequence
     func cardSequenceFinished(robot: AnimatableNode) {
         DispatchQueue.main.async { [unowned self] in
             self.executeButton.isEnabled = true
+            self.resetButton.isEnabled = true
         }
     }
     
