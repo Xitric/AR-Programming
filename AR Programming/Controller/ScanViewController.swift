@@ -2,65 +2,42 @@
 //  ScanViewController.swift
 //  AR Programming
 //
-//  Created by Kasper Schultz Davidsen on 16/10/2018.
+//  Created by Kasper Schultz Davidsen on 12/11/2018.
 //  Copyright © 2018 Kasper Schultz Davidsen. All rights reserved.
 //
 
+import Foundation
 import UIKit
-import ARKit
 
-class ScanViewController: UIViewController, CardScannerDelegate {
+class ScanViewController : UIViewController, CardScannerDelegate {
     
-    @IBOutlet var sceneView: ARSCNView! {
-        didSet {
-            environment = ScanConfiguration(with: sceneView, for: "Cards")
-            environment?.cardScannerDelegate = self
-        }
-    }
-    @IBOutlet weak var cardNameLabel: UILabel!
-    @IBOutlet weak var cardDescriptionLabel: UILabel!
     @IBOutlet weak var cardImage: UIImageView!
+    @IBOutlet weak var cardName: UILabel!
+    @IBOutlet weak var cardDescription: UILabel!
     
-    private var environment : ScanConfiguration?
-    private var cardDatabase = CardDatabase()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    func cardScanner(_ scanner: ARController, scanned card: Card) {
+        //TODO: Should we use unowned self?
+        DispatchQueue.main.async {
+            self.display(card: card)
+        }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        environment?.start()
+    func cardScannerLostCard(_ scanner: ARController) {
+        //TODO: Should we use unowned self?
+        DispatchQueue.main.async {
+            self.display(card: nil)
+        }
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        environment?.stop()
-    }
-    
-    private func displayCard(withName optName: String?) {
-        if let card = cardDatabase.cards[optName ?? ""] {
-            self.cardNameLabel.text = card.name + " | " + card.type.rawValue + " Card"
-            self.cardDescriptionLabel.text = card.description
-            self.cardImage.image = UIImage(named: optName! + "Card")
+    private func display(card optCard: Card?) {
+        if let card = optCard {
+            self.cardName.text = "\(card.name) | \(card.type.rawValue) Card"
+            self.cardDescription.text = card.description
+            self.cardImage.image = UIImage(named: card.name)
         } else {
-            self.cardNameLabel.text = "No card"
-            self.cardDescriptionLabel.text = "Point the circle in the center of the screen at a card to learn more about it!"
+            self.cardName.text = "No card"
+            self.cardDescription.text = "Point the circle in the center of the screen at a card to learn more about it!"
             self.cardImage.image = nil
-        }
-    }
-    
-    func cardScanner(_ scanner: CardScanner, scanned cardName: String) {
-        DispatchQueue.main.async {
-            self.displayCard(withName: cardName)
-        }
-    }
-    
-    func cardScannerLostCard(_ scanner: CardScanner) {
-        DispatchQueue.main.async {
-            self.displayCard(withName: nil)
         }
     }
 }
