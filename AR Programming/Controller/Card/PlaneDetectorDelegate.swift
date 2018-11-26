@@ -10,7 +10,7 @@ import Foundation
 
 protocol PlaneDetectorDelegate: AnyObject {
     
-    func shouldDetectPlanes(_ detector: PlaneDetector) -> Bool
+    func shouldDetectPlanes(_ detector: ARController) -> Bool
     
-    func planeDetector(_ detector: PlaneDetector, found plane: Plane)
+    func planeDetector(_ detector: ARController, found plane: Plane)
 }

@@ -12,21 +12,16 @@
 		6C512972217C95EC00421A48 /* RegressionLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C512971217C95EC00421A48 /* RegressionLine.swift */; };
 		6C512974217C978E00421A48 /* RegressionLineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C512973217C978E00421A48 /* RegressionLineTests.swift */; };
 		6CD69945218F3DE900A9E755 /* CardFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD69944218F3DE900A9E755 /* CardFactory.swift */; };
-		6CEF68612174D11E006E62B8 /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEF68602174D11E006E62B8 /* PlayViewController.swift */; };
+		6CEF68612174D11E006E62B8 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEF68602174D11E006E62B8 /* GameViewController.swift */; };
 		900F13542194269F001C2DC2 /* TileMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900F13532194269F001C2DC2 /* TileMap.swift */; };
 		900F13582194405D001C2DC2 /* CardSequenceProgressDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900F13572194405D001C2DC2 /* CardSequenceProgressDelegate.swift */; };
 		900F135A219447AF001C2DC2 /* LevelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900F1359219447AF001C2DC2 /* LevelManager.swift */; };
+		901584C82199BDF400450E0B /* LevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901584C72199BDF400450E0B /* LevelViewController.swift */; };
+		901584CA2199BE0200450E0B /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901584C92199BE0200450E0B /* ScanViewController.swift */; };
+		901584CC2199C32100450E0B /* ARController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901584CB2199C32100450E0B /* ARController.swift */; };
 		9057369B2175D1C200F231E1 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057369A2175D1C200F231E1 /* Card.swift */; };
-		905736A02175D44000F231E1 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057369F2175D44000F231E1 /* ScanViewController.swift */; };
-		905A3C7A2179BE05005E3AA5 /* ScanConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905A3C792179BE05005E3AA5 /* ScanConfiguration.swift */; };
-		905A3C7C2179BE0E005E3AA5 /* PlayConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905A3C7B2179BE0E005E3AA5 /* PlayConfiguration.swift */; };
-		905A3C7E2179BE2D005E3AA5 /* CardScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905A3C7D2179BE2D005E3AA5 /* CardScanner.swift */; };
-		905A3C802179BE3B005E3AA5 /* CardDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905A3C7F2179BE3B005E3AA5 /* CardDetector.swift */; };
-		905A3C822179BE45005E3AA5 /* PlaneDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905A3C812179BE45005E3AA5 /* PlaneDetector.swift */; };
 		905A3C842179BE54005E3AA5 /* CardScannerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905A3C832179BE54005E3AA5 /* CardScannerDelegate.swift */; };
-		905A3C862179BE6A005E3AA5 /* CardDetectorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905A3C852179BE6A005E3AA5 /* CardDetectorDelegate.swift */; };
 		905A3C882179BE74005E3AA5 /* PlaneDetectorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905A3C872179BE74005E3AA5 /* PlaneDetectorDelegate.swift */; };
-		905A3C8A2179C58A005E3AA5 /* ARConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905A3C892179C58A005E3AA5 /* ARConfiguration.swift */; };
 		905A3C8C2179E522005E3AA5 /* PlayingField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905A3C8B2179E522005E3AA5 /* PlayingField.swift */; };
 		905A3C8E2179E582005E3AA5 /* AnchoredNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905A3C8D2179E582005E3AA5 /* AnchoredNode.swift */; };
 		905A3C92217A0891005E3AA5 /* LevelSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905A3C91217A0891005E3AA5 /* LevelSelectViewController.swift */; };
@@ -45,6 +40,9 @@
 		C727311C2177581400754543 /* RightCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C727311B2177581400754543 /* RightCommand.swift */; };
 		C727311E21775A1100754543 /* LeftCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C727311D21775A1100754543 /* LeftCommand.swift */; };
 		C727312021775A5B00754543 /* JumpCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C727311F21775A5B00754543 /* JumpCommand.swift */; };
+		C74785E9219427A3000148BC /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74785E8219427A3000148BC /* CardCollectionViewCell.swift */; };
+		C74785EB219427F8000148BC /* CardLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74785EA219427F8000148BC /* CardLibraryViewController.swift */; };
+		C74785ED219448F1000148BC /* CardDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74785EC219448F1000148BC /* CardDetailViewController.swift */; };
 		C79CED572179E175001487BF /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79CED562179E175001487BF /* Level.swift */; };
 		C79CED592179E193001487BF /* CardMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79CED582179E193001487BF /* CardMapper.swift */; };
 		C79CED5D217A0176001487BF /* CardWorld.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79CED5C217A0176001487BF /* CardWorld.swift */; };
@@ -66,21 +64,16 @@
 		6C512971217C95EC00421A48 /* RegressionLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegressionLine.swift; sourceTree = "<group>"; };
 		6C512973217C978E00421A48 /* RegressionLineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegressionLineTests.swift; sourceTree = "<group>"; };
 		6CD69944218F3DE900A9E755 /* CardFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFactory.swift; sourceTree = "<group>"; };
-		6CEF68602174D11E006E62B8 /* PlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
+		6CEF68602174D11E006E62B8 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		900F13532194269F001C2DC2 /* TileMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileMap.swift; sourceTree = "<group>"; };
 		900F13572194405D001C2DC2 /* CardSequenceProgressDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSequenceProgressDelegate.swift; sourceTree = "<group>"; };
 		900F1359219447AF001C2DC2 /* LevelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelManager.swift; sourceTree = "<group>"; };
+		901584C72199BDF400450E0B /* LevelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelViewController.swift; sourceTree = "<group>"; };
+		901584C92199BE0200450E0B /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
+		901584CB2199C32100450E0B /* ARController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARController.swift; sourceTree = "<group>"; };
 		9057369A2175D1C200F231E1 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
-		9057369F2175D44000F231E1 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
-		905A3C792179BE05005E3AA5 /* ScanConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanConfiguration.swift; sourceTree = "<group>"; };
-		905A3C7B2179BE0E005E3AA5 /* PlayConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayConfiguration.swift; sourceTree = "<group>"; };
-		905A3C7D2179BE2D005E3AA5 /* CardScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardScanner.swift; sourceTree = "<group>"; };
-		905A3C7F2179BE3B005E3AA5 /* CardDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetector.swift; sourceTree = "<group>"; };
-		905A3C812179BE45005E3AA5 /* PlaneDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaneDetector.swift; sourceTree = "<group>"; };
 		905A3C832179BE54005E3AA5 /* CardScannerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardScannerDelegate.swift; sourceTree = "<group>"; };
-		905A3C852179BE6A005E3AA5 /* CardDetectorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetectorDelegate.swift; sourceTree = "<group>"; };
 		905A3C872179BE74005E3AA5 /* PlaneDetectorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaneDetectorDelegate.swift; sourceTree = "<group>"; };
-		905A3C892179C58A005E3AA5 /* ARConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARConfiguration.swift; sourceTree = "<group>"; };
 		905A3C8B2179E522005E3AA5 /* PlayingField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingField.swift; sourceTree = "<group>"; };
 		905A3C8D2179E582005E3AA5 /* AnchoredNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnchoredNode.swift; sourceTree = "<group>"; };
 		905A3C91217A0891005E3AA5 /* LevelSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSelectViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +96,9 @@
 		C727311B2177581400754543 /* RightCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightCommand.swift; sourceTree = "<group>"; };
 		C727311D21775A1100754543 /* LeftCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftCommand.swift; sourceTree = "<group>"; };
 		C727311F21775A5B00754543 /* JumpCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JumpCommand.swift; sourceTree = "<group>"; };
+		C74785E8219427A3000148BC /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
+		C74785EA219427F8000148BC /* CardLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardLibraryViewController.swift; sourceTree = "<group>"; };
+		C74785EC219448F1000148BC /* CardDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewController.swift; sourceTree = "<group>"; };
 		C79CED562179E175001487BF /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		C79CED582179E193001487BF /* CardMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardMapper.swift; sourceTree = "<group>"; };
 		C79CED5C217A0176001487BF /* CardWorld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardWorld.swift; sourceTree = "<group>"; };
@@ -155,6 +151,13 @@
 			path = Card;
 			sourceTree = "<group>";
 		};
+		902AB4202195BFDE00FD49C6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		905736992175D19000F231E1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,10 +177,14 @@
 			isa = PBXGroup;
 			children = (
 				905A3C782179BDC3005E3AA5 /* Card */,
-				9057369F2175D44000F231E1 /* ScanViewController.swift */,
-				6CEF68602174D11E006E62B8 /* PlayViewController.swift */,
+				6CEF68602174D11E006E62B8 /* GameViewController.swift */,
 				905A3C91217A0891005E3AA5 /* LevelSelectViewController.swift */,
 				905A3C93217A09D0005E3AA5 /* LevelCollectionViewCell.swift */,
+				901584C72199BDF400450E0B /* LevelViewController.swift */,
+				901584C92199BE0200450E0B /* ScanViewController.swift */,
+				C74785E8219427A3000148BC /* CardCollectionViewCell.swift */,
+				C74785EA219427F8000148BC /* CardLibraryViewController.swift */,
+				C74785EC219448F1000148BC /* CardDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -185,15 +192,9 @@
 		905A3C782179BDC3005E3AA5 /* Card */ = {
 			isa = PBXGroup;
 			children = (
-				905A3C792179BE05005E3AA5 /* ScanConfiguration.swift */,
-				905A3C7B2179BE0E005E3AA5 /* PlayConfiguration.swift */,
-				905A3C7D2179BE2D005E3AA5 /* CardScanner.swift */,
-				905A3C7F2179BE3B005E3AA5 /* CardDetector.swift */,
-				905A3C812179BE45005E3AA5 /* PlaneDetector.swift */,
 				905A3C832179BE54005E3AA5 /* CardScannerDelegate.swift */,
-				905A3C852179BE6A005E3AA5 /* CardDetectorDelegate.swift */,
 				905A3C872179BE74005E3AA5 /* PlaneDetectorDelegate.swift */,
-				905A3C892179C58A005E3AA5 /* ARConfiguration.swift */,
+				901584CB2199C32100450E0B /* ARController.swift */,
 			);
 			path = Card;
 			sourceTree = "<group>";
@@ -201,6 +202,7 @@
 		90DF7323216F441E00F51E0C = {
 			isa = PBXGroup;
 			children = (
+				902AB4202195BFDE00FD49C6 /* Supporting Files */,
 				90DF732E216F441E00F51E0C /* AR Programming */,
 				90DF7345216F442100F51E0C /* AR ProgrammingTests */,
 				90DF732D216F441E00F51E0C /* Products */,
@@ -343,29 +345,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				905A3C7E2179BE2D005E3AA5 /* CardScanner.swift in Sources */,
 				900F13542194269F001C2DC2 /* TileMap.swift in Sources */,
 				C79CED5D217A0176001487BF /* CardWorld.swift in Sources */,
+				901584C82199BDF400450E0B /* LevelViewController.swift in Sources */,
 				90CDABC62177623100664640 /* CardSequence.swift in Sources */,
 				9057369B2175D1C200F231E1 /* Card.swift in Sources */,
+				901584CC2199C32100450E0B /* ARController.swift in Sources */,
 				905A3C842179BE54005E3AA5 /* CardScannerDelegate.swift in Sources */,
-				905A3C822179BE45005E3AA5 /* PlaneDetector.swift in Sources */,
+				901584CA2199BE0200450E0B /* ScanViewController.swift in Sources */,
 				6CD69945218F3DE900A9E755 /* CardFactory.swift in Sources */,
-				6CEF68612174D11E006E62B8 /* PlayViewController.swift in Sources */,
-				905A3C7C2179BE0E005E3AA5 /* PlayConfiguration.swift in Sources */,
+				6CEF68612174D11E006E62B8 /* GameViewController.swift in Sources */,
 				905A3C8C2179E522005E3AA5 /* PlayingField.swift in Sources */,
 				C79CED572179E175001487BF /* Level.swift in Sources */,
 				C727312021775A5B00754543 /* JumpCommand.swift in Sources */,
+				C74785ED219448F1000148BC /* CardDetailViewController.swift in Sources */,
 				6C12D9D821873ECD003D0528 /* Vector2.swift in Sources */,
 				6C512972217C95EC00421A48 /* RegressionLine.swift in Sources */,
 				90BA0F5C2188A1D7005B6A6B /* RotationCommand.swift in Sources */,
 				90CDABC42177425200664640 /* AnimatableNode.swift in Sources */,
 				C727311C2177581400754543 /* RightCommand.swift in Sources */,
 				900F135A219447AF001C2DC2 /* LevelManager.swift in Sources */,
-				905A3C8A2179C58A005E3AA5 /* ARConfiguration.swift in Sources */,
+				C74785E9219427A3000148BC /* CardCollectionViewCell.swift in Sources */,
 				90DF7330216F441E00F51E0C /* AppDelegate.swift in Sources */,
-				905736A02175D44000F231E1 /* ScanViewController.swift in Sources */,
 				905A3C92217A0891005E3AA5 /* LevelSelectViewController.swift in Sources */,
+				C74785EB219427F8000148BC /* CardLibraryViewController.swift in Sources */,
 				905A3C94217A09D0005E3AA5 /* LevelCollectionViewCell.swift in Sources */,
 				905A3C8E2179E582005E3AA5 /* AnchoredNode.swift in Sources */,
 				900F13582194405D001C2DC2 /* CardSequenceProgressDelegate.swift in Sources */,
@@ -375,9 +378,6 @@
 				C79CED592179E193001487BF /* CardMapper.swift in Sources */,
 				C7273114217714E900754543 /* Plane.swift in Sources */,
 				905A3C882179BE74005E3AA5 /* PlaneDetectorDelegate.swift in Sources */,
-				905A3C7A2179BE05005E3AA5 /* ScanConfiguration.swift in Sources */,
-				905A3C862179BE6A005E3AA5 /* CardDetectorDelegate.swift in Sources */,
-				905A3C802179BE3B005E3AA5 /* CardDetector.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
