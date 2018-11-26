@@ -31,7 +31,6 @@ class Plane: AnchoredNode {
         super.init(anchor: anchor, node: SCNNode(geometry: planeGeometry))
         
         node.eulerAngles.x = -.pi / 2
-        node.opacity = 0.5
     }
     
     public func project(point: SCNVector3) -> Vector2 {

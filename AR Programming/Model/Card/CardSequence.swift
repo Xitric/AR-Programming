@@ -13,6 +13,7 @@ import SceneKit
 class CardSequence {
     
     private var sequence = [Card]()
+    weak var delegate: CardSequenceProgressDelegate?
     
     init(cards: CardWorld, on surface: Plane) {
         let planes = cards.allPlanes()
@@ -58,21 +59,37 @@ class CardSequence {
         return surface.project(point: plane.center)
     }
     
-    public func run(on node: AnimatableNode) {
-        var actions = [SCNAction]()
-        
-        for card in sequence {
-            if let command = card.command {
-                actions.append(command.execute(modelIn3D: node))
+    public func run(on animatable: AnimatableNode) {
+        let remainingSeuence = [Card](sequence)
+        performNextAction(in: remainingSeuence, on: animatable)
+    }
+    
+    private func performNextAction(in remainingSequence: [Card], on animatable: AnimatableNode) {
+        if let card = remainingSequence.first {
+            if let action = card.command?.execute(modelIn3D: animatable) {
+                animatable.model.runAction(action) {
+                    self.delegate?.cardSequence(robot: animatable, executed: card)
+                    self.performNextAction(in: [Card](remainingSequence.dropFirst()), on: animatable)
+                }
+            } else {
+                self.performNextAction(in: [Card](remainingSequence.dropFirst()), on: animatable)
             }
         }
-        
-        let actionSequence = SCNAction.sequence(actions)
-        node.model.runAction(actionSequence)
     }
     
     private struct PlaneCollection {
         var startPlane: Plane
         var planes: [Plane]
+    }
+}
+
+private class OneOffDelegation {
+    private var triggered = false
+    
+    public func trigger() -> Bool {
+        let oldVal = triggered;
+        triggered = true;
+        
+        return !oldVal;
     }
 }

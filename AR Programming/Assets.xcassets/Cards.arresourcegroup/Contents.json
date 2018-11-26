@@ -5,6 +5,9 @@
   },
   "resources" : [
     {
+      "filename" : "0.arreferenceimage"
+    },
+    {
       "filename" : "1.arreferenceimage"
     },
     {
@@ -18,9 +21,6 @@
     },
     {
       "filename" : "5.arreferenceimage"
-    },
-    {
-      "filename" : "6.arreferenceimage"
     }
   ]
 }
