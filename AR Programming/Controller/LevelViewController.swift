@@ -9,21 +9,30 @@
 import Foundation
 import UIKit
 import SceneKit
+import AudioKit
 
-class LevelViewController: UIViewController, PlaneDetectorDelegate, CardSequenceProgressDelegate {
+class LevelViewController: UIViewController, PlaneDetectorDelegate, CardSequenceProgressDelegate, LevelDelegate {
     
+    //MARK: View
     @IBOutlet weak var placeButton: UIButton!
     @IBOutlet weak var detectButton: UIButton!
     @IBOutlet weak var executeButton: UIButton!
     @IBOutlet weak var resetButton: UIButton!
     @IBOutlet weak var planeDetectionLabel: UILabel!
     @IBOutlet weak var winLabel: UILabel!
+    @IBOutlet weak var winDescription: UILabel!
     
+    private var levelViewModel: LevelViewModel?
+    
+    //MARK: Sound
+    private var winSound = AudioController.instance.makeSound(withName: "win.wav")
+    private var pickupSound = AudioController.instance.makeSound(withName: "pickup.wav")
+    
+    //MARK: State
     var arController: ARController?
     private var currentPlane: Plane? {
         didSet {
-            //TODO: Should we use unowned self?
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [unowned self] in
                 self.placeButton.isEnabled = self.currentPlane != nil
             }
         }
@@ -33,6 +42,7 @@ class LevelViewController: UIViewController, PlaneDetectorDelegate, CardSequence
             cardSequence = nil
             playingField = nil
             winLabel.isHidden = true
+            level?.delegate = self
         }
     }
     private var playingField: PlayingField? {
@@ -44,6 +54,10 @@ class LevelViewController: UIViewController, PlaneDetectorDelegate, CardSequence
             detectButton.isHidden = !hasPlayingField
             executeButton.isHidden = !hasPlayingField
             resetButton.isHidden = !hasPlayingField
+            
+            if let field = playingField {
+                levelViewModel = LevelViewModel(showing: field, withLevelWidth: level!.width)
+            }
         }
     }
     private var cardSequence : CardSequence? {
@@ -51,6 +65,14 @@ class LevelViewController: UIViewController, PlaneDetectorDelegate, CardSequence
             detectButton.isHidden = cardSequence != nil
             executeButton.isHidden = cardSequence == nil
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        AudioController.instance.start()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        AudioController.instance.stop()
     }
     
     func shouldDetectPlanes(_ detector: ARController) -> Bool {
@@ -64,7 +86,7 @@ class LevelViewController: UIViewController, PlaneDetectorDelegate, CardSequence
     @IBAction func placePlane(_ sender: UIButton) {
         if let plane = currentPlane {
             showModelAt(detectedPlane: plane)
-            showLevelAt(detectedPlane: plane)
+            showLevel()
             currentPlane = nil
         }
     }
@@ -81,14 +103,13 @@ class LevelViewController: UIViewController, PlaneDetectorDelegate, CardSequence
         origo.node.addChildNode(robot.model)
     }
 
-    func showLevelAt(detectedPlane plane: Plane) {
+    func showLevel() {
         if let currentLevel = level {
-            for collectible in currentLevel.tiles.collectiblePositions {
+            for (x, y) in currentLevel.collectiblePositions {
                 let sphereGeom = SCNSphere(radius: 0.01)
                 let sphereNode = SCNNode(geometry: sphereGeom)
 
-                sphereNode.position = SCNVector3(collectible.x * 0.05, 0, collectible.y * 0.05)
-                playingField?.origo.node.addChildNode(sphereNode)
+                levelViewModel?.addCollectible(node: sphereNode, x: x, y: y)
             }
         }
     }
@@ -102,29 +123,51 @@ class LevelViewController: UIViewController, PlaneDetectorDelegate, CardSequence
     
     @IBAction func executeSequence(_ sender: UIButton) {
         cardSequence?.run(on: playingField!.robot)
+        executeButton.isEnabled = false
     }
     
     @IBAction func resetLevel(_ sender: UIButton) {
-        playingField?.robot.model.position = SCNVector3(0, 0, 0)
-        playingField?.robot.model.rotation = SCNVector4(0, 0, 0, 1)
-        cardSequence = nil
+        level?.reset()
     }
     
     func cardSequence(robot: AnimatableNode, executed card: Card) {
-        print("Robot performed action")
-        print(robot.model.position)
-        print("--------------------------")
-
         if let currentLevel = level {
             let floatX = (robot.model.position.x / 0.05).rounded()
             let floatY = (robot.model.position.z / 0.05).rounded()
             currentLevel.notifyMovedTo(x: Int(floatX), y: Int(floatY))
-
-            if currentLevel.isComplete {
-                print("You completed \(currentLevel.name)")
-                //TODO: Complete level logic
-                winLabel.isHidden = false
-            }
+        }
+    }
+    
+    func cardSequenceFinished(robot: AnimatableNode) {
+        DispatchQueue.main.async { [unowned self] in
+            self.executeButton.isEnabled = true
+        }
+    }
+    
+    func collectibleTaken(_ level: Level, x: Int, y: Int) {
+        levelViewModel?.removeCollectible(x: x, y: y)
+        self.pickupSound?.start()
+    }
+    
+    func levelCompleted(_ level: Level) {
+        self.winSound?.start()
+        
+        DispatchQueue.main.async { [unowned self] in
+            self.winLabel.isHidden = false
+            self.winDescription.isHidden = false
+        }
+    }
+    
+    func levelReset(_ level: Level) {
+        playingField?.robot.model.position = SCNVector3(0, 0, 0)
+        playingField?.robot.model.rotation = SCNVector4(0, 0, 0, 1)
+        cardSequence = nil
+        levelViewModel?.clearCollectibles()
+        showLevel()
+        
+        DispatchQueue.main.async { [unowned self] in
+            self.winLabel.isHidden = true
+            self.winDescription.isHidden = true
         }
     }
 }

@@ -10,15 +10,15 @@ import Foundation
 
 class TileMap: Codable {
     
-    private var collectibles = [[Bool]]()
+    private var collectibles = [[CollectibleState]]()
     
-    var collectiblePositions: [Vector2] {
-        var positions = [Vector2]()
+    var collectiblePositions: [(Int, Int)] {
+        var positions = [(Int, Int)]()
         
         for y in 0..<collectibles.count {
             for x in 0..<collectibles[y].count {
-                if collectibles[y][x] {
-                    positions.append(Vector2(x: Float(x), y: Float(y)))
+                if collectibles[y][x] == .uncollected {
+                    positions.append((x, y))
                 }
             }
         }
@@ -26,19 +26,45 @@ class TileMap: Codable {
         return positions
     }
     
+    var width: Int {
+        return collectibles.count;
+    }
+    
+    var length: Int {
+        if (collectibles.count == 0) {
+            return 0
+        }
+        
+        return collectibles[0].count;
+    }
+    
     init(width: Int, height: Int) {
-        collectibles = Array(repeating: Array(repeating: false, count: width), count: height)
+        collectibles = Array(repeating: Array(repeating: .none, count: width), count: height)
     }
     
     func setCollectible(x: Int, y: Int) {
         if ensureBounds(x: x, y: y) {
-            collectibles[y][x] = true
+            collectibles[y][x] = .uncollected
         }
     }
     
-    func collectAt(x: Int, y: Int) {
+    func collectAt(x: Int, y: Int) -> Bool {
         if ensureBounds(x: x, y: y) {
-            collectibles[y][x] = false
+            let didCollectSomething = collectibles[y][x] == .uncollected
+            collectibles[y][x] = .collected
+            return didCollectSomething
+        }
+        
+        return false
+    }
+    
+    func reset() {
+        for y in 0..<collectibles.count {
+            for x in 0..<collectibles[y].count {
+                if collectibles[y][x] == .collected {
+                    collectibles[y][x] = .uncollected
+                }
+            }
         }
     }
     
@@ -48,5 +74,11 @@ class TileMap: Codable {
     
     private func ensureBounds(x: Int, y: Int) -> Bool {
         return y < collectibles.count && y >= 0 && x < collectibles[y].count && x >= 0
+    }
+    
+    private enum CollectibleState: Int, Codable {
+        case none
+        case uncollected
+        case collected
     }
 }

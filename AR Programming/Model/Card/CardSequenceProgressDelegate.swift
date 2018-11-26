@@ -11,4 +11,6 @@ import Foundation
 protocol CardSequenceProgressDelegate: AnyObject {
     
     func cardSequence(robot: AnimatableNode, executed card: Card)
+    
+    func cardSequenceFinished(robot: AnimatableNode)
 }
