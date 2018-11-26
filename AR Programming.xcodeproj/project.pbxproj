@@ -34,6 +34,9 @@
 		90CDABC221773E2700664640 /* Meshes.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 90CDABC121773E2700664640 /* Meshes.scnassets */; };
 		90CDABC42177425200664640 /* AnimatableNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CDABC32177425200664640 /* AnimatableNode.swift */; };
 		90CDABC62177623100664640 /* CardSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CDABC52177623100664640 /* CardSequence.swift */; };
+		90D7538321AC0D2500B1F2E4 /* LevelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D7538221AC0D2500B1F2E4 /* LevelDelegate.swift */; };
+		90D7538621AC19CF00B1F2E4 /* LevelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D7538521AC19CF00B1F2E4 /* LevelViewModel.swift */; };
+		90D7538821AC259A00B1F2E4 /* pickup.wav in Resources */ = {isa = PBXBuildFile; fileRef = 90D7538721AC259A00B1F2E4 /* pickup.wav */; };
 		90DF7330216F441E00F51E0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DF732F216F441E00F51E0C /* AppDelegate.swift */; };
 		90DF7337216F441E00F51E0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90DF7335216F441E00F51E0C /* Main.storyboard */; };
 		90DF7339216F442000F51E0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90DF7338216F442000F51E0C /* Assets.xcassets */; };
@@ -93,6 +96,9 @@
 		90CDABC121773E2700664640 /* Meshes.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Meshes.scnassets; sourceTree = "<group>"; };
 		90CDABC32177425200664640 /* AnimatableNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableNode.swift; sourceTree = "<group>"; };
 		90CDABC52177623100664640 /* CardSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSequence.swift; sourceTree = "<group>"; };
+		90D7538221AC0D2500B1F2E4 /* LevelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelDelegate.swift; sourceTree = "<group>"; };
+		90D7538521AC19CF00B1F2E4 /* LevelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelViewModel.swift; sourceTree = "<group>"; };
+		90D7538721AC259A00B1F2E4 /* pickup.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pickup.wav; sourceTree = "<group>"; };
 		90DF732C216F441E00F51E0C /* AR Programming.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AR Programming.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		90DF732F216F441E00F51E0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90DF7336216F441E00F51E0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -166,6 +172,7 @@
 				C79CED562179E175001487BF /* Level.swift */,
 				900F13532194269F001C2DC2 /* TileMap.swift */,
 				900F1359219447AF001C2DC2 /* LevelManager.swift */,
+				90D7538221AC0D2500B1F2E4 /* LevelDelegate.swift */,
 			);
 			path = Level;
 			sourceTree = "<group>";
@@ -241,9 +248,18 @@
 		90A55B0D21A84C1A00FD7CDD /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				90D7538721AC259A00B1F2E4 /* pickup.wav */,
 				90A55B0B21A83E8D00FD7CDD /* win.wav */,
 			);
 			path = resources;
+			sourceTree = "<group>";
+		};
+		90D7538421AC18D900B1F2E4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				90D7538521AC19CF00B1F2E4 /* LevelViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		90DF7323216F441E00F51E0C = {
@@ -270,6 +286,7 @@
 		90DF732E216F441E00F51E0C /* AR Programming */ = {
 			isa = PBXGroup;
 			children = (
+				90D7538421AC18D900B1F2E4 /* ViewModel */,
 				90A55B0D21A84C1A00FD7CDD /* resources */,
 				9057369E2175D42900F231E1 /* Controller */,
 				905736992175D19000F231E1 /* Model */,
@@ -380,6 +397,7 @@
 				90DF7339216F442000F51E0C /* Assets.xcassets in Resources */,
 				90CDABC221773E2700664640 /* Meshes.scnassets in Resources */,
 				90A55B0E21A84DB000FD7CDD /* win.wav in Resources */,
+				90D7538821AC259A00B1F2E4 /* pickup.wav in Resources */,
 				90DF7337216F441E00F51E0C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -448,12 +466,14 @@
 				900F13542194269F001C2DC2 /* TileMap.swift in Sources */,
 				C79CED5D217A0176001487BF /* CardWorld.swift in Sources */,
 				901584C82199BDF400450E0B /* LevelViewController.swift in Sources */,
+				90D7538621AC19CF00B1F2E4 /* LevelViewModel.swift in Sources */,
 				90CDABC62177623100664640 /* CardSequence.swift in Sources */,
 				9057369B2175D1C200F231E1 /* Card.swift in Sources */,
 				901584CC2199C32100450E0B /* ARController.swift in Sources */,
 				905A3C842179BE54005E3AA5 /* CardScannerDelegate.swift in Sources */,
 				901584CA2199BE0200450E0B /* ScanViewController.swift in Sources */,
 				6CD69945218F3DE900A9E755 /* CardFactory.swift in Sources */,
+				90D7538321AC0D2500B1F2E4 /* LevelDelegate.swift in Sources */,
 				6CEF68612174D11E006E62B8 /* GameViewController.swift in Sources */,
 				905A3C8C2179E522005E3AA5 /* PlayingField.swift in Sources */,
 				C79CED572179E175001487BF /* Level.swift in Sources */,

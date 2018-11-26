@@ -512,7 +512,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="yXk-cU-8yN">
                                         <rect key="frame" x="8" y="8" width="752" height="112"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iWh-lO-hv5">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iWh-lO-hv5">
                                                 <rect key="frame" x="0.0" y="0.0" width="112" height="112"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="iWh-lO-hv5" secondAttribute="height" multiplier="1:1" id="vrz-pa-pKW"/>

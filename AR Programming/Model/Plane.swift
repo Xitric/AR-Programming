@@ -13,14 +13,7 @@ class Plane: AnchoredNode {
     
     var center : SCNVector3 {
         get {
-            let localCenter: SCNVector4
-            
-            if let geometry = node.geometry as? SCNPlane {
-                localCenter = SCNVector4(geometry.width / 2, 0, geometry.height / 2, 1)
-            } else {
-                localCenter = SCNVector4(0, 0, 0, 1)
-            }
-
+            let localCenter = SCNVector4(0, 0, 0, 1)
             let worldCenter = anchor.transform * simd_float4(localCenter)
             return SCNVector3(worldCenter.x, worldCenter.y, worldCenter.z)
         }

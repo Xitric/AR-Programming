@@ -17,8 +17,17 @@ class Level: CardMapper, Codable {
     var unlocked = false
     var unlocks: String?
     
-    var isComplete: Bool {
-        return tiles.allCollectiblesTaken()
+    public weak var delegate: LevelDelegate?
+    public var collectiblePositions: [(Int, Int)] {
+        return tiles.collectiblePositions
+    }
+    
+    var width: Int {
+        return tiles.width
+    }
+    
+    var length: Int {
+        return tiles.length
     }
     
     private init(name: String, levelNumber: Int, unlocks: String?) {
@@ -34,17 +43,21 @@ class Level: CardMapper, Codable {
     }
     
     func notifyMovedTo(x: Int, y: Int) {
-        tiles.collectAt(x: x, y: y)
-        
-        if isComplete {
-            if let levelToUnlock = unlocks {
-                LevelManager.markLevel(withName: levelToUnlock, asUnlocked: true)
+        if tiles.collectAt(x: x, y: y) {
+            delegate?.collectibleTaken(self, x: x, y: y)
+            
+            if tiles.allCollectiblesTaken() {
+                if let levelToUnlock = unlocks {
+                    LevelManager.markLevel(withName: levelToUnlock, asUnlocked: true)
+                }
+                delegate?.levelCompleted(self)
             }
         }
     }
     
     func reset() {
         tiles.reset()
+        delegate?.levelReset(self)
     }
     
     // MARK: TODO, level creator

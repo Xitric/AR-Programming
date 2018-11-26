@@ -12,18 +12,30 @@ class TileMap: Codable {
     
     private var collectibles = [[CollectibleState]]()
     
-    var collectiblePositions: [Vector2] {
-        var positions = [Vector2]()
+    var collectiblePositions: [(Int, Int)] {
+        var positions = [(Int, Int)]()
         
         for y in 0..<collectibles.count {
             for x in 0..<collectibles[y].count {
                 if collectibles[y][x] == .uncollected {
-                    positions.append(Vector2(x: Float(x), y: Float(y)))
+                    positions.append((x, y))
                 }
             }
         }
         
         return positions
+    }
+    
+    var width: Int {
+        return collectibles.count;
+    }
+    
+    var length: Int {
+        if (collectibles.count == 0) {
+            return 0
+        }
+        
+        return collectibles[0].count;
     }
     
     init(width: Int, height: Int) {
@@ -36,10 +48,14 @@ class TileMap: Codable {
         }
     }
     
-    func collectAt(x: Int, y: Int) {
+    func collectAt(x: Int, y: Int) -> Bool {
         if ensureBounds(x: x, y: y) {
+            let didCollectSomething = collectibles[y][x] == .uncollected
             collectibles[y][x] = .collected
+            return didCollectSomething
         }
+        
+        return false
     }
     
     func reset() {

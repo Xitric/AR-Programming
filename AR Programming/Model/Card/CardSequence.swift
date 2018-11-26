@@ -74,22 +74,13 @@ class CardSequence {
             } else {
                 self.performNextAction(in: [Card](remainingSequence.dropFirst()), on: animatable)
             }
+        } else {
+            delegate?.cardSequenceFinished(robot: animatable)
         }
     }
     
     private struct PlaneCollection {
         var startPlane: Plane
         var planes: [Plane]
-    }
-}
-
-private class OneOffDelegation {
-    private var triggered = false
-    
-    public func trigger() -> Bool {
-        let oldVal = triggered;
-        triggered = true;
-        
-        return !oldVal;
     }
 }
