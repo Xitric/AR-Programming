@@ -48,12 +48,13 @@ class ARController: NSObject, ARSessionDelegate, ARSCNViewDelegate  {
     }
     
     func session(_ session: ARSession, didUpdate anchors: [ARAnchor]) {
+        //This code has been disabled because if instability with ARKit - we did not have the time to resolve it
 //        for anchor in anchors {
 //            if let imageAnchor = anchor as? ARImageAnchor, let name = imageAnchor.referenceImage.name {
 //                if !imageAnchor.isTracked {
-//                    //TODO: Start timer to remove card
+//                    //Start timer to remove card
 //                } else {
-//                    //TODO: Stop timer for card, as it has been found again
+//                    //Stop timer for card, as it has been found again
 //                }
 //            }
 //        }

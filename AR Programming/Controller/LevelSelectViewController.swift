@@ -20,11 +20,6 @@ class LevelSelectViewController: UIViewController, UICollectionViewDataSource, U
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         levels.append(contentsOf: LevelManager.loadAllLevels())
@@ -51,6 +46,7 @@ class LevelSelectViewController: UIViewController, UICollectionViewDataSource, U
         performSegue(withIdentifier: "unwindToPlay", sender: self)
     }
     
+    //Ignore this code, it only exists for development purposes
     @IBAction func recreateLevels(_ sender: Any) {
         let l1 = Level(name: "Level 1", number: 1, unlocks: "Level 2")
         l1.cards = [Int:Card]()
@@ -59,11 +55,7 @@ class LevelSelectViewController: UIViewController, UICollectionViewDataSource, U
         l1.tiles = TileMap(width: 2, height: 1)
         l1.tiles.setCollectible(x: 1, y: 0)
         if let url = try? FileManager.default.url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("Level 1.json") {
-            do {
-                try l1.json?.write(to: url)
-            } catch {
-                //Ignore
-            }
+            try? l1.json?.write(to: url)
         }
         
         let l2 = Level(name: "Level 2", number: 2, unlocks: "Level 3")
@@ -80,11 +72,7 @@ class LevelSelectViewController: UIViewController, UICollectionViewDataSource, U
         l2.tiles.setCollectible(x: 2, y: 1)
         l2.tiles.setCollectible(x: 2, y: 2)
         if let url = try? FileManager.default.url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("Level 2.json") {
-            do {
-                try l2.json?.write(to: url)
-            } catch {
-                //Ignore
-            }
+            try? l2.json?.write(to: url)
         }
         
         let l3 = Level(name: "Level 3", number: 3, unlocks: nil)
@@ -112,14 +100,15 @@ class LevelSelectViewController: UIViewController, UICollectionViewDataSource, U
         l3.tiles.setCollectible(x: 2, y: 4)
         l3.tiles.setCollectible(x: 3, y: 4)
         if let url = try? FileManager.default.url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("Level 3.json") {
-            do {
-                try l3.json?.write(to: url)
-            } catch {
-                //Ignore
-            }
+            try? l3.json?.write(to: url)
         }
         
        // Call levelManager to save unlocked levels in Core Data
-        LevelManager.markLevel(withName: "Level 1", asUnlocked: true)
+        LevelManager.markLevel(withName: l1.name, asUnlocked: true) { [unowned self] in
+            //Reload view
+            self.levels.removeAll()
+            self.levels.append(contentsOf: LevelManager.loadAllLevels())
+            self.levelSelectCollectionView.reloadData()
+        }
     }
 }

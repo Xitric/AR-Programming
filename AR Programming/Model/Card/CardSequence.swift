@@ -23,7 +23,7 @@ class CardSequence {
         let regressionDirection = regressionLine.direction.normalize()
         var distances = projections.map{$0.dot(with: regressionDirection)}
         
-         let startIndex = planes.firstIndex(where: {cards.card(from: $0)?.name == "Start"})
+        let startIndex = planes.firstIndex(where: {cards.card(from: $0)?.name == "Start"})
         if let i = startIndex {
             sequence.append(cards.card(from: planes[i])!)
             distances = update(distances: distances, from: i)

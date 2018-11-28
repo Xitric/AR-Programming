@@ -60,7 +60,7 @@ class Level: CardMapper, Codable {
         delegate?.levelReset(self)
     }
     
-    // MARK: TODO, level creator
+    //Ignore this code, it only exists for development purposes
     convenience init(name: String, number: Int, unlocks: String?) {
         self.init(name: name, levelNumber: number, unlocks: unlocks)
     }

@@ -62,20 +62,17 @@ public class LevelManager {
     }
     
     private static func isLevelUnlocked(withNumber levelNumber: Int) -> Bool {
-            let request = NSFetchRequest<LevelEntity>(entityName: "LevelEntity")
-            request.predicate = NSPredicate(format: "level = %d", levelNumber)
-            do {
-                let result = try managedObjectContext.fetch(request)
-                for level in result {
-                    return level.unlocked
-                }
-            } catch {
-                print("error")
+        let request = NSFetchRequest<LevelEntity>(entityName: "LevelEntity")
+        request.predicate = NSPredicate(format: "level = %d", levelNumber)
+        if let result = try? managedObjectContext.fetch(request){
+            if result.count != 0 {
+                return result[0].unlocked
             }
+        }
         return false
     }
     
-    static func markLevel(withName name: String, asUnlocked unlocked: Bool) {
+    static func markLevel(withName name: String, asUnlocked unlocked: Bool, whenDone completion: (() -> Void)? = nil) {
         if let level = loadLevel(byName: name) {
             level.unlocked = unlocked
             
@@ -93,11 +90,13 @@ public class LevelManager {
                         result[0].setValue(unlocked, forKey: "unlocked")
                     }
                     appDelegate.saveContext()
+                    completion?()
                 }
             }
         }
     }
     
+    //Ignore this code, it only exists for development purposes
     private static func saveLevel(_ level: Level) {
         if let url = try? FileManager.default.url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("\(level.name).json") {
             
