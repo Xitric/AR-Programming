@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV9-9J-Wzp">
-    <device id="retina3_5" orientation="portrait">
+    <device id="ipad9_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -14,26 +14,26 @@
             <objects>
                 <viewController id="BV1-FR-VrT" customClass="GameViewController" customModule="AR_Programming" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="U0K-SW-4ec">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BrB-h1-WRS">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="974"/>
                             </arscnView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YwX-x1-O6h">
-                                <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                                <rect key="frame" x="0.0" y="70" width="768" height="904"/>
                                 <connections>
                                     <segue destination="YHe-0I-6P8" kind="embed" id="Ur7-pw-pQp"/>
                                 </connections>
                             </containerView>
                             <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yv8-8I-6in">
-                                <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                                <rect key="frame" x="0.0" y="70" width="768" height="904"/>
                                 <connections>
                                     <segue destination="v2U-1n-6tb" kind="embed" id="nBF-Oh-1Kv"/>
                                 </connections>
                             </containerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wHf-aE-ray">
-                                <rect key="frame" x="244" y="355" width="60" height="60"/>
+                                <rect key="frame" x="692" y="898" width="60" height="60"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="bHx-PA-i8k"/>
@@ -53,7 +53,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RJJ-8k-yUk">
-                                <rect key="frame" x="244" y="279" width="60" height="60"/>
+                                <rect key="frame" x="692" y="822" width="60" height="60"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="NIX-ge-JqB"/>
@@ -73,7 +73,7 @@
                                 </connections>
                             </button>
                             <navigationBar hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JbP-5C-Ie9">
-                                <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="70" width="768" height="50"/>
                                 <items>
                                     <navigationItem title="Card Information" id="1D2-nh-2ak">
                                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="cXS-h7-Zbd">
@@ -129,11 +129,11 @@
             <objects>
                 <viewController id="WzJ-Qi-3T2" customClass="LevelSelectViewController" customModule="AR_Programming" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Jzw-BA-Nyy">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3LD-7s-TaH">
-                                <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                                <rect key="frame" x="0.0" y="70" width="768" height="904"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="16" minimumInteritemSpacing="16" id="vr5-Fq-6yY">
                                     <size key="itemSize" width="216" height="256"/>
@@ -143,7 +143,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="levelCell" id="K9N-KL-Hu8" customClass="LevelCollectionViewCell" customModule="AR_Programming" customModuleProvider="target">
-                                        <rect key="frame" x="52" y="8" width="216" height="256"/>
+                                        <rect key="frame" x="8" y="8" width="216" height="256"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="216" height="256"/>
@@ -250,11 +250,11 @@
             <objects>
                 <viewController id="Kmx-Ec-htG" customClass="CardLibraryViewController" customModule="AR_Programming" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="L2h-L0-0S5">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7qX-ce-PT1">
-                                <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                                <rect key="frame" x="0.0" y="70" width="768" height="904"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bn6-xO-dM3">
                                     <size key="itemSize" width="200" height="200"/>
@@ -264,7 +264,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CardCell" id="Tlx-02-3Ur" customClass="CardCollectionViewCell" customModule="AR_Programming" customModuleProvider="target">
-                                        <rect key="frame" x="60" y="0.0" width="200" height="200"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
@@ -312,23 +312,23 @@
             <objects>
                 <viewController id="ECG-MY-GOW" customClass="CardDetailViewController" customModule="AR_Programming" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="F0n-em-MnY">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e94-9d-fz2">
-                                <rect key="frame" x="20" y="84" width="33.5" height="20.5"/>
+                                <rect key="frame" x="20" y="90" width="33.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lcO-dC-Pvb">
-                                <rect key="frame" x="20" y="112.5" width="280" height="280"/>
+                                <rect key="frame" x="20" y="118.5" width="230.5" height="230.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="lcO-dC-Pvb" secondAttribute="height" multiplier="1:1" id="lDH-KE-vtl"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="urr-0X-9sF">
-                                <rect key="frame" x="20" y="412.5" width="88" height="20.5"/>
+                                <rect key="frame" x="258.5" y="119" width="88" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -428,7 +428,7 @@
                     <tabBarItem key="tabBarItem" title="Play" image="ARKit-Control-Label-Icon" id="hng-Tr-R6O"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zrv-Bv-H1F">
-                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="768" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -445,11 +445,11 @@
             <objects>
                 <viewController id="YHe-0I-6P8" customClass="LevelViewController" customModule="AR_Programming" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IsN-tU-7YM">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="904"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SYT-AS-Sag">
-                                <rect key="frame" x="16" y="291" width="196" height="60"/>
+                                <rect key="frame" x="16" y="828" width="196" height="60"/>
                                 <color key="backgroundColor" red="0.074509803920000006" green="0.46274509800000002" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="b69-Xz-2Tz"/>
@@ -464,7 +464,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hTh-5f-7nh" userLabel="Detect">
-                                <rect key="frame" x="62" y="291" width="196" height="60"/>
+                                <rect key="frame" x="286" y="828" width="196" height="60"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="9T0-Um-Dau"/>
@@ -484,13 +484,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Move around to find a playable surface. Press the Place button when you are happy with the playing area." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PiF-y1-IPL">
-                                <rect key="frame" x="64" y="64" width="192" height="101.5"/>
+                                <rect key="frame" x="71" y="64" width="626" height="41"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x2I-t6-tvF">
-                                <rect key="frame" x="212" y="291" width="60" height="60"/>
+                                <rect key="frame" x="212" y="828" width="60" height="60"/>
                                 <color key="backgroundColor" red="0.074509803920000006" green="0.46274509800000002" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="ENP-uQ-F6c"/>
@@ -503,7 +503,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IcD-R1-wft">
-                                <rect key="frame" x="16" y="291" width="196" height="60"/>
+                                <rect key="frame" x="16" y="828" width="196" height="60"/>
                                 <color key="backgroundColor" red="0.074509803920000006" green="0.46274509800000002" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="Wr6-DN-jNL"/>
@@ -518,13 +518,13 @@
                                 </connections>
                             </button>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You Won!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j0e-mD-Rgu">
-                                <rect key="frame" x="32" y="145" width="256" height="77"/>
+                                <rect key="frame" x="256" y="413.5" width="256" height="77"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="64"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congratulations on unlocking the next level. Find it in level select, or reset this level to play again." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZkL-Ck-Rpp">
-                                <rect key="frame" x="96" y="238" width="128" height="122"/>
+                                <rect key="frame" x="101.5" y="506.5" width="565" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -570,18 +570,18 @@
             <objects>
                 <viewController id="v2U-1n-6tb" customClass="ScanViewController" customModule="AR_Programming" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NHh-BU-V60">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="904"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Reticle" translatesAutoresizingMaskIntoConstraints="NO" id="a9v-Yi-dFX">
-                                <rect key="frame" x="128" y="151.5" width="64" height="64"/>
+                                <rect key="frame" x="352" y="420" width="64" height="64"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="BSn-j3-An0"/>
                                     <constraint firstAttribute="width" constant="64" id="nF5-gE-nle"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rKe-rH-JdA">
-                                <rect key="frame" x="0.0" y="223" width="320" height="144"/>
+                                <rect key="frame" x="0.0" y="760" width="768" height="144"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iWh-lO-hv5">
                                         <rect key="frame" x="8" y="8" width="128" height="128"/>
@@ -642,7 +642,7 @@
                     <tabBarItem key="tabBarItem" title="Cards" id="vfR-ng-Sr5"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KlL-KJ-tea">
-                        <rect key="frame" x="0.0" y="20" width="320" height="50"/>
+                        <rect key="frame" x="0.0" y="20" width="768" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -657,10 +657,10 @@
     </scenes>
     <resources>
         <image name="ARKit-Control-Label-Icon" width="78" height="78"/>
-        <image name="Levels" width="128" height="128"/>
-        <image name="Lock" width="156" height="172"/>
-        <image name="Reticle" width="128" height="128"/>
-        <image name="Retry" width="128" height="128"/>
+        <image name="Levels" width="23.691516876220703" height="23.691516876220703"/>
+        <image name="Lock" width="37.439998626708984" height="41.279998779296875"/>
+        <image name="Reticle" width="33.758243560791016" height="33.758243560791016"/>
+        <image name="Retry" width="23.75257682800293" height="23.75257682800293"/>
         <image name="robo" width="540" height="540"/>
     </resources>
 </document>

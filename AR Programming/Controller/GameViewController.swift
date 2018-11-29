@@ -29,6 +29,8 @@ class GameViewController: UIViewController {
     private var level: Level? {
         didSet {
             levelViewController?.level = level
+            arController?.cardMapper = level
+            
         }
     }
     
@@ -56,7 +58,6 @@ class GameViewController: UIViewController {
         levelViewController?.arController = arController
         arController?.cardScannerDelegate = scanViewController
         arController?.planeDetectorDelegate = levelViewController
-        arController?.cardMapper = level
         arController?.start()
 
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
