@@ -9,6 +9,8 @@
 import Foundation
 import CoreGraphics
 
+//Formulas from:
+//https://www.socscistatistics.com/tests/regression/Default.aspx
 class RegressionLine {
     
     private(set) var direction: Vector2!

@@ -16,15 +16,13 @@ class ScanViewController : UIViewController, CardScannerDelegate {
     @IBOutlet weak var cardDescription: UILabel!
     
     func cardScanner(_ scanner: ARController, scanned card: Card) {
-        //TODO: Should we use unowned self?
-        DispatchQueue.main.async {
+        DispatchQueue.main.async { [unowned self] in
             self.display(card: card)
         }
     }
     
     func cardScannerLostCard(_ scanner: ARController) {
-        //TODO: Should we use unowned self?
-        DispatchQueue.main.async {
+        DispatchQueue.main.async { [unowned self] in
             self.display(card: nil)
         }
     }

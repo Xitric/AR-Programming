@@ -9,7 +9,6 @@
 import Foundation
 import SceneKit
 
-//TODO: Reference to article here
 class AnimatableNode {
     
     private(set) var model : SCNNode

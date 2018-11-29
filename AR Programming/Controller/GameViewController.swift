@@ -29,6 +29,8 @@ class GameViewController: UIViewController {
     private var level: Level? {
         didSet {
             levelViewController?.level = level
+            arController?.cardMapper = level
+            
         }
     }
     
@@ -53,11 +55,9 @@ class GameViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        //TODO: Look into view controller lifecycle to optimize the location of these statements
         levelViewController?.arController = arController
         arController?.cardScannerDelegate = scanViewController
         arController?.planeDetectorDelegate = levelViewController
-        arController?.cardMapper = level
         arController?.start()
 
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
