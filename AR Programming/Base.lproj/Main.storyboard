@@ -657,10 +657,10 @@
     </scenes>
     <resources>
         <image name="ARKit-Control-Label-Icon" width="78" height="78"/>
-        <image name="Levels" width="23.691516876220703" height="23.691516876220703"/>
-        <image name="Lock" width="37.439998626708984" height="41.279998779296875"/>
-        <image name="Reticle" width="33.758243560791016" height="33.758243560791016"/>
-        <image name="Retry" width="23.75257682800293" height="23.75257682800293"/>
+        <image name="Levels" width="128" height="128"/>
+        <image name="Lock" width="156" height="172"/>
+        <image name="Reticle" width="128" height="128"/>
+        <image name="Retry" width="128" height="128"/>
         <image name="robo" width="540" height="540"/>
     </resources>
 </document>
