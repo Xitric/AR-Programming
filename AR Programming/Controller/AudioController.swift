@@ -9,6 +9,8 @@
 import Foundation
 import AudioKit
 
+//Inspired by:
+//https://github.com/AudioKit/AudioKit/blob/master/Examples/macOS/FlangerAndChorus/FlangerAndChorus/Conductor.swift
 class AudioController {
     
     static let instance = AudioController()
