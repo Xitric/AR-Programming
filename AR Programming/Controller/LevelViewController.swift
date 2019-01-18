@@ -44,6 +44,7 @@ class LevelViewController: UIViewController, PlaneDetectorDelegate, CardSequence
             cardSequence = nil
             playingField = nil
             winLabel.isHidden = true
+            winDescription.isHidden = true
             level?.delegate = self
         }
     }
