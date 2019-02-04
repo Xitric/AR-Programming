@@ -3,7 +3,7 @@
 //  AR ProgrammingTests
 //
 //  Created by user143563 on 10/21/18.
-//  Copyright © 2018 Kasper Schultz Davidsen. All rights reserved.
+//  Copyright © 2018 Emil Nielsen and Kasper Schultz Davidsen. All rights reserved.
 //
 
 import XCTest
