@@ -720,6 +720,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T8D932Y62R;
 				INFOPLIST_FILE = "AR ProgrammingTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -741,6 +742,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T8D932Y62R;
 				INFOPLIST_FILE = "AR ProgrammingTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
