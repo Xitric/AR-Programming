@@ -3,7 +3,7 @@
 //  AR Programming
 //
 //  Created by Emil Nielsen on 19/10/2018.
-//  Copyright © 2018 Kasper Schultz Davidsen. All rights reserved.
+//  Copyright © 2018 Emil Nielsen and Kasper Schultz Davidsen. All rights reserved.
 //
 
 import Foundation
@@ -60,7 +60,7 @@ class Level: CardMapper, Codable {
         delegate?.levelReset(self)
     }
     
-    // MARK: TODO, level creator
+    //Ignore this code, it only exists for development purposes
     convenience init(name: String, number: Int, unlocks: String?) {
         self.init(name: name, levelNumber: number, unlocks: unlocks)
     }

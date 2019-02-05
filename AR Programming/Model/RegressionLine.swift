@@ -3,12 +3,14 @@
 //  AR Programming
 //
 //  Created by user143563 on 10/21/18.
-//  Copyright © 2018 Kasper Schultz Davidsen. All rights reserved.
+//  Copyright © 2018 Emil Nielsen and Kasper Schultz Davidsen. All rights reserved.
 //
 
 import Foundation
 import CoreGraphics
 
+//Formulas from:
+//https://www.socscistatistics.com/tests/regression/Default.aspx
 class RegressionLine {
     
     private(set) var direction: Vector2!

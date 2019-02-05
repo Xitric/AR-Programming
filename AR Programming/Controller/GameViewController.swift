@@ -3,7 +3,7 @@
 //  AR Programming
 //
 //  Created by user143563 on 10/15/18.
-//  Copyright © 2018 Kasper Schultz Davidsen. All rights reserved.
+//  Copyright © 2018 Emil Nielsen and Kasper Schultz Davidsen. All rights reserved.
 //
 
 import UIKit
@@ -29,6 +29,8 @@ class GameViewController: UIViewController {
     private var level: Level? {
         didSet {
             levelViewController?.level = level
+            arController?.cardMapper = level
+            
         }
     }
     
@@ -53,11 +55,9 @@ class GameViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        //TODO: Look into view controller lifecycle to optimize the location of these statements
         levelViewController?.arController = arController
         arController?.cardScannerDelegate = scanViewController
         arController?.planeDetectorDelegate = levelViewController
-        arController?.cardMapper = level
         arController?.start()
 
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
@@ -71,6 +71,8 @@ class GameViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
+    //Inspired by:
+    //https://medium.com/@superpeteblaze/ios-swift-tip-getting-references-to-container-child-view-controllers-653fe58e6f5e
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         

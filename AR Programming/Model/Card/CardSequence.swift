@@ -3,7 +3,7 @@
 //  AR Programming
 //
 //  Created by Kasper Schultz Davidsen on 17/10/2018.
-//  Copyright © 2018 Kasper Schultz Davidsen. All rights reserved.
+//  Copyright © 2018 Emil Nielsen and Kasper Schultz Davidsen. All rights reserved.
 //
 
 import Foundation
@@ -23,7 +23,7 @@ class CardSequence {
         let regressionDirection = regressionLine.direction.normalize()
         var distances = projections.map{$0.dot(with: regressionDirection)}
         
-         let startIndex = planes.firstIndex(where: {cards.card(from: $0)?.name == "Start"})
+        let startIndex = planes.firstIndex(where: {cards.card(from: $0)?.name == "Start"})
         if let i = startIndex {
             sequence.append(cards.card(from: planes[i])!)
             distances = update(distances: distances, from: i)

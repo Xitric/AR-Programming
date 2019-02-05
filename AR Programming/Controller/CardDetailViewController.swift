@@ -3,7 +3,7 @@
 //  AR Programming
 //
 //  Created by Emil Nielsen on 08/11/2018.
-//  Copyright © 2018 Kasper Schultz Davidsen. All rights reserved.
+//  Copyright © 2018 Emil Nielsen and Kasper Schultz Davidsen. All rights reserved.
 //
 
 import Foundation
@@ -21,9 +21,6 @@ class CardDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         cardTitleLabel.text = cardTitle ?? ""
         cardDescriptionLabel.text = cardDescription ?? ""
         cardImageView.image = cardImage

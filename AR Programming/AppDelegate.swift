@@ -3,7 +3,7 @@
 //  FOO
 //
 //  Created by Emil Nielsen on 23/11/2018.
-//  Copyright © 2018 Emil Nielsen. All rights reserved.
+//  Copyright © 2018 Emil Nielsen and Kasper Schultz Davidsen. All rights reserved.
 //
 
 import UIKit

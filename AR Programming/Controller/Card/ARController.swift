@@ -3,7 +3,7 @@
 //  AR Programming
 //
 //  Created by Kasper Schultz Davidsen on 12/11/2018.
-//  Copyright © 2018 Kasper Schultz Davidsen. All rights reserved.
+//  Copyright © 2018 Emil Nielsen and Kasper Schultz Davidsen. All rights reserved.
 //
 
 import Foundation
@@ -16,7 +16,12 @@ class ARController: NSObject, ARSessionDelegate, ARSCNViewDelegate  {
     private var options : ARSession.RunOptions
     let cardWorld = CardWorld()
     
-    var cardMapper: CardMapper?
+    var cardMapper: CardMapper? {
+        didSet{
+            sceneView.session.pause()
+            sceneView.session.run(configuration, options: [options, ARSession.RunOptions.removeExistingAnchors])
+        }
+    }
     
     weak var cardScannerDelegate: CardScannerDelegate?
     weak var planeDetectorDelegate: PlaneDetectorDelegate?
@@ -30,7 +35,7 @@ class ARController: NSObject, ARSessionDelegate, ARSCNViewDelegate  {
         configuration.planeDetection = .horizontal
         configuration.detectionImages = ARReferenceImage.referenceImages(inGroupNamed: "Cards", bundle: nil)
         
-        options = [.resetTracking, .removeExistingAnchors]
+        options = [.resetTracking]
         
         super.init()
         
@@ -48,12 +53,13 @@ class ARController: NSObject, ARSessionDelegate, ARSCNViewDelegate  {
     }
     
     func session(_ session: ARSession, didUpdate anchors: [ARAnchor]) {
+        //This code has been disabled because if instability with ARKit - we did not have the time to resolve it
 //        for anchor in anchors {
 //            if let imageAnchor = anchor as? ARImageAnchor, let name = imageAnchor.referenceImage.name {
 //                if !imageAnchor.isTracked {
-//                    //TODO: Start timer to remove card
+//                    //Start timer to remove card
 //                } else {
-//                    //TODO: Stop timer for card, as it has been found again
+//                    //Stop timer for card, as it has been found again
 //                }
 //            }
 //        }
@@ -83,17 +89,19 @@ class ARController: NSObject, ARSessionDelegate, ARSCNViewDelegate  {
     
     private func handlePlaneDetected(planeAnchor: ARPlaneAnchor, node: SCNNode) {
         if planeDetectorDelegate?.shouldDetectPlanes(self) ?? false {
-            if let plane = currentPlane {
-                sceneView.session.remove(anchor: plane.anchor)
-                plane.node.removeFromParentNode()
-            }
-            
+            let oldPlane = currentPlane
+ 
             let plane = Plane(width: 0.2, height: 0.2, anchor: planeAnchor)
             plane.node.geometry?.materials.first?.diffuse.contents = UIImage(named: "tron_grid")
             node.addChildNode(plane.node)
             
             currentPlane = plane
             planeDetectorDelegate?.planeDetector(self, found: plane)
+            
+            if let plane = oldPlane {
+                sceneView.session.remove(anchor: plane.anchor)
+                plane.node.removeFromParentNode()
+            }
         }
     }
     

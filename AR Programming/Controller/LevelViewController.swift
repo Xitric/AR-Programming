@@ -3,7 +3,7 @@
 //  AR Programming
 //
 //  Created by Kasper Schultz Davidsen on 12/11/2018.
-//  Copyright © 2018 Kasper Schultz Davidsen. All rights reserved.
+//  Copyright © 2018 Emil Nielsen and Kasper Schultz Davidsen. All rights reserved.
 //
 
 import Foundation
@@ -39,9 +39,12 @@ class LevelViewController: UIViewController, PlaneDetectorDelegate, CardSequence
     }
     var level: Level? {
         didSet {
+            placeButton.isEnabled = true
+            placeButton.isHidden = false
             cardSequence = nil
             playingField = nil
             winLabel.isHidden = true
+            winDescription.isHidden = true
             level?.delegate = self
         }
     }
@@ -68,11 +71,19 @@ class LevelViewController: UIViewController, PlaneDetectorDelegate, CardSequence
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         AudioController.instance.start()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
         AudioController.instance.stop()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        placeButton.isEnabled = false
+        placeButton.isHidden = true
     }
     
     func shouldDetectPlanes(_ detector: ARController) -> Bool {
@@ -92,15 +103,17 @@ class LevelViewController: UIViewController, PlaneDetectorDelegate, CardSequence
     }
     
     func showModelAt(detectedPlane plane: Plane) {
-        let origo = AnchoredNode(anchor: plane.anchor, node: plane.node.parent!)
+        if ((level?.delegate = self) != nil) {
+            let origo = AnchoredNode(anchor: plane.anchor, node: plane.node.parent!)
 
-        let robot = AnimatableNode(modelSource: "Meshes.scnassets/uglyBot.dae")
-        robot.model.scale = SCNVector3(0.1, 0.1, 0.1)
-        robot.model.position = SCNVector3(0, 0, 0)
+            let robot = AnimatableNode(modelSource: "Meshes.scnassets/uglyBot.dae")
+            robot.model.scale = SCNVector3(0.1, 0.1, 0.1)
+            robot.model.position = SCNVector3(0, 0, 0)
 
-        playingField = PlayingField(origo: origo, ground: plane, robot: robot)
+            playingField = PlayingField(origo: origo, ground: plane, robot: robot)
 
-        origo.node.addChildNode(robot.model)
+            origo.node.addChildNode(robot.model)
+        }
     }
 
     func showLevel() {

@@ -10,7 +10,6 @@
 		04AEDFB63981EDEF7B9C4BEA /* Pods_AR_ProgrammingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81B3ED8214579B6F33DA8F08 /* Pods_AR_ProgrammingTests.framework */; };
 		09B25CABE22E83D264A35769 /* Pods_AR_ProgrammingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90A55B0621A834FD00FD7CDD /* Pods_AR_ProgrammingTests.framework */; };
 		6C12D9D821873ECD003D0528 /* Vector2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C12D9D721873ECD003D0528 /* Vector2.swift */; };
-		6C1D399F217BA4630053D482 /* CardSequenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1D399E217BA4630053D482 /* CardSequenceTests.swift */; };
 		6C512972217C95EC00421A48 /* RegressionLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C512971217C95EC00421A48 /* RegressionLine.swift */; };
 		6C512974217C978E00421A48 /* RegressionLineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C512973217C978E00421A48 /* RegressionLineTests.swift */; };
 		6CD69945218F3DE900A9E755 /* CardFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD69944218F3DE900A9E755 /* CardFactory.swift */; };
@@ -41,8 +40,8 @@
 		90DF7337216F441E00F51E0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90DF7335216F441E00F51E0C /* Main.storyboard */; };
 		90DF7339216F442000F51E0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90DF7338216F442000F51E0C /* Assets.xcassets */; };
 		90DF733C216F442000F51E0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90DF733A216F442000F51E0C /* LaunchScreen.storyboard */; };
-		C725B2C321A85A7B00DD147A /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C725B2C121A85A7B00DD147A /* Model.xcdatamodeld */; };
 		B6ABE7E472B14FA62A77B354 /* Pods_AR_Programming.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFCF4F02AC22AD5F7FC35F40 /* Pods_AR_Programming.framework */; };
+		C725B2C321A85A7B00DD147A /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C725B2C121A85A7B00DD147A /* Model.xcdatamodeld */; };
 		C7273114217714E900754543 /* Plane.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7273113217714E900754543 /* Plane.swift */; };
 		C7273118217752C400754543 /* CardCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7273117217752C400754543 /* CardCommand.swift */; };
 		C727311A2177539300754543 /* MoveCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72731192177539300754543 /* MoveCommand.swift */; };
@@ -73,7 +72,6 @@
 		2CBF6D6B964CB7805473D1E8 /* Pods-AR Programming.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AR Programming.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AR Programming/Pods-AR Programming.debug.xcconfig"; sourceTree = "<group>"; };
 		3F68042C35BD5B2A4D85C7F9 /* Pods-AR Programming.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AR Programming.release.xcconfig"; path = "Pods/Target Support Files/Pods-AR Programming/Pods-AR Programming.release.xcconfig"; sourceTree = "<group>"; };
 		6C12D9D721873ECD003D0528 /* Vector2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vector2.swift; sourceTree = "<group>"; };
-		6C1D399E217BA4630053D482 /* CardSequenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSequenceTests.swift; sourceTree = "<group>"; };
 		6C512971217C95EC00421A48 /* RegressionLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegressionLine.swift; sourceTree = "<group>"; };
 		6C512973217C978E00421A48 /* RegressionLineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegressionLineTests.swift; sourceTree = "<group>"; };
 		6CD69944218F3DE900A9E755 /* CardFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFactory.swift; sourceTree = "<group>"; };
@@ -110,10 +108,10 @@
 		90DF733D216F442000F51E0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		90DF7342216F442100F51E0C /* AR ProgrammingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AR ProgrammingTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		90DF7348216F442100F51E0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C725B2C221A85A7B00DD147A /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		9E22EC9C0309734A8EC82229 /* Pods-AR ProgrammingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AR ProgrammingTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AR ProgrammingTests/Pods-AR ProgrammingTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AFCF4F02AC22AD5F7FC35F40 /* Pods_AR_Programming.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AR_Programming.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C572DB0C2C2E8C51CB97FFDF /* Pods-AR ProgrammingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AR ProgrammingTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AR ProgrammingTests/Pods-AR ProgrammingTests.release.xcconfig"; sourceTree = "<group>"; };
+		C725B2C221A85A7B00DD147A /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		C7273113217714E900754543 /* Plane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plane.swift; sourceTree = "<group>"; };
 		C7273117217752C400754543 /* CardCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCommand.swift; sourceTree = "<group>"; };
 		C72731192177539300754543 /* MoveCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveCommand.swift; sourceTree = "<group>"; };
@@ -311,7 +309,6 @@
 			isa = PBXGroup;
 			children = (
 				90DF7348216F442100F51E0C /* Info.plist */,
-				6C1D399E217BA4630053D482 /* CardSequenceTests.swift */,
 				6C512973217C978E00421A48 /* RegressionLineTests.swift */,
 			);
 			path = "AR ProgrammingTests";
@@ -527,7 +524,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C512974217C978E00421A48 /* RegressionLineTests.swift in Sources */,
-				6C1D399F217BA4630053D482 /* CardSequenceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -685,11 +681,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T8D932Y62R;
 				INFOPLIST_FILE = "AR Programming/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "dk.sdu.group10.AR-Programming";
+				PRODUCT_BUNDLE_IDENTIFIER = "dk.sdu.AR-Programming";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -704,11 +701,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T8D932Y62R;
 				INFOPLIST_FILE = "AR Programming/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "dk.sdu.group10.AR-Programming";
+				PRODUCT_BUNDLE_IDENTIFIER = "dk.sdu.AR-Programming";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
