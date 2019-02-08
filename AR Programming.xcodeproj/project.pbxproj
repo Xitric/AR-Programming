@@ -35,6 +35,14 @@
 		562CCA7A220D74AF00BF6A8D /* ObservationNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA62220D74AF00BF6A8D /* ObservationNode.swift */; };
 		562CCA7E220D750100BF6A8D /* Double+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA7C220D74FF00BF6A8D /* Double+Helpers.swift */; };
 		562CCA7F220D750100BF6A8D /* CGImagePropertyOrientation+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA7D220D750100BF6A8D /* CGImagePropertyOrientation+Helpers.swift */; };
+		562CCA9C220D92BC00BF6A8D /* CardNodeFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA99220D92B700BF6A8D /* CardNodeFactoryTests.swift */; };
+		562CCA9D220D92BC00BF6A8D /* CardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA9A220D92B900BF6A8D /* CardTests.swift */; };
+		562CCA9E220D92BC00BF6A8D /* SuccessorCardNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA9B220D92BC00BF6A8D /* SuccessorCardNodeTests.swift */; };
+		562CCAA3220D92CF00BF6A8D /* ObservationSetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA9F220D92C700BF6A8D /* ObservationSetTests.swift */; };
+		562CCAA4220D92CF00BF6A8D /* ObservationGraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCAA0220D92CA00BF6A8D /* ObservationGraphTests.swift */; };
+		562CCAA5220D92CF00BF6A8D /* ObservationEdgeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCAA1220D92CC00BF6A8D /* ObservationEdgeTests.swift */; };
+		562CCAA6220D92CF00BF6A8D /* BarcodeDetectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCAA2220D92CF00BF6A8D /* BarcodeDetectorTests.swift */; };
+		562CCAAC220D933E00BF6A8D /* Double+HelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCAAB220D933E00BF6A8D /* Double+HelpersTests.swift */; };
 		6CEF68612174D11E006E62B8 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEF68602174D11E006E62B8 /* GameViewController.swift */; };
 		900F13542194269F001C2DC2 /* TileMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900F13532194269F001C2DC2 /* TileMap.swift */; };
 		900F135A219447AF001C2DC2 /* LevelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900F1359219447AF001C2DC2 /* LevelManager.swift */; };
@@ -108,6 +116,15 @@
 		562CCA62220D74AF00BF6A8D /* ObservationNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationNode.swift; sourceTree = "<group>"; };
 		562CCA7C220D74FF00BF6A8D /* Double+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Helpers.swift"; sourceTree = "<group>"; };
 		562CCA7D220D750100BF6A8D /* CGImagePropertyOrientation+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGImagePropertyOrientation+Helpers.swift"; sourceTree = "<group>"; };
+		562CCA98220D92B200BF6A8D /* AR ProgrammingTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AR ProgrammingTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		562CCA99220D92B700BF6A8D /* CardNodeFactoryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardNodeFactoryTests.swift; sourceTree = "<group>"; };
+		562CCA9A220D92B900BF6A8D /* CardTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardTests.swift; sourceTree = "<group>"; };
+		562CCA9B220D92BC00BF6A8D /* SuccessorCardNodeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessorCardNodeTests.swift; sourceTree = "<group>"; };
+		562CCA9F220D92C700BF6A8D /* ObservationSetTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationSetTests.swift; sourceTree = "<group>"; };
+		562CCAA0220D92CA00BF6A8D /* ObservationGraphTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationGraphTests.swift; sourceTree = "<group>"; };
+		562CCAA1220D92CC00BF6A8D /* ObservationEdgeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationEdgeTests.swift; sourceTree = "<group>"; };
+		562CCAA2220D92CF00BF6A8D /* BarcodeDetectorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeDetectorTests.swift; sourceTree = "<group>"; };
+		562CCAAB220D933E00BF6A8D /* Double+HelpersTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+HelpersTests.swift"; sourceTree = "<group>"; };
 		6CEF68602174D11E006E62B8 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		81B3ED8214579B6F33DA8F08 /* Pods_AR_ProgrammingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AR_ProgrammingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		900F13532194269F001C2DC2 /* TileMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileMap.swift; sourceTree = "<group>"; };
@@ -248,6 +265,10 @@
 		562CCA81220D753500BF6A8D /* ImageAnalysis */ = {
 			isa = PBXGroup;
 			children = (
+				562CCAA2220D92CF00BF6A8D /* BarcodeDetectorTests.swift */,
+				562CCAA1220D92CC00BF6A8D /* ObservationEdgeTests.swift */,
+				562CCAA0220D92CA00BF6A8D /* ObservationGraphTests.swift */,
+				562CCA9F220D92C700BF6A8D /* ObservationSetTests.swift */,
 			);
 			path = ImageAnalysis;
 			sourceTree = "<group>";
@@ -263,8 +284,20 @@
 		562CCA83220D755200BF6A8D /* Cards */ = {
 			isa = PBXGroup;
 			children = (
+				562CCA99220D92B700BF6A8D /* CardNodeFactoryTests.swift */,
+				562CCA9A220D92B900BF6A8D /* CardTests.swift */,
+				562CCA9B220D92BC00BF6A8D /* SuccessorCardNodeTests.swift */,
+				562CCA98220D92B200BF6A8D /* AR ProgrammingTests-Bridging-Header.h */,
 			);
 			path = Cards;
+			sourceTree = "<group>";
+		};
+		562CCAAA220D933300BF6A8D /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				562CCAAB220D933E00BF6A8D /* Double+HelpersTests.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		69FAFFD76540FD6CC944F023 /* Pods */ = {
@@ -397,6 +430,7 @@
 		90DF7345216F442100F51E0C /* AR ProgrammingTests */ = {
 			isa = PBXGroup;
 			children = (
+				562CCAAA220D933300BF6A8D /* Utilities */,
 				562CCA80220D752B00BF6A8D /* Model */,
 				90DF7348216F442100F51E0C /* Info.plist */,
 			);
@@ -468,6 +502,7 @@
 					};
 					90DF7341216F442100F51E0C = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1010;
 						TestTargetID = 90DF732B216F441E00F51E0C;
 					};
 				};
@@ -624,6 +659,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				562CCAAC220D933E00BF6A8D /* Double+HelpersTests.swift in Sources */,
+				562CCA9C220D92BC00BF6A8D /* CardNodeFactoryTests.swift in Sources */,
+				562CCA9E220D92BC00BF6A8D /* SuccessorCardNodeTests.swift in Sources */,
+				562CCA9D220D92BC00BF6A8D /* CardTests.swift in Sources */,
+				562CCAA4220D92CF00BF6A8D /* ObservationGraphTests.swift in Sources */,
+				562CCAA3220D92CF00BF6A8D /* ObservationSetTests.swift in Sources */,
+				562CCAA5220D92CF00BF6A8D /* ObservationEdgeTests.swift in Sources */,
+				562CCAA6220D92CF00BF6A8D /* BarcodeDetectorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -819,6 +862,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T8D932Y62R;
 				INFOPLIST_FILE = "AR ProgrammingTests/Info.plist";
@@ -829,6 +873,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "dk.sdu.group10.AR-ProgrammingTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AR ProgrammingTests/Model/Program/Cards/AR ProgrammingTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AR Programming.app/AR Programming";
@@ -841,6 +887,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T8D932Y62R;
 				INFOPLIST_FILE = "AR ProgrammingTests/Info.plist";
@@ -851,6 +898,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "dk.sdu.group10.AR-ProgrammingTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AR ProgrammingTests/Model/Program/Cards/AR ProgrammingTests-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AR Programming.app/AR Programming";
