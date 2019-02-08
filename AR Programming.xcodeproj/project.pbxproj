@@ -116,7 +116,6 @@
 		562CCA62220D74AF00BF6A8D /* ObservationNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationNode.swift; sourceTree = "<group>"; };
 		562CCA7C220D74FF00BF6A8D /* Double+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Helpers.swift"; sourceTree = "<group>"; };
 		562CCA7D220D750100BF6A8D /* CGImagePropertyOrientation+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGImagePropertyOrientation+Helpers.swift"; sourceTree = "<group>"; };
-		562CCA98220D92B200BF6A8D /* AR ProgrammingTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AR ProgrammingTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		562CCA99220D92B700BF6A8D /* CardNodeFactoryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardNodeFactoryTests.swift; sourceTree = "<group>"; };
 		562CCA9A220D92B900BF6A8D /* CardTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardTests.swift; sourceTree = "<group>"; };
 		562CCA9B220D92BC00BF6A8D /* SuccessorCardNodeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessorCardNodeTests.swift; sourceTree = "<group>"; };
@@ -287,7 +286,6 @@
 				562CCA99220D92B700BF6A8D /* CardNodeFactoryTests.swift */,
 				562CCA9A220D92B900BF6A8D /* CardTests.swift */,
 				562CCA9B220D92BC00BF6A8D /* SuccessorCardNodeTests.swift */,
-				562CCA98220D92B200BF6A8D /* AR ProgrammingTests-Bridging-Header.h */,
 			);
 			path = Cards;
 			sourceTree = "<group>";
@@ -873,7 +871,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "dk.sdu.group10.AR-ProgrammingTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "AR ProgrammingTests/Model/Program/Cards/AR ProgrammingTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -898,7 +895,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "dk.sdu.group10.AR-ProgrammingTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "AR ProgrammingTests/Model/Program/Cards/AR ProgrammingTests-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AR Programming.app/AR Programming";
