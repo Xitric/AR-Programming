@@ -9,11 +9,12 @@
 /* Begin PBXBuildFile section */
 		04AEDFB63981EDEF7B9C4BEA /* Pods_AR_ProgrammingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81B3ED8214579B6F33DA8F08 /* Pods_AR_ProgrammingTests.framework */; };
 		09B25CABE22E83D264A35769 /* Pods_AR_ProgrammingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90A55B0621A834FD00FD7CDD /* Pods_AR_ProgrammingTests.framework */; };
+		204AEC12220DC9F500E0F624 /* HiddenTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204AEC11220DC9F500E0F624 /* HiddenTabBarViewController.swift */; };
+		204AEC14220DCA1E00E0F624 /* ARContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204AEC13220DCA1E00E0F624 /* ARContainerViewController.swift */; };
 		6C12D9D821873ECD003D0528 /* Vector2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C12D9D721873ECD003D0528 /* Vector2.swift */; };
 		6C512972217C95EC00421A48 /* RegressionLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C512971217C95EC00421A48 /* RegressionLine.swift */; };
 		6C512974217C978E00421A48 /* RegressionLineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C512973217C978E00421A48 /* RegressionLineTests.swift */; };
 		6CD69945218F3DE900A9E755 /* CardFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD69944218F3DE900A9E755 /* CardFactory.swift */; };
-		6CEF68612174D11E006E62B8 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEF68602174D11E006E62B8 /* GameViewController.swift */; };
 		900F13542194269F001C2DC2 /* TileMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900F13532194269F001C2DC2 /* TileMap.swift */; };
 		900F13582194405D001C2DC2 /* CardSequenceProgressDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900F13572194405D001C2DC2 /* CardSequenceProgressDelegate.swift */; };
 		900F135A219447AF001C2DC2 /* LevelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900F1359219447AF001C2DC2 /* LevelManager.swift */; };
@@ -69,13 +70,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		204AEC11220DC9F500E0F624 /* HiddenTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HiddenTabBarViewController.swift; sourceTree = "<group>"; };
+		204AEC13220DCA1E00E0F624 /* ARContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARContainerViewController.swift; sourceTree = "<group>"; };
 		2CBF6D6B964CB7805473D1E8 /* Pods-AR Programming.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AR Programming.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AR Programming/Pods-AR Programming.debug.xcconfig"; sourceTree = "<group>"; };
 		3F68042C35BD5B2A4D85C7F9 /* Pods-AR Programming.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AR Programming.release.xcconfig"; path = "Pods/Target Support Files/Pods-AR Programming/Pods-AR Programming.release.xcconfig"; sourceTree = "<group>"; };
 		6C12D9D721873ECD003D0528 /* Vector2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vector2.swift; sourceTree = "<group>"; };
 		6C512971217C95EC00421A48 /* RegressionLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegressionLine.swift; sourceTree = "<group>"; };
 		6C512973217C978E00421A48 /* RegressionLineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegressionLineTests.swift; sourceTree = "<group>"; };
 		6CD69944218F3DE900A9E755 /* CardFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFactory.swift; sourceTree = "<group>"; };
-		6CEF68602174D11E006E62B8 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		81B3ED8214579B6F33DA8F08 /* Pods_AR_ProgrammingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AR_ProgrammingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		900F13532194269F001C2DC2 /* TileMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileMap.swift; sourceTree = "<group>"; };
 		900F13572194405D001C2DC2 /* CardSequenceProgressDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSequenceProgressDelegate.swift; sourceTree = "<group>"; };
@@ -226,7 +228,8 @@
 			isa = PBXGroup;
 			children = (
 				905A3C782179BDC3005E3AA5 /* Card */,
-				6CEF68602174D11E006E62B8 /* GameViewController.swift */,
+				204AEC11220DC9F500E0F624 /* HiddenTabBarViewController.swift */,
+				204AEC13220DCA1E00E0F624 /* ARContainerViewController.swift */,
 				905A3C91217A0891005E3AA5 /* LevelSelectViewController.swift */,
 				905A3C93217A09D0005E3AA5 /* LevelCollectionViewCell.swift */,
 				901584C72199BDF400450E0B /* LevelViewController.swift */,
@@ -489,7 +492,6 @@
 				901584CA2199BE0200450E0B /* ScanViewController.swift in Sources */,
 				6CD69945218F3DE900A9E755 /* CardFactory.swift in Sources */,
 				90D7538321AC0D2500B1F2E4 /* LevelDelegate.swift in Sources */,
-				6CEF68612174D11E006E62B8 /* GameViewController.swift in Sources */,
 				905A3C8C2179E522005E3AA5 /* PlayingField.swift in Sources */,
 				C79CED572179E175001487BF /* Level.swift in Sources */,
 				C727312021775A5B00754543 /* JumpCommand.swift in Sources */,
@@ -497,9 +499,11 @@
 				6C12D9D821873ECD003D0528 /* Vector2.swift in Sources */,
 				6C512972217C95EC00421A48 /* RegressionLine.swift in Sources */,
 				90BA0F5C2188A1D7005B6A6B /* RotationCommand.swift in Sources */,
+				204AEC12220DC9F500E0F624 /* HiddenTabBarViewController.swift in Sources */,
 				90CDABC42177425200664640 /* AnimatableNode.swift in Sources */,
 				C727311C2177581400754543 /* RightCommand.swift in Sources */,
 				900F135A219447AF001C2DC2 /* LevelManager.swift in Sources */,
+				204AEC14220DCA1E00E0F624 /* ARContainerViewController.swift in Sources */,
 				C725B2C321A85A7B00DD147A /* Model.xcdatamodeld in Sources */,
 				C74785E9219427A3000148BC /* CardCollectionViewCell.swift in Sources */,
 				C76A214821AC1405008A07D9 /* LevelEntity+CoreDataProperties.swift in Sources */,
@@ -679,14 +683,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T8D932Y62R;
+				DEVELOPMENT_TEAM = 5E6DK5G4XC;
 				INFOPLIST_FILE = "AR Programming/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "dk.sdu.AR-Programming";
+				PRODUCT_BUNDLE_IDENTIFIER = "dk.sdu.AR-Programming1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -699,14 +703,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T8D932Y62R;
+				DEVELOPMENT_TEAM = 5E6DK5G4XC;
 				INFOPLIST_FILE = "AR Programming/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "dk.sdu.AR-Programming";
+				PRODUCT_BUNDLE_IDENTIFIER = "dk.sdu.AR-Programming1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
