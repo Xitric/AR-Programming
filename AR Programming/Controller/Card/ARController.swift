@@ -22,9 +22,10 @@ class ARController: NSObject, ARSessionDelegate, ARSCNViewDelegate  {
     
     init(with scene: ARSCNView) {
         sceneView = scene
+        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
+        sceneView.autoenablesDefaultLighting = true
         
         configuration = ARWorldTrackingConfiguration()
-        configuration.maximumNumberOfTrackedImages = 6
         configuration.planeDetection = .horizontal
         
         options = [.resetTracking]

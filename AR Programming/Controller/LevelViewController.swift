@@ -21,6 +21,7 @@ class LevelViewController: UIViewController, PlaneDetectorDelegate, ProgramEdito
     @IBOutlet weak var planeDetectionLabel: UILabel!
     @IBOutlet weak var winLabel: UILabel!
     @IBOutlet weak var winDescription: UILabel!
+    @IBOutlet weak var scanButton: UIButton!
     
     private var levelViewModel: LevelViewModel?
     
@@ -53,6 +54,7 @@ class LevelViewController: UIViewController, PlaneDetectorDelegate, ProgramEdito
             editor.reset()
         }
     }
+    
     private var playingField: PlayingField? {
         didSet {
             let hasPlayingField = playingField != nil
@@ -77,6 +79,11 @@ class LevelViewController: UIViewController, PlaneDetectorDelegate, ProgramEdito
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        if let parent = self.tabBarController as? HiddenTabBarViewController {
+            if parent.levelViewController == nil {
+                parent.levelViewController = self
+            }
+        }
         AudioController.instance.start()
     }
     
@@ -133,6 +140,13 @@ class LevelViewController: UIViewController, PlaneDetectorDelegate, ProgramEdito
         }
     }
     
+    @IBAction func startScanning(_ sender: UIButton) {
+        if let parent = self.tabBarController as? HiddenTabBarViewController {
+            parent.goToViewControllerWith(index: 1)
+        }
+    }
+    
+    
     @IBAction func detectCards(_ sender: UIButton) {
         program = editor.program
         program?.delegate = self
@@ -176,9 +190,6 @@ class LevelViewController: UIViewController, PlaneDetectorDelegate, ProgramEdito
             self.winDescription.isHidden = true
         }
     }
-    
-    
-    
     
     //MARK: Editor and level
     func programEditor(_ programEditor: ProgramEditor, createdNew program: Program) {

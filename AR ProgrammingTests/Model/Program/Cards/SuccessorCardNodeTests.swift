@@ -2,8 +2,8 @@
 //  SuccessorCardNodeTests.swift
 //  VisionCardTestTests
 //
-//  Created by user143563 on 2/3/19.
-//  Copyright © 2019 SDU. All rights reserved.
+//  Created by Kasper Schultz Davidsen on 2/3/19.
+//  Copyright © 2018 Emil Nielsen and Kasper Schultz Davidsen. All rights reserved.
 //
 
 import XCTest

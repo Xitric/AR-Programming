@@ -15,6 +15,20 @@ class ScanViewController : UIViewController, CardScannerDelegate {
     @IBOutlet weak var cardName: UILabel!
     @IBOutlet weak var cardDescription: UILabel!
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if let parent = self.parent as? HiddenTabBarViewController {
+            parent.scanViewController = self
+        }
+    }
+    
+    @IBAction func back(_ sender: UIButton) {
+        if let parent = self.parent as? HiddenTabBarViewController {
+            parent.goToViewControllerWith(index: 0)
+            parent.scanViewController = nil
+        }
+    }
+    
     func cardScanner(_ scanner: ARController, scanned card: Card) {
         DispatchQueue.main.async { [unowned self] in
             self.display(card: card)

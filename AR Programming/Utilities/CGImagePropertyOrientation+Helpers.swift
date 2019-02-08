@@ -3,7 +3,7 @@
 //  VisionCardTest
 //
 //  Created by Kasper Schultz Davidsen on 06/02/2019.
-//  Copyright © 2019 SDU. All rights reserved.
+//  Copyright © 2018 Emil Nielsen and Kasper Schultz Davidsen. All rights reserved.
 //
 
 import Foundation
