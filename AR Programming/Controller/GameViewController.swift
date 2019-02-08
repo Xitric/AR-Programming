@@ -29,8 +29,7 @@ class GameViewController: UIViewController {
     private var level: Level? {
         didSet {
             levelViewController?.level = level
-            arController?.cardMapper = level
-            
+            arController?.restart()
         }
     }
     

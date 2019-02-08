@@ -448,6 +448,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="904"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sW9-KF-I5o">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="904"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SYT-AS-Sag">
                                 <rect key="frame" x="16" y="828" width="196" height="60"/>
                                 <color key="backgroundColor" red="0.074509803920000006" green="0.46274509800000002" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -536,6 +540,8 @@
                             <constraint firstItem="hTh-5f-7nh" firstAttribute="centerX" secondItem="IsN-tU-7YM" secondAttribute="centerX" id="6qW-61-skg"/>
                             <constraint firstAttribute="bottomMargin" secondItem="x2I-t6-tvF" secondAttribute="bottom" constant="16" id="6vV-y2-NCc"/>
                             <constraint firstItem="x2I-t6-tvF" firstAttribute="leading" secondItem="IcD-R1-wft" secondAttribute="trailing" id="8Kv-he-VAe"/>
+                            <constraint firstItem="sW9-KF-I5o" firstAttribute="trailing" secondItem="r7f-Fu-KoH" secondAttribute="trailing" id="91a-Gs-XmC"/>
+                            <constraint firstItem="sW9-KF-I5o" firstAttribute="top" secondItem="r7f-Fu-KoH" secondAttribute="top" constant="-20" id="BzH-Dp-Khn"/>
                             <constraint firstItem="IcD-R1-wft" firstAttribute="leading" secondItem="IsN-tU-7YM" secondAttribute="leading" constant="16" id="GvD-zM-qUh"/>
                             <constraint firstItem="j0e-mD-Rgu" firstAttribute="centerX" secondItem="IsN-tU-7YM" secondAttribute="centerX" id="L74-Kp-XNz"/>
                             <constraint firstItem="ZkL-Ck-Rpp" firstAttribute="centerX" secondItem="IsN-tU-7YM" secondAttribute="centerX" id="RlL-uA-an0"/>
@@ -544,7 +550,9 @@
                             <constraint firstAttribute="bottomMargin" secondItem="IcD-R1-wft" secondAttribute="bottom" constant="16" id="YAf-4A-3SA"/>
                             <constraint firstItem="j0e-mD-Rgu" firstAttribute="centerY" secondItem="IsN-tU-7YM" secondAttribute="centerY" id="cve-0c-SK8"/>
                             <constraint firstItem="PiF-y1-IPL" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="IsN-tU-7YM" secondAttribute="leading" constant="64" id="dfo-KV-BRQ"/>
+                            <constraint firstItem="sW9-KF-I5o" firstAttribute="leading" secondItem="r7f-Fu-KoH" secondAttribute="leading" id="j4n-hp-Gs6"/>
                             <constraint firstItem="PiF-y1-IPL" firstAttribute="centerX" secondItem="IsN-tU-7YM" secondAttribute="centerX" id="qgS-MQ-t8z"/>
+                            <constraint firstItem="sW9-KF-I5o" firstAttribute="bottom" secondItem="r7f-Fu-KoH" secondAttribute="bottom" id="tpf-Hn-Uda"/>
                             <constraint firstItem="PiF-y1-IPL" firstAttribute="centerX" secondItem="IsN-tU-7YM" secondAttribute="centerX" id="tuG-Mo-zUt"/>
                             <constraint firstItem="SYT-AS-Sag" firstAttribute="leading" secondItem="IcD-R1-wft" secondAttribute="leading" id="wKZ-3x-Ziz"/>
                             <constraint firstAttribute="bottomMargin" secondItem="hTh-5f-7nh" secondAttribute="bottom" constant="16" id="zGt-wQ-VQT"/>
@@ -556,6 +564,7 @@
                         <outlet property="executeButton" destination="SYT-AS-Sag" id="Qfj-UN-db1"/>
                         <outlet property="placeButton" destination="hTh-5f-7nh" id="aeH-8l-nAq"/>
                         <outlet property="planeDetectionLabel" destination="PiF-y1-IPL" id="ctc-zf-r24"/>
+                        <outlet property="rectView" destination="sW9-KF-I5o" id="xS0-N1-gIf"/>
                         <outlet property="resetButton" destination="x2I-t6-tvF" id="hgj-qu-acl"/>
                         <outlet property="winDescription" destination="ZkL-Ck-Rpp" id="daL-XR-fn7"/>
                         <outlet property="winLabel" destination="j0e-mD-Rgu" id="K3m-H1-kvw"/>
@@ -563,7 +572,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="buh-NS-jlc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2132" y="776"/>
+            <point key="canvasLocation" x="2131.25" y="775.78125"/>
         </scene>
         <!--Scan View Controller-->
         <scene sceneID="pUc-1Y-wkB">

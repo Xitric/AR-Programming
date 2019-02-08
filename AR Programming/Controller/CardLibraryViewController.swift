@@ -12,8 +12,8 @@ import CoreData
 
 class CardLibraryViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
-    private var cardFactory = CardFactory.instance
-    private lazy var cardLibrary = cardFactory.cardLibrary
+    private var cardFactory = CardNodeFactory.instance
+    private lazy var cardLibrary = cardFactory.cards
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     @IBOutlet weak var CardCollectionView: UICollectionView! {
@@ -31,7 +31,7 @@ class CardLibraryViewController: UIViewController, UICollectionViewDelegate, UIC
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardCell", for: indexPath)
         if let cardCell = cell as? CardCollectionViewCell {
             let card = cardLibrary[indexPath.item]
-            let cardLibraryImage = UIImage(named: card.name)
+            let cardLibraryImage = UIImage(named: card.internalName)
             cardCell.image.image = cardLibraryImage
             cardCell.cardTitle = card.name
             cardCell.cardDescription = card.description

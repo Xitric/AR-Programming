@@ -11,7 +11,7 @@ import UIKit
 import SceneKit
 import AudioKit
 
-class LevelViewController: UIViewController, PlaneDetectorDelegate, CardSequenceProgressDelegate, LevelDelegate {
+class LevelViewController: UIViewController, PlaneDetectorDelegate, ProgramEditorDelegate, ProgramDelegate, LevelDelegate {
     
     //MARK: View
     @IBOutlet weak var placeButton: UIButton!
@@ -29,7 +29,12 @@ class LevelViewController: UIViewController, PlaneDetectorDelegate, CardSequence
     private var pickupSound = AudioController.instance.makeSound(withName: "pickup.wav")
     
     //MARK: State
-    var arController: ARController?
+    var arController: ARController? {
+        didSet {
+            arController?.editor = editor
+        }
+    }
+    var editor = ProgramEditor()
     private var currentPlane: Plane? {
         didSet {
             DispatchQueue.main.async { [unowned self] in
@@ -41,11 +46,11 @@ class LevelViewController: UIViewController, PlaneDetectorDelegate, CardSequence
         didSet {
             placeButton.isEnabled = true
             placeButton.isHidden = false
-            cardSequence = nil
             playingField = nil
             winLabel.isHidden = true
             winDescription.isHidden = true
             level?.delegate = self
+            editor.reset()
         }
     }
     private var playingField: PlayingField? {
@@ -63,10 +68,10 @@ class LevelViewController: UIViewController, PlaneDetectorDelegate, CardSequence
             }
         }
     }
-    private var cardSequence : CardSequence? {
+    private var program: Program? {
         didSet {
-            detectButton.isHidden = cardSequence != nil
-            executeButton.isHidden = cardSequence == nil
+            detectButton.isHidden = program != nil
+            executeButton.isHidden = program == nil
         }
     }
     
@@ -84,6 +89,7 @@ class LevelViewController: UIViewController, PlaneDetectorDelegate, CardSequence
         super.viewDidLoad()
         placeButton.isEnabled = false
         placeButton.isHidden = true
+        editor.delegate = self
     }
     
     func shouldDetectPlanes(_ detector: ARController) -> Bool {
@@ -128,44 +134,29 @@ class LevelViewController: UIViewController, PlaneDetectorDelegate, CardSequence
     }
     
     @IBAction func detectCards(_ sender: UIButton) {
-        if let field = playingField {
-            cardSequence = CardSequence(cards: arController!.cardWorld, on: field.ground)
-            cardSequence?.delegate = self
-        }
+        program = editor.program
+        program?.delegate = self
     }
     
     @IBAction func executeSequence(_ sender: UIButton) {
-        cardSequence?.run(on: playingField!.robot)
-        executeButton.isEnabled = false
-        resetButton.isEnabled = false
+        if let robotModel = playingField?.robot.model {
+            program?.run(on: robotModel)
+            executeButton.isEnabled = false
+            resetButton.isEnabled = false
+        }
     }
     
     @IBAction func resetLevel(_ sender: UIButton) {
         level?.reset()
     }
     
-    func cardSequence(robot: AnimatableNode, executed card: Card) {
-        if let currentLevel = level {
-            let floatX = (robot.model.position.x / 0.05).rounded()
-            let floatY = (robot.model.position.z / 0.05).rounded()
-            currentLevel.notifyMovedTo(x: Int(floatX), y: Int(floatY))
-        }
-    }
-    
-    func cardSequenceFinished(robot: AnimatableNode) {
-        DispatchQueue.main.async { [unowned self] in
-            self.executeButton.isEnabled = true
-            self.resetButton.isEnabled = true
-        }
-    }
-    
     func collectibleTaken(_ level: Level, x: Int, y: Int) {
         levelViewModel?.removeCollectible(x: x, y: y)
-        self.pickupSound?.start()
+        //self.pickupSound?.play()
     }
     
     func levelCompleted(_ level: Level) {
-        self.winSound?.start()
+        //self.winSound?.play()
         
         DispatchQueue.main.async { [unowned self] in
             self.winLabel.isHidden = false
@@ -176,13 +167,60 @@ class LevelViewController: UIViewController, PlaneDetectorDelegate, CardSequence
     func levelReset(_ level: Level) {
         playingField?.robot.model.position = SCNVector3(0, 0, 0)
         playingField?.robot.model.rotation = SCNVector4(0, 0, 0, 1)
-        cardSequence = nil
+        program = nil
         levelViewModel?.clearCollectibles()
         showLevel()
         
         DispatchQueue.main.async { [unowned self] in
             self.winLabel.isHidden = true
             self.winDescription.isHidden = true
+        }
+    }
+    
+    
+    
+    
+    //MARK: Editor and level
+    func programEditor(_ programEditor: ProgramEditor, createdNew program: Program) {
+        if let startNode = program.start {
+            for rect in rectView.subviews {
+                rect.removeFromSuperview()
+            }
+            drawNode(startNode)
+        }
+    }
+    
+    func programBegan(_ program: Program) {
+        
+    }
+    
+    @IBOutlet weak var rectView: UIView!
+    private func drawNode(_ node: CardNode?) {
+        guard let node = node else {
+            return
+        }
+        
+        let rect = UIView(frame: CGRect(x: node.position.x - 48, y: Double(UIScreen.main.bounds.height) - node.position.y - 48, width: 96, height: 96))
+        rect.backgroundColor = UIColor(hue: 0.5, saturation: 0.5, brightness: 1, alpha: 0.5)
+        rectView.addSubview(rect)
+        
+        for next in node.successors {
+            drawNode(next)
+        }
+    }
+    
+    func program(_ program: Program, executed card: Card) {
+        if let currentLevel = level, let robot = playingField?.robot {
+            let floatX = (robot.model.position.x / 0.05).rounded()
+            let floatY = (robot.model.position.z / 0.05).rounded()
+            currentLevel.notifyMovedTo(x: Int(floatX), y: Int(floatY))
+        }
+    }
+    
+    func programEnded(_ program: Program) {
+        DispatchQueue.main.async { [unowned self] in
+            self.executeButton.isEnabled = true
+            self.resetButton.isEnabled = true
         }
     }
 }
