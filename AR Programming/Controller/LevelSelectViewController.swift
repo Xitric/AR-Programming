@@ -43,7 +43,13 @@ class LevelSelectViewController: UIViewController, UICollectionViewDataSource, U
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedLevel = levels[indexPath.item]
-        performSegue(withIdentifier: "unwindToPlay", sender: self)
+        performSegue(withIdentifier: "arContainerSegue", sender: self)
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let arContainer = segue.destination as? ARContainerViewController {
+            arContainer.level = selectedLevel
+        }
     }
     
     //Ignore this code, it only exists for development purposes

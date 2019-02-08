@@ -21,6 +21,7 @@ class LevelViewController: UIViewController, PlaneDetectorDelegate, CardSequence
     @IBOutlet weak var planeDetectionLabel: UILabel!
     @IBOutlet weak var winLabel: UILabel!
     @IBOutlet weak var winDescription: UILabel!
+    @IBOutlet weak var scanButton: UIButton!
     
     private var levelViewModel: LevelViewModel?
     
@@ -48,6 +49,7 @@ class LevelViewController: UIViewController, PlaneDetectorDelegate, CardSequence
             level?.delegate = self
         }
     }
+    
     private var playingField: PlayingField? {
         didSet {
             let hasPlayingField = playingField != nil
@@ -72,6 +74,11 @@ class LevelViewController: UIViewController, PlaneDetectorDelegate, CardSequence
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        if let parent = self.parent as? HiddenTabBarViewController {
+            if parent.levelViewController == nil {
+                parent.levelViewController = self
+            }
+        }
         AudioController.instance.start()
     }
     
@@ -126,6 +133,13 @@ class LevelViewController: UIViewController, PlaneDetectorDelegate, CardSequence
             }
         }
     }
+    
+    @IBAction func startScanning(_ sender: UIButton) {
+        if let parent = self.tabBarController as? HiddenTabBarViewController {
+            parent.goToViewControllerWith(index: 1)
+        }
+    }
+    
     
     @IBAction func detectCards(_ sender: UIButton) {
         if let field = playingField {
