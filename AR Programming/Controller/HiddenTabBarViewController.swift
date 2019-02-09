@@ -16,6 +16,8 @@ class HiddenTabBarViewController: UITabBarController, GameplayController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBar.isHidden = true
+        
+        goToViewControllerWith(index: 0)
     }
 
     func enter(withLevel level: Level?, inEnvironment arController: ARController?) {

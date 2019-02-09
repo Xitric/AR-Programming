@@ -11,7 +11,11 @@ import Vision
 
 class CardNodeDetector: BarcodeDetectorConfig {
     
+    private static let uncertaintyLimit = 5
+    
     private let detectionArea: CGRect
+    private var previousResult = [CardNode]()
+    private var uncertainty = 0
     
     weak var delegate: CardNodeDetectorDelegate?
     
@@ -41,7 +45,17 @@ class CardNodeDetector: BarcodeDetectorConfig {
             }
         }
         
-        delegate?.nodeDetector(self, found: cardNodes)
+        if (cardNodes.count < previousResult.count) {
+            uncertainty += 1
+            if (uncertainty < CardNodeDetector.uncertaintyLimit) {
+                return
+            }
+        }
+        
+        previousResult = cardNodes
+        uncertainty = 0
+        
+        delegate?.nodeDetector(self, found: previousResult)
     }
 }
 

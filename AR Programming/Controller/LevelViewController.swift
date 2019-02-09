@@ -41,8 +41,7 @@ class LevelViewController: UIViewController, GameplayController, PlaneDetectorDe
     }
     var level: Level? {
         didSet {
-            placeButton.isEnabled = true
-            placeButton.isHidden = false
+            program = nil
             playingField = nil
             winLabel.isHidden = true
             winDescription.isHidden = true
@@ -58,7 +57,6 @@ class LevelViewController: UIViewController, GameplayController, PlaneDetectorDe
             placeButton.isHidden = hasPlayingField
             planeDetectionLabel.isHidden = hasPlayingField
             detectButton.isHidden = !hasPlayingField
-            executeButton.isHidden = !hasPlayingField
             resetButton.isHidden = !hasPlayingField
             
             if let field = playingField {
@@ -85,8 +83,6 @@ class LevelViewController: UIViewController, GameplayController, PlaneDetectorDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        placeButton.isEnabled = false
-        placeButton.isHidden = true
         editor.delegate = self
     }
     
