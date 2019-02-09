@@ -43,7 +43,6 @@
 		562CCAA3220D92CF00BF6A8D /* ObservationSetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA9F220D92C700BF6A8D /* ObservationSetTests.swift */; };
 		562CCAA4220D92CF00BF6A8D /* ObservationGraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCAA0220D92CA00BF6A8D /* ObservationGraphTests.swift */; };
 		562CCAA5220D92CF00BF6A8D /* ObservationEdgeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCAA1220D92CC00BF6A8D /* ObservationEdgeTests.swift */; };
-		562CCAA6220D92CF00BF6A8D /* BarcodeDetectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCAA2220D92CF00BF6A8D /* BarcodeDetectorTests.swift */; };
 		562CCAAC220D933E00BF6A8D /* Double+HelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCAAB220D933E00BF6A8D /* Double+HelpersTests.swift */; };
 		56413DFD220E2AC30064332E /* GameplayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56413DFC220E2AC30064332E /* GameplayController.swift */; };
 		900F13542194269F001C2DC2 /* TileMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900F13532194269F001C2DC2 /* TileMap.swift */; };
@@ -126,7 +125,6 @@
 		562CCA9F220D92C700BF6A8D /* ObservationSetTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationSetTests.swift; sourceTree = "<group>"; };
 		562CCAA0220D92CA00BF6A8D /* ObservationGraphTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationGraphTests.swift; sourceTree = "<group>"; };
 		562CCAA1220D92CC00BF6A8D /* ObservationEdgeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationEdgeTests.swift; sourceTree = "<group>"; };
-		562CCAA2220D92CF00BF6A8D /* BarcodeDetectorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeDetectorTests.swift; sourceTree = "<group>"; };
 		562CCAAB220D933E00BF6A8D /* Double+HelpersTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+HelpersTests.swift"; sourceTree = "<group>"; };
 		56413DFC220E2AC30064332E /* GameplayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameplayController.swift; sourceTree = "<group>"; };
 		81B3ED8214579B6F33DA8F08 /* Pods_AR_ProgrammingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AR_ProgrammingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -268,7 +266,6 @@
 		562CCA81220D753500BF6A8D /* ImageAnalysis */ = {
 			isa = PBXGroup;
 			children = (
-				562CCAA2220D92CF00BF6A8D /* BarcodeDetectorTests.swift */,
 				562CCAA1220D92CC00BF6A8D /* ObservationEdgeTests.swift */,
 				562CCAA0220D92CA00BF6A8D /* ObservationGraphTests.swift */,
 				562CCA9F220D92C700BF6A8D /* ObservationSetTests.swift */,
@@ -664,7 +661,6 @@
 				562CCAA4220D92CF00BF6A8D /* ObservationGraphTests.swift in Sources */,
 				562CCAA3220D92CF00BF6A8D /* ObservationSetTests.swift in Sources */,
 				562CCAA5220D92CF00BF6A8D /* ObservationEdgeTests.swift in Sources */,
-				562CCAA6220D92CF00BF6A8D /* BarcodeDetectorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
