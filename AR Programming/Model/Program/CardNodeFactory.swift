@@ -46,6 +46,14 @@ class CardNodeFactory {
         throw CardSequenceError.unknownCode(code: observation.code)
     }
     
+    func node(withId id: Int) throws -> CardNode {
+        if let node = nodePrototypes[id] {
+            return node
+        }
+        
+        throw CardSequenceError.unknownCode(code: id)
+    }
+    
     func register(cardNode node: CardNode, with code: Int) {
         nodePrototypes[code] = node
     }

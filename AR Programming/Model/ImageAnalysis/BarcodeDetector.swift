@@ -12,16 +12,15 @@ import Vision
 
 class BarcodeDetector {
     
-    weak var delegate: BarcodeDetectorDelegate?
-    
     private var processing = false
     private let analyzerQueue = DispatchQueue(label: "Barcode detector queue")
-//    private var observations = [UUID: VNBarcodeObservation]()
     
+    private var config: BarcodeDetectorConfig
     private var widthScale: Double
     private var heightScale: Double
 
-    init(screenWidth: Double, screenHeight: Double) {
+    init(config: BarcodeDetectorConfig, screenWidth: Double, screenHeight: Double) {
+        self.config = config
         widthScale = screenWidth
         heightScale = screenHeight
     }
@@ -46,53 +45,29 @@ class BarcodeDetector {
     }
     
     private func detectBarcodes(inFrame frame: CVPixelBuffer, oriented orientation: CGImagePropertyOrientation) throws {
-        let handler = VNImageRequestHandler(cvPixelBuffer: frame, orientation: orientation)
-        let request = VNDetectBarcodesRequest()
-        request.usesCPUOnly = true
-        request.symbologies = [.Aztec]
-        
-        try handler.perform([request])
+        let handler = config.getHandler(for: frame, oriented: orientation)
+        let requests = config.getRequests()
+        try handler.perform(requests)
         
         var detectionResult = BarcodeDetectionResult(imageWidth: widthScale, imageHeight: heightScale)
         
-        if let results = request.results as? [VNBarcodeObservation] {
-            for result in results {
-                detectionResult.observations[result.uuid] = result
+        for request in requests {
+            if let results = request.results as? [VNBarcodeObservation] {
+                for result in results {
+                    detectionResult.observations[result.uuid] = result
+                }
             }
         }
         
         //Since we are on the processing queue, we must return to main for calling the delegate
         DispatchQueue.main.async { [unowned self] in
-            self.delegate?.barcodeDetector(self, found: detectionResult.graph)
+            self.config.handle(result: detectionResult)
         }
     }
-    
-//    private func trackBarcodes(inFrame frame: CVPixelBuffer, oriented orientation: CGImagePropertyOrientation) throws {
-//        let handler = VNSequenceRequestHandler()
-//        var requests = [VNRequest]()
-//
-//        for observation in observations {
-//            let request = VNTrackObjectRequest(detectedObjectObservation: observation.value)
-//            request.trackingLevel = .accurate
-//            requests.append(request)
-//        }
-//
-//        try handler.perform(requests, on: frame, orientation: orientation)
-//
-//        for request in requests {
-//            if let results = request.results as? [VNBarcodeObservation] {
-//                guard let result = results.first else {
-//                    continue
-//                }
-//
-//                observations[result.uuid] = result
-//            }
-//        }
-//
-//        //Since we are on the processing queue, we must return to main for calling the delegate
-//        let resultingGraph = graph
-//        DispatchQueue.main.async { [unowned self] in
-//            self.delegate?.qrDetector(self, found: resultingGraph)
-//        }
-//    }
+}
+
+protocol BarcodeDetectorConfig {
+    func getHandler(for frame: CVPixelBuffer, oriented orientation: CGImagePropertyOrientation) -> VNImageRequestHandler
+    func getRequests() -> [VNDetectBarcodesRequest]
+    func handle(result: BarcodeDetectionResult)
 }

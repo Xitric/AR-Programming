@@ -7,10 +7,9 @@
 //
 
 import Foundation
+import UIKit
 
-protocol CardScannerDelegate: AnyObject {
+protocol FrameDelegate: AnyObject {
     
-    func cardScanner(_ scanner: ARController, scanned card: Card)
-    
-    func cardScannerLostCard(_ scanner: ARController)
+    func frameScanner(_ scanner: ARController, didUpdate frame: CVPixelBuffer, withOrientation orientation: CGImagePropertyOrientation)
 }

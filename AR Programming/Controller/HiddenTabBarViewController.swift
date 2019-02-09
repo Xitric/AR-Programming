@@ -8,32 +8,35 @@
 
 import UIKit
 
-class HiddenTabBarViewController: UITabBarController {
+class HiddenTabBarViewController: UITabBarController, GameplayController {
     
-    var level: Level?
-    var arController: ARController?
-    
-    var levelViewController: LevelViewController? {
-        didSet {
-            arController?.planeDetectorDelegate = levelViewController
-            levelViewController?.arController = arController
-            levelViewController?.level = level
-        }
-    }
-    
-    var scanViewController: ScanViewController? {
-        didSet {
-            arController?.cardScannerDelegate = scanViewController
-        }
-    }
+    private var level: Level?
+    private var arController: ARController?
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBar.isHidden = true
     }
 
-    func goToViewControllerWith(index: Int) {
-        self.selectedIndex = index
+    func enter(withLevel level: Level?, inEnvironment arController: ARController?) {
+        self.level = level
+        self.arController = arController
     }
-   
+    
+    func exit(withLevel level: Level?, inEnvironment arController: ARController?) {
+        self.level = nil
+        self.arController = nil
+    }
+    
+    func goToViewControllerWith(index: Int) {
+        if let gameplayController = selectedViewController as? GameplayController {
+            gameplayController.exit(withLevel: level, inEnvironment: arController)
+        }
+        
+        self.selectedIndex = index
+        
+        if let gameplayController = selectedViewController as? GameplayController {
+            gameplayController.enter(withLevel: level, inEnvironment: arController)
+        }
+    }
 }

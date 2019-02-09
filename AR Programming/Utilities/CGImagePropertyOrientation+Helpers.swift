@@ -3,7 +3,6 @@
 //  VisionCardTest
 //
 //  Created by Kasper Schultz Davidsen on 06/02/2019.
-//  Copyright © 2018 Emil Nielsen and Kasper Schultz Davidsen. All rights reserved.
 //
 
 import Foundation
@@ -26,12 +25,12 @@ extension CGImagePropertyOrientation {
         }
     }
     
-    //From
+    //Adapted from
     //https://developer.apple.com/documentation/arkit/using_vision_in_real_time_with_arkit
     init(_ deviceOrientation: UIDeviceOrientation) {
         switch deviceOrientation {
         case .portraitUpsideDown: self = .left
-        case .landscapeLeft: self = .up
+        case .landscapeLeft, .faceUp: self = .up
         case .landscapeRight: self = .down
         default: self = .right
         }

@@ -16,9 +16,8 @@ class ARController: NSObject, ARSessionDelegate, ARSCNViewDelegate  {
     private var options : ARSession.RunOptions
     private var currentPlane: Plane?
     
-    weak var cardScannerDelegate: CardScannerDelegate?
+    weak var frameDelegate: FrameDelegate?
     weak var planeDetectorDelegate: PlaneDetectorDelegate?
-    weak var editor: ProgramEditor?
     
     init(with scene: ARSCNView) {
         sceneView = scene
@@ -76,6 +75,6 @@ class ARController: NSObject, ARSessionDelegate, ARSCNViewDelegate  {
     func session(_ session: ARSession, didUpdate frame: ARFrame) {
         let orientation = CGImagePropertyOrientation(UIDevice.current.orientation)
         let image = frame.capturedImage
-        editor?.newFrame(image, oriented: orientation)
+        frameDelegate?.frameScanner(self, didUpdate: image, withOrientation: orientation)
     }
 }

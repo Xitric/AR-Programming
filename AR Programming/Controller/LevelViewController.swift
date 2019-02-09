@@ -11,7 +11,7 @@ import UIKit
 import SceneKit
 import AudioKit
 
-class LevelViewController: UIViewController, PlaneDetectorDelegate, ProgramEditorDelegate, ProgramDelegate, LevelDelegate {
+class LevelViewController: UIViewController, GameplayController, PlaneDetectorDelegate, FrameDelegate, ProgramEditorDelegate, ProgramDelegate, LevelDelegate {
     
     //MARK: View
     @IBOutlet weak var placeButton: UIButton!
@@ -30,12 +30,8 @@ class LevelViewController: UIViewController, PlaneDetectorDelegate, ProgramEdito
     private var pickupSound = AudioController.instance.makeSound(withName: "pickup.wav")
     
     //MARK: State
-    var arController: ARController? {
-        didSet {
-            arController?.editor = editor
-        }
-    }
-    var editor = ProgramEditor()
+    var editor = ProgramEditor(screenWidth: Double(UIScreen.main.bounds.width),
+                               screenHeight: Double(UIScreen.main.bounds.height))
     private var currentPlane: Plane? {
         didSet {
             DispatchQueue.main.async { [unowned self] in
@@ -77,13 +73,8 @@ class LevelViewController: UIViewController, PlaneDetectorDelegate, ProgramEdito
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if let parent = self.tabBarController as? HiddenTabBarViewController {
-            if parent.levelViewController == nil {
-                parent.levelViewController = self
-            }
-        }
         AudioController.instance.start()
     }
     
@@ -97,6 +88,20 @@ class LevelViewController: UIViewController, PlaneDetectorDelegate, ProgramEdito
         placeButton.isEnabled = false
         placeButton.isHidden = true
         editor.delegate = self
+    }
+    
+    func enter(withLevel level: Level?, inEnvironment arController: ARController?) {
+        arController?.planeDetectorDelegate = self
+        arController?.frameDelegate = self
+        
+        //TODO: Only reset if it is a new level?
+        //TODO: Or maybe separate interfaces for initializing and navigating to
+        self.level = level
+    }
+    
+    func exit(withLevel level: Level?, inEnvironment arController: ARController?) {
+        arController?.planeDetectorDelegate = nil
+        arController?.frameDelegate = nil
     }
     
     func shouldDetectPlanes(_ detector: ARController) -> Bool {
@@ -138,6 +143,10 @@ class LevelViewController: UIViewController, PlaneDetectorDelegate, ProgramEdito
                 levelViewModel?.addCollectible(node: sphereNode, x: x, y: y)
             }
         }
+    }
+    
+    func frameScanner(_ scanner: ARController, didUpdate frame: CVPixelBuffer, withOrientation orientation: CGImagePropertyOrientation) {
+        editor.newFrame(frame, oriented: orientation)
     }
     
     @IBAction func startScanning(_ sender: UIButton) {

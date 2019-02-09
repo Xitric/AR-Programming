@@ -22,9 +22,8 @@ class ARContainerViewController: UIViewController {
     var level: Level?
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let hiddenTabBar = segue.destination as? HiddenTabBarViewController {
-            hiddenTabBar.arController = arController
-            hiddenTabBar.level = level
+        if let gameplayController = segue.destination as? GameplayController {
+            gameplayController.enter(withLevel: level, inEnvironment: arController)
         }
     }
     

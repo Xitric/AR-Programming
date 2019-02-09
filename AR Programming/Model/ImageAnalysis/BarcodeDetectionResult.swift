@@ -30,7 +30,7 @@ struct BarcodeDetectionResult {
         return observations.isEmpty
     }
     
-    private var observationSet: ObservationSet {
+    var observationSet: ObservationSet {
         var uniqueObservations = ObservationSet()
         
         for (_, observation) in observations {

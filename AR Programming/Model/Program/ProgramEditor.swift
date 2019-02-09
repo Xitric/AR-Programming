@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ProgramEditor: BarcodeDetectorDelegate {
+class ProgramEditor: CardGraphDetectorDelegate {
     
     private static let programUncertaintyLimit = 5
     
@@ -25,10 +25,10 @@ class ProgramEditor: BarcodeDetectorDelegate {
         }
     }
     
-    init() {
-        detector = BarcodeDetector(screenWidth: Double(UIScreen.main.bounds.width),
-                                   screenHeight: Double(UIScreen.main.bounds.height))
-        detector.delegate = self
+    init(screenWidth: Double, screenHeight: Double) {
+        let config = CardGraphDetector()
+        detector = BarcodeDetector(config: config, screenWidth: screenWidth, screenHeight: screenHeight)
+        config.delegate = self
     }
     
     //Should only be called from the main thread
@@ -40,7 +40,7 @@ class ProgramEditor: BarcodeDetectorDelegate {
         currentProgram = nil
     }
     
-    func barcodeDetector(_ detector: BarcodeDetector, found graph: ObservationGraph) {
+    func graphDetector(_ detector: CardGraphDetector, found graph: ObservationGraph) {
         do {
             let start = try CardNodeFactory.instance.build(from: graph)
             let newProgram = Program(startNode: start)
@@ -96,4 +96,8 @@ class ProgramEditor: BarcodeDetectorDelegate {
         
         return true
     }
+}
+
+protocol ProgramEditorDelegate: class {
+    func programEditor(_ programEditor: ProgramEditor, createdNew program: Program)
 }
