@@ -57,7 +57,7 @@ class ProgramEditor: CardGraphDetectorDelegate {
     }
     
     private func tryUpdateProgram(to newProgram: Program) {
-        if (isProgramLessSpecific(newProgram)) {
+        if (isProgramBigger(than: newProgram)) {
             programUncertainty += 1
             if programUncertainty < ProgramEditor.programUncertaintyLimit {
                 return
@@ -70,31 +70,30 @@ class ProgramEditor: CardGraphDetectorDelegate {
         delegate?.programEditor(self, createdNew: newProgram)
     }
     
-    //TODO: Better naming, this is really confusing :P
-    private func isProgramLessSpecific(_ otherProgram: Program) -> Bool {
-        return !areNodesEquallySpecific(current: currentProgram?.start, new: otherProgram.start)
+    func isProgramBigger(than otherProgram: Program) -> Bool {
+        return isNode(currentProgram?.start, moreDetailedThan: otherProgram.start)
     }
     
-    private func areNodesEquallySpecific(current currentNode: CardNode?, new newNode: CardNode?) -> Bool {
+    func isNode(_ currentNode: CardNode?, moreDetailedThan newNode: CardNode?) -> Bool {
         if newNode == nil {
-            return currentNode == nil
+            return currentNode != nil
         }
         
         guard let currentNode = currentNode else {
-            return true
-        }
-        
-        if newNode!.successors.count < currentNode.successors.count {
             return false
         }
         
+        if newNode!.successors.count < currentNode.successors.count {
+            return true
+        }
+        
         for (index, node) in currentNode.successors.enumerated() {
-            if !areNodesEquallySpecific(current: node, new: newNode!.successors[index]) {
-                return false
+            if isNode(node, moreDetailedThan: newNode!.successors[index]) {
+                return true
             }
         }
         
-        return true
+        return false
     }
 }
 

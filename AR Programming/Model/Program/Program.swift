@@ -40,3 +40,9 @@ class Program {
         }
     }
 }
+
+protocol ProgramDelegate: class {
+    func programBegan(_ program: Program)
+    func program(_ program: Program, executed card: Card)
+    func programEnded(_ program: Program)
+}

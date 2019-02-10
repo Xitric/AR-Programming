@@ -26,7 +26,6 @@
 		562CCA6E220D74AF00BF6A8D /* CardSequenceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA55220D74AD00BF6A8D /* CardSequenceError.swift */; };
 		562CCA6F220D74AF00BF6A8D /* Program.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA56220D74AD00BF6A8D /* Program.swift */; };
 		562CCA70220D74AF00BF6A8D /* CardNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA57220D74AD00BF6A8D /* CardNode.swift */; };
-		562CCA71220D74AF00BF6A8D /* ProgramDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA58220D74AD00BF6A8D /* ProgramDelegate.swift */; };
 		562CCA72220D74AF00BF6A8D /* ProgramEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA59220D74AD00BF6A8D /* ProgramEditor.swift */; };
 		562CCA73220D74AF00BF6A8D /* SuccessorCardNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA5A220D74AD00BF6A8D /* SuccessorCardNode.swift */; };
 		562CCA74220D74AF00BF6A8D /* ObservationEdge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA5C220D74AF00BF6A8D /* ObservationEdge.swift */; };
@@ -44,6 +43,7 @@
 		562CCAA4220D92CF00BF6A8D /* ObservationGraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCAA0220D92CA00BF6A8D /* ObservationGraphTests.swift */; };
 		562CCAA5220D92CF00BF6A8D /* ObservationEdgeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCAA1220D92CC00BF6A8D /* ObservationEdgeTests.swift */; };
 		562CCAAC220D933E00BF6A8D /* Double+HelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCAAB220D933E00BF6A8D /* Double+HelpersTests.swift */; };
+		562ECC982210707D008C580E /* ProgramEditorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562ECC972210707D008C580E /* ProgramEditorTests.swift */; };
 		56413DFD220E2AC30064332E /* GameplayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56413DFC220E2AC30064332E /* GameplayController.swift */; };
 		900F13542194269F001C2DC2 /* TileMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900F13532194269F001C2DC2 /* TileMap.swift */; };
 		900F135A219447AF001C2DC2 /* LevelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900F1359219447AF001C2DC2 /* LevelManager.swift */; };
@@ -108,7 +108,6 @@
 		562CCA55220D74AD00BF6A8D /* CardSequenceError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardSequenceError.swift; sourceTree = "<group>"; };
 		562CCA56220D74AD00BF6A8D /* Program.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Program.swift; sourceTree = "<group>"; };
 		562CCA57220D74AD00BF6A8D /* CardNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardNode.swift; sourceTree = "<group>"; };
-		562CCA58220D74AD00BF6A8D /* ProgramDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgramDelegate.swift; sourceTree = "<group>"; };
 		562CCA59220D74AD00BF6A8D /* ProgramEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgramEditor.swift; sourceTree = "<group>"; };
 		562CCA5A220D74AD00BF6A8D /* SuccessorCardNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessorCardNode.swift; sourceTree = "<group>"; };
 		562CCA5C220D74AF00BF6A8D /* ObservationEdge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationEdge.swift; sourceTree = "<group>"; };
@@ -126,6 +125,7 @@
 		562CCAA0220D92CA00BF6A8D /* ObservationGraphTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationGraphTests.swift; sourceTree = "<group>"; };
 		562CCAA1220D92CC00BF6A8D /* ObservationEdgeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationEdgeTests.swift; sourceTree = "<group>"; };
 		562CCAAB220D933E00BF6A8D /* Double+HelpersTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+HelpersTests.swift"; sourceTree = "<group>"; };
+		562ECC972210707D008C580E /* ProgramEditorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramEditorTests.swift; sourceTree = "<group>"; };
 		56413DFC220E2AC30064332E /* GameplayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameplayController.swift; sourceTree = "<group>"; };
 		81B3ED8214579B6F33DA8F08 /* Pods_AR_ProgrammingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AR_ProgrammingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		900F13532194269F001C2DC2 /* TileMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileMap.swift; sourceTree = "<group>"; };
@@ -207,7 +207,6 @@
 				562CCA55220D74AD00BF6A8D /* CardSequenceError.swift */,
 				562CCA56220D74AD00BF6A8D /* Program.swift */,
 				562CCA57220D74AD00BF6A8D /* CardNode.swift */,
-				562CCA58220D74AD00BF6A8D /* ProgramDelegate.swift */,
 				562CCA59220D74AD00BF6A8D /* ProgramEditor.swift */,
 				562CCA5A220D74AD00BF6A8D /* SuccessorCardNode.swift */,
 			);
@@ -276,19 +275,12 @@
 		562CCA82220D754800BF6A8D /* Program */ = {
 			isa = PBXGroup;
 			children = (
-				562CCA83220D755200BF6A8D /* Cards */,
-			);
-			path = Program;
-			sourceTree = "<group>";
-		};
-		562CCA83220D755200BF6A8D /* Cards */ = {
-			isa = PBXGroup;
-			children = (
+				562ECC962210704F008C580E /* Cards */,
 				562CCA99220D92B700BF6A8D /* CardNodeFactoryTests.swift */,
-				562CCA9A220D92B900BF6A8D /* CardTests.swift */,
+				562ECC972210707D008C580E /* ProgramEditorTests.swift */,
 				562CCA9B220D92BC00BF6A8D /* SuccessorCardNodeTests.swift */,
 			);
-			path = Cards;
+			path = Program;
 			sourceTree = "<group>";
 		};
 		562CCAAA220D933300BF6A8D /* Utilities */ = {
@@ -297,6 +289,14 @@
 				562CCAAB220D933E00BF6A8D /* Double+HelpersTests.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		562ECC962210704F008C580E /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+				562CCA9A220D92B900BF6A8D /* CardTests.swift */,
+			);
+			path = Cards;
 			sourceTree = "<group>";
 		};
 		69FAFFD76540FD6CC944F023 /* Pods */ = {
@@ -604,7 +604,6 @@
 				901584C82199BDF400450E0B /* LevelViewController.swift in Sources */,
 				90D7538621AC19CF00B1F2E4 /* LevelViewModel.swift in Sources */,
 				562CCA77220D74AF00BF6A8D /* ObservationSet.swift in Sources */,
-				562CCA71220D74AF00BF6A8D /* ProgramDelegate.swift in Sources */,
 				901584CC2199C32100450E0B /* ARController.swift in Sources */,
 				562CCA66220D74AF00BF6A8D /* StartCard.swift in Sources */,
 				905A3C842179BE54005E3AA5 /* FrameDelegate.swift in Sources */,
@@ -661,6 +660,7 @@
 				562CCAA4220D92CF00BF6A8D /* ObservationGraphTests.swift in Sources */,
 				562CCAA3220D92CF00BF6A8D /* ObservationSetTests.swift in Sources */,
 				562CCAA5220D92CF00BF6A8D /* ObservationEdgeTests.swift in Sources */,
+				562ECC982210707D008C580E /* ProgramEditorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
