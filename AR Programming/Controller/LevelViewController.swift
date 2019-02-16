@@ -72,7 +72,7 @@ class LevelViewController: UIViewController, GameplayController, PlaneDetectorDe
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+        super.viewWillAppear(animated)
         AudioController.instance.start()
     }
     
@@ -198,12 +198,10 @@ class LevelViewController: UIViewController, GameplayController, PlaneDetectorDe
     
     //MARK: Editor and level
     func programEditor(_ programEditor: ProgramEditor, createdNew program: Program) {
-        if let startNode = program.start {
-            for rect in rectView.subviews {
-                rect.removeFromSuperview()
-            }
-            drawNode(startNode)
+        for rect in rectView.subviews {
+            rect.removeFromSuperview()
         }
+        drawNode(program.start)
     }
     
     func programBegan(_ program: Program) {

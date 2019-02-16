@@ -27,7 +27,7 @@ class CardNodeFactory {
         register(cardNode: SuccessorCardNode(card: LeftCard(), angles: [0]), with: 2)
         register(cardNode: SuccessorCardNode(card: RightCard(), angles: [0]), with: 3)
         register(cardNode: SuccessorCardNode(card: JumpCard(), angles: [0]), with: 4)
-        register(cardNode: SuccessorCardNode(card: RandomBranchCard(), angles: [0.785, -0.785]), with: 5)
+        register(cardNode: SuccessorCardNode(card: RandomBranchCard(), angles: [Double.pi/4, -Double.pi/4]), with: 5)
     }
     
     func build(from graph: ObservationGraph) throws -> CardNode {

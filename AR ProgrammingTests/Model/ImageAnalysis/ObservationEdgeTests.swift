@@ -14,12 +14,12 @@ class ObservationEdgeTests: XCTestCase {
 
     func testCorrectedAngleTo() {
         //Arrange
-        let topBranchInbound = ObservationEdge(predecessor: ObservationNode(code: 0, position: simd_double2(-1, -1)), successor: ObservationNode(code: 0, position: simd_double2(0, 0)), connectionAngle: 0.785)
-        let bottomBranchInbound = ObservationEdge(predecessor: ObservationNode(code: 0, position: simd_double2(-1, 1)), successor: ObservationNode(code: 0, position: simd_double2(0, 0)), connectionAngle: -0.785)
+        let topBranchInbound = ObservationEdge(predecessor: ObservationNode(code: 0, position: simd_double2(-1, -1)), successor: ObservationNode(code: 0, position: simd_double2(0, 0)), connectionAngle: Double.pi/4)
+        let bottomBranchInbound = ObservationEdge(predecessor: ObservationNode(code: 0, position: simd_double2(-1, 1)), successor: ObservationNode(code: 0, position: simd_double2(0, 0)), connectionAngle: -Double.pi/4)
         let simpleInbound = ObservationEdge(predecessor: ObservationNode(code: 0, position: simd_double2(-1, 0)), successor: ObservationNode(code: 0, position: simd_double2(0, 0)), connectionAngle: 0)
         
-        let topBranchOutbound = ObservationEdge(predecessor: ObservationNode(code: 0, position: simd_double2(0, 0)), successor: ObservationNode(code: 0, position: simd_double2(1, 1)), connectionAngle: 0.785)
-        let bottomBranchOutbound = ObservationEdge(predecessor: ObservationNode(code: 0, position: simd_double2(0, 0)), successor: ObservationNode(code: 0, position: simd_double2(1, -1)), connectionAngle: -0.785)
+        let topBranchOutbound = ObservationEdge(predecessor: ObservationNode(code: 0, position: simd_double2(0, 0)), successor: ObservationNode(code: 0, position: simd_double2(1, 1)), connectionAngle: Double.pi/4)
+        let bottomBranchOutbound = ObservationEdge(predecessor: ObservationNode(code: 0, position: simd_double2(0, 0)), successor: ObservationNode(code: 0, position: simd_double2(1, -1)), connectionAngle: -Double.pi/4)
         let simpleOutbound = ObservationEdge(predecessor: ObservationNode(code: 0, position: simd_double2(0, 0)), successor: ObservationNode(code: 0, position: simd_double2(1, 0)), connectionAngle: 0)
         
         //Act & Assert

@@ -41,18 +41,23 @@ class ProgramEditor: CardGraphDetectorDelegate {
     }
     
     func graphDetector(_ detector: CardGraphDetector, found graph: ObservationGraph) {
+        var newProgram: Program?
+        
         do {
             let start = try CardNodeFactory.instance.build(from: graph)
-            let newProgram = Program(startNode: start)
-            tryUpdateProgram(to: newProgram)
+            newProgram = Program(startNode: start)
+        } catch CardSequenceError.missingStart {
+            newProgram = Program(startNode: nil)
             
             //TODO: Call delegate when these errors occur a number of times? (to ensure accuracy)
-        } catch CardSequenceError.missingStart {
-            //print("Could not find start card")
         } catch CardSequenceError.unknownCode(let code) {
             print("Found unexpected code: \(code)")
         } catch {
             print("Unexpected error")
+        }
+        
+        if let newProgram = newProgram {
+            tryUpdateProgram(to: newProgram)
         }
     }
     
