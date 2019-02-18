@@ -14,18 +14,10 @@ class ARController: NSObject, ARSessionDelegate, ARSCNViewDelegate  {
     private let sceneView: ARSCNView
     private var configuration : ARWorldTrackingConfiguration
     private var options : ARSession.RunOptions
-    let cardWorld = CardWorld()
-    
-    var cardMapper: CardMapper? {
-        didSet{
-            sceneView.session.pause()
-            sceneView.session.run(configuration, options: [options, ARSession.RunOptions.removeExistingAnchors])
-        }
-    }
-    
-    weak var cardScannerDelegate: CardScannerDelegate?
-    weak var planeDetectorDelegate: PlaneDetectorDelegate?
     private var currentPlane: Plane?
+    
+    weak var frameDelegate: FrameDelegate?
+    weak var planeDetectorDelegate: PlaneDetectorDelegate?
     
     init(with scene: ARSCNView) {
         sceneView = scene
@@ -33,9 +25,7 @@ class ARController: NSObject, ARSessionDelegate, ARSCNViewDelegate  {
         sceneView.autoenablesDefaultLighting = true
         
         configuration = ARWorldTrackingConfiguration()
-        configuration.maximumNumberOfTrackedImages = 6
         configuration.planeDetection = .horizontal
-        configuration.detectionImages = ARReferenceImage.referenceImages(inGroupNamed: "Cards", bundle: nil)
         
         options = [.resetTracking]
         
@@ -46,7 +36,6 @@ class ARController: NSObject, ARSessionDelegate, ARSCNViewDelegate  {
     }
     
     func start() {
-        cardWorld.reset()
         sceneView.session.run(configuration, options: options)
     }
     
@@ -54,29 +43,15 @@ class ARController: NSObject, ARSessionDelegate, ARSCNViewDelegate  {
         sceneView.session.pause()
     }
     
-    func session(_ session: ARSession, didUpdate anchors: [ARAnchor]) {
-        //This code has been disabled because if instability with ARKit - we did not have the time to resolve it
-//        for anchor in anchors {
-//            if let imageAnchor = anchor as? ARImageAnchor, let name = imageAnchor.referenceImage.name {
-//                if !imageAnchor.isTracked {
-//                    //Start timer to remove card
-//                } else {
-//                    //Stop timer for card, as it has been found again
-//                }
-//            }
-//        }
+    func restart() {
+        stop()
+        sceneView.session.run(configuration, options: [options, ARSession.RunOptions.removeExistingAnchors])
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-        if let imageAnchor = anchor as? ARImageAnchor {
-            handleCardDetected(imageAnchor: imageAnchor, node: node)
-        } else if let planeAnchor = anchor as? ARPlaneAnchor {
+        if let planeAnchor = anchor as? ARPlaneAnchor {
             handlePlaneDetected(planeAnchor: planeAnchor, node: node)
         }
-    }
-    
-    private func handleCardDetected(imageAnchor: ARImageAnchor, node: SCNNode) {
-        //
     }
     
     private func handlePlaneDetected(planeAnchor: ARPlaneAnchor, node: SCNNode) {
@@ -100,21 +75,14 @@ class ARController: NSObject, ARSessionDelegate, ARSCNViewDelegate  {
     }
     
     func session(_ session: ARSession, didUpdate frame: ARFrame) {
-        let hitResults = sceneView.hitTest(CGPoint(x: sceneView.frame.width / 2, y: sceneView.frame.height / 2), options: [SCNHitTestOption.searchMode: 1])
-        
-        for result in hitResults {
-            if let card = cardWorld.card(from: result.node) {
-                cardScannerDelegate?.cardScanner(self, scanned: card)
-                return
-            }
-        }
+        let orientation = CGImagePropertyOrientation(UIDevice.current.orientation)
+        let image = frame.capturedImage
+        frameDelegate?.frameScanner(self, didUpdate: image, withOrientation: orientation)
         
         if planeDetectorDelegate?.shouldDetectPlanes(self) ?? false {
             if let hit = frame.hitTest(CGPoint(x: 0.5, y: 0.5), types: [.existingPlane]).first {
                 currentPlane?.root.position = SCNVector3(hit.localTransform.columns.3.x, hit.localTransform.columns.3.y, hit.localTransform.columns.3.z)
             }
         }
-        
-        cardScannerDelegate?.cardScannerLostCard(self)
     }
 }

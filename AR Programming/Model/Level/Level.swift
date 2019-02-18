@@ -8,12 +8,11 @@
 
 import Foundation
 
-class Level: CardMapper, Codable {
+class Level: Codable, Equatable {
     
     let name: String
     let levelNumber: Int
     var tiles: TileMap
-    var cards: [Int:Card]
     var unlocked = false
     var unlocks: String?
     
@@ -33,13 +32,8 @@ class Level: CardMapper, Codable {
     private init(name: String, levelNumber: Int, unlocks: String?) {
         self.name = name
         self.levelNumber = levelNumber
-        self.cards = [Int:Card]()
         self.tiles = TileMap(width: 0, height: 0)
         self.unlocks = unlocks
-    }
-    
-    func getCard(identifier: Int) -> Card? {
-        return cards[identifier]
     }
     
     func notifyMovedTo(x: Int, y: Int) {
@@ -60,6 +54,10 @@ class Level: CardMapper, Codable {
         delegate?.levelReset(self)
     }
     
+    static func == (lhs: Level, rhs: Level) -> Bool {
+        return lhs.levelNumber == rhs.levelNumber
+    }
+    
     //Ignore this code, it only exists for development purposes
     convenience init(name: String, number: Int, unlocks: String?) {
         self.init(name: name, levelNumber: number, unlocks: unlocks)
@@ -77,19 +75,12 @@ class Level: CardMapper, Codable {
         let number = try container.decode(Int.self, forKey: CodingKeys.number)
         let unlocks = try? container.decode(String.self, forKey: CodingKeys.unlocks)
         self.init(name: name, levelNumber: number, unlocks: unlocks)
-        
-        let decodeCards = try container.decode([Int:String].self, forKey: .cards)
-        for (index, cardName) in decodeCards {
-            cards[index] = CardFactory.instance.getCard(named: cardName)
-        }
-        
         self.tiles = try container.decode(TileMap.self, forKey: CodingKeys.tiles)
     }
     
     convenience init?(json: Data) {
         if let newValue = try? JSONDecoder().decode(Level.self, from: json) {
             self.init(name: newValue.name, levelNumber: newValue.levelNumber, unlocks: newValue.unlocks)
-            self.cards = newValue.cards
             self.tiles = newValue.tiles
         } else {
             return nil
@@ -102,20 +93,12 @@ class Level: CardMapper, Codable {
         try container.encode(name, forKey: .name)
         try container.encode(levelNumber, forKey: CodingKeys.number)
         try container.encode(unlocks, forKey: CodingKeys.unlocks)
-        
-        var encodeCards = [Int:String]()
-        for (index, card) in cards {
-            encodeCards[index] = card.name
-        }
-        try container.encode(encodeCards, forKey: .cards)
-        
         try container.encode(tiles, forKey: CodingKeys.tiles)
     }
     
     private enum CodingKeys: String, CodingKey {
         case name
         case number
-        case cards
         case tiles
         case unlocks
     }
