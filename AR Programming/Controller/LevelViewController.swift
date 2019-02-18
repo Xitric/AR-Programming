@@ -125,13 +125,13 @@ class LevelViewController: UIViewController, GameplayController, PlaneDetectorDe
             playingField = PlayingField(ground: plane, robot: robot)
         }
     }
-
+    
     func showLevel() {
         if let currentLevel = level {
             for (x, y) in currentLevel.collectiblePositions {
                 let sphereGeom = SCNSphere(radius: 0.01)
                 let sphereNode = SCNNode(geometry: sphereGeom)
-
+                
                 levelViewModel?.addCollectible(node: sphereNode, x: x, y: y)
             }
         }
@@ -167,11 +167,11 @@ class LevelViewController: UIViewController, GameplayController, PlaneDetectorDe
     
     func collectibleTaken(_ level: Level, x: Int, y: Int) {
         levelViewModel?.removeCollectible(x: x, y: y)
-        //self.pickupSound?.play()
+        self.pickupSound?.play()
     }
     
     func levelCompleted(_ level: Level) {
-        //self.winSound?.play()
+        self.winSound?.play()
         
         DispatchQueue.main.async { [unowned self] in
             self.winLabel.isHidden = false
