@@ -11,18 +11,46 @@
 		09B25CABE22E83D264A35769 /* Pods_AR_ProgrammingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90A55B0621A834FD00FD7CDD /* Pods_AR_ProgrammingTests.framework */; };
 		204AEC12220DC9F500E0F624 /* HiddenTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204AEC11220DC9F500E0F624 /* HiddenTabBarViewController.swift */; };
 		204AEC14220DCA1E00E0F624 /* ARContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204AEC13220DCA1E00E0F624 /* ARContainerViewController.swift */; };
-		6C12D9D821873ECD003D0528 /* Vector2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C12D9D721873ECD003D0528 /* Vector2.swift */; };
-		6C512972217C95EC00421A48 /* RegressionLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C512971217C95EC00421A48 /* RegressionLine.swift */; };
-		6C512974217C978E00421A48 /* RegressionLineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C512973217C978E00421A48 /* RegressionLineTests.swift */; };
-		6CD69945218F3DE900A9E755 /* CardFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD69944218F3DE900A9E755 /* CardFactory.swift */; };
+		5627ECAF220EEFA800DCC32E /* CardGraphDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5627ECAE220EEFA800DCC32E /* CardGraphDetector.swift */; };
+		5627ECB1220EF57700DCC32E /* CardNodeDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5627ECB0220EF57700DCC32E /* CardNodeDetector.swift */; };
+		562CCA63220D74AF00BF6A8D /* RotationCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA4A220D74AD00BF6A8D /* RotationCard.swift */; };
+		562CCA64220D74AF00BF6A8D /* RandomBranchCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA4B220D74AD00BF6A8D /* RandomBranchCard.swift */; };
+		562CCA65220D74AF00BF6A8D /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA4C220D74AD00BF6A8D /* Card.swift */; };
+		562CCA66220D74AF00BF6A8D /* StartCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA4D220D74AD00BF6A8D /* StartCard.swift */; };
+		562CCA67220D74AF00BF6A8D /* RightCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA4E220D74AD00BF6A8D /* RightCard.swift */; };
+		562CCA68220D74AF00BF6A8D /* LeftCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA4F220D74AD00BF6A8D /* LeftCard.swift */; };
+		562CCA69220D74AF00BF6A8D /* MoveCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA50220D74AD00BF6A8D /* MoveCard.swift */; };
+		562CCA6A220D74AF00BF6A8D /* JumpCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA51220D74AD00BF6A8D /* JumpCard.swift */; };
+		562CCA6B220D74AF00BF6A8D /* StatementCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA52220D74AD00BF6A8D /* StatementCard.swift */; };
+		562CCA6C220D74AF00BF6A8D /* CardNodeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA53220D74AD00BF6A8D /* CardNodeFactory.swift */; };
+		562CCA6E220D74AF00BF6A8D /* CardSequenceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA55220D74AD00BF6A8D /* CardSequenceError.swift */; };
+		562CCA6F220D74AF00BF6A8D /* Program.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA56220D74AD00BF6A8D /* Program.swift */; };
+		562CCA70220D74AF00BF6A8D /* CardNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA57220D74AD00BF6A8D /* CardNode.swift */; };
+		562CCA72220D74AF00BF6A8D /* ProgramEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA59220D74AD00BF6A8D /* ProgramEditor.swift */; };
+		562CCA73220D74AF00BF6A8D /* SuccessorCardNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA5A220D74AD00BF6A8D /* SuccessorCardNode.swift */; };
+		562CCA74220D74AF00BF6A8D /* ObservationEdge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA5C220D74AF00BF6A8D /* ObservationEdge.swift */; };
+		562CCA76220D74AF00BF6A8D /* BarcodeDetectionResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA5E220D74AF00BF6A8D /* BarcodeDetectionResult.swift */; };
+		562CCA77220D74AF00BF6A8D /* ObservationSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA5F220D74AF00BF6A8D /* ObservationSet.swift */; };
+		562CCA78220D74AF00BF6A8D /* ObservationGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA60220D74AF00BF6A8D /* ObservationGraph.swift */; };
+		562CCA79220D74AF00BF6A8D /* BarcodeDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA61220D74AF00BF6A8D /* BarcodeDetector.swift */; };
+		562CCA7A220D74AF00BF6A8D /* ObservationNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA62220D74AF00BF6A8D /* ObservationNode.swift */; };
+		562CCA7E220D750100BF6A8D /* Double+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA7C220D74FF00BF6A8D /* Double+Helpers.swift */; };
+		562CCA7F220D750100BF6A8D /* CGImagePropertyOrientation+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA7D220D750100BF6A8D /* CGImagePropertyOrientation+Helpers.swift */; };
+		562CCA9C220D92BC00BF6A8D /* CardNodeFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA99220D92B700BF6A8D /* CardNodeFactoryTests.swift */; };
+		562CCA9D220D92BC00BF6A8D /* CardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA9A220D92B900BF6A8D /* CardTests.swift */; };
+		562CCA9E220D92BC00BF6A8D /* SuccessorCardNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA9B220D92BC00BF6A8D /* SuccessorCardNodeTests.swift */; };
+		562CCAA3220D92CF00BF6A8D /* ObservationSetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA9F220D92C700BF6A8D /* ObservationSetTests.swift */; };
+		562CCAA4220D92CF00BF6A8D /* ObservationGraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCAA0220D92CA00BF6A8D /* ObservationGraphTests.swift */; };
+		562CCAA5220D92CF00BF6A8D /* ObservationEdgeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCAA1220D92CC00BF6A8D /* ObservationEdgeTests.swift */; };
+		562CCAAC220D933E00BF6A8D /* Double+HelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCAAB220D933E00BF6A8D /* Double+HelpersTests.swift */; };
+		562ECC982210707D008C580E /* ProgramEditorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562ECC972210707D008C580E /* ProgramEditorTests.swift */; };
+		56413DFD220E2AC30064332E /* GameplayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56413DFC220E2AC30064332E /* GameplayController.swift */; };
 		900F13542194269F001C2DC2 /* TileMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900F13532194269F001C2DC2 /* TileMap.swift */; };
-		900F13582194405D001C2DC2 /* CardSequenceProgressDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900F13572194405D001C2DC2 /* CardSequenceProgressDelegate.swift */; };
 		900F135A219447AF001C2DC2 /* LevelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900F1359219447AF001C2DC2 /* LevelManager.swift */; };
 		901584C82199BDF400450E0B /* LevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901584C72199BDF400450E0B /* LevelViewController.swift */; };
 		901584CA2199BE0200450E0B /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901584C92199BE0200450E0B /* ScanViewController.swift */; };
 		901584CC2199C32100450E0B /* ARController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901584CB2199C32100450E0B /* ARController.swift */; };
-		9057369B2175D1C200F231E1 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057369A2175D1C200F231E1 /* Card.swift */; };
-		905A3C842179BE54005E3AA5 /* CardScannerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905A3C832179BE54005E3AA5 /* CardScannerDelegate.swift */; };
+		905A3C842179BE54005E3AA5 /* FrameDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905A3C832179BE54005E3AA5 /* FrameDelegate.swift */; };
 		905A3C882179BE74005E3AA5 /* PlaneDetectorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905A3C872179BE74005E3AA5 /* PlaneDetectorDelegate.swift */; };
 		905A3C8C2179E522005E3AA5 /* PlayingField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905A3C8B2179E522005E3AA5 /* PlayingField.swift */; };
 		905A3C8E2179E582005E3AA5 /* AnchoredNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905A3C8D2179E582005E3AA5 /* AnchoredNode.swift */; };
@@ -30,10 +58,8 @@
 		905A3C94217A09D0005E3AA5 /* LevelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905A3C93217A09D0005E3AA5 /* LevelCollectionViewCell.swift */; };
 		90A55B0921A83B0700FD7CDD /* AudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A55B0821A83B0700FD7CDD /* AudioController.swift */; };
 		90A55B0E21A84DB000FD7CDD /* win.wav in Resources */ = {isa = PBXBuildFile; fileRef = 90A55B0B21A83E8D00FD7CDD /* win.wav */; };
-		90BA0F5C2188A1D7005B6A6B /* RotationCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BA0F5B2188A1D7005B6A6B /* RotationCommand.swift */; };
 		90CDABC221773E2700664640 /* Meshes.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 90CDABC121773E2700664640 /* Meshes.scnassets */; };
 		90CDABC42177425200664640 /* AnimatableNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CDABC32177425200664640 /* AnimatableNode.swift */; };
-		90CDABC62177623100664640 /* CardSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CDABC52177623100664640 /* CardSequence.swift */; };
 		90D7538321AC0D2500B1F2E4 /* LevelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D7538221AC0D2500B1F2E4 /* LevelDelegate.swift */; };
 		90D7538621AC19CF00B1F2E4 /* LevelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D7538521AC19CF00B1F2E4 /* LevelViewModel.swift */; };
 		90D7538821AC259A00B1F2E4 /* pickup.wav in Resources */ = {isa = PBXBuildFile; fileRef = 90D7538721AC259A00B1F2E4 /* pickup.wav */; };
@@ -44,19 +70,12 @@
 		B6ABE7E472B14FA62A77B354 /* Pods_AR_Programming.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFCF4F02AC22AD5F7FC35F40 /* Pods_AR_Programming.framework */; };
 		C725B2C321A85A7B00DD147A /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C725B2C121A85A7B00DD147A /* Model.xcdatamodeld */; };
 		C7273114217714E900754543 /* Plane.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7273113217714E900754543 /* Plane.swift */; };
-		C7273118217752C400754543 /* CardCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7273117217752C400754543 /* CardCommand.swift */; };
-		C727311A2177539300754543 /* MoveCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72731192177539300754543 /* MoveCommand.swift */; };
-		C727311C2177581400754543 /* RightCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C727311B2177581400754543 /* RightCommand.swift */; };
-		C727311E21775A1100754543 /* LeftCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C727311D21775A1100754543 /* LeftCommand.swift */; };
-		C727312021775A5B00754543 /* JumpCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C727311F21775A5B00754543 /* JumpCommand.swift */; };
 		C74785E9219427A3000148BC /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74785E8219427A3000148BC /* CardCollectionViewCell.swift */; };
 		C74785EB219427F8000148BC /* CardLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74785EA219427F8000148BC /* CardLibraryViewController.swift */; };
 		C74785ED219448F1000148BC /* CardDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74785EC219448F1000148BC /* CardDetailViewController.swift */; };
 		C76A214721AC1405008A07D9 /* LevelEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76A214521AC1405008A07D9 /* LevelEntity+CoreDataClass.swift */; };
 		C76A214821AC1405008A07D9 /* LevelEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76A214621AC1405008A07D9 /* LevelEntity+CoreDataProperties.swift */; };
 		C79CED572179E175001487BF /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79CED562179E175001487BF /* Level.swift */; };
-		C79CED592179E193001487BF /* CardMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79CED582179E193001487BF /* CardMapper.swift */; };
-		C79CED5D217A0176001487BF /* CardWorld.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79CED5C217A0176001487BF /* CardWorld.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,19 +93,47 @@
 		204AEC13220DCA1E00E0F624 /* ARContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARContainerViewController.swift; sourceTree = "<group>"; };
 		2CBF6D6B964CB7805473D1E8 /* Pods-AR Programming.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AR Programming.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AR Programming/Pods-AR Programming.debug.xcconfig"; sourceTree = "<group>"; };
 		3F68042C35BD5B2A4D85C7F9 /* Pods-AR Programming.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AR Programming.release.xcconfig"; path = "Pods/Target Support Files/Pods-AR Programming/Pods-AR Programming.release.xcconfig"; sourceTree = "<group>"; };
-		6C12D9D721873ECD003D0528 /* Vector2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vector2.swift; sourceTree = "<group>"; };
-		6C512971217C95EC00421A48 /* RegressionLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegressionLine.swift; sourceTree = "<group>"; };
-		6C512973217C978E00421A48 /* RegressionLineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegressionLineTests.swift; sourceTree = "<group>"; };
-		6CD69944218F3DE900A9E755 /* CardFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFactory.swift; sourceTree = "<group>"; };
+		5627ECAE220EEFA800DCC32E /* CardGraphDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGraphDetector.swift; sourceTree = "<group>"; };
+		5627ECB0220EF57700DCC32E /* CardNodeDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardNodeDetector.swift; sourceTree = "<group>"; };
+		562CCA4A220D74AD00BF6A8D /* RotationCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotationCard.swift; sourceTree = "<group>"; };
+		562CCA4B220D74AD00BF6A8D /* RandomBranchCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomBranchCard.swift; sourceTree = "<group>"; };
+		562CCA4C220D74AD00BF6A8D /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		562CCA4D220D74AD00BF6A8D /* StartCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartCard.swift; sourceTree = "<group>"; };
+		562CCA4E220D74AD00BF6A8D /* RightCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightCard.swift; sourceTree = "<group>"; };
+		562CCA4F220D74AD00BF6A8D /* LeftCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftCard.swift; sourceTree = "<group>"; };
+		562CCA50220D74AD00BF6A8D /* MoveCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoveCard.swift; sourceTree = "<group>"; };
+		562CCA51220D74AD00BF6A8D /* JumpCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JumpCard.swift; sourceTree = "<group>"; };
+		562CCA52220D74AD00BF6A8D /* StatementCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatementCard.swift; sourceTree = "<group>"; };
+		562CCA53220D74AD00BF6A8D /* CardNodeFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardNodeFactory.swift; sourceTree = "<group>"; };
+		562CCA55220D74AD00BF6A8D /* CardSequenceError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardSequenceError.swift; sourceTree = "<group>"; };
+		562CCA56220D74AD00BF6A8D /* Program.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Program.swift; sourceTree = "<group>"; };
+		562CCA57220D74AD00BF6A8D /* CardNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardNode.swift; sourceTree = "<group>"; };
+		562CCA59220D74AD00BF6A8D /* ProgramEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgramEditor.swift; sourceTree = "<group>"; };
+		562CCA5A220D74AD00BF6A8D /* SuccessorCardNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessorCardNode.swift; sourceTree = "<group>"; };
+		562CCA5C220D74AF00BF6A8D /* ObservationEdge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationEdge.swift; sourceTree = "<group>"; };
+		562CCA5E220D74AF00BF6A8D /* BarcodeDetectionResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeDetectionResult.swift; sourceTree = "<group>"; };
+		562CCA5F220D74AF00BF6A8D /* ObservationSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationSet.swift; sourceTree = "<group>"; };
+		562CCA60220D74AF00BF6A8D /* ObservationGraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationGraph.swift; sourceTree = "<group>"; };
+		562CCA61220D74AF00BF6A8D /* BarcodeDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeDetector.swift; sourceTree = "<group>"; };
+		562CCA62220D74AF00BF6A8D /* ObservationNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationNode.swift; sourceTree = "<group>"; };
+		562CCA7C220D74FF00BF6A8D /* Double+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Helpers.swift"; sourceTree = "<group>"; };
+		562CCA7D220D750100BF6A8D /* CGImagePropertyOrientation+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGImagePropertyOrientation+Helpers.swift"; sourceTree = "<group>"; };
+		562CCA99220D92B700BF6A8D /* CardNodeFactoryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardNodeFactoryTests.swift; sourceTree = "<group>"; };
+		562CCA9A220D92B900BF6A8D /* CardTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardTests.swift; sourceTree = "<group>"; };
+		562CCA9B220D92BC00BF6A8D /* SuccessorCardNodeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessorCardNodeTests.swift; sourceTree = "<group>"; };
+		562CCA9F220D92C700BF6A8D /* ObservationSetTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationSetTests.swift; sourceTree = "<group>"; };
+		562CCAA0220D92CA00BF6A8D /* ObservationGraphTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationGraphTests.swift; sourceTree = "<group>"; };
+		562CCAA1220D92CC00BF6A8D /* ObservationEdgeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationEdgeTests.swift; sourceTree = "<group>"; };
+		562CCAAB220D933E00BF6A8D /* Double+HelpersTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+HelpersTests.swift"; sourceTree = "<group>"; };
+		562ECC972210707D008C580E /* ProgramEditorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramEditorTests.swift; sourceTree = "<group>"; };
+		56413DFC220E2AC30064332E /* GameplayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameplayController.swift; sourceTree = "<group>"; };
 		81B3ED8214579B6F33DA8F08 /* Pods_AR_ProgrammingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AR_ProgrammingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		900F13532194269F001C2DC2 /* TileMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileMap.swift; sourceTree = "<group>"; };
-		900F13572194405D001C2DC2 /* CardSequenceProgressDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSequenceProgressDelegate.swift; sourceTree = "<group>"; };
 		900F1359219447AF001C2DC2 /* LevelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelManager.swift; sourceTree = "<group>"; };
 		901584C72199BDF400450E0B /* LevelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelViewController.swift; sourceTree = "<group>"; };
 		901584C92199BE0200450E0B /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		901584CB2199C32100450E0B /* ARController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARController.swift; sourceTree = "<group>"; };
-		9057369A2175D1C200F231E1 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
-		905A3C832179BE54005E3AA5 /* CardScannerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardScannerDelegate.swift; sourceTree = "<group>"; };
+		905A3C832179BE54005E3AA5 /* FrameDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameDelegate.swift; sourceTree = "<group>"; };
 		905A3C872179BE74005E3AA5 /* PlaneDetectorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaneDetectorDelegate.swift; sourceTree = "<group>"; };
 		905A3C8B2179E522005E3AA5 /* PlayingField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingField.swift; sourceTree = "<group>"; };
 		905A3C8D2179E582005E3AA5 /* AnchoredNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnchoredNode.swift; sourceTree = "<group>"; };
@@ -95,10 +142,8 @@
 		90A55B0621A834FD00FD7CDD /* Pods_AR_ProgrammingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_AR_ProgrammingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		90A55B0821A83B0700FD7CDD /* AudioController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioController.swift; sourceTree = "<group>"; };
 		90A55B0B21A83E8D00FD7CDD /* win.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = win.wav; sourceTree = "<group>"; };
-		90BA0F5B2188A1D7005B6A6B /* RotationCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationCommand.swift; sourceTree = "<group>"; };
 		90CDABC121773E2700664640 /* Meshes.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Meshes.scnassets; sourceTree = "<group>"; };
 		90CDABC32177425200664640 /* AnimatableNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableNode.swift; sourceTree = "<group>"; };
-		90CDABC52177623100664640 /* CardSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSequence.swift; sourceTree = "<group>"; };
 		90D7538221AC0D2500B1F2E4 /* LevelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelDelegate.swift; sourceTree = "<group>"; };
 		90D7538521AC19CF00B1F2E4 /* LevelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelViewModel.swift; sourceTree = "<group>"; };
 		90D7538721AC259A00B1F2E4 /* pickup.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pickup.wav; sourceTree = "<group>"; };
@@ -115,19 +160,12 @@
 		C572DB0C2C2E8C51CB97FFDF /* Pods-AR ProgrammingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AR ProgrammingTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AR ProgrammingTests/Pods-AR ProgrammingTests.release.xcconfig"; sourceTree = "<group>"; };
 		C725B2C221A85A7B00DD147A /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		C7273113217714E900754543 /* Plane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plane.swift; sourceTree = "<group>"; };
-		C7273117217752C400754543 /* CardCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCommand.swift; sourceTree = "<group>"; };
-		C72731192177539300754543 /* MoveCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveCommand.swift; sourceTree = "<group>"; };
-		C727311B2177581400754543 /* RightCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightCommand.swift; sourceTree = "<group>"; };
-		C727311D21775A1100754543 /* LeftCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftCommand.swift; sourceTree = "<group>"; };
-		C727311F21775A5B00754543 /* JumpCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JumpCommand.swift; sourceTree = "<group>"; };
 		C74785E8219427A3000148BC /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
 		C74785EA219427F8000148BC /* CardLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardLibraryViewController.swift; sourceTree = "<group>"; };
 		C74785EC219448F1000148BC /* CardDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewController.swift; sourceTree = "<group>"; };
 		C76A214521AC1405008A07D9 /* LevelEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LevelEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		C76A214621AC1405008A07D9 /* LevelEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LevelEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C79CED562179E175001487BF /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
-		C79CED582179E193001487BF /* CardMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardMapper.swift; sourceTree = "<group>"; };
-		C79CED5C217A0176001487BF /* CardWorld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardWorld.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +199,106 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		562CCA48220D74AD00BF6A8D /* Program */ = {
+			isa = PBXGroup;
+			children = (
+				562CCA49220D74AD00BF6A8D /* Cards */,
+				562CCA53220D74AD00BF6A8D /* CardNodeFactory.swift */,
+				562CCA55220D74AD00BF6A8D /* CardSequenceError.swift */,
+				562CCA56220D74AD00BF6A8D /* Program.swift */,
+				562CCA57220D74AD00BF6A8D /* CardNode.swift */,
+				562CCA59220D74AD00BF6A8D /* ProgramEditor.swift */,
+				562CCA5A220D74AD00BF6A8D /* SuccessorCardNode.swift */,
+			);
+			path = Program;
+			sourceTree = "<group>";
+		};
+		562CCA49220D74AD00BF6A8D /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+				562CCA4A220D74AD00BF6A8D /* RotationCard.swift */,
+				562CCA4B220D74AD00BF6A8D /* RandomBranchCard.swift */,
+				562CCA4C220D74AD00BF6A8D /* Card.swift */,
+				562CCA4D220D74AD00BF6A8D /* StartCard.swift */,
+				562CCA4E220D74AD00BF6A8D /* RightCard.swift */,
+				562CCA4F220D74AD00BF6A8D /* LeftCard.swift */,
+				562CCA50220D74AD00BF6A8D /* MoveCard.swift */,
+				562CCA51220D74AD00BF6A8D /* JumpCard.swift */,
+				562CCA52220D74AD00BF6A8D /* StatementCard.swift */,
+			);
+			path = Cards;
+			sourceTree = "<group>";
+		};
+		562CCA5B220D74AF00BF6A8D /* ImageAnalysis */ = {
+			isa = PBXGroup;
+			children = (
+				562CCA62220D74AF00BF6A8D /* ObservationNode.swift */,
+				562CCA5F220D74AF00BF6A8D /* ObservationSet.swift */,
+				562CCA5C220D74AF00BF6A8D /* ObservationEdge.swift */,
+				562CCA60220D74AF00BF6A8D /* ObservationGraph.swift */,
+				562CCA5E220D74AF00BF6A8D /* BarcodeDetectionResult.swift */,
+				562CCA61220D74AF00BF6A8D /* BarcodeDetector.swift */,
+				5627ECAE220EEFA800DCC32E /* CardGraphDetector.swift */,
+				5627ECB0220EF57700DCC32E /* CardNodeDetector.swift */,
+			);
+			path = ImageAnalysis;
+			sourceTree = "<group>";
+		};
+		562CCA7B220D74F200BF6A8D /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				562CCA7D220D750100BF6A8D /* CGImagePropertyOrientation+Helpers.swift */,
+				562CCA7C220D74FF00BF6A8D /* Double+Helpers.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		562CCA80220D752B00BF6A8D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				562CCA82220D754800BF6A8D /* Program */,
+				562CCA81220D753500BF6A8D /* ImageAnalysis */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		562CCA81220D753500BF6A8D /* ImageAnalysis */ = {
+			isa = PBXGroup;
+			children = (
+				562CCAA1220D92CC00BF6A8D /* ObservationEdgeTests.swift */,
+				562CCAA0220D92CA00BF6A8D /* ObservationGraphTests.swift */,
+				562CCA9F220D92C700BF6A8D /* ObservationSetTests.swift */,
+			);
+			path = ImageAnalysis;
+			sourceTree = "<group>";
+		};
+		562CCA82220D754800BF6A8D /* Program */ = {
+			isa = PBXGroup;
+			children = (
+				562ECC962210704F008C580E /* Cards */,
+				562CCA99220D92B700BF6A8D /* CardNodeFactoryTests.swift */,
+				562ECC972210707D008C580E /* ProgramEditorTests.swift */,
+				562CCA9B220D92BC00BF6A8D /* SuccessorCardNodeTests.swift */,
+			);
+			path = Program;
+			sourceTree = "<group>";
+		};
+		562CCAAA220D933300BF6A8D /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				562CCAAB220D933E00BF6A8D /* Double+HelpersTests.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		562ECC962210704F008C580E /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+				562CCA9A220D92B900BF6A8D /* CardTests.swift */,
+			);
+			path = Cards;
+			sourceTree = "<group>";
+		};
 		69FAFFD76540FD6CC944F023 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -183,43 +321,16 @@
 			path = Level;
 			sourceTree = "<group>";
 		};
-		6CD69943218F3DD100A9E755 /* Card */ = {
-			isa = PBXGroup;
-			children = (
-				C79CED582179E193001487BF /* CardMapper.swift */,
-				C79CED5C217A0176001487BF /* CardWorld.swift */,
-				C7273117217752C400754543 /* CardCommand.swift */,
-				C72731192177539300754543 /* MoveCommand.swift */,
-				C727311B2177581400754543 /* RightCommand.swift */,
-				C727311D21775A1100754543 /* LeftCommand.swift */,
-				C727311F21775A5B00754543 /* JumpCommand.swift */,
-				90BA0F5B2188A1D7005B6A6B /* RotationCommand.swift */,
-				90CDABC52177623100664640 /* CardSequence.swift */,
-				9057369A2175D1C200F231E1 /* Card.swift */,
-				6CD69944218F3DE900A9E755 /* CardFactory.swift */,
-				900F13572194405D001C2DC2 /* CardSequenceProgressDelegate.swift */,
-			);
-			path = Card;
-			sourceTree = "<group>";
-		};
-		902AB4202195BFDE00FD49C6 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		905736992175D19000F231E1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				6CD69943218F3DD100A9E755 /* Card */,
+				562CCA5B220D74AF00BF6A8D /* ImageAnalysis */,
+				562CCA48220D74AD00BF6A8D /* Program */,
 				6CD69940218F392500A9E755 /* Level */,
 				C7273113217714E900754543 /* Plane.swift */,
 				90CDABC32177425200664640 /* AnimatableNode.swift */,
 				905A3C8B2179E522005E3AA5 /* PlayingField.swift */,
 				905A3C8D2179E582005E3AA5 /* AnchoredNode.swift */,
-				6C512971217C95EC00421A48 /* RegressionLine.swift */,
-				6C12D9D721873ECD003D0528 /* Vector2.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -238,6 +349,7 @@
 				C74785EA219427F8000148BC /* CardLibraryViewController.swift */,
 				C74785EC219448F1000148BC /* CardDetailViewController.swift */,
 				90A55B0821A83B0700FD7CDD /* AudioController.swift */,
+				56413DFC220E2AC30064332E /* GameplayController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -245,20 +357,20 @@
 		905A3C782179BDC3005E3AA5 /* Card */ = {
 			isa = PBXGroup;
 			children = (
-				905A3C832179BE54005E3AA5 /* CardScannerDelegate.swift */,
+				905A3C832179BE54005E3AA5 /* FrameDelegate.swift */,
 				905A3C872179BE74005E3AA5 /* PlaneDetectorDelegate.swift */,
 				901584CB2199C32100450E0B /* ARController.swift */,
 			);
 			path = Card;
 			sourceTree = "<group>";
 		};
-		90A55B0D21A84C1A00FD7CDD /* resources */ = {
+		90A55B0D21A84C1A00FD7CDD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				90D7538721AC259A00B1F2E4 /* pickup.wav */,
 				90A55B0B21A83E8D00FD7CDD /* win.wav */,
 			);
-			path = resources;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		90D7538421AC18D900B1F2E4 /* ViewModel */ = {
@@ -272,7 +384,6 @@
 		90DF7323216F441E00F51E0C = {
 			isa = PBXGroup;
 			children = (
-				902AB4202195BFDE00FD49C6 /* Supporting Files */,
 				90DF732E216F441E00F51E0C /* AR Programming */,
 				90DF7345216F442100F51E0C /* AR ProgrammingTests */,
 				90DF732D216F441E00F51E0C /* Products */,
@@ -293,9 +404,10 @@
 		90DF732E216F441E00F51E0C /* AR Programming */ = {
 			isa = PBXGroup;
 			children = (
+				562CCA7B220D74F200BF6A8D /* Utilities */,
 				C725B2C021A85A6D00DD147A /* Persistence */,
 				90D7538421AC18D900B1F2E4 /* ViewModel */,
-				90A55B0D21A84C1A00FD7CDD /* resources */,
+				90A55B0D21A84C1A00FD7CDD /* Resources */,
 				9057369E2175D42900F231E1 /* Controller */,
 				905736992175D19000F231E1 /* Model */,
 				90DF732F216F441E00F51E0C /* AppDelegate.swift */,
@@ -311,8 +423,9 @@
 		90DF7345216F442100F51E0C /* AR ProgrammingTests */ = {
 			isa = PBXGroup;
 			children = (
+				562CCAAA220D933300BF6A8D /* Utilities */,
+				562CCA80220D752B00BF6A8D /* Model */,
 				90DF7348216F442100F51E0C /* Info.plist */,
-				6C512973217C978E00421A48 /* RegressionLineTests.swift */,
 			);
 			path = "AR ProgrammingTests";
 			sourceTree = "<group>";
@@ -382,6 +495,7 @@
 					};
 					90DF7341216F442100F51E0C = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1010;
 						TestTargetID = 90DF732B216F441E00F51E0C;
 					};
 				};
@@ -480,44 +594,56 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5627ECAF220EEFA800DCC32E /* CardGraphDetector.swift in Sources */,
+				562CCA6F220D74AF00BF6A8D /* Program.swift in Sources */,
+				562CCA7A220D74AF00BF6A8D /* ObservationNode.swift in Sources */,
 				C76A214721AC1405008A07D9 /* LevelEntity+CoreDataClass.swift in Sources */,
+				562CCA6B220D74AF00BF6A8D /* StatementCard.swift in Sources */,
 				900F13542194269F001C2DC2 /* TileMap.swift in Sources */,
-				C79CED5D217A0176001487BF /* CardWorld.swift in Sources */,
+				562CCA67220D74AF00BF6A8D /* RightCard.swift in Sources */,
 				901584C82199BDF400450E0B /* LevelViewController.swift in Sources */,
 				90D7538621AC19CF00B1F2E4 /* LevelViewModel.swift in Sources */,
-				90CDABC62177623100664640 /* CardSequence.swift in Sources */,
-				9057369B2175D1C200F231E1 /* Card.swift in Sources */,
+				562CCA77220D74AF00BF6A8D /* ObservationSet.swift in Sources */,
 				901584CC2199C32100450E0B /* ARController.swift in Sources */,
-				905A3C842179BE54005E3AA5 /* CardScannerDelegate.swift in Sources */,
+				562CCA66220D74AF00BF6A8D /* StartCard.swift in Sources */,
+				905A3C842179BE54005E3AA5 /* FrameDelegate.swift in Sources */,
 				901584CA2199BE0200450E0B /* ScanViewController.swift in Sources */,
-				6CD69945218F3DE900A9E755 /* CardFactory.swift in Sources */,
+				562CCA78220D74AF00BF6A8D /* ObservationGraph.swift in Sources */,
+				562CCA65220D74AF00BF6A8D /* Card.swift in Sources */,
+				562CCA69220D74AF00BF6A8D /* MoveCard.swift in Sources */,
 				90D7538321AC0D2500B1F2E4 /* LevelDelegate.swift in Sources */,
 				905A3C8C2179E522005E3AA5 /* PlayingField.swift in Sources */,
 				C79CED572179E175001487BF /* Level.swift in Sources */,
-				C727312021775A5B00754543 /* JumpCommand.swift in Sources */,
 				C74785ED219448F1000148BC /* CardDetailViewController.swift in Sources */,
-				6C12D9D821873ECD003D0528 /* Vector2.swift in Sources */,
-				6C512972217C95EC00421A48 /* RegressionLine.swift in Sources */,
-				90BA0F5C2188A1D7005B6A6B /* RotationCommand.swift in Sources */,
+				562CCA73220D74AF00BF6A8D /* SuccessorCardNode.swift in Sources */,
+				562CCA6C220D74AF00BF6A8D /* CardNodeFactory.swift in Sources */,
 				204AEC12220DC9F500E0F624 /* HiddenTabBarViewController.swift in Sources */,
 				90CDABC42177425200664640 /* AnimatableNode.swift in Sources */,
-				C727311C2177581400754543 /* RightCommand.swift in Sources */,
+				56413DFD220E2AC30064332E /* GameplayController.swift in Sources */,
 				900F135A219447AF001C2DC2 /* LevelManager.swift in Sources */,
 				204AEC14220DCA1E00E0F624 /* ARContainerViewController.swift in Sources */,
 				C725B2C321A85A7B00DD147A /* Model.xcdatamodeld in Sources */,
+				562CCA68220D74AF00BF6A8D /* LeftCard.swift in Sources */,
+				562CCA79220D74AF00BF6A8D /* BarcodeDetector.swift in Sources */,
 				C74785E9219427A3000148BC /* CardCollectionViewCell.swift in Sources */,
 				C76A214821AC1405008A07D9 /* LevelEntity+CoreDataProperties.swift in Sources */,
+				562CCA76220D74AF00BF6A8D /* BarcodeDetectionResult.swift in Sources */,
+				562CCA74220D74AF00BF6A8D /* ObservationEdge.swift in Sources */,
 				90DF7330216F441E00F51E0C /* AppDelegate.swift in Sources */,
+				562CCA7F220D750100BF6A8D /* CGImagePropertyOrientation+Helpers.swift in Sources */,
+				562CCA6A220D74AF00BF6A8D /* JumpCard.swift in Sources */,
+				562CCA70220D74AF00BF6A8D /* CardNode.swift in Sources */,
+				562CCA7E220D750100BF6A8D /* Double+Helpers.swift in Sources */,
 				905A3C92217A0891005E3AA5 /* LevelSelectViewController.swift in Sources */,
+				562CCA72220D74AF00BF6A8D /* ProgramEditor.swift in Sources */,
+				562CCA64220D74AF00BF6A8D /* RandomBranchCard.swift in Sources */,
+				5627ECB1220EF57700DCC32E /* CardNodeDetector.swift in Sources */,
 				C74785EB219427F8000148BC /* CardLibraryViewController.swift in Sources */,
 				905A3C94217A09D0005E3AA5 /* LevelCollectionViewCell.swift in Sources */,
+				562CCA63220D74AF00BF6A8D /* RotationCard.swift in Sources */,
 				905A3C8E2179E582005E3AA5 /* AnchoredNode.swift in Sources */,
-				900F13582194405D001C2DC2 /* CardSequenceProgressDelegate.swift in Sources */,
-				C7273118217752C400754543 /* CardCommand.swift in Sources */,
+				562CCA6E220D74AF00BF6A8D /* CardSequenceError.swift in Sources */,
 				90A55B0921A83B0700FD7CDD /* AudioController.swift in Sources */,
-				C727311A2177539300754543 /* MoveCommand.swift in Sources */,
-				C727311E21775A1100754543 /* LeftCommand.swift in Sources */,
-				C79CED592179E193001487BF /* CardMapper.swift in Sources */,
 				C7273114217714E900754543 /* Plane.swift in Sources */,
 				905A3C882179BE74005E3AA5 /* PlaneDetectorDelegate.swift in Sources */,
 			);
@@ -527,7 +653,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C512974217C978E00421A48 /* RegressionLineTests.swift in Sources */,
+				562CCAAC220D933E00BF6A8D /* Double+HelpersTests.swift in Sources */,
+				562CCA9C220D92BC00BF6A8D /* CardNodeFactoryTests.swift in Sources */,
+				562CCA9E220D92BC00BF6A8D /* SuccessorCardNodeTests.swift in Sources */,
+				562CCA9D220D92BC00BF6A8D /* CardTests.swift in Sources */,
+				562CCAA4220D92CF00BF6A8D /* ObservationGraphTests.swift in Sources */,
+				562CCAA3220D92CF00BF6A8D /* ObservationSetTests.swift in Sources */,
+				562CCAA5220D92CF00BF6A8D /* ObservationEdgeTests.swift in Sources */,
+				562ECC982210707D008C580E /* ProgramEditorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -683,14 +816,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5E6DK5G4XC;
+				DEVELOPMENT_TEAM = T8D932Y62R;
 				INFOPLIST_FILE = "AR Programming/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "dk.sdu.AR-Programming1";
+				PRODUCT_BUNDLE_IDENTIFIER = "dk.sdu.AR-Programming";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -703,14 +836,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5E6DK5G4XC;
+				DEVELOPMENT_TEAM = T8D932Y62R;
 				INFOPLIST_FILE = "AR Programming/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "dk.sdu.AR-Programming1";
+				PRODUCT_BUNDLE_IDENTIFIER = "dk.sdu.AR-Programming";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -723,6 +856,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T8D932Y62R;
 				INFOPLIST_FILE = "AR ProgrammingTests/Info.plist";
@@ -733,6 +867,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "dk.sdu.group10.AR-ProgrammingTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AR Programming.app/AR Programming";
@@ -745,6 +880,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T8D932Y62R;
 				INFOPLIST_FILE = "AR ProgrammingTests/Info.plist";

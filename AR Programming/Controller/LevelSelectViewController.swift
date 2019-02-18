@@ -55,9 +55,6 @@ class LevelSelectViewController: UIViewController, UICollectionViewDataSource, U
     //Ignore this code, it only exists for development purposes
     @IBAction func recreateLevels(_ sender: Any) {
         let l1 = Level(name: "Level 1", number: 1, unlocks: "Level 2")
-        l1.cards = [Int:Card]()
-        l1.cards[0] = CardFactory.instance.getCard(named: "start")
-        l1.cards[1] = CardFactory.instance.getCard(named: "move")
         l1.tiles = TileMap(width: 2, height: 1)
         l1.tiles.setCollectible(x: 1, y: 0)
         if let url = try? FileManager.default.url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("Level 1.json") {
@@ -65,13 +62,6 @@ class LevelSelectViewController: UIViewController, UICollectionViewDataSource, U
         }
         
         let l2 = Level(name: "Level 2", number: 2, unlocks: "Level 3")
-        l2.cards = [Int:Card]()
-        l2.cards[0] = CardFactory.instance.getCard(named: "start")
-        l2.cards[1] = CardFactory.instance.getCard(named: "move")
-        l2.cards[2] = CardFactory.instance.getCard(named: "move")
-        l2.cards[3] = CardFactory.instance.getCard(named: "move")
-        l2.cards[4] = CardFactory.instance.getCard(named: "move")
-        l2.cards[5] = CardFactory.instance.getCard(named: "right")
         l2.tiles = TileMap(width: 3, height: 3)
         l2.tiles.setCollectible(x: 1, y: 0)
         l2.tiles.setCollectible(x: 2, y: 0)
@@ -82,13 +72,6 @@ class LevelSelectViewController: UIViewController, UICollectionViewDataSource, U
         }
         
         let l3 = Level(name: "Level 3", number: 3, unlocks: nil)
-        l3.cards = [Int:Card]()
-        l3.cards[0] = CardFactory.instance.getCard(named: "start")
-        l3.cards[1] = CardFactory.instance.getCard(named: "move")
-        l3.cards[2] = CardFactory.instance.getCard(named: "move")
-        l3.cards[3] = CardFactory.instance.getCard(named: "move")
-        l3.cards[4] = CardFactory.instance.getCard(named: "move")
-        l3.cards[5] = CardFactory.instance.getCard(named: "right")
         l3.tiles = TileMap(width: 5, height: 5)
         l3.tiles.setCollectible(x: 0, y: 1)
         l3.tiles.setCollectible(x: 0, y: 2)
