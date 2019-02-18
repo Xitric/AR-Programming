@@ -61,7 +61,7 @@ class ScanViewController : UIViewController, GameplayController, FrameDelegate, 
             self.cardImage.image = UIImage(named: card.internalName)
         } else {
             self.cardName.text = "Intet kort fundet"
-            self.cardDescription.text = "Peg cirklen i midten af skærmen mod et kort for at lære mere om det!"
+            self.cardDescription.text = "Peg feltet i midten af skærmen mod et kort for at lære mere om det!"
             self.cardImage.image = nil
         }
     }
