@@ -10,7 +10,16 @@ import SceneKit
 
 struct PlayingField {
     
-    var origo: AnchoredNode
     var ground: Plane
     var robot: AnimatableNode
+    
+    init(ground: Plane, robot: AnimatableNode) {
+        self.ground = ground
+        self.robot = robot
+        addNode(robot.model)
+    }
+    
+    func addNode(_ node: SCNNode) {
+        ground.root.addChildNode(node)
+    }
 }

@@ -56,25 +56,35 @@ class ARController: NSObject, ARSessionDelegate, ARSCNViewDelegate  {
     
     private func handlePlaneDetected(planeAnchor: ARPlaneAnchor, node: SCNNode) {
         if planeDetectorDelegate?.shouldDetectPlanes(self) ?? false {
-            let oldPlane = currentPlane
- 
-            let plane = Plane(width: 0.2, height: 0.2, anchor: planeAnchor)
-            plane.node.geometry?.materials.first?.diffuse.contents = UIImage(named: "tron_grid")
-            node.addChildNode(plane.node)
-            
-            currentPlane = plane
-            planeDetectorDelegate?.planeDetector(self, found: plane)
-            
-            if let plane = oldPlane {
-                sceneView.session.remove(anchor: plane.anchor)
-                plane.node.removeFromParentNode()
+            if currentPlane == nil {
+                currentPlane = createPlane()
+                sceneView.scene.rootNode.addChildNode(currentPlane!.root)
+                
+                planeDetectorDelegate?.planeDetector(self, found: currentPlane!)
             }
         }
+    }
+    
+    private func createPlane() -> Plane {
+        var plane = Plane()
+        
+        let ground = SCNNode(geometry: SCNPlane(width: 0.2, height: 0.2))
+        ground.eulerAngles.x = -.pi / 2
+        ground.geometry?.materials.first?.diffuse.contents = UIImage(named: "tron_grid")
+        plane.groundNode = ground
+        
+        return plane
     }
     
     func session(_ session: ARSession, didUpdate frame: ARFrame) {
         let orientation = CGImagePropertyOrientation(UIDevice.current.orientation)
         let image = frame.capturedImage
         frameDelegate?.frameScanner(self, didUpdate: image, withOrientation: orientation)
+        
+        if planeDetectorDelegate?.shouldDetectPlanes(self) ?? false {
+            if let hit = frame.hitTest(CGPoint(x: 0.5, y: 0.5), types: [.existingPlane]).first {
+                currentPlane?.root.position = SCNVector3(hit.worldTransform.translation)
+            }
+        }
     }
 }

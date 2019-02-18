@@ -21,11 +21,11 @@ class Program {
     func run(on robot: SCNNode) {
         delegate?.programBegan(self)
         run(start, on: robot)
-        delegate?.programEnded(self)
     }
     
     private func run(_ node: CardNode?, on robot: SCNNode) {
         guard let node = node else {
+            delegate?.programEnded(self)
             return
         }
         
