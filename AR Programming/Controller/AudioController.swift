@@ -15,7 +15,6 @@ class AudioController {
     
     static let instance = AudioController()
     var mixer: AKMixer?
-    var soundsToPlay: [AKAudioPlayer]?
     
     private init(){
         mixer = AKMixer()
