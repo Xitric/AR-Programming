@@ -14,21 +14,23 @@ import AudioKit
 class AudioController {
     
     static let instance = AudioController()
+    var mixer: AKMixer?
+    var soundsToPlay: [AKAudioPlayer]?
     
     private init(){
-        
+        mixer = AKMixer()
+        AudioKit.output = mixer
     }
     
     public func makeSound(withName name: String) -> AKAudioPlayer? {
         if let soundFile = try? AKAudioFile(readFileName: name) {
             if let player = try? AKAudioPlayer(file: soundFile) {
                 player.looping = false
-                AudioKit.output = player
-                
+                mixer?.connect(input: player)
                 return player
             }
         }
-        
+
         print("Error: Could not read sound file with name \(name)")
         return nil
     }
