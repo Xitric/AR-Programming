@@ -27,7 +27,7 @@ class LevelViewModel {
         
         node.position.x = Float(x) * LevelViewModel.coordinateScale
         node.position.z = Float(y) * LevelViewModel.coordinateScale
-        playingField.origo.node.addChildNode(node)
+        playingField.addNode(node)
         
         let i = coordinatesToIndex(x: x, y: y)
         

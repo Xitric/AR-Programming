@@ -9,7 +9,21 @@
 import Foundation
 import ARKit
 
-class Plane: AnchoredNode {
+struct Plane: Equatable, Hashable {
+    
+    let anchor: ARAnchor
+    let root: SCNNode
+    var groundNode: SCNNode? {
+        didSet {
+            if let oldValue = oldValue {
+                oldValue.removeFromParentNode()
+            }
+            
+            if let groundNode = groundNode {
+                root.addChildNode(groundNode)
+            }
+        }
+    }
     
     var center : SCNVector3 {
         get {
@@ -19,11 +33,9 @@ class Plane: AnchoredNode {
         }
     }
 
-    init(width: CGFloat, height: CGFloat, anchor: ARAnchor) {
-        let planeGeometry = SCNPlane(width: width, height: height)
-        super.init(anchor: anchor, node: SCNNode(geometry: planeGeometry))
-        
-        node.eulerAngles.x = -.pi / 2
+    init(anchor: ARAnchor) {
+        self.anchor = anchor
+        self.root = SCNNode()
     }
     
     public func project(point: SCNVector3) -> Vector2 {
@@ -31,5 +43,10 @@ class Plane: AnchoredNode {
         let localPoint = inverse * simd_float4(point.x, point.y, point.z, 1)
         let projectedPoint = SCNVector3(localPoint.x, 0, localPoint.z)
         return Vector2(x: projectedPoint.x, y: projectedPoint.z)
+    }
+    
+    // TODO: Is getting removed anyway
+    static func == (lhs: Plane, rhs: Plane) -> Bool {
+        return false
     }
 }

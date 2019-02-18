@@ -22,9 +22,7 @@ class CardWorld {
     }
     
     public func plane(from node: SCNNode) -> Plane? {
-        return cards.first(where: { pair -> Bool in
-            return pair.key.node == node
-        })?.key
+        return nil //Removed anyway
     }
     
     public func card(from node: SCNNode) -> Card? {

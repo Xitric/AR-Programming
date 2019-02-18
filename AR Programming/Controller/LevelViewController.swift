@@ -111,15 +111,11 @@ class LevelViewController: UIViewController, PlaneDetectorDelegate, CardSequence
     
     func showModelAt(detectedPlane plane: Plane) {
         if ((level?.delegate = self) != nil) {
-            let origo = AnchoredNode(anchor: plane.anchor, node: plane.node.parent!)
-
             let robot = AnimatableNode(modelSource: "Meshes.scnassets/uglyBot.dae")
             robot.model.scale = SCNVector3(0.1, 0.1, 0.1)
             robot.model.position = SCNVector3(0, 0, 0)
 
-            playingField = PlayingField(origo: origo, ground: plane, robot: robot)
-
-            origo.node.addChildNode(robot.model)
+            playingField = PlayingField(ground: plane, robot: robot)
         }
     }
 

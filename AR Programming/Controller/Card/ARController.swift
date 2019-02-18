@@ -76,33 +76,25 @@ class ARController: NSObject, ARSessionDelegate, ARSCNViewDelegate  {
     }
     
     private func handleCardDetected(imageAnchor: ARImageAnchor, node: SCNNode) {
-        let referenceImage = imageAnchor.referenceImage
-        let plane = Plane(width: referenceImage.physicalSize.width, height: referenceImage.physicalSize.height, anchor: imageAnchor)
-        
-        if let cardIdentifier = Int(referenceImage.name!) {
-            if let card = cardMapper?.getCard(identifier: cardIdentifier) {
-                plane.node.geometry?.firstMaterial?.diffuse.contents = "Card Library/\(card.name).png"
-                node.addChildNode(plane.node)
-                
-                cardWorld.addCard(plane: plane, card: card)
-            }
-        }
+        //
     }
     
     private func handlePlaneDetected(planeAnchor: ARPlaneAnchor, node: SCNNode) {
         if planeDetectorDelegate?.shouldDetectPlanes(self) ?? false {
             let oldPlane = currentPlane
  
-            let plane = Plane(width: 0.2, height: 0.2, anchor: planeAnchor)
-            plane.node.geometry?.materials.first?.diffuse.contents = UIImage(named: "tron_grid")
-            node.addChildNode(plane.node)
+            var plane = Plane(anchor: planeAnchor)
+            let ground = SCNNode(geometry: SCNPlane(width: 0.2, height: 0.2))
+            ground.eulerAngles.x = -.pi / 2
+            ground.geometry?.materials.first?.diffuse.contents = UIImage(named: "tron_grid")
+            plane.groundNode = ground
+            node.addChildNode(plane.root)
             
             currentPlane = plane
             planeDetectorDelegate?.planeDetector(self, found: plane)
             
             if let plane = oldPlane {
                 sceneView.session.remove(anchor: plane.anchor)
-                plane.node.removeFromParentNode()
             }
         }
     }
@@ -114,6 +106,12 @@ class ARController: NSObject, ARSessionDelegate, ARSCNViewDelegate  {
             if let card = cardWorld.card(from: result.node) {
                 cardScannerDelegate?.cardScanner(self, scanned: card)
                 return
+            }
+        }
+        
+        if planeDetectorDelegate?.shouldDetectPlanes(self) ?? false {
+            if let hit = frame.hitTest(CGPoint(x: 0.5, y: 0.5), types: [.existingPlane]).first {
+                currentPlane?.root.position = SCNVector3(hit.localTransform.columns.3.x, hit.localTransform.columns.3.y, hit.localTransform.columns.3.z)
             }
         }
         
