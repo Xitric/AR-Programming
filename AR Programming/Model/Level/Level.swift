@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Level: Codable {
+class Level: Codable, Equatable {
     
     let name: String
     let levelNumber: Int
@@ -52,6 +52,10 @@ class Level: Codable {
     func reset() {
         tiles.reset()
         delegate?.levelReset(self)
+    }
+    
+    static func == (lhs: Level, rhs: Level) -> Bool {
+        return lhs.levelNumber == rhs.levelNumber
     }
     
     //Ignore this code, it only exists for development purposes

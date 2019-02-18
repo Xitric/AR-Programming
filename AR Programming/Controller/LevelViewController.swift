@@ -90,9 +90,9 @@ class LevelViewController: UIViewController, GameplayController, PlaneDetectorDe
         arController?.planeDetectorDelegate = self
         arController?.frameDelegate = self
         
-        //TODO: Only reset if it is a new level?
-        //TODO: Or maybe separate interfaces for initializing and navigating to
-        self.level = level
+        if self.level != level {
+            self.level = level
+        }
     }
     
     func exit(withLevel level: Level?, inEnvironment arController: ARController?) {
@@ -118,15 +118,11 @@ class LevelViewController: UIViewController, GameplayController, PlaneDetectorDe
     
     func showModelAt(detectedPlane plane: Plane) {
         if ((level?.delegate = self) != nil) {
-            let origo = AnchoredNode(anchor: plane.anchor, node: plane.node.parent!)
-            
             let robot = AnimatableNode(modelSource: "Meshes.scnassets/uglyBot.dae")
             robot.model.scale = SCNVector3(0.1, 0.1, 0.1)
             robot.model.position = SCNVector3(0, 0, 0)
-            
-            playingField = PlayingField(origo: origo, ground: plane, robot: robot)
-            
-            origo.node.addChildNode(robot.model)
+
+            playingField = PlayingField(ground: plane, robot: robot)
         }
     }
     

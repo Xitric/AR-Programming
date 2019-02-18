@@ -9,12 +9,22 @@
 import Foundation
 import ARKit
 
-class Plane: AnchoredNode {
+struct Plane {
     
-    init(width: CGFloat, height: CGFloat, anchor: ARAnchor) {
-        let planeGeometry = SCNPlane(width: width, height: height)
-        super.init(anchor: anchor, node: SCNNode(geometry: planeGeometry))
-        
-        node.eulerAngles.x = -.pi / 2
+    let root: SCNNode
+    var groundNode: SCNNode? {
+        didSet {
+            if let oldValue = oldValue {
+                oldValue.removeFromParentNode()
+            }
+            
+            if let groundNode = groundNode {
+                root.addChildNode(groundNode)
+            }
+        }
+    }
+
+    init() {
+        self.root = SCNNode()
     }
 }
