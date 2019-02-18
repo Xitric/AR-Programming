@@ -119,23 +119,23 @@ class LevelViewController: UIViewController, GameplayController, PlaneDetectorDe
     func showModelAt(detectedPlane plane: Plane) {
         if ((level?.delegate = self) != nil) {
             let origo = AnchoredNode(anchor: plane.anchor, node: plane.node.parent!)
-
+            
             let robot = AnimatableNode(modelSource: "Meshes.scnassets/uglyBot.dae")
             robot.model.scale = SCNVector3(0.1, 0.1, 0.1)
             robot.model.position = SCNVector3(0, 0, 0)
-
+            
             playingField = PlayingField(origo: origo, ground: plane, robot: robot)
-
+            
             origo.node.addChildNode(robot.model)
         }
     }
-
+    
     func showLevel() {
         if let currentLevel = level {
             for (x, y) in currentLevel.collectiblePositions {
                 let sphereGeom = SCNSphere(radius: 0.01)
                 let sphereNode = SCNNode(geometry: sphereGeom)
-
+                
                 levelViewModel?.addCollectible(node: sphereNode, x: x, y: y)
             }
         }
@@ -171,11 +171,11 @@ class LevelViewController: UIViewController, GameplayController, PlaneDetectorDe
     
     func collectibleTaken(_ level: Level, x: Int, y: Int) {
         levelViewModel?.removeCollectible(x: x, y: y)
-        //self.pickupSound?.play()
+        self.pickupSound?.play()
     }
     
     func levelCompleted(_ level: Level) {
-        //self.winSound?.play()
+        self.winSound?.play()
         
         DispatchQueue.main.async { [unowned self] in
             self.winLabel.isHidden = false
