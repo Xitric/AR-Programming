@@ -9,9 +9,8 @@
 import Foundation
 import ARKit
 
-class Plane {
+struct Plane {
     
-    let anchor: ARAnchor
     let root: SCNNode
     var groundNode: SCNNode? {
         didSet {
@@ -25,8 +24,7 @@ class Plane {
         }
     }
 
-    init(anchor: ARAnchor) {
-        self.anchor = anchor
+    init() {
         self.root = SCNNode()
     }
 }

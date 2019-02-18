@@ -56,22 +56,24 @@ class ARController: NSObject, ARSessionDelegate, ARSCNViewDelegate  {
     
     private func handlePlaneDetected(planeAnchor: ARPlaneAnchor, node: SCNNode) {
         if planeDetectorDelegate?.shouldDetectPlanes(self) ?? false {
-            let oldPlane = currentPlane
- 
-            var plane = Plane(anchor: planeAnchor)
-            let ground = SCNNode(geometry: SCNPlane(width: 0.2, height: 0.2))
-            ground.eulerAngles.x = -.pi / 2
-            ground.geometry?.materials.first?.diffuse.contents = UIImage(named: "tron_grid")
-            plane.groundNode = ground
-            node.addChildNode(plane.root)
-            
-            currentPlane = plane
-            planeDetectorDelegate?.planeDetector(self, found: plane)
-            
-            if let plane = oldPlane {
-                sceneView.session.remove(anchor: plane.anchor)
+            if currentPlane == nil {
+                currentPlane = createPlane()
+                sceneView.scene.rootNode.addChildNode(currentPlane!.root)
+                
+                planeDetectorDelegate?.planeDetector(self, found: currentPlane!)
             }
         }
+    }
+    
+    private func createPlane() -> Plane {
+        var plane = Plane()
+        
+        let ground = SCNNode(geometry: SCNPlane(width: 0.2, height: 0.2))
+        ground.eulerAngles.x = -.pi / 2
+        ground.geometry?.materials.first?.diffuse.contents = UIImage(named: "tron_grid")
+        plane.groundNode = ground
+        
+        return plane
     }
     
     func session(_ session: ARSession, didUpdate frame: ARFrame) {
@@ -81,7 +83,7 @@ class ARController: NSObject, ARSessionDelegate, ARSCNViewDelegate  {
         
         if planeDetectorDelegate?.shouldDetectPlanes(self) ?? false {
             if let hit = frame.hitTest(CGPoint(x: 0.5, y: 0.5), types: [.existingPlane]).first {
-                currentPlane?.root.position = SCNVector3(hit.localTransform.columns.3.x, hit.localTransform.columns.3.y, hit.localTransform.columns.3.z)
+                currentPlane?.root.position = SCNVector3(hit.worldTransform.translation)
             }
         }
     }
