@@ -23,14 +23,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Please wait while the application is loading..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nme-RM-Fdu">
-                                <rect key="frame" x="71" y="235.5" width="338" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Vent venligst mens applikationen indlæser..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nme-RM-Fdu">
+                                <rect key="frame" x="73" y="235" width="334.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="hBZ-d8-jph">
-                                <rect key="frame" x="173.5" y="102.5" width="133" height="133"/>
+                                <rect key="frame" x="174" y="102.5" width="132.5" height="132.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="hBZ-d8-jph" secondAttribute="height" multiplier="1:1" id="AJX-Xc-Jb4"/>
                                 </constraints>

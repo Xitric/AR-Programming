@@ -15,6 +15,7 @@ class ARController: NSObject, ARSessionDelegate, ARSCNViewDelegate  {
     private var configuration : ARWorldTrackingConfiguration
     private var options : ARSession.RunOptions
     private var currentPlane: Plane?
+    private var currentPlaneAnchor: ARAnchor?
     
     weak var frameDelegate: FrameDelegate?
     weak var planeDetectorDelegate: PlaneDetectorDelegate?
@@ -50,6 +51,11 @@ class ARController: NSObject, ARSessionDelegate, ARSCNViewDelegate  {
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         if let planeAnchor = anchor as? ARPlaneAnchor {
+            if let currentPlaneAnchor = currentPlaneAnchor {
+                sceneView.session.remove(anchor: currentPlaneAnchor)
+            }
+            currentPlaneAnchor = planeAnchor
+            
             handlePlaneDetected(planeAnchor: planeAnchor, node: node)
         }
     }
