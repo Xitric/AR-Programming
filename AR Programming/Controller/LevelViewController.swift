@@ -18,9 +18,10 @@ class LevelViewController: UIViewController, GameplayController, PlaneDetectorDe
     @IBOutlet weak var detectButton: UIButton!
     @IBOutlet weak var executeButton: UIButton!
     @IBOutlet weak var resetButton: UIButton!
-    @IBOutlet weak var planeDetectionLabel: UILabel!
+    @IBOutlet weak var planeDetectionHint: SubtitleLabel!
+    @IBOutlet weak var planePlacementHint: SubtitleLabel!
     @IBOutlet weak var winLabel: UILabel!
-    @IBOutlet weak var winDescription: UILabel!
+    @IBOutlet weak var winDescription: SubtitleLabel!
     @IBOutlet weak var scanButton: UIButton!
     
     private var levelViewModel: LevelViewModel?
@@ -35,7 +36,9 @@ class LevelViewController: UIViewController, GameplayController, PlaneDetectorDe
     private var currentPlane: Plane? {
         didSet {
             DispatchQueue.main.async { [unowned self] in
-                self.placeButton.isEnabled = self.currentPlane != nil
+                self.placeButton.isHidden = self.playingField != nil
+                self.planeDetectionHint.isHidden = self.currentPlane != nil || self.playingField != nil
+                self.planePlacementHint.isHidden = self.playingField != nil
             }
         }
     }
@@ -54,8 +57,7 @@ class LevelViewController: UIViewController, GameplayController, PlaneDetectorDe
         didSet {
             let hasPlayingField = playingField != nil
             
-            placeButton.isHidden = hasPlayingField
-            planeDetectionLabel.isHidden = hasPlayingField
+            planeDetectionHint.isHidden = hasPlayingField
             detectButton.isHidden = !hasPlayingField
             resetButton.isHidden = !hasPlayingField
             

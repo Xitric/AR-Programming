@@ -66,6 +66,10 @@ class ARController: NSObject, ARSessionDelegate, ARSCNViewDelegate  {
                 currentPlane = createPlane()
                 sceneView.scene.rootNode.addChildNode(currentPlane!.root)
                 
+                if let frame = sceneView.session.currentFrame {
+                    updatePlanePosiiton(in: frame)
+                }
+                
                 planeDetectorDelegate?.planeDetector(self, found: currentPlane!)
             }
         }
@@ -88,9 +92,13 @@ class ARController: NSObject, ARSessionDelegate, ARSCNViewDelegate  {
         frameDelegate?.frameScanner(self, didUpdate: image, withOrientation: orientation)
         
         if planeDetectorDelegate?.shouldDetectPlanes(self) ?? false {
-            if let hit = frame.hitTest(CGPoint(x: 0.5, y: 0.5), types: [.existingPlane]).first {
-                currentPlane?.root.position = SCNVector3(hit.worldTransform.translation)
-            }
+            updatePlanePosiiton(in: frame)
+        }
+    }
+    
+    private func updatePlanePosiiton(in frame: ARFrame) {
+        if let hit = frame.hitTest(CGPoint(x: 0.5, y: 0.5), types: [.existingPlane]).first {
+            currentPlane?.root.position = SCNVector3(hit.worldTransform.translation)
         }
     }
 }
