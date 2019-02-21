@@ -20,6 +20,7 @@ class LevelViewController: UIViewController, GameplayController, PlaneDetectorDe
     @IBOutlet weak var resetButton: UIButton!
     @IBOutlet weak var planeDetectionHint: SubtitleLabel!
     @IBOutlet weak var planePlacementHint: SubtitleLabel!
+    @IBOutlet weak var planeDetectionAnimation: UIImageView!
     @IBOutlet weak var winLabel: UILabel!
     @IBOutlet weak var winDescription: SubtitleLabel!
     @IBOutlet weak var scanButton: UIButton!
@@ -38,6 +39,7 @@ class LevelViewController: UIViewController, GameplayController, PlaneDetectorDe
             DispatchQueue.main.async { [unowned self] in
                 self.placeButton.isHidden = self.playingField != nil
                 self.planeDetectionHint.isHidden = self.currentPlane != nil || self.playingField != nil
+                self.planeDetectionAnimation.isHidden = self.currentPlane != nil || self.playingField != nil
                 self.planePlacementHint.isHidden = self.playingField != nil
             }
         }
@@ -58,8 +60,8 @@ class LevelViewController: UIViewController, GameplayController, PlaneDetectorDe
             let hasPlayingField = playingField != nil
             
             planeDetectionHint.isHidden = hasPlayingField
+            planeDetectionAnimation.isHidden = hasPlayingField
             detectButton.isHidden = !hasPlayingField
-            resetButton.isHidden = !hasPlayingField
             
             if let field = playingField {
                 levelViewModel = LevelViewModel(showing: field, withLevelWidth: level!.width)
@@ -70,6 +72,7 @@ class LevelViewController: UIViewController, GameplayController, PlaneDetectorDe
         didSet {
             detectButton.isHidden = program != nil
             executeButton.isHidden = program == nil
+            resetButton.isHidden = program == nil
         }
     }
     
