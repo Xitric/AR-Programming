@@ -8,8 +8,8 @@
 
 import UIKit
 
-class LevelSelectViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
-
+class LevelSelectViewController: UIViewController {
+    
     private var levels = [Level]()
     var selectedLevel: Level?
     
@@ -25,27 +25,6 @@ class LevelSelectViewController: UIViewController, UICollectionViewDataSource, U
         levels.append(contentsOf: LevelManager.loadAllLevels())
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return levels.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "levelCell", for: indexPath)
-        
-        if let levelCell = cell as? LevelCollectionViewCell {
-            let level = levels[indexPath.item]
-            levelCell.levelName.text = level.name
-            levelCell.unlocked = level.unlocked
-        }
-        
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectedLevel = levels[indexPath.item]
-        performSegue(withIdentifier: "arContainerSegue", sender: self)
-    }
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let arContainer = segue.destination as? ARContainerViewController {
             arContainer.level = selectedLevel
@@ -92,12 +71,39 @@ class LevelSelectViewController: UIViewController, UICollectionViewDataSource, U
             try? l3.json?.write(to: url)
         }
         
-       // Call levelManager to save unlocked levels in Core Data
+        // Call levelManager to save unlocked levels in Core Data
         LevelManager.markLevel(withName: l1.name, asUnlocked: true) { [unowned self] in
             //Reload view
             self.levels.removeAll()
             self.levels.append(contentsOf: LevelManager.loadAllLevels())
             self.levelSelectCollectionView.reloadData()
         }
+    }
+}
+
+// MARK: - UICollectionViewDataSource
+extension LevelSelectViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return levels.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "levelCell", for: indexPath)
+        
+        if let levelCell = cell as? LevelCollectionViewCell {
+            let level = levels[indexPath.item]
+            levelCell.levelName.text = level.name
+            levelCell.unlocked = level.unlocked
+        }
+        
+        return cell
+    }
+}
+
+// MARK: - UICollectionViewDelegate
+extension LevelSelectViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedLevel = levels[indexPath.item]
+        performSegue(withIdentifier: "arContainerSegue", sender: self)
     }
 }

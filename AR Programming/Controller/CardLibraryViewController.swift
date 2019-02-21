@@ -10,19 +10,31 @@ import Foundation
 import UIKit
 import CoreData
 
-class CardLibraryViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class CardLibraryViewController: UIViewController {
 
     private var cardFactory = CardNodeFactory.instance
     private lazy var cardLibrary = cardFactory.cards
-    private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     @IBOutlet weak var CardCollectionView: UICollectionView! {
         didSet {
             CardCollectionView.dataSource = self
-            CardCollectionView.delegate = self
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Show Card Information" {
+            if let cdvc = segue.destination as? CardDetailViewController {
+                let card = sender as! CardCollectionViewCell
+                cdvc.cardTitle = card.cardTitle
+                cdvc.cardDescription = card.cardDescription
+                cdvc.cardImage = card.image.image
+            }
+        }
+    }
+}
+
+// MARK: - UICollectionViewDataSource
+extension CardLibraryViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return cardLibrary.count
     }
@@ -37,16 +49,5 @@ class CardLibraryViewController: UIViewController, UICollectionViewDelegate, UIC
             cardCell.cardDescription = card.description
         }
         return cell
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "Show Card Information" {
-            if let cdvc = segue.destination as? CardDetailViewController {
-                let card = sender as! CardCollectionViewCell
-                cdvc.cardTitle = card.cardTitle
-                cdvc.cardDescription = card.cardDescription
-                cdvc.cardImage = card.image.image
-            }
-        }
     }
 }

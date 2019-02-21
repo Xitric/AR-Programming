@@ -9,7 +9,7 @@
 import Foundation
 import ARKit
 
-class ARController: NSObject, ARSessionDelegate, ARSCNViewDelegate  {
+class ARController: NSObject  {
     
     private let sceneView: ARSCNView
     private var configuration : ARWorldTrackingConfiguration
@@ -47,7 +47,10 @@ class ARController: NSObject, ARSessionDelegate, ARSCNViewDelegate  {
         stop()
         sceneView.session.run(configuration, options: [options, ARSession.RunOptions.removeExistingAnchors])
     }
-    
+}
+
+// MARK: - ARSCNViewDelegate
+extension ARController: ARSCNViewDelegate {
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         if let planeAnchor = anchor as? ARPlaneAnchor {
             handlePlaneDetected(planeAnchor: planeAnchor, node: node)
@@ -75,7 +78,10 @@ class ARController: NSObject, ARSessionDelegate, ARSCNViewDelegate  {
         
         return plane
     }
-    
+}
+
+// MARK: - ARSessionDelegate
+extension ARController: ARSessionDelegate {
     func session(_ session: ARSession, didUpdate frame: ARFrame) {
         let orientation = CGImagePropertyOrientation(UIDevice.current.orientation)
         let image = frame.capturedImage
@@ -88,3 +94,4 @@ class ARController: NSObject, ARSessionDelegate, ARSCNViewDelegate  {
         }
     }
 }
+
