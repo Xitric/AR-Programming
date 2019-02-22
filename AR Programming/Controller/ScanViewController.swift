@@ -9,19 +9,13 @@
 import Foundation
 import UIKit
 
-class ScanViewController : UIViewController, GameplayController, FrameDelegate, CardNodeDetectorDelegate {
+class ScanViewController : UIViewController {
     
     @IBOutlet weak var cardImage: UIImageView!
     @IBOutlet weak var cardName: UILabel!
     @IBOutlet weak var cardDescription: UILabel!
     
     private var detector: BarcodeDetector!
-    
-    @IBAction func back(_ sender: UIButton) {
-        if let parent = self.parent as? HiddenTabBarViewController {
-            parent.goToViewControllerWith(index: 0)
-        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +26,15 @@ class ScanViewController : UIViewController, GameplayController, FrameDelegate, 
                                    screenHeight: Double(UIScreen.main.bounds.height))
     }
     
+    @IBAction func back(_ sender: UIButton) {
+        if let parent = self.parent as? HiddenTabBarViewController {
+            parent.goToViewControllerWith(index: 0)
+        }
+    }
+}
+
+// MARK: - GameplayController
+extension ScanViewController: GameplayController {
     func enter(withLevel level: Level?, inEnvironment arController: ARController?) {
         arController?.frameDelegate = self
     }
@@ -39,11 +42,17 @@ class ScanViewController : UIViewController, GameplayController, FrameDelegate, 
     func exit(withLevel level: Level?, inEnvironment arController: ARController?) {
         arController?.frameDelegate = nil
     }
-    
+}
+
+// MARK: - FrameDelegate
+extension ScanViewController: FrameDelegate {
     func frameScanner(_ scanner: ARController, didUpdate frame: CVPixelBuffer, withOrientation orientation: CGImagePropertyOrientation) {
         detector.analyze(frame: frame, oriented: orientation)
     }
-    
+}
+
+// MARK: - CardNodeDetectorDelegate
+extension ScanViewController: CardNodeDetectorDelegate {
     func nodeDetector(_ detector: CardNodeDetector, found cardNodes: [CardNode]) {
         if cardNodes.count == 0 {
             display(card: nil)

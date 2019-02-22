@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HiddenTabBarViewController: UITabBarController, GameplayController {
+class HiddenTabBarViewController: UITabBarController {
     
     private var level: Level?
     private var arController: ARController?
@@ -18,16 +18,6 @@ class HiddenTabBarViewController: UITabBarController, GameplayController {
         self.tabBar.isHidden = true
         
         goToViewControllerWith(index: 0)
-    }
-
-    func enter(withLevel level: Level?, inEnvironment arController: ARController?) {
-        self.level = level
-        self.arController = arController
-    }
-    
-    func exit(withLevel level: Level?, inEnvironment arController: ARController?) {
-        self.level = nil
-        self.arController = nil
     }
     
     func goToViewControllerWith(index: Int) {
@@ -40,5 +30,18 @@ class HiddenTabBarViewController: UITabBarController, GameplayController {
         if let gameplayController = selectedViewController as? GameplayController {
             gameplayController.enter(withLevel: level, inEnvironment: arController)
         }
+    }
+}
+
+// MARK: - GamePlayController
+extension HiddenTabBarViewController: GameplayController {
+    func enter(withLevel level: Level?, inEnvironment arController: ARController?) {
+        self.level = level
+        self.arController = arController
+    }
+    
+    func exit(withLevel level: Level?, inEnvironment arController: ARController?) {
+        self.level = nil
+        self.arController = nil
     }
 }
