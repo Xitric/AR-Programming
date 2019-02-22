@@ -119,7 +119,7 @@ class LevelViewController: UIViewController {
         }
     }
     
-    func showModelAt(detectedPlane plane: Plane) {
+    private func showModelAt(detectedPlane plane: Plane) {
         if ((level?.delegate = self) != nil) {
             let robot = AnimatableNode(modelSource: "Meshes.scnassets/uglyBot.dae")
             robot.model.scale = SCNVector3(0.1, 0.1, 0.1)
@@ -129,7 +129,7 @@ class LevelViewController: UIViewController {
         }
     }
     
-    func showLevel() {
+    private func showLevel() {
         if let currentLevel = level {
             for (x, y) in currentLevel.collectiblePositions {
                 let sphereGeom = SCNSphere(radius: 0.01)
