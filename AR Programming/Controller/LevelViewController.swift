@@ -37,10 +37,19 @@ class LevelViewController: UIViewController, GameplayController, PlaneDetectorDe
     private var currentPlane: Plane? {
         didSet {
             DispatchQueue.main.async { [unowned self] in
-                self.placeButton.isHidden = self.playingField != nil
-                self.planeDetectionHint.isHidden = self.currentPlane != nil || self.playingField != nil
-                self.planeDetectionAnimation.isHidden = self.currentPlane != nil || self.playingField != nil
-                self.planePlacementHint.isHidden = self.playingField != nil
+                let hasPlane = self.playingField != nil
+                let hasNothing = self.currentPlane == nil && self.playingField == nil
+                
+                self.placeButton.isHidden = hasPlane
+                self.planeDetectionHint.isHidden = !hasNothing
+                self.planeDetectionAnimation.isHidden = !hasNothing
+                self.planePlacementHint.isHidden = hasPlane
+                
+                if hasNothing {
+                    self.planeDetectionAnimation.startAnimating()
+                } else {
+                    self.planeDetectionAnimation.stopAnimating()
+                }
             }
         }
     }
@@ -79,6 +88,8 @@ class LevelViewController: UIViewController, GameplayController, PlaneDetectorDe
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         AudioController.instance.start()
+        
+        createPlaneAnimation()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -89,6 +100,12 @@ class LevelViewController: UIViewController, GameplayController, PlaneDetectorDe
     override func viewDidLoad() {
         super.viewDidLoad()
         editor.delegate = self
+    }
+    
+    private func createPlaneAnimation() {
+        planeDetectionAnimation.animationImages = UIImage.loadAnimation(named: "ScanSurface", withFrames: 50)
+        planeDetectionAnimation.animationDuration = 2.8
+        planeDetectionAnimation.startAnimating()
     }
     
     func enter(withLevel level: Level?, inEnvironment arController: ARController?) {
@@ -114,7 +131,8 @@ class LevelViewController: UIViewController, GameplayController, PlaneDetectorDe
     }
     
     @IBAction func placePlane(_ sender: UIButton) {
-        if let plane = currentPlane {
+        if var plane = currentPlane {
+            plane.groundNode = nil
             showModelAt(detectedPlane: plane)
             showLevel()
             currentPlane = nil

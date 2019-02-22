@@ -80,7 +80,7 @@ class ARController: NSObject, ARSessionDelegate, ARSCNViewDelegate  {
         
         let ground = SCNNode(geometry: SCNPlane(width: 0.2, height: 0.2))
         ground.eulerAngles.x = -.pi / 2
-        ground.geometry?.materials.first?.diffuse.contents = UIImage(named: "tron_grid")
+        ground.geometry?.materials.first?.diffuse.contents = UIImage(named: "SurfaceArea.png")
         plane.groundNode = ground
         
         return plane
