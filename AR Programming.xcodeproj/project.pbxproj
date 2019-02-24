@@ -47,6 +47,12 @@
 		562CCAAC220D933E00BF6A8D /* Double+HelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCAAB220D933E00BF6A8D /* Double+HelpersTests.swift */; };
 		562ECC982210707D008C580E /* ProgramEditorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562ECC972210707D008C580E /* ProgramEditorTests.swift */; };
 		56413DFD220E2AC30064332E /* GameplayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56413DFC220E2AC30064332E /* GameplayController.swift */; };
+		568AE7742223064D00A7348C /* EntityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568AE7732223064D00A7348C /* EntityTests.swift */; };
+		568AE77622233AC100A7348C /* EntityManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568AE77522233AC100A7348C /* EntityManagerTests.swift */; };
+		56E167BA2222BDA600D40FD0 /* GKEntity+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E167B92222BDA600D40FD0 /* GKEntity+Helpers.swift */; };
+		56E167C12222C15B00D40FD0 /* GKEntity+HelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E167C02222C15B00D40FD0 /* GKEntity+HelpersTests.swift */; };
+		56E167C32222CC3800D40FD0 /* EntityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E167C22222CC3800D40FD0 /* EntityManager.swift */; };
+		56E167CA2222D80700D40FD0 /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = 56E167C92222D80700D40FD0 /* Entity.m */; };
 		900F13542194269F001C2DC2 /* TileMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900F13532194269F001C2DC2 /* TileMap.swift */; };
 		900F135A219447AF001C2DC2 /* LevelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900F1359219447AF001C2DC2 /* LevelManager.swift */; };
 		901584C82199BDF400450E0B /* LevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901584C72199BDF400450E0B /* LevelViewController.swift */; };
@@ -130,6 +136,14 @@
 		562CCAAB220D933E00BF6A8D /* Double+HelpersTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+HelpersTests.swift"; sourceTree = "<group>"; };
 		562ECC972210707D008C580E /* ProgramEditorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramEditorTests.swift; sourceTree = "<group>"; };
 		56413DFC220E2AC30064332E /* GameplayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameplayController.swift; sourceTree = "<group>"; };
+		568AE7732223064D00A7348C /* EntityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityTests.swift; sourceTree = "<group>"; };
+		568AE77522233AC100A7348C /* EntityManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityManagerTests.swift; sourceTree = "<group>"; };
+		56E167B92222BDA600D40FD0 /* GKEntity+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GKEntity+Helpers.swift"; sourceTree = "<group>"; };
+		56E167C02222C15B00D40FD0 /* GKEntity+HelpersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GKEntity+HelpersTests.swift"; sourceTree = "<group>"; };
+		56E167C22222CC3800D40FD0 /* EntityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityManager.swift; sourceTree = "<group>"; };
+		56E167C82222D80700D40FD0 /* AR Programming-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AR Programming-Bridging-Header.h"; sourceTree = "<group>"; };
+		56E167C92222D80700D40FD0 /* Entity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Entity.m; sourceTree = "<group>"; };
+		56E167CB2222D8BA00D40FD0 /* Entity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
 		81B3ED8214579B6F33DA8F08 /* Pods_AR_ProgrammingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AR_ProgrammingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		900F13532194269F001C2DC2 /* TileMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileMap.swift; sourceTree = "<group>"; };
 		900F1359219447AF001C2DC2 /* LevelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelManager.swift; sourceTree = "<group>"; };
@@ -260,6 +274,7 @@
 		562CCA80220D752B00BF6A8D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				56E167BB2222C0D600D40FD0 /* Entity */,
 				562CCA82220D754800BF6A8D /* Program */,
 				562CCA81220D753500BF6A8D /* ImageAnalysis */,
 			);
@@ -303,6 +318,28 @@
 			path = Cards;
 			sourceTree = "<group>";
 		};
+		56E167B82222BD8700D40FD0 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				56E167B92222BDA600D40FD0 /* GKEntity+Helpers.swift */,
+				56E167C22222CC3800D40FD0 /* EntityManager.swift */,
+				56E167CB2222D8BA00D40FD0 /* Entity.h */,
+				56E167C92222D80700D40FD0 /* Entity.m */,
+				56E167C82222D80700D40FD0 /* AR Programming-Bridging-Header.h */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		56E167BB2222C0D600D40FD0 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				56E167C02222C15B00D40FD0 /* GKEntity+HelpersTests.swift */,
+				568AE7732223064D00A7348C /* EntityTests.swift */,
+				568AE77522233AC100A7348C /* EntityManagerTests.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
 		69FAFFD76540FD6CC944F023 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -328,6 +365,7 @@
 		905736992175D19000F231E1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				56E167B82222BD8700D40FD0 /* Entity */,
 				562CCA5B220D74AF00BF6A8D /* ImageAnalysis */,
 				562CCA48220D74AD00BF6A8D /* Program */,
 				6CD69940218F392500A9E755 /* Level */,
@@ -495,6 +533,7 @@
 				TargetAttributes = {
 					90DF732B216F441E00F51E0C = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1010;
 					};
 					90DF7341216F442100F51E0C = {
 						CreatedOnToolsVersion = 10.0;
@@ -597,6 +636,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56E167CA2222D80700D40FD0 /* Entity.m in Sources */,
+				56E167C32222CC3800D40FD0 /* EntityManager.swift in Sources */,
 				5627ECAF220EEFA800DCC32E /* CardGraphDetector.swift in Sources */,
 				562CCA6F220D74AF00BF6A8D /* Program.swift in Sources */,
 				562CCA7A220D74AF00BF6A8D /* ObservationNode.swift in Sources */,
@@ -635,6 +676,7 @@
 				562CCA76220D74AF00BF6A8D /* BarcodeDetectionResult.swift in Sources */,
 				562CCA74220D74AF00BF6A8D /* ObservationEdge.swift in Sources */,
 				90DF7330216F441E00F51E0C /* AppDelegate.swift in Sources */,
+				56E167BA2222BDA600D40FD0 /* GKEntity+Helpers.swift in Sources */,
 				562CCA7F220D750100BF6A8D /* CGImagePropertyOrientation+Helpers.swift in Sources */,
 				562CCA6A220D74AF00BF6A8D /* JumpCard.swift in Sources */,
 				562CCA70220D74AF00BF6A8D /* CardNode.swift in Sources */,
@@ -657,12 +699,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				568AE7742223064D00A7348C /* EntityTests.swift in Sources */,
 				562CCAAC220D933E00BF6A8D /* Double+HelpersTests.swift in Sources */,
+				568AE77622233AC100A7348C /* EntityManagerTests.swift in Sources */,
 				562CCA9C220D92BC00BF6A8D /* CardNodeFactoryTests.swift in Sources */,
 				562CCA9E220D92BC00BF6A8D /* SuccessorCardNodeTests.swift in Sources */,
 				562CCA9D220D92BC00BF6A8D /* CardTests.swift in Sources */,
 				562CCAA4220D92CF00BF6A8D /* ObservationGraphTests.swift in Sources */,
 				562CCAA3220D92CF00BF6A8D /* ObservationSetTests.swift in Sources */,
+				56E167C12222C15B00D40FD0 /* GKEntity+HelpersTests.swift in Sources */,
 				562CCAA5220D92CF00BF6A8D /* ObservationEdgeTests.swift in Sources */,
 				562ECC982210707D008C580E /* ProgramEditorTests.swift in Sources */,
 			);
@@ -819,6 +864,7 @@
 			baseConfigurationReference = 2CBF6D6B964CB7805473D1E8 /* Pods-AR Programming.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T8D932Y62R;
 				INFOPLIST_FILE = "AR Programming/Info.plist";
@@ -829,6 +875,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "dk.sdu.AR-Programming";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AR Programming/Model/Entity/AR Programming-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -839,6 +887,7 @@
 			baseConfigurationReference = 3F68042C35BD5B2A4D85C7F9 /* Pods-AR Programming.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T8D932Y62R;
 				INFOPLIST_FILE = "AR Programming/Info.plist";
@@ -849,6 +898,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "dk.sdu.AR-Programming";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AR Programming/Model/Entity/AR Programming-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
