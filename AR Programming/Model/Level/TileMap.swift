@@ -51,7 +51,9 @@ class TileMap: Codable {
     func collectAt(x: Int, y: Int) -> Bool {
         if ensureBounds(x: x, y: y) {
             let didCollectSomething = collectibles[y][x] == .uncollected
-            collectibles[y][x] = .collected
+            if didCollectSomething {
+                collectibles[y][x] = .collected
+            }
             return didCollectSomething
         }
         

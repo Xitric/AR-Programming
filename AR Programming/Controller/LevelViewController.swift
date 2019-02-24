@@ -18,9 +18,11 @@ class LevelViewController: UIViewController {
     @IBOutlet weak var detectButton: UIButton!
     @IBOutlet weak var executeButton: UIButton!
     @IBOutlet weak var resetButton: UIButton!
-    @IBOutlet weak var planeDetectionLabel: UILabel!
+    @IBOutlet weak var planeDetectionHint: SubtitleLabel!
+    @IBOutlet weak var planePlacementHint: SubtitleLabel!
+    @IBOutlet weak var planeDetectionAnimation: UIImageView!
     @IBOutlet weak var winLabel: UILabel!
-    @IBOutlet weak var winDescription: UILabel!
+    @IBOutlet weak var winDescription: SubtitleLabel!
     @IBOutlet weak var scanButton: UIButton!
     @IBOutlet weak var rectView: UIView!
     
@@ -36,7 +38,19 @@ class LevelViewController: UIViewController {
     private var currentPlane: Plane? {
         didSet {
             DispatchQueue.main.async { [unowned self] in
-                self.placeButton.isEnabled = self.currentPlane != nil
+                let hasPlane = self.playingField != nil
+                let hasNothing = self.currentPlane == nil && self.playingField == nil
+                
+                self.placeButton.isHidden = hasPlane
+                self.planeDetectionHint.isHidden = !hasNothing
+                self.planeDetectionAnimation.isHidden = !hasNothing
+                self.planePlacementHint.isHidden = hasPlane
+                
+                if hasNothing {
+                    self.planeDetectionAnimation.startAnimating()
+                } else {
+                    self.planeDetectionAnimation.stopAnimating()
+                }
             }
         }
     }
@@ -55,10 +69,9 @@ class LevelViewController: UIViewController {
         didSet {
             let hasPlayingField = playingField != nil
             
-            placeButton.isHidden = hasPlayingField
-            planeDetectionLabel.isHidden = hasPlayingField
+            planeDetectionHint.isHidden = hasPlayingField
+            planeDetectionAnimation.isHidden = hasPlayingField
             detectButton.isHidden = !hasPlayingField
-            resetButton.isHidden = !hasPlayingField
             
             if let field = playingField {
                 levelViewModel = LevelViewModel(showing: field, withLevelWidth: level!.width)
@@ -69,12 +82,15 @@ class LevelViewController: UIViewController {
         didSet {
             detectButton.isHidden = program != nil
             executeButton.isHidden = program == nil
+            resetButton.isHidden = program == nil
         }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         AudioController.instance.start()
+        
+        createPlaneAnimation()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -85,6 +101,12 @@ class LevelViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         editor.delegate = self
+    }
+    
+    private func createPlaneAnimation() {
+        planeDetectionAnimation.animationImages = UIImage.loadAnimation(named: "ScanSurface", withFrames: 50)
+        planeDetectionAnimation.animationDuration = 2.8
+        planeDetectionAnimation.startAnimating()
     }
     
     // MARK: - UI Buttons
@@ -112,7 +134,8 @@ class LevelViewController: UIViewController {
     }
     
     @IBAction func placePlane(_ sender: UIButton) {
-        if let plane = currentPlane {
+        if var plane = currentPlane {
+            plane.groundNode = nil
             showModelAt(detectedPlane: plane)
             showLevel()
             currentPlane = nil

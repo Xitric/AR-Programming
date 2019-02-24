@@ -14,7 +14,7 @@ struct StartCard: StatementCard {
     let name = "Start"
     let internalName = "start"
     let summary = "Dit program starter her."
-    let description = "Brug dette kort til at bestemme hvor programmet starter. Når programmet kører, vil det begynde ved dette kort."
+    let description = "Brug dette kort til at bestemme hvor programmet starter. Alle programmer skal indeholde et startkort. Startkortet skal være det første kort i rækken."
     
     func getAction(for robot: SCNNode) -> SCNAction? {
         return nil

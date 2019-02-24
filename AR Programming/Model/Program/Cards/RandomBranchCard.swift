@@ -14,7 +14,7 @@ struct RandomBranchCard: StatementCard {
     let name = "Tilfældig"
     let internalName = "randBranch"
     let summary = "Få programmet til at fortsætte i en tilfældig retning."
-    let description = "Hvis du ikke helt kan beslutte dig for om du vil gøre én ting eller en anden, så brug dette kort til at vælge en tilfældig løsning ud af to muligheder."
+    let description = "Brug dette kort til at få programmet til at fortsætte i en tilfældig retning."
     
     func getAction(for robot: SCNNode) -> SCNAction? {
         return nil

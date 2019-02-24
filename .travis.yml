@@ -1,7 +1,7 @@
 language: swift
 xcode_workspace: AR Programming.xcworkspace
 xcode_scheme: Pods-AR ProgrammingTests
-xcode_destination: platform=iOS Simulator,OS=12.0,name=iPad Pro (9.7-inch)
+xcode_destination: platform=iOS Simulator,OS=12.1,name=iPad Pro (9.7-inch)
 osx_image: xcode10.1
 
 before_install:
