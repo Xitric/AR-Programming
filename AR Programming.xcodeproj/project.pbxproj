@@ -49,6 +49,7 @@
 		56413DFD220E2AC30064332E /* GameplayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56413DFC220E2AC30064332E /* GameplayController.swift */; };
 		568AE7742223064D00A7348C /* EntityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568AE7732223064D00A7348C /* EntityTests.swift */; };
 		568AE77622233AC100A7348C /* EntityManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568AE77522233AC100A7348C /* EntityManagerTests.swift */; };
+		56A55AE42224728500A8CEE3 /* AddRemoveDelegateMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A55AE32224728500A8CEE3 /* AddRemoveDelegateMock.swift */; };
 		56E167BA2222BDA600D40FD0 /* GKEntity+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E167B92222BDA600D40FD0 /* GKEntity+Helpers.swift */; };
 		56E167C12222C15B00D40FD0 /* GKEntity+HelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E167C02222C15B00D40FD0 /* GKEntity+HelpersTests.swift */; };
 		56E167C32222CC3800D40FD0 /* EntityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E167C22222CC3800D40FD0 /* EntityManager.swift */; };
@@ -138,6 +139,7 @@
 		56413DFC220E2AC30064332E /* GameplayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameplayController.swift; sourceTree = "<group>"; };
 		568AE7732223064D00A7348C /* EntityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityTests.swift; sourceTree = "<group>"; };
 		568AE77522233AC100A7348C /* EntityManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityManagerTests.swift; sourceTree = "<group>"; };
+		56A55AE32224728500A8CEE3 /* AddRemoveDelegateMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRemoveDelegateMock.swift; sourceTree = "<group>"; };
 		56E167B92222BDA600D40FD0 /* GKEntity+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GKEntity+Helpers.swift"; sourceTree = "<group>"; };
 		56E167C02222C15B00D40FD0 /* GKEntity+HelpersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GKEntity+HelpersTests.swift"; sourceTree = "<group>"; };
 		56E167C22222CC3800D40FD0 /* EntityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityManager.swift; sourceTree = "<group>"; };
@@ -336,6 +338,7 @@
 				56E167C02222C15B00D40FD0 /* GKEntity+HelpersTests.swift */,
 				568AE7732223064D00A7348C /* EntityTests.swift */,
 				568AE77522233AC100A7348C /* EntityManagerTests.swift */,
+				56A55AE32224728500A8CEE3 /* AddRemoveDelegateMock.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -705,6 +708,7 @@
 				562CCA9C220D92BC00BF6A8D /* CardNodeFactoryTests.swift in Sources */,
 				562CCA9E220D92BC00BF6A8D /* SuccessorCardNodeTests.swift in Sources */,
 				562CCA9D220D92BC00BF6A8D /* CardTests.swift in Sources */,
+				56A55AE42224728500A8CEE3 /* AddRemoveDelegateMock.swift in Sources */,
 				562CCAA4220D92CF00BF6A8D /* ObservationGraphTests.swift in Sources */,
 				562CCAA3220D92CF00BF6A8D /* ObservationSetTests.swift in Sources */,
 				56E167C12222C15B00D40FD0 /* GKEntity+HelpersTests.swift in Sources */,
