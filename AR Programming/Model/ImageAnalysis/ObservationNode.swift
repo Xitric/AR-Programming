@@ -12,33 +12,14 @@ import Vision
 
 struct ObservationNode: Hashable {
     
-    private let barcodeObservation: VNBarcodeObservation
-    private let widthScale: Double
-    private let heightScale: Double
-    
     let payload: String
+    let position: simd_double2
+    let width: Double
+    let height: Double
     var uncertainty: Int
     
-    var position: simd_double2 {
-        return simd_double2(x: Double(barcodeObservation.boundingBox.midX) * widthScale,
-                            y: Double(barcodeObservation.boundingBox.midY) * heightScale)
-    }
-    
-    var width: Double {
-        return Double(barcodeObservation.boundingBox.width) * widthScale
-    }
-    
-    var height: Double {
-        return Double(barcodeObservation.boundingBox.height) * heightScale
-    }
-    
     var diagonal: Double {
-        let top = Double(barcodeObservation.boundingBox.minY) * heightScale
-        let bottom = Double(barcodeObservation.boundingBox.maxY) * heightScale
-        let left = Double(barcodeObservation.boundingBox.minX) * widthScale
-        let right = Double(barcodeObservation.boundingBox.maxX) * widthScale
-        
-        return simd_distance(simd_double2(left, top), simd_double2(right, bottom))
+        return simd_distance(simd_double2(0, 0), simd_double2(width, height))
     }
     
     var hashValue: Int {
@@ -51,15 +32,11 @@ struct ObservationNode: Hashable {
         return hasher.finalize()
     }
     
-    init?(barcodeObservation: VNBarcodeObservation, widthScale: Double, heightScale: Double) {
-        guard let payload = barcodeObservation.payloadStringValue else {
-            return nil
-        }
-        
-        self.barcodeObservation = barcodeObservation
-        self.widthScale = widthScale
-        self.heightScale = heightScale
+    init(payload: String, position: simd_double2, width: Double, height: Double) {
         self.payload = payload
+        self.position = position
+        self.width = width
+        self.height = height
         self.uncertainty = 0
     }
     

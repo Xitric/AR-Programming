@@ -39,7 +39,7 @@ class ObservationGraph {
         }
     }
     
-    func connect(from parent: ObservationNode, to child: ObservationNode, with correctedAngle: Double) {
+    func connect(from parent: ObservationNode, to child: ObservationNode, withAngle correctedAngle: Double) {
         if edges[parent] == nil {
             edges[parent] = [ObservationEdge]()
         }

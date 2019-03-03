@@ -57,9 +57,7 @@ class BarcodeDetector {
         for request in requests {
             if let results = request.results as? [VNBarcodeObservation] {
                 for result in results {
-                    if let node = ObservationNode(barcodeObservation: result, widthScale: widthScale, heightScale: heightScale) {
-                        observationSet.add(node)
-                    }
+                    addNode(forObservation: result)
                 }
             }
         }
@@ -68,6 +66,20 @@ class BarcodeDetector {
         DispatchQueue.main.async { [unowned self] in
             self.state.handle(result: self.observationSet)
         }
+    }
+    
+    private func addNode(forObservation observation: VNBarcodeObservation) {
+        guard let payload = observation.payloadStringValue else {
+            return
+        }
+        
+        let position = simd_double2(x: Double(observation.boundingBox.midX) * widthScale,
+                                    y: Double(observation.boundingBox.midY) * heightScale)
+        let width = Double(observation.boundingBox.width) * widthScale
+        let height = Double(observation.boundingBox.height) * heightScale
+        
+        let node = ObservationNode(payload: payload, position: position, width: width, height: height)
+        observationSet.add(node)
     }
 }
 

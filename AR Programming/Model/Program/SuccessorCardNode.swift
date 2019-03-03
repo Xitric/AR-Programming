@@ -33,7 +33,7 @@ class SuccessorCardNode: CardNode {
         
         for angle in successorAngles {
             if let successor = graph.getSuccessor(by: angle, to: node) {
-                graph.connect(from: node, to: successor, with: angle)
+                graph.connect(from: node, to: successor, withAngle: angle)
                 clone.successors.append(try CardNodeFactory.instance.cardNode(for: successor, in: graph))
             } else {
                 clone.successors.append(nil)
