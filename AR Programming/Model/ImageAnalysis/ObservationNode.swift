@@ -10,7 +10,7 @@ import Foundation
 import simd
 import Vision
 
-class ObservationNode: Hashable {
+struct ObservationNode: Hashable {
     
     private let barcodeObservation: VNBarcodeObservation
     private let widthScale: Double

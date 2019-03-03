@@ -8,7 +8,6 @@
 
 import Foundation
 import simd
-import Vision
 
 struct ObservationSet {
     
@@ -38,8 +37,8 @@ struct ObservationSet {
     }
     
     mutating func markIteration() {
-        for node in nodes {
-            node.uncertainty = node.uncertainty + 1
+        for i in 0 ..< nodes.count {
+            nodes[i].uncertainty = nodes[i].uncertainty + 1
         }
         
         nodes = nodes.filter { $0.uncertainty < ObservationSet.observationUncertaintyLimit }
