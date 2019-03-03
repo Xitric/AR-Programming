@@ -9,7 +9,7 @@
 import Foundation
 import Vision
 
-class CardGraphDetector: BarcodeDetectorConfig {
+class CardGraphDetector: BarcodeDetectorState {
     
     weak var delegate: CardGraphDetectorDelegate?
     
@@ -25,8 +25,9 @@ class CardGraphDetector: BarcodeDetectorConfig {
         return [request]
     }
     
-    func handle(result: BarcodeDetectionResult) {
-        delegate?.graphDetector(self, found: result.graph)
+    func handle(result: ObservationSet) {
+        let graph = ObservationGraph(observationSet: result)
+        delegate?.graphDetector(self, found: graph)
     }
 }
 

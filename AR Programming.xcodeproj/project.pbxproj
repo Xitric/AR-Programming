@@ -31,7 +31,6 @@
 		562CCA72220D74AF00BF6A8D /* ProgramEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA59220D74AD00BF6A8D /* ProgramEditor.swift */; };
 		562CCA73220D74AF00BF6A8D /* SuccessorCardNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA5A220D74AD00BF6A8D /* SuccessorCardNode.swift */; };
 		562CCA74220D74AF00BF6A8D /* ObservationEdge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA5C220D74AF00BF6A8D /* ObservationEdge.swift */; };
-		562CCA76220D74AF00BF6A8D /* BarcodeDetectionResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA5E220D74AF00BF6A8D /* BarcodeDetectionResult.swift */; };
 		562CCA77220D74AF00BF6A8D /* ObservationSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA5F220D74AF00BF6A8D /* ObservationSet.swift */; };
 		562CCA78220D74AF00BF6A8D /* ObservationGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA60220D74AF00BF6A8D /* ObservationGraph.swift */; };
 		562CCA79220D74AF00BF6A8D /* BarcodeDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA61220D74AF00BF6A8D /* BarcodeDetector.swift */; };
@@ -117,7 +116,6 @@
 		562CCA59220D74AD00BF6A8D /* ProgramEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgramEditor.swift; sourceTree = "<group>"; };
 		562CCA5A220D74AD00BF6A8D /* SuccessorCardNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessorCardNode.swift; sourceTree = "<group>"; };
 		562CCA5C220D74AF00BF6A8D /* ObservationEdge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationEdge.swift; sourceTree = "<group>"; };
-		562CCA5E220D74AF00BF6A8D /* BarcodeDetectionResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeDetectionResult.swift; sourceTree = "<group>"; };
 		562CCA5F220D74AF00BF6A8D /* ObservationSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationSet.swift; sourceTree = "<group>"; };
 		562CCA60220D74AF00BF6A8D /* ObservationGraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationGraph.swift; sourceTree = "<group>"; };
 		562CCA61220D74AF00BF6A8D /* BarcodeDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeDetector.swift; sourceTree = "<group>"; };
@@ -244,7 +242,6 @@
 				562CCA5F220D74AF00BF6A8D /* ObservationSet.swift */,
 				562CCA5C220D74AF00BF6A8D /* ObservationEdge.swift */,
 				562CCA60220D74AF00BF6A8D /* ObservationGraph.swift */,
-				562CCA5E220D74AF00BF6A8D /* BarcodeDetectionResult.swift */,
 				562CCA61220D74AF00BF6A8D /* BarcodeDetector.swift */,
 				5627ECAE220EEFA800DCC32E /* CardGraphDetector.swift */,
 				5627ECB0220EF57700DCC32E /* CardNodeDetector.swift */,
@@ -652,7 +649,6 @@
 				562CCA79220D74AF00BF6A8D /* BarcodeDetector.swift in Sources */,
 				C74785E9219427A3000148BC /* CardCollectionViewCell.swift in Sources */,
 				C76A214821AC1405008A07D9 /* LevelEntity+CoreDataProperties.swift in Sources */,
-				562CCA76220D74AF00BF6A8D /* BarcodeDetectionResult.swift in Sources */,
 				562CCA74220D74AF00BF6A8D /* ObservationEdge.swift in Sources */,
 				90DF7330216F441E00F51E0C /* AppDelegate.swift in Sources */,
 				562CCA7F220D750100BF6A8D /* CGImagePropertyOrientation+Helpers.swift in Sources */,

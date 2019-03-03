@@ -11,43 +11,32 @@ import simd
 
 class ObservationGraph {
     
-    private static let maximumAllowableDistanceFraction = 1.5
-    private static let maximumAllowableAngleMargin = 0.35
+    private static let maximumConnectionDistanceFraction = 1.5
+    private static let maximumConnectionAngleMargin = 0.35
     
     private let observationSet: ObservationSet
-    private var edges = [ObservationNode:[ObservationEdge]]()
-    private let scale: Double
-    private var maximumAllowableDistance: Double {
-        return scale * ObservationGraph.maximumAllowableDistanceFraction
+    private var edges = [ObservationNode : [ObservationEdge]]()
+    private var parents = [ObservationNode : ObservationNode]()
+    private let nodeSize: Double
+    private var maximumConnectionDistance: Double {
+        return nodeSize * ObservationGraph.maximumConnectionDistanceFraction
     }
     
-    init(observationSet: ObservationSet, with scale: Double) {
+    init(observationSet: ObservationSet) {
         self.observationSet = observationSet
-        self.scale = scale
+        self.nodeSize = observationSet.averageNodeDiagonal
     }
     
-    func firstObservation(with code: Int) -> ObservationNode? {
-        for observation in observationSet.observations {
-            if observation.code == code {
-                return observation
-            }
-        }
-        
-        return nil
+    func firstNode(withPayload payload: String) -> ObservationNode? {
+        return observationSet.nodes.first { $0.payload == payload }
     }
     
-    func observations(near observation: ObservationNode) -> [ObservationNode] {
-        var observations = [ObservationNode]()
-        
-        for other in observationSet.observations {
-            if other != observation
-                && !isConnected(other)
-                && simd_distance(observation.position, other.position) < maximumAllowableDistance {
-                observations.append(other)
-            }
+    func nodes(near node: ObservationNode) -> [ObservationNode] {
+        return observationSet.nodes.filter {
+            $0 != node
+                && !isConnected($0)
+                && simd_distance(node.position, $0.position) < maximumConnectionDistance
         }
-        
-        return observations
     }
     
     func connect(from parent: ObservationNode, to child: ObservationNode, with correctedAngle: Double) {
@@ -57,39 +46,31 @@ class ObservationGraph {
         
         let edge = ObservationEdge(predecessor: parent, successor: child, connectionAngle: correctedAngle)
         edges[parent]!.append(edge)
-        child.parent = parent
+        parents[child] = parent
     }
     
     func edge(from parent: ObservationNode, to child: ObservationNode) -> ObservationEdge? {
-        if let edges = edges[parent] {
-            for edge in edges {
-                if edge.successor == child {
-                    return edge
-                }
-            }
-        }
-        
-        return nil
+        return edges[parent]?.first { $0.successor == child }
     }
     
     func getSuccessor(by angle: Double, to node: ObservationNode) -> ObservationNode? {
-        for successor in observations(near: node) {
-            if let parent = node.parent {
+        for successor in nodes(near: node) {
+            if let parent = parents[node] {
                 let inboundEdge = edge(from: parent, to: node)
                 let outboundEdge = ObservationEdge(predecessor: node, successor: successor, connectionAngle: angle)
-                
-                if inboundEdge!.correctedAngleTo(edge: outboundEdge).isEqual(to: 0, margin: ObservationGraph.maximumAllowableAngleMargin) {
+
+                if inboundEdge!.correctedAngleTo(edge: outboundEdge).isEqual(to: 0, margin: ObservationGraph.maximumConnectionAngleMargin) {
                     return successor
                 }
             } else {
                 return successor
             }
         }
-        
+
         return nil
     }
     
-    private func isConnected(_ observation: ObservationNode) -> Bool {
-        return observation.parent != nil || edges[observation] != nil
+    private func isConnected(_ node: ObservationNode) -> Bool {
+        return parents[node] != nil || edges[node] != nil
     }
 }

@@ -33,8 +33,7 @@ class LevelViewController: UIViewController {
     private var pickupSound = AudioController.instance.makeSound(withName: "pickup.wav")
     
     //MARK: State
-    var editor = ProgramEditor(screenWidth: Double(UIScreen.main.bounds.width),
-                               screenHeight: Double(UIScreen.main.bounds.height))
+    var editor = ProgramEditor()
     private var currentPlane: Plane? {
         didSet {
             DispatchQueue.main.async { [unowned self] in
@@ -195,7 +194,7 @@ extension LevelViewController: PlaneDetectorDelegate {
 // MARK: - FrameDelegate
 extension LevelViewController: FrameDelegate {
     func frameScanner(_ scanner: ARController, didUpdate frame: CVPixelBuffer, withOrientation orientation: CGImagePropertyOrientation) {
-        editor.newFrame(frame, oriented: orientation)
+        editor.newFrame(frame, oriented: orientation, frameWidth: Double(UIScreen.main.bounds.width), frameHeight: Double(UIScreen.main.bounds.height))
     }
 }
 

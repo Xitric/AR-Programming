@@ -9,7 +9,7 @@
 import Foundation
 import Vision
 
-class CardNodeDetector: BarcodeDetectorConfig {
+class CardNodeDetector: BarcodeDetectorState {
     
     private static let uncertaintyLimit = 5
     
@@ -36,12 +36,12 @@ class CardNodeDetector: BarcodeDetectorConfig {
         return [request]
     }
     
-    func handle(result: BarcodeDetectionResult) {
+    func handle(result: ObservationSet) {
         var cardNodes = [CardNode]()
         
-        for observation in result.observationSet.observations {
-            if let node = try? CardNodeFactory.instance.node(withId: observation.code) {
-                cardNodes.append(node)
+        for node in result.nodes {
+            if let cardNode = try? CardNodeFactory.instance.cardNode(withCode: node.payload) {
+                cardNodes.append(cardNode)
             }
         }
         

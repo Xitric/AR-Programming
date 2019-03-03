@@ -19,11 +19,9 @@ class ScanViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let config = CardNodeDetector(detectionArea: CGRect(x: 0.25, y: 0.25, width: 0.5, height: 0.5))
-        config.delegate = self
-        detector = BarcodeDetector(config: config,
-                                   screenWidth: Double(UIScreen.main.bounds.width),
-                                   screenHeight: Double(UIScreen.main.bounds.height))
+        let state = CardNodeDetector(detectionArea: CGRect(x: 0.25, y: 0.25, width: 0.5, height: 0.5))
+        state.delegate = self
+        detector = BarcodeDetector(state: state)
     }
     
     @IBAction func back(_ sender: UIButton) {
@@ -47,7 +45,9 @@ extension ScanViewController: GameplayController {
 // MARK: - FrameDelegate
 extension ScanViewController: FrameDelegate {
     func frameScanner(_ scanner: ARController, didUpdate frame: CVPixelBuffer, withOrientation orientation: CGImagePropertyOrientation) {
-        detector.analyze(frame: frame, oriented: orientation)
+        detector.analyze(frame: frame, oriented: orientation,
+                         frameWidth: Double(UIScreen.main.bounds.width),
+                         frameHeight: Double(UIScreen.main.bounds.height))
     }
 }
 
