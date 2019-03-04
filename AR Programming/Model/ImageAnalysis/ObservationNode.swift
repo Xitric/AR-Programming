@@ -8,7 +8,6 @@
 
 import Foundation
 import simd
-import Vision
 
 struct ObservationNode: Hashable {
     
