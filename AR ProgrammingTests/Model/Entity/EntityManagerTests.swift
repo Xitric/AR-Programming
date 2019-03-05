@@ -53,6 +53,19 @@ class EntityManagerTests: XCTestCase {
         wait(for: [component2.updateExpectation], timeout: 1)
     }
     
+    func testAddEntityWithComponentWithEM() {
+        //Arrange
+        let component = Component()
+        let entity = Entity()
+        entity.addComponent(component)
+        
+        //Act
+        entityManager.addEntity(entity)
+        
+        //Assert
+        XCTAssertTrue(component.entityManager != nil)
+    }
+    
     func testAddEntity_NoSystem() {
         //Arrange
         let component = ComponentMock()
@@ -101,6 +114,22 @@ class EntityManagerTests: XCTestCase {
         entityManager.update(1)
         wait(for: [component.updateExpectation], timeout: 1)
     }
+    
+    
+    func testRemoveEntityWithComponentWithEM() {
+        //Arrange
+        let component = Component()
+        let entity = Entity()
+        entity.addComponent(component)
+        
+        //Act
+        entityManager.addEntity(entity)
+        entityManager.removeEntity(entity)
+        
+        //Assert
+        XCTAssertTrue(component.entityManager == nil)
+    }
+    
     
     func testManagerNoLongerNotifiedOnEntityChanges() {
         //Arrange
@@ -165,6 +194,89 @@ class EntityManagerTests: XCTestCase {
         wait(for: [component2.updateExpectation], timeout: 1)
         XCTAssertTrue(system.components.isEmpty)
     }
+    
+    //MARK: getEntities
+    func testGetEntities() {
+        //Arrange
+        var entitiesWithComponentType1 = [Entity]()
+        var entitiesWithComponentType2 = [Entity]()
+        var entitiesWithComponentType3 = [Entity]()
+        var entitiesWithComponentType4 = [Entity]()
+        
+        let entity1 = Entity()
+        let entity2 = Entity()
+        let entity3 = Entity()
+        let entity4 = Entity()
+        let entity5 = Entity()
+        let entity6 = Entity()
+        
+        let component1 = ComponentType1()
+        let component2 = ComponentType2()
+        let component3 = ComponentType3()
+        
+        entity1.addComponent(component1)
+        entity2.addComponent(component1)
+        entity3.addComponent(component1)
+        entity4.addComponent(component1)
+        entity5.addComponent(component1)
+        
+        entity1.addComponent(component2)
+        entity2.addComponent(component2)
+        entity3.addComponent(component2)
+        
+        entity1.addComponent(component3)
+        entity1.addComponent(component3)
+        entity1.addComponent(component3)
+        
+        entityManager.addEntity(entity1)
+        entityManager.addEntity(entity2)
+        entityManager.addEntity(entity3)
+        entityManager.addEntity(entity4)
+        entityManager.addEntity(entity5)
+        entityManager.addEntity(entity6)
+        
+        //Act
+        entitiesWithComponentType1 = entityManager.getEntities(fromComponent: ComponentType1.self)
+        entitiesWithComponentType2 = entityManager.getEntities(fromComponent: ComponentType2.self)
+        entitiesWithComponentType3 = entityManager.getEntities(fromComponent: ComponentType3.self)
+        entitiesWithComponentType4 = entityManager.getEntities(fromComponent: ComponentType4.self)
+        
+        //Assert
+        XCTAssertTrue(entitiesWithComponentType1.count == 5)
+        XCTAssertTrue(entitiesWithComponentType2.count == 3)
+        XCTAssertTrue(entitiesWithComponentType3.count == 1)
+        XCTAssertTrue(entitiesWithComponentType4.count == 0)
+        
+    }
+    
+    //MARK: addedComponent
+    func testAddedComponentWithEM() {
+        //Arrange
+        let entity = Entity()
+        let component = Component()
+        
+        //Act
+        entityManager.entity(entity, addedComponent: component)
+        
+        //Assert
+        XCTAssertTrue(component.entityManager != nil)
+        
+    }
+    
+    //MARK: removedComponent
+    func testRemovedComponentWithEM() {
+        //Arrange
+        let entity = Entity()
+        let component = Component()
+        
+        //Act
+        entityManager.entity(entity, addedComponent: component)
+        entityManager.entity(entity, removedComponent: component)
+        
+        //Assert
+        XCTAssertTrue(component.entityManager == nil)
+    }
+    
 }
 
 class EntityManagerDelegateImpl: AddRemoveDelegateMock<Entity>, EntityManagerDelegate {
@@ -185,3 +297,8 @@ class ComponentMock: GKComponent {
         updateExpectation.fulfill()
     }
 }
+
+class ComponentType1: GKComponent {}
+class ComponentType2: GKComponent {}
+class ComponentType3: Component {}
+class ComponentType4: Component {}

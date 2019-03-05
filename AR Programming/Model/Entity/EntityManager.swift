@@ -92,7 +92,7 @@ class EntityManager {
         var entitiesWithComponent = [Entity]()
         for entity in entities {
             for component in entity.components {
-                if type(of: component) == type(of: componentType){
+                if type(of: component) == componentType{
                     entitiesWithComponent.append(entity)
                 }
             }
