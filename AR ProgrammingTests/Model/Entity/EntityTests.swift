@@ -20,6 +20,7 @@ class EntityTests: XCTestCase {
     override func setUp() {
         entity = Entity()
         entityDelegate = EntityDelegateImpl()
+        entity.delegate = entityDelegate
         superComponent = SuperComponent()
         subComponent = SubComponent()
     }
@@ -27,6 +28,7 @@ class EntityTests: XCTestCase {
     //MARK: addComponent
     func testAddComponent_NoDelegate() {
         //Act
+        entity.delegate = nil
         entity.addComponent(superComponent)
         
         //Assert
@@ -35,8 +37,7 @@ class EntityTests: XCTestCase {
     
     func testAddComponent_FirstComponent() {
         //Arrange
-        entity.delegate = entityDelegate
-        entityDelegate.expect(component: superComponent)
+        entityDelegate.expect(superComponent)
         
         //Act
         entity.addComponent(superComponent)
@@ -50,8 +51,7 @@ class EntityTests: XCTestCase {
     func testAddComponent_SecondComponent() {
         //Arrange
         entity.addComponent(superComponent)
-        entity.delegate = entityDelegate
-        entityDelegate.expect(component: subComponent)
+        entityDelegate.expect(subComponent)
         
         //Act
         entity.addComponent(subComponent)
@@ -66,8 +66,7 @@ class EntityTests: XCTestCase {
     func testRemoveComponent_LastComponent() {
         //Arrange
         entity.addComponent(superComponent)
-        entity.delegate = entityDelegate
-        entityDelegate.expect(component: superComponent)
+        entityDelegate.expect(superComponent)
         
         //Act
         entity.removeComponent(ofType: SuperComponent.self)
@@ -81,8 +80,7 @@ class EntityTests: XCTestCase {
         //Arrange
         entity.addComponent(superComponent)
         entity.addComponent(subComponent)
-        entity.delegate = entityDelegate
-        entityDelegate.expect(component: superComponent)
+        entityDelegate.expect(superComponent)
         
         //Act
         entity.removeComponent(ofType: SuperComponent.self)
@@ -97,8 +95,7 @@ class EntityTests: XCTestCase {
         //Arrange
         entity.addComponent(superComponent)
         entity.addComponent(subComponent)
-        entity.delegate = entityDelegate
-        entityDelegate.expect(component: subComponent)
+        entityDelegate.expect(subComponent)
         
         //Act
         entity.removeComponent(ofType: SubComponent.self)
@@ -113,30 +110,12 @@ class EntityTests: XCTestCase {
 class SuperComponent: GKComponent {}
 class SubComponent: SuperComponent {}
 
-class EntityDelegateImpl: EntityDelegate {
-    
-    let addExpectation = XCTestExpectation(description: "Component added")
-    let removeExpectation = XCTestExpectation(description: "Component removed")
-    
-    private var expectedComponent: GKComponent?
-    
-    func expect(component: GKComponent) {
-        expectedComponent = component
-    }
-    
+class EntityDelegateImpl: AddRemoveDelegateMock<GKComponent>, EntityDelegate {
     func entity(_ entity: Entity, addedComponent component: GKComponent) {
-        if let expectedComponent = expectedComponent {
-            if expectedComponent == component {
-                addExpectation.fulfill()
-            }
-        }
+        notify(added: component)
     }
     
     func entity(_ entity: Entity, removedComponent component: GKComponent) {
-        if let expectedComponent = expectedComponent {
-            if expectedComponent == component {
-                removeExpectation.fulfill()
-            }
-        }
+        notify(removed: component)
     }
 }
