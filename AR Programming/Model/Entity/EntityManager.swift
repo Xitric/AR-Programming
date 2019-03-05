@@ -30,6 +30,12 @@ class EntityManager {
             system.addComponent(foundIn: entity)
         }
         
+        for component in entity.components {
+            if let component = component as? Component {
+               component.entityManager = self
+            }
+        }
+        
         delegate?.entityManager(self, added: entity)
     }
     
@@ -41,6 +47,12 @@ class EntityManager {
         
         for system in systems.values {
             system.removeComponent(foundIn: entity)
+        }
+        
+        for component in entity.components {
+            if let component = component as? Component {
+                component.entityManager = nil
+            }
         }
         
         delegate?.entityManager(self, removed: entity)
@@ -75,6 +87,18 @@ class EntityManager {
             system.update(deltaTime: delta)
         }
     }
+    
+    func getEntities(fromComponent componentType: GKComponent.Type) -> [Entity] {
+        var entitiesWithComponent = [Entity]()
+        for entity in entities {
+            for component in entity.components {
+                if type(of: component) == type(of: componentType){
+                    entitiesWithComponent.append(entity)
+                }
+            }
+        }
+        return entitiesWithComponent
+    }
 }
 
 // MARK: - EntityDelegate
@@ -85,9 +109,17 @@ extension EntityManager: EntityDelegate {
     
     func entity(_ entity: Entity, addedComponent component: GKComponent) {
         system(forComponent: component)?.addComponent(component)
+        
+        if let component = component as? Component {
+            component.entityManager = self
+        }
     }
     
     func entity(_ entity: Entity, removedComponent component: GKComponent) {
         system(forComponent: component)?.removeComponent(component)
+        
+        if let component = component as? Component {
+            component.entityManager = nil
+        }
     }
 }
