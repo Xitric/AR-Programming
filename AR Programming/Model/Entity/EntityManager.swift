@@ -88,16 +88,23 @@ class EntityManager {
         }
     }
     
-    func getEntities(fromComponent componentType: GKComponent.Type) -> [Entity] {
+    func getEntities(fromComponent componentTypes: GKComponent.Type...) -> [Entity] {
         var entitiesWithComponent = [Entity]()
         for entity in entities {
-            for component in entity.components {
-                if type(of: component) == componentType{
-                    entitiesWithComponent.append(entity)
-                }
+            if checkComponentsOnEntity(entity: entity, componentTypes: componentTypes){
+                entitiesWithComponent.append(entity)
             }
         }
         return entitiesWithComponent
+    }
+    
+    private func checkComponentsOnEntity(entity: Entity, componentTypes: [GKComponent.Type]) -> Bool {
+        for cType in componentTypes {
+            if entity.component(subclassOf: cType) == nil{
+                return false
+            }
+        }
+        return true
     }
 }
 

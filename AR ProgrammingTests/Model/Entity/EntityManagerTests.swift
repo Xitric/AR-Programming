@@ -202,6 +202,9 @@ class EntityManagerTests: XCTestCase {
         var entitiesWithComponentType2 = [Entity]()
         var entitiesWithComponentType3 = [Entity]()
         var entitiesWithComponentType4 = [Entity]()
+        var entitiesWithComponentType1And2 = [Entity]()
+        var entitiesWithComponentType1And2And3 = [Entity]()
+        var entitiesWithComponentType3And4 = [Entity]()
         
         let entity1 = Entity()
         let entity2 = Entity()
@@ -240,12 +243,18 @@ class EntityManagerTests: XCTestCase {
         entitiesWithComponentType2 = entityManager.getEntities(fromComponent: ComponentType2.self)
         entitiesWithComponentType3 = entityManager.getEntities(fromComponent: ComponentType3.self)
         entitiesWithComponentType4 = entityManager.getEntities(fromComponent: ComponentType4.self)
+        entitiesWithComponentType1And2 = entityManager.getEntities(fromComponent: ComponentType2.self)
+        entitiesWithComponentType1And2And3 = entityManager.getEntities(fromComponent: ComponentType1.self, ComponentType2.self, ComponentType3.self)
+        entitiesWithComponentType3And4 = entityManager.getEntities(fromComponent: ComponentType3.self, ComponentType4.self)
         
         //Assert
         XCTAssertTrue(entitiesWithComponentType1.count == 5)
         XCTAssertTrue(entitiesWithComponentType2.count == 3)
         XCTAssertTrue(entitiesWithComponentType3.count == 1)
         XCTAssertTrue(entitiesWithComponentType4.count == 0)
+        XCTAssertTrue(entitiesWithComponentType1And2.count == 3)
+        XCTAssertTrue(entitiesWithComponentType1And2And3.count == 1)
+        XCTAssertTrue(entitiesWithComponentType3And4.count == 0)
         
     }
     
