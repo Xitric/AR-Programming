@@ -31,7 +31,6 @@
 		562CCA72220D74AF00BF6A8D /* ProgramEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA59220D74AD00BF6A8D /* ProgramEditor.swift */; };
 		562CCA73220D74AF00BF6A8D /* SuccessorCardNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA5A220D74AD00BF6A8D /* SuccessorCardNode.swift */; };
 		562CCA74220D74AF00BF6A8D /* ObservationEdge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA5C220D74AF00BF6A8D /* ObservationEdge.swift */; };
-		562CCA76220D74AF00BF6A8D /* BarcodeDetectionResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA5E220D74AF00BF6A8D /* BarcodeDetectionResult.swift */; };
 		562CCA77220D74AF00BF6A8D /* ObservationSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA5F220D74AF00BF6A8D /* ObservationSet.swift */; };
 		562CCA78220D74AF00BF6A8D /* ObservationGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA60220D74AF00BF6A8D /* ObservationGraph.swift */; };
 		562CCA79220D74AF00BF6A8D /* BarcodeDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA61220D74AF00BF6A8D /* BarcodeDetector.swift */; };
@@ -50,6 +49,7 @@
 		56AEAC63221EC4CF00ACED36 /* SubtitleLabel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56AEAC62221EC4CF00ACED36 /* SubtitleLabel.xib */; };
 		56AEAC65221EC63800ACED36 /* SubtitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AEAC64221EC63800ACED36 /* SubtitleLabel.swift */; };
 		56AEACA1221F5DC500ACED36 /* UIImage+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AEACA0221F5DC500ACED36 /* UIImage+Helpers.swift */; };
+		56E98E60222C738D00E9113C /* ObservationNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E98E5F222C738D00E9113C /* ObservationNodeTests.swift */; };
 		900F13542194269F001C2DC2 /* TileMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900F13532194269F001C2DC2 /* TileMap.swift */; };
 		900F135A219447AF001C2DC2 /* LevelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900F1359219447AF001C2DC2 /* LevelManager.swift */; };
 		901584C82199BDF400450E0B /* LevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901584C72199BDF400450E0B /* LevelViewController.swift */; };
@@ -117,7 +117,6 @@
 		562CCA59220D74AD00BF6A8D /* ProgramEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgramEditor.swift; sourceTree = "<group>"; };
 		562CCA5A220D74AD00BF6A8D /* SuccessorCardNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessorCardNode.swift; sourceTree = "<group>"; };
 		562CCA5C220D74AF00BF6A8D /* ObservationEdge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationEdge.swift; sourceTree = "<group>"; };
-		562CCA5E220D74AF00BF6A8D /* BarcodeDetectionResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeDetectionResult.swift; sourceTree = "<group>"; };
 		562CCA5F220D74AF00BF6A8D /* ObservationSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationSet.swift; sourceTree = "<group>"; };
 		562CCA60220D74AF00BF6A8D /* ObservationGraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationGraph.swift; sourceTree = "<group>"; };
 		562CCA61220D74AF00BF6A8D /* BarcodeDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeDetector.swift; sourceTree = "<group>"; };
@@ -136,6 +135,7 @@
 		56AEAC62221EC4CF00ACED36 /* SubtitleLabel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubtitleLabel.xib; sourceTree = "<group>"; };
 		56AEAC64221EC63800ACED36 /* SubtitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtitleLabel.swift; sourceTree = "<group>"; };
 		56AEACA0221F5DC500ACED36 /* UIImage+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Helpers.swift"; sourceTree = "<group>"; };
+		56E98E5F222C738D00E9113C /* ObservationNodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservationNodeTests.swift; sourceTree = "<group>"; };
 		81B3ED8214579B6F33DA8F08 /* Pods_AR_ProgrammingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AR_ProgrammingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		900F13532194269F001C2DC2 /* TileMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileMap.swift; sourceTree = "<group>"; };
 		900F1359219447AF001C2DC2 /* LevelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelManager.swift; sourceTree = "<group>"; };
@@ -244,7 +244,6 @@
 				562CCA5F220D74AF00BF6A8D /* ObservationSet.swift */,
 				562CCA5C220D74AF00BF6A8D /* ObservationEdge.swift */,
 				562CCA60220D74AF00BF6A8D /* ObservationGraph.swift */,
-				562CCA5E220D74AF00BF6A8D /* BarcodeDetectionResult.swift */,
 				562CCA61220D74AF00BF6A8D /* BarcodeDetector.swift */,
 				5627ECAE220EEFA800DCC32E /* CardGraphDetector.swift */,
 				5627ECB0220EF57700DCC32E /* CardNodeDetector.swift */,
@@ -279,6 +278,7 @@
 				562CCAA1220D92CC00BF6A8D /* ObservationEdgeTests.swift */,
 				562CCAA0220D92CA00BF6A8D /* ObservationGraphTests.swift */,
 				562CCA9F220D92C700BF6A8D /* ObservationSetTests.swift */,
+				56E98E5F222C738D00E9113C /* ObservationNodeTests.swift */,
 			);
 			path = ImageAnalysis;
 			sourceTree = "<group>";
@@ -652,7 +652,6 @@
 				562CCA79220D74AF00BF6A8D /* BarcodeDetector.swift in Sources */,
 				C74785E9219427A3000148BC /* CardCollectionViewCell.swift in Sources */,
 				C76A214821AC1405008A07D9 /* LevelEntity+CoreDataProperties.swift in Sources */,
-				562CCA76220D74AF00BF6A8D /* BarcodeDetectionResult.swift in Sources */,
 				562CCA74220D74AF00BF6A8D /* ObservationEdge.swift in Sources */,
 				90DF7330216F441E00F51E0C /* AppDelegate.swift in Sources */,
 				562CCA7F220D750100BF6A8D /* CGImagePropertyOrientation+Helpers.swift in Sources */,
@@ -685,6 +684,7 @@
 				562CCAA3220D92CF00BF6A8D /* ObservationSetTests.swift in Sources */,
 				562CCAA5220D92CF00BF6A8D /* ObservationEdgeTests.swift in Sources */,
 				562ECC982210707D008C580E /* ProgramEditorTests.swift in Sources */,
+				56E98E60222C738D00E9113C /* ObservationNodeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -883,8 +883,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T8D932Y62R;
+				DEVELOPMENT_TEAM = 8VP2CK62GJ;
 				INFOPLIST_FILE = "AR ProgrammingTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -893,6 +894,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "dk.sdu.group10.AR-ProgrammingTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -907,8 +909,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T8D932Y62R;
+				DEVELOPMENT_TEAM = 8VP2CK62GJ;
 				INFOPLIST_FILE = "AR ProgrammingTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -917,6 +920,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "dk.sdu.group10.AR-ProgrammingTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AR Programming.app/AR Programming";

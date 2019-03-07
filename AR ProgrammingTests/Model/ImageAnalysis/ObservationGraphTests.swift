@@ -29,14 +29,14 @@ class ObservationGraphTests: XCTestCase {
     //       |4|
     //
     override func setUp() {
-        node1 = ObservationNode(code: 5, position: simd_double2(1, 0))
-        node2 = ObservationNode(code: 3, position: simd_double2(2, 1))
-        node3 = ObservationNode(code: 0, position: simd_double2(2, 0))
-        node4 = ObservationNode(code: 2, position: simd_double2(2, -1))
-        node5 = ObservationNode(code: 0, position: simd_double2(0, 0))
-        node6 = ObservationNode(code: 0, position: simd_double2(0, 1))
-        node7 = ObservationNode(code: 1, position: simd_double2(-1, 0))
-        node8 = ObservationNode(code: 4, position: simd_double2(5, 0))
+        node1 = ObservationNode(payload: "5", position: simd_double2(1, 0), width: 0.8, height: 0.8)
+        node2 = ObservationNode(payload: "3", position: simd_double2(2, 1), width: 0.8, height: 0.8)
+        node3 = ObservationNode(payload: "0", position: simd_double2(2, 0), width: 0.8, height: 0.8)
+        node4 = ObservationNode(payload: "2", position: simd_double2(2, -1), width: 0.8, height: 0.8)
+        node5 = ObservationNode(payload: "0", position: simd_double2(0, 0), width: 0.8, height: 0.8)
+        node6 = ObservationNode(payload: "0", position: simd_double2(0, 1), width: 0.8, height: 0.8)
+        node7 = ObservationNode(payload: "1", position: simd_double2(-1, 0), width: 0.8, height: 0.8)
+        node8 = ObservationNode(payload: "4", position: simd_double2(5, 0), width: 0.8, height: 0.8)
         
         var observationSet = ObservationSet()
         observationSet.add(node1)
@@ -46,31 +46,30 @@ class ObservationGraphTests: XCTestCase {
         observationSet.add(node5)
         observationSet.add(node6)
         observationSet.add(node7)
-        observationSet.uniquify(accordingTo: 1)
         
-        graph = ObservationGraph(observationSet: observationSet, with: 1)
-        graph.connect(from: node2, to: node3, with: -Double.pi/2)
-        graph.connect(from: node3, to: node4, with: -Double.pi/2)
+        graph = ObservationGraph(observationSet: observationSet)
+        graph.connect(from: node2, to: node3, withAngle: -Double.pi/2)
+        graph.connect(from: node3, to: node4, withAngle: -Double.pi/2)
     }
     
-    func testFirstObservation() {
+    func testFirstNodeWithPayload() {
         //Act & Assert
-        XCTAssertEqual(graph.firstObservation(with: 3), node2)
-        XCTAssertTrue([node3, node5, node6].contains(graph.firstObservation(with: 0)))
-        XCTAssertNil(graph.firstObservation(with: 9))
+        XCTAssertEqual(graph.firstNode(withPayload: "3"), node2)
+        XCTAssertTrue([node3, node5, node6].contains(graph.firstNode(withPayload: "0")))
+        XCTAssertNil(graph.firstNode(withPayload: "9"))
     }
     
-    func testObservationsNear_OnlyOthers() {
+    func testNodesNear_OnlyOthers() {
         //Act
-        let result = graph.observations(near: node1)
+        let result = graph.nodes(near: node1)
         
         //Assert
         XCTAssertFalse(result.contains(node1))
     }
     
-    func testObservationsNear_NoConnected() {
+    func testNodesNear_NoConnected() {
         //Act
-        let result = graph.observations(near: node1)
+        let result = graph.nodes(near: node1)
         
         //Assert
         XCTAssertFalse(result.contains(node2))
@@ -78,9 +77,9 @@ class ObservationGraphTests: XCTestCase {
         XCTAssertFalse(result.contains(node4))
     }
     
-    func testObservationsNear_OnlyClose() {
+    func testNodesNear_OnlyClose() {
         //Act
-        let result = graph.observations(near: node1)
+        let result = graph.nodes(near: node1)
         
         //Assert
         XCTAssertEqual(result.count, 2)
@@ -89,9 +88,9 @@ class ObservationGraphTests: XCTestCase {
         XCTAssertFalse(result.contains(node7))
     }
     
-    func testObservationsNear_FromChain() {
+    func testNodesNear_FromChain() {
         //Act
-        let result = graph.observations(near: node3)
+        let result = graph.nodes(near: node3)
         
         //Assert
         XCTAssertEqual(result.count, 1)
@@ -100,19 +99,13 @@ class ObservationGraphTests: XCTestCase {
     
     func testConnect() {
         //Act
-        graph.connect(from: node6, to: node5, with: -Double.pi/2)
-        graph.connect(from: node5, to: node7, with: Double.pi)
-        graph.connect(from: node5, to: node1, with: 0)
-        graph.connect(from: node1, to: node2, with: -Double.pi/4)
+        graph.connect(from: node6, to: node5, withAngle: -Double.pi/2)
+        graph.connect(from: node5, to: node7, withAngle: Double.pi)
+        graph.connect(from: node5, to: node1, withAngle: 0)
+        graph.connect(from: node1, to: node2, withAngle: -Double.pi/4)
         
         //Assert
-        XCTAssertNil(node6.parent)
-        XCTAssertEqual(node5.parent, node6)
-        XCTAssertEqual(node7.parent, node5)
-        XCTAssertEqual(node1.parent, node5)
-        XCTAssertEqual(node2.parent, node1)
-        XCTAssertEqual(node3.parent, node2)
-        XCTAssertEqual(node4.parent, node3)
+        XCTAssertEqual(graph.nodes(near: node5).count, 0)
         
         assertEdge(from: node6, to: node5, withAngle: -Double.pi/2)
         assertEdge(from: node5, to: node7, withAngle: Double.pi)
@@ -132,7 +125,7 @@ class ObservationGraphTests: XCTestCase {
     
     func testEdge() {
         //Arrange
-        graph.connect(from: node2, to: node1, with: -3 * Double.pi / 4)
+        graph.connect(from: node2, to: node1, withAngle: -3 * Double.pi / 4)
         
         //Act & Assert
         XCTAssertNotNil(graph.edge(from: node2, to: node1))
@@ -145,7 +138,7 @@ class ObservationGraphTests: XCTestCase {
     
     func testGetSuccessor_OnLine() {
         //Arrange
-        graph.connect(from: node6, to: node5, with: -Double.pi / 2)
+        graph.connect(from: node6, to: node5, withAngle: -Double.pi / 2)
         
         //Act
         let result = graph.getSuccessor(by: 0, to: node5)
@@ -156,7 +149,7 @@ class ObservationGraphTests: XCTestCase {
     
     func testGetSuccessor_Above() {
         //Arrange
-        graph.connect(from: node7, to: node5, with: 0)
+        graph.connect(from: node7, to: node5, withAngle: 0)
         
         //Act
         let result = graph.getSuccessor(by: Double.pi / 2, to: node5)
@@ -167,7 +160,7 @@ class ObservationGraphTests: XCTestCase {
     
     func testGetSuccessor_ImpreciseAngle() {
         //Arrange
-        graph.connect(from: node7, to: node5, with: 0)
+        graph.connect(from: node7, to: node5, withAngle: 0)
         
         //Act
         let result = graph.getSuccessor(by: 0.3, to: node5)
@@ -186,7 +179,7 @@ class ObservationGraphTests: XCTestCase {
     
     func testGetSuccessor_NoNeighborAtAngle() {
         //Arrange
-        graph.connect(from: node7, to: node5, with: 0)
+        graph.connect(from: node7, to: node5, withAngle: 0)
         
         //Act
         let result = graph.getSuccessor(by: -Double.pi / 2, to: node5)
