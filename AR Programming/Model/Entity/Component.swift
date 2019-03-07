@@ -11,5 +11,5 @@ import GameplayKit
 
 class Component: GKComponent {
     
-    var entityManager: EntityManager?
+    weak var entityManager: EntityManager?
 }
