@@ -13,6 +13,8 @@ class LevelSelectViewController: UIViewController {
     private var levels = [Level]()
     var selectedLevel: Level?
     
+    @IBOutlet weak var collectionView: UICollectionView!
+    
     @IBOutlet weak var levelSelectCollectionView: UICollectionView! {
         didSet {
             levelSelectCollectionView.dataSource = self
@@ -22,6 +24,7 @@ class LevelSelectViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         //TODO: Error dialog?
         if let allLevels = try? LevelManager.loadAllLevels() {
             levels.append(contentsOf: allLevels)

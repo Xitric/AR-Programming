@@ -43,11 +43,23 @@ class ARContainerViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         arController?.start()
-        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        
+        //From https://stackoverflow.com/questions/25845855/transparent-navigation-bar-ios
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.navigationBar.tintColor = .white
+        self.navigationController?.view.backgroundColor = .clear
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         arController?.stop()
+        
+        self.navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
+        self.navigationController?.navigationBar.shadowImage = nil
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.tintColor = nil
+        self.navigationController?.view.backgroundColor = nil
     }
 }

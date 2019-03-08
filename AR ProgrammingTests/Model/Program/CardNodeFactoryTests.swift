@@ -28,13 +28,13 @@ class CardNodeFactoryTests: XCTestCase {
     //     |4|
     //
     override func setUp() {
-        node1 = ObservationNode(code: 5, position: simd_double2(1, 0))
-        node2 = ObservationNode(code: 1, position: simd_double2(2, 1))
-        node3 = ObservationNode(code: 2, position: simd_double2(2, 0))
-        node4 = ObservationNode(code: 4, position: simd_double2(2, -1))
-        node5 = ObservationNode(code: 0, position: simd_double2(0, 0))
-        node6 = ObservationNode(code: 9, position: simd_double2(1, 1))
-        node7 = ObservationNode(code: 3, position: simd_double2(4, 0))
+        node1 = ObservationNode(payload: "5", position: simd_double2(1, 0), width: 0.8, height: 0.8)
+        node2 = ObservationNode(payload: "1", position: simd_double2(2, 1), width: 0.8, height: 0.8)
+        node3 = ObservationNode(payload: "2", position: simd_double2(2, 0), width: 0.8, height: 0.8)
+        node4 = ObservationNode(payload: "4", position: simd_double2(2, -1), width: 0.8, height: 0.8)
+        node5 = ObservationNode(payload: "0", position: simd_double2(0, 0), width: 0.8, height: 0.8)
+        node6 = ObservationNode(payload: "9", position: simd_double2(1, 1), width: 0.8, height: 0.8)
+        node7 = ObservationNode(payload: "3", position: simd_double2(4, 0), width: 0.8, height: 0.8)
         
         var observationSet = ObservationSet()
         observationSet.add(node1)
@@ -44,14 +44,13 @@ class CardNodeFactoryTests: XCTestCase {
         observationSet.add(node5)
         observationSet.add(node6)
         observationSet.add(node7)
-        observationSet.uniquify(accordingTo: 1)
         
-        graph = ObservationGraph(observationSet: observationSet, with: 1)
+        graph = ObservationGraph(observationSet: observationSet)
     }
     
     private func assert(cardNode: CardNode, matchesObservation observationNode: ObservationNode) {
         XCTAssertEqual(cardNode.getCard().internalName,
-                       try! CardNodeFactory.instance.node(withId: observationNode.code).getCard().internalName)
+                       try! CardNodeFactory.instance.cardNode(withCode: observationNode.payload).getCard().internalName)
         XCTAssertEqual(cardNode.position, observationNode.position)
     }
 
@@ -88,9 +87,8 @@ class CardNodeFactoryTests: XCTestCase {
         observationSet.add(node1)
         observationSet.add(node2)
         observationSet.add(node3)
-        observationSet.uniquify(accordingTo: 1)
         
-        graph = ObservationGraph(observationSet: observationSet, with: 0.5)
+        graph = ObservationGraph(observationSet: observationSet)
         
         //Act & Assert
         XCTAssertThrowsError(try CardNodeFactory.instance.build(from: graph)) { error in
@@ -98,9 +96,9 @@ class CardNodeFactoryTests: XCTestCase {
         }
     }
     
-    func testNodeForObservation_Single() {
+    func testCardNodeForObservation_Single() {
         //Act
-        let result = try? CardNodeFactory.instance.node(for: node7, in: graph)
+        let result = try? CardNodeFactory.instance.cardNode(for: node7, in: graph)
         
         //Assert
         XCTAssertNotNil(result)
@@ -109,9 +107,9 @@ class CardNodeFactoryTests: XCTestCase {
         XCTAssertNil(result!.successors[0])
     }
     
-    func testNodeForObservation_Sequence() {
+    func testCardNodeForObservation_Sequence() {
         //Act
-        var result: CardNode? = try! CardNodeFactory.instance.node(for: node5, in: graph)
+        var result: CardNode? = try! CardNodeFactory.instance.cardNode(for: node5, in: graph)
         
         //Assert
         XCTAssertNotNil(result)
@@ -124,40 +122,40 @@ class CardNodeFactoryTests: XCTestCase {
         XCTAssertEqual(result!.successors.count, 2)
     }
     
-    func testNodeForObservation_UnknownCode() {
+    func testCardNodeForObservation_UnknownCode() {
         //Act & Assert
-        XCTAssertThrowsError(try CardNodeFactory.instance.node(for: node6, in: graph)) { error in
-            XCTAssertEqual(error as! CardSequenceError, CardSequenceError.unknownCode(code: 9))
+        XCTAssertThrowsError(try CardNodeFactory.instance.cardNode(for: node6, in: graph)) { error in
+            XCTAssertEqual(error as! CardSequenceError, CardSequenceError.unknownCode(code: "9"))
         }
     }
     
-    func testNodeWithId_ValidId() {
+    func testCardNodeWithCode_ValidCode() {
         //Act
-        let result = try? CardNodeFactory.instance.node(withId: 3)
+        let result = try? CardNodeFactory.instance.cardNode(withCode: "3")
         
         //Assert
         XCTAssertNotNil(result)
         XCTAssertEqual(result?.getCard().internalName, "right")
     }
     
-    func testNodeWithId_UnknownId() {
+    func testNodeWithCode_UnknownCode() {
         //Act & Assert
-        XCTAssertThrowsError(try CardNodeFactory.instance.node(withId: -1)) { error in
-            XCTAssertEqual(error as! CardSequenceError, CardSequenceError.unknownCode(code: -1))
+        XCTAssertThrowsError(try CardNodeFactory.instance.cardNode(withCode: "-1")) { error in
+            XCTAssertEqual(error as! CardSequenceError, CardSequenceError.unknownCode(code: "-1"))
         }
     }
     
     func testRegister_NewNode() {
         //Act
-        CardNodeFactory.instance.register(cardNode: SuccessorCardNode(card: LeftCard(), angles: [0]), with: 200)
-        CardNodeFactory.instance.register(cardNode: SuccessorCardNode(card: JumpCard(), angles: [0]), with: -6)
+        CardNodeFactory.instance.register(cardNode: SuccessorCardNode(card: LeftCard(), angles: [0]), withCode: "200")
+        CardNodeFactory.instance.register(cardNode: SuccessorCardNode(card: JumpCard(), angles: [0]), withCode: "-6")
         
         //Assert
-        let leftCard = try? CardNodeFactory.instance.node(withId: 200)
+        let leftCard = try? CardNodeFactory.instance.cardNode(withCode: "200")
         XCTAssertNotNil(leftCard)
         XCTAssertEqual(leftCard?.getCard().internalName, "left")
         
-        let jumpCard = try? CardNodeFactory.instance.node(withId: -6)
+        let jumpCard = try? CardNodeFactory.instance.cardNode(withCode: "-6")
         XCTAssertNotNil(jumpCard)
         XCTAssertEqual(jumpCard?.getCard().internalName, "jump")
     }
@@ -165,10 +163,10 @@ class CardNodeFactoryTests: XCTestCase {
     func testRegister_ExistingNode() {
         //Act
         let cardNode = SuccessorCardNode(card: LeftCard(), angles: [0])
-        CardNodeFactory.instance.register(cardNode: cardNode, with: 3)
+        CardNodeFactory.instance.register(cardNode: cardNode, withCode: "3")
         
         //Assert
-        let result = try? CardNodeFactory.instance.node(withId: 3)
+        let result = try? CardNodeFactory.instance.cardNode(withCode: "3")
         XCTAssertNotNil(result)
         XCTAssertEqual(result?.getCard().internalName, cardNode.getCard().internalName)
     }

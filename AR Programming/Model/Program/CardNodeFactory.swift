@@ -12,49 +12,49 @@ class CardNodeFactory {
     
     static var instance = CardNodeFactory()
     
-    private let startCode: Int
-    private var nodePrototypes = [Int:CardNode]()
+    private let startCode: String
+    private var cardNodePrototypes = [String:CardNode]()
     
     var cards: [Card] {
-        return nodePrototypes.map{$0.value.getCard()}
+        return cardNodePrototypes.map{$0.value.getCard()}
     }
     
     private init() {
-        startCode = 0
+        startCode = "0"
         
-        register(cardNode: SuccessorCardNode(card: StartCard(), angles: [0]), with: 0)
-        register(cardNode: SuccessorCardNode(card: MoveCard(), angles: [0]), with: 1)
-        register(cardNode: SuccessorCardNode(card: LeftCard(), angles: [0]), with: 2)
-        register(cardNode: SuccessorCardNode(card: RightCard(), angles: [0]), with: 3)
-        register(cardNode: SuccessorCardNode(card: JumpCard(), angles: [0]), with: 4)
-        register(cardNode: SuccessorCardNode(card: RandomBranchCard(), angles: [Double.pi/4, -Double.pi/4]), with: 5)
+        register(cardNode: SuccessorCardNode(card: StartCard(), angles: [0]), withCode: "0")
+        register(cardNode: SuccessorCardNode(card: MoveCard(), angles: [0]), withCode: "1")
+        register(cardNode: SuccessorCardNode(card: LeftCard(), angles: [0]), withCode: "2")
+        register(cardNode: SuccessorCardNode(card: RightCard(), angles: [0]), withCode: "3")
+        register(cardNode: SuccessorCardNode(card: JumpCard(), angles: [0]), withCode: "4")
+        register(cardNode: SuccessorCardNode(card: RandomBranchCard(), angles: [Double.pi/4, -Double.pi/4]), withCode: "5")
     }
     
     func build(from graph: ObservationGraph) throws -> CardNode {
-        if let startObservation = graph.firstObservation(with: startCode) {
-            return try node(for: startObservation, in: graph)
+        if let startNode = graph.firstNode(withPayload: startCode) {
+            return try cardNode(for: startNode, in: graph)
         }
-        
+
         throw CardSequenceError.missingStart
     }
     
-    func node(for observation: ObservationNode, in graph: ObservationGraph) throws -> CardNode {
-        if let prototype = nodePrototypes[observation.code] {
-            return try prototype.create(from: observation, in: graph)
+    func cardNode(for node: ObservationNode, in graph: ObservationGraph) throws -> CardNode {
+        if let prototype = try? cardNode(withCode: node.payload) {
+            return try prototype.create(from: node, in: graph)
         }
         
-        throw CardSequenceError.unknownCode(code: observation.code)
+        throw CardSequenceError.unknownCode(code: node.payload)
     }
     
-    func node(withId id: Int) throws -> CardNode {
-        if let node = nodePrototypes[id] {
+    func cardNode(withCode code: String) throws -> CardNode {
+        if let node = cardNodePrototypes[code] {
             return node
         }
         
-        throw CardSequenceError.unknownCode(code: id)
+        throw CardSequenceError.unknownCode(code: code)
     }
     
-    func register(cardNode node: CardNode, with code: Int) {
-        nodePrototypes[code] = node
+    func register(cardNode node: CardNode, withCode code: String) {
+        cardNodePrototypes[code] = node
     }
 }

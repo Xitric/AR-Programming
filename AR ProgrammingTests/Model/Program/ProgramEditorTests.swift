@@ -17,19 +17,18 @@ class ProgramEditorTests: XCTestCase {
     
     override func setUp() {
         detector = CardGraphDetector()
-        editor = ProgramEditor(screenWidth: 500, screenHeight: 500)
+        editor = ProgramEditor()
     }
     
-    private func createGraph(withCodes codes: [Int]) -> ObservationGraph {
+    private func createGraph(withCodes codes: [String]) -> ObservationGraph {
         var observationSet = ObservationSet()
         
         for (index, code) in codes.enumerated() {
-            let node = ObservationNode(code: code, position: simd_double2(Double(index), 0))
+            let node = ObservationNode(payload: code, position: simd_double2(Double(index), 0), width: 1, height: 1)
             observationSet.add(node)
         }
         
-        observationSet.uniquify(accordingTo: 1)
-        return ObservationGraph(observationSet: observationSet, with: 1)
+        return ObservationGraph(observationSet: observationSet)
     }
     
     func testInit() {
@@ -37,84 +36,17 @@ class ProgramEditorTests: XCTestCase {
         XCTAssertNil(editor.program.start)
     }
     
-    private func assertProgramStructure(codes: [Int]) {
+    private func assertProgramStructure(codes: [String]) {
         var node = editor.program.start
         
         for code in codes {
             XCTAssertNotNil(node)
             XCTAssertEqual(node!.getCard().internalName,
-                           try! CardNodeFactory.instance.node(withId: code).getCard().internalName)
+                           try! CardNodeFactory.instance.cardNode(withCode: code).getCard().internalName)
             XCTAssertEqual(node?.successors.count, 1)
             node = node?.successors[0]
         }
         
         XCTAssertNil(node)
-    }
-    
-    func testGraphDetector_FirstFrame() {
-        //Act
-        editor.graphDetector(detector, found: createGraph(withCodes: [0, 3]))
-        
-        //Assert
-        assertProgramStructure(codes: [0, 3])
-    }
-    
-    func testGraphDetector_WithUncertainty() {
-        //Act
-        editor.graphDetector(detector, found: createGraph(withCodes: [0, 3]))
-        editor.graphDetector(detector, found: createGraph(withCodes: [0]))
-        editor.graphDetector(detector, found: createGraph(withCodes: [0]))
-        editor.graphDetector(detector, found: createGraph(withCodes: [0]))
-        
-        //Assert
-        assertProgramStructure(codes: [0, 3])
-        
-        //Act
-        editor.graphDetector(detector, found: createGraph(withCodes: [0, 3]))
-        editor.graphDetector(detector, found: createGraph(withCodes: [0]))
-        editor.graphDetector(detector, found: createGraph(withCodes: [0]))
-        editor.graphDetector(detector, found: createGraph(withCodes: [0]))
-        editor.graphDetector(detector, found: createGraph(withCodes: [0]))
-        
-        //Assert
-        assertProgramStructure(codes: [0, 3])
-    }
-    
-    func testGraphDetector_LostCards() {
-        //Act
-        editor.graphDetector(detector, found: createGraph(withCodes: [0, 3]))
-        editor.graphDetector(detector, found: createGraph(withCodes: [0]))
-        editor.graphDetector(detector, found: createGraph(withCodes: [0]))
-        editor.graphDetector(detector, found: createGraph(withCodes: [0]))
-        editor.graphDetector(detector, found: createGraph(withCodes: [0]))
-        
-        //Assert
-        assertProgramStructure(codes: [0, 3])
-        
-        //Act
-        editor.graphDetector(detector, found: createGraph(withCodes: [0]))
-        
-        //Assert
-        assertProgramStructure(codes: [0])
-    }
-    
-    func testGraphDetector_FoundCards() {
-        //Act
-        editor.graphDetector(detector, found: createGraph(withCodes: [0, 3]))
-        
-        //Assert
-        assertProgramStructure(codes: [0, 3])
-        
-        //Act
-        editor.graphDetector(detector, found: createGraph(withCodes: [0, 3, 4]))
-        
-        //Assert
-        assertProgramStructure(codes: [0, 3, 4])
-        
-        //Act
-        editor.graphDetector(detector, found: createGraph(withCodes: [0]))
-        
-        //Assert
-        assertProgramStructure(codes: [0, 3, 4])
     }
 }

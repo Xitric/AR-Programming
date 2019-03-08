@@ -10,5 +10,5 @@ import Foundation
 
 enum CardSequenceError: Error, Equatable {
     case missingStart
-    case unknownCode(code: Int)
+    case unknownCode(code: String)
 }
