@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		04AEDFB63981EDEF7B9C4BEA /* Pods_AR_ProgrammingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81B3ED8214579B6F33DA8F08 /* Pods_AR_ProgrammingTests.framework */; };
-		09B25CABE22E83D264A35769 /* Pods_AR_ProgrammingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90A55B0621A834FD00FD7CDD /* Pods_AR_ProgrammingTests.framework */; };
 		204AEC12220DC9F500E0F624 /* HiddenTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204AEC11220DC9F500E0F624 /* HiddenTabBarViewController.swift */; };
 		204AEC14220DCA1E00E0F624 /* ARContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204AEC13220DCA1E00E0F624 /* ARContainerViewController.swift */; };
 		204BC648222D6DD000D34B07 /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204BC647222D6DD000D34B07 /* Component.swift */; };
@@ -62,13 +61,13 @@
 		56A62B1822310E8D009D0E83 /* simd_quatd+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A62B1722310E8D009D0E83 /* simd_quatd+Helpers.swift */; };
 		56A62B1A22311501009D0E83 /* LevelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A62B1922311501009D0E83 /* LevelFactory.swift */; };
 		56A62B1C223115B9009D0E83 /* QuantityLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A62B1B223115B9009D0E83 /* QuantityLevel.swift */; };
+		56AEAC63221EC4CF00ACED36 /* SubtitleLabel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56AEAC62221EC4CF00ACED36 /* SubtitleLabel.xib */; };
+		56AEAC65221EC63800ACED36 /* SubtitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AEAC64221EC63800ACED36 /* SubtitleLabel.swift */; };
+		56AEACA1221F5DC500ACED36 /* UIImage+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AEACA0221F5DC500ACED36 /* UIImage+Helpers.swift */; };
 		56E167BA2222BDA600D40FD0 /* GKEntity+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E167B92222BDA600D40FD0 /* GKEntity+Helpers.swift */; };
 		56E167C12222C15B00D40FD0 /* GKEntity+HelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E167C02222C15B00D40FD0 /* GKEntity+HelpersTests.swift */; };
 		56E167C32222CC3800D40FD0 /* EntityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E167C22222CC3800D40FD0 /* EntityManager.swift */; };
 		56E167CA2222D80700D40FD0 /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = 56E167C92222D80700D40FD0 /* Entity.m */; };
-		56AEAC63221EC4CF00ACED36 /* SubtitleLabel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56AEAC62221EC4CF00ACED36 /* SubtitleLabel.xib */; };
-		56AEAC65221EC63800ACED36 /* SubtitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AEAC64221EC63800ACED36 /* SubtitleLabel.swift */; };
-		56AEACA1221F5DC500ACED36 /* UIImage+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AEACA0221F5DC500ACED36 /* UIImage+Helpers.swift */; };
 		56E98E60222C738D00E9113C /* ObservationNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E98E5F222C738D00E9113C /* ObservationNodeTests.swift */; };
 		900F135A219447AF001C2DC2 /* LevelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900F1359219447AF001C2DC2 /* LevelManager.swift */; };
 		901584C82199BDF400450E0B /* LevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901584C72199BDF400450E0B /* LevelViewController.swift */; };
@@ -166,15 +165,15 @@
 		56A62B1722310E8D009D0E83 /* simd_quatd+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "simd_quatd+Helpers.swift"; sourceTree = "<group>"; };
 		56A62B1922311501009D0E83 /* LevelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelFactory.swift; sourceTree = "<group>"; };
 		56A62B1B223115B9009D0E83 /* QuantityLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuantityLevel.swift; sourceTree = "<group>"; };
+		56AEAC62221EC4CF00ACED36 /* SubtitleLabel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubtitleLabel.xib; sourceTree = "<group>"; };
+		56AEAC64221EC63800ACED36 /* SubtitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtitleLabel.swift; sourceTree = "<group>"; };
+		56AEACA0221F5DC500ACED36 /* UIImage+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Helpers.swift"; sourceTree = "<group>"; };
 		56E167B92222BDA600D40FD0 /* GKEntity+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GKEntity+Helpers.swift"; sourceTree = "<group>"; };
 		56E167C02222C15B00D40FD0 /* GKEntity+HelpersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GKEntity+HelpersTests.swift"; sourceTree = "<group>"; };
 		56E167C22222CC3800D40FD0 /* EntityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityManager.swift; sourceTree = "<group>"; };
 		56E167C82222D80700D40FD0 /* AR Programming-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AR Programming-Bridging-Header.h"; sourceTree = "<group>"; };
 		56E167C92222D80700D40FD0 /* Entity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Entity.m; sourceTree = "<group>"; };
 		56E167CB2222D8BA00D40FD0 /* Entity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
-		56AEAC62221EC4CF00ACED36 /* SubtitleLabel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubtitleLabel.xib; sourceTree = "<group>"; };
-		56AEAC64221EC63800ACED36 /* SubtitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtitleLabel.swift; sourceTree = "<group>"; };
-		56AEACA0221F5DC500ACED36 /* UIImage+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Helpers.swift"; sourceTree = "<group>"; };
 		56E98E5F222C738D00E9113C /* ObservationNodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservationNodeTests.swift; sourceTree = "<group>"; };
 		81B3ED8214579B6F33DA8F08 /* Pods_AR_ProgrammingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AR_ProgrammingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		900F1359219447AF001C2DC2 /* LevelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelManager.swift; sourceTree = "<group>"; };
@@ -228,7 +227,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				04AEDFB63981EDEF7B9C4BEA /* Pods_AR_ProgrammingTests.framework in Frameworks */,
-				09B25CABE22E83D264A35769 /* Pods_AR_ProgrammingTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,6 +349,15 @@
 			path = Cards;
 			sourceTree = "<group>";
 		};
+		56AEAC5F221EC3C200ACED36 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				56AEAC62221EC4CF00ACED36 /* SubtitleLabel.xib */,
+				56AEAC64221EC63800ACED36 /* SubtitleLabel.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		56E167B82222BD8700D40FD0 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
@@ -376,15 +383,6 @@
 				56A55AE32224728500A8CEE3 /* AddRemoveDelegateMock.swift */,
 			);
 			path = Entity;
-			sourceTree = "<group>";
-		};
-		56AEAC5F221EC3C200ACED36 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				56AEAC62221EC4CF00ACED36 /* SubtitleLabel.xib */,
-				56AEAC64221EC63800ACED36 /* SubtitleLabel.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		69FAFFD76540FD6CC944F023 /* Pods */ = {
@@ -581,7 +579,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1000;
-				LastUpgradeCheck = 1000;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Kasper Schultz Davidsen";
 				TargetAttributes = {
 					90DF732B216F441E00F51E0C = {
