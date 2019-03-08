@@ -19,18 +19,15 @@ public class LevelManager {
         QuantityLevelFactory()
     ]
     
+    private static var levelDirectoryUrl: URL? {
+        return Bundle.main.resourceURL?.appendingPathComponent("Levels", isDirectory: true)
+    }
+    
     static func loadLevel(byName name: String) throws -> Level {
-        let url: URL
+        guard let levelDirectoryUrl = levelDirectoryUrl
+            else { throw LevelLoadingError.noSuchLevel(levelName: name) }
         
-        do {
-            url = try FileManager.default.url(for: .applicationSupportDirectory,
-                                                  in: .userDomainMask,
-                                                  appropriateFor: nil,
-                                                  create: false).appendingPathComponent("levels/\(name).json")
-        } catch {
-            throw LevelLoadingError.noSuchLevel(levelName: name)
-        }
-        
+        let url = levelDirectoryUrl.appendingPathComponent("\(name).json")
         return try loadLevel(fromUrl: url)
     }
     
@@ -73,21 +70,21 @@ public class LevelManager {
     static func loadAllLevels() throws -> [Level] {
         var levels = [Level]()
         
-        if let url = try? FileManager.default.url(for: .applicationSupportDirectory,
-                                                  in: .userDomainMask,
-                                                  appropriateFor: nil,
-                                                  create: false).appendingPathComponent("levels", isDirectory: true) {
-            
-            if let urls = try? FileManager.default.contentsOfDirectory(at: url, includingPropertiesForKeys: nil) {
-                for url in urls {
-                    let level = try loadLevel(fromUrl: url)
-                    levels.append(level)
-                }
-                
-                levels.sort { a,b in
-                    return a.levelNumber < b.levelNumber
-                }
+        guard let levelDirectoryUrl = levelDirectoryUrl
+            else { return levels }
+        
+        if let urls = try? FileManager.default.contentsOfDirectory(at: levelDirectoryUrl, includingPropertiesForKeys: nil) {
+            for url in urls {
+                let level = try loadLevel(fromUrl: url)
+                levels.append(level)
             }
+            
+            levels.sort { a,b in
+                return a.levelNumber < b.levelNumber
+            }
+            
+            markLevel(withName: levels[0].name, asUnlocked: true)
+            levels[0].unlocked = true
         }
         
         return levels
@@ -126,20 +123,5 @@ public class LevelManager {
                 }
             }
         }
-    }
-    
-    //Ignore this code, it only exists for development purposes
-    static func saveLevel(_ level: Level) throws {
-        let url = try FileManager.default.url(for: .applicationSupportDirectory,
-                                              in: .userDomainMask,
-                                              appropriateFor: nil,
-                                              create: true).appendingPathComponent("levels", isDirectory: true)
-        
-        if !FileManager.default.fileExists(atPath: url.path) {
-            try FileManager.default.createDirectory(at: url, withIntermediateDirectories: true, attributes: nil)
-        }
-        
-        let fileUrl = url.appendingPathComponent("\(level.name).json")
-        try level.json?.write(to: fileUrl)
     }
 }

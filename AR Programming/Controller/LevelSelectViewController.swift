@@ -33,28 +33,6 @@ class LevelSelectViewController: UIViewController {
             arContainer.level = selectedLevel
         }
     }
-    
-    //Ignore this code, it only exists for development purposes
-    @IBAction func recreateLevels(_ sender: Any) {
-        let l1 = QuantityLevel(type: "quantity", name: "Level 1", number: 1, unlocks: "Level 2")
-        try? LevelManager.saveLevel(l1)
-        
-        let l2 = QuantityLevel(type: "quantity", name: "Level 2", number: 2, unlocks: "Level 3")
-        try? LevelManager.saveLevel(l2)
-        
-        let l3 = QuantityLevel(type: "quantity", name: "Level 3", number: 3, unlocks: nil)
-        try? LevelManager.saveLevel(l3)
-        
-        // Call levelManager to save unlocked levels in Core Data
-        LevelManager.markLevel(withName: l1.name, asUnlocked: true) { [unowned self] in
-            //Reload view
-            self.levels.removeAll()
-            if let allLevels = try? LevelManager.loadAllLevels() {
-                self.levels.append(contentsOf: allLevels)
-            }
-            self.levelSelectCollectionView.reloadData()
-        }
-    }
 }
 
 // MARK: - UICollectionViewDataSource

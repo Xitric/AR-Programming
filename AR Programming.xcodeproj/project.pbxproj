@@ -48,6 +48,9 @@
 		562CCAAC220D933E00BF6A8D /* Double+HelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCAAB220D933E00BF6A8D /* Double+HelpersTests.swift */; };
 		562ECC982210707D008C580E /* ProgramEditorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562ECC972210707D008C580E /* ProgramEditorTests.swift */; };
 		56413DFD220E2AC30064332E /* GameplayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56413DFC220E2AC30064332E /* GameplayController.swift */; };
+		56431D272232847B00BFAC36 /* LevelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56431D262232847B00BFAC36 /* LevelProtocol.swift */; };
+		56431D2922328C7700BFAC36 /* QuantityComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56431D2822328C7700BFAC36 /* QuantityComponent.swift */; };
+		56431D372232969A00BFAC36 /* Levels in Resources */ = {isa = PBXBuildFile; fileRef = 56431D362232969A00BFAC36 /* Levels */; };
 		568AE7742223064D00A7348C /* EntityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568AE7732223064D00A7348C /* EntityTests.swift */; };
 		568AE77622233AC100A7348C /* EntityManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568AE77522233AC100A7348C /* EntityManagerTests.swift */; };
 		56A55AE42224728500A8CEE3 /* AddRemoveDelegateMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A55AE32224728500A8CEE3 /* AddRemoveDelegateMock.swift */; };
@@ -92,7 +95,7 @@
 		C74785ED219448F1000148BC /* CardDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74785EC219448F1000148BC /* CardDetailViewController.swift */; };
 		C76A214721AC1405008A07D9 /* LevelEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76A214521AC1405008A07D9 /* LevelEntity+CoreDataClass.swift */; };
 		C76A214821AC1405008A07D9 /* LevelEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76A214621AC1405008A07D9 /* LevelEntity+CoreDataProperties.swift */; };
-		C79CED572179E175001487BF /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79CED562179E175001487BF /* Level.swift */; };
+		C79CED572179E175001487BF /* LevelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79CED562179E175001487BF /* LevelImpl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,6 +150,9 @@
 		562CCAAB220D933E00BF6A8D /* Double+HelpersTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+HelpersTests.swift"; sourceTree = "<group>"; };
 		562ECC972210707D008C580E /* ProgramEditorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramEditorTests.swift; sourceTree = "<group>"; };
 		56413DFC220E2AC30064332E /* GameplayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameplayController.swift; sourceTree = "<group>"; };
+		56431D262232847B00BFAC36 /* LevelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelProtocol.swift; sourceTree = "<group>"; };
+		56431D2822328C7700BFAC36 /* QuantityComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuantityComponent.swift; sourceTree = "<group>"; };
+		56431D362232969A00BFAC36 /* Levels */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Levels; sourceTree = "<group>"; };
 		568AE7732223064D00A7348C /* EntityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityTests.swift; sourceTree = "<group>"; };
 		568AE77522233AC100A7348C /* EntityManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityManagerTests.swift; sourceTree = "<group>"; };
 		56A55AE32224728500A8CEE3 /* AddRemoveDelegateMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRemoveDelegateMock.swift; sourceTree = "<group>"; };
@@ -201,7 +207,7 @@
 		C74785EC219448F1000148BC /* CardDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewController.swift; sourceTree = "<group>"; };
 		C76A214521AC1405008A07D9 /* LevelEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LevelEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		C76A214621AC1405008A07D9 /* LevelEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LevelEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		C79CED562179E175001487BF /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
+		C79CED562179E175001487BF /* LevelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelImpl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -351,6 +357,7 @@
 				56E167C82222D80700D40FD0 /* AR Programming-Bridging-Header.h */,
 				56A62B0F223107F3009D0E83 /* ResourceComponent.swift */,
 				56A62B1322310CEB009D0E83 /* TransformComponent.swift */,
+				56431D2822328C7700BFAC36 /* QuantityComponent.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -380,7 +387,8 @@
 		6CD69940218F392500A9E755 /* Level */ = {
 			isa = PBXGroup;
 			children = (
-				C79CED562179E175001487BF /* Level.swift */,
+				56431D262232847B00BFAC36 /* LevelProtocol.swift */,
+				C79CED562179E175001487BF /* LevelImpl.swift */,
 				900F13532194269F001C2DC2 /* TileMap.swift */,
 				900F1359219447AF001C2DC2 /* LevelManager.swift */,
 				90D7538221AC0D2500B1F2E4 /* LevelDelegate.swift */,
@@ -483,10 +491,11 @@
 				905736992175D19000F231E1 /* Model */,
 				90DF732F216F441E00F51E0C /* AppDelegate.swift */,
 				90DF7335216F441E00F51E0C /* Main.storyboard */,
-				90DF7338216F442000F51E0C /* Assets.xcassets */,
 				90DF733A216F442000F51E0C /* LaunchScreen.storyboard */,
-				90DF733D216F442000F51E0C /* Info.plist */,
+				90DF7338216F442000F51E0C /* Assets.xcassets */,
 				90CDABC121773E2700664640 /* Meshes.scnassets */,
+				56431D362232969A00BFAC36 /* Levels */,
+				90DF733D216F442000F51E0C /* Info.plist */,
 			);
 			path = "AR Programming";
 			sourceTree = "<group>";
@@ -599,6 +608,7 @@
 				90DF733C216F442000F51E0C /* LaunchScreen.storyboard in Resources */,
 				90DF7339216F442000F51E0C /* Assets.xcassets in Resources */,
 				90CDABC221773E2700664640 /* Meshes.scnassets in Resources */,
+				56431D372232969A00BFAC36 /* Levels in Resources */,
 				90A55B0E21A84DB000FD7CDD /* win.wav in Resources */,
 				90D7538821AC259A00B1F2E4 /* pickup.wav in Resources */,
 				90DF7337216F441E00F51E0C /* Main.storyboard in Resources */,
@@ -692,8 +702,9 @@
 				562CCA65220D74AF00BF6A8D /* Card.swift in Sources */,
 				562CCA69220D74AF00BF6A8D /* MoveCard.swift in Sources */,
 				90D7538321AC0D2500B1F2E4 /* LevelDelegate.swift in Sources */,
+				56431D272232847B00BFAC36 /* LevelProtocol.swift in Sources */,
 				905A3C8C2179E522005E3AA5 /* PlayingField.swift in Sources */,
-				C79CED572179E175001487BF /* Level.swift in Sources */,
+				C79CED572179E175001487BF /* LevelImpl.swift in Sources */,
 				C74785ED219448F1000148BC /* CardDetailViewController.swift in Sources */,
 				562CCA73220D74AF00BF6A8D /* SuccessorCardNode.swift in Sources */,
 				562CCA6C220D74AF00BF6A8D /* CardNodeFactory.swift in Sources */,
@@ -704,6 +715,7 @@
 				900F135A219447AF001C2DC2 /* LevelManager.swift in Sources */,
 				5621C83C221AE67A00756628 /* simd_float4x4+Helpers.swift in Sources */,
 				204AEC14220DCA1E00E0F624 /* ARContainerViewController.swift in Sources */,
+				56431D2922328C7700BFAC36 /* QuantityComponent.swift in Sources */,
 				C725B2C321A85A7B00DD147A /* Model.xcdatamodeld in Sources */,
 				562CCA68220D74AF00BF6A8D /* LeftCard.swift in Sources */,
 				562CCA79220D74AF00BF6A8D /* BarcodeDetector.swift in Sources */,

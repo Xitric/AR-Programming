@@ -147,7 +147,7 @@ extension LevelViewController: GameplayController {
         arController?.planeDetectorDelegate = self
         arController?.frameDelegate = self
         
-        if self.level != level {
+        if self.level?.levelNumber != level?.levelNumber {
             self.level = level
         }
     }

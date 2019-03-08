@@ -10,26 +10,40 @@ import Foundation
 
 class QuantityLevel: Level {
     
+    func update(_ delta: TimeInterval) {
+        
+    }
+    
+    func isComplete() -> Bool {
+        return false
+    }
+    
+    func getScore() -> Int {
+        return 0
+    }
+    
+    func reset() {
+        delegate?.levelReset(self)
+    }
+    
     // MARK: - Codable
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        let collectibles = try? container.decode([CollectibleJSON].self, forKey: .collectibles)
+        
         try super.init(from: decoder)
     }
     
-    override func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode("Hello, world!", forKey: .placeholder)
-        try super.encode(to: encoder)
-    }
-    
     private enum CodingKeys: String, CodingKey {
-        case placeholder
+        case collectibles
     }
-    
-    //MARK: - Temporary
-    override init(type: String, name: String, number: Int, unlocks: String?) {
-        super.init(type: type, name: name, number: number, unlocks: unlocks)
-    }
+}
+
+private struct CollectibleJSON: Decodable {
+    let x: Int
+    let y: Int
+    let quantity: Int
 }
 
 // MARK: - LevelFactory

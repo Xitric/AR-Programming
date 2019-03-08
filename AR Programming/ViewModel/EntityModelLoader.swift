@@ -35,11 +35,16 @@ class EntityModelLoader: EntityManagerDelegate {
         guard let resourceComponent = entity.component(subclassOf: ResourceComponent.self)
             else { return }
         
-        guard let modelScene = SCNScene(named: resourceComponent.resourceIdentifier)
-            else { return }
+        let nodeComponent: SCNNodeComponent
+        if let modelScene = SCNScene(named: resourceComponent.resourceIdentifier) {
+            nodeComponent = SCNNodeComponent(node: modelScene.rootNode)
+            nodeComponent.node.simdScale = simd_float3(0.1, 0.1, 0.1)
+        } else {
+            //TODO: Better placeholder
+            let geometry = SCNSphere(radius: 0.01)
+            nodeComponent = SCNNodeComponent(node: SCNNode(geometry: geometry))
+        }
         
-        let nodeComponent = SCNNodeComponent(node: modelScene.rootNode)
-        nodeComponent.node.simdScale = simd_float3(0.1, 0.1, 0.1)
         entity.addComponent(nodeComponent)
         scene.rootNode.addChildNode(nodeComponent.node)
     }
