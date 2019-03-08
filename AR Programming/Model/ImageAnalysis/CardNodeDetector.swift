@@ -40,7 +40,7 @@ class CardNodeDetector: BarcodeDetectorState {
         var cardNodes = [CardNode]()
         
         for node in result.nodes {
-            if let cardNode = try? CardNodeFactory.instance.cardNode(withCode: node.payload) {
+            if let cardNode = try? CardNodeFactory.instance.getCardNode(withCode: node.payload) {
                 cardNodes.append(cardNode)
             }
         }

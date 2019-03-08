@@ -11,6 +11,7 @@ import SceneKit
 import simd
 
 class SuccessorCardNode: CardNode {
+    weak var parent: CardNode?
     
     private let card: StatementCard
     private let successorAngles: [Double]
@@ -28,18 +29,20 @@ class SuccessorCardNode: CardNode {
         self.init(card: card, angles: angles, position: simd_double2(0, 0))
     }
     
-    func create(from node: ObservationNode, in graph: ObservationGraph) throws -> CardNode {
-        let clone = SuccessorCardNode(card: card, angles: successorAngles, position: node.position)
+    func create(from node: ObservationNode, in graph: ObservationGraph, withParent parent: CardNode?) throws -> CardNode {
+        print("This is the parent: \(String(describing: parent?.getCard().name))")
         
+        let clone = SuccessorCardNode(card: card, angles: successorAngles, position: node.position)
+        clone.parent = parent
         for angle in successorAngles {
             if let successor = graph.getSuccessor(by: angle, to: node) {
                 graph.connect(from: node, to: successor, withAngle: angle)
-                clone.successors.append(try CardNodeFactory.instance.cardNode(for: successor, in: graph))
+                clone.successors.append(try CardNodeFactory.instance.cardNode(for: successor, in: graph, parent: clone))
+                
             } else {
                 clone.successors.append(nil)
             }
         }
-        
         return clone
     }
     

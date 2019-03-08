@@ -9,11 +9,12 @@
 import Foundation
 import SceneKit
 
-protocol CardNode {
+protocol CardNode: class {
     var successors: [CardNode?] { get }
     var position: simd_double2 { get }
+    var parent: CardNode? { get set }
     
-    func create(from node: ObservationNode, in graph: ObservationGraph) throws -> CardNode
+    func create(from node: ObservationNode, in graph: ObservationGraph, withParent parent: CardNode?) throws -> CardNode
     
     func getCard() -> Card
     //TODO: Pass state to make contidional logic possible
