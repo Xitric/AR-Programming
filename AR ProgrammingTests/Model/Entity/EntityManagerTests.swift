@@ -48,7 +48,7 @@ class EntityManagerTests: XCTestCase {
         
         //Assert
         wait(for: [entityManagerDelegate.addExpectation], timeout: 1)
-        entityManager.update(1)
+        entityManager.update(delta: 1)
         wait(for: [component1.updateExpectation], timeout: 1)
         wait(for: [component2.updateExpectation], timeout: 1)
     }
@@ -91,7 +91,7 @@ class EntityManagerTests: XCTestCase {
         entity.addComponent(component)
         
         //Assert
-        entityManager.update(1)
+        entityManager.update(delta: 1)
         wait(for: [component.updateExpectation], timeout: 1)
     }
     
@@ -111,7 +111,7 @@ class EntityManagerTests: XCTestCase {
         
         //Assert
         wait(for: [entityManagerDelegate.removeExpectation], timeout: 1)
-        entityManager.update(1)
+        entityManager.update(delta: 1)
         wait(for: [component.updateExpectation], timeout: 1)
     }
     
@@ -144,7 +144,7 @@ class EntityManagerTests: XCTestCase {
         entity.addComponent(component)
         
         //Assert
-        entityManager.update(1)
+        entityManager.update(delta: 1)
         wait(for: [component.updateExpectation], timeout: 1)
     }
     
@@ -164,7 +164,7 @@ class EntityManagerTests: XCTestCase {
         entityManager.addSystem(GKComponentSystem.init(componentClass: ComponentMock.self))
         
         //Assert
-        entityManager.update(1)
+        entityManager.update(delta: 1)
         wait(for: [component1.updateExpectation], timeout: 1)
         wait(for: [component2.updateExpectation], timeout: 1)
     }
@@ -189,7 +189,7 @@ class EntityManagerTests: XCTestCase {
         entityManager.removeSystem(forComponent: ComponentMock.self)
         
         //Assert
-        entityManager.update(1)
+        entityManager.update(delta: 1)
         wait(for: [component1.updateExpectation], timeout: 1)
         wait(for: [component2.updateExpectation], timeout: 1)
         XCTAssertTrue(system.components.isEmpty)
