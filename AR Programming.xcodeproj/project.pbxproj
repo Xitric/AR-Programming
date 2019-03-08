@@ -57,6 +57,8 @@
 		56A62B1422310CEB009D0E83 /* TransformComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A62B1322310CEB009D0E83 /* TransformComponent.swift */; };
 		56A62B1622310DA2009D0E83 /* simd_double3+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A62B1522310DA2009D0E83 /* simd_double3+Helpers.swift */; };
 		56A62B1822310E8D009D0E83 /* simd_quatd+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A62B1722310E8D009D0E83 /* simd_quatd+Helpers.swift */; };
+		56A62B1A22311501009D0E83 /* LevelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A62B1922311501009D0E83 /* LevelFactory.swift */; };
+		56A62B1C223115B9009D0E83 /* QuantityLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A62B1B223115B9009D0E83 /* QuantityLevel.swift */; };
 		56E167BA2222BDA600D40FD0 /* GKEntity+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E167B92222BDA600D40FD0 /* GKEntity+Helpers.swift */; };
 		56E167C12222C15B00D40FD0 /* GKEntity+HelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E167C02222C15B00D40FD0 /* GKEntity+HelpersTests.swift */; };
 		56E167C32222CC3800D40FD0 /* EntityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E167C22222CC3800D40FD0 /* EntityManager.swift */; };
@@ -154,6 +156,8 @@
 		56A62B1322310CEB009D0E83 /* TransformComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformComponent.swift; sourceTree = "<group>"; };
 		56A62B1522310DA2009D0E83 /* simd_double3+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "simd_double3+Helpers.swift"; sourceTree = "<group>"; };
 		56A62B1722310E8D009D0E83 /* simd_quatd+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "simd_quatd+Helpers.swift"; sourceTree = "<group>"; };
+		56A62B1922311501009D0E83 /* LevelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelFactory.swift; sourceTree = "<group>"; };
+		56A62B1B223115B9009D0E83 /* QuantityLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuantityLevel.swift; sourceTree = "<group>"; };
 		56E167B92222BDA600D40FD0 /* GKEntity+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GKEntity+Helpers.swift"; sourceTree = "<group>"; };
 		56E167C02222C15B00D40FD0 /* GKEntity+HelpersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GKEntity+HelpersTests.swift"; sourceTree = "<group>"; };
 		56E167C22222CC3800D40FD0 /* EntityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityManager.swift; sourceTree = "<group>"; };
@@ -380,6 +384,8 @@
 				900F13532194269F001C2DC2 /* TileMap.swift */,
 				900F1359219447AF001C2DC2 /* LevelManager.swift */,
 				90D7538221AC0D2500B1F2E4 /* LevelDelegate.swift */,
+				56A62B1922311501009D0E83 /* LevelFactory.swift */,
+				56A62B1B223115B9009D0E83 /* QuantityLevel.swift */,
 			);
 			path = Level;
 			sourceTree = "<group>";
@@ -711,6 +717,7 @@
 				562CCA7F220D750100BF6A8D /* CGImagePropertyOrientation+Helpers.swift in Sources */,
 				562CCA6A220D74AF00BF6A8D /* JumpCard.swift in Sources */,
 				562CCA70220D74AF00BF6A8D /* CardNode.swift in Sources */,
+				56A62B1C223115B9009D0E83 /* QuantityLevel.swift in Sources */,
 				562CCA7E220D750100BF6A8D /* Double+Helpers.swift in Sources */,
 				905A3C92217A0891005E3AA5 /* LevelSelectViewController.swift in Sources */,
 				562CCA72220D74AF00BF6A8D /* ProgramEditor.swift in Sources */,
@@ -721,6 +728,7 @@
 				562CCA63220D74AF00BF6A8D /* RotationCard.swift in Sources */,
 				562CCA6E220D74AF00BF6A8D /* CardSequenceError.swift in Sources */,
 				90A55B0921A83B0700FD7CDD /* AudioController.swift in Sources */,
+				56A62B1A22311501009D0E83 /* LevelFactory.swift in Sources */,
 				C7273114217714E900754543 /* Plane.swift in Sources */,
 				905A3C882179BE74005E3AA5 /* PlaneDetectorDelegate.swift in Sources */,
 			);

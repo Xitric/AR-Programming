@@ -8,49 +8,17 @@
 
 import Foundation
 
-class Level: Codable, Equatable {
+class Level: Equatable, Codable {
     
+    let levelType: String
     let name: String
     let levelNumber: Int
-    var tiles: TileMap
     var unlocked = false
     var unlocks: String?
     
-    public weak var delegate: LevelDelegate?
-    public var collectiblePositions: [(Int, Int)] {
-        return tiles.collectiblePositions
-    }
-    
-    var width: Int {
-        return tiles.width
-    }
-    
-    var length: Int {
-        return tiles.length
-    }
-    
-    private init(name: String, levelNumber: Int, unlocks: String?) {
-        self.name = name
-        self.levelNumber = levelNumber
-        self.tiles = TileMap(width: 0, height: 0)
-        self.unlocks = unlocks
-    }
-    
-    func notifyMovedTo(x: Int, y: Int) {
-        if tiles.collectAt(x: x, y: y) {
-            delegate?.collectibleTaken(self, x: x, y: y)
-            
-            if tiles.allCollectiblesTaken() {
-                if let levelToUnlock = unlocks {
-                    LevelManager.markLevel(withName: levelToUnlock, asUnlocked: true)
-                }
-                delegate?.levelCompleted(self)
-            }
-        }
-    }
+    weak var delegate: LevelDelegate?
     
     func reset() {
-        tiles.reset()
         delegate?.levelReset(self)
     }
     
@@ -58,48 +26,41 @@ class Level: Codable, Equatable {
         return lhs.levelNumber == rhs.levelNumber
     }
     
-    //Ignore this code, it only exists for development purposes
-    convenience init(name: String, number: Int, unlocks: String?) {
-        self.init(name: name, levelNumber: number, unlocks: unlocks)
-    }
-    
-    // MARK: Codable
-    var json: Data? {
-        return try? JSONEncoder().encode(self)
-    }
-    
-    required convenience init(from decoder: Decoder) throws {
+    //MARK: - Codable
+    required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
-        let name = try container.decode(String.self, forKey: .name)
-        let number = try container.decode(Int.self, forKey: CodingKeys.number)
-        let unlocks = try? container.decode(String.self, forKey: CodingKeys.unlocks)
-        self.init(name: name, levelNumber: number, unlocks: unlocks)
-        self.tiles = try container.decode(TileMap.self, forKey: CodingKeys.tiles)
-    }
-    
-    convenience init?(json: Data) {
-        if let newValue = try? JSONDecoder().decode(Level.self, from: json) {
-            self.init(name: newValue.name, levelNumber: newValue.levelNumber, unlocks: newValue.unlocks)
-            self.tiles = newValue.tiles
-        } else {
-            return nil
-        }
+        levelType = try container.decode(String.self, forKey: .type)
+        name = try container.decode(String.self, forKey: .name)
+        levelNumber = try container.decode(Int.self, forKey: .number)
+        unlocks = try? container.decode(String.self, forKey: .unlocks)
     }
     
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         
+        try container.encode(levelType, forKey: .type)
         try container.encode(name, forKey: .name)
-        try container.encode(levelNumber, forKey: CodingKeys.number)
-        try container.encode(unlocks, forKey: CodingKeys.unlocks)
-        try container.encode(tiles, forKey: CodingKeys.tiles)
+        try container.encode(levelNumber, forKey: .number)
+        try container.encode(unlocks, forKey: .unlocks)
     }
     
     private enum CodingKeys: String, CodingKey {
+        case type
         case name
         case number
-        case tiles
         case unlocks
+    }
+    
+    //MARK: - Temporary
+    init(type: String, name: String, number: Int, unlocks: String?) {
+        self.levelType = type
+        self.name = name
+        self.levelNumber = number
+        self.unlocks = unlocks
+    }
+    
+    var json: Data? {
+        return try? JSONEncoder().encode(self)
     }
 }

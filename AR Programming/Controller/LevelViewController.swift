@@ -60,9 +60,9 @@ class LevelViewController: UIViewController {
             detectButton.isHidden = !hasPlayingField
             resetButton.isHidden = !hasPlayingField
             
-            if let field = playingField {
-                levelViewModel = LevelViewModel(showing: field, withLevelWidth: level!.width)
-            }
+//            if let field = playingField {
+//                levelViewModel = LevelViewModel(showing: field, withLevelWidth: level!.width)
+//            }
         }
     }
     private var program: Program? {
@@ -131,12 +131,12 @@ class LevelViewController: UIViewController {
     
     private func showLevel() {
         if let currentLevel = level {
-            for (x, y) in currentLevel.collectiblePositions {
-                let sphereGeom = SCNSphere(radius: 0.01)
-                let sphereNode = SCNNode(geometry: sphereGeom)
-                
-                levelViewModel?.addCollectible(node: sphereNode, x: x, y: y)
-            }
+//            for (x, y) in currentLevel.collectiblePositions {
+//                let sphereGeom = SCNSphere(radius: 0.01)
+//                let sphereNode = SCNNode(geometry: sphereGeom)
+//
+//                levelViewModel?.addCollectible(node: sphereNode, x: x, y: y)
+//            }
         }
     }
 }
@@ -210,7 +210,7 @@ extension LevelViewController: ProgramDelegate {
         if let currentLevel = level, let robot = playingField?.robot {
             let floatX = (robot.model.position.x / 0.05).rounded()
             let floatY = (robot.model.position.z / 0.05).rounded()
-            currentLevel.notifyMovedTo(x: Int(floatX), y: Int(floatY))
+//            currentLevel.notifyMovedTo(x: Int(floatX), y: Int(floatY))
         }
     }
     

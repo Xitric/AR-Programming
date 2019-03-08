@@ -22,7 +22,10 @@ class LevelSelectViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        levels.append(contentsOf: LevelManager.loadAllLevels())
+        //TODO: Error dialog?
+        if let allLevels = try? LevelManager.loadAllLevels() {
+            levels.append(contentsOf: allLevels)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -33,49 +36,22 @@ class LevelSelectViewController: UIViewController {
     
     //Ignore this code, it only exists for development purposes
     @IBAction func recreateLevels(_ sender: Any) {
-        let l1 = Level(name: "Level 1", number: 1, unlocks: "Level 2")
-        l1.tiles = TileMap(width: 2, height: 1)
-        l1.tiles.setCollectible(x: 1, y: 0)
-        if let url = try? FileManager.default.url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("Level 1.json") {
-            try? l1.json?.write(to: url)
-        }
+        let l1 = QuantityLevel(type: "quantity", name: "Level 1", number: 1, unlocks: "Level 2")
+        try? LevelManager.saveLevel(l1)
         
-        let l2 = Level(name: "Level 2", number: 2, unlocks: "Level 3")
-        l2.tiles = TileMap(width: 3, height: 3)
-        l2.tiles.setCollectible(x: 1, y: 0)
-        l2.tiles.setCollectible(x: 2, y: 0)
-        l2.tiles.setCollectible(x: 2, y: 1)
-        l2.tiles.setCollectible(x: 2, y: 2)
-        if let url = try? FileManager.default.url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("Level 2.json") {
-            try? l2.json?.write(to: url)
-        }
+        let l2 = QuantityLevel(type: "quantity", name: "Level 2", number: 2, unlocks: "Level 3")
+        try? LevelManager.saveLevel(l2)
         
-        let l3 = Level(name: "Level 3", number: 3, unlocks: nil)
-        l3.tiles = TileMap(width: 5, height: 5)
-        l3.tiles.setCollectible(x: 0, y: 1)
-        l3.tiles.setCollectible(x: 0, y: 2)
-        l3.tiles.setCollectible(x: 0, y: 3)
-        
-        l3.tiles.setCollectible(x: 1, y: 0)
-        l3.tiles.setCollectible(x: 2, y: 0)
-        l3.tiles.setCollectible(x: 3, y: 0)
-        
-        l3.tiles.setCollectible(x: 4, y: 1)
-        l3.tiles.setCollectible(x: 4, y: 2)
-        l3.tiles.setCollectible(x: 4, y: 3)
-        
-        l3.tiles.setCollectible(x: 1, y: 4)
-        l3.tiles.setCollectible(x: 2, y: 4)
-        l3.tiles.setCollectible(x: 3, y: 4)
-        if let url = try? FileManager.default.url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("Level 3.json") {
-            try? l3.json?.write(to: url)
-        }
+        let l3 = QuantityLevel(type: "quantity", name: "Level 3", number: 3, unlocks: nil)
+        try? LevelManager.saveLevel(l3)
         
         // Call levelManager to save unlocked levels in Core Data
         LevelManager.markLevel(withName: l1.name, asUnlocked: true) { [unowned self] in
             //Reload view
             self.levels.removeAll()
-            self.levels.append(contentsOf: LevelManager.loadAllLevels())
+            if let allLevels = try? LevelManager.loadAllLevels() {
+                self.levels.append(contentsOf: allLevels)
+            }
             self.levelSelectCollectionView.reloadData()
         }
     }
