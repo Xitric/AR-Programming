@@ -30,8 +30,6 @@ class SuccessorCardNode: CardNode {
     }
     
     func create(from node: ObservationNode, in graph: ObservationGraph, withParent parent: CardNode?) throws -> CardNode {
-        print("This is the parent: \(String(describing: parent?.getCard().name))")
-        
         let clone = SuccessorCardNode(card: card, angles: successorAngles, position: node.position)
         clone.parent = parent
         for angle in successorAngles {

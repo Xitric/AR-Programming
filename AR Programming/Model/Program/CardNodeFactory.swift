@@ -14,7 +14,6 @@ class CardNodeFactory {
     
     private let startCode: String
     
-    //Registere cardNodes, med "tallet", CardNode objekt
     private var cardNodePrototypes = [String:CardNode]()
     
     var cards: [Card] {
@@ -32,29 +31,23 @@ class CardNodeFactory {
         register(cardNode: SuccessorCardNode(card: RandomBranchCard(), angles: [Double.pi/4, -Double.pi/4]), withCode: "5")
         register(cardNode: LoopCardNode(card: LoopCard()), withCode: "6")
         register(cardNode: BorderCardNode(card: BorderCard()), withCode: "7")
-        register(cardNode: SuccessorCardNode(card: ParameterCard(paremeter: 1), angles: []), withCode: "8")
-        register(cardNode: SuccessorCardNode(card: ParameterCard(paremeter: 2), angles: []), withCode: "9")
-        register(cardNode: SuccessorCardNode(card: ParameterCard(paremeter: 3), angles: []), withCode: "10")
-        register(cardNode: SuccessorCardNode(card: ParameterCard(paremeter: 4), angles: []), withCode: "11")
+        register(cardNode: NumberCardNode(card: ParameterCard(paremeter: 1)), withCode: "8")
+        register(cardNode: NumberCardNode(card: ParameterCard(paremeter: 2)), withCode: "9")
+        register(cardNode: NumberCardNode(card: ParameterCard(paremeter: 3)), withCode: "10")
+        register(cardNode: NumberCardNode(card: ParameterCard(paremeter: 4)), withCode: "11")
     }
     
     
-    // returner start CardNode
     func build(from graph: ObservationGraph) throws -> CardNode {
         if let startNode = graph.firstNode(withPayload: startCode) {
             return try cardNode(for: startNode, in: graph, parent: nil)
         }
-        
-        //kald create
-        
-        // Lav en node og giv den dens parent
         
         throw CardSequenceError.missingStart
     }
     
     
     
-    // return protoyep CardNode from payload
     func cardNode(for node: ObservationNode, in graph: ObservationGraph, parent: CardNode?) throws -> CardNode {
         if let prototype = try? getCardNode(withCode: node.payload) {
             return try prototype.create(from: node, in: graph, withParent: parent)
@@ -64,7 +57,6 @@ class CardNodeFactory {
         throw CardSequenceError.unknownCode(code: node.payload)
     }
     
-    //get CardNode from map
     func getCardNode(withCode code: String) throws -> CardNode {
         if let node = cardNodePrototypes[code] {
             return node
@@ -73,7 +65,6 @@ class CardNodeFactory {
         throw CardSequenceError.unknownCode(code: code)
     }
     
-    //put CardNode to map
     func register(cardNode node: CardNode, withCode code: String) {
         cardNodePrototypes[code] = node
     }

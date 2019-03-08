@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		04AEDFB63981EDEF7B9C4BEA /* Pods_AR_ProgrammingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81B3ED8214579B6F33DA8F08 /* Pods_AR_ProgrammingTests.framework */; };
 		09B25CABE22E83D264A35769 /* Pods_AR_ProgrammingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90A55B0621A834FD00FD7CDD /* Pods_AR_ProgrammingTests.framework */; };
+		202D015B22327965004B6046 /* NumberCardNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202D015A22327965004B6046 /* NumberCardNode.swift */; };
 		203B0F0B223108C3000685D3 /* LoopCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203B0F0A223108C3000685D3 /* LoopCard.swift */; };
 		203B0F0D223108FE000685D3 /* BorderCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203B0F0C223108FE000685D3 /* BorderCard.swift */; };
 		203B0F0F223109AC000685D3 /* NumberCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203B0F0E223109AC000685D3 /* NumberCard.swift */; };
@@ -98,6 +99,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		202D015A22327965004B6046 /* NumberCardNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberCardNode.swift; sourceTree = "<group>"; };
 		203B0F0A223108C3000685D3 /* LoopCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopCard.swift; sourceTree = "<group>"; };
 		203B0F0C223108FE000685D3 /* BorderCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderCard.swift; sourceTree = "<group>"; };
 		203B0F0E223109AC000685D3 /* NumberCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberCard.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 				562CCA56220D74AD00BF6A8D /* Program.swift */,
 				562CCA57220D74AD00BF6A8D /* CardNode.swift */,
 				562CCA59220D74AD00BF6A8D /* ProgramEditor.swift */,
+				202D015A22327965004B6046 /* NumberCardNode.swift */,
 				203B0F1022310E59000685D3 /* LoopCardNode.swift */,
 				203B0F1222310E62000685D3 /* BorderCardNode.swift */,
 				562CCA5A220D74AD00BF6A8D /* SuccessorCardNode.swift */,
@@ -674,6 +677,7 @@
 				90DF7330216F441E00F51E0C /* AppDelegate.swift in Sources */,
 				562CCA7F220D750100BF6A8D /* CGImagePropertyOrientation+Helpers.swift in Sources */,
 				562CCA6A220D74AF00BF6A8D /* JumpCard.swift in Sources */,
+				202D015B22327965004B6046 /* NumberCardNode.swift in Sources */,
 				562CCA70220D74AF00BF6A8D /* CardNode.swift in Sources */,
 				562CCA7E220D750100BF6A8D /* Double+Helpers.swift in Sources */,
 				905A3C92217A0891005E3AA5 /* LevelSelectViewController.swift in Sources */,

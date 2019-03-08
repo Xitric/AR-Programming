@@ -15,6 +15,7 @@ class LoopCardNode: CardNode {
     weak var parent: CardNode?
     private let card: StatementCard
     private let successorAngle: Double
+    private let numberCardAngles: [Double]
     
     var successors = [CardNode?]()
     var position: simd_double2
@@ -24,6 +25,7 @@ class LoopCardNode: CardNode {
         self.card = card
         self.successorAngle = angle
         self.position = position
+        self.numberCardAngles = [Double.pi/2, 3*Double.pi/2]
     }
     
     convenience init(card: StatementCard) {
@@ -31,16 +33,29 @@ class LoopCardNode: CardNode {
     }
     
     func create(from node: ObservationNode, in graph: ObservationGraph, withParent parent: CardNode?) throws -> CardNode {
-         print("This is the parent: \(String(describing: parent?.getCard().name))")
         let clone = LoopCardNode(card: card, angle: 0, position: node.position)
         clone.parent = parent
+        try findParameterCards(from: node, clone: clone, graph: graph)
         if let successor = graph.getSuccessor(by: successorAngle, to: node) {
             graph.connect(from: node, to: successor, withAngle: successorAngle)
-             clone.successors.append(try CardNodeFactory.instance.cardNode(for: successor, in: graph, parent: clone))
+            clone.successors.append(try CardNodeFactory.instance.cardNode(for: successor, in: graph, parent: clone))
         } else {
             clone.successors.append(nil)
         }
+        
         return clone
+    }
+    
+    private func findParameterCards(from node: ObservationNode, clone: LoopCardNode, graph: ObservationGraph) throws {
+        for angle in numberCardAngles {
+            if let observedNode = graph.getSuccessor(by: angle, to: node) {
+                let cNode = (try CardNodeFactory.instance.cardNode(for: observedNode, in: graph, parent: parent))
+                if cNode is NumberCardNode {
+                    let numberNode = cNode as! NumberCardNode
+                    clone.repeats = numberNode.number!
+                }
+            }
+        }
     }
     
     func getCard() -> Card {
