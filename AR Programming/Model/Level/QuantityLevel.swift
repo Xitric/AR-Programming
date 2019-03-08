@@ -10,32 +10,38 @@ import Foundation
 
 class QuantityLevel: Level {
     
-    func update(_ delta: TimeInterval) {
-        
-    }
-    
-    func isComplete() -> Bool {
-        return false
-    }
-    
-    func getScore() -> Int {
-        return 0
-    }
-    
-    func reset() {
-        delegate?.levelReset(self)
-    }
+    private let goalQuantity: Int
     
     // MARK: - Codable
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        
-        let collectibles = try? container.decode([CollectibleJSON].self, forKey: .collectibles)
-        
+        goalQuantity = try container.decode(Int.self, forKey: .goalQuantity)
         try super.init(from: decoder)
+        
+        let collectibles = try container.decode([CollectibleJSON].self, forKey: .collectibles)
+        for collectible in collectibles {
+            entityManager.addEntity(createCollectible(fromJson: collectible))
+        }
+    }
+    
+    private func createCollectible(fromJson json: CollectibleJSON) -> Entity {
+        let collectible = Entity()
+        
+        let transform = TransformComponent()
+        transform.location = simd_double3(x: Double(json.x) * 0.05, y: 0, z: Double(json.y) * 0.05)
+        collectible.addComponent(transform)
+        
+        let quantity = QuantityComponent(quantity: json.quantity)
+        collectible.addComponent(quantity)
+        
+        let resource = ResourceComponent(resourceIdentifier: "TODO")
+        collectible.addComponent(resource)
+        
+        return collectible
     }
     
     private enum CodingKeys: String, CodingKey {
+        case goalQuantity
         case collectibles
     }
 }

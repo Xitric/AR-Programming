@@ -1,5 +1,5 @@
 //
-//  LevelProtocol.swift
+//  UpdateDelegate.swift
 //  AR Programming
 //  
 //  Created by Kasper Schultz Davidsen on 08/03/2019.
@@ -8,9 +8,6 @@
 
 import Foundation
 
-protocol LevelProtocol {
-    func update(_ delta: TimeInterval)
-    func isComplete() -> Bool
-    func getScore() -> Int
-    func reset()
+protocol UpdateDelegate: class {
+    func update(currentTime: TimeInterval)
 }

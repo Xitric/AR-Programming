@@ -1,0 +1,14 @@
+{
+    "number":1,
+    "type":"quantity",
+    "name":"Level 1",
+    "unlocks":"Level2",
+    "goalQuantity":1,
+    "collectibles":[
+        {
+            "x":1,
+            "y":0,
+            "quantity":1
+        }
+    ]
+}

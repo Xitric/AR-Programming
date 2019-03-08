@@ -8,11 +8,8 @@
 
 import Foundation
 
-protocol LevelDelegate: AnyObject {
-    
+protocol LevelDelegate: class {
     func collectibleTaken(_ level: Level, x: Int, y: Int)
-    
     func levelCompleted(_ level: Level)
-    
     func levelReset(_ level: Level)
 }

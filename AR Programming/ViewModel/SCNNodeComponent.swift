@@ -29,8 +29,13 @@ class SCNNodeComponent: GKComponent {
         guard let transformComponent = entity.component(subclassOf: TransformComponent.self)
             else { return }
         
-        transformComponent.location = simd_double3(node.simdPosition)
-        transformComponent.rotation = simd_quatd(node.simdOrientation)
-        transformComponent.scale = simd_double3(node.simdScale)
+        node.simdPosition = simd_float3(Float(transformComponent.location.x),
+                                        Float(transformComponent.location.y),
+                                        Float(transformComponent.location.z))
+        
+//        TODO: We seriously need to handle this
+//        transformComponent.location = simd_double3(node.simdPosition)
+//        transformComponent.rotation = simd_quatd(node.simdOrientation)
+//        transformComponent.scale = simd_double3(node.simdScale)
     }
 }

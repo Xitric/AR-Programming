@@ -16,6 +16,7 @@ class ARController: NSObject  {
     private var options : ARSession.RunOptions
     private var currentPlane: Plane?
     
+    weak var updateDelegate: UpdateDelegate?
     weak var frameDelegate: FrameDelegate?
     weak var planeDetectorDelegate: PlaneDetectorDelegate?
     
@@ -77,6 +78,10 @@ extension ARController: ARSCNViewDelegate {
         plane.groundNode = ground
         
         return plane
+    }
+    
+    func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
+        updateDelegate?.update(currentTime: time)
     }
 }
 

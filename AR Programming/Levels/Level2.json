@@ -1,8 +1,9 @@
 {
-    "number":1,
+    "number":2,
     "type":"quantity",
-    "name":"Level 1",
-    "unlocks":null,
+    "name":"Level 2",
+    "unlocks":"Level3",
+    "goalQuantity":3,
     "collectibles":[
         {
             "x":0,
@@ -10,9 +11,9 @@
             "quantity":1
         },
         {
-            "x":1,
+            "x":2,
             "y":0,
-            "quantity":5
+            "quantity":2
         }
     ]
 }

@@ -8,9 +8,9 @@
 
 import Foundation
 
-typealias Level = LevelProtocol & LevelImpl
-
-class LevelImpl: Decodable {
+class Level: Decodable, UpdateDelegate {
+    
+    private var lastUpdate = TimeInterval(0)
     
     let levelType: String
     let name: String
@@ -20,6 +20,30 @@ class LevelImpl: Decodable {
     var entityManager: EntityManager
     
     weak var delegate: LevelDelegate?
+    
+    func update(currentTime: TimeInterval) {
+        let delta = currentTime - lastUpdate
+        lastUpdate = currentTime
+        
+        entityManager.update(delta: delta)
+        update(delta: delta)
+    }
+    
+    func update(delta: TimeInterval) {
+        
+    }
+    
+    func isComplete() -> Bool {
+        return false
+    }
+    
+    func getScore() -> Int {
+        return 0
+    }
+    
+    func reset() {
+        
+    }
     
     //MARK: - Decodable
     required init(from decoder: Decoder) throws {

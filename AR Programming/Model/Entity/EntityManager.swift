@@ -18,7 +18,6 @@ class EntityManager {
     
     private var systems = [String:GKComponentSystem]()
     private var entities = [Entity]()
-    private var lastUpdate = TimeInterval(0)
     
     weak var delegate: EntityManagerDelegate?
     
@@ -79,10 +78,7 @@ class EntityManager {
         systems[systemString] = nil
     }
     
-    func update(_ currentTime: TimeInterval) {
-        let delta = currentTime - lastUpdate
-        lastUpdate = currentTime
-        
+    func update(delta: TimeInterval) {
         for system in systems.values {
             system.update(deltaTime: delta)
         }
