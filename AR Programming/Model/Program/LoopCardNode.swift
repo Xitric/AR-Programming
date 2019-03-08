@@ -15,7 +15,7 @@ class LoopCardNode: CardNode {
     weak var parent: CardNode?
     private let card: StatementCard
     private let successorAngle: Double
-    private let numberCardAngles: [Double]
+    private let parameterCardAngles: [Double]
     
     var successors = [CardNode?]()
     var position: simd_double2
@@ -25,7 +25,7 @@ class LoopCardNode: CardNode {
         self.card = card
         self.successorAngle = angle
         self.position = position
-        self.numberCardAngles = [Double.pi/2, 3*Double.pi/2]
+        self.parameterCardAngles = [Double.pi/2, 3*Double.pi/2]
     }
     
     convenience init(card: StatementCard) {
@@ -47,12 +47,12 @@ class LoopCardNode: CardNode {
     }
     
     private func findParameterCards(from node: ObservationNode, clone: LoopCardNode, graph: ObservationGraph) throws {
-        for angle in numberCardAngles {
+        for angle in parameterCardAngles {
             if let observedNode = graph.getSuccessor(by: angle, to: node) {
                 let cNode = (try CardNodeFactory.instance.cardNode(for: observedNode, in: graph, parent: parent))
-                if cNode is NumberCardNode {
-                    let numberNode = cNode as! NumberCardNode
-                    clone.repeats = numberNode.number!
+                if cNode is ParameterCardNode {
+                    let parameterNode = cNode as! ParameterCardNode
+                    clone.repeats = parameterNode.number!
                 }
             }
         }

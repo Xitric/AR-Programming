@@ -1,5 +1,5 @@
 //
-//  NumberCard.swift
+//  ParameterCard.swift
 //  AR Programming
 //  
 //  Created by Emil Nielsen on 07/03/2019.

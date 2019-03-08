@@ -1,5 +1,5 @@
 //
-//  NumberCardNode.swift
+//  ParameterCardNode.swift
 //  AR Programming
 //  
 //  Created by Emil Nielsen on 08/03/2019.
@@ -10,7 +10,7 @@ import Foundation
 import SceneKit
 import simd
 
-class NumberCardNode: CardNode {
+class ParameterCardNode: CardNode {
     
     var successors = [CardNode?]()
     
@@ -31,7 +31,7 @@ class NumberCardNode: CardNode {
     }
     
     func create(from node: ObservationNode, in graph: ObservationGraph, withParent parent: CardNode?) throws -> CardNode {
-        let clone = NumberCardNode(card: card, position: node.position)
+        let clone = ParameterCardNode(card: card, position: node.position)
         return clone
     }
     

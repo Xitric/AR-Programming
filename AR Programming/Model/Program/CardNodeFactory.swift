@@ -31,10 +31,10 @@ class CardNodeFactory {
         register(cardNode: SuccessorCardNode(card: RandomBranchCard(), angles: [Double.pi/4, -Double.pi/4]), withCode: "5")
         register(cardNode: LoopCardNode(card: LoopCard()), withCode: "6")
         register(cardNode: BorderCardNode(card: BorderCard()), withCode: "7")
-        register(cardNode: NumberCardNode(card: ParameterCard(paremeter: 1)), withCode: "8")
-        register(cardNode: NumberCardNode(card: ParameterCard(paremeter: 2)), withCode: "9")
-        register(cardNode: NumberCardNode(card: ParameterCard(paremeter: 3)), withCode: "10")
-        register(cardNode: NumberCardNode(card: ParameterCard(paremeter: 4)), withCode: "11")
+        register(cardNode: ParameterCardNode(card: ParameterCard(paremeter: 1)), withCode: "8")
+        register(cardNode: ParameterCardNode(card: ParameterCard(paremeter: 2)), withCode: "9")
+        register(cardNode: ParameterCardNode(card: ParameterCard(paremeter: 3)), withCode: "10")
+        register(cardNode: ParameterCardNode(card: ParameterCard(paremeter: 4)), withCode: "11")
     }
     
     
