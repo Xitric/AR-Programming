@@ -19,26 +19,20 @@ class ARContainerViewController: UIViewController {
     }
     
     private var arController: ARController?
-    private var modelLoader: EntityModelLoader?
+    private var levelViewModel: LevelViewModel?
     
     var level: Level?
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let gameplayController = segue.destination as? GameplayController {
-            gameplayController.enter(withLevel: level, inEnvironment: arController)
+            if let level = level {
+                levelViewModel = LevelViewModel(level: level)
+            }
+            arController?.updateDelegate = level
+            
+            gameplayController.enter(withLevel: levelViewModel, inEnvironment: arController)
         }
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        if let level = level {
-            modelLoader = EntityModelLoader(entityManager: level.entityManager, scene: arSceneView.scene)
-        }
-        arController?.updateDelegate = level
-    }
-    
-    //        player.addComponent(ResourceComponent(resourceIdentifier: "Meshes.scnassets/uglyBot.dae"))
-    //        other.addComponent(ResourceComponent(resourceIdentifier: "Meshes.scnassets/Bot.dae")
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

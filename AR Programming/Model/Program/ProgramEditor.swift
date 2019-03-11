@@ -12,13 +12,14 @@ import UIKit
 class ProgramEditor: CardGraphDetectorDelegate {
     
     private var currentProgram: Program?
+    private var savedProgram: Program?
     private let detector: BarcodeDetector
     
     weak var delegate: ProgramEditorDelegate?
     
     var program: Program {
         get {
-            return currentProgram == nil ? Program(startNode: nil) : currentProgram!
+            return savedProgram == nil ? Program(startNode: nil) : savedProgram!
         }
     }
     
@@ -33,8 +34,12 @@ class ProgramEditor: CardGraphDetectorDelegate {
         detector.analyze(frame: frame, oriented: orientation, frameWidth: frameWidth, frameHeight: frameHeight)
     }
     
+    func saveProgram() {
+        savedProgram = currentProgram
+    }
+    
     func reset() {
-        currentProgram = nil
+        savedProgram = nil
     }
     
     func graphDetector(_ detector: CardGraphDetector, found graph: ObservationGraph) {
@@ -51,7 +56,7 @@ class ProgramEditor: CardGraphDetectorDelegate {
             print("Unexpected error")
         }
         
-        delegate?.programEditor(self, createdNew: program)
+        delegate?.programEditor(self, createdNew: currentProgram ?? Program(startNode: nil))
     }
 }
 

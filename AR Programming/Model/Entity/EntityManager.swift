@@ -20,6 +20,14 @@ class EntityManager {
     private var entities = [Entity]()
     
     weak var delegate: EntityManagerDelegate?
+    var player: Entity
+    
+    init() {
+        player = Entity()
+        player.addComponent(TransformComponent())
+        player.addComponent(ResourceComponent(resourceIdentifier: "Bot"))
+        addEntity(player)
+    }
     
     func addEntity(_ entity: Entity) {
         entity.delegate = self

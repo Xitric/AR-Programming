@@ -10,10 +10,10 @@ import Foundation
 
 class EntityModelLoader: EntityManagerDelegate {
     
-    private let scene: SCNScene
+    private let root: SCNNode
     
-    init(entityManager: EntityManager, scene: SCNScene) {
-        self.scene = scene
+    init(entityManager: EntityManager, root: SCNNode) {
+        self.root = root
         
         entityManager.delegate = self
         entityManager.addSystem(GKComponentSystem(componentClass: SCNNodeComponent.self))
@@ -36,17 +36,17 @@ class EntityModelLoader: EntityManagerDelegate {
             else { return }
         
         let nodeComponent: SCNNodeComponent
-        if let modelScene = SCNScene(named: resourceComponent.resourceIdentifier) {
+        let resourceLocation = "Meshes.scnassets/\(resourceComponent.resourceIdentifier).dae"
+        if let modelScene = SCNScene(named: resourceLocation) {
             nodeComponent = SCNNodeComponent(node: modelScene.rootNode)
-            nodeComponent.node.simdScale = simd_float3(0.1, 0.1, 0.1)
         } else {
             //TODO: Better placeholder
-            let geometry = SCNSphere(radius: 0.01)
+            let geometry = SCNSphere(radius: 0.25)
             nodeComponent = SCNNodeComponent(node: SCNNode(geometry: geometry))
         }
         
         entity.addComponent(nodeComponent)
-        scene.rootNode.addChildNode(nodeComponent.node)
+        root.addChildNode(nodeComponent.node)
     }
     
     private func tryRemoveModel(forEntity entity: Entity) {
