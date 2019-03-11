@@ -45,8 +45,19 @@ class EntityModelLoader: EntityManagerDelegate {
             nodeComponent = SCNNodeComponent(node: SCNNode(geometry: geometry))
         }
         
-        entity.addComponent(nodeComponent)
+        inject(nodeComponent: nodeComponent, intoEntity: entity)
         root.addChildNode(nodeComponent.node)
+    }
+    
+    private func inject(nodeComponent: SCNNodeComponent, intoEntity entity: Entity) {
+        if let currentTransform = entity.component(subclassOf: TransformComponent.self) {
+            nodeComponent.location = currentTransform.location
+            nodeComponent.rotation = currentTransform.rotation
+            nodeComponent.scale = currentTransform.scale
+            entity.removeComponent(ofType: type(of: currentTransform))
+        }
+        
+        entity.addComponent(nodeComponent)
     }
     
     private func tryRemoveModel(forEntity entity: Entity) {
@@ -54,6 +65,18 @@ class EntityModelLoader: EntityManagerDelegate {
             else { return }
         
         nodeComponent.node.removeFromParentNode()
+        extractNodeComponent(fromEntity: entity)
+    }
+    
+    private func extractNodeComponent(fromEntity entity: Entity) {
+        if let currentTransform = entity.component(subclassOf: SCNNodeComponent.self) {
+            let transformComponent = TransformComponent()
+            transformComponent.location = currentTransform.location
+            transformComponent.rotation = currentTransform.rotation
+            transformComponent.scale = currentTransform.scale
+            entity.addComponent(transformComponent)
+        }
+        
         entity.removeComponent(ofType: SCNNodeComponent.self)
     }
 }
