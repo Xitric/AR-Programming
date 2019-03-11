@@ -12,7 +12,7 @@
 		202D015B22327965004B6046 /* ParameterCardNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202D015A22327965004B6046 /* ParameterCardNode.swift */; };
 		203B0F0B223108C3000685D3 /* LoopCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203B0F0A223108C3000685D3 /* LoopCard.swift */; };
 		203B0F0D223108FE000685D3 /* BorderCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203B0F0C223108FE000685D3 /* BorderCard.swift */; };
-		203B0F0F223109AC000685D3 /* NumberCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203B0F0E223109AC000685D3 /* NumberCard.swift */; };
+		203B0F0F223109AC000685D3 /* ParameterCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203B0F0E223109AC000685D3 /* ParameterCard.swift */; };
 		203B0F1122310E59000685D3 /* LoopCardNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203B0F1022310E59000685D3 /* LoopCardNode.swift */; };
 		203B0F1322310E62000685D3 /* BorderCardNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203B0F1222310E62000685D3 /* BorderCardNode.swift */; };
 		204AEC12220DC9F500E0F624 /* HiddenTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204AEC11220DC9F500E0F624 /* HiddenTabBarViewController.swift */; };
@@ -102,7 +102,7 @@
 		202D015A22327965004B6046 /* ParameterCardNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterCardNode.swift; sourceTree = "<group>"; };
 		203B0F0A223108C3000685D3 /* LoopCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopCard.swift; sourceTree = "<group>"; };
 		203B0F0C223108FE000685D3 /* BorderCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderCard.swift; sourceTree = "<group>"; };
-		203B0F0E223109AC000685D3 /* NumberCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberCard.swift; sourceTree = "<group>"; };
+		203B0F0E223109AC000685D3 /* ParameterCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterCard.swift; sourceTree = "<group>"; };
 		203B0F1022310E59000685D3 /* LoopCardNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopCardNode.swift; sourceTree = "<group>"; };
 		203B0F1222310E62000685D3 /* BorderCardNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderCardNode.swift; sourceTree = "<group>"; };
 		204AEC11220DC9F500E0F624 /* HiddenTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HiddenTabBarViewController.swift; sourceTree = "<group>"; };
@@ -250,7 +250,7 @@
 				562CCA52220D74AD00BF6A8D /* StatementCard.swift */,
 				203B0F0A223108C3000685D3 /* LoopCard.swift */,
 				203B0F0C223108FE000685D3 /* BorderCard.swift */,
-				203B0F0E223109AC000685D3 /* NumberCard.swift */,
+				203B0F0E223109AC000685D3 /* ParameterCard.swift */,
 			);
 			path = Cards;
 			sourceTree = "<group>";
@@ -691,7 +691,7 @@
 				562CCA6E220D74AF00BF6A8D /* CardSequenceError.swift in Sources */,
 				90A55B0921A83B0700FD7CDD /* AudioController.swift in Sources */,
 				C7273114217714E900754543 /* Plane.swift in Sources */,
-				203B0F0F223109AC000685D3 /* NumberCard.swift in Sources */,
+				203B0F0F223109AC000685D3 /* ParameterCard.swift in Sources */,
 				905A3C882179BE74005E3AA5 /* PlaneDetectorDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
