@@ -49,7 +49,7 @@ class CardNodeFactory {
     
     
     func cardNode(for node: ObservationNode, in graph: ObservationGraph, parent: CardNode?) throws -> CardNode {
-        if let prototype = try? getCardNode(withCode: node.payload) {
+        if let prototype = try? cardNode(withCode: node.payload) {
             return try prototype.create(from: node, in: graph, withParent: parent)
 
         }
@@ -57,7 +57,7 @@ class CardNodeFactory {
         throw CardSequenceError.unknownCode(code: node.payload)
     }
     
-    func getCardNode(withCode code: String) throws -> CardNode {
+    func cardNode(withCode code: String) throws -> CardNode {
         if let node = cardNodePrototypes[code] {
             return node
         }
