@@ -14,7 +14,7 @@ struct BorderCard: StatementCard {
     let name = "Grænse"
     let internalName = "border"
     let summary = "Dit loop program stopper her."
-    let description = "Brug dette kort til at stoppe loop."
+    let description = "Brug dette kort til at vise slutningen på gentagelsen."
     
     func getAction(for robot: SCNNode) -> SCNAction? {
         return nil

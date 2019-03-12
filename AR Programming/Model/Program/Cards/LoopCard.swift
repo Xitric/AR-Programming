@@ -11,10 +11,10 @@ import SceneKit
 
 struct LoopCard: StatementCard {
     
-    let name = "Loop"
+    let name = "Gentag"
     let internalName = "loop"
-    let summary = "Dit program looper her."
-    let description = "Brug dette kort til at loope."
+    let summary = "Får en del af programmet til at gentage sig."
+    let description = "Brug dette kort til at få en sekvens af kort til at gentage sig. Dette kort skal bruges sammen med et tal kort og et grænse kort."
     
     func getAction(for robot: SCNNode) -> SCNAction? {
         return nil
