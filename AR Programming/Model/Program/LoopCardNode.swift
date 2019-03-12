@@ -35,7 +35,9 @@ class LoopCardNode: CardNode {
     func create(from node: ObservationNode, in graph: ObservationGraph, withParent parent: CardNode?) throws -> CardNode {
         let clone = LoopCardNode(card: card, angle: 0, position: node.position)
         clone.parent = parent
+        
         try findParameterCards(from: node, clone: clone, graph: graph)
+        
         if let successor = graph.getSuccessor(by: successorAngle, to: node) {
             graph.connect(from: node, to: successor, withAngle: successorAngle)
             clone.successors.append(try CardNodeFactory.instance.cardNode(for: successor, in: graph, parent: clone))
