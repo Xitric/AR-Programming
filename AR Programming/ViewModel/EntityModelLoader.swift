@@ -16,7 +16,9 @@ class EntityModelLoader: EntityManagerDelegate {
         self.root = root
         
         entityManager.delegate = self
-        entityManager.addSystem(GKComponentSystem(componentClass: SCNNodeComponent.self))
+        entityManager.addSystem(MoveActionComponentSystem())
+        entityManager.addSystem(RotateActionComponentSystem())
+        entityManager.addSystem(CompoundActionComponentSystem())
         
         for entity in entityManager.getEntities(fromComponent: ResourceComponent.self) {
             tryLoadModel(forEntity: entity)

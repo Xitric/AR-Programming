@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import SceneKit
 
 protocol Card {
     var name: String { get }
@@ -15,17 +14,5 @@ protocol Card {
     var summary: String { get }
     var description: String { get }
     
-    func getAction(for robot: SCNNode) -> SCNAction?
-}
-
-extension Card {
-    public func convert(axis: SCNVector3, to node: SCNNode) -> SCNVector3 {
-        var convertedAxis = axis
-        
-        if let parent = node.parent {
-            convertedAxis = node.convertVector(axis, to: parent)
-        }
-        
-        return convertedAxis
-    }
+    func getAction() -> ActionComponent?
 }

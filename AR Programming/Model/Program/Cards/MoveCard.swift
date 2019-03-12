@@ -16,9 +16,8 @@ struct MoveCard: StatementCard {
     let summary = "Få robotten til at gå frem."
     let description = "Når robotten ser dette kort, vil den tage ét skridt frem. Brug rotationskortene til at ændre robottens retning. Hvis robotten skal gå længere frem så brug dette kort flere gange."
     
-    func getAction(for robot: SCNNode) -> SCNAction? {
-        let movement = convert(axis: SCNVector3(x:2, y:0, z:0), to: robot)
-        return SCNAction.move(by: movement, duration: TimeInterval(1.5))
+    func getAction() -> ActionComponent? {
+        return MoveActionComponent(movement: simd_double3(2, 0, 0), duration: 1.5)
     }
     
     func getContinuationIndex() -> Int {

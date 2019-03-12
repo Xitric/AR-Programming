@@ -90,6 +90,10 @@ class EntityManager {
         for system in systems.values {
             system.update(deltaTime: delta)
         }
+        
+        for entity in entities {
+            entity.update(deltaTime: delta)
+        }
     }
     
     func getEntities(fromComponent componentTypes: GKComponent.Type...) -> [Entity] {

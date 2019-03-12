@@ -108,10 +108,7 @@ class LevelViewController: UIViewController {
     @IBAction func executeSequence(_ sender: UIButton) {
         if let levelViewModel = levelViewModel {
             let player = levelViewModel.player
-            //TODO: Ability to run on simply an entity
-            if let node = player.component(ofType: SCNNodeComponent.self)?.node {
-                editor.program.run(on: node)
-            }
+            editor.program.run(on: player)
         }
     }
     
