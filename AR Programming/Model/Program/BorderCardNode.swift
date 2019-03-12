@@ -70,7 +70,7 @@ class BorderCardNode: CardNode {
     
     func next() -> CardNode? {
         if !(parent?.getCard() is LoopCard) {
-            if let loopCard = loopCardNode{
+            if let loopCard = loopCardNode {
                 if loopCard.repeats != nil {
                     if loopCard.repeats != 1 {
                         loopCard.repeats = loopCard.repeats! - 1

@@ -25,7 +25,7 @@ class LoopCardNode: CardNode {
         self.card = card
         self.successorAngle = angle
         self.position = position
-        self.parameterCardAngles = [Double.pi/2, 3*Double.pi/2]
+        self.parameterCardAngles = [Double.pi/2, -Double.pi/2]
     }
     
     convenience init(card: StatementCard) {
