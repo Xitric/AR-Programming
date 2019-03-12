@@ -60,7 +60,7 @@ class BorderCardNode: CardNode {
                 p = p?.parent
             }
         }
-        // We will reach the start card if there is no loop card
+        // We will reach a card with no parent
         return nil
     }
     
