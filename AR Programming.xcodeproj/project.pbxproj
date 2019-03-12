@@ -17,6 +17,8 @@
 		203B0F1322310E62000685D3 /* BorderCardNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203B0F1222310E62000685D3 /* BorderCardNode.swift */; };
 		204AEC12220DC9F500E0F624 /* HiddenTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204AEC11220DC9F500E0F624 /* HiddenTabBarViewController.swift */; };
 		204AEC14220DCA1E00E0F624 /* ARContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204AEC13220DCA1E00E0F624 /* ARContainerViewController.swift */; };
+		20FA267C22369CAC00AF1083 /* LoopCardNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FA267B22369CAC00AF1083 /* LoopCardNodeTests.swift */; };
+		20FA267E2236A10C00AF1083 /* BorderCardNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FA267D2236A10C00AF1083 /* BorderCardNodeTests.swift */; };
 		5621C83A221AE5F800756628 /* SCNVector3+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5621C839221AE5F800756628 /* SCNVector3+Helpers.swift */; };
 		5621C83C221AE67A00756628 /* simd_float4x4+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5621C83B221AE67A00756628 /* simd_float4x4+Helpers.swift */; };
 		5627ECAF220EEFA800DCC32E /* CardGraphDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5627ECAE220EEFA800DCC32E /* CardGraphDetector.swift */; };
@@ -107,6 +109,8 @@
 		203B0F1222310E62000685D3 /* BorderCardNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderCardNode.swift; sourceTree = "<group>"; };
 		204AEC11220DC9F500E0F624 /* HiddenTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HiddenTabBarViewController.swift; sourceTree = "<group>"; };
 		204AEC13220DCA1E00E0F624 /* ARContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARContainerViewController.swift; sourceTree = "<group>"; };
+		20FA267B22369CAC00AF1083 /* LoopCardNodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopCardNodeTests.swift; sourceTree = "<group>"; };
+		20FA267D2236A10C00AF1083 /* BorderCardNodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderCardNodeTests.swift; sourceTree = "<group>"; };
 		2CBF6D6B964CB7805473D1E8 /* Pods-AR Programming.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AR Programming.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AR Programming/Pods-AR Programming.debug.xcconfig"; sourceTree = "<group>"; };
 		3F68042C35BD5B2A4D85C7F9 /* Pods-AR Programming.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AR Programming.release.xcconfig"; path = "Pods/Target Support Files/Pods-AR Programming/Pods-AR Programming.release.xcconfig"; sourceTree = "<group>"; };
 		5621C839221AE5F800756628 /* SCNVector3+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNVector3+Helpers.swift"; sourceTree = "<group>"; };
@@ -247,10 +251,10 @@
 				562CCA4F220D74AD00BF6A8D /* LeftCard.swift */,
 				562CCA50220D74AD00BF6A8D /* MoveCard.swift */,
 				562CCA51220D74AD00BF6A8D /* JumpCard.swift */,
-				562CCA52220D74AD00BF6A8D /* StatementCard.swift */,
 				203B0F0A223108C3000685D3 /* LoopCard.swift */,
 				203B0F0C223108FE000685D3 /* BorderCard.swift */,
 				203B0F0E223109AC000685D3 /* ParameterCard.swift */,
+				562CCA52220D74AD00BF6A8D /* StatementCard.swift */,
 			);
 			path = Cards;
 			sourceTree = "<group>";
@@ -308,6 +312,8 @@
 				562CCA99220D92B700BF6A8D /* CardNodeFactoryTests.swift */,
 				562ECC972210707D008C580E /* ProgramEditorTests.swift */,
 				562CCA9B220D92BC00BF6A8D /* SuccessorCardNodeTests.swift */,
+				20FA267B22369CAC00AF1083 /* LoopCardNodeTests.swift */,
+				20FA267D2236A10C00AF1083 /* BorderCardNodeTests.swift */,
 			);
 			path = Program;
 			sourceTree = "<group>";
@@ -702,9 +708,11 @@
 			files = (
 				562CCAAC220D933E00BF6A8D /* Double+HelpersTests.swift in Sources */,
 				562CCA9C220D92BC00BF6A8D /* CardNodeFactoryTests.swift in Sources */,
+				20FA267E2236A10C00AF1083 /* BorderCardNodeTests.swift in Sources */,
 				562CCA9E220D92BC00BF6A8D /* SuccessorCardNodeTests.swift in Sources */,
 				562CCA9D220D92BC00BF6A8D /* CardTests.swift in Sources */,
 				562CCAA4220D92CF00BF6A8D /* ObservationGraphTests.swift in Sources */,
+				20FA267C22369CAC00AF1083 /* LoopCardNodeTests.swift in Sources */,
 				562CCAA3220D92CF00BF6A8D /* ObservationSetTests.swift in Sources */,
 				562CCAA5220D92CF00BF6A8D /* ObservationEdgeTests.swift in Sources */,
 				562ECC982210707D008C580E /* ProgramEditorTests.swift in Sources */,
