@@ -27,6 +27,12 @@ class EntityManager {
         player.addComponent(TransformComponent())
         player.addComponent(ResourceComponent(resourceIdentifier: "Bot"))
         addEntity(player)
+        
+        //TODO: Quickfix, alternative solution is too time consuming for now
+        //The proper fix involves making Entity aware of when it is being updated, and cache all changes to its components during this period. Then after updating, the cached changes can be applied. The public getter for components on an Entity should be overridden to apply these cached changes during an update cycle to anyone outside the Entity class itself. Inside, however, the Entity class will not change its list of components during an update.
+        addSystem(GKComponentSystem.init(componentClass: MovementActionComponent.self))
+        addSystem(GKComponentSystem.init(componentClass: RotationActionComponent.self))
+        addSystem(GKComponentSystem.init(componentClass: CompoundActionComponent.self))
     }
     
     func addEntity(_ entity: Entity) {
