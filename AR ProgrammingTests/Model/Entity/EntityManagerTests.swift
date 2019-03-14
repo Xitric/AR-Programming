@@ -53,7 +53,7 @@ class EntityManagerTests: XCTestCase {
         wait(for: [component2.updateExpectation], timeout: 1)
     }
     
-    func testAddEntityWithComponentWithEM() {
+    func testAddEntity_WithComponentWithEntityManager() {
         //Arrange
         let component = Component()
         let entity = Entity()
@@ -116,7 +116,7 @@ class EntityManagerTests: XCTestCase {
     }
     
     
-    func testRemoveEntityWithComponentWithEM() {
+    func testRemoveEntity_WithComponentWithEntityManager() {
         //Arrange
         let component = Component()
         let entity = Entity()
@@ -160,13 +160,14 @@ class EntityManagerTests: XCTestCase {
         entityManager.addEntity(entity1)
         entityManager.addEntity(entity2)
         
+        let system = GKComponentSystem.init(componentClass: ComponentMock.self)
+        
         //Act
-        entityManager.addSystem(GKComponentSystem.init(componentClass: ComponentMock.self))
+        entityManager.addSystem(system)
         
         //Assert
-        entityManager.update(delta: 1)
-        wait(for: [component1.updateExpectation], timeout: 1)
-        wait(for: [component2.updateExpectation], timeout: 1)
+        XCTAssertTrue(system.components.contains(component1))
+        XCTAssertTrue(system.components.contains(component2))
     }
     
     //MARK: removeSystem
@@ -239,13 +240,13 @@ class EntityManagerTests: XCTestCase {
         entityManager.addEntity(entity6)
         
         //Act
-        entitiesWithComponentType1 = entityManager.getEntities(fromComponent: ComponentType1.self)
-        entitiesWithComponentType2 = entityManager.getEntities(fromComponent: ComponentType2.self)
-        entitiesWithComponentType3 = entityManager.getEntities(fromComponent: ComponentType3.self)
-        entitiesWithComponentType4 = entityManager.getEntities(fromComponent: ComponentType4.self)
-        entitiesWithComponentType1And2 = entityManager.getEntities(fromComponent: ComponentType2.self)
-        entitiesWithComponentType1And2And3 = entityManager.getEntities(fromComponent: ComponentType1.self, ComponentType2.self, ComponentType3.self)
-        entitiesWithComponentType3And4 = entityManager.getEntities(fromComponent: ComponentType3.self, ComponentType4.self)
+        entitiesWithComponentType1 = entityManager.getEntities(withComponents: ComponentType1.self)
+        entitiesWithComponentType2 = entityManager.getEntities(withComponents: ComponentType2.self)
+        entitiesWithComponentType3 = entityManager.getEntities(withComponents: ComponentType3.self)
+        entitiesWithComponentType4 = entityManager.getEntities(withComponents: ComponentType4.self)
+        entitiesWithComponentType1And2 = entityManager.getEntities(withComponents: ComponentType2.self)
+        entitiesWithComponentType1And2And3 = entityManager.getEntities(withComponents: ComponentType1.self, ComponentType2.self, ComponentType3.self)
+        entitiesWithComponentType3And4 = entityManager.getEntities(withComponents: ComponentType3.self, ComponentType4.self)
         
         //Assert
         XCTAssertTrue(entitiesWithComponentType1.count == 5)
@@ -259,7 +260,7 @@ class EntityManagerTests: XCTestCase {
     }
     
     //MARK: addedComponent
-    func testAddedComponentWithEM() {
+    func testAddedComponentWithEntityManager() {
         //Arrange
         let entity = Entity()
         let component = Component()
@@ -273,7 +274,7 @@ class EntityManagerTests: XCTestCase {
     }
     
     //MARK: removedComponent
-    func testRemovedComponentWithEM() {
+    func testRemovedComponentWithEntityManager() {
         //Arrange
         let entity = Entity()
         let component = Component()

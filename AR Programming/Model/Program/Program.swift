@@ -30,11 +30,9 @@ class Program {
         }
         
         if let action = node.getCard().getAction(forEntity: entity) {
-            action.onComplete = {
-                DispatchQueue.main.async { [weak self] in
-                    self?.delegate?.program(self!, executed: node.getCard())
-                    self?.run(node.next(), on: entity)
-                }
+            action.onComplete = { [weak self] in
+                self?.delegate?.program(self!, executed: node.getCard())
+                self?.run(node.next(), on: entity)
             }
             entity.addComponent(action)
         } else {

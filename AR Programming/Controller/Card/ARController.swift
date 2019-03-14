@@ -71,7 +71,7 @@ extension ARController: ARSCNViewDelegate {
                 sceneView.scene.rootNode.addChildNode(currentPlane!.root)
                 
                 if let frame = sceneView.session.currentFrame {
-                    updatePlanePosiiton(in: frame)
+                    updatePlanePosition(in: frame)
                 }
                 
                 planeDetectorDelegate?.planeDetector(self, found: currentPlane!)
@@ -103,11 +103,11 @@ extension ARController: ARSessionDelegate {
         frameDelegate?.frameScanner(self, didUpdate: image, withOrientation: orientation)
         
         if planeDetectorDelegate?.shouldDetectPlanes(self) ?? false {
-            updatePlanePosiiton(in: frame)
+            updatePlanePosition(in: frame)
         }
     }
     
-    private func updatePlanePosiiton(in frame: ARFrame) {
+    private func updatePlanePosition(in frame: ARFrame) {
         if let hit = frame.hitTest(CGPoint(x: 0.5, y: 0.5), types: [.existingPlane]).first {
             currentPlane?.root.position = SCNVector3(hit.worldTransform.translation)
         }

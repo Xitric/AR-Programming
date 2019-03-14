@@ -10,9 +10,9 @@ import Foundation
 
 class RotationActionComponent: ActionComponent {
     
-    private let startRotation: simd_quatd
-    private let goalRotation: simd_quatd
-    private let duration: TimeInterval
+    let startRotation: simd_quatd
+    let goalRotation: simd_quatd
+    let duration: TimeInterval
     private var elapsedTime = TimeInterval(0)
     
     init(from start: simd_quatd, by rotation: simd_quatd, duration: TimeInterval) {

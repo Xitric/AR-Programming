@@ -42,7 +42,11 @@ class Level: Decodable, UpdateDelegate {
     }
     
     func reset() {
-        
+        if let playerTransform = entityManager.player.component(subclassOf: TransformComponent.self) {
+            playerTransform.location = simd_double3(0, 0, 0)
+            playerTransform.rotation = simd_quatd(ix: 0, iy: 0, iz: 0, r: 1)
+            playerTransform.scale = simd_double3(1, 1, 1)
+        }
     }
     
     //MARK: - Decodable
@@ -63,4 +67,9 @@ class Level: Decodable, UpdateDelegate {
         case number
         case unlocks
     }
+}
+
+protocol LevelDelegate: class {
+    func levelCompleted(_ level: Level)
+    func levelReset(_ level: Level)
 }

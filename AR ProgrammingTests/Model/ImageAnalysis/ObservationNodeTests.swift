@@ -12,6 +12,7 @@ import simd
 
 class ObservationNodeTests: XCTestCase {
 
+    //MARK: diagonal
     func testDiagonal() {
         var d = ObservationNode(payload: "0", position: simd_double2(x: 0, y: 0), width: 3, height: 4).diagonal
         XCTAssertEqual(d, 5, accuracy: 0.00001)

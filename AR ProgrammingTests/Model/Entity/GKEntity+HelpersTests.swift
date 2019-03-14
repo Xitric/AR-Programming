@@ -23,7 +23,7 @@ class GKEntity_HelpersTests: XCTestCase {
     }
     
     private func assertComponent(_ component: GKComponent, isAmongTypes types: GKComponent.Type...) {
-        XCTAssertTrue(types.contains() {
+        XCTAssertTrue(types.contains {
             type(of: component) === $0
         })
     }

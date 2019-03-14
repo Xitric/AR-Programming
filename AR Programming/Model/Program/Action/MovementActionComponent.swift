@@ -10,9 +10,9 @@ import Foundation
 
 class MovementActionComponent: ActionComponent {
     
-    private let goalMovement: simd_double3
+    let goalMovement: simd_double3
     private var elapsedMovement = simd_double3(0, 0, 0)
-    private let duration: TimeInterval
+    let duration: TimeInterval
     
     init(movement: simd_double3, duration: TimeInterval) {
         self.goalMovement = movement

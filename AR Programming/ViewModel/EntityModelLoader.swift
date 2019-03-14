@@ -17,7 +17,7 @@ class EntityModelLoader: EntityManagerDelegate {
         
         entityManager.delegate = self
         
-        for entity in entityManager.getEntities(fromComponent: ResourceComponent.self) {
+        for entity in entityManager.getEntities(withComponents: ResourceComponent.self) {
             tryLoadModel(forEntity: entity)
         }
     }
