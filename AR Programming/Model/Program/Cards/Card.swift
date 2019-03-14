@@ -14,5 +14,5 @@ protocol Card {
     var summary: String { get }
     var description: String { get }
     
-    func getAction() -> ActionComponent?
+    func getAction(forEntity entity: Entity) -> ActionComponent?
 }

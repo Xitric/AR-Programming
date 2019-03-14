@@ -16,7 +16,7 @@ struct RandomBranchCard: StatementCard {
     let summary = "Få programmet til at fortsætte i en tilfældig retning."
     let description = "Brug dette kort til at få programmet til at fortsætte i en tilfældig retning."
     
-    func getAction() -> ActionComponent? {
+    func getAction(forEntity entity: Entity) -> ActionComponent? {
         return nil
     }
     

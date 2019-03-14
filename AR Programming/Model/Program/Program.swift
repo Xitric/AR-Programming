@@ -29,7 +29,7 @@ class Program {
             return
         }
         
-        if let action = node.getCard().getAction() {
+        if let action = node.getCard().getAction(forEntity: entity) {
             action.onComplete = {
                 DispatchQueue.main.async { [weak self] in
                     self?.delegate?.program(self!, executed: node.getCard())

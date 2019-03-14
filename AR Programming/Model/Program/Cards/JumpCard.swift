@@ -16,9 +16,9 @@ struct JumpCard: StatementCard {
     let summary = "Få robotten til at hoppe."
     let description = "Skal du nå noget der hænger oppe i luften? Når robotten ser dette kort, vil den lave et lille hop."
     
-    func getAction() -> ActionComponent? {
-        let jump = MoveActionComponent(movement: simd_double3(0, 2, 0), duration: 0.3)
-        let gravity = MoveActionComponent(movement: simd_double3(0, -2, 0), duration: 0.3)
+    func getAction(forEntity entity: Entity) -> ActionComponent? {
+        let jump = MovementActionComponent(movement: simd_double3(0, 2, 0), duration: 0.3)
+        let gravity = MovementActionComponent(movement: simd_double3(0, -2, 0), duration: 0.3)
         return CompoundActionComponent(jump, gravity)
     }
     
