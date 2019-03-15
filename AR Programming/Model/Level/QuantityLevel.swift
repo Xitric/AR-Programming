@@ -28,7 +28,7 @@ class QuantityLevel: Level {
         let collectible = Entity()
         
         let transform = TransformComponent()
-        transform.location = simd_double3(x: Double(json.x) * 0.05, y: 0, z: Double(json.y) * 0.05)
+        transform.location = simd_double3(x: Double(json.x), y: 0, z: Double(json.y))
         collectible.addComponent(transform)
         
         let quantity = QuantityComponent(quantity: json.quantity)
