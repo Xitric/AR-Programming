@@ -21,7 +21,7 @@ class Level: Decodable, UpdateDelegate {
     
     weak var delegate: LevelDelegate?
     
-    func update(currentTime: TimeInterval) {
+    final func update(currentTime: TimeInterval) {
         let delta = currentTime - lastUpdate
         lastUpdate = currentTime
         
@@ -47,6 +47,8 @@ class Level: Decodable, UpdateDelegate {
             playerTransform.rotation = simd_quatd(ix: 0, iy: 0, iz: 0, r: 1)
             playerTransform.scale = simd_double3(1, 1, 1)
         }
+        
+        delegate?.levelReset(self)
     }
     
     //MARK: - Decodable

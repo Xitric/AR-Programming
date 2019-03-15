@@ -228,7 +228,6 @@ extension LevelViewController: LevelDelegate {
     }
     
     func levelReset(_ level: Level) {
-        //TODO: What needs to go here?
         //TODO: Probably some refreshing of labels
         
         DispatchQueue.main.async { [unowned self] in

@@ -26,9 +26,11 @@ class LevelSelectViewController: UIViewController {
         super.viewWillAppear(animated)
         
         //TODO: Error dialog?
+        levels.removeAll()
         if let allLevels = try? LevelManager.loadAllLevels() {
             levels.append(contentsOf: allLevels)
         }
+        collectionView.reloadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

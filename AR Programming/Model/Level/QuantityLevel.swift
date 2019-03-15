@@ -77,6 +77,10 @@ class QuantityLevel: Level {
             if let collectibleCollision = collectible.component(ofType: CollisionComponent.self) {
                 if playerCollision.collidesWith(other: collectibleCollision) {
                     collect(collectible)
+                    
+                    if isComplete() {
+                        delegate?.levelCompleted(self)
+                    }
                 }
             }
         }
@@ -99,7 +103,6 @@ class QuantityLevel: Level {
     }
     
     override func reset() {
-        super.reset()
         currentlyCollected = 0
         
         for oldEntity in collectibles {
@@ -109,6 +112,8 @@ class QuantityLevel: Level {
         for newEntity in collectibleForReset {
             entityManager.addEntity(newEntity)
         }
+        
+        super.reset()
     }
 }
 
