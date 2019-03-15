@@ -33,7 +33,7 @@ class CardNodeFactoryTests: XCTestCase {
         node3 = ObservationNode(payload: "2", position: simd_double2(2, 0), width: 0.8, height: 0.8)
         node4 = ObservationNode(payload: "4", position: simd_double2(2, -1), width: 0.8, height: 0.8)
         node5 = ObservationNode(payload: "0", position: simd_double2(0, 0), width: 0.8, height: 0.8)
-        node6 = ObservationNode(payload: "9", position: simd_double2(1, 1), width: 0.8, height: 0.8)
+        node6 = ObservationNode(payload: "100", position: simd_double2(1, 1), width: 0.8, height: 0.8)
         node7 = ObservationNode(payload: "3", position: simd_double2(4, 0), width: 0.8, height: 0.8)
         
         var observationSet = ObservationSet()
@@ -100,34 +100,37 @@ class CardNodeFactoryTests: XCTestCase {
     //MARK: cardNodeFor
     func testCardNodeForObservation_Single() {
         //Act
-        let result = try? CardNodeFactory.instance.cardNode(for: node7, in: graph)
+        let result = try? CardNodeFactory.instance.cardNode(for: node7, withParent: nil, in: graph)
         
         //Assert
         XCTAssertNotNil(result)
         assert(cardNode: result!, matchesObservation: node7)
         XCTAssertEqual(result!.successors.count, 1)
         XCTAssertNil(result!.successors[0])
+        XCTAssertNil(result!.parent)
     }
     
     func testCardNodeForObservation_Sequence() {
         //Act
-        var result: CardNode? = try! CardNodeFactory.instance.cardNode(for: node5, in: graph)
+        let result: CardNode? = try! CardNodeFactory.instance.cardNode(for: node5, withParent: nil, in: graph)
         
         //Assert
         XCTAssertNotNil(result)
         assert(cardNode: result!, matchesObservation: node5)
         XCTAssertEqual(result!.successors.count, 1)
+        XCTAssertNil(result?.parent)
         
-        result = result!.successors[0]
-        XCTAssertNotNil(result)
-        assert(cardNode: result!, matchesObservation: node1)
-        XCTAssertEqual(result!.successors.count, 2)
+        let successorResult: CardNode? = result!.successors[0]
+        XCTAssertNotNil(successorResult)
+        assert(cardNode: successorResult!, matchesObservation: node1)
+        XCTAssertEqual(successorResult!.successors.count, 2)
+        XCTAssertTrue(successorResult!.parent! === result!)
     }
     
     func testCardNodeForObservation_UnknownCode() {
         //Act & Assert
-        XCTAssertThrowsError(try CardNodeFactory.instance.cardNode(for: node6, in: graph)) { error in
-            XCTAssertEqual(error as! CardSequenceError, CardSequenceError.unknownCode(code: "9"))
+        XCTAssertThrowsError(try CardNodeFactory.instance.cardNode(for: node6, withParent: nil, in: graph)) { error in
+            XCTAssertEqual(error as! CardSequenceError, CardSequenceError.unknownCode(code: "100"))
         }
     }
     
