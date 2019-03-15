@@ -10,7 +10,7 @@ import UIKit
 
 class HiddenTabBarViewController: UITabBarController {
     
-    private var level: Level?
+    private var levelViewModel: LevelViewModel?
     private var arController: ARController?
     
     override func viewWillAppear(_ animated: Bool) {
@@ -22,26 +22,26 @@ class HiddenTabBarViewController: UITabBarController {
     
     func goToViewControllerWith(index: Int) {
         if let gameplayController = selectedViewController as? GameplayController {
-            gameplayController.exit(withLevel: level, inEnvironment: arController)
+            gameplayController.exit(withLevel: levelViewModel, inEnvironment: arController)
         }
         
         self.selectedIndex = index
         
         if let gameplayController = selectedViewController as? GameplayController {
-            gameplayController.enter(withLevel: level, inEnvironment: arController)
+            gameplayController.enter(withLevel: levelViewModel, inEnvironment: arController)
         }
     }
 }
 
 // MARK: - GamePlayController
 extension HiddenTabBarViewController: GameplayController {
-    func enter(withLevel level: Level?, inEnvironment arController: ARController?) {
-        self.level = level
+    func enter(withLevel levelViewModel: LevelViewModel?, inEnvironment arController: ARController?) {
+        self.levelViewModel = levelViewModel
         self.arController = arController
     }
     
-    func exit(withLevel level: Level?, inEnvironment arController: ARController?) {
-        self.level = nil
+    func exit(withLevel levelViewModel: LevelViewModel?, inEnvironment arController: ARController?) {
+        self.levelViewModel = nil
         self.arController = nil
     }
 }

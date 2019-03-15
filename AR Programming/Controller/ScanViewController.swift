@@ -33,11 +33,11 @@ class ScanViewController : UIViewController {
 
 // MARK: - GameplayController
 extension ScanViewController: GameplayController {
-    func enter(withLevel level: Level?, inEnvironment arController: ARController?) {
+    func enter(withLevel levelViewModel: LevelViewModel?, inEnvironment arController: ARController?) {
         arController?.frameDelegate = self
     }
     
-    func exit(withLevel level: Level?, inEnvironment arController: ARController?) {
+    func exit(withLevel levelViewModel: LevelViewModel?, inEnvironment arController: ARController?) {
         arController?.frameDelegate = nil
     }
 }

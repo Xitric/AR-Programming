@@ -138,13 +138,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="U06-1X-lGY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Opgavemenu" id="B2b-lB-Lab">
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="oTt-ZO-x61">
-                            <connections>
-                                <action selector="recreateLevels:" destination="WzJ-Qi-3T2" id="HbF-h7-sDC"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Level Select" id="B2b-lB-Lab"/>
                     <connections>
                         <outlet property="collectionView" destination="3LD-7s-TaH" id="738-ft-7T4"/>
                         <outlet property="levelSelectCollectionView" destination="3LD-7s-TaH" id="5iX-Mm-s3L"/>

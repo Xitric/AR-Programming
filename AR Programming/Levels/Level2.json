@@ -1,0 +1,19 @@
+{
+    "number":2,
+    "type":"quantity",
+    "name":"Level 2",
+    "unlocks":"Level3",
+    "goalQuantity":3,
+    "collectibles":[
+        {
+            "x":0,
+            "y":0,
+            "quantity":1
+        },
+        {
+            "x":2,
+            "y":0,
+            "quantity":2
+        }
+    ]
+}

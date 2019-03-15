@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 
-protocol FrameDelegate: AnyObject {
-    
+protocol FrameDelegate: class {
     func frameScanner(_ scanner: ARController, didUpdate frame: CVPixelBuffer, withOrientation orientation: CGImagePropertyOrientation)
 }
