@@ -17,6 +17,7 @@ class SuccessorCardNode: CardNode {
     
     var successors = [CardNode?]()
     var position: simd_double2
+    weak var parent: CardNode?
     
     init(card: StatementCard, angles: [Double], position: simd_double2) {
         self.card = card
@@ -28,18 +29,17 @@ class SuccessorCardNode: CardNode {
         self.init(card: card, angles: angles, position: simd_double2(0, 0))
     }
     
-    func create(from node: ObservationNode, in graph: ObservationGraph) throws -> CardNode {
+    func create(from node: ObservationNode, withParent parent: CardNode?, in graph: ObservationGraph) throws -> CardNode {
         let clone = SuccessorCardNode(card: card, angles: successorAngles, position: node.position)
-        
+        clone.parent = parent
         for angle in successorAngles {
             if let successor = graph.getSuccessor(by: angle, to: node) {
                 graph.connect(from: node, to: successor, withAngle: angle)
-                clone.successors.append(try CardNodeFactory.instance.cardNode(for: successor, in: graph))
+                clone.successors.append(try CardNodeFactory.instance.cardNode(for: successor, withParent: clone, in: graph))
             } else {
                 clone.successors.append(nil)
             }
         }
-        
         return clone
     }
     
