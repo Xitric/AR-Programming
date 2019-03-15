@@ -9,8 +9,17 @@
 /* Begin PBXBuildFile section */
 		04AEDFB63981EDEF7B9C4BEA /* Pods_AR_ProgrammingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81B3ED8214579B6F33DA8F08 /* Pods_AR_ProgrammingTests.framework */; };
 		202219A5223BA13E00A2A8EA /* EmptyLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202219A4223BA13E00A2A8EA /* EmptyLevel.swift */; };
+		09B25CABE22E83D264A35769 /* Pods_AR_ProgrammingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90A55B0621A834FD00FD7CDD /* Pods_AR_ProgrammingTests.framework */; };
+		202D015B22327965004B6046 /* ParameterCardNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202D015A22327965004B6046 /* ParameterCardNode.swift */; };
+		203B0F0B223108C3000685D3 /* LoopCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203B0F0A223108C3000685D3 /* LoopCard.swift */; };
+		203B0F0D223108FE000685D3 /* BorderCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203B0F0C223108FE000685D3 /* BorderCard.swift */; };
+		203B0F0F223109AC000685D3 /* ParameterCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203B0F0E223109AC000685D3 /* ParameterCard.swift */; };
+		203B0F1122310E59000685D3 /* LoopCardNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203B0F1022310E59000685D3 /* LoopCardNode.swift */; };
+		203B0F1322310E62000685D3 /* BorderCardNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203B0F1222310E62000685D3 /* BorderCardNode.swift */; };
 		204AEC12220DC9F500E0F624 /* HiddenTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204AEC11220DC9F500E0F624 /* HiddenTabBarViewController.swift */; };
 		204AEC14220DCA1E00E0F624 /* ARContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204AEC13220DCA1E00E0F624 /* ARContainerViewController.swift */; };
+		20FA267C22369CAC00AF1083 /* LoopCardNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FA267B22369CAC00AF1083 /* LoopCardNodeTests.swift */; };
+		20FA267E2236A10C00AF1083 /* BorderCardNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FA267D2236A10C00AF1083 /* BorderCardNodeTests.swift */; };
 		204BC648222D6DD000D34B07 /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204BC647222D6DD000D34B07 /* Component.swift */; };
 		5621C83A221AE5F800756628 /* SCNVector3+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5621C839221AE5F800756628 /* SCNVector3+Helpers.swift */; };
 		5621C83C221AE67A00756628 /* simd_float4x4+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5621C83B221AE67A00756628 /* simd_float4x4+Helpers.swift */; };
@@ -116,8 +125,16 @@
 
 /* Begin PBXFileReference section */
 		202219A4223BA13E00A2A8EA /* EmptyLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyLevel.swift; sourceTree = "<group>"; };
+		202D015A22327965004B6046 /* ParameterCardNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterCardNode.swift; sourceTree = "<group>"; };
+		203B0F0A223108C3000685D3 /* LoopCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopCard.swift; sourceTree = "<group>"; };
+		203B0F0C223108FE000685D3 /* BorderCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderCard.swift; sourceTree = "<group>"; };
+		203B0F0E223109AC000685D3 /* ParameterCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterCard.swift; sourceTree = "<group>"; };
+		203B0F1022310E59000685D3 /* LoopCardNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopCardNode.swift; sourceTree = "<group>"; };
+		203B0F1222310E62000685D3 /* BorderCardNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderCardNode.swift; sourceTree = "<group>"; };
 		204AEC11220DC9F500E0F624 /* HiddenTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HiddenTabBarViewController.swift; sourceTree = "<group>"; };
 		204AEC13220DCA1E00E0F624 /* ARContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARContainerViewController.swift; sourceTree = "<group>"; };
+		20FA267B22369CAC00AF1083 /* LoopCardNodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopCardNodeTests.swift; sourceTree = "<group>"; };
+		20FA267D2236A10C00AF1083 /* BorderCardNodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderCardNodeTests.swift; sourceTree = "<group>"; };
 		204BC647222D6DD000D34B07 /* Component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
 		2CBF6D6B964CB7805473D1E8 /* Pods-AR Programming.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AR Programming.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AR Programming/Pods-AR Programming.debug.xcconfig"; sourceTree = "<group>"; };
 		3F68042C35BD5B2A4D85C7F9 /* Pods-AR Programming.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AR Programming.release.xcconfig"; path = "Pods/Target Support Files/Pods-AR Programming/Pods-AR Programming.release.xcconfig"; sourceTree = "<group>"; };
@@ -273,6 +290,9 @@
 				562CCA56220D74AD00BF6A8D /* Program.swift */,
 				562CCA57220D74AD00BF6A8D /* CardNode.swift */,
 				562CCA59220D74AD00BF6A8D /* ProgramEditor.swift */,
+				202D015A22327965004B6046 /* ParameterCardNode.swift */,
+				203B0F1022310E59000685D3 /* LoopCardNode.swift */,
+				203B0F1222310E62000685D3 /* BorderCardNode.swift */,
 				562CCA5A220D74AD00BF6A8D /* SuccessorCardNode.swift */,
 			);
 			path = Program;
@@ -288,6 +308,9 @@
 				562CCA4F220D74AD00BF6A8D /* LeftCard.swift */,
 				562CCA50220D74AD00BF6A8D /* MoveCard.swift */,
 				562CCA51220D74AD00BF6A8D /* JumpCard.swift */,
+				203B0F0A223108C3000685D3 /* LoopCard.swift */,
+				203B0F0C223108FE000685D3 /* BorderCard.swift */,
+				203B0F0E223109AC000685D3 /* ParameterCard.swift */,
 				562CCA52220D74AD00BF6A8D /* StatementCard.swift */,
 			);
 			path = Cards;
@@ -350,6 +373,8 @@
 				562CCA99220D92B700BF6A8D /* CardNodeFactoryTests.swift */,
 				562CABA4223A630C007120D5 /* ProgramTests.swift */,
 				562CCA9B220D92BC00BF6A8D /* SuccessorCardNodeTests.swift */,
+				20FA267B22369CAC00AF1083 /* LoopCardNodeTests.swift */,
+				20FA267D2236A10C00AF1083 /* BorderCardNodeTests.swift */,
 			);
 			path = Program;
 			sourceTree = "<group>";
@@ -726,6 +751,7 @@
 				562CAB8D223A3EE2007120D5 /* RotationActionComponent.swift in Sources */,
 				56E167C32222CC3800D40FD0 /* EntityManager.swift in Sources */,
 				5627ECAF220EEFA800DCC32E /* CardGraphDetector.swift in Sources */,
+				203B0F1122310E59000685D3 /* LoopCardNode.swift in Sources */,
 				56319DE82237D3C600469D5E /* ResourceComponent.swift in Sources */,
 				562CCA6F220D74AF00BF6A8D /* Program.swift in Sources */,
 				562CCA7A220D74AF00BF6A8D /* ObservationNode.swift in Sources */,
@@ -741,6 +767,7 @@
 				562CCA77220D74AF00BF6A8D /* ObservationSet.swift in Sources */,
 				901584CC2199C32100450E0B /* ARController.swift in Sources */,
 				562CCA66220D74AF00BF6A8D /* StartCard.swift in Sources */,
+				203B0F1322310E62000685D3 /* BorderCardNode.swift in Sources */,
 				905A3C842179BE54005E3AA5 /* FrameDelegate.swift in Sources */,
 				901584CA2199BE0200450E0B /* ScanViewController.swift in Sources */,
 				562CCA78220D74AF00BF6A8D /* ObservationGraph.swift in Sources */,
@@ -762,6 +789,7 @@
 				56431D2922328C7700BFAC36 /* QuantityComponent.swift in Sources */,
 				C725B2C321A85A7B00DD147A /* Model.xcdatamodeld in Sources */,
 				562CCA68220D74AF00BF6A8D /* LeftCard.swift in Sources */,
+				203B0F0B223108C3000685D3 /* LoopCard.swift in Sources */,
 				562CCA79220D74AF00BF6A8D /* BarcodeDetector.swift in Sources */,
 				C74785E9219427A3000148BC /* CardCollectionViewCell.swift in Sources */,
 				C76A214821AC1405008A07D9 /* LevelEntity+CoreDataProperties.swift in Sources */,
@@ -772,6 +800,7 @@
 				56E167BA2222BDA600D40FD0 /* GKEntity+Helpers.swift in Sources */,
 				562CCA7F220D750100BF6A8D /* CGImagePropertyOrientation+Helpers.swift in Sources */,
 				562CCA6A220D74AF00BF6A8D /* JumpCard.swift in Sources */,
+				202D015B22327965004B6046 /* ParameterCardNode.swift in Sources */,
 				562CCA70220D74AF00BF6A8D /* CardNode.swift in Sources */,
 				56A62B1C223115B9009D0E83 /* QuantityLevel.swift in Sources */,
 				562CCA7E220D750100BF6A8D /* Double+Helpers.swift in Sources */,
@@ -781,12 +810,15 @@
 				5627ECB1220EF57700DCC32E /* CardNodeDetector.swift in Sources */,
 				C74785EB219427F8000148BC /* CardLibraryViewController.swift in Sources */,
 				905A3C94217A09D0005E3AA5 /* LevelCollectionViewCell.swift in Sources */,
+				562CCA63220D74AF00BF6A8D /* RotationCard.swift in Sources */,
+				203B0F0D223108FE000685D3 /* BorderCard.swift in Sources */,
 				562CAB8B223A3C5D007120D5 /* ActionComponent.swift in Sources */,
 				562CCA6E220D74AF00BF6A8D /* CardSequenceError.swift in Sources */,
 				90A55B0921A83B0700FD7CDD /* AudioController.swift in Sources */,
 				56A62B1A22311501009D0E83 /* LevelFactory.swift in Sources */,
 				56431D392232A82700BFAC36 /* UpdateDelegate.swift in Sources */,
 				C7273114217714E900754543 /* Plane.swift in Sources */,
+				203B0F0F223109AC000685D3 /* ParameterCard.swift in Sources */,
 				905A3C882179BE74005E3AA5 /* PlaneDetectorDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -800,10 +832,12 @@
 				568AE77622233AC100A7348C /* EntityManagerTests.swift in Sources */,
 				562CAB9A223A5A3A007120D5 /* MovementActionComponentTests.swift in Sources */,
 				562CCA9C220D92BC00BF6A8D /* CardNodeFactoryTests.swift in Sources */,
+				20FA267E2236A10C00AF1083 /* BorderCardNodeTests.swift in Sources */,
 				562CAB9D223A5CCC007120D5 /* RotationActionComponentTests.swift in Sources */,
 				562CCA9E220D92BC00BF6A8D /* SuccessorCardNodeTests.swift in Sources */,
 				56A55AE42224728500A8CEE3 /* AddRemoveDelegateMock.swift in Sources */,
 				562CCAA4220D92CF00BF6A8D /* ObservationGraphTests.swift in Sources */,
+				20FA267C22369CAC00AF1083 /* LoopCardNodeTests.swift in Sources */,
 				562CABA1223A5E6C007120D5 /* XCTestCase+Helpers.swift in Sources */,
 				562CAB96223A56D8007120D5 /* ActionComponentTests.swift in Sources */,
 				562CCAA3220D92CF00BF6A8D /* ObservationSetTests.swift in Sources */,

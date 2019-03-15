@@ -52,13 +52,17 @@ class SuccessorCardNodeTests: XCTestCase {
         let prototype = try! CardNodeFactory.instance.cardNode(withCode: "2")
         
         //Act
-        let result = try? prototype.create(from: node2, in: graph)
+        let result = try? prototype.create(from: node2, withParent: nil, in: graph)
         
         //Assert
         XCTAssertNotNil(result)
+        XCTAssertNil(result?.parent)
         XCTAssertEqual(result!.successors.count, 1)
-        XCTAssertEqual(result!.successors[0]?.getCard().internalName,
+        
+        let successorResult: CardNode? = result!.successors[0]
+        XCTAssertEqual(successorResult?.getCard().internalName,
                        try! CardNodeFactory.instance.cardNode(withCode: "3").getCard().internalName)
+        XCTAssertTrue(successorResult!.parent === result)
         XCTAssertNotNil(graph.edge(from: node2, to: node3))
     }
     
@@ -67,15 +71,21 @@ class SuccessorCardNodeTests: XCTestCase {
         let prototype = try! CardNodeFactory.instance.cardNode(withCode: "5")
         
         //Act
-        let result = try? prototype.create(from: node1, in: graph)
+        let result = try? prototype.create(from: node1, withParent: nil, in: graph)
         
         //Assert
         XCTAssertNotNil(result)
+        XCTAssertNil(result?.parent)
         XCTAssertEqual(result!.successors.count, 2)
-        XCTAssertEqual(result!.successors[0]?.getCard().internalName,
+        
+        let successorResult1: CardNode? = result!.successors[0]
+        let successorResult2: CardNode? = result!.successors[1]
+        XCTAssertEqual(successorResult1?.getCard().internalName,
                        try! CardNodeFactory.instance.cardNode(withCode: "3").getCard().internalName)
-        XCTAssertEqual(result!.successors[1]?.getCard().internalName,
+        XCTAssertEqual(successorResult2?.getCard().internalName,
                        try! CardNodeFactory.instance.cardNode(withCode: "4").getCard().internalName)
+        XCTAssertTrue(successorResult1!.parent === result)
+        XCTAssertTrue(successorResult2!.parent === result)
         XCTAssertNotNil(graph.edge(from: node1, to: node3))
         XCTAssertNotNil(graph.edge(from: node1, to: node4))
     }
@@ -85,10 +95,11 @@ class SuccessorCardNodeTests: XCTestCase {
         let prototype = try! CardNodeFactory.instance.cardNode(withCode: "2")
         
         //Act
-        let result = try? prototype.create(from: node6, in: graph)
+        let result = try? prototype.create(from: node6, withParent: nil, in: graph)
         
         //Assert
         XCTAssertNotNil(result)
+        XCTAssertNil(result?.parent)
         XCTAssertEqual(result!.successors.count, 1)
         XCTAssertNil(result!.successors[0])
     }
@@ -98,14 +109,21 @@ class SuccessorCardNodeTests: XCTestCase {
         let prototype = try! CardNodeFactory.instance.cardNode(withCode: "5")
         
         //Act
-        let result = try? prototype.create(from: node5, in: graph)
+        let result = try? prototype.create(from: node5, withParent: nil, in: graph)
         
         //Assert
         XCTAssertNotNil(result)
+        XCTAssertNil(result?.parent)
         XCTAssertEqual(result!.successors.count, 2)
-        XCTAssertEqual(result!.successors[0]?.getCard().internalName,
+        
+        
+        let successorResult1: CardNode? = result!.successors[0]
+        let successorResult2: CardNode? = result!.successors[1]
+        XCTAssertEqual(successorResult1?.getCard().internalName,
                        try! CardNodeFactory.instance.cardNode(withCode: "4").getCard().internalName)
-        XCTAssertNil(result!.successors[1])
+        XCTAssertNil(successorResult2)
+        XCTAssertTrue(successorResult1?.parent === result)
+        XCTAssertNil(successorResult2?.parent)
         XCTAssertNotNil(graph.edge(from: node5, to: node4))
     }
 }
