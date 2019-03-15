@@ -16,7 +16,7 @@ struct BorderCard: Card {
     let summary = "Dit loop program stopper her."
     let description = "Brug dette kort til at vise slutningen på gentagelsen."
     
-    func getAction(for robot: SCNNode) -> SCNAction? {
+    func getAction(forEntity entity: Entity) -> ActionComponent? {
         return nil
     }
 }

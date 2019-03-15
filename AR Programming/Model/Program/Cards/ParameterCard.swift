@@ -22,7 +22,7 @@ struct ParameterCard: Card {
         self.description = "Brug dette kort til at fortælle hvor mange gange et loop skal gentage sig. Dette tal kortet \(parameter) skal sættes ovenfor eller under et gentagelses kort."
     }
     
-    func getAction(for robot: SCNNode) -> SCNAction? {
+    func getAction(forEntity entity: Entity) -> ActionComponent? {
         return nil
     }
 }
