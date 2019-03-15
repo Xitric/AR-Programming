@@ -13,8 +13,6 @@ class LevelSelectViewController: UIViewController {
     private var levels = [Level]()
     var selectedLevel: Level?
     
-    @IBOutlet weak var freePlayButton: UIButton!
-    
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var levelSelectCollectionView: UICollectionView! {

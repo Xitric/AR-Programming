@@ -21,7 +21,7 @@ class Level: Decodable, UpdateDelegate {
     
     weak var delegate: LevelDelegate?
     
-    init(levelType: String, name: String, levelNumber: Int, unlocked: Bool, unlocks: String, entityManager: EntityManager) {
+    init(levelType: String, name: String, levelNumber: Int, unlocked: Bool, unlocks: String?, entityManager: EntityManager) {
         self.levelType = levelType
         self.name = name
         self.levelNumber = levelNumber
