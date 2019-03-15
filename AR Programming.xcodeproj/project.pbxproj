@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		04AEDFB63981EDEF7B9C4BEA /* Pods_AR_ProgrammingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81B3ED8214579B6F33DA8F08 /* Pods_AR_ProgrammingTests.framework */; };
+		202219A5223BA13E00A2A8EA /* EmptyLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202219A4223BA13E00A2A8EA /* EmptyLevel.swift */; };
 		204AEC12220DC9F500E0F624 /* HiddenTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204AEC11220DC9F500E0F624 /* HiddenTabBarViewController.swift */; };
 		204AEC14220DCA1E00E0F624 /* ARContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204AEC13220DCA1E00E0F624 /* ARContainerViewController.swift */; };
 		204BC648222D6DD000D34B07 /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204BC647222D6DD000D34B07 /* Component.swift */; };
@@ -114,6 +115,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		202219A4223BA13E00A2A8EA /* EmptyLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyLevel.swift; sourceTree = "<group>"; };
 		204AEC11220DC9F500E0F624 /* HiddenTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HiddenTabBarViewController.swift; sourceTree = "<group>"; };
 		204AEC13220DCA1E00E0F624 /* ARContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARContainerViewController.swift; sourceTree = "<group>"; };
 		204BC647222D6DD000D34B07 /* Component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
@@ -430,6 +432,7 @@
 			isa = PBXGroup;
 			children = (
 				56431D3A2232AA9A00BFAC36 /* Level.swift */,
+				202219A4223BA13E00A2A8EA /* EmptyLevel.swift */,
 				900F1359219447AF001C2DC2 /* LevelManager.swift */,
 				56A62B1922311501009D0E83 /* LevelFactory.swift */,
 				56A62B1B223115B9009D0E83 /* QuantityLevel.swift */,
@@ -747,6 +750,7 @@
 				C74785ED219448F1000148BC /* CardDetailViewController.swift in Sources */,
 				562CCA73220D74AF00BF6A8D /* SuccessorCardNode.swift in Sources */,
 				562CCA6C220D74AF00BF6A8D /* CardNodeFactory.swift in Sources */,
+				202219A5223BA13E00A2A8EA /* EmptyLevel.swift in Sources */,
 				204AEC12220DC9F500E0F624 /* HiddenTabBarViewController.swift in Sources */,
 				56A62B0E22310727009D0E83 /* EntityModelLoader.swift in Sources */,
 				56413DFD220E2AC30064332E /* GameplayController.swift in Sources */,
