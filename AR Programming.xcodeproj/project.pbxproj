@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		04AEDFB63981EDEF7B9C4BEA /* Pods_AR_ProgrammingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81B3ED8214579B6F33DA8F08 /* Pods_AR_ProgrammingTests.framework */; };
+		202219A5223BA13E00A2A8EA /* EmptyLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202219A4223BA13E00A2A8EA /* EmptyLevel.swift */; };
 		09B25CABE22E83D264A35769 /* Pods_AR_ProgrammingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90A55B0621A834FD00FD7CDD /* Pods_AR_ProgrammingTests.framework */; };
 		202D015B22327965004B6046 /* ParameterCardNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202D015A22327965004B6046 /* ParameterCardNode.swift */; };
 		203B0F0B223108C3000685D3 /* LoopCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203B0F0A223108C3000685D3 /* LoopCard.swift */; };
@@ -123,6 +124,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		202219A4223BA13E00A2A8EA /* EmptyLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyLevel.swift; sourceTree = "<group>"; };
 		202D015A22327965004B6046 /* ParameterCardNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterCardNode.swift; sourceTree = "<group>"; };
 		203B0F0A223108C3000685D3 /* LoopCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopCard.swift; sourceTree = "<group>"; };
 		203B0F0C223108FE000685D3 /* BorderCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderCard.swift; sourceTree = "<group>"; };
@@ -455,6 +457,7 @@
 			isa = PBXGroup;
 			children = (
 				56431D3A2232AA9A00BFAC36 /* Level.swift */,
+				202219A4223BA13E00A2A8EA /* EmptyLevel.swift */,
 				900F1359219447AF001C2DC2 /* LevelManager.swift */,
 				56A62B1922311501009D0E83 /* LevelFactory.swift */,
 				56A62B1B223115B9009D0E83 /* QuantityLevel.swift */,
@@ -774,6 +777,7 @@
 				C74785ED219448F1000148BC /* CardDetailViewController.swift in Sources */,
 				562CCA73220D74AF00BF6A8D /* SuccessorCardNode.swift in Sources */,
 				562CCA6C220D74AF00BF6A8D /* CardNodeFactory.swift in Sources */,
+				202219A5223BA13E00A2A8EA /* EmptyLevel.swift in Sources */,
 				204AEC12220DC9F500E0F624 /* HiddenTabBarViewController.swift in Sources */,
 				56A62B0E22310727009D0E83 /* EntityModelLoader.swift in Sources */,
 				56413DFD220E2AC30064332E /* GameplayController.swift in Sources */,

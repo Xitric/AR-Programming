@@ -21,6 +21,15 @@ class Level: Decodable, UpdateDelegate {
     
     weak var delegate: LevelDelegate?
     
+    init(levelType: String, name: String, levelNumber: Int, unlocked: Bool, unlocks: String?, entityManager: EntityManager) {
+        self.levelType = levelType
+        self.name = name
+        self.levelNumber = levelNumber
+        self.unlocked = unlocked
+        self.unlocks = unlocks
+        self.entityManager = entityManager
+    }
+    
     func update(currentTime: TimeInterval) {
         let delta = currentTime - lastUpdate
         lastUpdate = currentTime
