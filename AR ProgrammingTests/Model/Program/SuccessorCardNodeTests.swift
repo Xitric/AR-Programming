@@ -52,7 +52,7 @@ class SuccessorCardNodeTests: XCTestCase {
         let prototype = try! CardNodeFactory.instance.cardNode(withCode: "2")
         
         //Act
-        let result = try? prototype.create(from: node2, in: graph, withParent: nil)
+        let result = try? prototype.create(from: node2, withParent: nil, in: graph)
         
         //Assert
         XCTAssertNotNil(result)
@@ -71,7 +71,7 @@ class SuccessorCardNodeTests: XCTestCase {
         let prototype = try! CardNodeFactory.instance.cardNode(withCode: "5")
         
         //Act
-        let result = try? prototype.create(from: node1, in: graph, withParent: nil)
+        let result = try? prototype.create(from: node1, withParent: nil, in: graph)
         
         //Assert
         XCTAssertNotNil(result)
@@ -95,7 +95,7 @@ class SuccessorCardNodeTests: XCTestCase {
         let prototype = try! CardNodeFactory.instance.cardNode(withCode: "2")
         
         //Act
-        let result = try? prototype.create(from: node6, in: graph, withParent: nil)
+        let result = try? prototype.create(from: node6, withParent: nil, in: graph)
         
         //Assert
         XCTAssertNotNil(result)
@@ -109,7 +109,7 @@ class SuccessorCardNodeTests: XCTestCase {
         let prototype = try! CardNodeFactory.instance.cardNode(withCode: "5")
         
         //Act
-        let result = try? prototype.create(from: node5, in: graph, withParent: nil)
+        let result = try? prototype.create(from: node5, withParent: nil, in: graph)
         
         //Assert
         XCTAssertNotNil(result)

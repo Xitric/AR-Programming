@@ -48,9 +48,9 @@ class LoopCardNodeTests: XCTestCase {
         graph = ObservationGraph(observationSet: observationSet)
         
         //Act
-        let _: CardNode = try! prototypeStart.create(from: startNode, in: graph, withParent: nil)
-        let loopCardNode: LoopCardNode = try! prototypeLoop.create(from: loopNode, in: graph, withParent: prototypeStart) as! LoopCardNode
-        let _: CardNode = try! prototypeParameter2.create(from: parameterTopNode, in: graph, withParent: nil)
+        let _: CardNode = try! prototypeStart.create(from: startNode, withParent: nil, in: graph)
+        let loopCardNode: LoopCardNode = try! prototypeLoop.create(from: loopNode, withParent: prototypeStart, in: graph) as! LoopCardNode
+        let _: CardNode = try! prototypeParameter2.create(from: parameterTopNode, withParent: nil, in: graph)
         
         //Assert
         XCTAssertNotNil(loopCardNode)
@@ -69,9 +69,9 @@ class LoopCardNodeTests: XCTestCase {
         graph = ObservationGraph(observationSet: observationSet)
         
         //Act
-        let _: CardNode = try! prototypeStart.create(from: startNode, in: graph, withParent: nil)
-        let loopCardNode: LoopCardNode = try! prototypeLoop.create(from: loopNode, in: graph, withParent: prototypeStart) as! LoopCardNode
-        let _: CardNode = try! prototypeParameter3.create(from: parameterTopNode, in: graph, withParent: nil)
+        let _: CardNode = try! prototypeStart.create(from: startNode, withParent: nil, in: graph)
+        let loopCardNode: LoopCardNode = try! prototypeLoop.create(from: loopNode, withParent: prototypeStart, in: graph) as! LoopCardNode
+        let _: CardNode = try! prototypeParameter3.create(from: parameterTopNode, withParent: nil, in: graph)
         
         //Assert
         XCTAssertNotNil(loopCardNode)
@@ -89,13 +89,9 @@ class LoopCardNodeTests: XCTestCase {
         
         graph = ObservationGraph(observationSet: observationSet)
  
-        //Act
-        let _: CardNode = try! prototypeStart.create(from: startNode, in: graph, withParent: nil)
-        let loopCardNode: LoopCardNode = try! prototypeLoop.create(from: loopNode, in: graph, withParent: prototypeStart) as! LoopCardNode
-        let _: CardNode = try! prototypeParameter4.create(from: parameterRightNode, in: graph, withParent: nil)
-        
-        //Assert
-        XCTAssertNotNil(loopCardNode)
-        XCTAssertNil(loopCardNode.repeats)
+        //Act & Assert
+        XCTAssertThrowsError(try prototypeStart.create(from: startNode, withParent: nil, in: graph)) { error in
+            XCTAssertNotNil(error as? CardSequenceError)
+        }
     }
 }

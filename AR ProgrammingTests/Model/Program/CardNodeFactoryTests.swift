@@ -98,7 +98,7 @@ class CardNodeFactoryTests: XCTestCase {
     
     func testCardNodeForObservation_Single() {
         //Act
-        let result = try? CardNodeFactory.instance.cardNode(for: node7, in: graph, parent: nil)
+        let result = try? CardNodeFactory.instance.cardNode(for: node7, withParent: nil, in: graph)
         
         //Assert
         XCTAssertNotNil(result)
@@ -110,7 +110,7 @@ class CardNodeFactoryTests: XCTestCase {
     
     func testCardNodeForObservation_Sequence() {
         //Act
-        let result: CardNode? = try! CardNodeFactory.instance.cardNode(for: node5, in: graph, parent: nil)
+        let result: CardNode? = try! CardNodeFactory.instance.cardNode(for: node5, withParent: nil, in: graph)
         
         //Assert
         XCTAssertNotNil(result)
@@ -127,7 +127,7 @@ class CardNodeFactoryTests: XCTestCase {
     
     func testCardNodeForObservation_UnknownCode() {
         //Act & Assert
-        XCTAssertThrowsError(try CardNodeFactory.instance.cardNode(for: node6, in: graph, parent: nil)) { error in
+        XCTAssertThrowsError(try CardNodeFactory.instance.cardNode(for: node6, withParent: nil, in: graph)) { error in
             XCTAssertEqual(error as! CardSequenceError, CardSequenceError.unknownCode(code: "100"))
         }
     }

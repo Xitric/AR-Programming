@@ -9,7 +9,7 @@
 import Foundation
 import SceneKit
 
-struct LoopCard: StatementCard {
+struct LoopCard: Card {
     
     let name = "Gentag"
     let internalName = "loop"
@@ -18,10 +18,5 @@ struct LoopCard: StatementCard {
     
     func getAction(for robot: SCNNode) -> SCNAction? {
         return nil
-    }
-    
-    func getContinuationIndex() -> Int {
-        print("Loop")
-        return 0
     }
 }

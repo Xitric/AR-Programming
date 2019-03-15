@@ -12,25 +12,25 @@ import simd
 
 class ParameterCardNode: CardNode {
     
-    var successors = [CardNode?]()
+    private let card: ParameterCard
     
-    var parent: CardNode?
-    
-    private let card: StatementCard
+    let successors: [CardNode?] = [nil]
     var position: simd_double2
-    var number: Int?
+    weak var parent: CardNode?
     
-    init(card: StatementCard, position: simd_double2) {
+    let number: Int
+    
+    init(card: ParameterCard, position: simd_double2) {
         self.card = card
         self.position = position
-        self.number = (getCard() as! ParameterCard).parameter
+        self.number = card.parameter
     }
     
-    convenience init(card: StatementCard) {
+    convenience init(card: ParameterCard) {
         self.init(card: card, position: simd_double2(0,0))
     }
     
-    func create(from node: ObservationNode, in graph: ObservationGraph, withParent parent: CardNode?) throws -> CardNode {
+    func create(from node: ObservationNode, withParent parent: CardNode?, in graph: ObservationGraph) throws -> CardNode {
         let clone = ParameterCardNode(card: card, position: node.position)
         return clone
     }

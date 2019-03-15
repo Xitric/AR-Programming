@@ -47,6 +47,8 @@ class ProgramEditor: CardGraphDetectorDelegate {
             //TODO: Call delegate when these errors occur a number of times? (to ensure accuracy)
         } catch CardSequenceError.unknownCode(let code) {
             print("Found unexpected code: \(code)")
+        } catch CardSequenceError.syntax(let message){
+            print("Syntax error: \(message)")
         } catch {
             print("Unexpected error")
         }

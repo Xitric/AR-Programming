@@ -12,78 +12,71 @@ import simd
 
 class BorderCardNode: CardNode {
     
-    weak var parent: CardNode?
-    private let card: StatementCard
-    private var successorAngle: Double
+    private let successorAngle = 0.0
     
     var successors = [CardNode?]()
-    var position: simd_double2    
-    var repeats: Int?
+    var position: simd_double2
+    weak var parent: CardNode?
+    
+    var repeats: Int!
     var loopCardNode: LoopCardNode? {
         didSet {
-            if let loopCard = loopCardNode{
+            if let loopCard = loopCardNode {
                 repeats = loopCard.repeats
             }
         }
     }
     
-    init(card: StatementCard, angle: Double, position: simd_double2 ) {
-        self.card = card
-        self.successorAngle = angle
+    init(position: simd_double2) {
         self.position = position
     }
     
-    convenience init(card: StatementCard) {
-        self.init(card: card, angle: 0, position: simd_double2(0,0))
+    convenience init() {
+        self.init(position: simd_double2(0,0))
     }
     
-    func create(from node: ObservationNode, in graph: ObservationGraph, withParent parent: CardNode?) throws -> CardNode {
-        let clone = BorderCardNode(card: card, angle: 0, position: node.position)
+    func create(from node: ObservationNode, withParent parent: CardNode?, in graph: ObservationGraph) throws -> CardNode {
+        let clone = BorderCardNode(position: node.position)
         clone.parent = parent
         if let successor = graph.getSuccessor(by: successorAngle, to: node) {
             graph.connect(from: node, to: successor, withAngle: successorAngle)
-            clone.successors.append(try CardNodeFactory.instance.cardNode(for: successor, in: graph, parent: clone))
+            clone.successors.append(try CardNodeFactory.instance.cardNode(for: successor, withParent: clone, in: graph))
         } else {
             clone.successors.append(nil)
         }
-        clone.loopCardNode = findLoopCard(in: graph, with: parent)
+        clone.loopCardNode = try clone.findLoopCard(in: graph)
         return clone
     }
     
-    func findLoopCard(in graph: ObservationGraph, with parent: CardNode?) -> LoopCardNode? {
+    func findLoopCard(in graph: ObservationGraph) throws -> LoopCardNode {
         var p = parent
         
         while(p != nil){
-            if p?.getCard() is LoopCard{
-                return p as? LoopCardNode
+            if let p = p as? LoopCardNode {
+                return p
             } else {
                 p = p?.parent
             }
         }
-        // We will reach a card with no parent
-        return nil
+        //We have reached a card with no parent
+        throw CardSequenceError.syntax(message: "Border card is missing a corresponding loop card")
     }
     
     func getCard() -> Card {
-        return card
+        return BorderCard()
     }
     
     func next() -> CardNode? {
-        if !(parent?.getCard() is LoopCard) {
-            if let loopCard = loopCardNode {
-                if loopCard.repeats != nil {
-                    if loopCard.repeats != 1 {
-                        loopCard.repeats = loopCard.repeats! - 1
-                        return loopCard.successors[0]
-                    }
-                    loopCard.repeats = repeats
-                }
+        if let loopCard = loopCardNode {
+            if loopCard.repeats != 1 {
+                loopCard.repeats = loopCard.repeats - 1
+                return loopCard.next()
             }
+            loopCard.repeats = repeats
         }
         
-        let branch = card.getContinuationIndex()
-        if branch >= 0 && branch < successors.count {
-            return successors[branch]
+        if successors.count > 0 {
+            return successors[0]
         }
         
         return nil

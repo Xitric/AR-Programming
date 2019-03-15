@@ -9,7 +9,7 @@
 import Foundation
 import SceneKit
 
-struct BorderCard: StatementCard {
+struct BorderCard: Card {
     
     let name = "Grænse"
     let internalName = "border"
@@ -18,10 +18,5 @@ struct BorderCard: StatementCard {
     
     func getAction(for robot: SCNNode) -> SCNAction? {
         return nil
-    }
-    
-    func getContinuationIndex() -> Int {
-        print("Border")
-        return 0
     }
 }

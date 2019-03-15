@@ -9,7 +9,7 @@
 import Foundation
 import SceneKit
 
-struct ParameterCard: StatementCard {
+struct ParameterCard: Card {
     
     let name = "Tal"
     let internalName = "parameter"
@@ -24,10 +24,5 @@ struct ParameterCard: StatementCard {
     
     func getAction(for robot: SCNNode) -> SCNAction? {
         return nil
-    }
-    
-    func getContinuationIndex() -> Int {
-        print("Parameter")
-        return 0
     }
 }

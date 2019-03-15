@@ -12,35 +12,32 @@ import simd
 
 class LoopCardNode: CardNode {
     
-    weak var parent: CardNode?
-    private let card: StatementCard
-    private let successorAngle: Double
-    private let parameterCardAngles: [Double]
+    private let successorAngle = 0.0
+    private let parameterCardAngles = [Double.pi/2, -Double.pi/2]
     
     var successors = [CardNode?]()
     var position: simd_double2
-    var repeats: Int?
+    weak var parent: CardNode?
     
-    init(card: StatementCard, angle: Double, position: simd_double2 ) {
-        self.card = card
-        self.successorAngle = angle
+    var repeats: Int!
+    
+    init(position: simd_double2 ) {
         self.position = position
-        self.parameterCardAngles = [Double.pi/2, -Double.pi/2]
     }
     
-    convenience init(card: StatementCard) {
-        self.init(card: card, angle: 0, position: simd_double2(0,0))
+    convenience init() {
+        self.init(position: simd_double2(0,0))
     }
     
-    func create(from node: ObservationNode, in graph: ObservationGraph, withParent parent: CardNode?) throws -> CardNode {
-        let clone = LoopCardNode(card: card, angle: 0, position: node.position)
+    func create(from node: ObservationNode, withParent parent: CardNode?, in graph: ObservationGraph) throws -> CardNode {
+        let clone = LoopCardNode(position: node.position)
         clone.parent = parent
         
         try findParameterCards(from: node, clone: clone, graph: graph)
         
         if let successor = graph.getSuccessor(by: successorAngle, to: node) {
             graph.connect(from: node, to: successor, withAngle: successorAngle)
-            clone.successors.append(try CardNodeFactory.instance.cardNode(for: successor, in: graph, parent: clone))
+            clone.successors.append(try CardNodeFactory.instance.cardNode(for: successor, withParent: clone, in: graph))
         } else {
             clone.successors.append(nil)
         }
@@ -51,24 +48,24 @@ class LoopCardNode: CardNode {
     private func findParameterCards(from node: ObservationNode, clone: LoopCardNode, graph: ObservationGraph) throws {
         for angle in parameterCardAngles {
             if let observedNode = graph.getSuccessor(by: angle, to: node) {
-                let cNode = (try CardNodeFactory.instance.cardNode(for: observedNode, in: graph, parent: parent))
-                if cNode is ParameterCardNode {
-                    let parameterNode = cNode as! ParameterCardNode
-                    clone.repeats = parameterNode.number!
+                let cNode = (try CardNodeFactory.instance.cardNode(for: observedNode, withParent: self, in: graph))
+                if let parameterNode = cNode as? ParameterCardNode {
+                    clone.repeats = parameterNode.number
+                    return
                 }
             }
         }
+        
+        throw CardSequenceError.syntax(message: "Loop card is missing a parameter")
     }
     
     func getCard() -> Card {
-        return card
+        return LoopCard()
     }
     
     func next() -> CardNode? {
-        let branch = card.getContinuationIndex()
-        
-        if branch >= 0 && branch < successors.count {
-            return successors[branch]
+        if successors.count > 0 {
+            return successors[0]
         }
         
         return nil
