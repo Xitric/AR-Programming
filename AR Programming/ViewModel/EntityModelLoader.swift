@@ -53,10 +53,10 @@ class EntityModelLoader: EntityManagerDelegate {
             nodeComponent.location = currentTransform.location
             nodeComponent.rotation = currentTransform.rotation
             nodeComponent.scale = currentTransform.scale
+            
             entity.removeComponent(ofType: type(of: currentTransform))
+            entity.addComponent(nodeComponent)
         }
-        
-        entity.addComponent(nodeComponent)
     }
     
     private func tryRemoveModel(forEntity entity: Entity) {
@@ -73,9 +73,9 @@ class EntityModelLoader: EntityManagerDelegate {
             transformComponent.location = currentTransform.location
             transformComponent.rotation = currentTransform.rotation
             transformComponent.scale = currentTransform.scale
+            
+            entity.removeComponent(ofType: SCNNodeComponent.self)
             entity.addComponent(transformComponent)
         }
-        
-        entity.removeComponent(ofType: SCNNodeComponent.self)
     }
 }

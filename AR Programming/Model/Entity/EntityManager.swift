@@ -25,6 +25,7 @@ class EntityManager {
     init() {
         player = Entity()
         player.addComponent(TransformComponent())
+        player.addComponent(CollisionComponent(size: simd_double3(0.5, 0.5, 0.5)))
         player.addComponent(ResourceComponent(resourceIdentifier: "Bot"))
         addEntity(player)
         

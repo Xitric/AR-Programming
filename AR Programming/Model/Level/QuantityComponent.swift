@@ -10,7 +10,7 @@ import Foundation
 
 class QuantityComponent: GKComponent {
     
-    let quantity: Int
+    var quantity: Int
     
     init(quantity: Int) {
         self.quantity = quantity
