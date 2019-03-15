@@ -54,6 +54,7 @@ class CardNodeFactoryTests: XCTestCase {
         XCTAssertEqual(cardNode.position, observationNode.position)
     }
 
+    //MARK: build
     func testBuild_WithStart() {
         //Act
         var result = try? CardNodeFactory.instance.build(from: graph)
@@ -96,6 +97,7 @@ class CardNodeFactoryTests: XCTestCase {
         }
     }
     
+    //MARK: cardNodeFor
     func testCardNodeForObservation_Single() {
         //Act
         let result = try? CardNodeFactory.instance.cardNode(for: node7, in: graph)
@@ -129,6 +131,7 @@ class CardNodeFactoryTests: XCTestCase {
         }
     }
     
+    //MARK: cardNodeWithCode
     func testCardNodeWithCode_ValidCode() {
         //Act
         let result = try? CardNodeFactory.instance.cardNode(withCode: "3")
@@ -138,13 +141,14 @@ class CardNodeFactoryTests: XCTestCase {
         XCTAssertEqual(result?.getCard().internalName, "right")
     }
     
-    func testNodeWithCode_UnknownCode() {
+    func testCardNodeWithCode_UnknownCode() {
         //Act & Assert
         XCTAssertThrowsError(try CardNodeFactory.instance.cardNode(withCode: "-1")) { error in
             XCTAssertEqual(error as! CardSequenceError, CardSequenceError.unknownCode(code: "-1"))
         }
     }
     
+    //MARK: register
     func testRegister_NewNode() {
         //Act
         CardNodeFactory.instance.register(cardNode: SuccessorCardNode(card: LeftCard(), angles: [0]), withCode: "200")

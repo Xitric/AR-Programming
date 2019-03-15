@@ -18,25 +18,26 @@ class Program {
         start = startNode
     }
     
-    func run(on robot: SCNNode) {
+    func run(on entity: Entity) {
         delegate?.programBegan(self)
-        run(start, on: robot)
+        run(start, on: entity)
     }
     
-    private func run(_ node: CardNode?, on robot: SCNNode) {
+    private func run(_ node: CardNode?, on entity: Entity) {
         guard let node = node else {
             delegate?.programEnded(self)
             return
         }
         
-        if let action = node.getCard().getAction(for: robot) {
-            robot.runAction(action) { [weak self] in
+        if let action = node.getCard().getAction(forEntity: entity) {
+            action.onComplete = { [weak self] in
                 self?.delegate?.program(self!, executed: node.getCard())
-                self?.run(node.next(), on: robot)
+                self?.run(node.next(), on: entity)
             }
+            entity.addComponent(action)
         } else {
             delegate?.program(self, executed: node.getCard())
-            run(node.next(), on: robot)
+            run(node.next(), on: entity)
         }
     }
 }

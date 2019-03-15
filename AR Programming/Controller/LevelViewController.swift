@@ -18,78 +18,57 @@ class LevelViewController: UIViewController {
     @IBOutlet weak var detectButton: UIButton!
     @IBOutlet weak var executeButton: UIButton!
     @IBOutlet weak var resetButton: UIButton!
+    @IBOutlet weak var scanButton: UIButton!
+    
     @IBOutlet weak var planeDetectionHint: SubtitleLabel!
     @IBOutlet weak var planePlacementHint: SubtitleLabel!
-    @IBOutlet weak var planeDetectionAnimation: UIImageView!
-    @IBOutlet weak var winLabel: UILabel!
     @IBOutlet weak var winDescription: SubtitleLabel!
-    @IBOutlet weak var scanButton: UIButton!
-    @IBOutlet weak var rectView: UIView!
+    @IBOutlet weak var winLabel: UILabel!
     
-    private var levelViewModel: LevelViewModel?
+    @IBOutlet weak var planeDetectionAnimation: UIImageView!
+    @IBOutlet weak var rectView: UIView!
     
     //MARK: Sound
     private var winSound = AudioController.instance.makeSound(withName: "win.wav")
     private var pickupSound = AudioController.instance.makeSound(withName: "pickup.wav")
     
     //MARK: State
-    var editor = ProgramEditor()
+    private var editor = ProgramEditor()
+    private var levelViewModel: LevelViewModel? {
+        didSet {
+            winLabel.isHidden = true
+            winDescription.isHidden = true
+            levelViewModel?.levelModel.delegate = self
+            editor.reset()
+        }
+    }
     private var currentPlane: Plane? {
         didSet {
             DispatchQueue.main.async { [unowned self] in
-                let hasPlane = self.playingField != nil
-                let hasNothing = self.currentPlane == nil && self.playingField == nil
+                let planeDetected = self.currentPlane != nil
                 
-                self.placeButton.isHidden = hasPlane
-                self.planeDetectionHint.isHidden = !hasNothing
-                self.planeDetectionAnimation.isHidden = !hasNothing
-                self.planePlacementHint.isHidden = hasPlane
+                self.placeButton.isHidden = !planeDetected
+                self.planePlacementHint.isHidden = !planeDetected
                 
-                if hasNothing {
-                    self.planeDetectionAnimation.startAnimating()
-                } else {
+                self.planeDetectionHint.isHidden = planeDetected || !self.shouldDetectPlanes
+                self.planeDetectionAnimation.isHidden = planeDetected || !self.shouldDetectPlanes
+                
+                if planeDetected {
                     self.planeDetectionAnimation.stopAnimating()
+                } else {
+                    self.planeDetectionAnimation.startAnimating()
                 }
             }
         }
     }
-    var level: Level? {
-        didSet {
-            program = nil
-            playingField = nil
-            winLabel.isHidden = true
-            winDescription.isHidden = true
-            level?.delegate = self
-            editor.reset()
-        }
+    private var shouldDetectPlanes: Bool {
+        return levelViewModel?.levelView.parent == nil
     }
     
-    private var playingField: PlayingField? {
-        didSet {
-            let hasPlayingField = playingField != nil
-            
-            planeDetectionHint.isHidden = hasPlayingField
-            planeDetectionAnimation.isHidden = hasPlayingField
-            detectButton.isHidden = !hasPlayingField
-            
-            if let field = playingField {
-                levelViewModel = LevelViewModel(showing: field, withLevelWidth: level!.width)
-            }
-        }
-    }
-    private var program: Program? {
-        didSet {
-            detectButton.isHidden = program != nil
-            executeButton.isHidden = program == nil
-            resetButton.isHidden = program == nil
-        }
-    }
-    
+    // MARK: - Life cycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         AudioController.instance.start()
-        
-        createPlaneAnimation()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -100,6 +79,8 @@ class LevelViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         editor.delegate = self
+        
+        createPlaneAnimation()
     }
     
     private func createPlaneAnimation() {
@@ -108,7 +89,7 @@ class LevelViewController: UIViewController {
         planeDetectionAnimation.startAnimating()
     }
     
-    // MARK: - UI Buttons
+    // MARK: - Button actions
     @IBAction func startScanning(_ sender: UIButton) {
         if let parent = self.tabBarController as? HiddenTabBarViewController {
             parent.goToViewControllerWith(index: 1)
@@ -116,65 +97,56 @@ class LevelViewController: UIViewController {
     }
     
     @IBAction func detectCards(_ sender: UIButton) {
-        program = editor.program
-        program?.delegate = self
+        editor.saveProgram()
+        editor.program.delegate = self
+        
+        detectButton.isHidden = true
+        executeButton.isHidden = false
+        resetButton.isHidden = false
     }
     
     @IBAction func executeSequence(_ sender: UIButton) {
-        if let robotModel = playingField?.robot.model {
-            program?.run(on: robotModel)
-            executeButton.isEnabled = false
-            resetButton.isEnabled = false
+        if let levelViewModel = levelViewModel {
+            let player = levelViewModel.player
+            editor.program.run(on: player)
         }
     }
     
     @IBAction func resetLevel(_ sender: UIButton) {
-        level?.reset()
+        levelViewModel?.levelModel.reset()
+        editor.program.delegate = nil
+        editor.reset()
+        
+        detectButton.isHidden = false
+        executeButton.isHidden = true
+        resetButton.isHidden = true
     }
     
     @IBAction func placePlane(_ sender: UIButton) {
         if var plane = currentPlane {
             plane.groundNode = nil
-            showModelAt(detectedPlane: plane)
-            showLevel()
+            if let levelViewModel = levelViewModel {
+                plane.root.addChildNode(levelViewModel.levelView)
+            }
             currentPlane = nil
         }
-    }
-    
-    private func showModelAt(detectedPlane plane: Plane) {
-        if ((level?.delegate = self) != nil) {
-            let robot = AnimatableNode(modelSource: "Meshes.scnassets/uglyBot.dae")
-            robot.model.scale = SCNVector3(0.1, 0.1, 0.1)
-            robot.model.position = SCNVector3(0, 0, 0)
-            
-            playingField = PlayingField(ground: plane, robot: robot)
-        }
-    }
-    
-    private func showLevel() {
-        if let currentLevel = level {
-            for (x, y) in currentLevel.collectiblePositions {
-                let sphereGeom = SCNSphere(radius: 0.01)
-                let sphereNode = SCNNode(geometry: sphereGeom)
-                
-                levelViewModel?.addCollectible(node: sphereNode, x: x, y: y)
-            }
-        }
+        
+        detectButton.isHidden = false
     }
 }
 
 // MARK: - GameplayController
 extension LevelViewController: GameplayController {
-    func enter(withLevel level: Level?, inEnvironment arController: ARController?) {
+    func enter(withLevel levelViewModel: LevelViewModel?, inEnvironment arController: ARController?) {
         arController?.planeDetectorDelegate = self
         arController?.frameDelegate = self
         
-        if self.level != level {
-            self.level = level
+        if self.levelViewModel?.levelModel.levelNumber != levelViewModel?.levelModel.levelNumber {
+            self.levelViewModel = levelViewModel
         }
     }
     
-    func exit(withLevel level: Level?, inEnvironment arController: ARController?) {
+    func exit(withLevel levelViewModel: LevelViewModel?, inEnvironment arController: ARController?) {
         arController?.planeDetectorDelegate = nil
         arController?.frameDelegate = nil
     }
@@ -183,7 +155,7 @@ extension LevelViewController: GameplayController {
 // MARK: - PlaneDetectorDelegate
 extension LevelViewController: PlaneDetectorDelegate {
     func shouldDetectPlanes(_ detector: ARController) -> Bool {
-        return playingField == nil
+        return shouldDetectPlanes
     }
     
     func planeDetector(_ detector: ARController, found plane: Plane) {
@@ -225,15 +197,15 @@ extension LevelViewController: ProgramEditorDelegate {
 // MARK: - ProgramDelegate
 extension LevelViewController: ProgramDelegate {
     func programBegan(_ program: Program) {
-        
+        DispatchQueue.main.async { [unowned self] in
+            self.executeButton.isEnabled = false
+            self.resetButton.isEnabled = false
+        }
     }
     
+    //TODO: A method for when we are about to execute a card so that we can highlight it
     func program(_ program: Program, executed card: Card) {
-        if let currentLevel = level, let robot = playingField?.robot {
-            let floatX = (robot.model.position.x / 0.05).rounded()
-            let floatY = (robot.model.position.z / 0.05).rounded()
-            currentLevel.notifyMovedTo(x: Int(floatX), y: Int(floatY))
-        }
+        
     }
     
     func programEnded(_ program: Program) {
@@ -246,11 +218,6 @@ extension LevelViewController: ProgramDelegate {
 
 // MARK: - LevelDelegate
 extension LevelViewController: LevelDelegate {
-    func collectibleTaken(_ level: Level, x: Int, y: Int) {
-        levelViewModel?.removeCollectible(x: x, y: y)
-        self.pickupSound?.play()
-    }
-    
     func levelCompleted(_ level: Level) {
         self.winSound?.play()
         
@@ -261,11 +228,8 @@ extension LevelViewController: LevelDelegate {
     }
     
     func levelReset(_ level: Level) {
-        playingField?.robot.model.position = SCNVector3(0, 0, 0)
-        playingField?.robot.model.rotation = SCNVector4(0, 0, 0, 1)
-        program = nil
-        levelViewModel?.clearCollectibles()
-        showLevel()
+        //TODO: What needs to go here?
+        //TODO: Probably some refreshing of labels
         
         DispatchQueue.main.async { [unowned self] in
             self.winLabel.isHidden = true

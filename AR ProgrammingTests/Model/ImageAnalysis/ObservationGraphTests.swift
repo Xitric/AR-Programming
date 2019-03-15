@@ -52,6 +52,7 @@ class ObservationGraphTests: XCTestCase {
         graph.connect(from: node3, to: node4, withAngle: -Double.pi/2)
     }
     
+    //MARK: firstNode
     func testFirstNodeWithPayload() {
         //Act & Assert
         XCTAssertEqual(graph.firstNode(withPayload: "3"), node2)
@@ -59,6 +60,7 @@ class ObservationGraphTests: XCTestCase {
         XCTAssertNil(graph.firstNode(withPayload: "9"))
     }
     
+    //MARK: nodes
     func testNodesNear_OnlyOthers() {
         //Act
         let result = graph.nodes(near: node1)
@@ -97,6 +99,7 @@ class ObservationGraphTests: XCTestCase {
         XCTAssertTrue(result.contains(node1))
     }
     
+    //MARK: connect
     func testConnect() {
         //Act
         graph.connect(from: node6, to: node5, withAngle: -Double.pi/2)
@@ -123,6 +126,7 @@ class ObservationGraphTests: XCTestCase {
         XCTAssertEqual(edge!.connectionAngle, angle)
     }
     
+    //MARK: edge
     func testEdge() {
         //Arrange
         graph.connect(from: node2, to: node1, withAngle: -3 * Double.pi / 4)
@@ -136,6 +140,7 @@ class ObservationGraphTests: XCTestCase {
         XCTAssertNil(graph.edge(from: node5, to: node7))
     }
     
+    //MARK: getSuccessor
     func testGetSuccessor_OnLine() {
         //Arrange
         graph.connect(from: node6, to: node5, withAngle: -Double.pi / 2)

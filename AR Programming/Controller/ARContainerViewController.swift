@@ -19,11 +19,18 @@ class ARContainerViewController: UIViewController {
     }
     
     private var arController: ARController?
+    private var levelViewModel: LevelViewModel?
+    
     var level: Level?
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let gameplayController = segue.destination as? GameplayController {
-            gameplayController.enter(withLevel: level, inEnvironment: arController)
+            if let level = level {
+                levelViewModel = LevelViewModel(level: level)
+            }
+            arController?.updateDelegate = level
+            
+            gameplayController.enter(withLevel: levelViewModel, inEnvironment: arController)
         }
     }
     

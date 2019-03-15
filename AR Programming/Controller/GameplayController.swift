@@ -9,6 +9,20 @@
 import Foundation
 
 protocol GameplayController {
-    func enter(withLevel level: Level?, inEnvironment arController: ARController?)
-    func exit(withLevel level: Level?, inEnvironment arController: ARController?)
+    
+    /// Called when the user navigates back to this controller from another controller, or when a new level is selected and a new gameplay session should be created.
+    ///
+    /// - Parameters:
+    ///   - levelViewModel: The view model of the currently active level.
+    ///   - arController: The handler for integrating with the ARKit callbacks.
+    /// - Tag: GameplayController.enter
+    func enter(withLevel levelViewModel: LevelViewModel?, inEnvironment arController: ARController?)
+    
+    /// Called when the user navigates away from this controller. The provided LevelViewModel and ARController wil be the same as those passed in [enter()](x-source-tag://GameplayController.start).
+    ///
+    /// - Parameters:
+    ///   - levelViewModel: The view model of the currently active level.
+    ///   - arController: The handler for integrating with the ARKit callbacks.
+    /// - Tag: GameplayController.exit
+    func exit(withLevel levelViewModel: LevelViewModel?, inEnvironment arController: ARController?)
 }

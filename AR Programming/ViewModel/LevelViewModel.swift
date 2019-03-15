@@ -1,54 +1,28 @@
 //
 //  LevelViewModel.swift
 //  AR Programming
-//
-//  Created by Kasper Schultz Davidsen on 26/11/2018.
-//  Copyright © 2018 Emil Nielsen and Kasper Schultz Davidsen. All rights reserved.
+//  
+//  Created by Kasper Schultz Davidsen on 08/03/2019.
+//  Copyright © 2019 Emil Nielsen and Kasper Schultz Davidsen. All rights reserved.
 //
 
 import Foundation
-import SceneKit
 
-class LevelViewModel {
+struct LevelViewModel {
     
-    private static let coordinateScale = Float(0.05)
+    private let modelLoader: EntityModelLoader
     
-    private let playingField: PlayingField
-    private let levelWidth: Int
-    private var collectibles = [Int:SCNNode]()
-    
-    init(showing field: PlayingField, withLevelWidth width: Int) {
-        playingField = field;
-        levelWidth = width
+    let levelModel: Level
+    let levelView: SCNNode
+    var player: Entity {
+        return levelModel.entityManager.player
     }
     
-    func addCollectible(node: SCNNode, x: Int, y: Int) {
-        node.position = SCNVector3()
+    init(level: Level) {
+        levelModel = level
+        levelView = SCNNode()
+        levelView.scale = SCNVector3(0.05, 0.05, 0.05)
         
-        node.position.x = Float(x) * LevelViewModel.coordinateScale
-        node.position.z = Float(y) * LevelViewModel.coordinateScale
-        playingField.addNode(node)
-        
-        let i = coordinatesToIndex(x: x, y: y)
-        
-        collectibles[i] = node
-    }
-    
-    private func coordinatesToIndex(x: Int, y: Int) -> Int {
-        return x + y * levelWidth
-    }
-    
-    func removeCollectible(x: Int, y: Int) {
-        let i = coordinatesToIndex(x: x, y: y)
-        collectibles[i]?.removeFromParentNode()
-        collectibles[i] = nil
-    }
-    
-    func clearCollectibles() {
-        for (_, node) in collectibles {
-            node.removeFromParentNode()
-        }
-        
-        collectibles.removeAll()
+        modelLoader = EntityModelLoader(entityManager: level.entityManager, root: levelView)
     }
 }
