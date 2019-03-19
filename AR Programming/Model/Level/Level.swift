@@ -62,7 +62,6 @@ class Level: Decodable, UpdateDelegate {
         if let playerTransform = entityManager.player.component(subclassOf: TransformComponent.self) {
             playerTransform.location = simd_double3(0, 0, 0)
             playerTransform.rotation = simd_quatd(ix: 0, iy: 0, iz: 0, r: 1)
-            playerTransform.scale = simd_double3(1, 1, 1)
         }
         
         delegate?.levelReset(self)

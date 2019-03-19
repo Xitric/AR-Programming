@@ -30,9 +30,10 @@ class PickupActionComponent: ActionComponent {
         //Look for something to pick up
         for collectible in entityManager.getEntities(withComponents: CollectibleComponent.self, CollisionComponent.self) {
             let collectibleCollision = collectible.component(ofType: CollisionComponent.self)!
+            let collectibleTransform = collectible.component(subclassOf: TransformComponent.self)!
             
             if entityCollision.collidesWith(other: collectibleCollision) {
-                let pickupVector = entityTransform.rotation.act(simd_double3(0.5, 0.6, 0))
+                let pickupVector = collectibleTransform.rotation.inverse.act(entityTransform.rotation.act(simd_double3(0.5, 0.6, 0)))
                 let moveAction = MovementActionComponent(movement: pickupVector, duration: 1)
                 moveAction.onComplete = { [weak self] in
                     self?.entity?.addComponent(LinkComponent(otherEntity: collectible))

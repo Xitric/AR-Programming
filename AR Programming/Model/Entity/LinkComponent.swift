@@ -10,7 +10,7 @@ import Foundation
 
 class LinkComponent: GKComponent {
     
-    private var delta: simd_double3!
+    private var deltaMatrix: simd_double4x4!
     
     let otherEntity: Entity
     
@@ -28,7 +28,11 @@ class LinkComponent: GKComponent {
             let otherTransform = otherEntity.component(subclassOf: TransformComponent.self)
             else { return }
         
-        delta = transform.rotation.inverse.act(otherTransform.location - transform.location)
+        let toParentMatrix = simd_double4x4(translation: transform.location,
+                                             rotation: transform.rotation).inverse
+        let childMatrix = simd_double4x4(translation: otherTransform.location,
+                                         rotation: otherTransform.rotation)
+        deltaMatrix = toParentMatrix * childMatrix
     }
     
     override func update(deltaTime seconds: TimeInterval) {
@@ -36,6 +40,11 @@ class LinkComponent: GKComponent {
             let otherTransform = otherEntity.component(subclassOf: TransformComponent.self)
             else { return }
         
-        otherTransform.location = transform.location + transform.rotation.act(delta)
+        let parentMatrix = simd_double4x4(translation: transform.location,
+                                          rotation: transform.rotation)
+        let resultMatrix = parentMatrix * deltaMatrix
+        
+        otherTransform.location = resultMatrix.translation
+        otherTransform.rotation = resultMatrix.rotation
     }
 }

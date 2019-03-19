@@ -70,6 +70,8 @@
 		562EF8D0224107A000A8DC97 /* PickupActionComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562EF8CF224107A000A8DC97 /* PickupActionComponentTests.swift */; };
 		562EF8D2224107AE00A8DC97 /* DropActionComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562EF8D1224107AE00A8DC97 /* DropActionComponentTests.swift */; };
 		562EF8D4224107CC00A8DC97 /* LinkComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562EF8D3224107CC00A8DC97 /* LinkComponentTests.swift */; };
+		562EF8D62241139C00A8DC97 /* simd_double4x4+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562EF8D52241139C00A8DC97 /* simd_double4x4+Helpers.swift */; };
+		562EF8D82241192300A8DC97 /* simd_double4x4+HelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562EF8D72241192300A8DC97 /* simd_double4x4+HelpersTests.swift */; };
 		56319DE82237D3C600469D5E /* ResourceComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56319DE72237D3C500469D5E /* ResourceComponent.swift */; };
 		56319DEA2237D40F00469D5E /* TransformComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56319DE92237D40F00469D5E /* TransformComponent.swift */; };
 		56319E09223801D100469D5E /* MovementActionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56319E08223801D100469D5E /* MovementActionComponent.swift */; };
@@ -198,6 +200,8 @@
 		562EF8CF224107A000A8DC97 /* PickupActionComponentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupActionComponentTests.swift; sourceTree = "<group>"; };
 		562EF8D1224107AE00A8DC97 /* DropActionComponentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropActionComponentTests.swift; sourceTree = "<group>"; };
 		562EF8D3224107CC00A8DC97 /* LinkComponentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkComponentTests.swift; sourceTree = "<group>"; };
+		562EF8D52241139C00A8DC97 /* simd_double4x4+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "simd_double4x4+Helpers.swift"; sourceTree = "<group>"; };
+		562EF8D72241192300A8DC97 /* simd_double4x4+HelpersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "simd_double4x4+HelpersTests.swift"; sourceTree = "<group>"; };
 		56319DE72237D3C500469D5E /* ResourceComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceComponent.swift; sourceTree = "<group>"; };
 		56319DE92237D40F00469D5E /* TransformComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransformComponent.swift; sourceTree = "<group>"; };
 		56319E08223801D100469D5E /* MovementActionComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovementActionComponent.swift; sourceTree = "<group>"; };
@@ -362,6 +366,7 @@
 				562CCA7C220D74FF00BF6A8D /* Double+Helpers.swift */,
 				5621C839221AE5F800756628 /* SCNVector3+Helpers.swift */,
 				5621C83B221AE67A00756628 /* simd_float4x4+Helpers.swift */,
+				562EF8D52241139C00A8DC97 /* simd_double4x4+Helpers.swift */,
 				56A62B1522310DA2009D0E83 /* simd_double3+Helpers.swift */,
 				56A62B1722310E8D009D0E83 /* simd_quatd+Helpers.swift */,
 				56AEACA0221F5DC500ACED36 /* UIImage+Helpers.swift */,
@@ -408,6 +413,7 @@
 			isa = PBXGroup;
 			children = (
 				562CCAAB220D933E00BF6A8D /* Double+HelpersTests.swift */,
+				562EF8D72241192300A8DC97 /* simd_double4x4+HelpersTests.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -820,6 +826,7 @@
 				900F135A219447AF001C2DC2 /* LevelManager.swift in Sources */,
 				5621C83C221AE67A00756628 /* simd_float4x4+Helpers.swift in Sources */,
 				56319E09223801D100469D5E /* MovementActionComponent.swift in Sources */,
+				562EF8D62241139C00A8DC97 /* simd_double4x4+Helpers.swift in Sources */,
 				204AEC14220DCA1E00E0F624 /* ARContainerViewController.swift in Sources */,
 				56431D2922328C7700BFAC36 /* QuantityComponent.swift in Sources */,
 				C725B2C321A85A7B00DD147A /* Model.xcdatamodeld in Sources */,
@@ -887,6 +894,7 @@
 				562CAB91223A48F2007120D5 /* LeftCardTests.swift in Sources */,
 				562CABA5223A630C007120D5 /* ProgramTests.swift in Sources */,
 				562CCAA5220D92CF00BF6A8D /* ObservationEdgeTests.swift in Sources */,
+				562EF8D82241192300A8DC97 /* simd_double4x4+HelpersTests.swift in Sources */,
 				56E98E60222C738D00E9113C /* ObservationNodeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

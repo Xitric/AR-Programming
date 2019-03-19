@@ -14,14 +14,15 @@ class DropActionComponent: ActionComponent {
         super.didAddToEntityManager()
         
         guard let link = entity?.component(subclassOf: LinkComponent.self),
-        let entityTransform = entity?.component(subclassOf: TransformComponent.self) else {
+        let entityTransform = entity?.component(subclassOf: TransformComponent.self),
+        let collectibleTransform = link.otherEntity.component(subclassOf: TransformComponent.self) else {
             complete()
             return
         }
         
         entity?.removeComponent(ofType: LinkComponent.self)
         
-        let dropVector = entityTransform.rotation.act(simd_double3(-0.5, -0.6, 0))
+        let dropVector = collectibleTransform.rotation.inverse.act(entityTransform.rotation.act(simd_double3(-0.5, -0.6, 0)))
         let moveAction = MovementActionComponent(movement: dropVector, duration: 1)
         moveAction.onComplete = { [weak self] in
             self?.complete()

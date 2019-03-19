@@ -11,5 +11,4 @@ import Foundation
 class TransformComponent: GKComponent {
     var location = simd_double3(0, 0, 0)
     var rotation = simd_quatd(ix: 0, iy: 0, iz: 0, r: 1)
-    var scale = simd_double3(1, 1, 1)
 }
