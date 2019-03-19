@@ -11,17 +11,11 @@ import XCTest
 
 class WardrobeManagerTests: XCTestCase {
     
-    private var robotFiles: [String]?
-    
-    override func setUp() {
-        robotFiles = WardrobeManager.getDaeFileNames()
-    }
-    
     //MARK: robotChoice
     func testSetRobotChoice() {
         //Arrange
-        let robotFile1 = "greenBot"
-        let robotFile2 = "blueBot"
+        let robotFile1 = "blueBot"
+        let robotFile2 = "greenBot"
         let group = DispatchGroup()
         
         //Act
