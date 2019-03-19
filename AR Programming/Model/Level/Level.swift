@@ -17,20 +17,28 @@ class Level: Decodable, UpdateDelegate {
     let levelNumber: Int
     var unlocked = false
     var unlocks: String?
+    var infoLabel: String? {
+        return nil
+    }
     var entityManager: EntityManager
     
     weak var delegate: LevelDelegate?
     
-    init(levelType: String, name: String, levelNumber: Int, unlocked: Bool, unlocks: String?, entityManager: EntityManager) {
+    init(levelType: String, name: String, levelNumber: Int, unlocked: Bool, unlocks: String?) {
         self.levelType = levelType
         self.name = name
         self.levelNumber = levelNumber
         self.unlocked = unlocked
         self.unlocks = unlocks
-        self.entityManager = entityManager
+        self.entityManager = EntityManager()
     }
     
-    func update(currentTime: TimeInterval) {
+    final func update(currentTime: TimeInterval) {
+        objc_sync_enter(entityManager)
+        defer {
+            objc_sync_exit(entityManager)
+        }
+        
         let delta = currentTime - lastUpdate
         lastUpdate = currentTime
         
@@ -56,6 +64,15 @@ class Level: Decodable, UpdateDelegate {
             playerTransform.rotation = simd_quatd(ix: 0, iy: 0, iz: 0, r: 1)
             playerTransform.scale = simd_double3(1, 1, 1)
         }
+        
+        delegate?.levelReset(self)
+    }
+    
+    func complete() {
+        if let unlocks = unlocks {
+            LevelManager.markLevel(withName: unlocks, asUnlocked: true)
+        }
+        delegate?.levelCompleted(self)
     }
     
     //MARK: - Decodable
@@ -81,4 +98,5 @@ class Level: Decodable, UpdateDelegate {
 protocol LevelDelegate: class {
     func levelCompleted(_ level: Level)
     func levelReset(_ level: Level)
+    func levelInfoChanged(_ level: Level, info: String?)
 }

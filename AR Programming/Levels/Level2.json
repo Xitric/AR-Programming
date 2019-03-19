@@ -4,9 +4,10 @@
     "name":"Level 2",
     "unlocks":"Level3",
     "goalQuantity":3,
+    "resource":"coins/Coin",
     "collectibles":[
         {
-            "x":0,
+            "x":-2,
             "y":0,
             "quantity":1
         },
