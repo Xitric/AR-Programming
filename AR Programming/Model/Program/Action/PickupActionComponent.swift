@@ -13,11 +13,21 @@ class PickupActionComponent: ActionComponent {
     override func didAddToEntityManager() {
         super.didAddToEntityManager()
         
-        guard let entityTransform = entity?.component(subclassOf: TransformComponent.self),
-            let entityCollision = entity?.component(subclassOf: CollisionComponent.self),
-            let entityManager = entityManager
-            else { return }
+        //If we are already holding something, we cannot pick up something new
+        if entity?.component(ofType: LinkComponent.self) != nil {
+            complete()
+            return
+        }
         
+        //We need to be able to detect a collision with the other entity, as well as to have an EntityManager for finding other entities to collect
+        guard let entityTransform = entity?.component(subclassOf: TransformComponent.self),
+        let entityCollision = entity?.component(subclassOf: CollisionComponent.self),
+        let entityManager = entityManager else {
+            complete()
+            return
+        }
+        
+        //Look for something to pick up
         for collectible in entityManager.getEntities(withComponents: CollectibleComponent.self, CollisionComponent.self) {
             let collectibleCollision = collectible.component(ofType: CollisionComponent.self)!
             
