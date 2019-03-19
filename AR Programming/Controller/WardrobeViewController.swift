@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import QuartzCore
 import SceneKit
 
 class WardrobeViewController: UIViewController {
@@ -49,7 +48,6 @@ class WardrobeViewController: UIViewController {
         super.viewWillDisappear(animated)
         WardrobeManager.setRobotChoice(choice: robotFiles[robotChoice])
     }
-    
     
     @IBAction func nextRobot(_ sender: UIButton) {
         if robotChoice == robotFiles.count-1 {
