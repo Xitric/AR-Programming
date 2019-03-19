@@ -35,7 +35,7 @@ class EntityModelLoader: EntityManagerDelegate {
             else { return }
         
         let nodeComponent: SCNNodeComponent
-        let resourceLocation = "Meshes.scnassets/\(resourceComponent.resourceIdentifier).dae"
+        let resourceLocation = "Meshes.scnassets/\(resourceComponent.resourceIdentifier)"
         if let modelScene = SCNScene(named: resourceLocation) {
             nodeComponent = SCNNodeComponent(node: modelScene.rootNode)
         } else {

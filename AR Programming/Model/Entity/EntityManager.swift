@@ -25,7 +25,7 @@ class EntityManager {
     init() {
         player = Entity()
         player.addComponent(TransformComponent())
-        player.addComponent(ResourceComponent(resourceIdentifier: "Bot"))
+        player.addComponent(ResourceComponent(resourceIdentifier: WardrobeManager.robotChoice()))
         addEntity(player)
         
         //TODO: Quickfix, alternative solution is too time consuming for now

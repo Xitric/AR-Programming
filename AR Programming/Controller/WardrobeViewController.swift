@@ -17,6 +17,7 @@ class WardrobeViewController: UIViewController {
     private var robotChoice = 0;
     private var robotFiles: [String] = [] {
         didSet {
+            robotChoice = robotFiles.firstIndex(of: WardrobeManager.robotChoice())!
             setRobot(daeFile: robotFiles[robotChoice])
             sceneView.scene!.rootNode.addChildNode(cameraNode)
         }
@@ -24,10 +25,11 @@ class WardrobeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        robotFiles = getDaeFileNames()
+        robotFiles = WardrobeManager.getDaeFileNames()
     }
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         sceneView.allowsCameraControl = true
         sceneView.backgroundColor = UIColor.white
         sceneView.autoenablesDefaultLighting = true
@@ -36,6 +38,12 @@ class WardrobeViewController: UIViewController {
         cameraNode.camera = SCNCamera()
         cameraNode.position = SCNVector3(x: 0, y: 2, z: 5)
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        WardrobeManager.setRobotChoice(choice: robotFiles[robotChoice])
+    }
+    
     
     @IBAction func nextRobot(_ sender: UIButton) {
         if robotChoice == robotFiles.count-1 {
@@ -59,26 +67,5 @@ class WardrobeViewController: UIViewController {
         let scene = SCNScene(named: "Meshes.scnassets/" + daeFile)
         scene?.rootNode.rotation = SCNVector4(0, -1, 0, 1)
         sceneView.scene = scene
-    }
-    
-    private func getDaeFileNames() -> [String] {
-        var daeFiles: [String] = []
-        
-        if let path = Bundle.main.resourcePath {
-            do {
-                let files = try FileManager.default.contentsOfDirectory(atPath: path + "/Meshes.scnassets")
-                
-                for name in files {
-                    if name.hasSuffix(".dae") {
-                        daeFiles.append(name)
-                    }
-                }
-                print(daeFiles.count)
-                print(daeFiles)
-            } catch let error as NSError {
-                print(error.description)
-            }
-        }
-        return daeFiles
     }
 }
