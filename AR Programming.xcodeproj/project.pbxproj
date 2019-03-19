@@ -20,6 +20,7 @@
 		204AEC14220DCA1E00E0F624 /* ARContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204AEC13220DCA1E00E0F624 /* ARContainerViewController.swift */; };
 		204BC648222D6DD000D34B07 /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204BC647222D6DD000D34B07 /* Component.swift */; };
 		206A0CB52240E5120018E6B7 /* WardrobeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206A0CB42240E5120018E6B7 /* WardrobeManager.swift */; };
+		206A0CB822410FD80018E6B7 /* WardrobeManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206A0CB722410FD80018E6B7 /* WardrobeManagerTests.swift */; };
 		20FA267C22369CAC00AF1083 /* LoopCardNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FA267B22369CAC00AF1083 /* LoopCardNodeTests.swift */; };
 		20FA267E2236A10C00AF1083 /* BorderCardNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FA267D2236A10C00AF1083 /* BorderCardNodeTests.swift */; };
 		5621C83A221AE5F800756628 /* SCNVector3+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5621C839221AE5F800756628 /* SCNVector3+Helpers.swift */; };
@@ -137,6 +138,7 @@
 		204AEC13220DCA1E00E0F624 /* ARContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARContainerViewController.swift; sourceTree = "<group>"; };
 		204BC647222D6DD000D34B07 /* Component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
 		206A0CB42240E5120018E6B7 /* WardrobeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeManager.swift; sourceTree = "<group>"; };
+		206A0CB722410FD80018E6B7 /* WardrobeManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeManagerTests.swift; sourceTree = "<group>"; };
 		20FA267B22369CAC00AF1083 /* LoopCardNodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopCardNodeTests.swift; sourceTree = "<group>"; };
 		20FA267D2236A10C00AF1083 /* BorderCardNodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderCardNodeTests.swift; sourceTree = "<group>"; };
 		2CBF6D6B964CB7805473D1E8 /* Pods-AR Programming.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AR Programming.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AR Programming/Pods-AR Programming.debug.xcconfig"; sourceTree = "<group>"; };
@@ -272,6 +274,14 @@
 			path = WardrobeMana;
 			sourceTree = "<group>";
 		};
+		206A0CB622410FB40018E6B7 /* Wardrobe */ = {
+			isa = PBXGroup;
+			children = (
+				206A0CB722410FD80018E6B7 /* WardrobeManagerTests.swift */,
+			);
+			path = Wardrobe;
+			sourceTree = "<group>";
+		};
 		303DB45C8FD81C058632CA1B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -359,6 +369,7 @@
 		562CCA80220D752B00BF6A8D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				206A0CB622410FB40018E6B7 /* Wardrobe */,
 				56E167BB2222C0D600D40FD0 /* Entity */,
 				562CCA82220D754800BF6A8D /* Program */,
 				562CCA81220D753500BF6A8D /* ImageAnalysis */,
@@ -847,6 +858,7 @@
 				568AE77622233AC100A7348C /* EntityManagerTests.swift in Sources */,
 				562CAB9A223A5A3A007120D5 /* MovementActionComponentTests.swift in Sources */,
 				562CCA9C220D92BC00BF6A8D /* CardNodeFactoryTests.swift in Sources */,
+				206A0CB822410FD80018E6B7 /* WardrobeManagerTests.swift in Sources */,
 				20FA267E2236A10C00AF1083 /* BorderCardNodeTests.swift in Sources */,
 				562CAB9D223A5CCC007120D5 /* RotationActionComponentTests.swift in Sources */,
 				562CCA9E220D92BC00BF6A8D /* SuccessorCardNodeTests.swift in Sources */,
