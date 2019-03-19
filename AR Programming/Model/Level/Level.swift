@@ -25,6 +25,11 @@ class Level: Decodable, UpdateDelegate {
     weak var delegate: LevelDelegate?
     
     final func update(currentTime: TimeInterval) {
+        objc_sync_enter(entityManager)
+        defer {
+            objc_sync_exit(entityManager)
+        }
+        
         let delta = currentTime - lastUpdate
         lastUpdate = currentTime
         

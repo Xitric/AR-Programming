@@ -116,6 +116,11 @@ class QuantityLevel: Level {
     }
     
     override func reset() {
+        objc_sync_enter(entityManager)
+        defer {
+            objc_sync_exit(entityManager)
+        }
+        
         currentlyCollected = 0
         
         for oldEntity in collectibles {
