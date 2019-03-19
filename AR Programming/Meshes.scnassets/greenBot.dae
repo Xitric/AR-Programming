@@ -4,8 +4,8 @@
   <contributor>
    <authoring_tool>SceneKit Collada Exporter v1.0</authoring_tool>
   </contributor>
-  <created>2019-03-15T10:33:10Z</created>
-  <modified>2019-03-15T10:33:10Z</modified>
+  <created>2019-03-19T11:10:08Z</created>
+  <modified>2019-03-19T11:10:08Z</modified>
   <unit meter="1.000000"/>
   <up_axis>Y_UP</up_axis>
  </asset>
@@ -154,7 +154,7 @@
        <color>0 0 0 1</color>
       </ambient>
       <diffuse>
-       <color>0.0100117 0.221511 0.8 1</color>
+       <color>0 0.8 0.8 1</color>
       </diffuse>
       <transparency>
        <float>1</float>
@@ -429,7 +429,7 @@
     </instance_geometry>
    </node>
    <node id="node35" name="Cube">
-    <matrix>0.05560156 0.01301522 0.04512846 0.5988278 -0.009346042 0.0432059 -0.01500794 1.841415 -0.1177963 0.002715386 0.02249203 -1.108887 0 0 0 1 </matrix>
+    <matrix>0.05560156 0.01301522 0.04512846 0.5988278 -0.009346039 0.0432059 -0.01500794 1.841415 -0.1177963 0.002715387 0.02249203 -1.108887 0 0 0 1 </matrix>
     <instance_geometry url="#Cube">
      <bind_material>
       <technique_common>
@@ -439,7 +439,7 @@
     </instance_geometry>
    </node>
    <node id="node36" name="Cube_001">
-    <matrix>-0.04466058 0.01085152 0.04779684 0.6890303 -0.01120176 0.04316255 -0.01497068 1.872738 -0.1222081 -0.007921994 -0.01609498 1.110778 0 0 0 1 </matrix>
+    <matrix>-0.04466058 0.01085152 0.04779684 0.6890303 -0.01120176 0.04316255 -0.01497068 1.872738 -0.1222081 -0.007921993 -0.01609498 1.110778 0 0 0 1 </matrix>
     <instance_geometry url="#Cube_001">
      <bind_material>
       <technique_common>
