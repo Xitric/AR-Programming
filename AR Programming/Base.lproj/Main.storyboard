@@ -73,6 +73,7 @@
                         <subviews>
                             <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dmF-0S-RLO">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                             </sceneKitView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="af7-rH-0kZ">
                                 <rect key="frame" x="914" y="330" width="86" height="108"/>
@@ -90,14 +91,19 @@
                                     <action selector="previousRobot:" destination="wB7-4i-evA" eventType="touchUpInside" id="KZO-M0-hky"/>
                                 </connections>
                             </button>
+                            <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="anD-Ae-tUT">
+                                <rect key="frame" x="492.5" y="707" width="39" height="37"/>
+                            </pageControl>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="af7-rH-0kZ" firstAttribute="centerY" secondItem="dmF-0S-RLO" secondAttribute="centerY" id="8qQ-TS-u68"/>
                             <constraint firstItem="8wM-cg-kyM" firstAttribute="centerY" secondItem="dmF-0S-RLO" secondAttribute="centerY" id="EKi-yN-efL"/>
                             <constraint firstItem="8wM-cg-kyM" firstAttribute="leading" secondItem="pFy-NT-Dg5" secondAttribute="leading" constant="24" id="FYX-mj-260"/>
+                            <constraint firstItem="pFy-NT-Dg5" firstAttribute="bottom" secondItem="anD-Ae-tUT" secondAttribute="bottom" constant="24" id="FpV-pC-FcB"/>
                             <constraint firstItem="dmF-0S-RLO" firstAttribute="bottom" secondItem="pFy-NT-Dg5" secondAttribute="bottom" id="IlZ-ao-waB"/>
                             <constraint firstItem="dmF-0S-RLO" firstAttribute="trailing" secondItem="pFy-NT-Dg5" secondAttribute="trailing" id="XRy-in-Vge"/>
+                            <constraint firstItem="anD-Ae-tUT" firstAttribute="centerX" secondItem="dmF-0S-RLO" secondAttribute="centerX" id="Y3c-fC-zVN"/>
                             <constraint firstItem="dmF-0S-RLO" firstAttribute="top" secondItem="x6c-iF-ilh" secondAttribute="top" id="ecF-5t-Hkr"/>
                             <constraint firstItem="dmF-0S-RLO" firstAttribute="leading" secondItem="pFy-NT-Dg5" secondAttribute="leading" id="t5f-Or-KxO"/>
                             <constraint firstItem="pFy-NT-Dg5" firstAttribute="trailing" secondItem="af7-rH-0kZ" secondAttribute="trailing" constant="24" id="uQT-Xc-xEF"/>
@@ -105,6 +111,7 @@
                         <viewLayoutGuide key="safeArea" id="pFy-NT-Dg5"/>
                     </view>
                     <connections>
+                        <outlet property="robotChoicePageControl" destination="anD-Ae-tUT" id="OAM-0I-qbb"/>
                         <outlet property="sceneView" destination="dmF-0S-RLO" id="FjI-HW-0YI"/>
                     </connections>
                 </viewController>

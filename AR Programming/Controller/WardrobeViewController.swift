@@ -11,13 +11,19 @@ import QuartzCore
 import SceneKit
 
 class WardrobeViewController: UIViewController {
-    
+    @IBOutlet weak var robotChoicePageControl: UIPageControl!
     @IBOutlet weak var sceneView: SCNView!
     private let cameraNode = SCNNode()
-    private var robotChoice = 0;
+    private var robotChoice = 0 {
+        didSet {
+            robotChoicePageControl.currentPage = robotChoice
+        }
+    }
+    
     private var robotFiles: [String] = [] {
         didSet {
             robotChoice = robotFiles.firstIndex(of: WardrobeManager.robotChoice())!
+            robotChoicePageControl.numberOfPages = robotFiles.count
             setRobot(daeFile: robotFiles[robotChoice])
             sceneView.scene!.rootNode.addChildNode(cameraNode)
         }
@@ -31,12 +37,12 @@ class WardrobeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         sceneView.allowsCameraControl = true
-        sceneView.backgroundColor = UIColor.white
         sceneView.autoenablesDefaultLighting = true
         
         cameraNode.name = "Camera"
         cameraNode.camera = SCNCamera()
         cameraNode.position = SCNVector3(x: 0, y: 2, z: 5)
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
