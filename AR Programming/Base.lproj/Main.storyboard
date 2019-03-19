@@ -53,7 +53,7 @@
             </objects>
             <point key="canvasLocation" x="1344.53125" y="119.53124999999999"/>
         </scene>
-        <!--Opgavemenu-->
+        <!--Level Select-->
         <scene sceneID="dMt-vf-O2p">
             <objects>
                 <viewController id="WzJ-Qi-3T2" customClass="LevelSelectViewController" customModule="AR_Programming" customModuleProvider="target" sceneMemberID="viewController">
@@ -377,6 +377,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="974"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eQR-Dm-66Y" customClass="SubtitleLabel" customModule="AR_Programming" customModuleProvider="target">
+                                <rect key="frame" x="153.5" y="20" width="461" height="52.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SYT-AS-Sag">
                                 <rect key="frame" x="16" y="898" width="149" height="60"/>
                                 <color key="backgroundColor" red="0.074509803920000006" green="0.46274509800000002" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -466,28 +470,28 @@
                                     <action selector="startScanning:" destination="YHe-0I-6P8" eventType="touchUpInside" id="cpa-y5-Ewn"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v9Z-U8-b4o" customClass="SubtitleLabel" customModule="AR_Programming" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v9Z-U8-b4o" customClass="SubtitleLabel" customModule="AR_Programming" customModuleProvider="target">
                                 <rect key="frame" x="179" y="789.5" width="410.5" height="52.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="text" value="Bevæg din iPad rundt for at finde en overflade."/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8oG-xW-2tD" customClass="SubtitleLabel" customModule="AR_Programming" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8oG-xW-2tD" customClass="SubtitleLabel" customModule="AR_Programming" customModuleProvider="target">
                                 <rect key="frame" x="139.5" y="566.5" width="489" height="73"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="text" value="Tillykke, du har låst op for den næste opgave. Find den i opgavemenuen, eller nulstil opgaven for at prøve igen."/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WDh-Me-Nv9" customClass="SubtitleLabel" customModule="AR_Programming" customModuleProvider="target">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WDh-Me-Nv9" customClass="SubtitleLabel" customModule="AR_Programming" customModuleProvider="target">
                                 <rect key="frame" x="242.5" y="789.5" width="283" height="52.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="text" value="Placer spillet når du er tilfreds!"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" placeholderIntrinsicWidth="461" placeholderIntrinsicHeight="461" translatesAutoresizingMaskIntoConstraints="NO" id="pS7-9z-jz1">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="461" placeholderIntrinsicHeight="461" translatesAutoresizingMaskIntoConstraints="NO" id="pS7-9z-jz1">
                                 <rect key="frame" x="153.5" y="449" width="461" height="276.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="pS7-9z-jz1" secondAttribute="height" multiplier="5:3" id="Ok7-sQ-rUh"/>
@@ -497,6 +501,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="8oG-xW-2tD" firstAttribute="centerX" secondItem="IsN-tU-7YM" secondAttribute="centerX" id="1y4-XQ-PYe"/>
+                            <constraint firstItem="eQR-Dm-66Y" firstAttribute="centerX" secondItem="IsN-tU-7YM" secondAttribute="centerX" id="20L-ss-Q2a"/>
                             <constraint firstItem="v9Z-U8-b4o" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="r7f-Fu-KoH" secondAttribute="leading" constant="64" id="2D9-dl-QCZ"/>
                             <constraint firstItem="v9Z-U8-b4o" firstAttribute="top" secondItem="pS7-9z-jz1" secondAttribute="bottom" constant="64" id="5aN-Ut-Hnc"/>
                             <constraint firstItem="hTh-5f-7nh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="IcD-R1-wft" secondAttribute="trailing" id="5lK-Nt-PMX"/>
@@ -520,12 +525,14 @@
                             <constraint firstItem="j0e-mD-Rgu" firstAttribute="centerY" secondItem="IsN-tU-7YM" secondAttribute="centerY" id="cve-0c-SK8"/>
                             <constraint firstItem="IcD-R1-wft" firstAttribute="bottom" secondItem="EdM-Vw-Xp3" secondAttribute="bottom" id="h8k-2V-v3R"/>
                             <constraint firstItem="pS7-9z-jz1" firstAttribute="top" relation="greaterThanOrEqual" secondItem="r7f-Fu-KoH" secondAttribute="top" constant="64" id="jUD-V9-dxq"/>
+                            <constraint firstItem="eQR-Dm-66Y" firstAttribute="top" secondItem="r7f-Fu-KoH" secondAttribute="top" id="mcL-ab-EJT"/>
                             <constraint firstItem="hTh-5f-7nh" firstAttribute="bottom" secondItem="EdM-Vw-Xp3" secondAttribute="bottom" id="pHU-vE-UqB"/>
                             <constraint firstItem="r7f-Fu-KoH" firstAttribute="bottom" secondItem="EdM-Vw-Xp3" secondAttribute="bottom" constant="16" id="qb6-w2-9Ai"/>
                             <constraint firstItem="sW9-KF-I5o" firstAttribute="bottom" secondItem="r7f-Fu-KoH" secondAttribute="bottom" id="tpf-Hn-Uda"/>
                             <constraint firstItem="pS7-9z-jz1" firstAttribute="width" relation="lessThanOrEqual" secondItem="IsN-tU-7YM" secondAttribute="width" multiplier="0.6" id="v3F-fM-sr3"/>
                             <constraint firstItem="SYT-AS-Sag" firstAttribute="leading" secondItem="IcD-R1-wft" secondAttribute="leading" id="wKZ-3x-Ziz"/>
                             <constraint firstItem="pS7-9z-jz1" firstAttribute="centerX" secondItem="IsN-tU-7YM" secondAttribute="centerX" id="wxp-Or-ipJ"/>
+                            <constraint firstItem="eQR-Dm-66Y" firstAttribute="width" secondItem="sW9-KF-I5o" secondAttribute="width" multiplier="0.6" id="zRb-PI-sLe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="r7f-Fu-KoH"/>
                     </view>
@@ -533,6 +540,7 @@
                     <connections>
                         <outlet property="detectButton" destination="IcD-R1-wft" id="MPK-3x-iGR"/>
                         <outlet property="executeButton" destination="SYT-AS-Sag" id="Qfj-UN-db1"/>
+                        <outlet property="levelInfo" destination="eQR-Dm-66Y" id="XW4-da-l9b"/>
                         <outlet property="placeButton" destination="hTh-5f-7nh" id="aeH-8l-nAq"/>
                         <outlet property="planeDetectionAnimation" destination="pS7-9z-jz1" id="L7n-y9-MKB"/>
                         <outlet property="planeDetectionHint" destination="v9Z-U8-b4o" id="OyQ-SU-mww"/>

@@ -17,6 +17,9 @@ class Level: Decodable, UpdateDelegate {
     let levelNumber: Int
     var unlocked = false
     var unlocks: String?
+    var infoLabel: String? {
+        return nil
+    }
     var entityManager: EntityManager
     
     weak var delegate: LevelDelegate?
@@ -51,6 +54,13 @@ class Level: Decodable, UpdateDelegate {
         delegate?.levelReset(self)
     }
     
+    func complete() {
+        if let unlocks = unlocks {
+            LevelManager.markLevel(withName: unlocks, asUnlocked: true)
+        }
+        delegate?.levelCompleted(self)
+    }
+    
     //MARK: - Decodable
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -74,4 +84,5 @@ class Level: Decodable, UpdateDelegate {
 protocol LevelDelegate: class {
     func levelCompleted(_ level: Level)
     func levelReset(_ level: Level)
+    func levelInfoChanged(_ level: Level, info: String?)
 }

@@ -27,15 +27,24 @@ class QuantityLevel: Level {
     }
     private var collectibleForReset = [Entity]()
     
+    override var infoLabel: String? {
+        if currentlyCollected <= goalQuantity {
+            return "Du har samlet \(currentlyCollected)/\(goalQuantity)"
+        } else {
+            return "Du har samlet \(currentlyCollected), og det er for meget!"
+        }
+    }
+    
     // MARK: - Codable
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         goalQuantity = try container.decode(Int.self, forKey: .goalQuantity)
+        let resourceIdentifier = try container.decode(String.self, forKey: .resource)
         try super.init(from: decoder)
         
         let collectibles = try container.decode([CollectibleJSON].self, forKey: .collectibles)
         for collectible in collectibles {
-            let entity = createCollectible(fromJson: collectible)
+            let entity = createCollectible(fromJson: collectible, withResource: resourceIdentifier)
             entityManager.addEntity(entity)
             collectibleForReset.append(entity)
         }
@@ -44,7 +53,7 @@ class QuantityLevel: Level {
         entityManager.player.addComponent(QuantityComponent(quantity: 0))
     }
     
-    private func createCollectible(fromJson json: CollectibleJSON) -> Entity {
+    private func createCollectible(fromJson json: CollectibleJSON, withResource resourceIdentifier: String) -> Entity {
         let collectible = Entity()
         
         let transform = TransformComponent()
@@ -57,14 +66,18 @@ class QuantityLevel: Level {
         let quantity = QuantityComponent(quantity: json.quantity)
         collectible.addComponent(quantity)
         
-        let resource = ResourceComponent(resourceIdentifier: "TODO")
+        let resource = ResourceComponent(resourceIdentifier: "\(resourceIdentifier)\(json.quantity)")
         collectible.addComponent(resource)
+        
+        let spin = SpinComponent(speed: 0.02)
+        collectible.addComponent(spin)
         
         return collectible
     }
     
     private enum CodingKeys: String, CodingKey {
         case goalQuantity
+        case resource
         case collectibles
     }
     
@@ -77,9 +90,10 @@ class QuantityLevel: Level {
             if let collectibleCollision = collectible.component(ofType: CollisionComponent.self) {
                 if playerCollision.collidesWith(other: collectibleCollision) {
                     collect(collectible)
+                    delegate?.levelInfoChanged(self, info: infoLabel)
                     
                     if isComplete() {
-                        delegate?.levelCompleted(self)
+                        complete()
                     }
                 }
             }
@@ -91,7 +105,6 @@ class QuantityLevel: Level {
         
         let quantity = entity.component(ofType: QuantityComponent.self)?.quantity ?? 0
         currentlyCollected = currentlyCollected + quantity
-        print("Now has \(currentlyCollected)")
     }
     
     override func isComplete() -> Bool {
@@ -114,6 +127,8 @@ class QuantityLevel: Level {
         }
         
         super.reset()
+        
+        delegate?.levelInfoChanged(self, info: infoLabel)
     }
 }
 

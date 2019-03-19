@@ -37,7 +37,11 @@ class EntityModelLoader: EntityManagerDelegate {
         let nodeComponent: SCNNodeComponent
         let resourceLocation = "Meshes.scnassets/\(resourceComponent.resourceIdentifier).dae"
         if let modelScene = SCNScene(named: resourceLocation) {
-            nodeComponent = SCNNodeComponent(node: modelScene.rootNode)
+            let node = SCNNode()
+            for child in modelScene.rootNode.childNodes {
+                node.addChildNode(child)
+            }
+            nodeComponent = SCNNodeComponent(node: node)
         } else {
             //TODO: Better placeholder
             let geometry = SCNSphere(radius: 0.25)
