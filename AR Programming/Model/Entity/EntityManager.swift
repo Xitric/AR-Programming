@@ -29,7 +29,7 @@ class EntityManager: NSObject {
         
         player.addComponent(TransformComponent())
         player.addComponent(CollisionComponent(size: simd_double3(0.5, 0.5, 0.5)))
-        player.addComponent(ResourceComponent(resourceIdentifier: "Bot"))
+        player.addComponent(ResourceComponent(resourceIdentifier: WardrobeManager.robotChoice()))
         addEntity(player)
         
         //TODO: Quickfix, alternative solution is too time consuming for now
