@@ -10,38 +10,38 @@ import UIKit
 import SceneKit
 
 class WardrobeViewController: UIViewController {
-    @IBOutlet weak var robotChoicePageControl: UIPageControl!
+    
+    @IBOutlet weak var robotChoiceLabel: UILabel!
     @IBOutlet weak var sceneView: SCNView!
-    private let cameraNode = SCNNode()
+    
     private var robotChoice = 0 {
         didSet {
-            robotChoicePageControl.currentPage = robotChoice
+            updateChoiceLabel()
+        }
+    }
+    private var robotCount = 0 {
+        didSet {
+            updateChoiceLabel()
         }
     }
     
     private var robotFiles: [String] = [] {
         didSet {
-            robotChoice = robotFiles.firstIndex(of: WardrobeManager.robotChoice())!
-            robotChoicePageControl.numberOfPages = robotFiles.count
+            robotChoice = robotFiles.firstIndex(of: WardrobeManager.robotChoice()) ?? 0
+            robotCount = robotFiles.count
             setRobot(daeFile: robotFiles[robotChoice])
-            sceneView.scene!.rootNode.addChildNode(cameraNode)
         }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        robotFiles = WardrobeManager.getDaeFileNames()
+        robotFiles = WardrobeManager.getFileNames()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         sceneView.allowsCameraControl = true
         sceneView.autoenablesDefaultLighting = true
-        
-        cameraNode.name = "Camera"
-        cameraNode.camera = SCNCamera()
-        cameraNode.position = SCNVector3(x: 0, y: 2, z: 5)
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -50,26 +50,22 @@ class WardrobeViewController: UIViewController {
     }
     
     @IBAction func nextRobot(_ sender: UIButton) {
-        if robotChoice == robotFiles.count-1 {
-            robotChoice = 0
-        } else {
-            robotChoice+=1
-        }
+        robotChoice = (robotChoice + 1) % robotFiles.count
         setRobot(daeFile: robotFiles[robotChoice])
     }
     
     @IBAction func previousRobot(_ sender: UIButton) {
-        if robotChoice == 0 {
-            robotChoice = robotFiles.count-1
-        } else {
-            robotChoice-=1
-        }
+        robotChoice = (robotChoice - 1 + robotFiles.count) % robotFiles.count
         setRobot(daeFile: robotFiles[robotChoice])
     }
     
     private func setRobot(daeFile: String) {
-        let scene = SCNScene(named: "Meshes.scnassets/" + daeFile)
+        let scene = SCNScene(named: "Meshes.scnassets/Robot/" + daeFile)
         scene?.rootNode.rotation = SCNVector4(0, -1, 0, 1)
         sceneView.scene = scene
+    }
+    
+    private func updateChoiceLabel() {
+        robotChoiceLabel.text = "\(robotChoice + 1)/\(robotCount)"
     }
 }

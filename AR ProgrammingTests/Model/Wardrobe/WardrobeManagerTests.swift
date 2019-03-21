@@ -11,40 +11,31 @@ import XCTest
 
 class WardrobeManagerTests: XCTestCase {
     
-    //MARK: robotChoice
+    //MARK: setRobotChoice
     func testSetRobotChoice() {
         //Arrange
-        let robotFile1 = "blueBot"
-        let robotFile2 = "greenBot"
-        let group = DispatchGroup()
+        let blueRobotFile = "blueBot"
+        let greenRobotFile = "greenBot"
+        
+        let blueExpectation = expectation(description: "Blue robot was chosen")
+        let greenExpectation = expectation(description: "Green robot was chosen")
         
         //Act
-        group.enter()
-        DispatchQueue.main.async {
-            WardrobeManager.setRobotChoice(choice: robotFile1)
-            group.leave()
+        WardrobeManager.setRobotChoice(choice: blueRobotFile) {
+            blueExpectation.fulfill()
         }
         
         //Assert
-        group.enter()
-        group.notify(queue: .main) {
-            XCTAssertTrue(WardrobeManager.robotChoice() == robotFile1)
-            group.leave()
-        }
+        wait(for: [blueExpectation], timeout: 1)
+        XCTAssertTrue(WardrobeManager.robotChoice() == blueRobotFile)
         
         //Act
-        group.enter()
-        DispatchQueue.main.async {
-            WardrobeManager.setRobotChoice(choice: robotFile2)
-            group.leave()
+        WardrobeManager.setRobotChoice(choice: greenRobotFile) {
+            greenExpectation.fulfill()
         }
         
         //Assert
-        group.enter()
-        group.notify(queue: .main) {
-            XCTAssertTrue(WardrobeManager.robotChoice() == robotFile2)
-            group.leave()
-        }
+        wait(for: [greenExpectation], timeout: 1)
+        XCTAssertTrue(WardrobeManager.robotChoice() == greenRobotFile)
     }
-    
 }

@@ -91,19 +91,22 @@
                                     <action selector="previousRobot:" destination="wB7-4i-evA" eventType="touchUpInside" id="KZO-M0-hky"/>
                                 </connections>
                             </button>
-                            <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="anD-Ae-tUT">
-                                <rect key="frame" x="492.5" y="707" width="39" height="37"/>
-                            </pageControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rgJ-fd-fVa">
+                                <rect key="frame" x="484" y="701" width="56.5" height="43"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="af7-rH-0kZ" firstAttribute="centerY" secondItem="dmF-0S-RLO" secondAttribute="centerY" id="8qQ-TS-u68"/>
                             <constraint firstItem="8wM-cg-kyM" firstAttribute="centerY" secondItem="dmF-0S-RLO" secondAttribute="centerY" id="EKi-yN-efL"/>
                             <constraint firstItem="8wM-cg-kyM" firstAttribute="leading" secondItem="pFy-NT-Dg5" secondAttribute="leading" constant="24" id="FYX-mj-260"/>
-                            <constraint firstItem="pFy-NT-Dg5" firstAttribute="bottom" secondItem="anD-Ae-tUT" secondAttribute="bottom" constant="24" id="FpV-pC-FcB"/>
+                            <constraint firstItem="pFy-NT-Dg5" firstAttribute="bottom" secondItem="rgJ-fd-fVa" secondAttribute="bottom" constant="24" id="GKT-t0-kbn"/>
+                            <constraint firstItem="rgJ-fd-fVa" firstAttribute="centerX" secondItem="x6c-iF-ilh" secondAttribute="centerX" id="IEh-NK-VHn"/>
                             <constraint firstItem="dmF-0S-RLO" firstAttribute="bottom" secondItem="pFy-NT-Dg5" secondAttribute="bottom" id="IlZ-ao-waB"/>
                             <constraint firstItem="dmF-0S-RLO" firstAttribute="trailing" secondItem="pFy-NT-Dg5" secondAttribute="trailing" id="XRy-in-Vge"/>
-                            <constraint firstItem="anD-Ae-tUT" firstAttribute="centerX" secondItem="dmF-0S-RLO" secondAttribute="centerX" id="Y3c-fC-zVN"/>
                             <constraint firstItem="dmF-0S-RLO" firstAttribute="top" secondItem="x6c-iF-ilh" secondAttribute="top" id="ecF-5t-Hkr"/>
                             <constraint firstItem="dmF-0S-RLO" firstAttribute="leading" secondItem="pFy-NT-Dg5" secondAttribute="leading" id="t5f-Or-KxO"/>
                             <constraint firstItem="pFy-NT-Dg5" firstAttribute="trailing" secondItem="af7-rH-0kZ" secondAttribute="trailing" constant="24" id="uQT-Xc-xEF"/>
@@ -111,7 +114,7 @@
                         <viewLayoutGuide key="safeArea" id="pFy-NT-Dg5"/>
                     </view>
                     <connections>
-                        <outlet property="robotChoicePageControl" destination="anD-Ae-tUT" id="OAM-0I-qbb"/>
+                        <outlet property="robotChoiceLabel" destination="rgJ-fd-fVa" id="GT5-y5-LZi"/>
                         <outlet property="sceneView" destination="dmF-0S-RLO" id="FjI-HW-0YI"/>
                     </connections>
                 </viewController>
@@ -777,10 +780,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="CardScanIcon" width="35.279998779296875" height="35.279998779296875"/>
-        <image name="Lock" width="37.439998626708984" height="41.279998779296875"/>
-        <image name="Retry" width="23.75257682800293" height="23.75257682800293"/>
-        <image name="ScanArea" width="45" height="45"/>
+        <image name="CardScanIcon" width="98" height="98"/>
+        <image name="Lock" width="156" height="172"/>
+        <image name="Retry" width="128" height="128"/>
+        <image name="ScanArea" width="750" height="750"/>
         <image name="robo" width="540" height="540"/>
     </resources>
 </document>

@@ -12,29 +12,30 @@ import CoreData
 
 class WardrobeManager {
     
-    static let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    static var managedObjectContext = appDelegate.persistentContainer.viewContext
+    private static let targetDirectory = "/Meshes.scnassets/Robot"
+    private static let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    private static let managedObjectContext = appDelegate.persistentContainer.viewContext
     
     private static var robotFiles: [String] = []
     
-    static func getDaeFileNames() -> [String] {
-        var daeFiles: [String] = []
+    static func getFileNames() -> [String] {
+        var fileNames: [String] = []
         
         if let path = Bundle.main.resourcePath {
             do {
-                let files = try FileManager.default.contentsOfDirectory(atPath: path + "/Meshes.scnassets")
+                let files = try FileManager.default.contentsOfDirectory(atPath: path + WardrobeManager.targetDirectory)
                 
                 for name in files {
-                    if name.hasSuffix(".dae") {
-                        daeFiles.append(String(name.dropLast(4)))
-                    }
+                    let extensionIndex = name.firstIndex(of: ".") ?? name.endIndex
+                    let fileName = String(name[..<extensionIndex])
+                    fileNames.append(fileName)
                 }
-       
             } catch let error as NSError {
                 print(error.description)
             }
         }
-        return daeFiles
+        
+        return fileNames
     }
     
     static func robotChoice() -> String {
@@ -43,16 +44,15 @@ class WardrobeManager {
         if let result = try? managedObjectContext.fetch(request){
             if result.count != 0 {
                 return result[0].choice!
-            } else if result.count == 0 {
-                robotFiles = getDaeFileNames()
-                setRobotChoice(choice: robotFiles[0])
             }
         }
         
+        robotFiles = getFileNames()
+        setRobotChoice(choice: robotFiles[0])
         return robotFiles[0]
     }
     
-    static func setRobotChoice(choice: String) {
+    static func setRobotChoice(choice: String, callback: (() -> Void)? = nil) {
         managedObjectContext.perform {
             let request = NSFetchRequest<RobotEntity>(entityName: "RobotEntity")
             if let result = try? managedObjectContext.fetch(request){
@@ -64,7 +64,9 @@ class WardrobeManager {
                 } else {
                     result[0].setValue(choice, forKey: "choice")
                 }
+                
                 appDelegate.saveContext()
+                callback?()
             }
         }
     }
