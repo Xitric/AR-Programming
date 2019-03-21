@@ -21,7 +21,7 @@ struct LevelViewModel {
     init(level: Level) {
         levelModel = level
         levelView = SCNNode()
-        levelView.scale = SCNVector3(0.05, 0.05, 0.05)
+        levelView.scale = SCNVector3(0.15, 0.15, 0.15)
         
         modelLoader = EntityModelLoader(entityManager: level.entityManager, root: levelView)
     }

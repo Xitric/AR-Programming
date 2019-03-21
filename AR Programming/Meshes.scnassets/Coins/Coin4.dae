@@ -5,8 +5,8 @@
       <author>Blender User</author>
       <authoring_tool>Blender 2.79.0 commit date:2018-03-22, commit time:14:10, hash:f4dc9f9d68b</authoring_tool>
     </contributor>
-    <created>2019-03-18T22:15:10</created>
-    <modified>2019-03-18T22:15:10</modified>
+    <created>2019-03-21T11:23:56</created>
+    <modified>2019-03-21T11:23:56</modified>
     <unit name="meter" meter="1"/>
     <up_axis>Z_UP</up_axis>
   </asset>
@@ -175,7 +175,7 @@
   <library_visual_scenes>
     <visual_scene id="Scene" name="Scene">
       <node id="Circle_005" name="Circle_005" type="NODE">
-        <matrix sid="transform">0.4832886 0 0 0 0 0.4832886 0 0 0 0 0.4832886 0 0 0 0 1</matrix>
+        <matrix sid="transform">0.2469597 0 0 0 0 0.2469597 0 0 0 0 0.2469597 0 0 0 0 1</matrix>
         <instance_geometry url="#Circle_005-mesh" name="Circle_005">
           <bind_material>
             <technique_common>
@@ -184,7 +184,7 @@
           </bind_material>
         </instance_geometry>
         <node id="Text_006" name="Text_006" type="NODE">
-          <matrix sid="transform">0.6666666 -9.60208e-9 9.60208e-9 0 2.88062e-8 -1.08614e-7 -0.6666666 3.9466e-6 9.58333e-9 0.6666666 -1.08614e-7 0.9999998 0 0 0 1</matrix>
+          <matrix sid="transform">0.6666666 -9.60208e-9 9.60208e-9 -7.72332e-6 2.88062e-8 -1.08614e-7 -0.6666666 3.86166e-6 9.58333e-9 0.6666666 -1.08614e-7 0.9999998 0 0 0 1</matrix>
           <instance_geometry url="#CUText_007-mesh" name="Text_006">
             <bind_material>
               <technique_common>
@@ -194,7 +194,7 @@
           </instance_geometry>
         </node>
         <node id="Text_018" name="Text_018" type="NODE">
-          <matrix sid="transform">-0.6666666 9.60209e-9 5.82818e-8 0 3.90777e-8 1.08614e-7 0.6666666 3.9466e-6 9.62083e-9 0.6666666 -1.08614e-7 0.9999998 0 0 0 1</matrix>
+          <matrix sid="transform">-0.6666666 9.60209e-9 5.82818e-8 -7.72332e-6 3.90777e-8 1.08614e-7 0.6666666 3.86166e-6 9.62083e-9 0.6666666 -1.08614e-7 0.9999998 0 0 0 1</matrix>
           <instance_geometry url="#CUText_020-mesh" name="Text_018">
             <bind_material>
               <technique_common>
