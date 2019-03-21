@@ -56,8 +56,7 @@ class QuantityLevel: Level {
     private func createCollectible(fromJson json: CollectibleJSON, withResource resourceIdentifier: String) -> Entity {
         let collectible = Entity()
         
-        let transform = TransformComponent()
-        transform.location = simd_double3(x: Double(json.x), y: 0, z: Double(json.y))
+        let transform = TransformComponent(location: simd_double3(x: Double(json.x), y: 0, z: Double(json.y)))
         collectible.addComponent(transform)
         
         let collision = CollisionComponent(size: simd_double3(0.1, 0.1, 0.1))
