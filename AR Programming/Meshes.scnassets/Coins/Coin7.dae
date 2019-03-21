@@ -5,8 +5,8 @@
       <author>Blender User</author>
       <authoring_tool>Blender 2.79.0 commit date:2018-03-22, commit time:14:10, hash:f4dc9f9d68b</authoring_tool>
     </contributor>
-    <created>2019-03-18T22:16:15</created>
-    <modified>2019-03-18T22:16:15</modified>
+    <created>2019-03-21T11:24:34</created>
+    <modified>2019-03-21T11:24:34</modified>
     <unit name="meter" meter="1"/>
     <up_axis>Z_UP</up_axis>
   </asset>
@@ -175,7 +175,7 @@
   <library_visual_scenes>
     <visual_scene id="Scene" name="Scene">
       <node id="Circle_006" name="Circle_006" type="NODE">
-        <matrix sid="transform">0.4832886 0 0 0 0 0.4832886 0 0 0 0 0.4832886 0 0 0 0 1</matrix>
+        <matrix sid="transform">0.2469597 0 0 0 0 0.2469597 0 0 0 0 0.2469597 0 0 0 0 1</matrix>
         <instance_geometry url="#Circle_006-mesh" name="Circle_006">
           <bind_material>
             <technique_common>
@@ -184,7 +184,7 @@
           </bind_material>
         </instance_geometry>
         <node id="Text_009" name="Text_009" type="NODE">
-          <matrix sid="transform">0.6666666 -9.30202e-9 9.90215e-9 0 9.90215e-9 -1.08614e-7 -0.6666666 1.9733e-6 9.30202e-9 0.6666666 -1.08614e-7 0.9999998 0 0 0 1</matrix>
+          <matrix sid="transform">0.6666666 -9.30202e-9 9.90215e-9 0 9.90215e-9 -1.08614e-7 -0.6666666 1.93083e-6 9.30202e-9 0.6666666 -1.08614e-7 0.9999999 0 0 0 1</matrix>
           <instance_geometry url="#CUText_010-mesh" name="Text_009">
             <bind_material>
               <technique_common>
@@ -194,7 +194,7 @@
           </instance_geometry>
         </node>
         <node id="Text_015" name="Text_015" type="NODE">
-          <matrix sid="transform">-0.6666666 9.90215e-9 5.82818e-8 0 5.82818e-8 1.08614e-7 0.6666666 1.9733e-6 9.90214e-9 0.6666666 -1.08614e-7 0.9999998 0 0 0 1</matrix>
+          <matrix sid="transform">-0.6666666 9.90216e-9 5.82818e-8 0 5.82818e-8 1.08614e-7 0.6666666 1.93083e-6 9.90215e-9 0.6666666 -1.08614e-7 0.9999999 0 0 0 1</matrix>
           <instance_geometry url="#CUText_017-mesh" name="Text_015">
             <bind_material>
               <technique_common>

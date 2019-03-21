@@ -27,7 +27,7 @@ class WardrobeManager {
                 
                 for name in files {
                     let extensionIndex = name.firstIndex(of: ".") ?? name.endIndex
-                    let fileName = String(name[..<extensionIndex])
+                    let fileName = "Robot/\(name[..<extensionIndex])"
                     fileNames.append(fileName)
                 }
             } catch let error as NSError {

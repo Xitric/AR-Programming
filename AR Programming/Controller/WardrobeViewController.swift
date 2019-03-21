@@ -60,7 +60,7 @@ class WardrobeViewController: UIViewController {
     }
     
     private func setRobot(daeFile: String) {
-        let scene = SCNScene(named: "Meshes.scnassets/Robot/" + daeFile)
+        let scene = SCNScene(named: "Meshes.scnassets/" + daeFile)
         scene?.rootNode.rotation = SCNVector4(0, -1, 0, 1)
         sceneView.scene = scene
     }
