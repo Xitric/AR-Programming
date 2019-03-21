@@ -21,6 +21,14 @@ class LevelSelectViewController: UIViewController {
             levelSelectCollectionView.delegate = self
         }
     }
+    @IBOutlet weak var freePlayView: UIView! {
+        didSet {
+            let gradientLayer = CAGradientLayer()
+            gradientLayer.frame = freePlayView.bounds
+            gradientLayer.colors = [UIColor.black.cgColor, UIColor.white.cgColor]
+            self.freePlayView.layer.insertSublayer(gradientLayer, at: 0)
+        }
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -38,6 +46,12 @@ class LevelSelectViewController: UIViewController {
             arContainer.level = selectedLevel
         }
     }
+    
+    @IBAction func freePlay(_ sender: UIButton) {
+        selectedLevel = LevelManager.emptylevel
+        performSegue(withIdentifier: "arContainerSegue", sender: self)
+    }
+    
 }
 
 // MARK: - UICollectionViewDataSource
