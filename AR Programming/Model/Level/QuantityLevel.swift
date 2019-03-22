@@ -10,62 +10,114 @@ import Foundation
 
 class QuantityLevel: Level {
     
-    private let goalQuantity: Int
-    private var currentlyCollected: Int {
-        get {
-            return entityManager.player.component(ofType: QuantityComponent.self)?.quantity ?? 0
-        }
-        set {
-            entityManager.player.component(ofType: QuantityComponent.self)?.quantity = newValue
-        }
-    }
+    private var goalQuantities = [String:Int]()
+    private var avoidables = [String]()
     private var collectibles: [Entity] {
         get {
-            //The player also has a QuantityComponent, so we exclude the player entity
-            return entityManager.getEntities(withComponents: QuantityComponent.self).filter { $0 !== entityManager.player }
+            return entityManager.getEntities(withComponents: QuantityComponent.self)
         }
     }
-    private var collectibleForReset = [Entity]()
+    private var collectiblesForReset = [Entity]()
+    private var isMissingCollectibles: Bool {
+        for (type, goal) in goalQuantities {
+            if collectedQuantity(forType: type) < goal {
+                return true
+            }
+        }
+        
+        return false
+    }
+    private var hasCollectedTooMuch: Bool {
+        for (type, goal) in goalQuantities {
+            if collectedQuantity(forType: type) > goal {
+                return true
+            }
+        }
+        
+        return false
+    }
+    private var hasCollectedAvoidables: Bool {
+        for type in avoidables {
+            if collectedQuantity(forType: type) != 0 {
+                return true
+            }
+        }
+        
+        return false
+    }
     
     override var infoLabel: String? {
-        if currentlyCollected <= goalQuantity {
-            return "Du har samlet \(currentlyCollected)/\(goalQuantity)"
-        } else {
-            return "Du har samlet \(currentlyCollected), og det er for meget!"
+        if hasCollectedAvoidables {
+            return "Du har samlet noget, du ikke måtte samle!"
+        } else if hasCollectedTooMuch {
+            return "Du har samlet for meget!"
+        } else if isMissingCollectibles {
+            var label = "Du har samlet"
+            
+            for (type, goal) in goalQuantities {
+                label += " \(collectedQuantity(forType: type))/\(goal) \(type),"
+            }
+            
+            _ = label.popLast()
+            
+            if avoidables.count != 0 {
+                label += ". Du skal undgå"
+                
+                for type in avoidables {
+                    label += " \(type),"
+                }
+                
+                _ = label.popLast()
+            }
+            
+            label += "."
+            
+            return label
         }
+        
+        return nil
     }
     
     // MARK: - Codable
     required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        goalQuantity = try container.decode(Int.self, forKey: .goalQuantity)
-        let resourceIdentifier = try container.decode(String.self, forKey: .resource)
         try super.init(from: decoder)
+        
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let collectionGoals = try container.decode([CollectibleGoalJSON].self, forKey: .doCollect)
+        store(collectionGoals: collectionGoals, into: &goalQuantities)
+        
+        avoidables = try container.decode([String].self, forKey: .dontCollect)
         
         let collectibles = try container.decode([CollectibleJSON].self, forKey: .collectibles)
         for collectible in collectibles {
-            let entity = createCollectible(fromJson: collectible, withResource: resourceIdentifier)
+            let entity = createCollectible(fromJson: collectible)
             entityManager.addEntity(entity)
-            collectibleForReset.append(entity)
+            collectiblesForReset.append(entity)
         }
         
         //This is used to keep track of how much the player has collected
-        entityManager.player.addComponent(QuantityComponent(quantity: 0))
+        entityManager.player.addComponent(InventoryComponent())
     }
     
-    private func createCollectible(fromJson json: CollectibleJSON, withResource resourceIdentifier: String) -> Entity {
+    private func store(collectionGoals: [CollectibleGoalJSON], into dict: inout [String:Int]) {
+        for goal in collectionGoals {
+            dict[goal.type] = goal.quantity
+        }
+    }
+    
+    private func createCollectible(fromJson json: CollectibleJSON) -> Entity {
         let collectible = Entity()
         
         let transform = TransformComponent(location: simd_double3(x: Double(json.x), y: 0, z: Double(json.y)))
         collectible.addComponent(transform)
         
-        let collision = CollisionComponent(size: simd_double3(0.1, 0.1, 0.1))
+        let collision = CollisionComponent(size: simd_double3(0.1, 0.1, 0.1), offset: simd_double3(0, 0.05, 0))
         collectible.addComponent(collision)
         
-        let quantity = QuantityComponent(quantity: json.quantity)
+        let quantity = QuantityComponent(type: json.type, quantity: json.quantity)
         collectible.addComponent(quantity)
         
-        let resource = ResourceComponent(resourceIdentifier: "\(resourceIdentifier)\(json.quantity)")
+        let resource = ResourceComponent(resourceIdentifier: json.resourceIdentifier)
         collectible.addComponent(resource)
         
         let spin = SpinComponent(speed: 0.02)
@@ -75,8 +127,8 @@ class QuantityLevel: Level {
     }
     
     private enum CodingKeys: String, CodingKey {
-        case goalQuantity
-        case resource
+        case doCollect
+        case dontCollect
         case collectibles
     }
     
@@ -102,12 +154,33 @@ class QuantityLevel: Level {
     private func collect(_ entity: Entity) {
         entityManager.removeEntity(entity)
         
-        let quantity = entity.component(ofType: QuantityComponent.self)?.quantity ?? 0
-        currentlyCollected = currentlyCollected + quantity
+        if let quantityComponent = entity.component(ofType: QuantityComponent.self),
+            let playerInventory = entityManager.player.component(ofType: InventoryComponent.self) {
+            
+            let type = quantityComponent.type
+            let quantity = quantityComponent.quantity
+            playerInventory.add(quantity: quantity, ofType: type)
+        }
     }
     
     override func isComplete() -> Bool {
-        return currentlyCollected == goalQuantity
+        for (type, goal) in goalQuantities {
+            if collectedQuantity(forType: type) != goal {
+                return false
+            }
+        }
+        
+        for type in avoidables {
+            if collectedQuantity(forType: type) != 0 {
+                return false
+            }
+        }
+        
+        return true
+    }
+    
+    private func collectedQuantity(forType type: String) -> Int {
+        return entityManager.player.component(ofType: InventoryComponent.self)?.quantities[type] ?? 0
     }
     
     override func getScore() -> Int {
@@ -120,13 +193,13 @@ class QuantityLevel: Level {
             objc_sync_exit(entityManager)
         }
         
-        currentlyCollected = 0
+        entityManager.player.component(ofType: InventoryComponent.self)?.reset()
         
         for oldEntity in collectibles {
             entityManager.removeEntity(oldEntity)
         }
         
-        for newEntity in collectibleForReset {
+        for newEntity in collectiblesForReset {
             entityManager.addEntity(newEntity)
         }
         
@@ -137,10 +210,17 @@ class QuantityLevel: Level {
 }
 
 // MARK: - Helpers
+private struct CollectibleGoalJSON: Decodable {
+    let type: String
+    let quantity: Int
+}
+
 private struct CollectibleJSON: Decodable {
     let x: Int
     let y: Int
     let quantity: Int
+    let resourceIdentifier: String
+    let type: String
 }
 
 // MARK: - LevelFactory
