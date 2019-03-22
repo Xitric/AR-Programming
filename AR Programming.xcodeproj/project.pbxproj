@@ -23,10 +23,16 @@
 		206A0CB822410FD80018E6B7 /* WardrobeManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206A0CB722410FD80018E6B7 /* WardrobeManagerTests.swift */; };
 		20FA267C22369CAC00AF1083 /* LoopCardNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FA267B22369CAC00AF1083 /* LoopCardNodeTests.swift */; };
 		20FA267E2236A10C00AF1083 /* BorderCardNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FA267D2236A10C00AF1083 /* BorderCardNodeTests.swift */; };
+		56131F43224429C30044B6F4 /* InventoryComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56131F42224429C30044B6F4 /* InventoryComponent.swift */; };
 		5621C83A221AE5F800756628 /* SCNVector3+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5621C839221AE5F800756628 /* SCNVector3+Helpers.swift */; };
 		5621C83C221AE67A00756628 /* simd_float4x4+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5621C83B221AE67A00756628 /* simd_float4x4+Helpers.swift */; };
 		5627ECAF220EEFA800DCC32E /* CardGraphDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5627ECAE220EEFA800DCC32E /* CardGraphDetector.swift */; };
 		5627ECB1220EF57700DCC32E /* CardNodeDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5627ECB0220EF57700DCC32E /* CardNodeDetector.swift */; };
+		562ACDA82244E15500D2DA7C /* LevelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562ACDA62244E15100D2DA7C /* LevelTests.swift */; };
+		562ACDA92244E15500D2DA7C /* QuantityLevelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562ACDA72244E15500D2DA7C /* QuantityLevelTests.swift */; };
+		562ACDAB2244E39100D2DA7C /* Levels in Resources */ = {isa = PBXBuildFile; fileRef = 562ACDAA2244E39100D2DA7C /* Levels */; };
+		562ACDAD2244E62900D2DA7C /* SimpleLevelLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562ACDAC2244E62900D2DA7C /* SimpleLevelLoader.swift */; };
+		562ACDB12244F1D300D2DA7C /* InventoryComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562ACDB02244F1D300D2DA7C /* InventoryComponentTests.swift */; };
 		562CAB8B223A3C5D007120D5 /* ActionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CAB8A223A3C5D007120D5 /* ActionComponent.swift */; };
 		562CAB8D223A3EE2007120D5 /* RotationActionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CAB8C223A3EE2007120D5 /* RotationActionComponent.swift */; };
 		562CAB8F223A43DE007120D5 /* CompoundActionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CAB8E223A43DE007120D5 /* CompoundActionComponent.swift */; };
@@ -158,10 +164,16 @@
 		20FA267D2236A10C00AF1083 /* BorderCardNodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderCardNodeTests.swift; sourceTree = "<group>"; };
 		2CBF6D6B964CB7805473D1E8 /* Pods-AR Programming.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AR Programming.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AR Programming/Pods-AR Programming.debug.xcconfig"; sourceTree = "<group>"; };
 		3F68042C35BD5B2A4D85C7F9 /* Pods-AR Programming.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AR Programming.release.xcconfig"; path = "Pods/Target Support Files/Pods-AR Programming/Pods-AR Programming.release.xcconfig"; sourceTree = "<group>"; };
+		56131F42224429C30044B6F4 /* InventoryComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryComponent.swift; sourceTree = "<group>"; };
 		5621C839221AE5F800756628 /* SCNVector3+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNVector3+Helpers.swift"; sourceTree = "<group>"; };
 		5621C83B221AE67A00756628 /* simd_float4x4+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "simd_float4x4+Helpers.swift"; sourceTree = "<group>"; };
 		5627ECAE220EEFA800DCC32E /* CardGraphDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGraphDetector.swift; sourceTree = "<group>"; };
 		5627ECB0220EF57700DCC32E /* CardNodeDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardNodeDetector.swift; sourceTree = "<group>"; };
+		562ACDA62244E15100D2DA7C /* LevelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelTests.swift; sourceTree = "<group>"; };
+		562ACDA72244E15500D2DA7C /* QuantityLevelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuantityLevelTests.swift; sourceTree = "<group>"; };
+		562ACDAA2244E39100D2DA7C /* Levels */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Levels; sourceTree = "<group>"; };
+		562ACDAC2244E62900D2DA7C /* SimpleLevelLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleLevelLoader.swift; sourceTree = "<group>"; };
+		562ACDB02244F1D300D2DA7C /* InventoryComponentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryComponentTests.swift; sourceTree = "<group>"; };
 		562CAB8A223A3C5D007120D5 /* ActionComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionComponent.swift; sourceTree = "<group>"; };
 		562CAB8C223A3EE2007120D5 /* RotationActionComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationActionComponent.swift; sourceTree = "<group>"; };
 		562CAB8E223A43DE007120D5 /* CompoundActionComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompoundActionComponent.swift; sourceTree = "<group>"; };
@@ -458,7 +470,10 @@
 		562EF8D922413C5200A8DC97 /* Level */ = {
 			isa = PBXGroup;
 			children = (
-				562EF8DA22413C6600A8DC97 /* QuantityLevelTests.swift */,
+				562ACDA62244E15100D2DA7C /* LevelTests.swift */,
+				562ACDA72244E15500D2DA7C /* QuantityLevelTests.swift */,
+				562ACDAC2244E62900D2DA7C /* SimpleLevelLoader.swift */,
+				562ACDB02244F1D300D2DA7C /* InventoryComponentTests.swift */,
 			);
 			path = Level;
 			sourceTree = "<group>";
@@ -537,6 +552,7 @@
 				56A62B1922311501009D0E83 /* LevelFactory.swift */,
 				56A62B1B223115B9009D0E83 /* QuantityLevel.swift */,
 				56431D2822328C7700BFAC36 /* QuantityComponent.swift */,
+				56131F42224429C30044B6F4 /* InventoryComponent.swift */,
 			);
 			path = Level;
 			sourceTree = "<group>";
@@ -650,6 +666,7 @@
 			children = (
 				562CCAAA220D933300BF6A8D /* Utilities */,
 				562CCA80220D752B00BF6A8D /* Model */,
+				562ACDAA2244E39100D2DA7C /* Levels */,
 				90DF7348216F442100F51E0C /* Info.plist */,
 				562CABA0223A5E6C007120D5 /* XCTestCase+Helpers.swift */,
 			);
@@ -766,6 +783,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				562ACDAB2244E39100D2DA7C /* Levels in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -901,6 +919,7 @@
 				562CAB8B223A3C5D007120D5 /* ActionComponent.swift in Sources */,
 				562CCA6E220D74AF00BF6A8D /* CardSequenceError.swift in Sources */,
 				90A55B0921A83B0700FD7CDD /* AudioController.swift in Sources */,
+				56131F43224429C30044B6F4 /* InventoryComponent.swift in Sources */,
 				56A62B1A22311501009D0E83 /* LevelFactory.swift in Sources */,
 				562EF8CE2240FE5B00A8DC97 /* DropCard.swift in Sources */,
 				562EF8C62240E67400A8DC97 /* PickupActionComponent.swift in Sources */,
@@ -916,7 +935,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				568AE7742223064D00A7348C /* EntityTests.swift in Sources */,
-				562EF8DB22413C6600A8DC97 /* QuantityLevelTests.swift in Sources */,
 				562CCAAC220D933E00BF6A8D /* Double+HelpersTests.swift in Sources */,
 				568AE77622233AC100A7348C /* EntityManagerTests.swift in Sources */,
 				56F3D4C72243731500E7260A /* CollisionComponentTests.swift in Sources */,
@@ -926,6 +944,7 @@
 				20FA267E2236A10C00AF1083 /* BorderCardNodeTests.swift in Sources */,
 				562CAB9D223A5CCC007120D5 /* RotationActionComponentTests.swift in Sources */,
 				562CCA9E220D92BC00BF6A8D /* SuccessorCardNodeTests.swift in Sources */,
+				562ACDA82244E15500D2DA7C /* LevelTests.swift in Sources */,
 				56A55AE42224728500A8CEE3 /* AddRemoveDelegateMock.swift in Sources */,
 				562EF8D4224107CC00A8DC97 /* LinkComponentTests.swift in Sources */,
 				562CCAA4220D92CF00BF6A8D /* ObservationGraphTests.swift in Sources */,
@@ -934,8 +953,11 @@
 				562CABA1223A5E6C007120D5 /* XCTestCase+Helpers.swift in Sources */,
 				562CAB96223A56D8007120D5 /* ActionComponentTests.swift in Sources */,
 				562CCAA3220D92CF00BF6A8D /* ObservationSetTests.swift in Sources */,
+				562ACDA92244E15500D2DA7C /* QuantityLevelTests.swift in Sources */,
+				562ACDB12244F1D300D2DA7C /* InventoryComponentTests.swift in Sources */,
 				562EF8D0224107A000A8DC97 /* PickupActionComponentTests.swift in Sources */,
 				56E167C12222C15B00D40FD0 /* GKEntity+HelpersTests.swift in Sources */,
+				562ACDAD2244E62900D2DA7C /* SimpleLevelLoader.swift in Sources */,
 				562CAB91223A48F2007120D5 /* LeftCardTests.swift in Sources */,
 				562CABA5223A630C007120D5 /* ProgramTests.swift in Sources */,
 				562CCAA5220D92CF00BF6A8D /* ObservationEdgeTests.swift in Sources */,

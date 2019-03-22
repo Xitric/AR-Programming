@@ -13,43 +13,79 @@ class QuantityLevelTests: XCTestCase {
     
     private var level: QuantityLevel!
     private var entityManager: EntityManager!
-    private var playerQuantity: QuantityComponent!
+    private var playerInventory: InventoryComponent!
     
     override func setUp() {
-        level = (try? LevelManager.loadLevel(byName: "Level3")) as? QuantityLevel
+        level = SimpleLevelLoader.loadLevel(ofType: QuantityLevel.self, withName: "TestLevel.json")
         entityManager = level.entityManager
-        playerQuantity = entityManager.player.component(ofType: QuantityComponent.self)
-    }
-
-    //MARK: infoLabel
-    func testQuantityLabel() {
-        //Arrange
-        playerQuantity.quantity = 3
-        
-        //Act
-        let label = level.infoLabel
-        
-        //Assert
-        XCTAssertNotNil(label)
-        XCTAssertTrue(label!.contains("3/6"))
+        playerInventory = entityManager.player.component(ofType: InventoryComponent.self)
     }
     
-    func testQuantityLabel_Exceeded() {
+    //MARK: infoLabel
+    func testInfoLabel() {
         //Arrange
-        playerQuantity.quantity = 8
+        playerInventory.add(quantity: 3, ofType: "mønter")
         
         //Act
         let label = level.infoLabel
         
         //Assert
-        XCTAssertNotNil(label)
-        XCTAssertTrue(label!.contains("det er for meget"))
+        XCTAssertEqual(label, "Du har samlet 3/7 mønter. Du skal undgå rubiner.")
+        XCTAssertFalse(level.isComplete())
+    }
+    
+    func testInfoLabel_Exceeded() {
+        //Arrange
+        playerInventory.add(quantity: 8, ofType: "mønter")
+        
+        //Act
+        let label = level.infoLabel
+        
+        //Assert
+        XCTAssertEqual(label, "Du har samlet for meget!")
+        XCTAssertFalse(level.isComplete())
+    }
+    
+    func testInfoLabel_IllegalItem() {
+        //Arrange
+        playerInventory.add(quantity: 1, ofType: "rubiner")
+        
+        //Act
+        let label = level.infoLabel
+        
+        //Assert
+        XCTAssertEqual(label, "Du har samlet noget, du ikke måtte samle!")
+        XCTAssertFalse(level.isComplete())
+    }
+    
+    func testInfoLabel_Done() {
+        //Arrange
+        playerInventory.add(quantity: 7, ofType: "mønter")
+        
+        //Act
+        let label = level.infoLabel
+        
+        //Assert
+        XCTAssertNil(label)
+        XCTAssertTrue(level.isComplete())
+    }
+    
+    //MARK: init
+    func testInit() {
+        let entities = level?.entityManager.getEntities(withComponents: TransformComponent.self)
+        XCTAssertEqual(entities?.count, 11)
+        
+        let collectibles = level?.entityManager.getEntities(withComponents: QuantityComponent.self)
+        XCTAssertEqual(collectibles?.count, 8)
     }
     
     //MARK: update
     func testUpdate() {
         //Arrange
-        XCTAssertEqual(entityManager.getEntities(withComponents: QuantityComponent.self).count, 5)
+        let delegate = LevelDelegateMock()
+        level.delegate = delegate
+        
+        XCTAssertEqual(entityManager.getEntities(withComponents: QuantityComponent.self).count, 8)
         if let playerTransform = entityManager.player.component(subclassOf: TransformComponent.self) {
             playerTransform.location += simd_double3(1, 0, 0)
         } else {
@@ -60,25 +96,76 @@ class QuantityLevelTests: XCTestCase {
         level.update(currentTime: 2)
         
         //Assert
-        XCTAssertEqual(entityManager.getEntities(withComponents: QuantityComponent.self).count, 4)
-        XCTAssertEqual(entityManager.player.component(ofType: QuantityComponent.self)?.quantity, 2)
+        wait(for: [delegate.infoExpectation], timeout: 1)
+        XCTAssertEqual(entityManager.getEntities(withComponents: QuantityComponent.self).count, 7)
+        XCTAssertEqual(playerInventory.quantities["rubiner"], 1)
+    }
+    
+    func testUpdate_CompleteLevel() {
+        //Arrange
+        let delegate = LevelDelegateMock()
+        level.delegate = delegate
+        playerInventory.add(quantity: 6, ofType: "mønter")
+        if let playerTransform = entityManager.player.component(subclassOf: TransformComponent.self) {
+            playerTransform.location += simd_double3(0, 0, 1)
+        } else {
+            XCTFail()
+        }
+        
+        //Act
+        level.update(delta: 2)
+        
+        //Assert
+        wait(for: [delegate.infoExpectation], timeout: 1)
+        wait(for: [delegate.completionExpectation], timeout: 1)
+        XCTAssertTrue(level.isComplete())
     }
     
     //MARK: reset
     func testReset() {
         //Arrange
-        playerQuantity.quantity = 3
-        let collectibles = entityManager.getEntities(withComponents: QuantityComponent.self).filter {
-            $0 !== entityManager.player
-        }
+        let delegate = LevelDelegateMock()
+        level.delegate = delegate
+        
+        playerInventory.add(quantity: 3, ofType: "mønter")
+        playerInventory.add(quantity: 1, ofType: "rubiner")
+        let collectibles = entityManager.getEntities(withComponents: QuantityComponent.self)
         entityManager.removeEntity(collectibles[0])
-        XCTAssertEqual(entityManager.getEntities(withComponents: QuantityComponent.self).count, 4)
+        entityManager.removeEntity(collectibles[2])
+        XCTAssertEqual(entityManager.getEntities(withComponents: QuantityComponent.self).count, 6)
         
         //Act
         level.reset()
         
         //Assert
-        XCTAssertEqual(playerQuantity.quantity, 0)
-        XCTAssertEqual(entityManager.getEntities(withComponents: QuantityComponent.self).count, 5)
+        XCTAssertNil(playerInventory.quantities["mønter"])
+        XCTAssertNil(playerInventory.quantities["rubiner"])
+        XCTAssertEqual(entityManager.getEntities(withComponents: QuantityComponent.self).count, 8)
+        wait(for: [delegate.resetExpectation], timeout: 1)
+    }
+}
+
+class LevelDelegateMock: LevelDelegate {
+    
+    let completionExpectation: XCTestExpectation
+    let resetExpectation: XCTestExpectation
+    let infoExpectation: XCTestExpectation
+    
+    init() {
+        completionExpectation = XCTestExpectation(description: "Completion called")
+        resetExpectation = XCTestExpectation(description: "Reset called")
+        infoExpectation = XCTestExpectation(description: "Info changed")
+    }
+    
+    func levelCompleted(_ level: Level) {
+        completionExpectation.fulfill()
+    }
+    
+    func levelReset(_ level: Level) {
+        resetExpectation.fulfill()
+    }
+    
+    func levelInfoChanged(_ level: Level, info: String?) {
+        infoExpectation.fulfill()
     }
 }

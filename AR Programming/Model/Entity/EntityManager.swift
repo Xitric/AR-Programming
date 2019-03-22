@@ -28,7 +28,7 @@ class EntityManager: NSObject {
         super.init()
         
         player.addComponent(TransformComponent())
-        player.addComponent(CollisionComponent(size: simd_double3(0.5, 0.5, 0.5)))
+        player.addComponent(CollisionComponent(size: simd_double3(0.5, 0.5, 0.5), offset: simd_double3(0, 0.25, 0)))
         player.addComponent(ResourceComponent(resourceIdentifier: WardrobeManager.robotChoice()))
         addEntity(player)
         

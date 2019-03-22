@@ -1,8 +1,8 @@
 {
-    "number":4,
+    "number":0,
     "type":"quantity",
-    "name":"Undgå rubinerne!",
-    "unlocks":"Level5",
+    "name":"Test Level",
+    "unlocks":"TestUnlockLevel",
     "doCollect":[
         {"type":"mønter", "quantity":7}
     ],

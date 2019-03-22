@@ -10,9 +10,11 @@ import Foundation
 
 class QuantityComponent: GKComponent {
     
+    let type: String
     var quantity: Int
     
-    init(quantity: Int) {
+    init(type: String, quantity: Int) {
+        self.type = type
         self.quantity = quantity
         super.init()
     }

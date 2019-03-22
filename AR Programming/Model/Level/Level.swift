@@ -82,8 +82,25 @@ class Level: Decodable, UpdateDelegate {
         name = try container.decode(String.self, forKey: .name)
         levelNumber = try container.decode(Int.self, forKey: .number)
         unlocks = try? container.decode(String.self, forKey: .unlocks)
-        
         entityManager = EntityManager()
+        
+        let props = try container.decode([PropJSON].self, forKey: .props)
+        for prop in props {
+            let propEntity = createProp(fromJson: prop)
+            entityManager.addEntity(propEntity)
+        }
+    }
+    
+    private func createProp(fromJson propJson: PropJSON) -> Entity {
+        let prop = Entity()
+        
+        let transform = TransformComponent(location: simd_double3(propJson.x, 0, propJson.y))
+        prop.addComponent(transform)
+        
+        let resource = ResourceComponent(resourceIdentifier: propJson.resourceIdentifier)
+        prop.addComponent(resource)
+        
+        return prop
     }
     
     private enum CodingKeys: String, CodingKey {
@@ -91,7 +108,14 @@ class Level: Decodable, UpdateDelegate {
         case name
         case number
         case unlocks
+        case props
     }
+}
+
+struct PropJSON: Decodable {
+    let x: Double
+    let y: Double
+    let resourceIdentifier: String
 }
 
 protocol LevelDelegate: class {

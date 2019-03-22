@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <asset>
+    <contributor>
+      <author>Blender User</author>
+      <authoring_tool>Blender 2.79.0 commit date:2018-03-22, commit time:14:10, hash:f4dc9f9d68b</authoring_tool>
+    </contributor>
+    <created>2019-03-22T09:10:23</created>
+    <modified>2019-03-22T09:10:23</modified>
+    <unit name="meter" meter="1"/>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_images/>
+  <library_effects>
+    <effect id="OakLeaves2-effect">
+      <profile_COMMON>
+        <technique sid="common">
+          <lambert>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <ambient>
+              <color sid="ambient">0 0 0 1</color>
+            </ambient>
+            <diffuse>
+              <color sid="diffuse">0.1634316 0.2529426 0.06123758 1</color>
+            </diffuse>
+            <index_of_refraction>
+              <float sid="index_of_refraction">1</float>
+            </index_of_refraction>
+          </lambert>
+        </technique>
+      </profile_COMMON>
+    </effect>
+    <effect id="OakTrunk-effect">
+      <profile_COMMON>
+        <technique sid="common">
+          <lambert>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <ambient>
+              <color sid="ambient">0 0 0 1</color>
+            </ambient>
+            <diffuse>
+              <color sid="diffuse">0.4507858 0.2422812 0.1301365 1</color>
+            </diffuse>
+            <index_of_refraction>
+              <float sid="index_of_refraction">1</float>
+            </index_of_refraction>
+          </lambert>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_materials>
+    <material id="OakLeaves2-material" name="OakLeaves2">
+      <instance_effect url="#OakLeaves2-effect"/>
+    </material>
+    <material id="OakTrunk-material" name="OakTrunk">
+      <instance_effect url="#OakTrunk-effect"/>
+    </material>
+  </library_materials>
+  <library_geometries>
+    <geometry id="Icosphere_000-mesh" name="Icosphere.000">
+      <mesh>
+        <source id="Icosphere_000-mesh-positions">
+          <float_array id="Icosphere_000-mesh-positions-array" count="93">-0.2352409 0.7240074 2.531964 0.003617584 -0.8922906 3.756492 -0.5841162 0.796989 3.593703 0.5215456 0.7240079 3.75649 0.8497384 -0.2722898 3.75649 -0.1781658 0.1294441 4.293426 -0.08847051 -0.2722895 2.238423 -0.00361818 -0.8922905 2.708906 0.8475012 -0.2791752 2.708909 0.4189073 0 2.27505 -0.8497389 -0.2722897 2.708908 -0.7049828 0.2462282 2.501297 0.5274078 0.7197484 2.708908 1.043889 0 3.286288 0.3225803 -0.9927977 3.286288 -0.8898147 -0.520931 3.589422 -1.043889 0 3.179109 0.3225803 0.9927979 3.286288 0.3389014 -0.2462261 4.19035 0 0.232198 0 0 0.1105053 2.417652 0.2010894 0.1160989 0 0.09570038 0.05525261 2.417652 0.2010893 -0.116099 0 0.09570038 -0.05525261 2.417652 0 -0.232198 0 0 -0.1105053 2.417652 -0.2010894 -0.1160989 0 -0.09570044 -0.05525261 2.417652 -0.2010894 0.1160989 0 -0.09570044 0.05525261 2.417652</float_array>
+          <technique_common>
+            <accessor source="#Icosphere_000-mesh-positions-array" count="31" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Icosphere_000-mesh-normals">
+          <float_array id="Icosphere_000-mesh-normals-array" count="147">-0.1933453 0.2509722 -0.9484885 -0.076402 0.2714217 -0.9594234 -0.6779296 0.6838406 -0.2697657 0.8089843 -0.587761 0.009029626 -0.3542869 -0.9343844 0.03750622 -0.2570562 0.9546706 -0.1500878 0.8089844 0.5877609 0.009031057 0.4741237 -0.6470396 0.5971152 -0.3510009 -0.4837673 0.8017279 -0.7690125 0.1763808 0.6144182 -0.05743271 0.7055018 0.7063772 0.639055 0.2105123 0.7397927 0.3980094 0.3110076 0.8630545 -0.1796393 -0.4824776 0.8572894 0.8239656 0.2714242 0.497403 0.8090016 0.5877725 -0.006328284 -0.01674932 0.8649693 0.5015452 -0.8170372 0.187745 0.5451624 -0.3742648 -0.9256278 -0.05602741 0.5127575 -0.6997627 0.4974051 0.809001 -0.5877733 -0.006330013 0.09722673 0.9126138 -0.3970931 -0.801868 0.5644826 -0.1958758 -0.9031039 0.08346337 -0.4212332 -0.9093104 -0.3877962 -0.1508932 -0.5727779 -0.7816746 -0.2468003 0.5286885 -0.7339169 -0.426444 0.8613716 0.2760161 -0.4264435 0.2004034 0.483444 -0.852127 -0.5161219 -0.1902848 -0.8351107 -0.4271597 -0.5829456 -0.691165 0.7638947 0.2447805 -0.5971161 0.343937 -0.5372969 -0.7700776 0.3932732 -0.5459335 -0.7397925 0.4995257 0.8652037 0.04355007 0.9990513 -2.12151e-7 0.04355007 0.4995257 -0.8652038 0.04355007 -0.4995258 -0.8652037 0.04355007 0 0 1 -0.9990513 0 0.04355007 -0.4995259 0.8652037 0.04355007 0 0 -1 0.4995257 0.8652037 0.04355007 0.9990513 -4.4578e-7 0.04355007 0.4995258 -0.8652037 0.04355007 -0.4995259 -0.8652036 0.04355007 -1.37795e-6 0 1 -0.9990513 0 0.04355007 -0.4995256 0.8652038 0.04355007</float_array>
+          <technique_common>
+            <accessor source="#Icosphere_000-mesh-normals-array" count="49" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Icosphere_000-mesh-vertices">
+          <input semantic="POSITION" source="#Icosphere_000-mesh-positions"/>
+        </vertices>
+        <triangles material="OakLeaves2-material" count="34">
+          <input semantic="VERTEX" source="#Icosphere_000-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#Icosphere_000-mesh-normals" offset="1"/>
+          <p>6 0 11 0 0 0 6 1 0 1 9 1 0 2 11 2 2 2 8 3 13 3 14 3 7 4 14 4 15 4 0 5 2 5 17 5 12 6 17 6 13 6 1 7 4 7 18 7 15 8 1 8 5 8 2 9 15 9 5 9 3 10 2 10 5 10 4 11 3 11 18 11 18 12 3 12 5 12 5 13 1 13 18 13 13 14 3 14 4 14 13 15 17 15 3 15 17 16 2 16 3 16 16 17 15 17 2 17 15 18 14 18 1 18 14 19 4 19 1 19 14 20 13 20 4 20 12 21 0 21 17 21 2 22 11 22 16 22 11 23 10 23 16 23 16 24 10 24 15 24 10 25 7 25 15 25 7 26 8 26 14 26 8 27 12 27 13 27 9 28 0 28 12 28 11 29 6 29 10 29 6 30 7 30 10 30 8 31 9 31 12 31 6 32 9 32 7 32 9 33 8 33 7 33</p>
+        </triangles>
+        <triangles material="OakTrunk-material" count="20">
+          <input semantic="VERTEX" source="#Icosphere_000-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#Icosphere_000-mesh-normals" offset="1"/>
+          <p>20 34 21 34 19 34 22 35 23 35 21 35 24 36 25 36 23 36 26 37 27 37 25 37 28 38 26 38 24 38 28 39 29 39 27 39 30 40 19 40 29 40 25 41 27 41 29 41 20 42 22 42 21 42 22 43 24 43 23 43 24 44 26 44 25 44 26 45 28 45 27 45 24 38 22 38 20 38 20 38 30 38 24 38 30 46 28 46 24 46 28 47 30 47 29 47 30 48 20 48 19 48 29 41 19 41 21 41 21 41 23 41 29 41 23 41 25 41 29 41</p>
+        </triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_controllers/>
+  <library_visual_scenes>
+    <visual_scene id="Scene" name="Scene">
+      <node id="Icosphere_003" name="Icosphere_003" type="NODE">
+        <matrix sid="transform">0.3473523 0 0 0 0 0.3473523 0 0 0 0 0.3473523 0 0 0 0 1</matrix>
+        <instance_geometry url="#Icosphere_000-mesh" name="Icosphere_003">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="OakLeaves2-material" target="#OakLeaves2-material"/>
+              <instance_material symbol="OakTrunk-material" target="#OakTrunk-material"/>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Scene"/>
+  </scene>
+</COLLADA>
