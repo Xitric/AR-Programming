@@ -56,7 +56,6 @@ class EntityModelLoader: EntityManagerDelegate {
         if let currentTransform = entity.component(subclassOf: TransformComponent.self) {
             nodeComponent.location = currentTransform.location
             nodeComponent.rotation = currentTransform.rotation
-            nodeComponent.scale = currentTransform.scale
             
             entity.removeComponent(ofType: type(of: currentTransform))
             entity.addComponent(nodeComponent)
@@ -74,8 +73,7 @@ class EntityModelLoader: EntityManagerDelegate {
     private func extractNodeComponent(fromEntity entity: Entity) {
         if let currentTransform = entity.component(subclassOf: SCNNodeComponent.self) {
             let transformComponent = TransformComponent(location: currentTransform.location,
-                                                        rotation: currentTransform.rotation,
-                                                        scale: currentTransform.scale)
+                                                        rotation: currentTransform.rotation)
             
             entity.removeComponent(ofType: SCNNodeComponent.self)
             entity.addComponent(transformComponent)

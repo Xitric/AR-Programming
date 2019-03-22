@@ -11,5 +11,15 @@ import GameplayKit
 
 class Component: GKComponent {
     
-    weak var entityManager: EntityManager?
+    weak var entityManager: EntityManager? {
+        didSet {
+            if entityManager != nil {
+                didAddToEntityManager()
+            }
+        }
+    }
+    
+    func didAddToEntityManager() {
+        
+    }
 }

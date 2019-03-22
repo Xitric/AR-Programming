@@ -39,19 +39,6 @@ class SCNNodeComponent: TransformComponent {
                                               r: Float(newValue.real))
         }
     }
-    override var scale: simd_double3 {
-        get {
-            let floatScale = node.simdScale
-            return simd_double3(x: Double(floatScale.x),
-                                y: Double(floatScale.y),
-                                z: Double(floatScale.z))
-        }
-        set {
-            node.simdScale = simd_float3(x: Float(newValue.x),
-                                         y: Float(newValue.y),
-                                         z: Float(newValue.z))
-        }
-    }
     
     init(node: SCNNode) {
         self.node = node

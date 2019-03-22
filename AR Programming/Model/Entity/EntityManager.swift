@@ -38,6 +38,7 @@ class EntityManager: NSObject {
         addSystem(GKComponentSystem.init(componentClass: RotationActionComponent.self))
         addSystem(GKComponentSystem.init(componentClass: CompoundActionComponent.self))
         addSystem(GKComponentSystem.init(componentClass: SpinComponent.self))
+        addSystem(GKComponentSystem.init(componentClass: LinkComponent.self))
     }
     
     func addEntity(_ entity: Entity) {
