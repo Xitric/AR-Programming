@@ -28,6 +28,11 @@
 		5621C83C221AE67A00756628 /* simd_float4x4+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5621C83B221AE67A00756628 /* simd_float4x4+Helpers.swift */; };
 		5627ECAF220EEFA800DCC32E /* CardGraphDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5627ECAE220EEFA800DCC32E /* CardGraphDetector.swift */; };
 		5627ECB1220EF57700DCC32E /* CardNodeDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5627ECB0220EF57700DCC32E /* CardNodeDetector.swift */; };
+		562ACDA82244E15500D2DA7C /* LevelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562ACDA62244E15100D2DA7C /* LevelTests.swift */; };
+		562ACDA92244E15500D2DA7C /* QuantityLevelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562ACDA72244E15500D2DA7C /* QuantityLevelTests.swift */; };
+		562ACDAB2244E39100D2DA7C /* Levels in Resources */ = {isa = PBXBuildFile; fileRef = 562ACDAA2244E39100D2DA7C /* Levels */; };
+		562ACDAD2244E62900D2DA7C /* SimpleLevelLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562ACDAC2244E62900D2DA7C /* SimpleLevelLoader.swift */; };
+		562ACDB12244F1D300D2DA7C /* InventoryComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562ACDB02244F1D300D2DA7C /* InventoryComponentTests.swift */; };
 		562CAB8B223A3C5D007120D5 /* ActionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CAB8A223A3C5D007120D5 /* ActionComponent.swift */; };
 		562CAB8D223A3EE2007120D5 /* RotationActionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CAB8C223A3EE2007120D5 /* RotationActionComponent.swift */; };
 		562CAB8F223A43DE007120D5 /* CompoundActionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CAB8E223A43DE007120D5 /* CompoundActionComponent.swift */; };
@@ -65,7 +70,6 @@
 		562CCAA4220D92CF00BF6A8D /* ObservationGraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCAA0220D92CA00BF6A8D /* ObservationGraphTests.swift */; };
 		562CCAA5220D92CF00BF6A8D /* ObservationEdgeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCAA1220D92CC00BF6A8D /* ObservationEdgeTests.swift */; };
 		562CCAAC220D933E00BF6A8D /* Double+HelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCAAB220D933E00BF6A8D /* Double+HelpersTests.swift */; };
-		562EF8DB22413C6600A8DC97 /* QuantityLevelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562EF8DA22413C6600A8DC97 /* QuantityLevelTests.swift */; };
 		56319DE82237D3C600469D5E /* ResourceComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56319DE72237D3C500469D5E /* ResourceComponent.swift */; };
 		56319DEA2237D40F00469D5E /* TransformComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56319DE92237D40F00469D5E /* TransformComponent.swift */; };
 		56319E09223801D100469D5E /* MovementActionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56319E08223801D100469D5E /* MovementActionComponent.swift */; };
@@ -153,6 +157,11 @@
 		5621C83B221AE67A00756628 /* simd_float4x4+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "simd_float4x4+Helpers.swift"; sourceTree = "<group>"; };
 		5627ECAE220EEFA800DCC32E /* CardGraphDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGraphDetector.swift; sourceTree = "<group>"; };
 		5627ECB0220EF57700DCC32E /* CardNodeDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardNodeDetector.swift; sourceTree = "<group>"; };
+		562ACDA62244E15100D2DA7C /* LevelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelTests.swift; sourceTree = "<group>"; };
+		562ACDA72244E15500D2DA7C /* QuantityLevelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuantityLevelTests.swift; sourceTree = "<group>"; };
+		562ACDAA2244E39100D2DA7C /* Levels */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Levels; sourceTree = "<group>"; };
+		562ACDAC2244E62900D2DA7C /* SimpleLevelLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleLevelLoader.swift; sourceTree = "<group>"; };
+		562ACDB02244F1D300D2DA7C /* InventoryComponentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryComponentTests.swift; sourceTree = "<group>"; };
 		562CAB8A223A3C5D007120D5 /* ActionComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionComponent.swift; sourceTree = "<group>"; };
 		562CAB8C223A3EE2007120D5 /* RotationActionComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationActionComponent.swift; sourceTree = "<group>"; };
 		562CAB8E223A43DE007120D5 /* CompoundActionComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompoundActionComponent.swift; sourceTree = "<group>"; };
@@ -190,7 +199,6 @@
 		562CCAA0220D92CA00BF6A8D /* ObservationGraphTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationGraphTests.swift; sourceTree = "<group>"; };
 		562CCAA1220D92CC00BF6A8D /* ObservationEdgeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationEdgeTests.swift; sourceTree = "<group>"; };
 		562CCAAB220D933E00BF6A8D /* Double+HelpersTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+HelpersTests.swift"; sourceTree = "<group>"; };
-		562EF8DA22413C6600A8DC97 /* QuantityLevelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuantityLevelTests.swift; sourceTree = "<group>"; };
 		56319DE72237D3C500469D5E /* ResourceComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceComponent.swift; sourceTree = "<group>"; };
 		56319DE92237D40F00469D5E /* TransformComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransformComponent.swift; sourceTree = "<group>"; };
 		56319E08223801D100469D5E /* MovementActionComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovementActionComponent.swift; sourceTree = "<group>"; };
@@ -432,7 +440,10 @@
 		562EF8D922413C5200A8DC97 /* Level */ = {
 			isa = PBXGroup;
 			children = (
-				562EF8DA22413C6600A8DC97 /* QuantityLevelTests.swift */,
+				562ACDA62244E15100D2DA7C /* LevelTests.swift */,
+				562ACDA72244E15500D2DA7C /* QuantityLevelTests.swift */,
+				562ACDAC2244E62900D2DA7C /* SimpleLevelLoader.swift */,
+				562ACDB02244F1D300D2DA7C /* InventoryComponentTests.swift */,
 			);
 			path = Level;
 			sourceTree = "<group>";
@@ -620,6 +631,7 @@
 			children = (
 				562CCAAA220D933300BF6A8D /* Utilities */,
 				562CCA80220D752B00BF6A8D /* Model */,
+				562ACDAA2244E39100D2DA7C /* Levels */,
 				90DF7348216F442100F51E0C /* Info.plist */,
 				562CABA0223A5E6C007120D5 /* XCTestCase+Helpers.swift */,
 			);
@@ -736,6 +748,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				562ACDAB2244E39100D2DA7C /* Levels in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -880,7 +893,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				568AE7742223064D00A7348C /* EntityTests.swift in Sources */,
-				562EF8DB22413C6600A8DC97 /* QuantityLevelTests.swift in Sources */,
 				562CCAAC220D933E00BF6A8D /* Double+HelpersTests.swift in Sources */,
 				568AE77622233AC100A7348C /* EntityManagerTests.swift in Sources */,
 				56F3D4C72243731500E7260A /* CollisionComponentTests.swift in Sources */,
@@ -890,13 +902,17 @@
 				20FA267E2236A10C00AF1083 /* BorderCardNodeTests.swift in Sources */,
 				562CAB9D223A5CCC007120D5 /* RotationActionComponentTests.swift in Sources */,
 				562CCA9E220D92BC00BF6A8D /* SuccessorCardNodeTests.swift in Sources */,
+				562ACDA82244E15500D2DA7C /* LevelTests.swift in Sources */,
 				56A55AE42224728500A8CEE3 /* AddRemoveDelegateMock.swift in Sources */,
 				562CCAA4220D92CF00BF6A8D /* ObservationGraphTests.swift in Sources */,
 				20FA267C22369CAC00AF1083 /* LoopCardNodeTests.swift in Sources */,
 				562CABA1223A5E6C007120D5 /* XCTestCase+Helpers.swift in Sources */,
 				562CAB96223A56D8007120D5 /* ActionComponentTests.swift in Sources */,
 				562CCAA3220D92CF00BF6A8D /* ObservationSetTests.swift in Sources */,
+				562ACDA92244E15500D2DA7C /* QuantityLevelTests.swift in Sources */,
+				562ACDB12244F1D300D2DA7C /* InventoryComponentTests.swift in Sources */,
 				56E167C12222C15B00D40FD0 /* GKEntity+HelpersTests.swift in Sources */,
+				562ACDAD2244E62900D2DA7C /* SimpleLevelLoader.swift in Sources */,
 				562CAB91223A48F2007120D5 /* LeftCardTests.swift in Sources */,
 				562CABA5223A630C007120D5 /* ProgramTests.swift in Sources */,
 				562CCAA5220D92CF00BF6A8D /* ObservationEdgeTests.swift in Sources */,

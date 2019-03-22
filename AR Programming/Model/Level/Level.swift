@@ -87,11 +87,12 @@ class Level: Decodable, UpdateDelegate {
         
         let props = try container.decode([PropJSON].self, forKey: .props)
         for prop in props {
-            addProp(fromJson: prop)
+            let propEntity = createProp(fromJson: prop)
+            entityManager.addEntity(propEntity)
         }
     }
     
-    private func addProp(fromJson propJson: PropJSON) {
+    private func createProp(fromJson propJson: PropJSON) -> Entity {
         let prop = Entity()
         
         let transform = TransformComponent(location: simd_double3(propJson.x, 0, propJson.y))
@@ -100,7 +101,7 @@ class Level: Decodable, UpdateDelegate {
         let resource = ResourceComponent(resourceIdentifier: propJson.resourceIdentifier)
         prop.addComponent(resource)
         
-        entityManager.addEntity(prop)
+        return prop
     }
     
     private enum CodingKeys: String, CodingKey {
