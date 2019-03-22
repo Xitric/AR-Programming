@@ -11,7 +11,8 @@ import UIKit
 import ARKit
 
 class ARContainerViewController: UIViewController {
-
+    
+    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var arSceneView: ARSCNView!{
         didSet {
             arController = ARController(with: arSceneView)
@@ -20,17 +21,19 @@ class ARContainerViewController: UIViewController {
     
     private var arController: ARController?
     private var levelViewModel: LevelViewModel?
+    private var programEditor = ProgramEditor()
     
     var level: Level?
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let gameplayController = segue.destination as? GameplayController {
+        
+        if let hiddenTabBarViewController = segue.destination as? HiddenTabBarViewController {
             if let level = level {
                 levelViewModel = LevelViewModel(level: level)
             }
             arController?.updateDelegate = level
+            hiddenTabBarViewController.enter(withLevel: levelViewModel, inEnvironment: arController, withEditor: programEditor)
             
-            gameplayController.enter(withLevel: levelViewModel, inEnvironment: arController)
         }
     }
     
@@ -56,4 +59,5 @@ class ARContainerViewController: UIViewController {
         self.navigationController?.navigationBar.tintColor = nil
         self.navigationController?.view.backgroundColor = nil
     }
+
 }

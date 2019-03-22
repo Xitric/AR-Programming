@@ -14,7 +14,6 @@ class ScanViewController : UIViewController {
     @IBOutlet weak var cardImage: UIImageView!
     @IBOutlet weak var cardName: UILabel!
     @IBOutlet weak var cardDescription: UILabel!
-    
     private var detector: BarcodeDetector!
     
     override func viewDidLoad() {
@@ -23,31 +22,12 @@ class ScanViewController : UIViewController {
         state.delegate = self
         detector = BarcodeDetector(state: state)
     }
+
     
     @IBAction func back(_ sender: UIButton) {
         if let parent = self.parent as? HiddenTabBarViewController {
             parent.goToViewControllerWith(index: 0)
         }
-    }
-}
-
-// MARK: - GameplayController
-extension ScanViewController: GameplayController {
-    func enter(withLevel levelViewModel: LevelViewModel?, inEnvironment arController: ARController?) {
-        arController?.frameDelegate = self
-    }
-    
-    func exit(withLevel levelViewModel: LevelViewModel?, inEnvironment arController: ARController?) {
-        arController?.frameDelegate = nil
-    }
-}
-
-// MARK: - FrameDelegate
-extension ScanViewController: FrameDelegate {
-    func frameScanner(_ scanner: ARController, didUpdate frame: CVPixelBuffer, withOrientation orientation: CGImagePropertyOrientation) {
-        detector.analyze(frame: frame, oriented: orientation,
-                         frameWidth: Double(UIScreen.main.bounds.width),
-                         frameHeight: Double(UIScreen.main.bounds.height))
     }
 }
 
@@ -63,7 +43,7 @@ extension ScanViewController: CardNodeDetectorDelegate {
         }
     }
     
-    private func display(card optCard: Card?) {
+    func display(card optCard: Card?) {
         if let card = optCard {
             self.cardName.text = "\(card.name) | \(card.summary)"
             self.cardDescription.text = card.description
@@ -81,3 +61,4 @@ extension ScanViewController: CardNodeDetectorDelegate {
         self.cardImage.image = nil
     }
 }
+

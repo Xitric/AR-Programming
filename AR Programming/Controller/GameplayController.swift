@@ -16,7 +16,7 @@ protocol GameplayController {
     ///   - levelViewModel: The view model of the currently active level.
     ///   - arController: The handler for integrating with the ARKit callbacks.
     /// - Tag: GameplayController.enter
-    func enter(withLevel levelViewModel: LevelViewModel?, inEnvironment arController: ARController?)
+    func enter(withLevel levelViewModel: LevelViewModel?, inEnvironment arController: ARController?, withEditor programEditor: ProgramEditor?)
     
     /// Called when the user navigates away from this controller. The provided LevelViewModel and ARController wil be the same as those passed in [enter()](x-source-tag://GameplayController.start).
     ///
@@ -24,5 +24,5 @@ protocol GameplayController {
     ///   - levelViewModel: The view model of the currently active level.
     ///   - arController: The handler for integrating with the ARKit callbacks.
     /// - Tag: GameplayController.exit
-    func exit(withLevel levelViewModel: LevelViewModel?, inEnvironment arController: ARController?)
+    func exit(withLevel levelViewModel: LevelViewModel?, inEnvironment arController: ARController?, withEditor programEditor: ProgramEditor?)
 }

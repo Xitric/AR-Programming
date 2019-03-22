@@ -18,7 +18,6 @@ class LevelViewController: UIViewController {
     @IBOutlet weak var detectButton: UIButton!
     @IBOutlet weak var executeButton: UIButton!
     @IBOutlet weak var resetButton: UIButton!
-    @IBOutlet weak var scanButton: UIButton!
     
     @IBOutlet weak var planeDetectionHint: SubtitleLabel!
     @IBOutlet weak var planePlacementHint: SubtitleLabel!
@@ -31,15 +30,17 @@ class LevelViewController: UIViewController {
     //MARK: Sound
     private var winSound = AudioController.instance.makeSound(withName: "win.wav")
     private var pickupSound = AudioController.instance.makeSound(withName: "pickup.wav")
+
     
     //MARK: State
-    private var editor = ProgramEditor()
+    var programEditor: ProgramEditor?
+    
     private var levelViewModel: LevelViewModel? {
         didSet {
             winLabel.isHidden = true
             winDescription.isHidden = true
             levelViewModel?.levelModel.delegate = self
-            editor.reset()
+            programEditor?.reset()
         }
     }
     private var currentPlane: Plane? {
@@ -78,27 +79,37 @@ class LevelViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        editor.delegate = self
+
         
         createPlaneAnimation()
+//        let cardRect = CardRect(frame:  CGRect(x: 100, y: 100, width: 96, height: 96))
+//        view.addSubview(cardRect)
+//
+        
+    }
+    @objc func viewTapped(_ sender: UITapGestureRecognizer) {
+        print("viewTapped  CALLED")
+    }
+    
+    func generateRandomColor() -> UIColor {
+        let hue : CGFloat = CGFloat(arc4random() % 256) / 256 // use 256 to get full range from 0.0 to 1.0
+        let saturation : CGFloat = CGFloat(arc4random() % 128) / 256 + 0.5 // from 0.5 to 1.0 to stay away from white
+        let brightness : CGFloat = CGFloat(arc4random() % 128) / 256 + 0.5 // from 0.5 to 1.0 to stay away from black
+        
+        return UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: 1)
     }
     
     private func createPlaneAnimation() {
         planeDetectionAnimation.animationImages = UIImage.loadAnimation(named: "ScanSurface", withFrames: 50)
         planeDetectionAnimation.animationDuration = 2.8
         planeDetectionAnimation.startAnimating()
+     
     }
     
-    // MARK: - Button actions
-    @IBAction func startScanning(_ sender: UIButton) {
-        if let parent = self.tabBarController as? HiddenTabBarViewController {
-            parent.goToViewControllerWith(index: 1)
-        }
-    }
-    
+    // MARK: - Button actions    
     @IBAction func detectCards(_ sender: UIButton) {
-        editor.saveProgram()
-        editor.program.delegate = self
+        programEditor?.saveProgram()
+        programEditor?.program.delegate = self
         
         detectButton.isHidden = true
         executeButton.isHidden = false
@@ -108,14 +119,14 @@ class LevelViewController: UIViewController {
     @IBAction func executeSequence(_ sender: UIButton) {
         if let levelViewModel = levelViewModel {
             let player = levelViewModel.player
-            editor.program.run(on: player)
+            programEditor?.program.run(on: player)
         }
     }
     
     @IBAction func resetLevel(_ sender: UIButton) {
         levelViewModel?.levelModel.reset()
-        editor.program.delegate = nil
-        editor.reset()
+        programEditor?.program.delegate = nil
+        programEditor?.reset()
         
         detectButton.isHidden = false
         executeButton.isHidden = true
@@ -137,16 +148,16 @@ class LevelViewController: UIViewController {
 
 // MARK: - GameplayController
 extension LevelViewController: GameplayController {
-    func enter(withLevel levelViewModel: LevelViewModel?, inEnvironment arController: ARController?) {
+    func enter(withLevel levelViewModel: LevelViewModel?, inEnvironment arController: ARController?, withEditor programEditor: ProgramEditor?) {
         arController?.planeDetectorDelegate = self
         arController?.frameDelegate = self
-        
+        self.programEditor = programEditor
         if self.levelViewModel?.levelModel.levelNumber != levelViewModel?.levelModel.levelNumber {
             self.levelViewModel = levelViewModel
         }
     }
-    
-    func exit(withLevel levelViewModel: LevelViewModel?, inEnvironment arController: ARController?) {
+
+    func exit(withLevel levelViewModel: LevelViewModel?, inEnvironment arController: ARController?, withEditor programEditor: ProgramEditor?) {
         arController?.planeDetectorDelegate = nil
         arController?.frameDelegate = nil
     }
@@ -166,33 +177,11 @@ extension LevelViewController: PlaneDetectorDelegate {
 // MARK: - FrameDelegate
 extension LevelViewController: FrameDelegate {
     func frameScanner(_ scanner: ARController, didUpdate frame: CVPixelBuffer, withOrientation orientation: CGImagePropertyOrientation) {
-        editor.newFrame(frame, oriented: orientation, frameWidth: Double(UIScreen.main.bounds.width), frameHeight: Double(UIScreen.main.bounds.height))
+        programEditor?.newFrame(frame, oriented: orientation, frameWidth: Double(UIScreen.main.bounds.width), frameHeight: Double(UIScreen.main.bounds.height))
     }
 }
 
-// MARK: - ProgramEditorDelegate
-extension LevelViewController: ProgramEditorDelegate {
-    func programEditor(_ programEditor: ProgramEditor, createdNew program: Program) {
-        for rect in rectView.subviews {
-            rect.removeFromSuperview()
-        }
-        drawNode(program.start)
-    }
-    
-    private func drawNode(_ node: CardNode?) {
-        guard let node = node else {
-            return
-        }
-        
-        let rect = UIView(frame: CGRect(x: node.position.x - 48, y: Double(UIScreen.main.bounds.height) - node.position.y - 48, width: 96, height: 96))
-        rect.backgroundColor = UIColor(hue: 0.5, saturation: 0.5, brightness: 1, alpha: 0.5)
-        rectView.addSubview(rect)
-        
-        for next in node.successors {
-            drawNode(next)
-        }
-    }
-}
+
 
 // MARK: - ProgramDelegate
 extension LevelViewController: ProgramDelegate {
