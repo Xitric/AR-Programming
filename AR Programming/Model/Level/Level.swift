@@ -24,13 +24,13 @@ class Level: Decodable, UpdateDelegate {
     
     weak var delegate: LevelDelegate?
     
-    init(levelType: String, name: String, levelNumber: Int, unlocked: Bool, unlocks: String?, entityManager: EntityManager) {
+    init(levelType: String, name: String, levelNumber: Int, unlocked: Bool, unlocks: String?) {
         self.levelType = levelType
         self.name = name
         self.levelNumber = levelNumber
         self.unlocked = unlocked
         self.unlocks = unlocks
-        self.entityManager = entityManager
+        self.entityManager = EntityManager()
     }
     
     final func update(currentTime: TimeInterval) {
@@ -62,7 +62,6 @@ class Level: Decodable, UpdateDelegate {
         if let playerTransform = entityManager.player.component(subclassOf: TransformComponent.self) {
             playerTransform.location = simd_double3(0, 0, 0)
             playerTransform.rotation = simd_quatd(ix: 0, iy: 0, iz: 0, r: 1)
-            playerTransform.scale = simd_double3(1, 1, 1)
         }
         
         delegate?.levelReset(self)
