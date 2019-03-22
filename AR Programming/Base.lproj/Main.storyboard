@@ -388,7 +388,6 @@
                     <navigationItem key="navigationItem" id="pqx-n6-QiV"/>
                     <connections>
                         <outlet property="arSceneView" destination="9iJ-Tx-N3A" id="kY2-pd-wsg"/>
-                        <outlet property="containerView" destination="3kN-Py-6xm" id="CbD-vO-9Y4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XtQ-cD-tnx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -482,7 +481,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="text" value="Bevæg din iPad rundt for at finde en overflade."/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8oG-xW-2tD" customClass="SubtitleLabel" customModule="AR_Programming" customModuleProvider="target">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8oG-xW-2tD" customClass="SubtitleLabel" customModule="AR_Programming" customModuleProvider="target">
                                 <rect key="frame" x="428.5" y="438.5" width="167" height="194.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
@@ -556,7 +555,7 @@
         <!--Scan-->
         <scene sceneID="pUc-1Y-wkB">
             <objects>
-                <viewController id="v2U-1n-6tb" customClass="ScanViewController" customModule="AR_Programming" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="v2U-1n-6tb" customClass="CardDescriptionViewController" customModule="AR_Programming" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NHh-BU-V60">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -641,10 +640,10 @@
             </objects>
             <point key="canvasLocation" x="4026.5625" y="931.64062499999989"/>
         </scene>
-        <!--Hidden Tab Bar View Controller-->
+        <!--Game View Coordination Controller-->
         <scene sceneID="fPz-gB-3Qt">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="FeM-x8-4kM" customClass="HiddenTabBarViewController" customModule="AR_Programming" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="FeM-x8-4kM" customClass="GameViewCoordinationController" customModule="AR_Programming" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wRB-TK-Tyz">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -680,8 +679,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Lock" width="37.439998626708984" height="41.279998779296875"/>
-        <image name="Retry" width="23.75257682800293" height="23.75257682800293"/>
+        <image name="Lock" width="156" height="172"/>
+        <image name="Retry" width="128" height="128"/>
         <image name="robo" width="540" height="540"/>
     </resources>
 </document>

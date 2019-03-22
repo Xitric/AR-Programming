@@ -10,31 +10,48 @@ import Foundation
 import UIKit
 import ARKit
 
+/// The root controller for the game view.
+///
+/// This controller is responsible for creating the ARSCNView which, for technical reasons, must be shared between all other controllers for the game views. This is accomplished by using a ContainerView to place the views of other controllers on top of this shared ARSCNView.
 class ARContainerViewController: UIViewController {
     
-    @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var arSceneView: ARSCNView!{
+    @IBOutlet weak var arSceneView: ARSCNView! {
         didSet {
             arController = ARController(with: arSceneView)
+            arController.frameDelegate = self
         }
     }
     
-    private var arController: ARController?
+    private var cardRects = [CardRect]()
+    
     private var levelViewModel: LevelViewModel?
+    private var arController: ARController!
     private var programEditor = ProgramEditor()
     
+    private var coordinationController: GameViewCoordinationController!
+    
+    /// Property used for injecting a level instance into this controller.
     var level: Level?
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if let hiddenTabBarViewController = segue.destination as? HiddenTabBarViewController {
+        if let overlayController = segue.destination as? GameViewCoordinationController {
             if let level = level {
                 levelViewModel = LevelViewModel(level: level)
+                
+                let state = GameState(levelViewModel: levelViewModel!,
+                                      arController: arController,
+                                      programEditor: programEditor)
+                overlayController.enter(withState: state)
             }
-            arController?.updateDelegate = level
-            hiddenTabBarViewController.enter(withLevel: levelViewModel, inEnvironment: arController, withEditor: programEditor)
             
+            arController.updateDelegate = level
+            coordinationController = overlayController
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        programEditor.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,5 +76,48 @@ class ARContainerViewController: UIViewController {
         self.navigationController?.navigationBar.tintColor = nil
         self.navigationController?.view.backgroundColor = nil
     }
-
 }
+
+// MARK: - FrameDelegate
+extension ARContainerViewController: FrameDelegate {
+    func frameScanner(_ scanner: ARController, didUpdate frame: CVPixelBuffer, withOrientation orientation: CGImagePropertyOrientation) {
+        programEditor.newFrame(frame, oriented: orientation, frameWidth: Double(UIScreen.main.bounds.width), frameHeight: Double(UIScreen.main.bounds.height))
+    }
+}
+
+// MARK: - ProgramEditorDelegate
+extension ARContainerViewController: ProgramEditorDelegate {
+    func programEditor(_ programEditor: ProgramEditor, createdNew program: Program) {
+        for case let rect as CardRect in view.subviews {
+            cardRects.append(rect)
+            //rect.removeFromSuperview()
+        }
+        drawNode(program.start)
+    }
+    
+    private func drawNode(_ node: CardNode?) {
+        guard let node = node else {
+            return
+        }
+        //print(cardRects.count)
+        if let rect = cardRects.popLast() {
+            rect.frame = CGRect(x: node.position.x - 48, y: Double(UIScreen.main.bounds.height) - node.position.y - 48, width: 96, height: 96)
+            //view.addSubview(rect)
+            rect.card = node.getCard()
+        } else {
+            let cardRect = CardRect(frame:  CGRect(x: node.position.x - 48, y: Double(UIScreen.main.bounds.height) - node.position.y - 48, width: 96, height: 96), card: node.getCard(), viewController: self)
+            view.addSubview(cardRect)
+        }
+        for next in node.successors {
+            drawNode(next)
+        }
+    }
+}
+
+// MARK: UICardRectDelegate
+extension ARContainerViewController: UICardRectDelegate {
+    func cardRect(_ cardRect: CardRect, didPressCard card: Card) {
+        coordinationController.goToCardDescriptionView(withCard: card)
+    }
+}
+

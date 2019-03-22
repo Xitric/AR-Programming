@@ -31,10 +31,8 @@ class LevelViewController: UIViewController {
     private var winSound = AudioController.instance.makeSound(withName: "win.wav")
     private var pickupSound = AudioController.instance.makeSound(withName: "pickup.wav")
 
-    
     //MARK: State
-    var programEditor: ProgramEditor?
-    
+    private var programEditor: ProgramEditor?
     private var levelViewModel: LevelViewModel? {
         didSet {
             winLabel.isHidden = true
@@ -79,24 +77,7 @@ class LevelViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
         createPlaneAnimation()
-//        let cardRect = CardRect(frame:  CGRect(x: 100, y: 100, width: 96, height: 96))
-//        view.addSubview(cardRect)
-//
-        
-    }
-    @objc func viewTapped(_ sender: UITapGestureRecognizer) {
-        print("viewTapped  CALLED")
-    }
-    
-    func generateRandomColor() -> UIColor {
-        let hue : CGFloat = CGFloat(arc4random() % 256) / 256 // use 256 to get full range from 0.0 to 1.0
-        let saturation : CGFloat = CGFloat(arc4random() % 128) / 256 + 0.5 // from 0.5 to 1.0 to stay away from white
-        let brightness : CGFloat = CGFloat(arc4random() % 128) / 256 + 0.5 // from 0.5 to 1.0 to stay away from black
-        
-        return UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: 1)
     }
     
     private func createPlaneAnimation() {
@@ -148,18 +129,17 @@ class LevelViewController: UIViewController {
 
 // MARK: - GameplayController
 extension LevelViewController: GameplayController {
-    func enter(withLevel levelViewModel: LevelViewModel?, inEnvironment arController: ARController?, withEditor programEditor: ProgramEditor?) {
-        arController?.planeDetectorDelegate = self
-        arController?.frameDelegate = self
-        self.programEditor = programEditor
-        if self.levelViewModel?.levelModel.levelNumber != levelViewModel?.levelModel.levelNumber {
-            self.levelViewModel = levelViewModel
+    func enter(withState state: GameState) {
+        state.arController.planeDetectorDelegate = self
+        
+        self.programEditor = state.programEditor
+        if self.levelViewModel?.levelModel != state.levelViewModel.levelModel {
+            self.levelViewModel = state.levelViewModel
         }
     }
-
-    func exit(withLevel levelViewModel: LevelViewModel?, inEnvironment arController: ARController?, withEditor programEditor: ProgramEditor?) {
-        arController?.planeDetectorDelegate = nil
-        arController?.frameDelegate = nil
+    
+    func exit(withState state: GameState) {
+        state.arController.planeDetectorDelegate = nil
     }
 }
 
@@ -173,15 +153,6 @@ extension LevelViewController: PlaneDetectorDelegate {
         currentPlane = plane
     }
 }
-
-// MARK: - FrameDelegate
-extension LevelViewController: FrameDelegate {
-    func frameScanner(_ scanner: ARController, didUpdate frame: CVPixelBuffer, withOrientation orientation: CGImagePropertyOrientation) {
-        programEditor?.newFrame(frame, oriented: orientation, frameWidth: Double(UIScreen.main.bounds.width), frameHeight: Double(UIScreen.main.bounds.height))
-    }
-}
-
-
 
 // MARK: - ProgramDelegate
 extension LevelViewController: ProgramDelegate {

@@ -8,21 +8,20 @@
 
 import Foundation
 
+/// Protocol to implement on all controllers that require an instance of [GameState](x-source-tag://GameState) to share information.
 protocol GameplayController {
     
     /// Called when the user navigates back to this controller from another controller, or when a new level is selected and a new gameplay session should be created.
     ///
     /// - Parameters:
-    ///   - levelViewModel: The view model of the currently active level.
-    ///   - arController: The handler for integrating with the ARKit callbacks.
+    ///   - state: The shared state object for all game view controllers.
     /// - Tag: GameplayController.enter
-    func enter(withLevel levelViewModel: LevelViewModel?, inEnvironment arController: ARController?, withEditor programEditor: ProgramEditor?)
+    func enter(withState state: GameState)
     
-    /// Called when the user navigates away from this controller. The provided LevelViewModel and ARController wil be the same as those passed in [enter()](x-source-tag://GameplayController.start).
+    /// Called when the user navigates away from this controller. The provided GameState will be the same as the one passed in [enter()](x-source-tag://GameplayController.enter).
     ///
     /// - Parameters:
-    ///   - levelViewModel: The view model of the currently active level.
-    ///   - arController: The handler for integrating with the ARKit callbacks.
+    ///   - state: The shared state object for all game view controllers.
     /// - Tag: GameplayController.exit
-    func exit(withLevel levelViewModel: LevelViewModel?, inEnvironment arController: ARController?, withEditor programEditor: ProgramEditor?)
+    func exit(withState state: GameState)
 }
