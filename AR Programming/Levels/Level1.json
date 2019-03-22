@@ -1,7 +1,7 @@
 {
     "number":1,
     "type":"quantity",
-    "name":"Level 1",
+    "name":"Det første skridt",
     "unlocks":"Level2",
     "doCollect":[
         {"type":"mønter", "quantity":1}
@@ -15,5 +15,6 @@
             "resourceIdentifier":"Coins/Coin1",
             "type":"mønter"
         }
-    ]
+    ],
+    "props":[]
 }

@@ -1,7 +1,7 @@
 {
     "number":3,
     "type":"quantity",
-    "name":"Level 3",
+    "name":"Lidt men godt",
     "unlocks":"Level4",
     "doCollect":[
         {"type":"mønter", "quantity":7}
@@ -36,5 +36,6 @@
             "resourceIdentifier":"Coins/Coin2",
             "type":"mønter"
         }
-    ]
+    ],
+    "props":[]
 }

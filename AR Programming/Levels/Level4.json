@@ -1,12 +1,12 @@
 {
     "number":4,
     "type":"quantity",
-    "name":"Undgå træerne!",
+    "name":"Undgå rubinerne!",
     "unlocks":"Level5",
     "doCollect":[
         {"type":"mønter", "quantity":7}
     ],
-    "dontCollect":["træer"],
+    "dontCollect":["rubiner"],
     "collectibles":[
         {
             "x":0,
@@ -61,8 +61,20 @@
             "x":1,
             "y":0,
             "quantity":1,
-            "resourceIdentifier":"Tree3",
-            "type":"træer"
+            "resourceIdentifier":"Ruby",
+            "type":"rubiner"
+        }
+    ],
+    "props":[
+        {
+            "x":-1,
+            "y":-1,
+            "resourceIdentifier":"Tree3"
+        },
+        {
+            "x":3,
+            "y":2,
+            "resourceIdentifier":"Tree2"
         }
     ]
 }
