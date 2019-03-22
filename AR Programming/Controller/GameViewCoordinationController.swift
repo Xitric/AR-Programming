@@ -19,15 +19,23 @@ class GameViewCoordinationController: UITabBarController {
         super.viewWillAppear(animated)
         self.tabBar.isHidden = true
         
-        goToLevelView()
+        enterViewController(withIndex: 0)
     }
 
     private func goToViewController(withIndex index: Int) {
+        if selectedIndex == index {
+            return
+        }
+        
         if let gameplayController = super.selectedViewController as? GameplayController,
             let gameState = gameState {
             gameplayController.exit(withState: gameState)
         }
         
+        enterViewController(withIndex: index)
+    }
+    
+    private func enterViewController(withIndex index: Int) {
         self.selectedIndex = index
         
         if let gameplayController = super.selectedViewController as? GameplayController,

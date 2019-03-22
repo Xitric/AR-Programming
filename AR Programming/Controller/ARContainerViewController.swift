@@ -21,8 +21,11 @@ class ARContainerViewController: UIViewController {
             arController.frameDelegate = self
         }
     }
-    
-    private var cardRects = [CardRect]()
+    @IBOutlet weak var cardDetectionView: CardDetectionView! {
+        didSet {
+            cardDetectionView.delegate = self
+        }
+    }
     
     private var levelViewModel: LevelViewModel?
     private var arController: ARController!
@@ -88,36 +91,18 @@ extension ARContainerViewController: FrameDelegate {
 // MARK: - ProgramEditorDelegate
 extension ARContainerViewController: ProgramEditorDelegate {
     func programEditor(_ programEditor: ProgramEditor, createdNew program: Program) {
-        for case let rect as CardRect in view.subviews {
-            cardRects.append(rect)
-            //rect.removeFromSuperview()
-        }
-        drawNode(program.start)
-    }
-    
-    private func drawNode(_ node: CardNode?) {
-        guard let node = node else {
-            return
-        }
-        //print(cardRects.count)
-        if let rect = cardRects.popLast() {
-            rect.frame = CGRect(x: node.position.x - 48, y: Double(UIScreen.main.bounds.height) - node.position.y - 48, width: 96, height: 96)
-            //view.addSubview(rect)
-            rect.card = node.getCard()
-        } else {
-            let cardRect = CardRect(frame:  CGRect(x: node.position.x - 48, y: Double(UIScreen.main.bounds.height) - node.position.y - 48, width: 96, height: 96), card: node.getCard(), viewController: self)
-            view.addSubview(cardRect)
-        }
-        for next in node.successors {
-            drawNode(next)
-        }
+        cardDetectionView.display(program: program.start)
     }
 }
 
 // MARK: UICardRectDelegate
-extension ARContainerViewController: UICardRectDelegate {
-    func cardRect(_ cardRect: CardRect, didPressCard card: Card) {
-        coordinationController.goToCardDescriptionView(withCard: card)
+extension ARContainerViewController: CardDetectionViewDelegate {
+    func cardView(didPressCard card: Card?) {
+        if let card = card {
+            coordinationController.goToCardDescriptionView(withCard: card)
+        } else {
+            coordinationController.goToLevelView()
+        }
     }
 }
 

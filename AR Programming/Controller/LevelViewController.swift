@@ -25,7 +25,6 @@ class LevelViewController: UIViewController {
     @IBOutlet weak var winLabel: UILabel!
     
     @IBOutlet weak var planeDetectionAnimation: UIImageView!
-    @IBOutlet weak var rectView: UIView!
     
     //MARK: Sound
     private var winSound = AudioController.instance.makeSound(withName: "win.wav")
