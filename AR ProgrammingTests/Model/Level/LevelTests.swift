@@ -87,7 +87,8 @@ class LevelMock: Level {
     init(expectedDelta: Double, entityManager: EntityManager) {
         updateExpectation = XCTestExpectation(description: "Update with delta called")
         self.expectedDelta = expectedDelta
-        super.init(levelType: "TestLevel", name: "Test Level", levelNumber: -1, unlocked: true, unlocks: nil, entityManager: entityManager)
+        super.init(levelType: "TestLevel", name: "Test Level", levelNumber: -1, unlocked: true, unlocks: nil)
+        self.entityManager = entityManager
     }
     
     required init(from decoder: Decoder) throws {
