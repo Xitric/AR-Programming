@@ -37,7 +37,11 @@ class EntityModelLoader: EntityManagerDelegate {
         let nodeComponent: SCNNodeComponent
         let resourceLocation = "Meshes.scnassets/\(resourceComponent.resourceIdentifier).dae"
         if let modelScene = SCNScene(named: resourceLocation) {
-            nodeComponent = SCNNodeComponent(node: modelScene.rootNode)
+            let node = SCNNode()
+            for child in modelScene.rootNode.childNodes {
+                node.addChildNode(child)
+            }
+            nodeComponent = SCNNodeComponent(node: node)
         } else {
             //TODO: Better placeholder
             let geometry = SCNSphere(radius: 0.25)
@@ -52,11 +56,10 @@ class EntityModelLoader: EntityManagerDelegate {
         if let currentTransform = entity.component(subclassOf: TransformComponent.self) {
             nodeComponent.location = currentTransform.location
             nodeComponent.rotation = currentTransform.rotation
-            nodeComponent.scale = currentTransform.scale
+            
             entity.removeComponent(ofType: type(of: currentTransform))
+            entity.addComponent(nodeComponent)
         }
-        
-        entity.addComponent(nodeComponent)
     }
     
     private func tryRemoveModel(forEntity entity: Entity) {
@@ -69,13 +72,11 @@ class EntityModelLoader: EntityManagerDelegate {
     
     private func extractNodeComponent(fromEntity entity: Entity) {
         if let currentTransform = entity.component(subclassOf: SCNNodeComponent.self) {
-            let transformComponent = TransformComponent()
-            transformComponent.location = currentTransform.location
-            transformComponent.rotation = currentTransform.rotation
-            transformComponent.scale = currentTransform.scale
+            let transformComponent = TransformComponent(location: currentTransform.location,
+                                                        rotation: currentTransform.rotation)
+            
+            entity.removeComponent(ofType: SCNNodeComponent.self)
             entity.addComponent(transformComponent)
         }
-        
-        entity.removeComponent(ofType: SCNNodeComponent.self)
     }
 }

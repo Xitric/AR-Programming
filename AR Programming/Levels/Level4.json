@@ -1,34 +1,80 @@
 {
     "number":4,
     "type":"quantity",
-    "name":"Level 4",
+    "name":"Undgå rubinerne!",
     "unlocks":"Level5",
-    "goalQuantity":6,
+    "doCollect":[
+        {"type":"mønter", "quantity":7}
+    ],
+    "dontCollect":["rubiner"],
     "collectibles":[
         {
             "x":0,
-            "y":0,
-            "quantity":1
+            "y":1,
+            "quantity":1,
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
         },
         {
             "x":1,
-            "y":0,
-            "quantity":2
+            "y":1,
+            "quantity":1,
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
+        },
+        {
+            "x":2,
+            "y":1,
+            "quantity":1,
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
         },
         {
             "x":2,
             "y":0,
-            "quantity":2
+            "quantity":1,
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
         },
         {
-            "x":3,
+            "x":2,
+            "y":-1,
+            "quantity":1,
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
+        },
+        {
+            "x":1,
+            "y":-1,
+            "quantity":1,
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
+        },
+        {
+            "x":0,
+            "y":-1,
+            "quantity":1,
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
+        },
+        {
+            "x":1,
             "y":0,
-            "quantity":3
+            "quantity":1,
+            "resourceIdentifier":"Ruby",
+            "type":"rubiner"
+        }
+    ],
+    "props":[
+        {
+            "x":-1,
+            "y":-1,
+            "resourceIdentifier":"Tree3"
         },
         {
             "x":3,
-            "y":1,
-            "quantity":4
+            "y":2,
+            "resourceIdentifier":"Tree2"
         }
     ]
 }

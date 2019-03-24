@@ -14,7 +14,7 @@ protocol EntityManagerDelegate: class {
     func entityManager(_ entityManager: EntityManager, removed entity: Entity)
 }
 
-class EntityManager {
+class EntityManager: NSObject {
     
     private var systems = [String:GKComponentSystem]()
     private var entities = [Entity]()
@@ -22,10 +22,14 @@ class EntityManager {
     weak var delegate: EntityManagerDelegate?
     var player: Entity
     
-    init() {
+    override init() {
         player = Entity()
+        
+        super.init()
+        
         player.addComponent(TransformComponent())
-        player.addComponent(ResourceComponent(resourceIdentifier: "Bot"))
+        player.addComponent(CollisionComponent(size: simd_double3(0.5, 0.5, 0.5), offset: simd_double3(0, 0.25, 0)))
+        player.addComponent(ResourceComponent(resourceIdentifier: WardrobeManager.robotChoice()))
         addEntity(player)
         
         //TODO: Quickfix, alternative solution is too time consuming for now
@@ -33,6 +37,8 @@ class EntityManager {
         addSystem(GKComponentSystem.init(componentClass: MovementActionComponent.self))
         addSystem(GKComponentSystem.init(componentClass: RotationActionComponent.self))
         addSystem(GKComponentSystem.init(componentClass: CompoundActionComponent.self))
+        addSystem(GKComponentSystem.init(componentClass: SpinComponent.self))
+        addSystem(GKComponentSystem.init(componentClass: LinkComponent.self))
     }
     
     func addEntity(_ entity: Entity) {
@@ -95,10 +101,6 @@ class EntityManager {
     func update(delta: TimeInterval) {
         for system in systems.values {
             system.update(deltaTime: delta)
-        }
-        
-        for entity in entities {
-            entity.update(deltaTime: delta)
         }
     }
     

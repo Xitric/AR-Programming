@@ -21,6 +21,7 @@ class LevelViewController: UIViewController {
     
     @IBOutlet weak var planeDetectionHint: SubtitleLabel!
     @IBOutlet weak var planePlacementHint: SubtitleLabel!
+    @IBOutlet weak var levelInfo: SubtitleLabel!
     @IBOutlet weak var winDescription: SubtitleLabel!
     @IBOutlet weak var winLabel: UILabel!
     
@@ -134,6 +135,12 @@ extension LevelViewController: GameplayController {
         self.programEditor = state.programEditor
         if self.levelViewModel?.levelModel != state.levelViewModel.levelModel {
             self.levelViewModel = state.levelViewModel
+            
+            DispatchQueue.main.async { [unowned self] in
+                let info = levelViewModel?.levelModel.infoLabel
+                self.levelInfo.text = info
+                self.levelInfo.isHidden = info == nil
+            }
         }
     }
     
@@ -177,6 +184,7 @@ extension LevelViewController: ProgramDelegate {
 
 // MARK: - LevelDelegate
 extension LevelViewController: LevelDelegate {
+    
     func levelCompleted(_ level: Level) {
         self.winSound?.play()
         
@@ -187,12 +195,16 @@ extension LevelViewController: LevelDelegate {
     }
     
     func levelReset(_ level: Level) {
-        //TODO: What needs to go here?
-        //TODO: Probably some refreshing of labels
-        
         DispatchQueue.main.async { [unowned self] in
             self.winLabel.isHidden = true
             self.winDescription.isHidden = true
+        }
+    }
+    
+    func levelInfoChanged(_ level: Level, info: String?) {
+        DispatchQueue.main.async { [unowned self] in
+            self.levelInfo.text = info
+            self.levelInfo.isHidden = info == nil
         }
     }
 }

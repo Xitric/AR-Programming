@@ -1,14 +1,20 @@
 {
     "number":1,
     "type":"quantity",
-    "name":"Level 1",
+    "name":"Det første skridt",
     "unlocks":"Level2",
-    "goalQuantity":1,
+    "doCollect":[
+        {"type":"mønter", "quantity":1}
+    ],
+    "dontCollect":[],
     "collectibles":[
         {
             "x":1,
             "y":0,
-            "quantity":1
+            "quantity":1,
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
         }
-    ]
+    ],
+    "props":[]
 }

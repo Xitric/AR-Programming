@@ -11,7 +11,7 @@ import Foundation
 class EmptyLevel: Level {
     
     init() {
-        super.init(levelType: "Empty", name: "Frit spil", levelNumber: 0, unlocked: true, unlocks: nil, entityManager: EntityManager())
+        super.init(levelType: "Empty", name: "Frit spil", levelNumber: 0, unlocked: true, unlocks: nil)
     }
     
     required init(from decoder: Decoder) throws {

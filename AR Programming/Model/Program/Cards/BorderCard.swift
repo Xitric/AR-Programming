@@ -12,7 +12,7 @@ import SceneKit
 struct BorderCard: Card {
     
     let name = "Grænse"
-    let internalName = "border"
+    let internalName = "block"
     let summary = "Dit loop program stopper her."
     let description = "Brug dette kort til at vise slutningen på gentagelsen."
     

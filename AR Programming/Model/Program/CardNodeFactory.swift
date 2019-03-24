@@ -35,6 +35,8 @@ class CardNodeFactory {
         register(cardNode: ParameterCardNode(card: ParameterCard(paremeter: 2)), withCode: "9")
         register(cardNode: ParameterCardNode(card: ParameterCard(paremeter: 3)), withCode: "10")
         register(cardNode: ParameterCardNode(card: ParameterCard(paremeter: 4)), withCode: "11")
+        register(cardNode: SuccessorCardNode(card: PickupCard(), angles: [0]), withCode: "16")
+        register(cardNode: SuccessorCardNode(card: DropCard(), angles: [0]), withCode: "17")
     }
     
     
