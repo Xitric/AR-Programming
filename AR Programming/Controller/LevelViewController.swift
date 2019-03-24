@@ -137,7 +137,7 @@ extension LevelViewController: GameplayController {
             self.levelViewModel = state.levelViewModel
             
             DispatchQueue.main.async { [unowned self] in
-                let info = levelViewModel?.levelModel.infoLabel
+                let info = self.levelViewModel?.levelModel.infoLabel
                 self.levelInfo.text = info
                 self.levelInfo.isHidden = info == nil
             }
