@@ -498,8 +498,8 @@
                                     <action selector="executeSequence:" destination="YHe-0I-6P8" eventType="touchUpInside" id="rOJ-gm-tOX"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hTh-5f-7nh" userLabel="Detect">
-                                <rect key="frame" x="427.5" y="642" width="169" height="60"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hTh-5f-7nh" userLabel="Detect">
+                                <rect key="frame" x="427.5" y="692" width="169" height="60"/>
                                 <color key="backgroundColor" red="0.0" green="0.47934520244598389" blue="0.99908632040023804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="9T0-Um-Dau"/>
@@ -552,29 +552,29 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v9Z-U8-b4o" customClass="SubtitleLabel" customModule="AR_Programming" customModuleProvider="target">
-                                <rect key="frame" x="393.5" y="513" width="237" height="73"/>
+                            <view contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="v9Z-U8-b4o" customClass="SubtitleLabel" customModule="AR_Programming" customModuleProvider="target">
+                                <rect key="frame" x="307" y="583.5" width="410.5" height="52.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="text" value="Bevæg din iPad rundt for at finde en overflade."/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8oG-xW-2tD" customClass="SubtitleLabel" customModule="AR_Programming" customModuleProvider="target">
-                                <rect key="frame" x="428.5" y="438.5" width="167" height="194.5"/>
+                            <view contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="8oG-xW-2tD" customClass="SubtitleLabel" customModule="AR_Programming" customModuleProvider="target">
+                                <rect key="frame" x="267.5" y="438.5" width="489" height="73"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="text" value="Tillykke, du har låst op for den næste opgave. Find den i opgavemenuen, eller nulstil opgaven for at prøve igen."/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WDh-Me-Nv9" customClass="SubtitleLabel" customModule="AR_Programming" customModuleProvider="target">
-                                <rect key="frame" x="413.5" y="513" width="197" height="73"/>
+                            <view hidden="YES" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="WDh-Me-Nv9" customClass="SubtitleLabel" customModule="AR_Programming" customModuleProvider="target">
+                                <rect key="frame" x="370.5" y="583.5" width="283" height="52.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="text" value="Placer spillet når du er tilfreds!"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" placeholderIntrinsicWidth="461" placeholderIntrinsicHeight="461" translatesAutoresizingMaskIntoConstraints="NO" id="pS7-9z-jz1">
-                                <rect key="frame" x="205" y="84" width="614" height="365"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="461" placeholderIntrinsicHeight="461" translatesAutoresizingMaskIntoConstraints="NO" id="pS7-9z-jz1">
+                                <rect key="frame" x="205" y="151" width="614" height="368.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="pS7-9z-jz1" secondAttribute="height" multiplier="5:3" id="Ok7-sQ-rUh"/>
                                 </constraints>
@@ -584,7 +584,7 @@
                         <constraints>
                             <constraint firstItem="8oG-xW-2tD" firstAttribute="centerX" secondItem="IsN-tU-7YM" secondAttribute="centerX" id="1y4-XQ-PYe"/>
                             <constraint firstItem="eQR-Dm-66Y" firstAttribute="centerX" secondItem="IsN-tU-7YM" secondAttribute="centerX" id="20L-ss-Q2a"/>
-                            <constraint firstItem="v9Z-U8-b4o" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="r7f-Fu-KoH" secondAttribute="leading" constant="64" id="2D9-dl-QCZ"/>
+                            <constraint firstItem="v9Z-U8-b4o" firstAttribute="leading" secondItem="r7f-Fu-KoH" secondAttribute="leading" priority="750" constant="64" id="2D9-dl-QCZ"/>
                             <constraint firstItem="v9Z-U8-b4o" firstAttribute="top" secondItem="pS7-9z-jz1" secondAttribute="bottom" constant="64" id="5aN-Ut-Hnc"/>
                             <constraint firstItem="hTh-5f-7nh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="IcD-R1-wft" secondAttribute="trailing" id="5lK-Nt-PMX"/>
                             <constraint firstItem="hTh-5f-7nh" firstAttribute="centerX" secondItem="IsN-tU-7YM" secondAttribute="centerX" id="6qW-61-skg"/>
@@ -594,17 +594,21 @@
                             <constraint firstItem="WDh-Me-Nv9" firstAttribute="centerX" secondItem="IsN-tU-7YM" secondAttribute="centerX" id="JSM-wQ-dNr"/>
                             <constraint firstItem="SYT-AS-Sag" firstAttribute="bottom" secondItem="IcD-R1-wft" secondAttribute="bottom" id="JtQ-F1-yFM"/>
                             <constraint firstItem="j0e-mD-Rgu" firstAttribute="centerX" secondItem="IsN-tU-7YM" secondAttribute="centerX" id="L74-Kp-XNz"/>
-                            <constraint firstItem="8oG-xW-2tD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="r7f-Fu-KoH" secondAttribute="leading" constant="96" id="P0N-qK-fB3"/>
+                            <constraint firstItem="IcD-R1-wft" firstAttribute="bottom" secondItem="hTh-5f-7nh" secondAttribute="bottom" id="NBS-55-bct"/>
+                            <constraint firstItem="8oG-xW-2tD" firstAttribute="leading" secondItem="r7f-Fu-KoH" secondAttribute="leading" priority="750" constant="96" id="P0N-qK-fB3"/>
                             <constraint firstItem="r7f-Fu-KoH" firstAttribute="bottom" secondItem="x2I-t6-tvF" secondAttribute="bottom" constant="16" id="PJJ-DM-sak"/>
+                            <constraint firstItem="r7f-Fu-KoH" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="WDh-Me-Nv9" secondAttribute="trailing" constant="64" id="Rjy-dZ-jgH"/>
                             <constraint firstItem="8oG-xW-2tD" firstAttribute="top" secondItem="j0e-mD-Rgu" secondAttribute="bottom" constant="16" id="SU5-oQ-1Uf"/>
                             <constraint firstItem="v9Z-U8-b4o" firstAttribute="centerX" secondItem="IsN-tU-7YM" secondAttribute="centerX" id="Sd1-5T-TeX"/>
+                            <constraint firstItem="r7f-Fu-KoH" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="8oG-xW-2tD" secondAttribute="trailing" constant="96" id="TUH-C3-0ZF"/>
                             <constraint firstItem="WDh-Me-Nv9" firstAttribute="centerY" secondItem="v9Z-U8-b4o" secondAttribute="centerY" id="VHW-mi-JFp"/>
-                            <constraint firstItem="WDh-Me-Nv9" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="r7f-Fu-KoH" secondAttribute="leading" constant="64" id="X5h-KS-3gE"/>
+                            <constraint firstItem="WDh-Me-Nv9" firstAttribute="leading" secondItem="r7f-Fu-KoH" secondAttribute="leading" priority="750" constant="64" id="X5h-KS-3gE"/>
                             <constraint firstItem="hTh-5f-7nh" firstAttribute="top" secondItem="v9Z-U8-b4o" secondAttribute="bottom" constant="56" id="aBU-Jq-555"/>
                             <constraint firstItem="j0e-mD-Rgu" firstAttribute="centerY" secondItem="IsN-tU-7YM" secondAttribute="centerY" id="cve-0c-SK8"/>
                             <constraint firstItem="pS7-9z-jz1" firstAttribute="top" relation="greaterThanOrEqual" secondItem="r7f-Fu-KoH" secondAttribute="top" constant="64" id="jUD-V9-dxq"/>
                             <constraint firstItem="eQR-Dm-66Y" firstAttribute="top" secondItem="r7f-Fu-KoH" secondAttribute="top" id="mcL-ab-EJT"/>
                             <constraint firstItem="pS7-9z-jz1" firstAttribute="width" relation="lessThanOrEqual" secondItem="IsN-tU-7YM" secondAttribute="width" multiplier="0.6" id="v3F-fM-sr3"/>
+                            <constraint firstItem="r7f-Fu-KoH" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="v9Z-U8-b4o" secondAttribute="trailing" constant="64" id="vf6-Or-OLY"/>
                             <constraint firstItem="SYT-AS-Sag" firstAttribute="leading" secondItem="IcD-R1-wft" secondAttribute="leading" id="wKZ-3x-Ziz"/>
                             <constraint firstItem="pS7-9z-jz1" firstAttribute="centerX" secondItem="IsN-tU-7YM" secondAttribute="centerX" id="wxp-Or-ipJ"/>
                         </constraints>
