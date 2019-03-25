@@ -431,16 +431,17 @@
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9iJ-Tx-N3A">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                             </arscnView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3kN-Py-6xm">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
-                                <connections>
-                                    <segue destination="FeM-x8-4kM" kind="embed" identifier="hiddenTabBarSegue" id="Xxa-Ex-Evb"/>
-                                </connections>
-                            </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TBB-6V-c8T" customClass="CardDetectionView" customModule="AR_Programming" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3kN-Py-6xm" customClass="PassThroughView" customModule="AR_Programming" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <segue destination="Pbx-vb-cHP" kind="embed" id="klG-fC-Rog"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -473,21 +474,17 @@
         <!--Level-->
         <scene sceneID="f3E-CV-VXA">
             <objects>
-                <viewController id="YHe-0I-6P8" customClass="LevelViewController" customModule="AR_Programming" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="IsN-tU-7YM">
+                <viewController storyboardIdentifier="LevelScene" useStoryboardIdentifierAsRestorationIdentifier="YES" id="YHe-0I-6P8" customClass="LevelViewController" customModule="AR_Programming" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IsN-tU-7YM" customClass="PassThroughView" customModule="AR_Programming" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sW9-KF-I5o">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="718"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eQR-Dm-66Y" customClass="SubtitleLabel" customModule="AR_Programming" customModuleProvider="target">
-                                <rect key="frame" x="205" y="20" width="614" height="52.5"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eQR-Dm-66Y" customClass="SubtitleLabel" customModule="AR_Programming" customModuleProvider="target">
+                                <rect key="frame" x="441.5" y="20" width="141" height="52.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SYT-AS-Sag">
-                                <rect key="frame" x="16" y="642" width="149" height="60"/>
+                                <rect key="frame" x="16" y="692" width="149" height="60"/>
                                 <color key="backgroundColor" red="0.074509803920000006" green="0.46274509800000002" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="b69-Xz-2Tz"/>
@@ -522,7 +519,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x2I-t6-tvF">
-                                <rect key="frame" x="165" y="642" width="60" height="60"/>
+                                <rect key="frame" x="165" y="692" width="60" height="60"/>
                                 <color key="backgroundColor" red="0.074509803920000006" green="0.46274509800000002" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="ENP-uQ-F6c"/>
@@ -535,7 +532,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IcD-R1-wft">
-                                <rect key="frame" x="16" y="642" width="193" height="60"/>
+                                <rect key="frame" x="16" y="692" width="193" height="60"/>
                                 <color key="backgroundColor" red="0.074509803920000006" green="0.46274509800000002" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="Wr6-DN-jNL"/>
@@ -562,7 +559,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="text" value="Bevæg din iPad rundt for at finde en overflade."/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8oG-xW-2tD" customClass="SubtitleLabel" customModule="AR_Programming" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8oG-xW-2tD" customClass="SubtitleLabel" customModule="AR_Programming" customModuleProvider="target">
                                 <rect key="frame" x="428.5" y="438.5" width="167" height="194.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
@@ -607,13 +604,9 @@
                             <constraint firstItem="j0e-mD-Rgu" firstAttribute="centerY" secondItem="IsN-tU-7YM" secondAttribute="centerY" id="cve-0c-SK8"/>
                             <constraint firstItem="pS7-9z-jz1" firstAttribute="top" relation="greaterThanOrEqual" secondItem="r7f-Fu-KoH" secondAttribute="top" constant="64" id="jUD-V9-dxq"/>
                             <constraint firstItem="eQR-Dm-66Y" firstAttribute="top" secondItem="r7f-Fu-KoH" secondAttribute="top" id="mcL-ab-EJT"/>
-                            <constraint firstItem="hTh-5f-7nh" firstAttribute="bottom" secondItem="EdM-Vw-Xp3" secondAttribute="bottom" id="pHU-vE-UqB"/>
-                            <constraint firstItem="r7f-Fu-KoH" firstAttribute="bottom" secondItem="EdM-Vw-Xp3" secondAttribute="bottom" constant="16" id="qb6-w2-9Ai"/>
-                            <constraint firstItem="sW9-KF-I5o" firstAttribute="bottom" secondItem="r7f-Fu-KoH" secondAttribute="bottom" id="tpf-Hn-Uda"/>
                             <constraint firstItem="pS7-9z-jz1" firstAttribute="width" relation="lessThanOrEqual" secondItem="IsN-tU-7YM" secondAttribute="width" multiplier="0.6" id="v3F-fM-sr3"/>
                             <constraint firstItem="SYT-AS-Sag" firstAttribute="leading" secondItem="IcD-R1-wft" secondAttribute="leading" id="wKZ-3x-Ziz"/>
                             <constraint firstItem="pS7-9z-jz1" firstAttribute="centerX" secondItem="IsN-tU-7YM" secondAttribute="centerX" id="wxp-Or-ipJ"/>
-                            <constraint firstItem="eQR-Dm-66Y" firstAttribute="width" secondItem="sW9-KF-I5o" secondAttribute="width" multiplier="0.6" id="zRb-PI-sLe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="r7f-Fu-KoH"/>
                     </view>
@@ -638,13 +631,13 @@
         <!--Scan-->
         <scene sceneID="pUc-1Y-wkB">
             <objects>
-                <viewController id="v2U-1n-6tb" customClass="CardDescriptionViewController" customModule="AR_Programming" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="NHh-BU-V60">
+                <viewController storyboardIdentifier="CardDescriptionScene" useStoryboardIdentifierAsRestorationIdentifier="YES" id="v2U-1n-6tb" customClass="CardDescriptionViewController" customModule="AR_Programming" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NHh-BU-V60" customClass="PassThroughView" customModule="AR_Programming" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rKe-rH-JdA">
-                                <rect key="frame" x="0.0" y="574" width="1024" height="144"/>
+                                <rect key="frame" x="0.0" y="624" width="1024" height="144"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iWh-lO-hv5">
                                         <rect key="frame" x="8" y="8" width="128" height="128"/>
@@ -721,26 +714,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zsi-lV-5yX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4026.5625" y="931.64062499999989"/>
+            <point key="canvasLocation" x="3894" y="931"/>
         </scene>
-        <!--Game View Coordination Controller-->
-        <scene sceneID="fPz-gB-3Qt">
+        <!--Game Coordination View Controller-->
+        <scene sceneID="vs5-eR-qsF">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="FeM-x8-4kM" customClass="GameViewCoordinationController" customModule="AR_Programming" customModuleProvider="target" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wRB-TK-Tyz">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                <viewController id="Pbx-vb-cHP" customClass="GameCoordinationViewController" customModule="AR_Programming" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CQX-0o-dL3" customClass="PassThroughView" customModule="AR_Programming" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="YHe-0I-6P8" kind="relationship" relationship="viewControllers" id="R5Q-8e-Dgy"/>
-                        <segue destination="v2U-1n-6tb" kind="relationship" relationship="viewControllers" id="fau-Y2-8TJ"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="99c-xW-VuT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <viewLayoutGuide key="safeArea" id="xVX-38-gwc"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XtC-l4-QrY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3152" y="932"/>
+            <point key="canvasLocation" x="3152" y="931"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Cg8-ja-aEh">

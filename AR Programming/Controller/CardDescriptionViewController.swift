@@ -35,7 +35,7 @@ class CardDescriptionViewController: UIViewController {
     }
     
     private func returnToLevelView() {
-        if let parent = self.parent as? GameViewCoordinationController {
+        if let parent = self.parent as? GameCoordinationViewController {
             parent.goToLevelView()
         }
     }

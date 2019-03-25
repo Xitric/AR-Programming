@@ -65,18 +65,9 @@ class LevelViewController: UIViewController {
     }
     
     // MARK: - Life cycle
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        AudioController.instance.start()
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        AudioController.instance.stop()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        AudioController.instance.start()
         createPlaneAnimation()
     }
     
@@ -84,7 +75,10 @@ class LevelViewController: UIViewController {
         planeDetectionAnimation.animationImages = UIImage.loadAnimation(named: "ScanSurface", withFrames: 50)
         planeDetectionAnimation.animationDuration = 2.8
         planeDetectionAnimation.startAnimating()
-     
+    }
+    
+    deinit {
+        AudioController.instance.stop()
     }
     
     // MARK: - Button actions    

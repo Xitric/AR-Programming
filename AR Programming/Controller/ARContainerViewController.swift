@@ -31,13 +31,13 @@ class ARContainerViewController: UIViewController {
     private var arController: ARController!
     private var programEditor = ProgramEditor()
     
-    private var coordinationController: GameViewCoordinationController!
+    private var coordinationController: GameCoordinationViewController!
     
     /// Property used for injecting a level instance into this controller.
     var level: Level?
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let overlayController = segue.destination as? GameViewCoordinationController {
+        if let overlayController = segue.destination as? GameCoordinationViewController {
             if let level = level {
                 levelViewModel = LevelViewModel(level: level)
                 
@@ -105,4 +105,3 @@ extension ARContainerViewController: CardDetectionViewDelegate {
         }
     }
 }
-

@@ -89,6 +89,9 @@ private class CardOverlay: UIImageView {
     private func commonInit() {
         self.image = UIImage(named: "SurfaceArea")
         self.isUserInteractionEnabled = true
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.onTap(sender:)))
+        addGestureRecognizer(tapGesture)
     }
     
     func setNode(_ node: CardNode) {
@@ -101,7 +104,7 @@ private class CardOverlay: UIImageView {
         card = node.getCard()
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    @objc func onTap(sender: UITapGestureRecognizer) {
         if let card = card {
             delegate?.cardView(didPressCard: card)
         }
