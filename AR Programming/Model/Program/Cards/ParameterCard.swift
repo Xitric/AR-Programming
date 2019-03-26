@@ -17,6 +17,7 @@ struct ParameterCard: Card {
     }
     let summary = "Tal for dit program."
     let description: String
+    let type = CardType.parameter
     var parameter: Int
     
     init(paremeter: Int) {

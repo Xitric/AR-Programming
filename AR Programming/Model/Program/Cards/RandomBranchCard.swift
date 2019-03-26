@@ -15,6 +15,7 @@ struct RandomBranchCard: StatementCard {
     let internalName = "randBranch"
     let summary = "Få programmet til at fortsætte i en tilfældig retning."
     let description = "Brug dette kort til at få programmet til at fortsætte i en tilfældig retning."
+    let type = CardType.control
     
     func getAction(forEntity entity: Entity) -> ActionComponent? {
         return nil

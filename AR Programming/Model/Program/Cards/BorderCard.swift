@@ -15,6 +15,7 @@ struct BorderCard: Card {
     let internalName = "block"
     let summary = "Dit loop program stopper her."
     let description = "Brug dette kort til at vise slutningen på gentagelsen."
+    let type = CardType.control
     
     func getAction(forEntity entity: Entity) -> ActionComponent? {
         return nil

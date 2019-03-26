@@ -15,6 +15,7 @@ struct JumpCard: StatementCard {
     let internalName = "jump"
     let summary = "Få robotten til at hoppe."
     let description = "Skal du nå noget der hænger oppe i luften? Når robotten ser dette kort, vil den lave et lille hop."
+    let type = CardType.action
     
     func getAction(forEntity entity: Entity) -> ActionComponent? {
         let jump = MovementActionComponent(movement: simd_double3(0, 1, 0), duration: 0.3)

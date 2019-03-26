@@ -34,7 +34,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="48"/>
                                         <state key="normal" title="Bibliotek"/>
                                         <connections>
-                                            <segue destination="Kmx-Ec-htG" kind="show" id="G6n-bO-8WI"/>
+                                            <segue destination="BnG-xc-Ia5" kind="show" id="tj8-8j-KXS"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="86h-ce-QxN">
@@ -246,6 +246,26 @@
             <point key="canvasLocation" x="2316" y="122"/>
         </scene>
         <!--Bibliotek-->
+        <scene sceneID="5Ii-66-MJI">
+            <objects>
+                <tabBarController title="Bibliotek" id="BnG-xc-Ia5" customClass="GradesTabBarController" customModule="AR_Programming" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hec-7f-LKB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Kmx-Ec-htG" kind="relationship" relationship="viewControllers" id="WO8-2r-LaG"/>
+                        <segue destination="Kmx-Ec-htG" kind="relationship" relationship="viewControllers" id="gtS-ed-C3l"/>
+                        <segue destination="Kmx-Ec-htG" kind="relationship" relationship="viewControllers" id="U3o-HR-Srr"/>
+                        <segue destination="Kmx-Ec-htG" kind="relationship" relationship="viewControllers" id="Jb6-KU-io0"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ncu-4I-wdg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2316" y="-605"/>
+        </scene>
+        <!--Item-->
         <scene sceneID="9d5-SN-uIq">
             <objects>
                 <viewController id="Kmx-Ec-htG" customClass="CardLibraryViewController" customModule="AR_Programming" customModuleProvider="target" sceneMemberID="viewController">
@@ -254,39 +274,68 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7qX-ce-PT1">
-                                <rect key="frame" x="0.0" y="70" width="1024" height="698"/>
+                                <rect key="frame" x="0.0" y="70" width="1024" height="648"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bn6-xO-dM3">
-                                    <size key="itemSize" width="200" height="200"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="itemSize" width="256" height="256"/>
+                                    <size key="headerReferenceSize" width="50" height="50"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CardCell" id="Tlx-02-3Ur" customClass="CardCollectionViewCell" customModule="AR_Programming" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <rect key="frame" x="0.0" y="50" width="256" height="256"/>
+                                        <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="256" height="256"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3Ex-3y-xdP">
-                                                    <rect key="frame" x="16" y="16" width="168" height="168"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gwN-O0-F3m">
+                                                    <rect key="frame" x="8" y="8" width="240" height="240"/>
                                                 </imageView>
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="3Ex-3y-xdP" firstAttribute="top" secondItem="Tlx-02-3Ur" secondAttribute="top" constant="16" id="BZt-jx-AS9"/>
-                                            <constraint firstAttribute="bottom" secondItem="3Ex-3y-xdP" secondAttribute="bottom" constant="16" id="KRu-CD-wl2"/>
-                                            <constraint firstItem="3Ex-3y-xdP" firstAttribute="leading" secondItem="Tlx-02-3Ur" secondAttribute="leading" constant="16" id="pkO-zb-Lhf"/>
-                                            <constraint firstAttribute="trailing" secondItem="3Ex-3y-xdP" secondAttribute="trailing" constant="16" id="yrs-mK-lyk"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="gwN-O0-F3m" secondAttribute="bottomMargin" constant="8" id="5d2-C8-zF6"/>
+                                            <constraint firstItem="gwN-O0-F3m" firstAttribute="leading" secondItem="Tlx-02-3Ur" secondAttribute="leading" constant="8" id="MbK-8L-ooG"/>
+                                            <constraint firstItem="gwN-O0-F3m" firstAttribute="trailing" secondItem="Tlx-02-3Ur" secondAttribute="trailingMargin" id="i2W-iF-PyD"/>
+                                            <constraint firstItem="gwN-O0-F3m" firstAttribute="top" secondItem="Tlx-02-3Ur" secondAttribute="top" constant="8" id="wgX-Id-oJY"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="image" destination="3Ex-3y-xdP" id="RsY-XD-28j"/>
+                                            <outlet property="image" destination="gwN-O0-F3m" id="jfF-1b-NPr"/>
                                             <segue destination="ECG-MY-GOW" kind="show" identifier="Show Card Information" id="Ic7-YB-kRJ"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="SectionHeader" id="Rid-7b-7Bh" customClass="CardCollectionViewSectionHeader" customModule="AR_Programming" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="1024" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="caD-ye-JiE">
+                                            <rect key="frame" x="0.0" y="49" width="1024" height="1"/>
+                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="1" id="BTk-mm-6ng"/>
+                                            </constraints>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3XY-zW-fV8">
+                                            <rect key="frame" x="28" y="12" width="54" height="26.5"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="3XY-zW-fV8" firstAttribute="leading" secondItem="Rid-7b-7Bh" secondAttribute="leadingMargin" constant="20" id="3dU-x7-lh7"/>
+                                        <constraint firstAttribute="trailing" secondItem="caD-ye-JiE" secondAttribute="trailing" id="ZXS-FH-7LO"/>
+                                        <constraint firstItem="caD-ye-JiE" firstAttribute="leading" secondItem="Rid-7b-7Bh" secondAttribute="leading" id="dTw-Re-bjD"/>
+                                        <constraint firstItem="3XY-zW-fV8" firstAttribute="centerY" secondItem="Rid-7b-7Bh" secondAttribute="centerY" id="dc1-7S-sW3"/>
+                                        <constraint firstAttribute="bottom" secondItem="caD-ye-JiE" secondAttribute="bottom" id="sUv-2C-Vdg"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="header" destination="3XY-zW-fV8" id="I59-HO-gHF"/>
+                                    </connections>
+                                </collectionReusableView>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -298,14 +347,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vTO-re-0dc"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Bibliotek" id="hNO-9W-P7Z"/>
+                    <tabBarItem key="tabBarItem" title="Item" id="b8b-Cm-kb2"/>
+                    <navigationItem key="navigationItem" id="hNO-9W-P7Z"/>
                     <connections>
-                        <outlet property="CardCollectionView" destination="7qX-ce-PT1" id="G8V-72-Jo8"/>
+                        <outlet property="cardCollectionView" destination="7qX-ce-PT1" id="G8V-72-Jo8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="en8-CW-xWB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2316" y="-584"/>
+            <point key="canvasLocation" x="3059" y="-605"/>
         </scene>
         <!--Card Detail View Controller-->
         <scene sceneID="HXZ-2x-NoM">
@@ -418,7 +468,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zPc-RB-OEI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3152" y="-584"/>
+            <point key="canvasLocation" x="3829" y="-605"/>
         </scene>
         <!--Item-->
         <scene sceneID="Ic1-Ax-8QC">
@@ -794,4 +844,7 @@
         <image name="ScanArea" width="750" height="750"/>
         <image name="robo" width="540" height="540"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Jb6-KU-io0"/>
+    </inferredMetricsTieBreakers>
 </document>

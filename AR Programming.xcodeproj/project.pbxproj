@@ -33,6 +33,11 @@
 		562ACDAB2244E39100D2DA7C /* Levels in Resources */ = {isa = PBXBuildFile; fileRef = 562ACDAA2244E39100D2DA7C /* Levels */; };
 		562ACDAD2244E62900D2DA7C /* SimpleLevelLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562ACDAC2244E62900D2DA7C /* SimpleLevelLoader.swift */; };
 		562ACDB12244F1D300D2DA7C /* InventoryComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562ACDB02244F1D300D2DA7C /* InventoryComponentTests.swift */; };
+		562ACDC32249681A00D2DA7C /* CardCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562ACDC22249681A00D2DA7C /* CardCollectionViewModel.swift */; };
+		562ACDC522496BD400D2DA7C /* CardCollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562ACDC422496BD300D2DA7C /* CardCollectionDataSource.swift */; };
+		562ACDC72249726C00D2DA7C /* CardCollectionViewSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562ACDC62249726C00D2DA7C /* CardCollectionViewSectionHeader.swift */; };
+		562ACDCB22497F3400D2DA7C /* CardCollectionFlowLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562ACDCA22497F3400D2DA7C /* CardCollectionFlowLayoutDelegate.swift */; };
+		562ACDCD224986F300D2DA7C /* GradesTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562ACDCC224986F300D2DA7C /* GradesTabBarController.swift */; };
 		562CAB8B223A3C5D007120D5 /* ActionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CAB8A223A3C5D007120D5 /* ActionComponent.swift */; };
 		562CAB8D223A3EE2007120D5 /* RotationActionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CAB8C223A3EE2007120D5 /* RotationActionComponent.swift */; };
 		562CAB8F223A43DE007120D5 /* CompoundActionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CAB8E223A43DE007120D5 /* CompoundActionComponent.swift */; };
@@ -81,7 +86,6 @@
 		562EF8D4224107CC00A8DC97 /* LinkComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562EF8D3224107CC00A8DC97 /* LinkComponentTests.swift */; };
 		562EF8D62241139C00A8DC97 /* simd_double4x4+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562EF8D52241139C00A8DC97 /* simd_double4x4+Helpers.swift */; };
 		562EF8D82241192300A8DC97 /* simd_double4x4+HelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562EF8D72241192300A8DC97 /* simd_double4x4+HelpersTests.swift */; };
-		562EF8DB22413C6600A8DC97 /* QuantityLevelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562EF8DA22413C6600A8DC97 /* QuantityLevelTests.swift */; };
 		56319DE82237D3C600469D5E /* ResourceComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56319DE72237D3C500469D5E /* ResourceComponent.swift */; };
 		56319DEA2237D40F00469D5E /* TransformComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56319DE92237D40F00469D5E /* TransformComponent.swift */; };
 		56319E09223801D100469D5E /* MovementActionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56319E08223801D100469D5E /* MovementActionComponent.swift */; };
@@ -174,6 +178,11 @@
 		562ACDAA2244E39100D2DA7C /* Levels */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Levels; sourceTree = "<group>"; };
 		562ACDAC2244E62900D2DA7C /* SimpleLevelLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleLevelLoader.swift; sourceTree = "<group>"; };
 		562ACDB02244F1D300D2DA7C /* InventoryComponentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryComponentTests.swift; sourceTree = "<group>"; };
+		562ACDC22249681A00D2DA7C /* CardCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CardCollectionViewModel.swift; path = "AR Programming/Model/Entity/CardCollectionViewModel.swift"; sourceTree = SOURCE_ROOT; };
+		562ACDC422496BD300D2DA7C /* CardCollectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionDataSource.swift; sourceTree = "<group>"; };
+		562ACDC62249726C00D2DA7C /* CardCollectionViewSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewSectionHeader.swift; sourceTree = "<group>"; };
+		562ACDCA22497F3400D2DA7C /* CardCollectionFlowLayoutDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionFlowLayoutDelegate.swift; sourceTree = "<group>"; };
+		562ACDCC224986F300D2DA7C /* GradesTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradesTabBarController.swift; sourceTree = "<group>"; };
 		562CAB8A223A3C5D007120D5 /* ActionComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionComponent.swift; sourceTree = "<group>"; };
 		562CAB8C223A3EE2007120D5 /* RotationActionComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationActionComponent.swift; sourceTree = "<group>"; };
 		562CAB8E223A43DE007120D5 /* CompoundActionComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompoundActionComponent.swift; sourceTree = "<group>"; };
@@ -222,7 +231,6 @@
 		562EF8D3224107CC00A8DC97 /* LinkComponentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkComponentTests.swift; sourceTree = "<group>"; };
 		562EF8D52241139C00A8DC97 /* simd_double4x4+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "simd_double4x4+Helpers.swift"; sourceTree = "<group>"; };
 		562EF8D72241192300A8DC97 /* simd_double4x4+HelpersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "simd_double4x4+HelpersTests.swift"; sourceTree = "<group>"; };
-		562EF8DA22413C6600A8DC97 /* QuantityLevelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuantityLevelTests.swift; sourceTree = "<group>"; };
 		56319DE72237D3C500469D5E /* ResourceComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceComponent.swift; sourceTree = "<group>"; };
 		56319DE92237D40F00469D5E /* TransformComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransformComponent.swift; sourceTree = "<group>"; };
 		56319E08223801D100469D5E /* MovementActionComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovementActionComponent.swift; sourceTree = "<group>"; };
@@ -332,6 +340,28 @@
 				81B3ED8214579B6F33DA8F08 /* Pods_AR_ProgrammingTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		562ACDC02249657200D2DA7C /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				C74785EA219427F8000148BC /* CardLibraryViewController.swift */,
+				C74785EC219448F1000148BC /* CardDetailViewController.swift */,
+				562ACDCC224986F300D2DA7C /* GradesTabBarController.swift */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		562ACDC1224967E500D2DA7C /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				C74785E8219427A3000148BC /* CardCollectionViewCell.swift */,
+				562ACDC22249681A00D2DA7C /* CardCollectionViewModel.swift */,
+				562ACDC422496BD300D2DA7C /* CardCollectionDataSource.swift */,
+				562ACDC62249726C00D2DA7C /* CardCollectionViewSectionHeader.swift */,
+				562ACDCA22497F3400D2DA7C /* CardCollectionFlowLayoutDelegate.swift */,
+			);
+			path = Library;
 			sourceTree = "<group>";
 		};
 		562CAB94223A56C0007120D5 /* Action */ = {
@@ -572,6 +602,7 @@
 		9057369E2175D42900F231E1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				562ACDC02249657200D2DA7C /* Library */,
 				905A3C782179BDC3005E3AA5 /* Card */,
 				204AEC11220DC9F500E0F624 /* HiddenTabBarViewController.swift */,
 				204AEC13220DCA1E00E0F624 /* ARContainerViewController.swift */,
@@ -579,10 +610,7 @@
 				905A3C93217A09D0005E3AA5 /* LevelCollectionViewCell.swift */,
 				901584C72199BDF400450E0B /* LevelViewController.swift */,
 				901584C92199BE0200450E0B /* ScanViewController.swift */,
-				C74785E8219427A3000148BC /* CardCollectionViewCell.swift */,
 				202219A6223BC07000A2A8EA /* WardrobeViewController.swift */,
-				C74785EA219427F8000148BC /* CardLibraryViewController.swift */,
-				C74785EC219448F1000148BC /* CardDetailViewController.swift */,
 				90A55B0821A83B0700FD7CDD /* AudioController.swift */,
 				56413DFC220E2AC30064332E /* GameplayController.swift */,
 			);
@@ -612,6 +640,7 @@
 		90D7538421AC18D900B1F2E4 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				562ACDC1224967E500D2DA7C /* Library */,
 				56A62B0D22310727009D0E83 /* EntityModelLoader.swift */,
 				56A62B112231097E009D0E83 /* SCNNodeComponent.swift */,
 				56431D3C2232B5DB00BFAC36 /* LevelViewModel.swift */,
@@ -842,13 +871,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				56E167CA2222D80700D40FD0 /* Entity.m in Sources */,
+				562ACDC32249681A00D2DA7C /* CardCollectionViewModel.swift in Sources */,
 				204BC648222D6DD000D34B07 /* Component.swift in Sources */,
 				56A62B122231097E009D0E83 /* SCNNodeComponent.swift in Sources */,
 				562CAB8D223A3EE2007120D5 /* RotationActionComponent.swift in Sources */,
 				56E167C32222CC3800D40FD0 /* EntityManager.swift in Sources */,
+				562ACDCB22497F3400D2DA7C /* CardCollectionFlowLayoutDelegate.swift in Sources */,
 				5627ECAF220EEFA800DCC32E /* CardGraphDetector.swift in Sources */,
 				203B0F1122310E59000685D3 /* LoopCardNode.swift in Sources */,
 				56319DE82237D3C600469D5E /* ResourceComponent.swift in Sources */,
+				562ACDC72249726C00D2DA7C /* CardCollectionViewSectionHeader.swift in Sources */,
 				562CCA6F220D74AF00BF6A8D /* Program.swift in Sources */,
 				562CCA7A220D74AF00BF6A8D /* ObservationNode.swift in Sources */,
 				562EF8C82240E79200A8DC97 /* CollectibleComponent.swift in Sources */,
@@ -903,6 +935,7 @@
 				56A62B1822310E8D009D0E83 /* simd_quatd+Helpers.swift in Sources */,
 				56E167BA2222BDA600D40FD0 /* GKEntity+Helpers.swift in Sources */,
 				562CCA7F220D750100BF6A8D /* CGImagePropertyOrientation+Helpers.swift in Sources */,
+				562ACDCD224986F300D2DA7C /* GradesTabBarController.swift in Sources */,
 				562CCA6A220D74AF00BF6A8D /* JumpCard.swift in Sources */,
 				202D015B22327965004B6046 /* ParameterCardNode.swift in Sources */,
 				562CCA70220D74AF00BF6A8D /* CardNode.swift in Sources */,
@@ -922,6 +955,7 @@
 				56131F43224429C30044B6F4 /* InventoryComponent.swift in Sources */,
 				56A62B1A22311501009D0E83 /* LevelFactory.swift in Sources */,
 				562EF8CE2240FE5B00A8DC97 /* DropCard.swift in Sources */,
+				562ACDC522496BD400D2DA7C /* CardCollectionDataSource.swift in Sources */,
 				562EF8C62240E67400A8DC97 /* PickupActionComponent.swift in Sources */,
 				56431D392232A82700BFAC36 /* UpdateDelegate.swift in Sources */,
 				C7273114217714E900754543 /* Plane.swift in Sources */,

@@ -15,6 +15,7 @@ struct LoopCard: Card {
     let internalName = "loop"
     let summary = "Får en del af programmet til at gentage sig."
     let description = "Brug dette kort til at få en sekvens af kort til at gentage sig. Dette kort skal bruges sammen med et tal kort og et grænse kort."
+    let type = CardType.control
     
     func getAction(forEntity entity: Entity) -> ActionComponent? {
         return nil

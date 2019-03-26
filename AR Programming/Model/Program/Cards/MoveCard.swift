@@ -15,6 +15,7 @@ struct MoveCard: StatementCard {
     let internalName = "move"
     let summary = "Få robotten til at gå frem."
     let description = "Når robotten ser dette kort, vil den tage ét skridt frem. Brug rotationskortene til at ændre robottens retning. Hvis robotten skal gå længere frem så brug dette kort flere gange."
+    let type = CardType.action
     
     func getAction(forEntity entity: Entity) -> ActionComponent? {
         return MovementActionComponent(movement: simd_double3(1, 0, 0), duration: 1.5)

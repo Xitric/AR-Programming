@@ -15,6 +15,7 @@ struct RightCard: StatementCard {
     let internalName = "right"
     let summary = "Drej robotten til højre."
     let description = "Brug dette kort til at dreje robotten én gang mod højre - det er med urets retning. Brug rotationskortene til at ændre den retning, som robotten går i."
+    let type = CardType.action
     
     func getAction(forEntity entity: Entity) -> ActionComponent? {
         guard let transform = entity.component(subclassOf: TransformComponent.self)

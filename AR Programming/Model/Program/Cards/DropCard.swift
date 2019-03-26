@@ -14,6 +14,7 @@ struct DropCard: StatementCard {
     let internalName = "drop"
     let summary = "Få robotten til at smide det den holder i hænderne."
     let description = "Brug dette kort til at få robotten til at smide det den har i hænderne. Robotten smider tingene der hvor den står."
+    let type = CardType.action
     
     func getAction(forEntity entity: Entity) -> ActionComponent? {
         return DropActionComponent()

@@ -14,6 +14,7 @@ struct PickupCard: StatementCard {
     let internalName = "pickup"
     let summary = "Få robotten til at samle noget op."
     let description = "Brug dette kort til at få robotten til at samle noget op. Robotten kan kun samle ting op, hvis den står oven på dem."
+    let type = CardType.action
     
     func getAction(forEntity entity: Entity) -> ActionComponent? {
         return PickupActionComponent()
