@@ -11,4 +11,13 @@ import UIKit
 class CardCollectionViewSectionHeader: UICollectionReusableView {
     
     @IBOutlet weak var header: UILabel!
+    
+    var text: String {
+        get {
+            return header.text ?? ""
+        }
+        set {
+            header.text = newValue
+        }
+    }
 }

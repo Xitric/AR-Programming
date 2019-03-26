@@ -34,7 +34,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="48"/>
                                         <state key="normal" title="Bibliotek"/>
                                         <connections>
-                                            <segue destination="BnG-xc-Ia5" kind="show" id="tj8-8j-KXS"/>
+                                            <segue destination="BnG-xc-Ia5" kind="show" id="hQr-ud-sAf"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="86h-ce-QxN">
@@ -61,7 +61,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kpQ-se-CGO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1344.53125" y="119.53124999999999"/>
+            <point key="canvasLocation" x="1365" y="120"/>
         </scene>
         <!--Wardrobe View Controller-->
         <scene sceneID="v9f-SA-hYL">
@@ -92,7 +92,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rgJ-fd-fVa">
-                                <rect key="frame" x="484" y="701" width="56.5" height="43"/>
+                                <rect key="frame" x="483.5" y="701" width="57" height="43"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -245,6 +245,33 @@
             </objects>
             <point key="canvasLocation" x="2316" y="122"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="Gjj-vR-fwo">
+            <objects>
+                <viewController id="OCY-82-Rbn" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bye-pO-oW0">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*Video*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lGi-QP-qfb">
+                                <rect key="frame" x="357.5" y="326.5" width="309" height="115"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="96"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="lGi-QP-qfb" firstAttribute="centerX" secondItem="bye-pO-oW0" secondAttribute="centerX" id="Xsa-JD-Xhi"/>
+                            <constraint firstItem="lGi-QP-qfb" firstAttribute="centerY" secondItem="bye-pO-oW0" secondAttribute="centerY" id="dWO-Jc-SU2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="72O-WL-f6S"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lIb-ZR-FxG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3051" y="-1384"/>
+        </scene>
         <!--Bibliotek-->
         <scene sceneID="5Ii-66-MJI">
             <objects>
@@ -255,10 +282,11 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="Kmx-Ec-htG" kind="relationship" relationship="viewControllers" id="WO8-2r-LaG"/>
-                        <segue destination="Kmx-Ec-htG" kind="relationship" relationship="viewControllers" id="gtS-ed-C3l"/>
-                        <segue destination="Kmx-Ec-htG" kind="relationship" relationship="viewControllers" id="U3o-HR-Srr"/>
-                        <segue destination="Kmx-Ec-htG" kind="relationship" relationship="viewControllers" id="Jb6-KU-io0"/>
+                        <segue destination="Kmx-Ec-htG" kind="relationship" relationship="viewControllers" id="bBM-OD-Otv"/>
+                        <segue destination="Kmx-Ec-htG" kind="relationship" relationship="viewControllers" id="5e6-It-6Sx"/>
+                        <segue destination="Kmx-Ec-htG" kind="relationship" relationship="viewControllers" id="QbQ-1L-5hP"/>
+                        <segue destination="Kmx-Ec-htG" kind="relationship" relationship="viewControllers" id="eJp-UG-W80"/>
+                        <segue destination="OCY-82-Rbn" kind="show" identifier="HelpSegue" id="vsX-VW-M5P"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ncu-4I-wdg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -278,13 +306,13 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bn6-xO-dM3">
                                     <size key="itemSize" width="256" height="256"/>
-                                    <size key="headerReferenceSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CardCell" id="Tlx-02-3Ur" customClass="CardCollectionViewCell" customModule="AR_Programming" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="256" height="256"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="256" height="256"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="256" height="256"/>
@@ -307,35 +335,6 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="SectionHeader" id="Rid-7b-7Bh" customClass="CardCollectionViewSectionHeader" customModule="AR_Programming" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="1024" height="50"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="caD-ye-JiE">
-                                            <rect key="frame" x="0.0" y="49" width="1024" height="1"/>
-                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="1" id="BTk-mm-6ng"/>
-                                            </constraints>
-                                        </view>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3XY-zW-fV8">
-                                            <rect key="frame" x="28" y="12" width="54" height="26.5"/>
-                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="3XY-zW-fV8" firstAttribute="leading" secondItem="Rid-7b-7Bh" secondAttribute="leadingMargin" constant="20" id="3dU-x7-lh7"/>
-                                        <constraint firstAttribute="trailing" secondItem="caD-ye-JiE" secondAttribute="trailing" id="ZXS-FH-7LO"/>
-                                        <constraint firstItem="caD-ye-JiE" firstAttribute="leading" secondItem="Rid-7b-7Bh" secondAttribute="leading" id="dTw-Re-bjD"/>
-                                        <constraint firstItem="3XY-zW-fV8" firstAttribute="centerY" secondItem="Rid-7b-7Bh" secondAttribute="centerY" id="dc1-7S-sW3"/>
-                                        <constraint firstAttribute="bottom" secondItem="caD-ye-JiE" secondAttribute="bottom" id="sUv-2C-Vdg"/>
-                                    </constraints>
-                                    <connections>
-                                        <outlet property="header" destination="3XY-zW-fV8" id="I59-HO-gHF"/>
-                                    </connections>
-                                </collectionReusableView>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -343,19 +342,18 @@
                             <constraint firstItem="7qX-ce-PT1" firstAttribute="trailing" secondItem="vTO-re-0dc" secondAttribute="trailing" id="DxP-4H-OiU"/>
                             <constraint firstItem="7qX-ce-PT1" firstAttribute="bottom" secondItem="vTO-re-0dc" secondAttribute="bottom" id="LjK-i6-kTA"/>
                             <constraint firstItem="7qX-ce-PT1" firstAttribute="leading" secondItem="vTO-re-0dc" secondAttribute="leading" id="fNF-Hz-b89"/>
-                            <constraint firstItem="7qX-ce-PT1" firstAttribute="top" secondItem="vTO-re-0dc" secondAttribute="top" id="q7b-5l-acq"/>
+                            <constraint firstItem="7qX-ce-PT1" firstAttribute="top" secondItem="vTO-re-0dc" secondAttribute="top" id="l9o-sS-XyO"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vTO-re-0dc"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="b8b-Cm-kb2"/>
-                    <navigationItem key="navigationItem" id="hNO-9W-P7Z"/>
                     <connections>
                         <outlet property="cardCollectionView" destination="7qX-ce-PT1" id="G8V-72-Jo8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="en8-CW-xWB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3059" y="-605"/>
+            <point key="canvasLocation" x="3051" y="-605"/>
         </scene>
         <!--Card Detail View Controller-->
         <scene sceneID="HXZ-2x-NoM">
@@ -468,7 +466,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zPc-RB-OEI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3829" y="-605"/>
+            <point key="canvasLocation" x="3821" y="-605"/>
         </scene>
         <!--Item-->
         <scene sceneID="Ic1-Ax-8QC">
@@ -523,7 +521,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="718"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eQR-Dm-66Y" customClass="SubtitleLabel" customModule="AR_Programming" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eQR-Dm-66Y" customClass="SubtitleLabel" customModule="AR_Programming" customModuleProvider="target">
                                 <rect key="frame" x="205" y="20" width="614" height="52.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -616,29 +614,29 @@
                                     <action selector="startScanning:" destination="YHe-0I-6P8" eventType="touchUpInside" id="cpa-y5-Ewn"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v9Z-U8-b4o" customClass="SubtitleLabel" customModule="AR_Programming" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v9Z-U8-b4o" customClass="SubtitleLabel" customModule="AR_Programming" customModuleProvider="target">
                                 <rect key="frame" x="393.5" y="513" width="237" height="73"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="text" value="Bevæg din iPad rundt for at finde en overflade."/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8oG-xW-2tD" customClass="SubtitleLabel" customModule="AR_Programming" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8oG-xW-2tD" customClass="SubtitleLabel" customModule="AR_Programming" customModuleProvider="target">
                                 <rect key="frame" x="428.5" y="438.5" width="167" height="194.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="text" value="Tillykke, du har låst op for den næste opgave. Find den i opgavemenuen, eller nulstil opgaven for at prøve igen."/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WDh-Me-Nv9" customClass="SubtitleLabel" customModule="AR_Programming" customModuleProvider="target">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WDh-Me-Nv9" customClass="SubtitleLabel" customModule="AR_Programming" customModuleProvider="target">
                                 <rect key="frame" x="413.5" y="513" width="197" height="73"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="text" value="Placer spillet når du er tilfreds!"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" placeholderIntrinsicWidth="461" placeholderIntrinsicHeight="461" translatesAutoresizingMaskIntoConstraints="NO" id="pS7-9z-jz1">
-                                <rect key="frame" x="205" y="84" width="614" height="365"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="461" placeholderIntrinsicHeight="461" translatesAutoresizingMaskIntoConstraints="NO" id="pS7-9z-jz1">
+                                <rect key="frame" x="208" y="84" width="608" height="365"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="pS7-9z-jz1" secondAttribute="height" multiplier="5:3" id="Ok7-sQ-rUh"/>
                                 </constraints>
@@ -834,7 +832,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="obj-3u-JYA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="608" y="122"/>
+            <point key="canvasLocation" x="628" y="122"/>
         </scene>
     </scenes>
     <resources>
@@ -845,6 +843,6 @@
         <image name="robo" width="540" height="540"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Jb6-KU-io0"/>
+        <segue reference="QbQ-1L-5hP"/>
     </inferredMetricsTieBreakers>
 </document>

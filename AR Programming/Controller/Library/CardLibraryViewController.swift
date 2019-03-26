@@ -16,6 +16,8 @@ class CardLibraryViewController: UIViewController {
         didSet {
             cardCollectionView.dataSource = dataSource
             cardCollectionView.delegate = flowLayoutDelegate
+            cardCollectionView.register(UINib(nibName: "CardCollectionViewHomeHeader", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HomeHeader")
+            cardCollectionView.register(UINib(nibName: "CardCollectionViewSectionHeader", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "SectionHeader")
         }
     }
     
@@ -26,6 +28,12 @@ class CardLibraryViewController: UIViewController {
     private lazy var flowLayoutDelegate: CardCollectionFlowLayoutDelegate = {
        return CardCollectionFlowLayoutDelegate()
     }()
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        cardCollectionView.collectionViewLayout.invalidateLayout()
+    }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)

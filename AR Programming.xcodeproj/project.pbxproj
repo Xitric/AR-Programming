@@ -23,6 +23,8 @@
 		206A0CB822410FD80018E6B7 /* WardrobeManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206A0CB722410FD80018E6B7 /* WardrobeManagerTests.swift */; };
 		20FA267C22369CAC00AF1083 /* LoopCardNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FA267B22369CAC00AF1083 /* LoopCardNodeTests.swift */; };
 		20FA267E2236A10C00AF1083 /* BorderCardNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FA267D2236A10C00AF1083 /* BorderCardNodeTests.swift */; };
+		561083E8224A246F009A0039 /* CardCollectionViewHomeHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 561083E7224A246F009A0039 /* CardCollectionViewHomeHeader.xib */; };
+		561083EA224A2B11009A0039 /* CardCollectionViewSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 561083E9224A2B11009A0039 /* CardCollectionViewSectionHeader.xib */; };
 		56131F43224429C30044B6F4 /* InventoryComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56131F42224429C30044B6F4 /* InventoryComponent.swift */; };
 		5621C83A221AE5F800756628 /* SCNVector3+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5621C839221AE5F800756628 /* SCNVector3+Helpers.swift */; };
 		5621C83C221AE67A00756628 /* simd_float4x4+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5621C83B221AE67A00756628 /* simd_float4x4+Helpers.swift */; };
@@ -168,6 +170,8 @@
 		20FA267D2236A10C00AF1083 /* BorderCardNodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderCardNodeTests.swift; sourceTree = "<group>"; };
 		2CBF6D6B964CB7805473D1E8 /* Pods-AR Programming.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AR Programming.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AR Programming/Pods-AR Programming.debug.xcconfig"; sourceTree = "<group>"; };
 		3F68042C35BD5B2A4D85C7F9 /* Pods-AR Programming.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AR Programming.release.xcconfig"; path = "Pods/Target Support Files/Pods-AR Programming/Pods-AR Programming.release.xcconfig"; sourceTree = "<group>"; };
+		561083E7224A246F009A0039 /* CardCollectionViewHomeHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardCollectionViewHomeHeader.xib; sourceTree = "<group>"; };
+		561083E9224A2B11009A0039 /* CardCollectionViewSectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardCollectionViewSectionHeader.xib; sourceTree = "<group>"; };
 		56131F42224429C30044B6F4 /* InventoryComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryComponent.swift; sourceTree = "<group>"; };
 		5621C839221AE5F800756628 /* SCNVector3+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNVector3+Helpers.swift"; sourceTree = "<group>"; };
 		5621C83B221AE67A00756628 /* simd_float4x4+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "simd_float4x4+Helpers.swift"; sourceTree = "<group>"; };
@@ -342,11 +346,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		561083F3224A4F1F009A0039 /* CardDetail */ = {
+			isa = PBXGroup;
+			children = (
+				C74785EC219448F1000148BC /* CardDetailViewController.swift */,
+			);
+			path = CardDetail;
+			sourceTree = "<group>";
+		};
 		562ACDC02249657200D2DA7C /* Library */ = {
 			isa = PBXGroup;
 			children = (
 				C74785EA219427F8000148BC /* CardLibraryViewController.swift */,
-				C74785EC219448F1000148BC /* CardDetailViewController.swift */,
 				562ACDCC224986F300D2DA7C /* GradesTabBarController.swift */,
 			);
 			path = Library;
@@ -355,10 +366,10 @@
 		562ACDC1224967E500D2DA7C /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				562ACDC62249726C00D2DA7C /* CardCollectionViewSectionHeader.swift */,
 				C74785E8219427A3000148BC /* CardCollectionViewCell.swift */,
 				562ACDC22249681A00D2DA7C /* CardCollectionViewModel.swift */,
 				562ACDC422496BD300D2DA7C /* CardCollectionDataSource.swift */,
-				562ACDC62249726C00D2DA7C /* CardCollectionViewSectionHeader.swift */,
 				562ACDCA22497F3400D2DA7C /* CardCollectionFlowLayoutDelegate.swift */,
 			);
 			path = Library;
@@ -526,6 +537,8 @@
 			children = (
 				56AEAC62221EC4CF00ACED36 /* SubtitleLabel.xib */,
 				56AEAC64221EC63800ACED36 /* SubtitleLabel.swift */,
+				561083E7224A246F009A0039 /* CardCollectionViewHomeHeader.xib */,
+				561083E9224A2B11009A0039 /* CardCollectionViewSectionHeader.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -602,6 +615,7 @@
 		9057369E2175D42900F231E1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				561083F3224A4F1F009A0039 /* CardDetail */,
 				562ACDC02249657200D2DA7C /* Library */,
 				905A3C782179BDC3005E3AA5 /* Card */,
 				204AEC11220DC9F500E0F624 /* HiddenTabBarViewController.swift */,
@@ -798,7 +812,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				90DF733C216F442000F51E0C /* LaunchScreen.storyboard in Resources */,
+				561083EA224A2B11009A0039 /* CardCollectionViewSectionHeader.xib in Resources */,
 				90DF7339216F442000F51E0C /* Assets.xcassets in Resources */,
+				561083E8224A246F009A0039 /* CardCollectionViewHomeHeader.xib in Resources */,
 				90CDABC221773E2700664640 /* Meshes.scnassets in Resources */,
 				56431D372232969A00BFAC36 /* Levels in Resources */,
 				56AEAC63221EC4CF00ACED36 /* SubtitleLabel.xib in Resources */,

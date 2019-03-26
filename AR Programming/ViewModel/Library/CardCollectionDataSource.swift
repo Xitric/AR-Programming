@@ -18,11 +18,12 @@ class CardCollectionDataSource: NSObject, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SectionHeader", for: indexPath)
+        let headerIdentifier = indexPath.section == 0 ? "HomeHeader" : "SectionHeader"
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerIdentifier, for: indexPath)
         
         if let header = header as? CardCollectionViewSectionHeader {
             let sectionType = viewModel.cardTypes[indexPath.section]
-            header.header.text = viewModel.displayName(ofType: sectionType)
+            header.text = viewModel.displayName(ofType: sectionType)
         }
         
         return header

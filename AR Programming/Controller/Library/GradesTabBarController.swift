@@ -15,6 +15,9 @@ class GradesTabBarController: UITabBarController {
         tabBar.items?[1].title = "2. Klasse"
         tabBar.items?[2].title = "3. Klasse"
         tabBar.items?[3].title = "4. Klasse"
+        
+        let button1 = UIBarButtonItem(title: "?", style: .plain, target: self, action: #selector(GradesTabBarController.goToHelpView(_:)))
+        self.navigationItem.rightBarButtonItem = button1
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -25,5 +28,9 @@ class GradesTabBarController: UITabBarController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.navigationBar.prefersLargeTitles = false
+    }
+    
+    @objc private func goToHelpView(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "HelpSegue", sender: nil)
     }
 }
