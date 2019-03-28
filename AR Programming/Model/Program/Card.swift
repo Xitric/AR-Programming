@@ -9,10 +9,8 @@
 import Foundation
 
 protocol Card {
-    var name: String { get }
     var internalName: String { get }
-    var summary: String { get }
-    var description: String { get }
-    
-    func getAction(forEntity entity: Entity) -> ActionComponent?
+    var supportsParameter: Bool { get }
+    var requiresParameter: Bool { get }
+    var connectionAngles: [Double] { get }
 }

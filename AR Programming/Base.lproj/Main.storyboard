@@ -478,7 +478,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SYT-AS-Sag">
-                                <rect key="frame" x="16" y="642" width="149" height="60"/>
+                                <rect key="frame" x="16" y="582" width="149" height="60"/>
                                 <color key="backgroundColor" red="0.074509803920000006" green="0.46274509800000002" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="b69-Xz-2Tz"/>
@@ -513,7 +513,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x2I-t6-tvF">
-                                <rect key="frame" x="165" y="642" width="60" height="60"/>
+                                <rect key="frame" x="165" y="582" width="60" height="60"/>
                                 <color key="backgroundColor" red="0.074509803920000006" green="0.46274509800000002" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="ENP-uQ-F6c"/>
@@ -605,11 +605,11 @@
                             <constraint firstItem="hTh-5f-7nh" firstAttribute="centerX" secondItem="IsN-tU-7YM" secondAttribute="centerX" id="6qW-61-skg"/>
                             <constraint firstItem="x2I-t6-tvF" firstAttribute="leading" secondItem="SYT-AS-Sag" secondAttribute="trailing" id="8Kv-he-VAe"/>
                             <constraint firstItem="sW9-KF-I5o" firstAttribute="trailing" secondItem="r7f-Fu-KoH" secondAttribute="trailing" id="91a-Gs-XmC"/>
-                            <constraint firstItem="x2I-t6-tvF" firstAttribute="bottom" secondItem="EdM-Vw-Xp3" secondAttribute="bottom" id="ALt-L6-gRO"/>
+                            <constraint firstItem="x2I-t6-tvF" firstAttribute="bottom" secondItem="SYT-AS-Sag" secondAttribute="bottom" id="ALt-L6-gRO"/>
                             <constraint firstItem="sW9-KF-I5o" firstAttribute="top" secondItem="IsN-tU-7YM" secondAttribute="top" id="BzH-Dp-Khn"/>
                             <constraint firstItem="IcD-R1-wft" firstAttribute="leading" secondItem="IsN-tU-7YM" secondAttribute="leading" constant="16" id="GvD-zM-qUh"/>
                             <constraint firstItem="WDh-Me-Nv9" firstAttribute="centerX" secondItem="IsN-tU-7YM" secondAttribute="centerX" id="JSM-wQ-dNr"/>
-                            <constraint firstItem="SYT-AS-Sag" firstAttribute="bottom" secondItem="IcD-R1-wft" secondAttribute="bottom" id="JtQ-F1-yFM"/>
+                            <constraint firstItem="SYT-AS-Sag" firstAttribute="bottom" secondItem="IcD-R1-wft" secondAttribute="top" id="JtQ-F1-yFM"/>
                             <constraint firstItem="j0e-mD-Rgu" firstAttribute="centerX" secondItem="IsN-tU-7YM" secondAttribute="centerX" id="L74-Kp-XNz"/>
                             <constraint firstItem="8oG-xW-2tD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="r7f-Fu-KoH" secondAttribute="leading" constant="96" id="P0N-qK-fB3"/>
                             <constraint firstItem="8oG-xW-2tD" firstAttribute="top" secondItem="j0e-mD-Rgu" secondAttribute="bottom" constant="16" id="SU5-oQ-1Uf"/>

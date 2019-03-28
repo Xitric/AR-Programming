@@ -12,69 +12,60 @@ import simd
 
 class BorderCardNode: CardNode {
     
-    private let successorAngle = 0.0
-    
-    var successors = [CardNode?]()
-    var position: simd_double2
-    weak var parent: CardNode?
-    
-    var repeats: Int!
-    var loopCardNode: LoopCardNode? {
+    private var remainingRepeats: Int!
+    private var loopCardNode: LoopCardNode! {
         didSet {
             if let loopCard = loopCardNode {
-                repeats = loopCard.repeats
+                remainingRepeats = loopCard.parameter
             }
         }
     }
     
-    init(position: simd_double2) {
-        self.position = position
+    init() {
+        super.init(card: BasicCard(
+            internalName: "block",
+            supportsParameter: false,
+            requiresParameter: false,
+            connectionAngles: [0]))
     }
     
-    convenience init() {
-        self.init(position: simd_double2(0,0))
-    }
-    
-    func create(from node: ObservationNode, withParent parent: CardNode?, in graph: ObservationGraph) throws -> CardNode {
-        let clone = BorderCardNode(position: node.position)
-        clone.parent = parent
-        if let successor = graph.getSuccessor(by: successorAngle, to: node) {
-            graph.connect(from: node, to: successor, withAngle: successorAngle)
-            clone.successors.append(try CardNodeFactory.instance.cardNode(for: successor, withParent: clone, in: graph))
-        } else {
-            clone.successors.append(nil)
-        }
-        clone.loopCardNode = try clone.findLoopCard(in: graph)
+    override func create(from node: ObservationNode, withParent parent: CardNode?, in graph: ObservationGraph) throws -> CardNode {
+        let clone = try super.create(from: node, withParent: parent, in: graph) as! BorderCardNode
+        try clone.findLoop()
+        
         return clone
     }
     
-    func findLoopCard(in graph: ObservationGraph) throws -> LoopCardNode {
+    private func findLoop() throws {
         var p = parent
         
-        while(p != nil){
+        while(p != nil) {
             if let p = p as? LoopCardNode {
-                return p
+                loopCardNode = p
+                return
             } else {
                 p = p?.parent
             }
         }
+        
         //We have reached a card with no parent
         throw CardSequenceError.syntax(message: "Border card is missing a corresponding loop card")
     }
     
-    func getCard() -> Card {
-        return BorderCard()
+    override func clone() -> CardNode {
+        return BorderCardNode()
     }
     
-    func next() -> CardNode? {
-        if let loopCard = loopCardNode {
-            if loopCard.repeats != 1 {
-                loopCard.repeats = loopCard.repeats - 1
-                return loopCard.next()
-            }
-            loopCard.repeats = repeats
+    override func next() -> CardNode? {
+        remainingRepeats = remainingRepeats - 1
+        
+        if remainingRepeats > 0 {
+            // We iterate back to the loop card
+            return loopCardNode.next()
         }
         
+        // We are done iterating
+        remainingRepeats = loopCardNode.parameter
         if successors.count > 0 {
             return successors[0]
         }
