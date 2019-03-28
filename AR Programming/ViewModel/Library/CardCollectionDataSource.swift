@@ -44,8 +44,7 @@ class CardCollectionDataSource: NSObject, UICollectionViewDataSource {
             let cardImage = UIImage(named: card.internalName)
             
             cell.image.image = cardImage
-            cell.cardTitle = card.name
-            cell.cardDescription = card.description
+            cell.card = card
         }
         
         return cell

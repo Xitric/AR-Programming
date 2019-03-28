@@ -25,6 +25,8 @@
 		20FA267E2236A10C00AF1083 /* BorderCardNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FA267D2236A10C00AF1083 /* BorderCardNodeTests.swift */; };
 		561083E8224A246F009A0039 /* CardCollectionViewHomeHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 561083E7224A246F009A0039 /* CardCollectionViewHomeHeader.xib */; };
 		561083EA224A2B11009A0039 /* CardCollectionViewSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 561083E9224A2B11009A0039 /* CardCollectionViewSectionHeader.xib */; };
+		561083F6224A68FD009A0039 /* ProgramView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561083F5224A68FD009A0039 /* ProgramView.swift */; };
+		561083F8224A7607009A0039 /* ExampleProgramTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561083F7224A7607009A0039 /* ExampleProgramTableDataSource.swift */; };
 		56131F43224429C30044B6F4 /* InventoryComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56131F42224429C30044B6F4 /* InventoryComponent.swift */; };
 		5621C83A221AE5F800756628 /* SCNVector3+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5621C839221AE5F800756628 /* SCNVector3+Helpers.swift */; };
 		5621C83C221AE67A00756628 /* simd_float4x4+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5621C83B221AE67A00756628 /* simd_float4x4+Helpers.swift */; };
@@ -172,6 +174,8 @@
 		3F68042C35BD5B2A4D85C7F9 /* Pods-AR Programming.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AR Programming.release.xcconfig"; path = "Pods/Target Support Files/Pods-AR Programming/Pods-AR Programming.release.xcconfig"; sourceTree = "<group>"; };
 		561083E7224A246F009A0039 /* CardCollectionViewHomeHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardCollectionViewHomeHeader.xib; sourceTree = "<group>"; };
 		561083E9224A2B11009A0039 /* CardCollectionViewSectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardCollectionViewSectionHeader.xib; sourceTree = "<group>"; };
+		561083F5224A68FD009A0039 /* ProgramView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramView.swift; sourceTree = "<group>"; };
+		561083F7224A7607009A0039 /* ExampleProgramTableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleProgramTableDataSource.swift; sourceTree = "<group>"; };
 		56131F42224429C30044B6F4 /* InventoryComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryComponent.swift; sourceTree = "<group>"; };
 		5621C839221AE5F800756628 /* SCNVector3+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNVector3+Helpers.swift"; sourceTree = "<group>"; };
 		5621C83B221AE67A00756628 /* simd_float4x4+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "simd_float4x4+Helpers.swift"; sourceTree = "<group>"; };
@@ -350,6 +354,14 @@
 			isa = PBXGroup;
 			children = (
 				C74785EC219448F1000148BC /* CardDetailViewController.swift */,
+			);
+			path = CardDetail;
+			sourceTree = "<group>";
+		};
+		561083F4224A68A6009A0039 /* CardDetail */ = {
+			isa = PBXGroup;
+			children = (
+				561083F7224A7607009A0039 /* ExampleProgramTableDataSource.swift */,
 			);
 			path = CardDetail;
 			sourceTree = "<group>";
@@ -539,6 +551,7 @@
 				56AEAC64221EC63800ACED36 /* SubtitleLabel.swift */,
 				561083E7224A246F009A0039 /* CardCollectionViewHomeHeader.xib */,
 				561083E9224A2B11009A0039 /* CardCollectionViewSectionHeader.xib */,
+				561083F5224A68FD009A0039 /* ProgramView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -654,6 +667,7 @@
 		90D7538421AC18D900B1F2E4 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				561083F4224A68A6009A0039 /* CardDetail */,
 				562ACDC1224967E500D2DA7C /* Library */,
 				56A62B0D22310727009D0E83 /* EntityModelLoader.swift */,
 				56A62B112231097E009D0E83 /* SCNNodeComponent.swift */,
@@ -941,6 +955,7 @@
 				562CCA68220D74AF00BF6A8D /* LeftCard.swift in Sources */,
 				203B0F0B223108C3000685D3 /* LoopCard.swift in Sources */,
 				562CCA79220D74AF00BF6A8D /* BarcodeDetector.swift in Sources */,
+				561083F6224A68FD009A0039 /* ProgramView.swift in Sources */,
 				C74785E9219427A3000148BC /* CardCollectionViewCell.swift in Sources */,
 				C76A214821AC1405008A07D9 /* LevelEntity+CoreDataProperties.swift in Sources */,
 				56319DEA2237D40F00469D5E /* TransformComponent.swift in Sources */,
@@ -973,6 +988,7 @@
 				562EF8CE2240FE5B00A8DC97 /* DropCard.swift in Sources */,
 				562ACDC522496BD400D2DA7C /* CardCollectionDataSource.swift in Sources */,
 				562EF8C62240E67400A8DC97 /* PickupActionComponent.swift in Sources */,
+				561083F8224A7607009A0039 /* ExampleProgramTableDataSource.swift in Sources */,
 				56431D392232A82700BFAC36 /* UpdateDelegate.swift in Sources */,
 				C7273114217714E900754543 /* Plane.swift in Sources */,
 				203B0F0F223109AC000685D3 /* ParameterCard.swift in Sources */,

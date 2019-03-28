@@ -44,12 +44,16 @@ class CardLibraryViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "Show Card Information" {
-            if let cdvc = segue.destination as? CardDetailViewController {
-                let card = sender as! CardCollectionViewCell
-                cdvc.cardTitle = card.cardTitle
-                cdvc.cardDescription = card.cardDescription
-                cdvc.cardImage = card.image.image
+        if segue.identifier == "CardDetailSegue" {
+            if let detail = segue.destination as? CardDetailViewController,
+                let cardCell = sender as? CardCollectionViewCell {
+                
+                let card = cardCell.card
+                
+                detail.cardTitle = card?.name
+                detail.cardSummary = card?.summary
+                detail.cardDescription = card?.description
+                detail.cardPreview = cardCell.image.image
             }
         }
     }
