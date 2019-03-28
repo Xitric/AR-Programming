@@ -33,6 +33,7 @@
 		56108418224CE41D009A0039 /* LoopCardNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56108417224CE41D009A0039 /* LoopCardNode.swift */; };
 		5610841A224CEAE4009A0039 /* SimpleActionCardNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56108419224CEAE4009A0039 /* SimpleActionCardNode.swift */; };
 		5610841C224CEB96009A0039 /* FunctionCardNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5610841B224CEB96009A0039 /* FunctionCardNode.swift */; };
+		56108442224D3CC1009A0039 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 56108440224D3CC1009A0039 /* Localizable.strings */; };
 		56131F43224429C30044B6F4 /* InventoryComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56131F42224429C30044B6F4 /* InventoryComponent.swift */; };
 		5621C83A221AE5F800756628 /* SCNVector3+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5621C839221AE5F800756628 /* SCNVector3+Helpers.swift */; };
 		5621C83C221AE67A00756628 /* simd_float4x4+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5621C83B221AE67A00756628 /* simd_float4x4+Helpers.swift */; };
@@ -173,6 +174,7 @@
 		56108417224CE41D009A0039 /* LoopCardNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopCardNode.swift; sourceTree = "<group>"; };
 		56108419224CEAE4009A0039 /* SimpleActionCardNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleActionCardNode.swift; sourceTree = "<group>"; };
 		5610841B224CEB96009A0039 /* FunctionCardNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionCardNode.swift; sourceTree = "<group>"; };
+		56108441224D3CC1009A0039 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		56131F42224429C30044B6F4 /* InventoryComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryComponent.swift; sourceTree = "<group>"; };
 		5621C839221AE5F800756628 /* SCNVector3+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNVector3+Helpers.swift"; sourceTree = "<group>"; };
 		5621C83B221AE67A00756628 /* simd_float4x4+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "simd_float4x4+Helpers.swift"; sourceTree = "<group>"; };
@@ -655,6 +657,7 @@
 				90CDABC121773E2700664640 /* Meshes.scnassets */,
 				56431D362232969A00BFAC36 /* Levels */,
 				90DF733D216F442000F51E0C /* Info.plist */,
+				56108440224D3CC1009A0039 /* Localizable.strings */,
 			);
 			path = "AR Programming";
 			sourceTree = "<group>";
@@ -774,6 +777,7 @@
 				90A55B0E21A84DB000FD7CDD /* win.wav in Resources */,
 				90D7538821AC259A00B1F2E4 /* pickup.wav in Resources */,
 				90DF7337216F441E00F51E0C /* Main.storyboard in Resources */,
+				56108442224D3CC1009A0039 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -975,6 +979,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		56108440224D3CC1009A0039 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				56108441224D3CC1009A0039 /* Base */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		90DF7335216F441E00F51E0C /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -998,6 +1010,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1059,6 +1072,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

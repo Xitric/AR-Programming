@@ -1,0 +1,75 @@
+/* 
+  Cards.strings
+  AR Programming
+
+  Created by Kasper Schultz Davidsen on 28/03/2019.
+  Copyright © 2019 Kasper Schultz Davidsen. All rights reserved.
+*/
+
+"start.name" = "Start";
+"start.summary" = "Dit program starter her.";
+"start.description" = "Brug dette kort til at bestemme hvor programmet starter. Alle programmer skal indeholde et startkort. Startkortet skal være det første kort i rækken.";
+
+"move.name" = "Gå";
+"move.summary" = "Få robotten til at gå frem.";
+"move.description" = "Når robotten ser dette kort, vil den tage ét skridt frem. Brug rotationskortene til at ændre robottens retning. Hvis robotten skal gå længere frem så brug dette kort flere gange.";
+
+"left.name" = "Venstre";
+"left.summary" = "Drej robotten til venstre.";
+"left.description" = "Brug dette kort til at dreje robotten én gang mod venstre - det er mod urets retning. Brug rotationskortene til at ændre den retning, som robotten går i.";
+
+"right.name" = "Højre";
+"right.summary" = "Drej robotten til højre.";
+"right.description" = "Brug dette kort til at dreje robotten én gang mod højre - det er med urets retning. Brug rotationskortene til at ændre den retning, som robotten går i.";
+
+"jump.name" = "Hop";
+"jump.summary" = "Få robotten til at hoppe.";
+"jump.description" = "Skal du nå noget der hænger oppe i luften? Når robotten ser dette kort, vil den lave et lille hop.";
+
+"pickup.name" = "Saml Op";
+"pickup.summary" = "Få robotten til at samle noget op.";
+"pickup.description" = "Brug dette kort til at få robotten til at samle noget op. Robotten kan kun samle ting op, hvis den står oven på dem.";
+
+"drop.name" = "Smid";
+"drop.summary" = "Få robotten til at smide det den holder i hænderne.";
+"drop.description" = "Brug dette kort til at få robotten til at smide det den har i hænderne. Robotten smider tingene der hvor den står.";
+
+"loop.name" = "Gentag";
+"loop.summary" = "Får en del af programmet til at gentage sig.";
+"loop.description" = "Brug dette kort til at få en sekvens af kort til at gentage sig. Dette kort skal bruges sammen med et talkort og et grænsekort.";
+
+"block.name" = "Grænse";
+"block.summary" = "Dit gentagelse stopper her.";
+"block.description" = "Brug dette kort til at vise slutningen på gentagelsen.";
+
+"param1.name" = "Tal 1";
+"param1.summary" = "Tal for dit program.";
+"param1.description" = "Brug dette kort til at fortælle, at et gentagelseskort skal gentage sig 1 gang. Dette talkort skal placeres over eller under et gentagelseskort.";
+
+"param2.name" = "Tal 2";
+"param2.summary" = "Tal for dit program.";
+"param2.description" = "Brug dette kort til at fortælle, at et gentagelseskort skal gentage sig 2 gange. Dette talkort skal placeres over eller under et gentagelseskort.";
+
+"param3.name" = "Tal 3";
+"param3.summary" = "Tal for dit program.";
+"param3.description" = "Brug dette kort til at fortælle, at et gentagelseskort skal gentage sig 3 gange. Dette talkort skal placeres over eller under et gentagelseskort.";
+
+"param4.name" = "Tal 4";
+"param4.summary" = "Tal for dit program.";
+"param4.description" = "Brug dette kort til at fortælle, at et gentagelseskort skal gentage sig 4 gange. Dette talkort skal placeres over eller under et gentagelseskort.";
+
+"function1.name" = "Gul Funktion";
+"function1.summary" = "Funktionskort for dit program.";
+"function1.description" = "";
+
+"function2.name" = "Orange Funktion";
+"function2.summary" = "Funktionskort for dit program.";
+"function2.description" = "";
+
+"function3.name" = "Blå Funktion";
+"function3.summary" = "Funktionskort for dit program.";
+"function3.description" = "";
+
+"function4.name" = "Grøn Funktion";
+"function4.summary" = "Funktionskort for dit program.";
+"function4.description" = "";

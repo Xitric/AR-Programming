@@ -11,7 +11,7 @@ import Foundation
 struct ParameterCard: Card {
     let parameter: Int
     var internalName: String {
-        return "parameter\(parameter)"
+        return "param\(parameter)"
     }
     let supportsParameter = false
     let requiresParameter = false

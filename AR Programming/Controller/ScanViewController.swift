@@ -63,11 +63,14 @@ extension ScanViewController: CardNodeDetectorDelegate {
         }
     }
     
-    private func display(card optCard: Card?) {
-        if let card = optCard {
-            //TODO: Get information from localization
-//            self.cardName.text = "\(card.name) | \(card.summary)"
-//            self.cardDescription.text = card.description
+    private func display(card: Card?) {
+        if let card = card {
+            let name = NSLocalizedString("\(card.internalName).name", comment: "")
+            let summary = NSLocalizedString("\(card.internalName).summary", comment: "")
+            let description = NSLocalizedString("\(card.internalName).description", comment: "")
+            
+            self.cardName.text = "\(name) | \(summary)"
+            self.cardDescription.text = description
             self.cardImage.image = UIImage(named: card.internalName)
         } else {
             self.cardName.text = "Intet kort fundet"
