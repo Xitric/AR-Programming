@@ -11,6 +11,8 @@ import Foundation
 class CleanUpLevel: Level {
     
     private var dropOffGoals = [String:simd_double3]()
+    private var dropOffAmounts = [String:Int]()
+    
     private var collectibles: [Entity] {
         get {
             return entityManager.getEntities(withComponents: CollectibleComponent.self)
@@ -29,7 +31,7 @@ class CleanUpLevel: Level {
         
         let container = try decoder.container(keyedBy: CodingKeys.self)
         let dropOffs = try container.decode([DropOffGoalJSON].self, forKey: .dropOffs)
-        save(dropOffGoals: dropOffs, into: &dropOffGoals)
+        save(goals: dropOffs)
         
         let items = try container.decode([IemJSON].self, forKey: .items)
         for item in items {
@@ -38,7 +40,7 @@ class CleanUpLevel: Level {
             collectiblesForReset.append(entity)
         }
         
-        // entityManager.player.addComponent(LinkComponent())
+        
     }
     
     private enum CodingKeys: String, CodingKey {
@@ -46,10 +48,15 @@ class CleanUpLevel: Level {
         case items
     }
     
-    private func save(dropOffGoals: [DropOffGoalJSON], into dict: inout [String:simd_double3]) {
-        for dropOff in dropOffGoals {
-            dict[dropOff.type] = vector3(Double(dropOff.x), 0, Double(dropOff.y))
+    private func save(goals: [DropOffGoalJSON]) {
+        var position = [String:simd_double3]()
+      //  var amounts = [String:Int]()
+        for dropOff in goals {
+            position[dropOff.type] = vector3(Double(dropOff.x), 0, Double(dropOff.y))
+        //    amounts[dropOff.type] = dropOff.amounts
         }
+        dropOffGoals = position
+      //  dropOffAmounts = amounts
     }
     
     private func createItem(fromJson json: IemJSON) -> Entity {
@@ -76,14 +83,12 @@ class CleanUpLevel: Level {
         if isComplete() {
             complete()
         }
-        //  print (collectibles.first?.components)
-        //  print (collectibles.first?.component(subclassOf: TransformComponent.self)?.location)
     }
     
     override func isComplete() -> Bool {
         for entity in collectibles {
             guard let currentPosition = entity.component(subclassOf: TransformComponent.self)?.location else { return false }
-            for (type, position) in dropOffGoals {
+            for (_, position) in dropOffGoals {
                 if !simd_double3.vectEqual(currentPosition, position, tolerance: 0.1){
                     return false
                 }
@@ -91,28 +96,35 @@ class CleanUpLevel: Level {
         }
         return true
     }
-    //        for (type, position) in dropOffGoals {
-    //            if
-    //            if let first = collectibles.first?.component(subclassOf: TransformComponent.self)?.location {
-    //                print("First: x: \(first.x), y: \(first.y), z: \(first.z)")
-    //                print("Goal x: \(position.x), y: \(position.y), z: \(position.z)")
-    //                if first.vectEqual(first, position, tolerance: 0.1) {
-    //                    return true
-    //                }
-    //            }
-    //        }
-    //        return false
-
-
-override func reset() {
-
+    
+    override func reset() {
+        objc_sync_enter(entityManager)
+        defer {
+            objc_sync_exit(entityManager)
+        }
+        
+        entityManager.player.component(ofType: InventoryComponent.self)?.reset()
+        
+        for oldEntity in collectibles {
+            entityManager.removeEntity(oldEntity)
+        }
+        
+        for newEntity in collectiblesForReset {
+            entityManager.addEntity(newEntity)
+        }
+        
+        super.reset()
+        
+        delegate?.levelInfoChanged(self, info: infoLabel)
+    }
 }
-}
+
 // MARK: - Helpers
 private struct DropOffGoalJSON: Decodable {
     let type: String
     let x: Int
     let y: Int
+  //  let amounts: Int
 }
 
 private struct IemJSON: Decodable {
