@@ -11,6 +11,6 @@ import Foundation
 class MoveAction: ComponentAction {
     
     override func getActionComponent(forEntity entity: Entity) -> ActionComponent? {
-        return MovementActionComponent(movement: simd_double3(1, 0, 0), duration: 1.5)
+        return MovementActionComponent(movement: simd_double3(strength, 0, 0), duration: 1.5 * strength)
     }
 }

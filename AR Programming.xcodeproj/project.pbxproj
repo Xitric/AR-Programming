@@ -22,8 +22,6 @@
 		561083FD224CBE6D009A0039 /* ComponentAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561083FC224CBE6D009A0039 /* ComponentAction.swift */; };
 		561083FF224CBE80009A0039 /* ProgramAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561083FE224CBE80009A0039 /* ProgramAction.swift */; };
 		56108402224CC773009A0039 /* MoveAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56108401224CC773009A0039 /* MoveAction.swift */; };
-		56108404224CC783009A0039 /* RightAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56108403224CC783009A0039 /* RightAction.swift */; };
-		56108406224CC790009A0039 /* LeftAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56108405224CC790009A0039 /* LeftAction.swift */; };
 		56108408224CC7B2009A0039 /* JumpAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56108407224CC7B2009A0039 /* JumpAction.swift */; };
 		5610840A224CC7C2009A0039 /* PickupAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56108409224CC7C2009A0039 /* PickupAction.swift */; };
 		5610840C224CC7CE009A0039 /* DropAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5610840B224CC7CE009A0039 /* DropAction.swift */; };
@@ -85,6 +83,7 @@
 		56319DE82237D3C600469D5E /* ResourceComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56319DE72237D3C500469D5E /* ResourceComponent.swift */; };
 		56319DEA2237D40F00469D5E /* TransformComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56319DE92237D40F00469D5E /* TransformComponent.swift */; };
 		56319E09223801D100469D5E /* MovementActionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56319E08223801D100469D5E /* MovementActionComponent.swift */; };
+		563A4895224E0B7E00A0226A /* RotationAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563A4894224E0B7E00A0226A /* RotationAction.swift */; };
 		56413DFD220E2AC30064332E /* GameplayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56413DFC220E2AC30064332E /* GameplayController.swift */; };
 		56431D2922328C7700BFAC36 /* QuantityComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56431D2822328C7700BFAC36 /* QuantityComponent.swift */; };
 		56431D372232969A00BFAC36 /* Levels in Resources */ = {isa = PBXBuildFile; fileRef = 56431D362232969A00BFAC36 /* Levels */; };
@@ -163,8 +162,6 @@
 		561083FC224CBE6D009A0039 /* ComponentAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentAction.swift; sourceTree = "<group>"; };
 		561083FE224CBE80009A0039 /* ProgramAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramAction.swift; sourceTree = "<group>"; };
 		56108401224CC773009A0039 /* MoveAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveAction.swift; sourceTree = "<group>"; };
-		56108403224CC783009A0039 /* RightAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightAction.swift; sourceTree = "<group>"; };
-		56108405224CC790009A0039 /* LeftAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftAction.swift; sourceTree = "<group>"; };
 		56108407224CC7B2009A0039 /* JumpAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JumpAction.swift; sourceTree = "<group>"; };
 		56108409224CC7C2009A0039 /* PickupAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupAction.swift; sourceTree = "<group>"; };
 		5610840B224CC7CE009A0039 /* DropAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropAction.swift; sourceTree = "<group>"; };
@@ -226,6 +223,7 @@
 		56319DE72237D3C500469D5E /* ResourceComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceComponent.swift; sourceTree = "<group>"; };
 		56319DE92237D40F00469D5E /* TransformComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransformComponent.swift; sourceTree = "<group>"; };
 		56319E08223801D100469D5E /* MovementActionComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovementActionComponent.swift; sourceTree = "<group>"; };
+		563A4894224E0B7E00A0226A /* RotationAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationAction.swift; sourceTree = "<group>"; };
 		56413DFC220E2AC30064332E /* GameplayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameplayController.swift; sourceTree = "<group>"; };
 		56431D2822328C7700BFAC36 /* QuantityComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuantityComponent.swift; sourceTree = "<group>"; };
 		56431D362232969A00BFAC36 /* Levels */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Levels; sourceTree = "<group>"; };
@@ -342,8 +340,7 @@
 				561083FE224CBE80009A0039 /* ProgramAction.swift */,
 				561083FC224CBE6D009A0039 /* ComponentAction.swift */,
 				56108401224CC773009A0039 /* MoveAction.swift */,
-				56108403224CC783009A0039 /* RightAction.swift */,
-				56108405224CC790009A0039 /* LeftAction.swift */,
+				563A4894224E0B7E00A0226A /* RotationAction.swift */,
 				56108407224CC7B2009A0039 /* JumpAction.swift */,
 				56108409224CC7C2009A0039 /* PickupAction.swift */,
 				5610840B224CC7CE009A0039 /* DropAction.swift */,
@@ -845,6 +842,7 @@
 			files = (
 				56E167CA2222D80700D40FD0 /* Entity.m in Sources */,
 				204BC648222D6DD000D34B07 /* Component.swift in Sources */,
+				563A4895224E0B7E00A0226A /* RotationAction.swift in Sources */,
 				56A62B122231097E009D0E83 /* SCNNodeComponent.swift in Sources */,
 				562CAB8D223A3EE2007120D5 /* RotationActionComponent.swift in Sources */,
 				56E167C32222CC3800D40FD0 /* EntityManager.swift in Sources */,
@@ -855,7 +853,6 @@
 				562CCA7A220D74AF00BF6A8D /* ObservationNode.swift in Sources */,
 				562EF8C82240E79200A8DC97 /* CollectibleComponent.swift in Sources */,
 				56431D3D2232B5DB00BFAC36 /* LevelViewModel.swift in Sources */,
-				56108406224CC790009A0039 /* LeftAction.swift in Sources */,
 				5621C83A221AE5F800756628 /* SCNVector3+Helpers.swift in Sources */,
 				561083FB224CBE59009A0039 /* Action.swift in Sources */,
 				C76A214721AC1405008A07D9 /* LevelEntity+CoreDataClass.swift in Sources */,
@@ -895,7 +892,6 @@
 				206A0CB52240E5120018E6B7 /* WardrobeManager.swift in Sources */,
 				202219A7223BC07000A2A8EA /* WardrobeViewController.swift in Sources */,
 				56431D2922328C7700BFAC36 /* QuantityComponent.swift in Sources */,
-				56108404224CC783009A0039 /* RightAction.swift in Sources */,
 				C725B2C321A85A7B00DD147A /* Model.xcdatamodeld in Sources */,
 				562CCA79220D74AF00BF6A8D /* BarcodeDetector.swift in Sources */,
 				C74785E9219427A3000148BC /* CardCollectionViewCell.swift in Sources */,

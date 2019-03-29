@@ -11,8 +11,8 @@ import Foundation
 class JumpAction: ComponentAction {
     
     override func getActionComponent(forEntity entity: Entity) -> ActionComponent? {
-        let jump = MovementActionComponent(movement: simd_double3(0, 1, 0), duration: 0.3)
-        let gravity = MovementActionComponent(movement: simd_double3(0, -1, 0), duration: 0.3)
+        let jump = MovementActionComponent(movement: simd_double3(0, 1 * strength, 0), duration: 0.3 * strength)
+        let gravity = MovementActionComponent(movement: simd_double3(0, -1 * strength, 0), duration: 0.3 * strength)
         return CompoundActionComponent(jump, gravity)
     }
 }
