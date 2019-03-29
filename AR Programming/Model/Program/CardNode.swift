@@ -12,6 +12,7 @@ import SceneKit
 protocol CardNode: class {
     var successors: [CardNode?] { get }
     var position: simd_double2 { get }
+    var size: simd_double2 { get }
     var parent: CardNode? { get }
     
     func create(from node: ObservationNode, withParent parent: CardNode?, in graph: ObservationGraph) throws -> CardNode
