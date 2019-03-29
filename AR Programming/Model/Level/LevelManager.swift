@@ -16,8 +16,9 @@ public class LevelManager {
     static var managedObjectContext = appDelegate.persistentContainer.viewContext
     static let emptylevel = EmptyLevel()
     
-    private static let levelFactories = [
-        QuantityLevelFactory()
+    private static let levelFactories: [LevelFactory] = [
+        QuantityLevelFactory(),
+        CleanUpLevelFactory()
     ]
     
     private static var levelDirectoryUrl: URL? {
@@ -54,7 +55,7 @@ public class LevelManager {
             let levelType = jsonLevel["type"] as? String else {
                 throw LevelLoadingError.badFormat()
         }
-        
+    
         for factory in levelFactories {
             if factory.canReadLevel(ofType: levelType) {
                 do {
@@ -85,7 +86,9 @@ public class LevelManager {
             }
             
             markLevel(withName: levels[0].name, asUnlocked: true)
+            markLevel(withName: levels[4].name, asUnlocked: true)
             levels[0].unlocked = true
+            levels[4].unlocked = true
         }
         
         return levels

@@ -1,0 +1,24 @@
+{
+    "number":5,
+    "type":"cleanup",
+    "name":"Ryd op",
+    "unlocks":"Level6",
+    "dropOffs":[
+        {"type":"kasse", "x":2, "y":0}
+    ],
+    "items":[
+        {
+            "type":"kasse",
+            "x":1,
+            "y":0,
+            "resourceIdentifier":"Polygon"
+        }
+    ],
+    "props":[
+        {
+            "x":2,
+            "y":0,
+            "resourceIdentifier":"DropSpot"
+        },
+    ]
+}
