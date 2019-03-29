@@ -9,13 +9,9 @@
 import Foundation
 import UIKit
 
-class CardDetailViewController: UIViewController, UIScrollViewDelegate {
+class CardDetailViewController: UIViewController {
     
-    @IBOutlet var scrollView: UIScrollView! {
-        didSet {
-            scrollView.delegate = self
-        }
-    }
+    @IBOutlet var scrollView: UIScrollView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var summaryLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
