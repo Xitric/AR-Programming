@@ -57,16 +57,20 @@ extension ScanViewController: CardNodeDetectorDelegate {
         if cardNodes.count == 0 {
             display(card: nil)
         } else if cardNodes.count == 1 {
-            display(card: cardNodes[0].getCard())
+            display(card: cardNodes[0].card)
         } else {
             display(text: "For mange kort", description: "Der er for mange kort i feltet. Hvilket kort vil du vide mere om?")
         }
     }
     
-    private func display(card optCard: Card?) {
-        if let card = optCard {
-            self.cardName.text = "\(card.name) | \(card.summary)"
-            self.cardDescription.text = card.description
+    private func display(card: Card?) {
+        if let card = card {
+            let name = NSLocalizedString("\(card.internalName).name", comment: "")
+            let summary = NSLocalizedString("\(card.internalName).summary", comment: "")
+            let description = NSLocalizedString("\(card.internalName).description", comment: "")
+            
+            self.cardName.text = "\(name) | \(summary)"
+            self.cardDescription.text = description
             self.cardImage.image = UIImage(named: card.internalName)
         } else {
             self.cardName.text = "Intet kort fundet"

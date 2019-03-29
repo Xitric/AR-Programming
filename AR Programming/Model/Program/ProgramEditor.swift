@@ -9,24 +9,24 @@
 import Foundation
 import UIKit
 
-class ProgramEditor: CardGraphDetectorDelegate {
+class ProgramEditor: CardGraphDetectorDelegate, ProgramState {
     
     private var currentProgram: Program?
-    private var savedProgram: Program?
     private let detector: BarcodeDetector
+    private var allPrograms = [String:Program]()
     
     weak var delegate: ProgramEditorDelegate?
     
-    var program: Program {
+    var main: Program {
         get {
-            return savedProgram == nil ? Program(startNode: nil) : savedProgram!
+            return allPrograms["function0"] ?? Program(startNode: nil)
         }
     }
     
     init() {
-        let state = CardGraphDetector()
-        detector = BarcodeDetector(state: state)
-        state.delegate = self
+        let detectorState = CardGraphDetector()
+        detector = BarcodeDetector(state: detectorState)
+        detectorState.delegate = self
     }
     
     //Should only be called from the main thread
@@ -35,11 +35,14 @@ class ProgramEditor: CardGraphDetectorDelegate {
     }
     
     func saveProgram() {
-        savedProgram = currentProgram
+        if let cardIdentifier = currentProgram?.start?.card.internalName {
+            currentProgram?.state = self
+            allPrograms[cardIdentifier] = currentProgram
+        }
     }
     
     func reset() {
-        savedProgram = nil
+        allPrograms.removeAll()
     }
     
     func graphDetector(_ detector: CardGraphDetector, found graph: ObservationGraph) {
@@ -59,6 +62,10 @@ class ProgramEditor: CardGraphDetectorDelegate {
         }
         
         delegate?.programEditor(self, createdNew: currentProgram ?? Program(startNode: nil))
+    }
+    
+    func getProgram(forCard card: Card) -> Program? {
+        return allPrograms[card.internalName]
     }
 }
 

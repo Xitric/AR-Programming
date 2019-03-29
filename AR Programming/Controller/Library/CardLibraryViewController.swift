@@ -48,12 +48,12 @@ class CardLibraryViewController: UIViewController {
             if let detail = segue.destination as? CardDetailViewController,
                 let cardCell = sender as? CardCollectionViewCell {
                 
-                let card = cardCell.card
-                
-                detail.cardTitle = card?.name
-                detail.cardSummary = card?.summary
-                detail.cardDescription = card?.description
-                detail.cardPreview = cardCell.image.image
+                if let card = cardCell.card {
+                    detail.cardTitle = NSLocalizedString("\(card.internalName).name", comment: "")
+                    detail.cardSummary = NSLocalizedString("\(card.internalName).summary", comment: "")
+                    detail.cardDescription = NSLocalizedString("\(card.internalName).description", comment: "")
+                    detail.cardPreview = cardCell.image.image
+                }
             }
         }
     }

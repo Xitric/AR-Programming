@@ -99,9 +99,9 @@ class LevelViewController: UIViewController {
     
     @IBAction func detectCards(_ sender: UIButton) {
         editor.saveProgram()
-        editor.program.delegate = self
+        editor.main.delegate = self
         
-        detectButton.isHidden = true
+//        detectButton.isHidden = true
         executeButton.isHidden = false
         resetButton.isHidden = false
     }
@@ -109,13 +109,13 @@ class LevelViewController: UIViewController {
     @IBAction func executeSequence(_ sender: UIButton) {
         if let levelViewModel = levelViewModel {
             let player = levelViewModel.player
-            editor.program.run(on: player)
+            editor.main.run(on: player)
         }
     }
     
     @IBAction func resetLevel(_ sender: UIButton) {
         levelViewModel?.levelModel.reset()
-        editor.program.delegate = nil
+        editor.main.delegate = nil
         editor.reset()
         
         detectButton.isHidden = false
@@ -195,7 +195,7 @@ extension LevelViewController: ProgramEditorDelegate {
         rect.backgroundColor = UIColor(hue: 0.5, saturation: 0.5, brightness: 1, alpha: 0.5)
         rectView.addSubview(rect)
         
-        for next in node.successors {
+        for next in node.children {
             drawNode(next)
         }
     }

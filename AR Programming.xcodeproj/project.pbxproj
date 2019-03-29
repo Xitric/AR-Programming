@@ -10,23 +10,31 @@
 		04AEDFB63981EDEF7B9C4BEA /* Pods_AR_ProgrammingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81B3ED8214579B6F33DA8F08 /* Pods_AR_ProgrammingTests.framework */; };
 		202219A5223BA13E00A2A8EA /* EmptyLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202219A4223BA13E00A2A8EA /* EmptyLevel.swift */; };
 		202219A7223BC07000A2A8EA /* WardrobeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202219A6223BC07000A2A8EA /* WardrobeViewController.swift */; };
-		202D015B22327965004B6046 /* ParameterCardNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202D015A22327965004B6046 /* ParameterCardNode.swift */; };
-		203B0F0B223108C3000685D3 /* LoopCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203B0F0A223108C3000685D3 /* LoopCard.swift */; };
-		203B0F0D223108FE000685D3 /* BorderCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203B0F0C223108FE000685D3 /* BorderCard.swift */; };
-		203B0F0F223109AC000685D3 /* ParameterCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203B0F0E223109AC000685D3 /* ParameterCard.swift */; };
-		203B0F1122310E59000685D3 /* LoopCardNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203B0F1022310E59000685D3 /* LoopCardNode.swift */; };
 		203B0F1322310E62000685D3 /* BorderCardNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203B0F1222310E62000685D3 /* BorderCardNode.swift */; };
 		204AEC12220DC9F500E0F624 /* HiddenTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204AEC11220DC9F500E0F624 /* HiddenTabBarViewController.swift */; };
 		204AEC14220DCA1E00E0F624 /* ARContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204AEC13220DCA1E00E0F624 /* ARContainerViewController.swift */; };
 		204BC648222D6DD000D34B07 /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204BC647222D6DD000D34B07 /* Component.swift */; };
 		206A0CB52240E5120018E6B7 /* WardrobeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206A0CB42240E5120018E6B7 /* WardrobeManager.swift */; };
 		206A0CB822410FD80018E6B7 /* WardrobeManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206A0CB722410FD80018E6B7 /* WardrobeManagerTests.swift */; };
-		20FA267C22369CAC00AF1083 /* LoopCardNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FA267B22369CAC00AF1083 /* LoopCardNodeTests.swift */; };
 		20FA267E2236A10C00AF1083 /* BorderCardNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FA267D2236A10C00AF1083 /* BorderCardNodeTests.swift */; };
 		561083E8224A246F009A0039 /* CardCollectionViewHomeHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 561083E7224A246F009A0039 /* CardCollectionViewHomeHeader.xib */; };
 		561083EA224A2B11009A0039 /* CardCollectionViewSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 561083E9224A2B11009A0039 /* CardCollectionViewSectionHeader.xib */; };
 		561083F6224A68FD009A0039 /* ProgramView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561083F5224A68FD009A0039 /* ProgramView.swift */; };
 		561083F8224A7607009A0039 /* ExampleProgramTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561083F7224A7607009A0039 /* ExampleProgramTableDataSource.swift */; };
+		561083FB224CBE59009A0039 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561083FA224CBE59009A0039 /* Action.swift */; };
+		561083FD224CBE6D009A0039 /* ComponentAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561083FC224CBE6D009A0039 /* ComponentAction.swift */; };
+		561083FF224CBE80009A0039 /* ProgramAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561083FE224CBE80009A0039 /* ProgramAction.swift */; };
+		56108402224CC773009A0039 /* MoveAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56108401224CC773009A0039 /* MoveAction.swift */; };
+		56108408224CC7B2009A0039 /* JumpAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56108407224CC7B2009A0039 /* JumpAction.swift */; };
+		5610840A224CC7C2009A0039 /* PickupAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56108409224CC7C2009A0039 /* PickupAction.swift */; };
+		5610840C224CC7CE009A0039 /* DropAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5610840B224CC7CE009A0039 /* DropAction.swift */; };
+		5610840E224CD019009A0039 /* ProgramState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5610840D224CD019009A0039 /* ProgramState.swift */; };
+		56108412224CDE59009A0039 /* BasicCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56108411224CDE59009A0039 /* BasicCard.swift */; };
+		56108414224CDE8D009A0039 /* ParameterCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56108413224CDE8D009A0039 /* ParameterCard.swift */; };
+		56108418224CE41D009A0039 /* LoopCardNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56108417224CE41D009A0039 /* LoopCardNode.swift */; };
+		5610841A224CEAE4009A0039 /* SimpleActionCardNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56108419224CEAE4009A0039 /* SimpleActionCardNode.swift */; };
+		5610841C224CEB96009A0039 /* FunctionCardNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5610841B224CEB96009A0039 /* FunctionCardNode.swift */; };
+		56108442224D3CC1009A0039 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 56108440224D3CC1009A0039 /* Localizable.strings */; };
 		56131F43224429C30044B6F4 /* InventoryComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56131F42224429C30044B6F4 /* InventoryComponent.swift */; };
 		5621C83A221AE5F800756628 /* SCNVector3+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5621C839221AE5F800756628 /* SCNVector3+Helpers.swift */; };
 		5621C83C221AE67A00756628 /* simd_float4x4+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5621C83B221AE67A00756628 /* simd_float4x4+Helpers.swift */; };
@@ -45,27 +53,18 @@
 		562CAB8B223A3C5D007120D5 /* ActionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CAB8A223A3C5D007120D5 /* ActionComponent.swift */; };
 		562CAB8D223A3EE2007120D5 /* RotationActionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CAB8C223A3EE2007120D5 /* RotationActionComponent.swift */; };
 		562CAB8F223A43DE007120D5 /* CompoundActionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CAB8E223A43DE007120D5 /* CompoundActionComponent.swift */; };
-		562CAB91223A48F2007120D5 /* LeftCardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CAB90223A48F2007120D5 /* LeftCardTests.swift */; };
 		562CAB96223A56D8007120D5 /* ActionComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CAB95223A56D8007120D5 /* ActionComponentTests.swift */; };
 		562CAB9A223A5A3A007120D5 /* MovementActionComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CAB99223A5A3A007120D5 /* MovementActionComponentTests.swift */; };
 		562CAB9D223A5CCC007120D5 /* RotationActionComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CAB9C223A5CCC007120D5 /* RotationActionComponentTests.swift */; };
 		562CABA1223A5E6C007120D5 /* XCTestCase+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CABA0223A5E6C007120D5 /* XCTestCase+Helpers.swift */; };
 		562CABA5223A630C007120D5 /* ProgramTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CABA4223A630C007120D5 /* ProgramTests.swift */; };
 		562CABAA223BAD2D007120D5 /* CollisionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CABA9223BAD2D007120D5 /* CollisionComponent.swift */; };
-		562CCA64220D74AF00BF6A8D /* RandomBranchCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA4B220D74AD00BF6A8D /* RandomBranchCard.swift */; };
 		562CCA65220D74AF00BF6A8D /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA4C220D74AD00BF6A8D /* Card.swift */; };
-		562CCA66220D74AF00BF6A8D /* StartCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA4D220D74AD00BF6A8D /* StartCard.swift */; };
-		562CCA67220D74AF00BF6A8D /* RightCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA4E220D74AD00BF6A8D /* RightCard.swift */; };
-		562CCA68220D74AF00BF6A8D /* LeftCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA4F220D74AD00BF6A8D /* LeftCard.swift */; };
-		562CCA69220D74AF00BF6A8D /* MoveCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA50220D74AD00BF6A8D /* MoveCard.swift */; };
-		562CCA6A220D74AF00BF6A8D /* JumpCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA51220D74AD00BF6A8D /* JumpCard.swift */; };
-		562CCA6B220D74AF00BF6A8D /* StatementCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA52220D74AD00BF6A8D /* StatementCard.swift */; };
 		562CCA6C220D74AF00BF6A8D /* CardNodeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA53220D74AD00BF6A8D /* CardNodeFactory.swift */; };
 		562CCA6E220D74AF00BF6A8D /* CardSequenceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA55220D74AD00BF6A8D /* CardSequenceError.swift */; };
 		562CCA6F220D74AF00BF6A8D /* Program.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA56220D74AD00BF6A8D /* Program.swift */; };
 		562CCA70220D74AF00BF6A8D /* CardNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA57220D74AD00BF6A8D /* CardNode.swift */; };
 		562CCA72220D74AF00BF6A8D /* ProgramEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA59220D74AD00BF6A8D /* ProgramEditor.swift */; };
-		562CCA73220D74AF00BF6A8D /* SuccessorCardNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA5A220D74AD00BF6A8D /* SuccessorCardNode.swift */; };
 		562CCA74220D74AF00BF6A8D /* ObservationEdge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA5C220D74AF00BF6A8D /* ObservationEdge.swift */; };
 		562CCA77220D74AF00BF6A8D /* ObservationSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA5F220D74AF00BF6A8D /* ObservationSet.swift */; };
 		562CCA78220D74AF00BF6A8D /* ObservationGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA60220D74AF00BF6A8D /* ObservationGraph.swift */; };
@@ -74,17 +73,15 @@
 		562CCA7E220D750100BF6A8D /* Double+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA7C220D74FF00BF6A8D /* Double+Helpers.swift */; };
 		562CCA7F220D750100BF6A8D /* CGImagePropertyOrientation+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA7D220D750100BF6A8D /* CGImagePropertyOrientation+Helpers.swift */; };
 		562CCA9C220D92BC00BF6A8D /* CardNodeFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA99220D92B700BF6A8D /* CardNodeFactoryTests.swift */; };
-		562CCA9E220D92BC00BF6A8D /* SuccessorCardNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA9B220D92BC00BF6A8D /* SuccessorCardNodeTests.swift */; };
+		562CCA9E220D92BC00BF6A8D /* CardNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA9B220D92BC00BF6A8D /* CardNodeTests.swift */; };
 		562CCAA3220D92CF00BF6A8D /* ObservationSetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA9F220D92C700BF6A8D /* ObservationSetTests.swift */; };
 		562CCAA4220D92CF00BF6A8D /* ObservationGraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCAA0220D92CA00BF6A8D /* ObservationGraphTests.swift */; };
 		562CCAA5220D92CF00BF6A8D /* ObservationEdgeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCAA1220D92CC00BF6A8D /* ObservationEdgeTests.swift */; };
 		562CCAAC220D933E00BF6A8D /* Double+HelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCAAB220D933E00BF6A8D /* Double+HelpersTests.swift */; };
-		562EF8C42240E5CA00A8DC97 /* PickupCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562EF8C32240E5CA00A8DC97 /* PickupCard.swift */; };
 		562EF8C62240E67400A8DC97 /* PickupActionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562EF8C52240E67400A8DC97 /* PickupActionComponent.swift */; };
 		562EF8C82240E79200A8DC97 /* CollectibleComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562EF8C72240E79200A8DC97 /* CollectibleComponent.swift */; };
 		562EF8CA2240FC9D00A8DC97 /* LinkComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562EF8C92240FC9D00A8DC97 /* LinkComponent.swift */; };
 		562EF8CC2240FE4D00A8DC97 /* DropActionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562EF8CB2240FE4D00A8DC97 /* DropActionComponent.swift */; };
-		562EF8CE2240FE5B00A8DC97 /* DropCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562EF8CD2240FE5B00A8DC97 /* DropCard.swift */; };
 		562EF8D0224107A000A8DC97 /* PickupActionComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562EF8CF224107A000A8DC97 /* PickupActionComponentTests.swift */; };
 		562EF8D2224107AE00A8DC97 /* DropActionComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562EF8D1224107AE00A8DC97 /* DropActionComponentTests.swift */; };
 		562EF8D4224107CC00A8DC97 /* LinkComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562EF8D3224107CC00A8DC97 /* LinkComponentTests.swift */; };
@@ -93,6 +90,8 @@
 		56319DE82237D3C600469D5E /* ResourceComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56319DE72237D3C500469D5E /* ResourceComponent.swift */; };
 		56319DEA2237D40F00469D5E /* TransformComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56319DE92237D40F00469D5E /* TransformComponent.swift */; };
 		56319E09223801D100469D5E /* MovementActionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56319E08223801D100469D5E /* MovementActionComponent.swift */; };
+		563A4895224E0B7E00A0226A /* RotationAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563A4894224E0B7E00A0226A /* RotationAction.swift */; };
+		563A4898224E1D5500A0226A /* RotationActionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563A4897224E1D5500A0226A /* RotationActionTests.swift */; };
 		56413DFD220E2AC30064332E /* GameplayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56413DFC220E2AC30064332E /* GameplayController.swift */; };
 		56431D2922328C7700BFAC36 /* QuantityComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56431D2822328C7700BFAC36 /* QuantityComponent.swift */; };
 		56431D372232969A00BFAC36 /* Levels in Resources */ = {isa = PBXBuildFile; fileRef = 56431D362232969A00BFAC36 /* Levels */; };
@@ -157,18 +156,12 @@
 /* Begin PBXFileReference section */
 		202219A4223BA13E00A2A8EA /* EmptyLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyLevel.swift; sourceTree = "<group>"; };
 		202219A6223BC07000A2A8EA /* WardrobeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeViewController.swift; sourceTree = "<group>"; };
-		202D015A22327965004B6046 /* ParameterCardNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterCardNode.swift; sourceTree = "<group>"; };
-		203B0F0A223108C3000685D3 /* LoopCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopCard.swift; sourceTree = "<group>"; };
-		203B0F0C223108FE000685D3 /* BorderCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderCard.swift; sourceTree = "<group>"; };
-		203B0F0E223109AC000685D3 /* ParameterCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterCard.swift; sourceTree = "<group>"; };
-		203B0F1022310E59000685D3 /* LoopCardNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopCardNode.swift; sourceTree = "<group>"; };
 		203B0F1222310E62000685D3 /* BorderCardNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderCardNode.swift; sourceTree = "<group>"; };
 		204AEC11220DC9F500E0F624 /* HiddenTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HiddenTabBarViewController.swift; sourceTree = "<group>"; };
 		204AEC13220DCA1E00E0F624 /* ARContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARContainerViewController.swift; sourceTree = "<group>"; };
 		204BC647222D6DD000D34B07 /* Component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
 		206A0CB42240E5120018E6B7 /* WardrobeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeManager.swift; sourceTree = "<group>"; };
 		206A0CB722410FD80018E6B7 /* WardrobeManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeManagerTests.swift; sourceTree = "<group>"; };
-		20FA267B22369CAC00AF1083 /* LoopCardNodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopCardNodeTests.swift; sourceTree = "<group>"; };
 		20FA267D2236A10C00AF1083 /* BorderCardNodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderCardNodeTests.swift; sourceTree = "<group>"; };
 		2CBF6D6B964CB7805473D1E8 /* Pods-AR Programming.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AR Programming.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AR Programming/Pods-AR Programming.debug.xcconfig"; sourceTree = "<group>"; };
 		3F68042C35BD5B2A4D85C7F9 /* Pods-AR Programming.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AR Programming.release.xcconfig"; path = "Pods/Target Support Files/Pods-AR Programming/Pods-AR Programming.release.xcconfig"; sourceTree = "<group>"; };
@@ -176,6 +169,20 @@
 		561083E9224A2B11009A0039 /* CardCollectionViewSectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardCollectionViewSectionHeader.xib; sourceTree = "<group>"; };
 		561083F5224A68FD009A0039 /* ProgramView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramView.swift; sourceTree = "<group>"; };
 		561083F7224A7607009A0039 /* ExampleProgramTableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleProgramTableDataSource.swift; sourceTree = "<group>"; };
+		561083FA224CBE59009A0039 /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
+		561083FC224CBE6D009A0039 /* ComponentAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentAction.swift; sourceTree = "<group>"; };
+		561083FE224CBE80009A0039 /* ProgramAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramAction.swift; sourceTree = "<group>"; };
+		56108401224CC773009A0039 /* MoveAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveAction.swift; sourceTree = "<group>"; };
+		56108407224CC7B2009A0039 /* JumpAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JumpAction.swift; sourceTree = "<group>"; };
+		56108409224CC7C2009A0039 /* PickupAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupAction.swift; sourceTree = "<group>"; };
+		5610840B224CC7CE009A0039 /* DropAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropAction.swift; sourceTree = "<group>"; };
+		5610840D224CD019009A0039 /* ProgramState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramState.swift; sourceTree = "<group>"; };
+		56108411224CDE59009A0039 /* BasicCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicCard.swift; sourceTree = "<group>"; };
+		56108413224CDE8D009A0039 /* ParameterCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterCard.swift; sourceTree = "<group>"; };
+		56108417224CE41D009A0039 /* LoopCardNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopCardNode.swift; sourceTree = "<group>"; };
+		56108419224CEAE4009A0039 /* SimpleActionCardNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleActionCardNode.swift; sourceTree = "<group>"; };
+		5610841B224CEB96009A0039 /* FunctionCardNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionCardNode.swift; sourceTree = "<group>"; };
+		56108441224D3CC1009A0039 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		56131F42224429C30044B6F4 /* InventoryComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryComponent.swift; sourceTree = "<group>"; };
 		5621C839221AE5F800756628 /* SCNVector3+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNVector3+Helpers.swift"; sourceTree = "<group>"; };
 		5621C83B221AE67A00756628 /* simd_float4x4+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "simd_float4x4+Helpers.swift"; sourceTree = "<group>"; };
@@ -194,27 +201,18 @@
 		562CAB8A223A3C5D007120D5 /* ActionComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionComponent.swift; sourceTree = "<group>"; };
 		562CAB8C223A3EE2007120D5 /* RotationActionComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationActionComponent.swift; sourceTree = "<group>"; };
 		562CAB8E223A43DE007120D5 /* CompoundActionComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompoundActionComponent.swift; sourceTree = "<group>"; };
-		562CAB90223A48F2007120D5 /* LeftCardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftCardTests.swift; sourceTree = "<group>"; };
 		562CAB95223A56D8007120D5 /* ActionComponentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionComponentTests.swift; sourceTree = "<group>"; };
 		562CAB99223A5A3A007120D5 /* MovementActionComponentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovementActionComponentTests.swift; sourceTree = "<group>"; };
 		562CAB9C223A5CCC007120D5 /* RotationActionComponentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationActionComponentTests.swift; sourceTree = "<group>"; };
 		562CABA0223A5E6C007120D5 /* XCTestCase+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Helpers.swift"; sourceTree = "<group>"; };
 		562CABA4223A630C007120D5 /* ProgramTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramTests.swift; sourceTree = "<group>"; };
 		562CABA9223BAD2D007120D5 /* CollisionComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollisionComponent.swift; sourceTree = "<group>"; };
-		562CCA4B220D74AD00BF6A8D /* RandomBranchCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomBranchCard.swift; sourceTree = "<group>"; };
 		562CCA4C220D74AD00BF6A8D /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
-		562CCA4D220D74AD00BF6A8D /* StartCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartCard.swift; sourceTree = "<group>"; };
-		562CCA4E220D74AD00BF6A8D /* RightCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightCard.swift; sourceTree = "<group>"; };
-		562CCA4F220D74AD00BF6A8D /* LeftCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftCard.swift; sourceTree = "<group>"; };
-		562CCA50220D74AD00BF6A8D /* MoveCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoveCard.swift; sourceTree = "<group>"; };
-		562CCA51220D74AD00BF6A8D /* JumpCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JumpCard.swift; sourceTree = "<group>"; };
-		562CCA52220D74AD00BF6A8D /* StatementCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatementCard.swift; sourceTree = "<group>"; };
 		562CCA53220D74AD00BF6A8D /* CardNodeFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardNodeFactory.swift; sourceTree = "<group>"; };
 		562CCA55220D74AD00BF6A8D /* CardSequenceError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardSequenceError.swift; sourceTree = "<group>"; };
 		562CCA56220D74AD00BF6A8D /* Program.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Program.swift; sourceTree = "<group>"; };
 		562CCA57220D74AD00BF6A8D /* CardNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardNode.swift; sourceTree = "<group>"; };
 		562CCA59220D74AD00BF6A8D /* ProgramEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgramEditor.swift; sourceTree = "<group>"; };
-		562CCA5A220D74AD00BF6A8D /* SuccessorCardNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessorCardNode.swift; sourceTree = "<group>"; };
 		562CCA5C220D74AF00BF6A8D /* ObservationEdge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationEdge.swift; sourceTree = "<group>"; };
 		562CCA5F220D74AF00BF6A8D /* ObservationSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationSet.swift; sourceTree = "<group>"; };
 		562CCA60220D74AF00BF6A8D /* ObservationGraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationGraph.swift; sourceTree = "<group>"; };
@@ -223,17 +221,15 @@
 		562CCA7C220D74FF00BF6A8D /* Double+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Helpers.swift"; sourceTree = "<group>"; };
 		562CCA7D220D750100BF6A8D /* CGImagePropertyOrientation+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGImagePropertyOrientation+Helpers.swift"; sourceTree = "<group>"; };
 		562CCA99220D92B700BF6A8D /* CardNodeFactoryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardNodeFactoryTests.swift; sourceTree = "<group>"; };
-		562CCA9B220D92BC00BF6A8D /* SuccessorCardNodeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessorCardNodeTests.swift; sourceTree = "<group>"; };
+		562CCA9B220D92BC00BF6A8D /* CardNodeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardNodeTests.swift; sourceTree = "<group>"; };
 		562CCA9F220D92C700BF6A8D /* ObservationSetTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationSetTests.swift; sourceTree = "<group>"; };
 		562CCAA0220D92CA00BF6A8D /* ObservationGraphTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationGraphTests.swift; sourceTree = "<group>"; };
 		562CCAA1220D92CC00BF6A8D /* ObservationEdgeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationEdgeTests.swift; sourceTree = "<group>"; };
 		562CCAAB220D933E00BF6A8D /* Double+HelpersTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+HelpersTests.swift"; sourceTree = "<group>"; };
-		562EF8C32240E5CA00A8DC97 /* PickupCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupCard.swift; sourceTree = "<group>"; };
 		562EF8C52240E67400A8DC97 /* PickupActionComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupActionComponent.swift; sourceTree = "<group>"; };
 		562EF8C72240E79200A8DC97 /* CollectibleComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectibleComponent.swift; sourceTree = "<group>"; };
 		562EF8C92240FC9D00A8DC97 /* LinkComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkComponent.swift; sourceTree = "<group>"; };
 		562EF8CB2240FE4D00A8DC97 /* DropActionComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropActionComponent.swift; sourceTree = "<group>"; };
-		562EF8CD2240FE5B00A8DC97 /* DropCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropCard.swift; sourceTree = "<group>"; };
 		562EF8CF224107A000A8DC97 /* PickupActionComponentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupActionComponentTests.swift; sourceTree = "<group>"; };
 		562EF8D1224107AE00A8DC97 /* DropActionComponentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropActionComponentTests.swift; sourceTree = "<group>"; };
 		562EF8D3224107CC00A8DC97 /* LinkComponentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkComponentTests.swift; sourceTree = "<group>"; };
@@ -242,6 +238,8 @@
 		56319DE72237D3C500469D5E /* ResourceComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceComponent.swift; sourceTree = "<group>"; };
 		56319DE92237D40F00469D5E /* TransformComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransformComponent.swift; sourceTree = "<group>"; };
 		56319E08223801D100469D5E /* MovementActionComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovementActionComponent.swift; sourceTree = "<group>"; };
+		563A4894224E0B7E00A0226A /* RotationAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationAction.swift; sourceTree = "<group>"; };
+		563A4897224E1D5500A0226A /* RotationActionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationActionTests.swift; sourceTree = "<group>"; };
 		56413DFC220E2AC30064332E /* GameplayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameplayController.swift; sourceTree = "<group>"; };
 		56431D2822328C7700BFAC36 /* QuantityComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuantityComponent.swift; sourceTree = "<group>"; };
 		56431D362232969A00BFAC36 /* Levels */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Levels; sourceTree = "<group>"; };
@@ -387,14 +385,27 @@
 			path = Library;
 			sourceTree = "<group>";
 		};
+		561083F9224CBE32009A0039 /* Action */ = {
+			isa = PBXGroup;
+			children = (
+				56319DEB2237D47D00469D5E /* Components */,
+				561083FA224CBE59009A0039 /* Action.swift */,
+				561083FE224CBE80009A0039 /* ProgramAction.swift */,
+				561083FC224CBE6D009A0039 /* ComponentAction.swift */,
+				56108401224CC773009A0039 /* MoveAction.swift */,
+				563A4894224E0B7E00A0226A /* RotationAction.swift */,
+				56108407224CC7B2009A0039 /* JumpAction.swift */,
+				56108409224CC7C2009A0039 /* PickupAction.swift */,
+				5610840B224CC7CE009A0039 /* DropAction.swift */,
+			);
+			path = Action;
+			sourceTree = "<group>";
+		};
 		562CAB94223A56C0007120D5 /* Action */ = {
 			isa = PBXGroup;
 			children = (
-				562CAB95223A56D8007120D5 /* ActionComponentTests.swift */,
-				562CAB99223A5A3A007120D5 /* MovementActionComponentTests.swift */,
-				562CAB9C223A5CCC007120D5 /* RotationActionComponentTests.swift */,
-				562EF8CF224107A000A8DC97 /* PickupActionComponentTests.swift */,
-				562EF8D1224107AE00A8DC97 /* DropActionComponentTests.swift */,
+				563A4896224E1D2800A0226A /* Components */,
+				563A4897224E1D5500A0226A /* RotationActionTests.swift */,
 			);
 			path = Action;
 			sourceTree = "<group>";
@@ -402,39 +413,22 @@
 		562CCA48220D74AD00BF6A8D /* Program */ = {
 			isa = PBXGroup;
 			children = (
-				562CCA49220D74AD00BF6A8D /* Cards */,
-				56319DEB2237D47D00469D5E /* Action */,
+				561083F9224CBE32009A0039 /* Action */,
+				562CCA4C220D74AD00BF6A8D /* Card.swift */,
+				56108411224CDE59009A0039 /* BasicCard.swift */,
+				56108413224CDE8D009A0039 /* ParameterCard.swift */,
+				562CCA57220D74AD00BF6A8D /* CardNode.swift */,
+				56108419224CEAE4009A0039 /* SimpleActionCardNode.swift */,
+				56108417224CE41D009A0039 /* LoopCardNode.swift */,
+				203B0F1222310E62000685D3 /* BorderCardNode.swift */,
+				5610841B224CEB96009A0039 /* FunctionCardNode.swift */,
 				562CCA53220D74AD00BF6A8D /* CardNodeFactory.swift */,
 				562CCA55220D74AD00BF6A8D /* CardSequenceError.swift */,
 				562CCA56220D74AD00BF6A8D /* Program.swift */,
-				562CCA57220D74AD00BF6A8D /* CardNode.swift */,
 				562CCA59220D74AD00BF6A8D /* ProgramEditor.swift */,
-				202D015A22327965004B6046 /* ParameterCardNode.swift */,
-				203B0F1022310E59000685D3 /* LoopCardNode.swift */,
-				203B0F1222310E62000685D3 /* BorderCardNode.swift */,
-				562CCA5A220D74AD00BF6A8D /* SuccessorCardNode.swift */,
+				5610840D224CD019009A0039 /* ProgramState.swift */,
 			);
 			path = Program;
-			sourceTree = "<group>";
-		};
-		562CCA49220D74AD00BF6A8D /* Cards */ = {
-			isa = PBXGroup;
-			children = (
-				562CCA4B220D74AD00BF6A8D /* RandomBranchCard.swift */,
-				562CCA4C220D74AD00BF6A8D /* Card.swift */,
-				562CCA4D220D74AD00BF6A8D /* StartCard.swift */,
-				562CCA4E220D74AD00BF6A8D /* RightCard.swift */,
-				562CCA4F220D74AD00BF6A8D /* LeftCard.swift */,
-				562CCA50220D74AD00BF6A8D /* MoveCard.swift */,
-				562CCA51220D74AD00BF6A8D /* JumpCard.swift */,
-				203B0F0A223108C3000685D3 /* LoopCard.swift */,
-				203B0F0C223108FE000685D3 /* BorderCard.swift */,
-				203B0F0E223109AC000685D3 /* ParameterCard.swift */,
-				562CCA52220D74AD00BF6A8D /* StatementCard.swift */,
-				562EF8C32240E5CA00A8DC97 /* PickupCard.swift */,
-				562EF8CD2240FE5B00A8DC97 /* DropCard.swift */,
-			);
-			path = Cards;
 			sourceTree = "<group>";
 		};
 		562CCA5B220D74AF00BF6A8D /* ImageAnalysis */ = {
@@ -493,11 +487,9 @@
 			isa = PBXGroup;
 			children = (
 				562CAB94223A56C0007120D5 /* Action */,
-				562ECC962210704F008C580E /* Cards */,
 				562CCA99220D92B700BF6A8D /* CardNodeFactoryTests.swift */,
 				562CABA4223A630C007120D5 /* ProgramTests.swift */,
-				562CCA9B220D92BC00BF6A8D /* SuccessorCardNodeTests.swift */,
-				20FA267B22369CAC00AF1083 /* LoopCardNodeTests.swift */,
+				562CCA9B220D92BC00BF6A8D /* CardNodeTests.swift */,
 				20FA267D2236A10C00AF1083 /* BorderCardNodeTests.swift */,
 			);
 			path = Program;
@@ -512,14 +504,6 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
-		562ECC962210704F008C580E /* Cards */ = {
-			isa = PBXGroup;
-			children = (
-				562CAB90223A48F2007120D5 /* LeftCardTests.swift */,
-			);
-			path = Cards;
-			sourceTree = "<group>";
-		};
 		562EF8D922413C5200A8DC97 /* Level */ = {
 			isa = PBXGroup;
 			children = (
@@ -531,7 +515,7 @@
 			path = Level;
 			sourceTree = "<group>";
 		};
-		56319DEB2237D47D00469D5E /* Action */ = {
+		56319DEB2237D47D00469D5E /* Components */ = {
 			isa = PBXGroup;
 			children = (
 				562CAB8A223A3C5D007120D5 /* ActionComponent.swift */,
@@ -541,7 +525,19 @@
 				562EF8C52240E67400A8DC97 /* PickupActionComponent.swift */,
 				562EF8CB2240FE4D00A8DC97 /* DropActionComponent.swift */,
 			);
-			path = Action;
+			path = Components;
+			sourceTree = "<group>";
+		};
+		563A4896224E1D2800A0226A /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				562CAB95223A56D8007120D5 /* ActionComponentTests.swift */,
+				562CAB99223A5A3A007120D5 /* MovementActionComponentTests.swift */,
+				562CAB9C223A5CCC007120D5 /* RotationActionComponentTests.swift */,
+				562EF8CF224107A000A8DC97 /* PickupActionComponentTests.swift */,
+				562EF8D1224107AE00A8DC97 /* DropActionComponentTests.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		56AEAC5F221EC3C200ACED36 /* View */ = {
@@ -714,6 +710,7 @@
 				90CDABC121773E2700664640 /* Meshes.scnassets */,
 				56431D362232969A00BFAC36 /* Levels */,
 				90DF733D216F442000F51E0C /* Info.plist */,
+				56108440224D3CC1009A0039 /* Localizable.strings */,
 			);
 			path = "AR Programming";
 			sourceTree = "<group>";
@@ -835,6 +832,7 @@
 				90A55B0E21A84DB000FD7CDD /* win.wav in Resources */,
 				90D7538821AC259A00B1F2E4 /* pickup.wav in Resources */,
 				90DF7337216F441E00F51E0C /* Main.storyboard in Resources */,
+				56108442224D3CC1009A0039 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -903,12 +901,13 @@
 				56E167CA2222D80700D40FD0 /* Entity.m in Sources */,
 				562ACDC32249681A00D2DA7C /* CardCollectionViewModel.swift in Sources */,
 				204BC648222D6DD000D34B07 /* Component.swift in Sources */,
+				563A4895224E0B7E00A0226A /* RotationAction.swift in Sources */,
 				56A62B122231097E009D0E83 /* SCNNodeComponent.swift in Sources */,
 				562CAB8D223A3EE2007120D5 /* RotationActionComponent.swift in Sources */,
 				56E167C32222CC3800D40FD0 /* EntityManager.swift in Sources */,
 				562ACDCB22497F3400D2DA7C /* CardCollectionFlowLayoutDelegate.swift in Sources */,
 				5627ECAF220EEFA800DCC32E /* CardGraphDetector.swift in Sources */,
-				203B0F1122310E59000685D3 /* LoopCardNode.swift in Sources */,
+				56108412224CDE59009A0039 /* BasicCard.swift in Sources */,
 				56319DE82237D3C600469D5E /* ResourceComponent.swift in Sources */,
 				562ACDC72249726C00D2DA7C /* CardCollectionViewSectionHeader.swift in Sources */,
 				562CCA6F220D74AF00BF6A8D /* Program.swift in Sources */,
@@ -916,48 +915,50 @@
 				562EF8C82240E79200A8DC97 /* CollectibleComponent.swift in Sources */,
 				56431D3D2232B5DB00BFAC36 /* LevelViewModel.swift in Sources */,
 				5621C83A221AE5F800756628 /* SCNVector3+Helpers.swift in Sources */,
+				561083FB224CBE59009A0039 /* Action.swift in Sources */,
 				C76A214721AC1405008A07D9 /* LevelEntity+CoreDataClass.swift in Sources */,
-				562CCA6B220D74AF00BF6A8D /* StatementCard.swift in Sources */,
 				56431D3B2232AA9A00BFAC36 /* Level.swift in Sources */,
+				561083FF224CBE80009A0039 /* ProgramAction.swift in Sources */,
 				56A62B1622310DA2009D0E83 /* simd_double3+Helpers.swift in Sources */,
-				562CCA67220D74AF00BF6A8D /* RightCard.swift in Sources */,
 				901584C82199BDF400450E0B /* LevelViewController.swift in Sources */,
 				56AEAC65221EC63800ACED36 /* SubtitleLabel.swift in Sources */,
 				562CCA77220D74AF00BF6A8D /* ObservationSet.swift in Sources */,
 				901584CC2199C32100450E0B /* ARController.swift in Sources */,
-				562CCA66220D74AF00BF6A8D /* StartCard.swift in Sources */,
+				5610841C224CEB96009A0039 /* FunctionCardNode.swift in Sources */,
+				56108414224CDE8D009A0039 /* ParameterCard.swift in Sources */,
 				203B0F1322310E62000685D3 /* BorderCardNode.swift in Sources */,
-				562EF8C42240E5CA00A8DC97 /* PickupCard.swift in Sources */,
 				905A3C842179BE54005E3AA5 /* FrameDelegate.swift in Sources */,
 				901584CA2199BE0200450E0B /* ScanViewController.swift in Sources */,
 				562CCA78220D74AF00BF6A8D /* ObservationGraph.swift in Sources */,
 				562CCA65220D74AF00BF6A8D /* Card.swift in Sources */,
-				562CCA69220D74AF00BF6A8D /* MoveCard.swift in Sources */,
+				5610840A224CC7C2009A0039 /* PickupAction.swift in Sources */,
 				562CAB8F223A43DE007120D5 /* CompoundActionComponent.swift in Sources */,
+				5610840E224CD019009A0039 /* ProgramState.swift in Sources */,
 				562EF8CA2240FC9D00A8DC97 /* LinkComponent.swift in Sources */,
 				C74785ED219448F1000148BC /* CardDetailViewController.swift in Sources */,
-				562CCA73220D74AF00BF6A8D /* SuccessorCardNode.swift in Sources */,
 				562CCA6C220D74AF00BF6A8D /* CardNodeFactory.swift in Sources */,
 				202219A5223BA13E00A2A8EA /* EmptyLevel.swift in Sources */,
 				204AEC12220DC9F500E0F624 /* HiddenTabBarViewController.swift in Sources */,
 				56A62B0E22310727009D0E83 /* EntityModelLoader.swift in Sources */,
+				5610840C224CC7CE009A0039 /* DropAction.swift in Sources */,
 				56413DFD220E2AC30064332E /* GameplayController.swift in Sources */,
 				56AEACA1221F5DC500ACED36 /* UIImage+Helpers.swift in Sources */,
 				900F135A219447AF001C2DC2 /* LevelManager.swift in Sources */,
 				5621C83C221AE67A00756628 /* simd_float4x4+Helpers.swift in Sources */,
+				56108408224CC7B2009A0039 /* JumpAction.swift in Sources */,
 				56319E09223801D100469D5E /* MovementActionComponent.swift in Sources */,
 				562EF8D62241139C00A8DC97 /* simd_double4x4+Helpers.swift in Sources */,
 				204AEC14220DCA1E00E0F624 /* ARContainerViewController.swift in Sources */,
+				5610841A224CEAE4009A0039 /* SimpleActionCardNode.swift in Sources */,
 				206A0CB52240E5120018E6B7 /* WardrobeManager.swift in Sources */,
 				202219A7223BC07000A2A8EA /* WardrobeViewController.swift in Sources */,
 				56431D2922328C7700BFAC36 /* QuantityComponent.swift in Sources */,
 				C725B2C321A85A7B00DD147A /* Model.xcdatamodeld in Sources */,
-				562CCA68220D74AF00BF6A8D /* LeftCard.swift in Sources */,
-				203B0F0B223108C3000685D3 /* LoopCard.swift in Sources */,
 				562CCA79220D74AF00BF6A8D /* BarcodeDetector.swift in Sources */,
 				561083F6224A68FD009A0039 /* ProgramView.swift in Sources */,
 				C74785E9219427A3000148BC /* CardCollectionViewCell.swift in Sources */,
 				C76A214821AC1405008A07D9 /* LevelEntity+CoreDataProperties.swift in Sources */,
+				56108418224CE41D009A0039 /* LoopCardNode.swift in Sources */,
 				56319DEA2237D40F00469D5E /* TransformComponent.swift in Sources */,
 				562CCA74220D74AF00BF6A8D /* ObservationEdge.swift in Sources */,
 				56632E262240443700B6C4D5 /* SpinComponent.swift in Sources */,
@@ -967,31 +968,27 @@
 				56E167BA2222BDA600D40FD0 /* GKEntity+Helpers.swift in Sources */,
 				562CCA7F220D750100BF6A8D /* CGImagePropertyOrientation+Helpers.swift in Sources */,
 				562ACDCD224986F300D2DA7C /* GradesTabBarController.swift in Sources */,
-				562CCA6A220D74AF00BF6A8D /* JumpCard.swift in Sources */,
-				202D015B22327965004B6046 /* ParameterCardNode.swift in Sources */,
+				561083FD224CBE6D009A0039 /* ComponentAction.swift in Sources */,
 				562CCA70220D74AF00BF6A8D /* CardNode.swift in Sources */,
 				56A62B1C223115B9009D0E83 /* QuantityLevel.swift in Sources */,
 				562CCA7E220D750100BF6A8D /* Double+Helpers.swift in Sources */,
 				562EF8CC2240FE4D00A8DC97 /* DropActionComponent.swift in Sources */,
 				905A3C92217A0891005E3AA5 /* LevelSelectViewController.swift in Sources */,
 				562CCA72220D74AF00BF6A8D /* ProgramEditor.swift in Sources */,
-				562CCA64220D74AF00BF6A8D /* RandomBranchCard.swift in Sources */,
 				5627ECB1220EF57700DCC32E /* CardNodeDetector.swift in Sources */,
 				C74785EB219427F8000148BC /* CardLibraryViewController.swift in Sources */,
 				905A3C94217A09D0005E3AA5 /* LevelCollectionViewCell.swift in Sources */,
-				203B0F0D223108FE000685D3 /* BorderCard.swift in Sources */,
 				562CAB8B223A3C5D007120D5 /* ActionComponent.swift in Sources */,
 				562CCA6E220D74AF00BF6A8D /* CardSequenceError.swift in Sources */,
 				90A55B0921A83B0700FD7CDD /* AudioController.swift in Sources */,
 				56131F43224429C30044B6F4 /* InventoryComponent.swift in Sources */,
 				56A62B1A22311501009D0E83 /* LevelFactory.swift in Sources */,
-				562EF8CE2240FE5B00A8DC97 /* DropCard.swift in Sources */,
 				562ACDC522496BD400D2DA7C /* CardCollectionDataSource.swift in Sources */,
+				56108402224CC773009A0039 /* MoveAction.swift in Sources */,
 				562EF8C62240E67400A8DC97 /* PickupActionComponent.swift in Sources */,
 				561083F8224A7607009A0039 /* ExampleProgramTableDataSource.swift in Sources */,
 				56431D392232A82700BFAC36 /* UpdateDelegate.swift in Sources */,
 				C7273114217714E900754543 /* Plane.swift in Sources */,
-				203B0F0F223109AC000685D3 /* ParameterCard.swift in Sources */,
 				905A3C882179BE74005E3AA5 /* PlaneDetectorDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1000,6 +997,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				563A4898224E1D5500A0226A /* RotationActionTests.swift in Sources */,
 				568AE7742223064D00A7348C /* EntityTests.swift in Sources */,
 				562CCAAC220D933E00BF6A8D /* Double+HelpersTests.swift in Sources */,
 				568AE77622233AC100A7348C /* EntityManagerTests.swift in Sources */,
@@ -1009,12 +1007,11 @@
 				206A0CB822410FD80018E6B7 /* WardrobeManagerTests.swift in Sources */,
 				20FA267E2236A10C00AF1083 /* BorderCardNodeTests.swift in Sources */,
 				562CAB9D223A5CCC007120D5 /* RotationActionComponentTests.swift in Sources */,
-				562CCA9E220D92BC00BF6A8D /* SuccessorCardNodeTests.swift in Sources */,
+				562CCA9E220D92BC00BF6A8D /* CardNodeTests.swift in Sources */,
 				562ACDA82244E15500D2DA7C /* LevelTests.swift in Sources */,
 				56A55AE42224728500A8CEE3 /* AddRemoveDelegateMock.swift in Sources */,
 				562EF8D4224107CC00A8DC97 /* LinkComponentTests.swift in Sources */,
 				562CCAA4220D92CF00BF6A8D /* ObservationGraphTests.swift in Sources */,
-				20FA267C22369CAC00AF1083 /* LoopCardNodeTests.swift in Sources */,
 				562EF8D2224107AE00A8DC97 /* DropActionComponentTests.swift in Sources */,
 				562CABA1223A5E6C007120D5 /* XCTestCase+Helpers.swift in Sources */,
 				562CAB96223A56D8007120D5 /* ActionComponentTests.swift in Sources */,
@@ -1024,7 +1021,6 @@
 				562EF8D0224107A000A8DC97 /* PickupActionComponentTests.swift in Sources */,
 				56E167C12222C15B00D40FD0 /* GKEntity+HelpersTests.swift in Sources */,
 				562ACDAD2244E62900D2DA7C /* SimpleLevelLoader.swift in Sources */,
-				562CAB91223A48F2007120D5 /* LeftCardTests.swift in Sources */,
 				562CABA5223A630C007120D5 /* ProgramTests.swift in Sources */,
 				562CCAA5220D92CF00BF6A8D /* ObservationEdgeTests.swift in Sources */,
 				562EF8D82241192300A8DC97 /* simd_double4x4+HelpersTests.swift in Sources */,
@@ -1043,6 +1039,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		56108440224D3CC1009A0039 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				56108441224D3CC1009A0039 /* Base */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		90DF7335216F441E00F51E0C /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1066,6 +1070,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1127,6 +1132,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

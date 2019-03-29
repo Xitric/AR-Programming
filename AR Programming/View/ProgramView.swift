@@ -33,20 +33,20 @@ class ProgramView: UIView {
     }
     
     private func commonInit() {
-        let start = SuccessorCardNode(card: StartCard(), angles: [0])
-        let move1 = SuccessorCardNode(card: MoveCard(), angles: [0])
-        let right = SuccessorCardNode(card: RightCard(), angles: [0])
-        let move2 = SuccessorCardNode(card: MoveCard(), angles: [0])
+//        let start = SuccessorCardNode(card: StartCard(), angles: [0])
+//        let move1 = SuccessorCardNode(card: MoveCard(), angles: [0])
+//        let right = SuccessorCardNode(card: RightCard(), angles: [0])
+//        let move2 = SuccessorCardNode(card: MoveCard(), angles: [0])
         
-        start.successors.append(move1)
-        move1.parent = start
-        
-        move1.successors.append(right)
-        right.parent = move1
-        
-        right.successors.append(move2)
-        move2.parent = right
-        program = Program(startNode: start)
+//        start.successors.append(move1)
+//        move1.parent = start
+//        
+//        move1.successors.append(right)
+//        right.parent = move1
+//        
+//        right.successors.append(move2)
+//        move2.parent = right
+//        program = Program(startNode: start)
     }
     
     private func resetProgram() {
@@ -62,7 +62,7 @@ class ProgramView: UIView {
             return
         }
         
-        let imageName = node.getCard().internalName
+        let imageName = node.card.internalName
         loadImage(withName: imageName)
         
         let denominator = abs(cos(angle)) + abs(sin(angle))

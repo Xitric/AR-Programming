@@ -10,8 +10,8 @@ import Foundation
 
 class CompoundActionComponent: ActionComponent {
     
-    private let firstAction: ActionComponent
-    private let secondAction: ActionComponent
+    let firstAction: ActionComponent
+    let secondAction: ActionComponent
     
     init(_ first: ActionComponent, _ second: ActionComponent) {
         firstAction = first
