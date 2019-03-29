@@ -38,14 +38,21 @@ class BorderCardNode: CardNode {
     
     private func findLoop() throws {
         var p = parent
+        var nestingDepth = 0
         
         while(p != nil) {
-            if let p = p as? LoopCardNode {
-                loopCardNode = p
-                return
-            } else {
-                p = p?.parent
+            if p is BorderCardNode { // This loop contains a nested loop, ignore the next loop card
+                nestingDepth += 1
+            } else if let p = p as? LoopCardNode {
+                if nestingDepth == 0 { // We have found the loop card corresponding to our nesting depth
+                    loopCardNode = p
+                    return
+                }
+                
+                nestingDepth -= 1
             }
+            
+            p = p?.parent
         }
         
         //We have reached a card with no parent
