@@ -10,7 +10,7 @@ import Foundation
 
 class DropAction: ComponentAction {
     
-    override func getActionComponent(forEntity entity: Entity) -> ActionComponent? {
+    override func getActionComponent() -> ActionComponent? {
         return DropActionComponent()
     }
 }

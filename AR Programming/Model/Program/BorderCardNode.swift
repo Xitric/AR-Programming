@@ -12,8 +12,8 @@ import simd
 
 class BorderCardNode: CardNode {
     
-    private var remainingRepeats: Int!
-    private var loopCardNode: LoopCardNode! {
+    var remainingRepeats: Int!
+    var loopCardNode: LoopCardNode! {
         didSet {
             if let loopCard = loopCardNode {
                 remainingRepeats = loopCard.parameter
@@ -36,7 +36,7 @@ class BorderCardNode: CardNode {
         return clone
     }
     
-    private func findLoop() throws {
+    func findLoop() throws {
         var p = parent
         var nestingDepth = 0
         

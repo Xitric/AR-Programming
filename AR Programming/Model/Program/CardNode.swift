@@ -14,9 +14,10 @@ class CardNode {
     private(set) var position = simd_double2(0, 0)
     private(set) var entryAngle = 0.0
     private(set) var children = [CardNode]()
-    private(set) weak var parent: CardNode?
     private(set) var successors = [CardNode?]()
-    private(set) var parameter: Int?
+    
+    var parameter: Int?
+    weak var parent: CardNode?
     
     let card: Card
     
@@ -37,15 +38,14 @@ class CardNode {
         return clone
     }
     
-    private func findSuccessors(to node: ObservationNode, in graph: ObservationGraph) throws {
+    func findSuccessors(to node: ObservationNode, in graph: ObservationGraph) throws {
         for angle in card.connectionAngles {
             if let successor = graph.getSuccessor(by: angle, to: node) {
                 
                 graph.connect(from: node, to: successor, withAngle: angle)
                 let nextCardNode = try CardNodeFactory.instance.cardNode(for: successor, withParent: self, in: graph)
                 nextCardNode.entryAngle = angle
-                self.children.append(nextCardNode)
-                self.successors.append(nextCardNode)
+                addSuccessor(successor: nextCardNode)
                 
             } else {
                 self.successors.append(nil)
@@ -53,7 +53,7 @@ class CardNode {
         }
     }
     
-    private func findParameter(to node: ObservationNode, in graph: ObservationGraph) throws {
+    func findParameter(to node: ObservationNode, in graph: ObservationGraph) throws {
         for angle in [Double.pi/2, -Double.pi/2] {
             if let neighbor = graph.getSuccessor(by: angle, to: node) {
                 let neighborCard = try CardNodeFactory.instance.cardNode(withCode: neighbor.payload).card
@@ -73,6 +73,11 @@ class CardNode {
         if card.requiresParameter {
             throw CardSequenceError.syntax(message: "This card requires a parameter")
         }
+    }
+    
+    func addSuccessor(successor: CardNode) {
+        children.append(successor)
+        successors.append(successor)
     }
     
     func clone() -> CardNode {

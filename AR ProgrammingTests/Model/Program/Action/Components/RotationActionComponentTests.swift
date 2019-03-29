@@ -25,8 +25,7 @@ class RotationActionComponentTests: XCTestCase {
     func testUpdate_Rotation() {
         //Arrange
         let goal = simd_quatd(angle: Double.pi, axis: simd_double3(0, 1, 0))
-        let rotationComponent = RotationActionComponent(from: transform.rotation,
-                                                        by: goal,
+        let rotationComponent = RotationActionComponent(by: goal,
                                                         duration: 1)
         entity.addComponent(rotationComponent)
         
@@ -41,8 +40,7 @@ class RotationActionComponentTests: XCTestCase {
         //Arrange
         transform.rotation = simd_quatd(ix: 0.354, iy: 0.354, iz: -0.146, r: 0.854)
         
-        let rotationComponent = RotationActionComponent(from: transform.rotation,
-                                                        by: simd_quatd(angle: 0.25 * Double.pi, axis: simd_double3(0, 1, 0)),
+        let rotationComponent = RotationActionComponent(by: simd_quatd(angle: 0.25 * Double.pi, axis: simd_double3(0, 1, 0)),
                                                         duration: 1)
         entity.addComponent(rotationComponent)
         
@@ -57,8 +55,7 @@ class RotationActionComponentTests: XCTestCase {
     
     func testUpdate_CompletionHandler() {
         //Arrange
-        let rotationComponent = RotationActionComponent(from: transform.rotation,
-                                                        by: simd_quatd(angle: Double.pi, axis: simd_double3(0, 1, 0)),
+        let rotationComponent = RotationActionComponent(by: simd_quatd(angle: Double.pi, axis: simd_double3(0, 1, 0)),
                                                         duration: 2)
         entity.addComponent(rotationComponent)
         

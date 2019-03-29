@@ -16,7 +16,7 @@ class RotationAction: ComponentAction {
         self.direction = direction
     }
     
-    override func getActionComponent(forEntity entity: Entity) -> ActionComponent? {
+    override func getActionComponent() -> ActionComponent? {
         var action: ActionComponent?
         
         //We can not rotate by more than 180 degrees at a time, so we construct a CompoundActionComponent if we have to rotate by more

@@ -53,11 +53,15 @@ class ObservationGraphTests: XCTestCase {
     }
     
     //MARK: firstNode
-    func testFirstNodeWithPayload() {
+    func testFirstNodeWithPayloadIn() {
         //Act & Assert
-        XCTAssertEqual(graph.firstNode(withPayload: "3"), node2)
-        XCTAssertTrue([node3, node5, node6].contains(graph.firstNode(withPayload: "0")))
-        XCTAssertNil(graph.firstNode(withPayload: "9"))
+        XCTAssertEqual(graph.firstNode(withPayloadIn: ["3"]), node2)
+        XCTAssertTrue([node3, node5, node6].contains(graph.firstNode(withPayloadIn: ["0"])))
+        XCTAssertNil(graph.firstNode(withPayloadIn: ["9"]))
+        
+        XCTAssertEqual(graph.firstNode(withPayloadIn: ["9", "3"]), node2)
+        XCTAssertTrue([node1, node2, node4].contains(graph.firstNode(withPayloadIn: ["2", "5", "3"])))
+        XCTAssertNil(graph.firstNode(withPayloadIn: ["10", "20", "30"]))
     }
     
     //MARK: nodes

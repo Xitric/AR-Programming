@@ -13,7 +13,7 @@ class ComponentAction: Action {
     var strength = 1.0
     
     func run(onEntity entity: Entity, withProgramDelegate delegate: ProgramDelegate?, onCompletion: (() -> Void)?) {
-        if let component = getActionComponent(forEntity: entity) {
+        if let component = getActionComponent() {
             component.onComplete = {
                 onCompletion?()
             }
@@ -23,7 +23,7 @@ class ComponentAction: Action {
         }
     }
     
-    func getActionComponent(forEntity entity: Entity) -> ActionComponent? {
+    func getActionComponent() -> ActionComponent? {
         return nil
     }
 }
