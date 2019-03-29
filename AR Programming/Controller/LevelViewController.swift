@@ -18,7 +18,6 @@ class LevelViewController: UIViewController {
     @IBOutlet weak var detectButton: UIButton!
     @IBOutlet weak var executeButton: UIButton!
     @IBOutlet weak var resetButton: UIButton!
-    @IBOutlet weak var scanButton: UIButton!
     
     @IBOutlet weak var planeDetectionHint: SubtitleLabel!
     @IBOutlet weak var planePlacementHint: SubtitleLabel!
@@ -27,20 +26,19 @@ class LevelViewController: UIViewController {
     @IBOutlet weak var winLabel: UILabel!
     
     @IBOutlet weak var planeDetectionAnimation: UIImageView!
-    @IBOutlet weak var rectView: UIView!
     
     //MARK: Sound
     private var winSound = AudioController.instance.makeSound(withName: "win.wav")
     private var pickupSound = AudioController.instance.makeSound(withName: "pickup.wav")
-    
+
     //MARK: State
-    private var editor = ProgramEditor()
+    private var programEditor: ProgramEditor?
     private var levelViewModel: LevelViewModel? {
         didSet {
             winLabel.isHidden = true
             winDescription.isHidden = true
             levelViewModel?.levelModel.delegate = self
-            editor.reset()
+            programEditor?.reset()
         }
     }
     private var currentPlane: Plane? {
@@ -67,20 +65,9 @@ class LevelViewController: UIViewController {
     }
     
     // MARK: - Life cycle
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        AudioController.instance.start()
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        AudioController.instance.stop()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        editor.delegate = self
-        
+        AudioController.instance.start()
         createPlaneAnimation()
     }
     
@@ -90,16 +77,14 @@ class LevelViewController: UIViewController {
         planeDetectionAnimation.startAnimating()
     }
     
-    // MARK: - Button actions
-    @IBAction func startScanning(_ sender: UIButton) {
-        if let parent = self.tabBarController as? HiddenTabBarViewController {
-            parent.goToViewControllerWith(index: 1)
-        }
+    deinit {
+        AudioController.instance.stop()
     }
     
+    // MARK: - Button actions    
     @IBAction func detectCards(_ sender: UIButton) {
-        editor.saveProgram()
-        editor.program.delegate = self
+        programEditor?.saveProgram()
+        programEditor?.program.delegate = self
         
         detectButton.isHidden = true
         executeButton.isHidden = false
@@ -109,14 +94,14 @@ class LevelViewController: UIViewController {
     @IBAction func executeSequence(_ sender: UIButton) {
         if let levelViewModel = levelViewModel {
             let player = levelViewModel.player
-            editor.program.run(on: player)
+            programEditor?.program.run(on: player)
         }
     }
     
     @IBAction func resetLevel(_ sender: UIButton) {
         levelViewModel?.levelModel.reset()
-        editor.program.delegate = nil
-        editor.reset()
+        programEditor?.program.delegate = nil
+        programEditor?.reset()
         
         detectButton.isHidden = false
         executeButton.isHidden = true
@@ -138,24 +123,23 @@ class LevelViewController: UIViewController {
 
 // MARK: - GameplayController
 extension LevelViewController: GameplayController {
-    func enter(withLevel levelViewModel: LevelViewModel?, inEnvironment arController: ARController?) {
-        arController?.planeDetectorDelegate = self
-        arController?.frameDelegate = self
+    func enter(withState state: GameState) {
+        state.arController.planeDetectorDelegate = self
         
-        if self.levelViewModel?.levelModel.levelNumber != levelViewModel?.levelModel.levelNumber {
-            self.levelViewModel = levelViewModel
+        self.programEditor = state.programEditor
+        if self.levelViewModel?.levelModel != state.levelViewModel.levelModel {
+            self.levelViewModel = state.levelViewModel
             
             DispatchQueue.main.async { [unowned self] in
-                let info = levelViewModel?.levelModel.infoLabel
+                let info = self.levelViewModel?.levelModel.infoLabel
                 self.levelInfo.text = info
                 self.levelInfo.isHidden = info == nil
             }
         }
     }
     
-    func exit(withLevel levelViewModel: LevelViewModel?, inEnvironment arController: ARController?) {
-        arController?.planeDetectorDelegate = nil
-        arController?.frameDelegate = nil
+    func exit(withState state: GameState) {
+        state.arController.planeDetectorDelegate = nil
     }
 }
 
@@ -167,37 +151,6 @@ extension LevelViewController: PlaneDetectorDelegate {
     
     func planeDetector(_ detector: ARController, found plane: Plane) {
         currentPlane = plane
-    }
-}
-
-// MARK: - FrameDelegate
-extension LevelViewController: FrameDelegate {
-    func frameScanner(_ scanner: ARController, didUpdate frame: CVPixelBuffer, withOrientation orientation: CGImagePropertyOrientation) {
-        editor.newFrame(frame, oriented: orientation, frameWidth: Double(UIScreen.main.bounds.width), frameHeight: Double(UIScreen.main.bounds.height))
-    }
-}
-
-// MARK: - ProgramEditorDelegate
-extension LevelViewController: ProgramEditorDelegate {
-    func programEditor(_ programEditor: ProgramEditor, createdNew program: Program) {
-        for rect in rectView.subviews {
-            rect.removeFromSuperview()
-        }
-        drawNode(program.start)
-    }
-    
-    private func drawNode(_ node: CardNode?) {
-        guard let node = node else {
-            return
-        }
-        
-        let rect = UIView(frame: CGRect(x: node.position.x - 48, y: Double(UIScreen.main.bounds.height) - node.position.y - 48, width: 96, height: 96))
-        rect.backgroundColor = UIColor(hue: 0.5, saturation: 0.5, brightness: 1, alpha: 0.5)
-        rectView.addSubview(rect)
-        
-        for next in node.successors {
-            drawNode(next)
-        }
     }
 }
 
