@@ -11,7 +11,6 @@
 		202219A5223BA13E00A2A8EA /* EmptyLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202219A4223BA13E00A2A8EA /* EmptyLevel.swift */; };
 		202219A7223BC07000A2A8EA /* WardrobeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202219A6223BC07000A2A8EA /* WardrobeViewController.swift */; };
 		203B0F1322310E62000685D3 /* BorderCardNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203B0F1222310E62000685D3 /* BorderCardNode.swift */; };
-		204AEC12220DC9F500E0F624 /* HiddenTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204AEC11220DC9F500E0F624 /* HiddenTabBarViewController.swift */; };
 		204AEC14220DCA1E00E0F624 /* ARContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204AEC13220DCA1E00E0F624 /* ARContainerViewController.swift */; };
 		204BC648222D6DD000D34B07 /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204BC647222D6DD000D34B07 /* Component.swift */; };
 		206A0CB52240E5120018E6B7 /* WardrobeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206A0CB42240E5120018E6B7 /* WardrobeManager.swift */; };
@@ -35,12 +34,15 @@
 		5621C83A221AE5F800756628 /* SCNVector3+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5621C839221AE5F800756628 /* SCNVector3+Helpers.swift */; };
 		5621C83C221AE67A00756628 /* simd_float4x4+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5621C83B221AE67A00756628 /* simd_float4x4+Helpers.swift */; };
 		5627ECAF220EEFA800DCC32E /* CardGraphDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5627ECAE220EEFA800DCC32E /* CardGraphDetector.swift */; };
-		5627ECB1220EF57700DCC32E /* CardNodeDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5627ECB0220EF57700DCC32E /* CardNodeDetector.swift */; };
 		562ACDA82244E15500D2DA7C /* LevelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562ACDA62244E15100D2DA7C /* LevelTests.swift */; };
 		562ACDA92244E15500D2DA7C /* QuantityLevelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562ACDA72244E15500D2DA7C /* QuantityLevelTests.swift */; };
 		562ACDAB2244E39100D2DA7C /* Levels in Resources */ = {isa = PBXBuildFile; fileRef = 562ACDAA2244E39100D2DA7C /* Levels */; };
 		562ACDAD2244E62900D2DA7C /* SimpleLevelLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562ACDAC2244E62900D2DA7C /* SimpleLevelLoader.swift */; };
 		562ACDB12244F1D300D2DA7C /* InventoryComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562ACDB02244F1D300D2DA7C /* InventoryComponentTests.swift */; };
+		562ACDB3224522CB00D2DA7C /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562ACDB2224522CB00D2DA7C /* GameState.swift */; };
+		562ACDB522456D5900D2DA7C /* CardDetectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562ACDB422456D5900D2DA7C /* CardDetectionView.swift */; };
+		562ACDB9224583DC00D2DA7C /* PassThroughView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562ACDB8224583DC00D2DA7C /* PassThroughView.swift */; };
+		562ACDBD2248C78500D2DA7C /* GameCoordinationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562ACDBC2248C78500D2DA7C /* GameCoordinationViewController.swift */; };
 		562CAB8B223A3C5D007120D5 /* ActionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CAB8A223A3C5D007120D5 /* ActionComponent.swift */; };
 		562CAB8D223A3EE2007120D5 /* RotationActionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CAB8C223A3EE2007120D5 /* RotationActionComponent.swift */; };
 		562CAB8F223A43DE007120D5 /* CompoundActionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CAB8E223A43DE007120D5 /* CompoundActionComponent.swift */; };
@@ -110,7 +112,7 @@
 		56F3D4C72243731500E7260A /* CollisionComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F3D4C62243731500E7260A /* CollisionComponentTests.swift */; };
 		900F135A219447AF001C2DC2 /* LevelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900F1359219447AF001C2DC2 /* LevelManager.swift */; };
 		901584C82199BDF400450E0B /* LevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901584C72199BDF400450E0B /* LevelViewController.swift */; };
-		901584CA2199BE0200450E0B /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901584C92199BE0200450E0B /* ScanViewController.swift */; };
+		901584CA2199BE0200450E0B /* CardDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901584C92199BE0200450E0B /* CardDescriptionViewController.swift */; };
 		901584CC2199C32100450E0B /* ARController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901584CB2199C32100450E0B /* ARController.swift */; };
 		905A3C842179BE54005E3AA5 /* FrameDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905A3C832179BE54005E3AA5 /* FrameDelegate.swift */; };
 		905A3C882179BE74005E3AA5 /* PlaneDetectorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905A3C872179BE74005E3AA5 /* PlaneDetectorDelegate.swift */; };
@@ -148,7 +150,6 @@
 		202219A4223BA13E00A2A8EA /* EmptyLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyLevel.swift; sourceTree = "<group>"; };
 		202219A6223BC07000A2A8EA /* WardrobeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeViewController.swift; sourceTree = "<group>"; };
 		203B0F1222310E62000685D3 /* BorderCardNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderCardNode.swift; sourceTree = "<group>"; };
-		204AEC11220DC9F500E0F624 /* HiddenTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HiddenTabBarViewController.swift; sourceTree = "<group>"; };
 		204AEC13220DCA1E00E0F624 /* ARContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARContainerViewController.swift; sourceTree = "<group>"; };
 		204BC647222D6DD000D34B07 /* Component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
 		206A0CB42240E5120018E6B7 /* WardrobeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeManager.swift; sourceTree = "<group>"; };
@@ -174,12 +175,15 @@
 		5621C839221AE5F800756628 /* SCNVector3+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNVector3+Helpers.swift"; sourceTree = "<group>"; };
 		5621C83B221AE67A00756628 /* simd_float4x4+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "simd_float4x4+Helpers.swift"; sourceTree = "<group>"; };
 		5627ECAE220EEFA800DCC32E /* CardGraphDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGraphDetector.swift; sourceTree = "<group>"; };
-		5627ECB0220EF57700DCC32E /* CardNodeDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardNodeDetector.swift; sourceTree = "<group>"; };
 		562ACDA62244E15100D2DA7C /* LevelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelTests.swift; sourceTree = "<group>"; };
 		562ACDA72244E15500D2DA7C /* QuantityLevelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuantityLevelTests.swift; sourceTree = "<group>"; };
 		562ACDAA2244E39100D2DA7C /* Levels */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Levels; sourceTree = "<group>"; };
 		562ACDAC2244E62900D2DA7C /* SimpleLevelLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleLevelLoader.swift; sourceTree = "<group>"; };
 		562ACDB02244F1D300D2DA7C /* InventoryComponentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryComponentTests.swift; sourceTree = "<group>"; };
+		562ACDB2224522CB00D2DA7C /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
+		562ACDB422456D5900D2DA7C /* CardDetectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetectionView.swift; sourceTree = "<group>"; };
+		562ACDB8224583DC00D2DA7C /* PassThroughView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassThroughView.swift; sourceTree = "<group>"; };
+		562ACDBC2248C78500D2DA7C /* GameCoordinationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCoordinationViewController.swift; sourceTree = "<group>"; };
 		562CAB8A223A3C5D007120D5 /* ActionComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionComponent.swift; sourceTree = "<group>"; };
 		562CAB8C223A3EE2007120D5 /* RotationActionComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationActionComponent.swift; sourceTree = "<group>"; };
 		562CAB8E223A43DE007120D5 /* CompoundActionComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompoundActionComponent.swift; sourceTree = "<group>"; };
@@ -252,7 +256,7 @@
 		81B3ED8214579B6F33DA8F08 /* Pods_AR_ProgrammingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AR_ProgrammingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		900F1359219447AF001C2DC2 /* LevelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelManager.swift; sourceTree = "<group>"; };
 		901584C72199BDF400450E0B /* LevelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelViewController.swift; sourceTree = "<group>"; };
-		901584C92199BE0200450E0B /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
+		901584C92199BE0200450E0B /* CardDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDescriptionViewController.swift; sourceTree = "<group>"; };
 		901584CB2199C32100450E0B /* ARController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARController.swift; sourceTree = "<group>"; };
 		905A3C832179BE54005E3AA5 /* FrameDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameDelegate.swift; sourceTree = "<group>"; };
 		905A3C872179BE74005E3AA5 /* PlaneDetectorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaneDetectorDelegate.swift; sourceTree = "<group>"; };
@@ -385,7 +389,6 @@
 				562CCA60220D74AF00BF6A8D /* ObservationGraph.swift */,
 				562CCA61220D74AF00BF6A8D /* BarcodeDetector.swift */,
 				5627ECAE220EEFA800DCC32E /* CardGraphDetector.swift */,
-				5627ECB0220EF57700DCC32E /* CardNodeDetector.swift */,
 			);
 			path = ImageAnalysis;
 			sourceTree = "<group>";
@@ -490,6 +493,8 @@
 			children = (
 				56AEAC62221EC4CF00ACED36 /* SubtitleLabel.xib */,
 				56AEAC64221EC63800ACED36 /* SubtitleLabel.swift */,
+				562ACDB422456D5900D2DA7C /* CardDetectionView.swift */,
+				562ACDB8224583DC00D2DA7C /* PassThroughView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -567,18 +572,18 @@
 			isa = PBXGroup;
 			children = (
 				905A3C782179BDC3005E3AA5 /* Card */,
-				204AEC11220DC9F500E0F624 /* HiddenTabBarViewController.swift */,
-				204AEC13220DCA1E00E0F624 /* ARContainerViewController.swift */,
 				905A3C91217A0891005E3AA5 /* LevelSelectViewController.swift */,
 				905A3C93217A09D0005E3AA5 /* LevelCollectionViewCell.swift */,
+				56413DFC220E2AC30064332E /* GameplayController.swift */,
+				204AEC13220DCA1E00E0F624 /* ARContainerViewController.swift */,
+				562ACDBC2248C78500D2DA7C /* GameCoordinationViewController.swift */,
 				901584C72199BDF400450E0B /* LevelViewController.swift */,
-				901584C92199BE0200450E0B /* ScanViewController.swift */,
-				C74785E8219427A3000148BC /* CardCollectionViewCell.swift */,
+				901584C92199BE0200450E0B /* CardDescriptionViewController.swift */,
 				202219A6223BC07000A2A8EA /* WardrobeViewController.swift */,
 				C74785EA219427F8000148BC /* CardLibraryViewController.swift */,
+				C74785E8219427A3000148BC /* CardCollectionViewCell.swift */,
 				C74785EC219448F1000148BC /* CardDetailViewController.swift */,
 				90A55B0821A83B0700FD7CDD /* AudioController.swift */,
-				56413DFC220E2AC30064332E /* GameplayController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -610,6 +615,7 @@
 				56A62B112231097E009D0E83 /* SCNNodeComponent.swift */,
 				56431D3C2232B5DB00BFAC36 /* LevelViewModel.swift */,
 				C7273113217714E900754543 /* Plane.swift */,
+				562ACDB2224522CB00D2DA7C /* GameState.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -864,7 +870,7 @@
 				56108414224CDE8D009A0039 /* ParameterCard.swift in Sources */,
 				203B0F1322310E62000685D3 /* BorderCardNode.swift in Sources */,
 				905A3C842179BE54005E3AA5 /* FrameDelegate.swift in Sources */,
-				901584CA2199BE0200450E0B /* ScanViewController.swift in Sources */,
+				901584CA2199BE0200450E0B /* CardDescriptionViewController.swift in Sources */,
 				562CCA78220D74AF00BF6A8D /* ObservationGraph.swift in Sources */,
 				562CCA65220D74AF00BF6A8D /* Card.swift in Sources */,
 				5610840A224CC7C2009A0039 /* PickupAction.swift in Sources */,
@@ -874,10 +880,11 @@
 				C74785ED219448F1000148BC /* CardDetailViewController.swift in Sources */,
 				562CCA6C220D74AF00BF6A8D /* CardNodeFactory.swift in Sources */,
 				202219A5223BA13E00A2A8EA /* EmptyLevel.swift in Sources */,
-				204AEC12220DC9F500E0F624 /* HiddenTabBarViewController.swift in Sources */,
+				562ACDB522456D5900D2DA7C /* CardDetectionView.swift in Sources */,
 				56A62B0E22310727009D0E83 /* EntityModelLoader.swift in Sources */,
 				5610840C224CC7CE009A0039 /* DropAction.swift in Sources */,
 				56413DFD220E2AC30064332E /* GameplayController.swift in Sources */,
+				562ACDBD2248C78500D2DA7C /* GameCoordinationViewController.swift in Sources */,
 				56AEACA1221F5DC500ACED36 /* UIImage+Helpers.swift in Sources */,
 				900F135A219447AF001C2DC2 /* LevelManager.swift in Sources */,
 				5621C83C221AE67A00756628 /* simd_float4x4+Helpers.swift in Sources */,
@@ -890,6 +897,7 @@
 				202219A7223BC07000A2A8EA /* WardrobeViewController.swift in Sources */,
 				56431D2922328C7700BFAC36 /* QuantityComponent.swift in Sources */,
 				C725B2C321A85A7B00DD147A /* Model.xcdatamodeld in Sources */,
+				562ACDB3224522CB00D2DA7C /* GameState.swift in Sources */,
 				562CCA79220D74AF00BF6A8D /* BarcodeDetector.swift in Sources */,
 				C74785E9219427A3000148BC /* CardCollectionViewCell.swift in Sources */,
 				C76A214821AC1405008A07D9 /* LevelEntity+CoreDataProperties.swift in Sources */,
@@ -910,6 +918,7 @@
 				905A3C92217A0891005E3AA5 /* LevelSelectViewController.swift in Sources */,
 				562CCA72220D74AF00BF6A8D /* ProgramEditor.swift in Sources */,
 				5627ECB1220EF57700DCC32E /* CardNodeDetector.swift in Sources */,
+				562ACDB9224583DC00D2DA7C /* PassThroughView.swift in Sources */,
 				C74785EB219427F8000148BC /* CardLibraryViewController.swift in Sources */,
 				905A3C94217A09D0005E3AA5 /* LevelCollectionViewCell.swift in Sources */,
 				562CAB8B223A3C5D007120D5 /* ActionComponent.swift in Sources */,

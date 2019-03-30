@@ -11,9 +11,9 @@ import UIKit
 
 class CardDetailViewController: UIViewController {
 
-    var cardTitle:String?
-    var cardDescription:String?
-    var cardImage:UIImage?
+    var cardTitle: String?
+    var cardDescription: String?
+    var cardImage: UIImage?
 
     @IBOutlet weak var cardTitleLabel: UILabel!
     @IBOutlet weak var cardDescriptionLabel: UILabel!
