@@ -30,21 +30,23 @@ class CardDetailViewController: UIViewController {
         return source
     }()
     
-    var cardTitle: String?
-    var cardSummary: String?
-    var cardDescription: String?
+    var card: Card!
     var cardPreview: UIImage?
-    var cardType: String?
-    var cardParameterExplanation: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        titleLabel.text = cardTitle ?? "ERROR"
-        summaryLabel.text = cardSummary ?? "ERROR"
-        descriptionLabel.text = cardDescription ?? "ERROR"
+        titleLabel.text = NSLocalizedString("\(card.internalName).name", comment: "")
+        summaryLabel.text = NSLocalizedString("\(card.internalName).summary", comment: "")
+        descriptionLabel.text = NSLocalizedString("\(card.internalName).description", comment: "")
         previewImage.image = cardPreview
-        typeLabel.text = cardType ?? "ERROR"
-        parameterLabel.text = cardParameterExplanation ?? "ERROR"
+        
+        typeLabel.text = NSLocalizedString("cardType.\(card.type)", comment: "")
+        if card.supportsParameter {
+            parameterLabel.text = NSLocalizedString("card.parameterSupported", comment: "") + " "
+                + NSLocalizedString("\(card.internalName).parameter", comment: "")
+        } else {
+            parameterLabel.text = NSLocalizedString("card.parameterUnsupported", comment: "")
+        }
     }
 }

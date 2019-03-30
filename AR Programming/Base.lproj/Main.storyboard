@@ -621,7 +621,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eQR-Dm-66Y" customClass="SubtitleLabel" customModule="AR_Programming" customModuleProvider="target">
+                            <view contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="eQR-Dm-66Y" customClass="SubtitleLabel" customModule="AR_Programming" customModuleProvider="target">
                                 <rect key="frame" x="441.5" y="20" width="141" height="52.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -695,28 +695,28 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="v9Z-U8-b4o" customClass="SubtitleLabel" customModule="AR_Programming" customModuleProvider="target">
-                                <rect key="frame" x="383.5" y="563" width="257.5" height="73"/>
+                                <rect key="frame" x="307" y="583.5" width="410.5" height="52.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="text" value="Bevæg din iPad rundt for at finde en overflade."/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="8oG-xW-2tD" customClass="SubtitleLabel" customModule="AR_Programming" customModuleProvider="target">
-                                <rect key="frame" x="402.5" y="438.5" width="219.5" height="154"/>
+                                <rect key="frame" x="102.5" y="438.5" width="819" height="73"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="text" value="Tillykke, du har låst op for den næste opgave. Find den i opgavemenuen, eller nulstil opgaven for at prøve igen."/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="WDh-Me-Nv9" customClass="SubtitleLabel" customModule="AR_Programming" customModuleProvider="target">
-                                <rect key="frame" x="370.5" y="573.5" width="283" height="52.5"/>
+                                <rect key="frame" x="370.5" y="583.5" width="283" height="52.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="text" value="Placer spillet når du er tilfreds!"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="461" placeholderIntrinsicHeight="461" translatesAutoresizingMaskIntoConstraints="NO" id="pS7-9z-jz1">
-                                <rect key="frame" x="205" y="130.5" width="614" height="368.5"/>
+                                <rect key="frame" x="205" y="151" width="614" height="368.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="pS7-9z-jz1" secondAttribute="height" multiplier="5:3" id="Ok7-sQ-rUh"/>
                                 </constraints>

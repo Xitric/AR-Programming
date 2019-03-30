@@ -49,9 +49,7 @@ class CardLibraryViewController: UIViewController {
                 let cardCell = sender as? CardCollectionViewCell {
                 
                 if let card = cardCell.card {
-                    detail.cardTitle = NSLocalizedString("\(card.internalName).name", comment: "")
-                    detail.cardSummary = NSLocalizedString("\(card.internalName).summary", comment: "")
-                    detail.cardDescription = NSLocalizedString("\(card.internalName).description", comment: "")
+                    detail.card = card
                     detail.cardPreview = cardCell.image.image
                 }
             }
