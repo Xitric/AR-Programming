@@ -27,7 +27,7 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bf2-QY-Hll">
-                            <rect key="frame" x="180" y="20" width="594" height="64.5"/>
+                            <rect key="frame" x="180" y="20" width="534" height="86"/>
                             <string key="text">Her kan du lære om alle de kort, du kan programmere med. For hvert kort kan du også se eksempler. Du kan endda få lov til at prøve kortene af i frit spil. Den bedste måde at lære på, er ved at eksperimentere!</string>
                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                             <nil key="textColor"/>
@@ -46,11 +46,23 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yOD-I0-rX5" customClass="RoundedButton" customModule="AR_Programming" customModuleProvider="target">
+                            <rect key="frame" x="734" y="43" width="40" height="40"/>
+                            <color key="backgroundColor" red="0.085386164489999999" green="0.48004096750000003" blue="0.9989228845" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="yOD-I0-rX5" secondAttribute="height" multiplier="1:1" id="gEC-IY-XXy"/>
+                                <constraint firstAttribute="height" constant="40" id="nTR-H9-mrm"/>
+                            </constraints>
+                            <state key="normal" title="R">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="K2V-ZX-vYI" firstAttribute="leading" secondItem="ehw-1j-8r4" secondAttribute="leading" constant="60" id="0wx-Zo-TMR"/>
                         <constraint firstItem="RBw-X3-fD7" firstAttribute="top" secondItem="c6g-LJ-7G6" secondAttribute="bottom" constant="20" id="3Yi-vQ-5h5"/>
+                        <constraint firstItem="yOD-I0-rX5" firstAttribute="centerY" secondItem="bf2-QY-Hll" secondAttribute="centerY" id="6N3-e3-srG"/>
                         <constraint firstItem="c6g-LJ-7G6" firstAttribute="top" secondItem="K2V-ZX-vYI" secondAttribute="bottom" constant="20" id="7fF-Ps-ahO"/>
                         <constraint firstItem="bf2-QY-Hll" firstAttribute="leading" secondItem="K2V-ZX-vYI" secondAttribute="trailing" constant="20" id="Dta-lE-so1"/>
                         <constraint firstItem="bf2-QY-Hll" firstAttribute="top" secondItem="K2V-ZX-vYI" secondAttribute="top" id="E9e-jR-F2i"/>
@@ -58,9 +70,10 @@
                         <constraint firstItem="K2V-ZX-vYI" firstAttribute="top" secondItem="ehw-1j-8r4" secondAttribute="top" constant="20" id="OcD-wu-x5b"/>
                         <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="K2V-ZX-vYI" secondAttribute="bottom" id="XLu-P9-dxd"/>
                         <constraint firstItem="c6g-LJ-7G6" firstAttribute="leading" secondItem="ehw-1j-8r4" secondAttribute="leading" constant="20" id="boD-F9-6ZJ"/>
-                        <constraint firstAttribute="trailing" secondItem="bf2-QY-Hll" secondAttribute="trailing" constant="60" id="c1m-Xa-ex3"/>
+                        <constraint firstItem="yOD-I0-rX5" firstAttribute="leading" secondItem="bf2-QY-Hll" secondAttribute="trailing" constant="20" id="c1m-Xa-ex3"/>
                         <constraint firstAttribute="trailing" secondItem="RBw-X3-fD7" secondAttribute="trailing" id="jde-ja-4JV"/>
                         <constraint firstItem="RBw-X3-fD7" firstAttribute="leading" secondItem="ehw-1j-8r4" secondAttribute="leading" id="spx-vu-rsc"/>
+                        <constraint firstAttribute="trailing" secondItem="yOD-I0-rX5" secondAttribute="trailing" constant="60" id="t5i-on-G5u"/>
                         <constraint firstAttribute="bottom" secondItem="RBw-X3-fD7" secondAttribute="bottom" id="wDa-Se-826"/>
                     </constraints>
                 </view>
