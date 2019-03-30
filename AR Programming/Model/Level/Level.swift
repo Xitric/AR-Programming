@@ -112,6 +112,22 @@ class Level: Decodable, UpdateDelegate {
     }
 }
 
+// MARK: - Hashable
+extension Level: Hashable {
+    
+    static func == (lhs: Level, rhs: Level) -> Bool {
+        return lhs.levelType == rhs.levelType &&
+            lhs.name == rhs.name &&
+            lhs.levelNumber == rhs.levelNumber
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(levelType)
+        hasher.combine(name)
+        hasher.combine(levelNumber)
+    }
+}
+
 struct PropJSON: Decodable {
     let x: Double
     let y: Double

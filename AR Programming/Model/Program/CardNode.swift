@@ -12,6 +12,7 @@ import SceneKit
 class CardNode {
     
     private(set) var position = simd_double2(0, 0)
+    private(set) var size = simd_double2(0, 0)
     private(set) var entryAngle = 0.0
     private(set) var children = [CardNode]()
     private(set) var successors = [CardNode?]()
@@ -28,6 +29,7 @@ class CardNode {
     func create(from node: ObservationNode, withParent parent: CardNode?, in graph: ObservationGraph) throws -> CardNode {
         let clone = self.clone()
         clone.position = node.position
+        clone.size = simd_double2(node.width, node.height)
         clone.parent = parent
         
         if (card.supportsParameter) {
