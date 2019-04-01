@@ -32,7 +32,7 @@
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                 </button>
-                <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="405" placeholderIntrinsicHeight="140" axis="vertical" distribution="fillProportionally" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2mX-Kb-mbC">
+                <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="405" placeholderIntrinsicHeight="140" axis="vertical" distribution="fillProportionally" alignment="top" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="2mX-Kb-mbC">
                     <rect key="frame" x="0.0" y="4" width="405" height="140"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </stackView>
