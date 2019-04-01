@@ -38,17 +38,15 @@ class ProgramView: UIView {
     }
     
     private func commonInit() {
-        var set = ObservationSet()
-        set.add(ObservationNode(payload: "0", position: simd_double2(0, 0), width: 0.8, height: 0.8))
-        set.add(ObservationNode(payload: "1", position: simd_double2(1, 0), width: 0.8, height: 0.8))
-//        set.add(ObservationNode(payload: "6", position: simd_double2(2, 0), width: 0.8, height: 0.8))
-//        set.add(ObservationNode(payload: "10", position: simd_double2(2, -1), width: 0.8, height: 0.8))
-//        set.add(ObservationNode(payload: "4", position: simd_double2(3, 0), width: 0.8, height: 0.8))
-//        set.add(ObservationNode(payload: "7", position: simd_double2(4, 0), width: 0.8, height: 0.8))
+        if let url = Bundle.main.resourceURL?
+            .appendingPathComponent("ProgramExamples", isDirectory: true)
+            .appendingPathComponent("move1.json"),
+            let data = try? Data(contentsOf: url) {
+            let editor = try? CardGraphDeserializer().deserialize(from: data)
+            
+            program = editor?.main
+        }
         
-        let graph = ObservationGraph(observationSet: set)
-        let start = try? CardNodeFactory.instance.build(from: graph)
-        program = Program(startNode: start)
     }
     //END TODO
     

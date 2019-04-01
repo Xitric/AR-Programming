@@ -45,7 +45,7 @@ class ProgramEditor: CardGraphDetectorDelegate, ProgramState {
         allPrograms.removeAll()
     }
     
-    func graphDetector(_ detector: CardGraphDetector, found graph: ObservationGraph) {
+    func graphDetector(found graph: ObservationGraph) {
         do {
             let start = try CardNodeFactory.instance.build(from: graph)
             currentProgram = Program(startNode: start)

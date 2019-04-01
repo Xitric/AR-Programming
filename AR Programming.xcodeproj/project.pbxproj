@@ -35,6 +35,9 @@
 		5610841C224CEB96009A0039 /* FunctionCardNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5610841B224CEB96009A0039 /* FunctionCardNode.swift */; };
 		56108442224D3CC1009A0039 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 56108440224D3CC1009A0039 /* Localizable.strings */; };
 		56131F43224429C30044B6F4 /* InventoryComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56131F42224429C30044B6F4 /* InventoryComponent.swift */; };
+		56216E4C2252122900613486 /* CardGraphDetectorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56216E4B2252122900613486 /* CardGraphDetectorDelegate.swift */; };
+		56216E4E225212D800613486 /* CardGraphDeserializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56216E4D225212D800613486 /* CardGraphDeserializer.swift */; };
+		56216E502252162A00613486 /* ProgramExamples in Resources */ = {isa = PBXBuildFile; fileRef = 56216E4F2252162A00613486 /* ProgramExamples */; };
 		5621C83A221AE5F800756628 /* SCNVector3+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5621C839221AE5F800756628 /* SCNVector3+Helpers.swift */; };
 		5621C83C221AE67A00756628 /* simd_float4x4+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5621C83B221AE67A00756628 /* simd_float4x4+Helpers.swift */; };
 		5627ECAF220EEFA800DCC32E /* CardGraphDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5627ECAE220EEFA800DCC32E /* CardGraphDetector.swift */; };
@@ -186,6 +189,9 @@
 		5610841B224CEB96009A0039 /* FunctionCardNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionCardNode.swift; sourceTree = "<group>"; };
 		56108441224D3CC1009A0039 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		56131F42224429C30044B6F4 /* InventoryComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryComponent.swift; sourceTree = "<group>"; };
+		56216E4B2252122900613486 /* CardGraphDetectorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGraphDetectorDelegate.swift; sourceTree = "<group>"; };
+		56216E4D225212D800613486 /* CardGraphDeserializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGraphDeserializer.swift; sourceTree = "<group>"; };
+		56216E4F2252162A00613486 /* ProgramExamples */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ProgramExamples; sourceTree = "<group>"; };
 		5621C839221AE5F800756628 /* SCNVector3+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNVector3+Helpers.swift"; sourceTree = "<group>"; };
 		5621C83B221AE67A00756628 /* simd_float4x4+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "simd_float4x4+Helpers.swift"; sourceTree = "<group>"; };
 		5627ECAE220EEFA800DCC32E /* CardGraphDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGraphDetector.swift; sourceTree = "<group>"; };
@@ -433,6 +439,7 @@
 				562CCA56220D74AD00BF6A8D /* Program.swift */,
 				562CCA59220D74AD00BF6A8D /* ProgramEditor.swift */,
 				5610840D224CD019009A0039 /* ProgramState.swift */,
+				56216E4B2252122900613486 /* CardGraphDetectorDelegate.swift */,
 			);
 			path = Program;
 			sourceTree = "<group>";
@@ -446,6 +453,7 @@
 				562CCA60220D74AF00BF6A8D /* ObservationGraph.swift */,
 				562CCA61220D74AF00BF6A8D /* BarcodeDetector.swift */,
 				5627ECAE220EEFA800DCC32E /* CardGraphDetector.swift */,
+				56216E4D225212D800613486 /* CardGraphDeserializer.swift */,
 			);
 			path = ImageAnalysis;
 			sourceTree = "<group>";
@@ -717,6 +725,7 @@
 				90DF733A216F442000F51E0C /* LaunchScreen.storyboard */,
 				90DF7338216F442000F51E0C /* Assets.xcassets */,
 				90CDABC121773E2700664640 /* Meshes.scnassets */,
+				56216E4F2252162A00613486 /* ProgramExamples */,
 				56431D362232969A00BFAC36 /* Levels */,
 				90DF733D216F442000F51E0C /* Info.plist */,
 				56108440224D3CC1009A0039 /* Localizable.strings */,
@@ -837,6 +846,7 @@
 				561083E8224A246F009A0039 /* CardCollectionViewHomeHeader.xib in Resources */,
 				90CDABC221773E2700664640 /* Meshes.scnassets in Resources */,
 				56431D372232969A00BFAC36 /* Levels in Resources */,
+				56216E502252162A00613486 /* ProgramExamples in Resources */,
 				56AEAC63221EC4CF00ACED36 /* SubtitleLabel.xib in Resources */,
 				90A55B0E21A84DB000FD7CDD /* win.wav in Resources */,
 				90D7538821AC259A00B1F2E4 /* pickup.wav in Resources */,
@@ -966,6 +976,7 @@
 				56431D2922328C7700BFAC36 /* QuantityComponent.swift in Sources */,
 				C725B2C321A85A7B00DD147A /* Model.xcdatamodeld in Sources */,
 				562ACDB3224522CB00D2DA7C /* GameState.swift in Sources */,
+				56216E4C2252122900613486 /* CardGraphDetectorDelegate.swift in Sources */,
 				562CCA79220D74AF00BF6A8D /* BarcodeDetector.swift in Sources */,
 				561083F6224A68FD009A0039 /* ProgramView.swift in Sources */,
 				C74785E9219427A3000148BC /* CardCollectionViewCell.swift in Sources */,
@@ -997,6 +1008,7 @@
 				56A62B1A22311501009D0E83 /* LevelFactory.swift in Sources */,
 				562ACDC522496BD400D2DA7C /* CardCollectionDataSource.swift in Sources */,
 				56108402224CC773009A0039 /* MoveAction.swift in Sources */,
+				56216E4E225212D800613486 /* CardGraphDeserializer.swift in Sources */,
 				562EF8C62240E67400A8DC97 /* PickupActionComponent.swift in Sources */,
 				561083F8224A7607009A0039 /* ExampleProgramTableDataSource.swift in Sources */,
 				56431D392232A82700BFAC36 /* UpdateDelegate.swift in Sources */,

@@ -476,12 +476,12 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="462" height="44"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
-                                                                <view contentMode="scaleToFill" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="LGT-ef-wCa" customClass="ProgramView" customModule="AR_Programming" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="4" width="390" height="64"/>
+                                                                <view contentMode="scaleToFill" verticalCompressionResistancePriority="1000" placeholderIntrinsicWidth="390" placeholderIntrinsicHeight="64" translatesAutoresizingMaskIntoConstraints="NO" id="LGT-ef-wCa" customClass="ProgramView" customModule="AR_Programming" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="4" width="390" height="36"/>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </view>
                                                                 <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VP3-wU-irc" customClass="RoundedButton" customModule="AR_Programming" customModuleProvider="target">
-                                                                    <rect key="frame" x="398" y="4" width="64" height="64"/>
+                                                                    <rect key="frame" x="398" y="-10" width="64" height="64"/>
                                                                     <color key="backgroundColor" red="0.085386164489999999" green="0.48004096750000003" blue="0.9989228845" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="64" id="KVK-A1-FRy"/>
@@ -498,11 +498,11 @@
                                                                 <constraint firstItem="VP3-wU-irc" firstAttribute="leading" secondItem="LGT-ef-wCa" secondAttribute="trailing" constant="8" id="MP1-A0-V6m"/>
                                                                 <constraint firstAttribute="trailing" secondItem="VP3-wU-irc" secondAttribute="trailing" id="OnV-Hc-UVO"/>
                                                                 <constraint firstItem="LGT-ef-wCa" firstAttribute="leading" secondItem="jUa-lG-ld2" secondAttribute="leading" id="c4E-CX-04B"/>
-                                                                <constraint firstItem="LGT-ef-wCa" firstAttribute="top" secondItem="jUa-lG-ld2" secondAttribute="top" constant="4" id="gWv-jd-szi"/>
+                                                                <constraint firstItem="LGT-ef-wCa" firstAttribute="top" relation="greaterThanOrEqual" secondItem="jUa-lG-ld2" secondAttribute="top" constant="4" id="gWv-jd-szi"/>
                                                                 <constraint firstItem="VP3-wU-irc" firstAttribute="centerY" secondItem="jUa-lG-ld2" secondAttribute="centerY" id="hRV-ng-10e"/>
-                                                                <constraint firstAttribute="bottom" secondItem="VP3-wU-irc" secondAttribute="bottom" constant="4" id="jDe-ad-WDv"/>
-                                                                <constraint firstAttribute="bottom" secondItem="LGT-ef-wCa" secondAttribute="bottom" constant="4" id="mEf-nM-BYC"/>
-                                                                <constraint firstItem="VP3-wU-irc" firstAttribute="top" secondItem="jUa-lG-ld2" secondAttribute="top" constant="4" id="ncl-vM-wuk"/>
+                                                                <constraint firstAttribute="bottom" secondItem="VP3-wU-irc" secondAttribute="bottom" priority="750" constant="4" id="jDe-ad-WDv"/>
+                                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="LGT-ef-wCa" secondAttribute="bottom" constant="4" id="mEf-nM-BYC"/>
+                                                                <constraint firstItem="VP3-wU-irc" firstAttribute="top" secondItem="jUa-lG-ld2" secondAttribute="top" priority="750" constant="4" id="ncl-vM-wuk"/>
                                                             </constraints>
                                                         </tableViewCellContentView>
                                                     </tableViewCell>
