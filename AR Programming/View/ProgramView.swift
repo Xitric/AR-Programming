@@ -26,30 +26,6 @@ class ProgramView: UIView {
         return frame.size
     }
     
-    //TODO: Remove this when done testing
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        commonInit()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        commonInit()
-    }
-    
-    private func commonInit() {
-        if let url = Bundle.main.resourceURL?
-            .appendingPathComponent("ProgramExamples", isDirectory: true)
-            .appendingPathComponent("move1.json"),
-            let data = try? Data(contentsOf: url) {
-            let editor = try? CardGraphDeserializer().deserialize(from: data)
-            
-            program = editor?.main
-        }
-        
-    }
-    //END TODO
-    
     private func resetProgram() {
         nodesToDraw.removeAll()
         images.removeAll()

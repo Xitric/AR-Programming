@@ -8,65 +8,48 @@
 
 import Foundation
 
-class ExampleProgramTableDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, ProgramDelegate {
+class ExampleProgramTableDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     
-    private weak var tableView: UITableView?
-    private let editor = ProgramEditor()
-    private var program: Program!
+    private var examples = [ProgramEditor]()
     
     weak var delegate: ExampleProgramSelectorDelegate?
     
+    init(exampleBaseName: String) {
+        if let folderUrl = Bundle.main.resourceURL?
+            .appendingPathComponent("ExamplePrograms", isDirectory: true)
+            .appendingPathComponent(exampleBaseName, isDirectory: true),
+            let urls = try? FileManager.default.contentsOfDirectory(at: folderUrl, includingPropertiesForKeys: nil) {
+            
+            for url in urls {
+                if let data = try? Data(contentsOf: url),
+                    let editor = try? CardGraphDeserializer().deserialize(from: data) {
+                    examples.append(editor)
+                }
+            }
+        }
+    }
+    
     //MARK: - UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return examples.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let row = tableView.dequeueReusableCell(withIdentifier: "ProgramExampleCell", for: indexPath)
         
-//        if let row = row as? CardCollectionViewCell {
-//            let sectionType = viewModel.cardTypes[indexPath.section]
-//            let card = viewModel.cards(ofType: sectionType)[indexPath.item]
-//            let cardImage = UIImage(named: card.internalName)
-//
-//            cell.image.image = cardImage
-//            cell.card = card
-//        }
+        if let row = row as? ExampleProgramTableViewCell {
+            row.programView.program = examples[indexPath.row].main
+        }
         
         return row
     }
     
     //MARK: - ProgramDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.tableView = tableView
-        tableView.allowsSelection = false
-        
-        editor.reset()
-        let pv = ProgramView()
-        program = pv.program
-        program.delegate = self
-        program.state = editor
-        if let entity = delegate?.entityForProgram() {
-            program.run(on: entity)
-        }
-    }
-    
-    //MARK: - UITableViewDelegate
-    func programBegan(_ program: Program) {
-        //Ignored
-    }
-    
-    func program(_ program: Program, executed card: Card) {
-        //Ignored
-    }
-    
-    func programEnded(_ program: Program) {
-        DispatchQueue.main.async { [weak self] in
-            self?.tableView?.allowsSelection = true
-        }
+        delegate?.programSelected(program: examples[indexPath.row].main)
     }
 }
 
 protocol ExampleProgramSelectorDelegate: class {
-    func entityForProgram() -> Entity
+    func programSelected(program: Program)
 }
