@@ -4,29 +4,52 @@
     "name":"Ryd op",
     "unlocks":"Level6",
     "dropOffs":[
-        {"type":"kasse", "x":2, "y":0},
-        {"type":"kasse", "x":2, "y":0}
+        {
+            "type":"blue",
+            "x":1,
+            "y":0,
+            "amount":1,
+            "resourceIdentifier":"DropSpot1"
+        },
+        {
+            "type":"green",
+            "x":2,
+            "y":0,
+            "amount":1,
+            "resourceIdentifier":"DropSpot2"
+        },
+        {
+            "type":"red",
+            "x":3,
+            "y":0,
+            "amount":1,
+            "resourceIdentifier":"DropSpot3"
+        },
     ],
     "items":[
         {
-            "type":"kasse",
-            "x":1,
+            "type":"blue",
+            "x":0,
             "y":0,
-            "resourceIdentifier":"Polygon"
+            "quantity":1,
+            "resourceIdentifier":"Item1"
         },
         {
-            "type":"kasse",
+            "type":"green",
             "x":1,
-            "y":1,
-            "resourceIdentifier":"Polygon"
+            "y":0,
+            "quantity":1,
+            "resourceIdentifier":"Item2"
+        },
+        {
+            "type":"red",
+            "x":2,
+            "y":0,
+            "quantity":1,
+            "resourceIdentifier":"Item3"
         }
     ],
     
     "props":[
-        {
-            "x":2,
-            "y":0,
-            "resourceIdentifier":"DropSpot"
-        },
     ]
 }
