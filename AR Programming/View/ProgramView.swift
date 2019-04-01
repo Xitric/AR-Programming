@@ -10,15 +10,20 @@ import Foundation
 
 class ProgramView: UIView {
     
-    private static let scale = CGFloat(80)
-    
     private var nodesToDraw = [CardDrawable]()
     private var images = [String:UIImage]()
+    private var xOffset = CGFloat(0)
+    private var yOffset = CGFloat(0)
     
+    var scale = CGFloat(60)
     var program: Program? {
         didSet {
             resetProgram()
         }
+    }
+    
+    override var intrinsicContentSize: CGSize {
+        return frame.size
     }
     
     //TODO: Remove this when done testing
@@ -33,31 +38,29 @@ class ProgramView: UIView {
     }
     
     private func commonInit() {
-//        let start = SuccessorCardNode(card: StartCard(), angles: [0])
-//        let move1 = SuccessorCardNode(card: MoveCard(), angles: [0])
-//        let right = SuccessorCardNode(card: RightCard(), angles: [0])
-//        let move2 = SuccessorCardNode(card: MoveCard(), angles: [0])
+        var set = ObservationSet()
+        set.add(ObservationNode(payload: "0", position: simd_double2(0, 0), width: 0.8, height: 0.8))
+        set.add(ObservationNode(payload: "1", position: simd_double2(1, 0), width: 0.8, height: 0.8))
+//        set.add(ObservationNode(payload: "6", position: simd_double2(2, 0), width: 0.8, height: 0.8))
+//        set.add(ObservationNode(payload: "10", position: simd_double2(2, -1), width: 0.8, height: 0.8))
+//        set.add(ObservationNode(payload: "4", position: simd_double2(3, 0), width: 0.8, height: 0.8))
+//        set.add(ObservationNode(payload: "7", position: simd_double2(4, 0), width: 0.8, height: 0.8))
         
-//        start.successors.append(move1)
-//        move1.parent = start
-//        
-//        move1.successors.append(right)
-//        right.parent = move1
-//        
-//        right.successors.append(move2)
-//        move2.parent = right
-//        program = Program(startNode: start)
+        let graph = ObservationGraph(observationSet: set)
+        let start = try? CardNodeFactory.instance.build(from: graph)
+        program = Program(startNode: start)
     }
+    //END TODO
     
     private func resetProgram() {
         nodesToDraw.removeAll()
         images.removeAll()
-        addNode(program?.start, atAngle: 0, fromParentPosition: CGPoint(x: -1, y: 0))
+        
+        addNode(program?.start, parentPosition: CGPoint(x: -1, y: 0))
         wrapProgram()
-        setNeedsDisplay()
     }
     
-    private func addNode(_ node: CardNode?, atAngle angle: CGFloat, fromParentPosition parentPosition: CGPoint) {
+    private func addNode(_ node: CardNode?, parentPosition: CGPoint) {
         guard let node = node else {
             return
         }
@@ -65,6 +68,7 @@ class ProgramView: UIView {
         let imageName = node.card.internalName
         loadImage(withName: imageName)
         
+        let angle = CGFloat(node.entryAngle)
         let denominator = abs(cos(angle)) + abs(sin(angle))
         let x = parentPosition.x + cos(angle) / denominator
         let y = parentPosition.y + sin(angle) / denominator
@@ -72,31 +76,59 @@ class ProgramView: UIView {
         let drawable = CardDrawable(imageName: imageName, x: x, y: y)
         nodesToDraw.append(drawable)
         
-        for successor in node.successors {
-            //TODO: Angle data from positions?
-            //TODO: This position data is probably screwed up
-            addNode(successor, atAngle: 0, fromParentPosition: CGPoint(x: x, y: y))
+        for child in node.children {
+            addNode(child, parentPosition: CGPoint(x: x, y: y))
         }
     }
     
     private func loadImage(withName name: String) {
         if images[name] == nil {
             images[name] = UIImage(named: name)
-            
         }
     }
     
     private func wrapProgram() {
-        frame = CGRect(x: frame.minX, y: frame.minY, width: CGFloat(nodesToDraw.count) * ProgramView.scale, height: ProgramView.scale)
+        //Find minimum and maximum extent on both axes
+        var min = CGPoint(x: 0, y: 0)
+        var max = CGPoint(x: 0, y: 0)
+        
+        for drawable in nodesToDraw {
+            let drawableMin = CGPoint(x: drawable.x, y: drawable.y)
+            let drawableMax = CGPoint(x: drawable.x + 1, y: drawable.y + 1)
+            
+            if drawableMin.x < min.x {
+                min.x = drawableMin.x
+            }
+            if drawableMax.x > max.x {
+                max.x = drawableMax.x
+            }
+            
+            if drawableMin.y < min.y {
+                min.y = drawableMin.y
+            }
+            if drawableMax.y > max.y {
+                max.y = drawableMax.y
+            }
+        }
+        
+        xOffset = min.x
+        yOffset = min.y
+        
+        frame = CGRect(x: frame.minX, y: frame.minY, width: (max.x - min.x) * scale, height: (max.y - min.y) * scale)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        setNeedsDisplay()
     }
     
     override func draw(_ rect: CGRect) {
         for drawable in nodesToDraw {
             let image = images[drawable.imageName]
-            let imgRect = CGRect(x: drawable.x * ProgramView.scale,
-                                 y: drawable.y * ProgramView.scale,
-                                 width: ProgramView.scale,
-                                 height: ProgramView.scale)
+            let imgRect = CGRect(x: (drawable.x - xOffset) * scale,
+                                 y: (drawable.y - yOffset) * scale,
+                                 width: scale,
+                                 height: scale)
             image?.draw(in: imgRect)
         }
     }

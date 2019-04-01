@@ -46,14 +46,15 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yOD-I0-rX5" customClass="RoundedButton" customModule="AR_Programming" customModuleProvider="target">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yOD-I0-rX5" customClass="RoundedButton" customModule="AR_Programming" customModuleProvider="target">
                             <rect key="frame" x="734" y="43" width="40" height="40"/>
                             <color key="backgroundColor" red="0.085386164489999999" green="0.48004096750000003" blue="0.9989228845" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="yOD-I0-rX5" secondAttribute="height" multiplier="1:1" id="gEC-IY-XXy"/>
                                 <constraint firstAttribute="height" constant="40" id="nTR-H9-mrm"/>
                             </constraints>
-                            <state key="normal" title="R">
+                            <inset key="imageEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
+                            <state key="normal" title="R" image="SpeakerIcon">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                         </button>
@@ -94,6 +95,7 @@
         </view>
     </objects>
     <resources>
+        <image name="SpeakerIcon" width="200" height="200"/>
         <image name="robo" width="540" height="540"/>
     </resources>
 </document>

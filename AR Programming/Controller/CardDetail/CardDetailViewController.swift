@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class CardDetailViewController: UIViewController {
+class CardDetailViewController: UIViewController, UITableViewDelegate {
     
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -20,12 +20,40 @@ class CardDetailViewController: UIViewController {
     @IBOutlet weak var parameterLabel: UILabel!
     @IBOutlet weak var programExampleTable: UITableView! {
         didSet {
-            programExampleTable.dataSource = dataSource
+            programExampleTable.dataSource = tableDataSource
+            programExampleTable.delegate = self
         }
     }
-    @IBOutlet weak var sceneView: SCNView!
+    @IBOutlet weak var sceneView: SCNView! {
+        didSet {
+            sceneView.autoenablesDefaultLighting = true
+            sceneView.scene = SCNScene()
+            sceneView.scene?.rootNode.rotation = SCNVector4(0, -1, 0, 1)
+            
+            //Load empty level for previews
+            levelViewModel = LevelViewModel(level: LevelManager.emptylevel)
+            sceneView.scene?.rootNode.addChildNode(levelViewModel.levelView)
+            
+            //Set up camera
+            let camera = SCNNode()
+            camera.camera = SCNCamera()
+            camera.camera?.zNear = 0.02
+            camera.camera?.zFar = 10
+            camera.position = SCNVector3(0, 0.9, 0.5)
+            camera.rotation = SCNVector4(-1, -0.033, -0.025, 1.1)
+            sceneView.pointOfView = camera
+            
+            //Add grid floor
+            let ground = SCNNode(geometry: SCNPlane(width: 5, height: 5))
+            ground.eulerAngles.x = -.pi / 2
+            ground.geometry?.materials.first?.diffuse.contents = UIImage(named: "ExampleProgramGridFloor.png")
+            levelViewModel.levelView.addChildNode(ground)
+        }
+    }
     
-    private lazy var dataSource: ExampleProgramTableDataSource = {
+    private var levelViewModel: LevelViewModel!
+    
+    private lazy var tableDataSource: ExampleProgramTableDataSource = {
         let source = ExampleProgramTableDataSource()
         return source
     }()
@@ -48,5 +76,11 @@ class CardDetailViewController: UIViewController {
         } else {
             parameterLabel.text = NSLocalizedString("card.parameterUnsupported", comment: "")
         }
+        
+        programExampleTable.reloadData()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("Selected \(indexPath.row)")
     }
 }
