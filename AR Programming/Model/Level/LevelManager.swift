@@ -53,7 +53,7 @@ public class LevelManager {
         guard let jsonLevelUntyped = try? JSONSerialization.jsonObject(with: data, options: []),
             let jsonLevel = jsonLevelUntyped as? [String:Any],
             let levelType = jsonLevel["type"] as? String else {
-                throw LevelLoadingError.badFormat
+                throw LevelLoadingError.badFormat()
         }
     
         for factory in levelFactories {
@@ -61,7 +61,7 @@ public class LevelManager {
                 do {
                     return try factory.initLevel(json: data)
                 } catch {
-                    throw LevelLoadingError.badFormat
+                    throw LevelLoadingError.badFormat()
                 }
             }
         }

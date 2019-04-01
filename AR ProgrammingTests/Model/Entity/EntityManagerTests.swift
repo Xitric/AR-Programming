@@ -24,6 +24,7 @@ class EntityManagerTests: XCTestCase {
     //MARK: addEntity
     func testAddEntity() {
         //Arrange
+        entityManager.addSystem(GKComponentSystem.init(componentClass: ComponentMock.self))
         let component1 = ComponentMock()
         let entity1 = Entity()
         entity1.addComponent(component1)
@@ -81,6 +82,7 @@ class EntityManagerTests: XCTestCase {
     
     func testManagerNotifiedOnEntityChanges() {
         //Arrange
+        entityManager.addSystem(GKComponentSystem.init(componentClass: ComponentMock.self))
         let entity = Entity()
         entityManager.addEntity(entity)
         

@@ -16,23 +16,21 @@ class LoopCardNode: CardNode {
     private let parameterCardAngles = [Double.pi/2, -Double.pi/2]
     
     var successors = [CardNode?]()
-    let position: simd_double2
-    let size: simd_double2
+    var position: simd_double2
     weak var parent: CardNode?
     
     var repeats: Int!
     
-    init(position: simd_double2, size: simd_double2) {
+    init(position: simd_double2 ) {
         self.position = position
-        self.size = size
     }
     
     convenience init() {
-        self.init(position: simd_double2(0,0), size: simd_double2(0,0))
+        self.init(position: simd_double2(0,0))
     }
     
     func create(from node: ObservationNode, withParent parent: CardNode?, in graph: ObservationGraph) throws -> CardNode {
-        let clone = LoopCardNode(position: node.position, size: simd_double2(node.width, node.height))
+        let clone = LoopCardNode(position: node.position)
         clone.parent = parent
         
         try findParameterCards(from: node, clone: clone, graph: graph)

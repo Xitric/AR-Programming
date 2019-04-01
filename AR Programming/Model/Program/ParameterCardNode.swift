@@ -15,25 +15,23 @@ class ParameterCardNode: CardNode {
     private let card: ParameterCard
     
     let successors: [CardNode?] = [nil]
-    let position: simd_double2
-    let size: simd_double2
+    var position: simd_double2
     weak var parent: CardNode?
     
     let number: Int
     
-    init(card: ParameterCard, position: simd_double2, size: simd_double2) {
+    init(card: ParameterCard, position: simd_double2) {
         self.card = card
         self.position = position
-        self.size = size
         self.number = card.parameter
     }
     
     convenience init(card: ParameterCard) {
-        self.init(card: card, position: simd_double2(0,0), size: simd_double2(0,0))
+        self.init(card: card, position: simd_double2(0,0))
     }
     
     func create(from node: ObservationNode, withParent parent: CardNode?, in graph: ObservationGraph) throws -> CardNode {
-        let clone = ParameterCardNode(card: card, position: node.position, size: simd_double2(node.width, node.height))
+        let clone = ParameterCardNode(card: card, position: node.position)
         return clone
     }
     

@@ -431,28 +431,19 @@
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9iJ-Tx-N3A">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                             </arscnView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TBB-6V-c8T" customClass="CardDetectionView" customModule="AR_Programming" customModuleProvider="target">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3kN-Py-6xm">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3kN-Py-6xm" customClass="PassThroughView" customModule="AR_Programming" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
-                                    <segue destination="Pbx-vb-cHP" kind="embed" id="klG-fC-Rog"/>
+                                    <segue destination="FeM-x8-4kM" kind="embed" identifier="hiddenTabBarSegue" id="Xxa-Ex-Evb"/>
                                 </connections>
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="TBB-6V-c8T" firstAttribute="top" secondItem="1lc-bQ-cvK" secondAttribute="top" id="3Q7-dd-KUc"/>
                             <constraint firstAttribute="bottom" secondItem="9iJ-Tx-N3A" secondAttribute="bottom" id="AGJ-x2-KHy"/>
-                            <constraint firstItem="zVx-cN-QfO" firstAttribute="trailing" secondItem="TBB-6V-c8T" secondAttribute="trailing" id="HiZ-T9-z70"/>
                             <constraint firstItem="9iJ-Tx-N3A" firstAttribute="leading" secondItem="zVx-cN-QfO" secondAttribute="leading" id="KNv-uW-cuA"/>
-                            <constraint firstItem="TBB-6V-c8T" firstAttribute="leading" secondItem="zVx-cN-QfO" secondAttribute="leading" id="LBQ-Vc-1Tk"/>
                             <constraint firstItem="9iJ-Tx-N3A" firstAttribute="top" secondItem="1lc-bQ-cvK" secondAttribute="top" id="RTn-FW-for"/>
                             <constraint firstItem="3kN-Py-6xm" firstAttribute="top" secondItem="1lc-bQ-cvK" secondAttribute="top" id="VNp-rD-geD"/>
-                            <constraint firstAttribute="bottom" secondItem="TBB-6V-c8T" secondAttribute="bottom" id="fip-Pn-ojy"/>
                             <constraint firstItem="9iJ-Tx-N3A" firstAttribute="trailing" secondItem="zVx-cN-QfO" secondAttribute="trailing" id="p8Z-bF-eea"/>
                             <constraint firstItem="3kN-Py-6xm" firstAttribute="trailing" secondItem="zVx-cN-QfO" secondAttribute="trailing" id="qqx-Hp-YfG"/>
                             <constraint firstItem="3kN-Py-6xm" firstAttribute="leading" secondItem="zVx-cN-QfO" secondAttribute="leading" id="zAf-6o-VR5"/>
@@ -463,8 +454,7 @@
                     <tabBarItem key="tabBarItem" title="Item" id="glk-f8-lxi"/>
                     <navigationItem key="navigationItem" id="pqx-n6-QiV"/>
                     <connections>
-                        <outlet property="arSceneView" destination="9iJ-Tx-N3A" id="kY2-pd-wsg"/>
-                        <outlet property="cardDetectionView" destination="TBB-6V-c8T" id="s2a-Tq-Vdu"/>
+                        <outlet property="arSceneView" destination="9iJ-Tx-N3A" id="lif-h2-hdq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XtQ-cD-tnx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -474,17 +464,21 @@
         <!--Level-->
         <scene sceneID="f3E-CV-VXA">
             <objects>
-                <viewController storyboardIdentifier="LevelScene" useStoryboardIdentifierAsRestorationIdentifier="YES" id="YHe-0I-6P8" customClass="LevelViewController" customModule="AR_Programming" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="IsN-tU-7YM" customClass="PassThroughView" customModule="AR_Programming" customModuleProvider="target">
+                <viewController id="YHe-0I-6P8" customClass="LevelViewController" customModule="AR_Programming" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IsN-tU-7YM">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eQR-Dm-66Y" customClass="SubtitleLabel" customModule="AR_Programming" customModuleProvider="target">
-                                <rect key="frame" x="441.5" y="20" width="141" height="52.5"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sW9-KF-I5o">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="718"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eQR-Dm-66Y" customClass="SubtitleLabel" customModule="AR_Programming" customModuleProvider="target">
+                                <rect key="frame" x="205" y="20" width="614" height="52.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SYT-AS-Sag">
-                                <rect key="frame" x="16" y="692" width="149" height="60"/>
+                                <rect key="frame" x="16" y="642" width="149" height="60"/>
                                 <color key="backgroundColor" red="0.074509803920000006" green="0.46274509800000002" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="b69-Xz-2Tz"/>
@@ -499,7 +493,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hTh-5f-7nh" userLabel="Detect">
-                                <rect key="frame" x="427.5" y="692" width="169" height="60"/>
+                                <rect key="frame" x="427.5" y="642" width="169" height="60"/>
                                 <color key="backgroundColor" red="0.0" green="0.47934520244598389" blue="0.99908632040023804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="9T0-Um-Dau"/>
@@ -519,7 +513,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x2I-t6-tvF">
-                                <rect key="frame" x="165" y="692" width="60" height="60"/>
+                                <rect key="frame" x="165" y="642" width="60" height="60"/>
                                 <color key="backgroundColor" red="0.074509803920000006" green="0.46274509800000002" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="ENP-uQ-F6c"/>
@@ -532,7 +526,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IcD-R1-wft">
-                                <rect key="frame" x="16" y="692" width="193" height="60"/>
+                                <rect key="frame" x="16" y="642" width="193" height="60"/>
                                 <color key="backgroundColor" red="0.074509803920000006" green="0.46274509800000002" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="Wr6-DN-jNL"/>
@@ -552,29 +546,49 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="v9Z-U8-b4o" customClass="SubtitleLabel" customModule="AR_Programming" customModuleProvider="target">
-                                <rect key="frame" x="307" y="583.5" width="410.5" height="52.5"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EdM-Vw-Xp3">
+                                <rect key="frame" x="948" y="642" width="60" height="60"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="SdA-oK-UUi"/>
+                                    <constraint firstAttribute="width" constant="60" id="pCT-6E-mVY"/>
+                                </constraints>
+                                <inset key="contentEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
+                                <state key="normal" title="?" image="CardScanIcon">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="startScanning:" destination="YHe-0I-6P8" eventType="touchUpInside" id="cpa-y5-Ewn"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v9Z-U8-b4o" customClass="SubtitleLabel" customModule="AR_Programming" customModuleProvider="target">
+                                <rect key="frame" x="393.5" y="513" width="237" height="73"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="text" value="Bevæg din iPad rundt for at finde en overflade."/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="8oG-xW-2tD" customClass="SubtitleLabel" customModule="AR_Programming" customModuleProvider="target">
-                                <rect key="frame" x="267.5" y="438.5" width="489" height="73"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8oG-xW-2tD" customClass="SubtitleLabel" customModule="AR_Programming" customModuleProvider="target">
+                                <rect key="frame" x="428.5" y="438.5" width="167" height="194.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="text" value="Tillykke, du har låst op for den næste opgave. Find den i opgavemenuen, eller nulstil opgaven for at prøve igen."/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="WDh-Me-Nv9" customClass="SubtitleLabel" customModule="AR_Programming" customModuleProvider="target">
-                                <rect key="frame" x="370.5" y="583.5" width="283" height="52.5"/>
+                            <view hidden="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WDh-Me-Nv9" customClass="SubtitleLabel" customModule="AR_Programming" customModuleProvider="target">
+                                <rect key="frame" x="413.5" y="513" width="197" height="73"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="text" value="Placer spillet når du er tilfreds!"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="461" placeholderIntrinsicHeight="461" translatesAutoresizingMaskIntoConstraints="NO" id="pS7-9z-jz1">
-                                <rect key="frame" x="205" y="151" width="614" height="368.5"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" placeholderIntrinsicWidth="461" placeholderIntrinsicHeight="461" translatesAutoresizingMaskIntoConstraints="NO" id="pS7-9z-jz1">
+                                <rect key="frame" x="205" y="84" width="614" height="365"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="pS7-9z-jz1" secondAttribute="height" multiplier="5:3" id="Ok7-sQ-rUh"/>
                                 </constraints>
@@ -584,33 +598,37 @@
                         <constraints>
                             <constraint firstItem="8oG-xW-2tD" firstAttribute="centerX" secondItem="IsN-tU-7YM" secondAttribute="centerX" id="1y4-XQ-PYe"/>
                             <constraint firstItem="eQR-Dm-66Y" firstAttribute="centerX" secondItem="IsN-tU-7YM" secondAttribute="centerX" id="20L-ss-Q2a"/>
-                            <constraint firstItem="v9Z-U8-b4o" firstAttribute="leading" secondItem="r7f-Fu-KoH" secondAttribute="leading" priority="750" constant="64" id="2D9-dl-QCZ"/>
+                            <constraint firstItem="v9Z-U8-b4o" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="r7f-Fu-KoH" secondAttribute="leading" constant="64" id="2D9-dl-QCZ"/>
                             <constraint firstItem="v9Z-U8-b4o" firstAttribute="top" secondItem="pS7-9z-jz1" secondAttribute="bottom" constant="64" id="5aN-Ut-Hnc"/>
                             <constraint firstItem="hTh-5f-7nh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="IcD-R1-wft" secondAttribute="trailing" id="5lK-Nt-PMX"/>
+                            <constraint firstItem="r7f-Fu-KoH" firstAttribute="trailing" secondItem="EdM-Vw-Xp3" secondAttribute="trailing" constant="16" id="5r3-OT-I7n"/>
                             <constraint firstItem="hTh-5f-7nh" firstAttribute="centerX" secondItem="IsN-tU-7YM" secondAttribute="centerX" id="6qW-61-skg"/>
                             <constraint firstItem="x2I-t6-tvF" firstAttribute="leading" secondItem="SYT-AS-Sag" secondAttribute="trailing" id="8Kv-he-VAe"/>
+                            <constraint firstItem="sW9-KF-I5o" firstAttribute="trailing" secondItem="r7f-Fu-KoH" secondAttribute="trailing" id="91a-Gs-XmC"/>
+                            <constraint firstItem="x2I-t6-tvF" firstAttribute="bottom" secondItem="EdM-Vw-Xp3" secondAttribute="bottom" id="ALt-L6-gRO"/>
+                            <constraint firstItem="sW9-KF-I5o" firstAttribute="top" secondItem="IsN-tU-7YM" secondAttribute="top" id="BzH-Dp-Khn"/>
                             <constraint firstItem="IcD-R1-wft" firstAttribute="leading" secondItem="IsN-tU-7YM" secondAttribute="leading" constant="16" id="GvD-zM-qUh"/>
-                            <constraint firstItem="r7f-Fu-KoH" firstAttribute="bottom" secondItem="IcD-R1-wft" secondAttribute="bottom" constant="16" id="I8f-oj-hZI"/>
                             <constraint firstItem="WDh-Me-Nv9" firstAttribute="centerX" secondItem="IsN-tU-7YM" secondAttribute="centerX" id="JSM-wQ-dNr"/>
                             <constraint firstItem="SYT-AS-Sag" firstAttribute="bottom" secondItem="IcD-R1-wft" secondAttribute="bottom" id="JtQ-F1-yFM"/>
                             <constraint firstItem="j0e-mD-Rgu" firstAttribute="centerX" secondItem="IsN-tU-7YM" secondAttribute="centerX" id="L74-Kp-XNz"/>
-                            <constraint firstItem="IcD-R1-wft" firstAttribute="bottom" secondItem="hTh-5f-7nh" secondAttribute="bottom" id="NBS-55-bct"/>
-                            <constraint firstItem="8oG-xW-2tD" firstAttribute="leading" secondItem="r7f-Fu-KoH" secondAttribute="leading" priority="750" constant="96" id="P0N-qK-fB3"/>
-                            <constraint firstItem="r7f-Fu-KoH" firstAttribute="bottom" secondItem="x2I-t6-tvF" secondAttribute="bottom" constant="16" id="PJJ-DM-sak"/>
-                            <constraint firstItem="r7f-Fu-KoH" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="WDh-Me-Nv9" secondAttribute="trailing" constant="64" id="Rjy-dZ-jgH"/>
+                            <constraint firstItem="8oG-xW-2tD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="r7f-Fu-KoH" secondAttribute="leading" constant="96" id="P0N-qK-fB3"/>
                             <constraint firstItem="8oG-xW-2tD" firstAttribute="top" secondItem="j0e-mD-Rgu" secondAttribute="bottom" constant="16" id="SU5-oQ-1Uf"/>
                             <constraint firstItem="v9Z-U8-b4o" firstAttribute="centerX" secondItem="IsN-tU-7YM" secondAttribute="centerX" id="Sd1-5T-TeX"/>
-                            <constraint firstItem="r7f-Fu-KoH" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="8oG-xW-2tD" secondAttribute="trailing" constant="96" id="TUH-C3-0ZF"/>
+                            <constraint firstItem="sW9-KF-I5o" firstAttribute="leading" secondItem="r7f-Fu-KoH" secondAttribute="leading" id="UOW-Kc-1fJ"/>
                             <constraint firstItem="WDh-Me-Nv9" firstAttribute="centerY" secondItem="v9Z-U8-b4o" secondAttribute="centerY" id="VHW-mi-JFp"/>
-                            <constraint firstItem="WDh-Me-Nv9" firstAttribute="leading" secondItem="r7f-Fu-KoH" secondAttribute="leading" priority="750" constant="64" id="X5h-KS-3gE"/>
+                            <constraint firstItem="WDh-Me-Nv9" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="r7f-Fu-KoH" secondAttribute="leading" constant="64" id="X5h-KS-3gE"/>
                             <constraint firstItem="hTh-5f-7nh" firstAttribute="top" secondItem="v9Z-U8-b4o" secondAttribute="bottom" constant="56" id="aBU-Jq-555"/>
                             <constraint firstItem="j0e-mD-Rgu" firstAttribute="centerY" secondItem="IsN-tU-7YM" secondAttribute="centerY" id="cve-0c-SK8"/>
+                            <constraint firstItem="IcD-R1-wft" firstAttribute="bottom" secondItem="EdM-Vw-Xp3" secondAttribute="bottom" id="h8k-2V-v3R"/>
                             <constraint firstItem="pS7-9z-jz1" firstAttribute="top" relation="greaterThanOrEqual" secondItem="r7f-Fu-KoH" secondAttribute="top" constant="64" id="jUD-V9-dxq"/>
                             <constraint firstItem="eQR-Dm-66Y" firstAttribute="top" secondItem="r7f-Fu-KoH" secondAttribute="top" id="mcL-ab-EJT"/>
+                            <constraint firstItem="hTh-5f-7nh" firstAttribute="bottom" secondItem="EdM-Vw-Xp3" secondAttribute="bottom" id="pHU-vE-UqB"/>
+                            <constraint firstItem="r7f-Fu-KoH" firstAttribute="bottom" secondItem="EdM-Vw-Xp3" secondAttribute="bottom" constant="16" id="qb6-w2-9Ai"/>
+                            <constraint firstItem="sW9-KF-I5o" firstAttribute="bottom" secondItem="r7f-Fu-KoH" secondAttribute="bottom" id="tpf-Hn-Uda"/>
                             <constraint firstItem="pS7-9z-jz1" firstAttribute="width" relation="lessThanOrEqual" secondItem="IsN-tU-7YM" secondAttribute="width" multiplier="0.6" id="v3F-fM-sr3"/>
-                            <constraint firstItem="r7f-Fu-KoH" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="v9Z-U8-b4o" secondAttribute="trailing" constant="64" id="vf6-Or-OLY"/>
                             <constraint firstItem="SYT-AS-Sag" firstAttribute="leading" secondItem="IcD-R1-wft" secondAttribute="leading" id="wKZ-3x-Ziz"/>
                             <constraint firstItem="pS7-9z-jz1" firstAttribute="centerX" secondItem="IsN-tU-7YM" secondAttribute="centerX" id="wxp-Or-ipJ"/>
+                            <constraint firstItem="eQR-Dm-66Y" firstAttribute="width" secondItem="sW9-KF-I5o" secondAttribute="width" multiplier="0.6" id="zRb-PI-sLe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="r7f-Fu-KoH"/>
                     </view>
@@ -623,7 +641,9 @@
                         <outlet property="planeDetectionAnimation" destination="pS7-9z-jz1" id="L7n-y9-MKB"/>
                         <outlet property="planeDetectionHint" destination="v9Z-U8-b4o" id="OyQ-SU-mww"/>
                         <outlet property="planePlacementHint" destination="WDh-Me-Nv9" id="Ov0-n0-C0Z"/>
+                        <outlet property="rectView" destination="sW9-KF-I5o" id="xS0-N1-gIf"/>
                         <outlet property="resetButton" destination="x2I-t6-tvF" id="hgj-qu-acl"/>
+                        <outlet property="scanButton" destination="EdM-Vw-Xp3" id="maO-iZ-Efs"/>
                         <outlet property="winDescription" destination="8oG-xW-2tD" id="Umt-A2-J3U"/>
                         <outlet property="winLabel" destination="j0e-mD-Rgu" id="K3m-H1-kvw"/>
                     </connections>
@@ -635,13 +655,19 @@
         <!--Scan-->
         <scene sceneID="pUc-1Y-wkB">
             <objects>
-                <viewController storyboardIdentifier="CardDescriptionScene" useStoryboardIdentifierAsRestorationIdentifier="YES" id="v2U-1n-6tb" customClass="CardDescriptionViewController" customModule="AR_Programming" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="NHh-BU-V60" customClass="PassThroughView" customModule="AR_Programming" customModuleProvider="target">
+                <viewController id="v2U-1n-6tb" customClass="ScanViewController" customModule="AR_Programming" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NHh-BU-V60">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ScanArea" translatesAutoresizingMaskIntoConstraints="NO" id="a9v-Yi-dFX">
+                                <rect key="frame" x="256" y="113" width="512" height="512"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="a9v-Yi-dFX" secondAttribute="height" multiplier="1:1" id="Re4-sW-pQv"/>
+                                </constraints>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rKe-rH-JdA">
-                                <rect key="frame" x="0.0" y="624" width="1024" height="144"/>
+                                <rect key="frame" x="0.0" y="574" width="1024" height="144"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iWh-lO-hv5">
                                         <rect key="frame" x="8" y="8" width="128" height="128"/>
@@ -706,6 +732,9 @@
                             <constraint firstItem="6Os-K7-GeY" firstAttribute="bottom" secondItem="rKe-rH-JdA" secondAttribute="bottom" id="9kq-tb-vu9"/>
                             <constraint firstAttribute="trailing" secondItem="rKe-rH-JdA" secondAttribute="trailing" id="BMi-wr-L4c"/>
                             <constraint firstItem="rKe-rH-JdA" firstAttribute="leading" secondItem="NHh-BU-V60" secondAttribute="leading" id="N52-K5-R6p"/>
+                            <constraint firstItem="a9v-Yi-dFX" firstAttribute="centerY" secondItem="6Os-K7-GeY" secondAttribute="centerY" id="hsi-n1-Cmd"/>
+                            <constraint firstItem="a9v-Yi-dFX" firstAttribute="width" secondItem="NHh-BU-V60" secondAttribute="width" multiplier="0.5" id="mKe-36-ueF"/>
+                            <constraint firstItem="a9v-Yi-dFX" firstAttribute="centerX" secondItem="6Os-K7-GeY" secondAttribute="centerX" id="sck-AO-CZH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Os-K7-GeY"/>
                     </view>
@@ -718,22 +747,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zsi-lV-5yX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3894" y="931"/>
+            <point key="canvasLocation" x="4026.5625" y="931.64062499999989"/>
         </scene>
-        <!--Game Coordination View Controller-->
-        <scene sceneID="vs5-eR-qsF">
+        <!--Hidden Tab Bar View Controller-->
+        <scene sceneID="fPz-gB-3Qt">
             <objects>
-                <viewController id="Pbx-vb-cHP" customClass="GameCoordinationViewController" customModule="AR_Programming" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="CQX-0o-dL3" customClass="PassThroughView" customModule="AR_Programming" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="FeM-x8-4kM" customClass="HiddenTabBarViewController" customModule="AR_Programming" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wRB-TK-Tyz">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="xVX-38-gwc"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XtC-l4-QrY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="YHe-0I-6P8" kind="relationship" relationship="viewControllers" id="R5Q-8e-Dgy"/>
+                        <segue destination="v2U-1n-6tb" kind="relationship" relationship="viewControllers" id="fau-Y2-8TJ"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="99c-xW-VuT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3152" y="931"/>
+            <point key="canvasLocation" x="3152" y="932"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Cg8-ja-aEh">
@@ -755,8 +788,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="CardScanIcon" width="98" height="98"/>
         <image name="Lock" width="156" height="172"/>
         <image name="Retry" width="128" height="128"/>
+        <image name="ScanArea" width="750" height="750"/>
         <image name="robo" width="540" height="540"/>
     </resources>
 </document>

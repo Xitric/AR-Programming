@@ -16,5 +16,5 @@ protocol LevelFactory {
 enum LevelLoadingError: Error, Equatable {
     case noSuchLevel(levelName: String)
     case unsupportedLevelType(type: String)
-    case badFormat
+    case badFormat()
 }
