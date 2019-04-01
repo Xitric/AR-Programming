@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class CardDetailViewController: UIViewController, UITableViewDelegate {
+class CardDetailViewController: UIViewController, ExampleProgramSelectorDelegate, SCNSceneRendererDelegate {
     
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -21,7 +21,7 @@ class CardDetailViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var programExampleTable: UITableView! {
         didSet {
             programExampleTable.dataSource = tableDataSource
-            programExampleTable.delegate = self
+            programExampleTable.delegate = tableDataSource
         }
     }
     @IBOutlet weak var sceneView: SCNView! {
@@ -29,6 +29,8 @@ class CardDetailViewController: UIViewController, UITableViewDelegate {
             sceneView.autoenablesDefaultLighting = true
             sceneView.scene = SCNScene()
             sceneView.scene?.rootNode.rotation = SCNVector4(0, -1, 0, 1)
+            sceneView.delegate = self
+            sceneView.isPlaying = true
             
             //Load empty level for previews
             levelViewModel = LevelViewModel(level: LevelManager.emptylevel)
@@ -55,6 +57,7 @@ class CardDetailViewController: UIViewController, UITableViewDelegate {
     
     private lazy var tableDataSource: ExampleProgramTableDataSource = {
         let source = ExampleProgramTableDataSource()
+        source.delegate = self
         return source
     }()
     
@@ -80,7 +83,17 @@ class CardDetailViewController: UIViewController, UITableViewDelegate {
         programExampleTable.reloadData()
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Selected \(indexPath.row)")
+    func entityForProgram() -> Entity {
+        return levelViewModel.levelModel.entityManager.player
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let arContainer = segue.destination as? ARContainerViewController {
+            arContainer.level = LevelManager.emptylevel
+        }
+    }
+    
+    func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
+        levelViewModel.levelModel.update(currentTime: time)
     }
 }

@@ -524,6 +524,9 @@
                                                 <state key="normal" title="Prøv det af!">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="KUo-xe-Pty" kind="show" identifier="TryItSegue" id="uYf-8p-xwd"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -960,6 +963,7 @@
         <image name="robo" width="540" height="540"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="QbQ-1L-5hP"/>
+        <segue reference="uYf-8p-xwd"/>
+        <segue reference="5e6-It-6Sx"/>
     </inferredMetricsTieBreakers>
 </document>

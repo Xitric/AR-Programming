@@ -14,7 +14,9 @@ public class LevelManager {
     
     static let appDelegate = UIApplication.shared.delegate as! AppDelegate
     static var managedObjectContext = appDelegate.persistentContainer.viewContext
-    static let emptylevel: Level = EmptyLevel()
+    static var emptylevel: Level {
+        return EmptyLevel()
+    }
     
     private static let levelFactories = [
         QuantityLevelFactory()
