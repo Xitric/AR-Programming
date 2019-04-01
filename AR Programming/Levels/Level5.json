@@ -1,35 +1,25 @@
 {
     "number":5,
     "type":"cleanup",
-    "name":"Ryd op",
+    "name":"Sæt tingene på plads",
     "unlocks":"Level6",
     "dropOffs":[
         {
-            "type":"blue",
-            "x":1,
+            "x":0,
             "y":0,
-            "amount":1,
-            "resourceIdentifier":"DropSpot1"
-        },
-        {
-            "type":"green",
-            "x":2,
-            "y":0,
-            "amount":1,
-            "resourceIdentifier":"DropSpot2"
-        },
-        {
-            "type":"red",
-            "x":3,
-            "y":0,
-            "amount":1,
-            "resourceIdentifier":"DropSpot3"
+            "resourceIdentifier":"DropSpot0",
+            "collectiveGoals": {
+                "blue":1,
+                "red":1,
+                "green":1,
+                "yellow":1
+            }
         },
     ],
     "items":[
         {
             "type":"blue",
-            "x":0,
+            "x":-1,
             "y":0,
             "quantity":1,
             "resourceIdentifier":"Item1"
@@ -43,10 +33,17 @@
         },
         {
             "type":"red",
-            "x":2,
-            "y":0,
+            "x":0,
+            "y":-1,
             "quantity":1,
             "resourceIdentifier":"Item3"
+        },
+        {
+            "type":"yellow",
+            "x":0,
+            "y":1,
+            "quantity":1,
+            "resourceIdentifier":"Item4"
         }
     ],
     

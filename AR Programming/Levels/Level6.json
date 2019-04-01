@@ -1,0 +1,65 @@
+{
+    "number":6,
+    "type":"cleanup",
+    "name":"Sorter tingene",
+    "unlocks":"Level7",
+    "dropOffs":[
+        {
+            "x":1,
+            "y":0,
+            "resourceIdentifier":"DropSpot1",
+            "collectiveGoals": {
+                "blue":1
+            }
+        },
+        {
+            "x":2,
+            "y":0,
+            "resourceIdentifier":"DropSpot2",
+            "collectiveGoals": {
+                "green":1
+            }
+        },
+        {
+            "x":3,
+            "y":0,
+            "resourceIdentifier":"DropSpot3",
+            "collectiveGoals": {
+                "red":2
+            }
+        },
+    ],
+    "items":[
+        {
+            "type":"blue",
+            "x":0,
+            "y":0,
+            "quantity":1,
+            "resourceIdentifier":"Item1"
+        },
+        {
+            "type":"green",
+            "x":1,
+            "y":0,
+            "quantity":1,
+            "resourceIdentifier":"Item2"
+        },
+        {
+            "type":"red",
+            "x":2,
+            "y":0,
+            "quantity":1,
+            "resourceIdentifier":"Item3"
+        },
+        {
+            "type":"red",
+            "x":4,
+            "y":0,
+            "quantity":1,
+            "resourceIdentifier":"Item3"
+        }
+    ],
+    
+    "props":[
+    ]
+}
