@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ExecutableProgramView" customModule="AR_Programming" customModuleProvider="target">
+            <connections>
+                <outlet property="functionStack" destination="2mX-Kb-mbC" id="7hk-k0-aj6"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="477" height="148"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lG3-9R-WKx" customClass="RoundedButton" customModule="AR_Programming" customModuleProvider="target">
+                    <rect key="frame" x="413" y="42" width="64" height="64"/>
+                    <color key="backgroundColor" red="0.085386164489999999" green="0.48004096750000003" blue="0.9989228845" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="lG3-9R-WKx" secondAttribute="height" multiplier="1:1" id="Abs-xm-TWU"/>
+                        <constraint firstAttribute="height" constant="64" id="kGF-Tx-czV"/>
+                    </constraints>
+                    <inset key="imageEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
+                    <state key="normal" title="P" image="PlayIcon">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+                <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="405" placeholderIntrinsicHeight="140" axis="vertical" distribution="fillProportionally" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2mX-Kb-mbC">
+                    <rect key="frame" x="0.0" y="4" width="405" height="140"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="lG3-9R-WKx" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" priority="750" constant="4" id="EpB-9h-3fd"/>
+                <constraint firstItem="lG3-9R-WKx" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="K2n-CK-Ym1"/>
+                <constraint firstItem="2mX-Kb-mbC" firstAttribute="top" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="top" constant="4" id="L1C-tp-LeI"/>
+                <constraint firstItem="lG3-9R-WKx" firstAttribute="leading" secondItem="2mX-Kb-mbC" secondAttribute="trailing" constant="8" id="ThS-4J-SuB"/>
+                <constraint firstItem="2mX-Kb-mbC" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="flO-1M-dnc"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="lG3-9R-WKx" secondAttribute="bottom" priority="750" constant="4" id="gC0-bb-EyM"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="2mX-Kb-mbC" secondAttribute="bottom" constant="4" id="gb0-Zd-KyL"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="lG3-9R-WKx" secondAttribute="trailing" id="po4-LA-Y34"/>
+                <constraint firstItem="2mX-Kb-mbC" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="zGx-gv-CAY"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="56.799999999999997" y="-258.17091454272867"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="PlayIcon" width="200" height="200"/>
+    </resources>
+</document>

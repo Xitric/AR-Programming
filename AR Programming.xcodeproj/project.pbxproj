@@ -84,6 +84,8 @@
 		562CCAA5220D92CF00BF6A8D /* ObservationEdgeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCAA1220D92CC00BF6A8D /* ObservationEdgeTests.swift */; };
 		562CCAAC220D933E00BF6A8D /* Double+HelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCAAB220D933E00BF6A8D /* Double+HelpersTests.swift */; };
 		562E684D22522E4300D07C69 /* ExampleProgramTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562E684C22522E4300D07C69 /* ExampleProgramTableViewCell.swift */; };
+		562E684F22523DCF00D07C69 /* ExecutableProgramView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 562E684E22523DCF00D07C69 /* ExecutableProgramView.xib */; };
+		562E68512252411700D07C69 /* ExecutableProgramView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562E68502252411700D07C69 /* ExecutableProgramView.swift */; };
 		562EF8C62240E67400A8DC97 /* PickupActionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562EF8C52240E67400A8DC97 /* PickupActionComponent.swift */; };
 		562EF8C82240E79200A8DC97 /* CollectibleComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562EF8C72240E79200A8DC97 /* CollectibleComponent.swift */; };
 		562EF8CA2240FC9D00A8DC97 /* LinkComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562EF8C92240FC9D00A8DC97 /* LinkComponent.swift */; };
@@ -240,6 +242,8 @@
 		562CCAA1220D92CC00BF6A8D /* ObservationEdgeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationEdgeTests.swift; sourceTree = "<group>"; };
 		562CCAAB220D933E00BF6A8D /* Double+HelpersTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+HelpersTests.swift"; sourceTree = "<group>"; };
 		562E684C22522E4300D07C69 /* ExampleProgramTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleProgramTableViewCell.swift; sourceTree = "<group>"; };
+		562E684E22523DCF00D07C69 /* ExecutableProgramView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExecutableProgramView.xib; sourceTree = "<group>"; };
+		562E68502252411700D07C69 /* ExecutableProgramView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExecutableProgramView.swift; sourceTree = "<group>"; };
 		562EF8C52240E67400A8DC97 /* PickupActionComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupActionComponent.swift; sourceTree = "<group>"; };
 		562EF8C72240E79200A8DC97 /* CollectibleComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectibleComponent.swift; sourceTree = "<group>"; };
 		562EF8C92240FC9D00A8DC97 /* LinkComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkComponent.swift; sourceTree = "<group>"; };
@@ -570,6 +574,8 @@
 				562ACDB422456D5900D2DA7C /* CardDetectionView.swift */,
 				562ACDB8224583DC00D2DA7C /* PassThroughView.swift */,
 				562FC97C224FCD87001678B2 /* RoundedButton.swift */,
+				562E684E22523DCF00D07C69 /* ExecutableProgramView.xib */,
+				562E68502252411700D07C69 /* ExecutableProgramView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -858,6 +864,7 @@
 				90D7538821AC259A00B1F2E4 /* pickup.wav in Resources */,
 				90DF7337216F441E00F51E0C /* Main.storyboard in Resources */,
 				56108442224D3CC1009A0039 /* Localizable.strings in Resources */,
+				562E684F22523DCF00D07C69 /* ExecutableProgramView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -978,6 +985,7 @@
 				56319E09223801D100469D5E /* MovementActionComponent.swift in Sources */,
 				562EF8D62241139C00A8DC97 /* simd_double4x4+Helpers.swift in Sources */,
 				204AEC14220DCA1E00E0F624 /* ARContainerViewController.swift in Sources */,
+				562E68512252411700D07C69 /* ExecutableProgramView.swift in Sources */,
 				5610841A224CEAE4009A0039 /* SimpleActionCardNode.swift in Sources */,
 				206A0CB52240E5120018E6B7 /* WardrobeManager.swift in Sources */,
 				202219A7223BC07000A2A8EA /* WardrobeViewController.swift in Sources */,

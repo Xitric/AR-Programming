@@ -38,7 +38,7 @@ class ExampleProgramTableDataSource: NSObject, UITableViewDataSource, UITableVie
         let row = tableView.dequeueReusableCell(withIdentifier: "ProgramExampleCell", for: indexPath)
         
         if let row = row as? ExampleProgramTableViewCell {
-            row.programView.program = examples[indexPath.row].main
+            row.executableProgramView.editor = examples[indexPath.row]
         }
         
         return row

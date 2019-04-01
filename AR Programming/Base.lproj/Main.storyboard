@@ -924,38 +924,22 @@
                                             <rect key="frame" x="0.0" y="0.0" width="462" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" verticalCompressionResistancePriority="1000" placeholderIntrinsicWidth="390" placeholderIntrinsicHeight="64" translatesAutoresizingMaskIntoConstraints="NO" id="LGT-ef-wCa" customClass="ProgramView" customModule="AR_Programming" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="4" width="390" height="35.5"/>
+                                                <view contentMode="scaleToFill" placeholderIntrinsicWidth="390" placeholderIntrinsicHeight="64" translatesAutoresizingMaskIntoConstraints="NO" id="LGT-ef-wCa" customClass="ExecutableProgramView" customModule="AR_Programming" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="4" width="462" height="35.5"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
-                                                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VP3-wU-irc" customClass="RoundedButton" customModule="AR_Programming" customModuleProvider="target">
-                                                    <rect key="frame" x="398" y="-10.5" width="64" height="64.5"/>
-                                                    <color key="backgroundColor" red="0.085386164489999999" green="0.48004096750000003" blue="0.9989228845" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="64" id="KVK-A1-FRy"/>
-                                                        <constraint firstAttribute="width" secondItem="VP3-wU-irc" secondAttribute="height" multiplier="1:1" id="yah-vm-xCN"/>
-                                                    </constraints>
-                                                    <inset key="imageEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
-                                                    <state key="normal" title="P" image="PlayIcon">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </state>
-                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="LGT-ef-wCa" firstAttribute="centerY" secondItem="jUa-lG-ld2" secondAttribute="centerY" id="70Q-yO-xok"/>
-                                                <constraint firstItem="VP3-wU-irc" firstAttribute="leading" secondItem="LGT-ef-wCa" secondAttribute="trailing" constant="8" id="MP1-A0-V6m"/>
-                                                <constraint firstAttribute="trailing" secondItem="VP3-wU-irc" secondAttribute="trailing" id="OnV-Hc-UVO"/>
+                                                <constraint firstAttribute="trailing" secondItem="LGT-ef-wCa" secondAttribute="trailing" id="MsB-GD-nAi"/>
                                                 <constraint firstItem="LGT-ef-wCa" firstAttribute="leading" secondItem="jUa-lG-ld2" secondAttribute="leading" id="c4E-CX-04B"/>
                                                 <constraint firstItem="LGT-ef-wCa" firstAttribute="top" relation="greaterThanOrEqual" secondItem="jUa-lG-ld2" secondAttribute="top" constant="4" id="gWv-jd-szi"/>
-                                                <constraint firstItem="VP3-wU-irc" firstAttribute="centerY" secondItem="jUa-lG-ld2" secondAttribute="centerY" id="hRV-ng-10e"/>
-                                                <constraint firstAttribute="bottom" secondItem="VP3-wU-irc" secondAttribute="bottom" priority="750" constant="4" id="jDe-ad-WDv"/>
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="LGT-ef-wCa" secondAttribute="bottom" constant="4" id="mEf-nM-BYC"/>
-                                                <constraint firstItem="VP3-wU-irc" firstAttribute="top" secondItem="jUa-lG-ld2" secondAttribute="top" priority="750" constant="4" id="ncl-vM-wuk"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
-                                            <outlet property="programView" destination="LGT-ef-wCa" id="gOr-RW-KNF"/>
+                                            <outlet property="executableProgramView" destination="LGT-ef-wCa" id="0Ky-RF-6aS"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -992,7 +976,6 @@
     </scenes>
     <resources>
         <image name="Lock" width="156" height="172"/>
-        <image name="PlayIcon" width="200" height="200"/>
         <image name="Retry" width="128" height="128"/>
         <image name="SpeakerIcon" width="200" height="200"/>
         <image name="robo" width="540" height="540"/>

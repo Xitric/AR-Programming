@@ -13,14 +13,15 @@ class ProgramEditor: CardGraphDetectorDelegate, ProgramState {
     
     private var currentProgram: Program?
     private let detector: BarcodeDetector
-    private var allPrograms = [String:Program]()
+    private var allStoredPrograms = [String:Program]()
     
     weak var delegate: ProgramEditorDelegate?
     
     var main: Program {
-        get {
-            return allPrograms["function0"] ?? Program(startNode: nil)
-        }
+        return allStoredPrograms["function0"] ?? Program(startNode: nil)
+    }
+    var allPrograms: [Program] {
+        return Array(allStoredPrograms.values)
     }
     
     init() {
@@ -37,12 +38,12 @@ class ProgramEditor: CardGraphDetectorDelegate, ProgramState {
     func saveProgram() {
         if let cardIdentifier = currentProgram?.start?.card.internalName {
             currentProgram?.state = self
-            allPrograms[cardIdentifier] = currentProgram
+            allStoredPrograms[cardIdentifier] = currentProgram
         }
     }
     
     func reset() {
-        allPrograms.removeAll()
+        allStoredPrograms.removeAll()
     }
     
     func graphDetector(found graph: ObservationGraph) {
@@ -65,7 +66,7 @@ class ProgramEditor: CardGraphDetectorDelegate, ProgramState {
     }
     
     func getProgram(forCard card: Card) -> Program? {
-        return allPrograms[card.internalName]
+        return allStoredPrograms[card.internalName]
     }
 }
 
