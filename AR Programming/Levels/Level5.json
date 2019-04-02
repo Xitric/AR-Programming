@@ -7,7 +7,7 @@
         {
             "x":0,
             "y":0,
-            "resourceIdentifier":"DropSpotGrey",
+            "resourceIdentifier":"DropSpots/DropSpotGrey",
             "collectiveGoals": {
                 "Blå":1,
                 "Rød":1,
@@ -22,28 +22,28 @@
             "x":-1,
             "y":0,
             "quantity":1,
-            "resourceIdentifier":"PolygonBlue"
+            "resourceIdentifier":"Polygons/PolygonBlue"
         },
         {
             "type":"Grøn",
             "x":1,
             "y":0,
             "quantity":1,
-            "resourceIdentifier":"PolygonGreen"
+            "resourceIdentifier":"Polygons/PolygonGreen"
         },
         {
             "type":"Rød",
             "x":0,
             "y":-1,
             "quantity":1,
-            "resourceIdentifier":"PolygonRed"
+            "resourceIdentifier":"Polygons/PolygonRed"
         },
         {
             "type":"Gul",
             "x":0,
             "y":1,
             "quantity":1,
-            "resourceIdentifier":"PolygonYellow"
+            "resourceIdentifier":"Polygons/PolygonYellow"
         }
     ],
     

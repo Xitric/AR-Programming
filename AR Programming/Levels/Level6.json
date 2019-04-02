@@ -7,7 +7,7 @@
         {
             "x":1,
             "y":0,
-            "resourceIdentifier":"DropSpotBlue",
+            "resourceIdentifier":"DropSpots/DropSpotBlue",
             "collectiveGoals": {
                 "Blå":1
             }
@@ -15,7 +15,7 @@
         {
             "x":2,
             "y":0,
-            "resourceIdentifier":"DropSpotGreen",
+            "resourceIdentifier":"DropSpots/DropSpotGreen",
             "collectiveGoals": {
                 "Grøn":1
             }
@@ -23,7 +23,7 @@
         {
             "x":3,
             "y":0,
-            "resourceIdentifier":"DropSpotRed",
+            "resourceIdentifier":"DropSpots/DropSpotRed",
             "collectiveGoals": {
                 "Rød":2
             }
@@ -35,28 +35,28 @@
             "x":0,
             "y":0,
             "quantity":1,
-            "resourceIdentifier":"PolygonBlue"
+            "resourceIdentifier":"Polygons/PolygonBlue"
         },
         {
             "type":"Grøn",
             "x":1,
             "y":0,
             "quantity":1,
-            "resourceIdentifier":"PolygonGreen"
+            "resourceIdentifier":"Polygons/PolygonGreen"
         },
         {
             "type":"Rød",
             "x":2,
             "y":0,
             "quantity":1,
-            "resourceIdentifier":"PolygonRed"
+            "resourceIdentifier":"Polygons/PolygonRed"
         },
         {
             "type":"Rød",
             "x":4,
             "y":0,
             "quantity":1,
-            "resourceIdentifier":"PolygonRed"
+            "resourceIdentifier":"Polygons/PolygonRed"
         }
     ],
     
