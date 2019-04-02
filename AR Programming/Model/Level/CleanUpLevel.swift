@@ -29,7 +29,20 @@ class CleanUpLevel: Level {
     }
     
     override var infoLabel: String? {
-        return "infoLabl"
+        return getCurrentInventoryComparedToGoal()
+    }
+    
+    private func getCurrentInventoryComparedToGoal() -> String {
+        var inventoryComparedToGoal = ""
+        for (entity, typeAmount) in currentInventory {
+            for(type, amount) in typeAmount {
+                if let goalAmount = goalInventory[entity]?[type] {
+                    inventoryComparedToGoal.append("\(type) \(amount) / \(goalAmount)\n")
+                }
+            }
+        }
+        inventoryComparedToGoal.removeLast()
+        return inventoryComparedToGoal
     }
     
     // MARK: - Codable
