@@ -25,7 +25,6 @@ class CardNodeFactory {
         
         // Control
         register(cardNode: FunctionCardNode(functionNumber: 0, isCaller: false), withCode: "0")
-        //TODO: UPDATE GRAPHICS
         register(cardNode: FunctionCardNode(functionNumber: 1, isCaller: true), withCode: "12")
         register(cardNode: FunctionCardNode(functionNumber: 1, isCaller: false), withCode: "13")
         register(cardNode: FunctionCardNode(functionNumber: 2, isCaller: true), withCode: "14")
@@ -44,8 +43,8 @@ class CardNodeFactory {
         register(cardNode: SimpleActionCardNode(name: "left", action: RotationAction(direction: .left)), withCode: "2")
         register(cardNode: SimpleActionCardNode(name: "right", action: RotationAction(direction: .right)), withCode: "3")
         register(cardNode: SimpleActionCardNode(name: "jump", action: JumpAction()), withCode: "4")
-        register(cardNode: SimpleActionCardNode(name: "pickup", action: PickupAction()), withCode: "20") //TODO: UPDATE GRAPHICS
-        register(cardNode: SimpleActionCardNode(name: "drop", action: DropAction()), withCode: "21") //TODO: UPDATE GRAPHICS
+        register(cardNode: SimpleActionCardNode(name: "pickup", action: PickupAction()), withCode: "20")
+        register(cardNode: SimpleActionCardNode(name: "drop", action: DropAction()), withCode: "21")
         
         // Parameters
         register(cardNode: CardNode(card: ParameterCard(parameter: 1)), withCode: "8")
