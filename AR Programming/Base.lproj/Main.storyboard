@@ -924,22 +924,38 @@
                                             <rect key="frame" x="0.0" y="0.0" width="462" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" placeholderIntrinsicWidth="390" placeholderIntrinsicHeight="64" translatesAutoresizingMaskIntoConstraints="NO" id="LGT-ef-wCa" customClass="ExecutableProgramView" customModule="AR_Programming" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="4" width="462" height="35.5"/>
+                                                <view contentMode="scaleToFill" placeholderIntrinsicWidth="390" placeholderIntrinsicHeight="64" translatesAutoresizingMaskIntoConstraints="NO" id="LGT-ef-wCa" customClass="ProgramView" customModule="AR_Programming" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="16" width="390" height="11.5"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
+                                                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Km-jQ-DSe" customClass="RoundedButton" customModule="AR_Programming" customModuleProvider="target">
+                                                    <rect key="frame" x="398" y="-10.5" width="64" height="64.5"/>
+                                                    <color key="backgroundColor" red="0.085386164489999999" green="0.48004096750000003" blue="0.9989228845" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="64" id="DM6-o2-NL5"/>
+                                                    </constraints>
+                                                    <inset key="imageEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
+                                                    <state key="normal" title="P" image="PlayIcon">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="LGT-ef-wCa" firstAttribute="centerY" secondItem="jUa-lG-ld2" secondAttribute="centerY" id="70Q-yO-xok"/>
-                                                <constraint firstAttribute="trailing" secondItem="LGT-ef-wCa" secondAttribute="trailing" id="MsB-GD-nAi"/>
+                                                <constraint firstAttribute="bottom" secondItem="8Km-jQ-DSe" secondAttribute="bottom" priority="750" constant="16" id="B32-se-aWs"/>
+                                                <constraint firstAttribute="trailing" secondItem="8Km-jQ-DSe" secondAttribute="trailing" id="R8h-bd-fAA"/>
+                                                <constraint firstItem="8Km-jQ-DSe" firstAttribute="centerY" secondItem="jUa-lG-ld2" secondAttribute="centerY" id="c0b-gB-NKz"/>
                                                 <constraint firstItem="LGT-ef-wCa" firstAttribute="leading" secondItem="jUa-lG-ld2" secondAttribute="leading" id="c4E-CX-04B"/>
-                                                <constraint firstItem="LGT-ef-wCa" firstAttribute="top" relation="greaterThanOrEqual" secondItem="jUa-lG-ld2" secondAttribute="top" constant="4" id="gWv-jd-szi"/>
-                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="LGT-ef-wCa" secondAttribute="bottom" constant="4" id="mEf-nM-BYC"/>
+                                                <constraint firstItem="8Km-jQ-DSe" firstAttribute="leading" secondItem="LGT-ef-wCa" secondAttribute="trailing" constant="8" id="cG3-RN-T5z"/>
+                                                <constraint firstItem="LGT-ef-wCa" firstAttribute="top" relation="greaterThanOrEqual" secondItem="jUa-lG-ld2" secondAttribute="top" constant="16" id="gWv-jd-szi"/>
+                                                <constraint firstItem="8Km-jQ-DSe" firstAttribute="top" secondItem="jUa-lG-ld2" secondAttribute="top" priority="750" constant="16" id="hYE-KL-d4A"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="LGT-ef-wCa" secondAttribute="bottom" constant="16" id="mEf-nM-BYC"/>
+                                                <constraint firstItem="8Km-jQ-DSe" firstAttribute="width" secondItem="8Km-jQ-DSe" secondAttribute="height" multiplier="1:1" id="tqo-7C-fSe"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
-                                            <outlet property="executableProgramView" destination="LGT-ef-wCa" id="0Ky-RF-6aS"/>
+                                            <outlet property="programView" destination="LGT-ef-wCa" id="0Ky-RF-6aS"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -971,11 +987,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Quw-hc-WHS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3773" y="122"/>
+            <point key="canvasLocation" x="3772.8515624999995" y="121.875"/>
         </scene>
     </scenes>
     <resources>
         <image name="Lock" width="156" height="172"/>
+        <image name="PlayIcon" width="200" height="200"/>
         <image name="Retry" width="128" height="128"/>
         <image name="SpeakerIcon" width="200" height="200"/>
         <image name="robo" width="540" height="540"/>

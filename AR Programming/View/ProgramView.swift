@@ -2,114 +2,70 @@
 //  ProgramView.swift
 //  AR Programming
 //  
-//  Created by Kasper Schultz Davidsen on 26/03/2019.
+//  Created by Kasper Schultz Davidsen on 01/04/2019.
 //  Copyright © 2019 Emil Nielsen and Kasper Schultz Davidsen. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-class ProgramView: UIView {
+class ProgramView: UIStackView {
     
-    private var nodesToDraw = [CardDrawable]()
-    private var images = [String:UIImage]()
-    private var xOffset = CGFloat(0)
-    private var yOffset = CGFloat(0)
-    
-    var scale = CGFloat(60)
-    var program: Program? {
+    var editor: ProgramEditor? {
         didSet {
-            resetProgram()
+            clear()
+            populateProgramView()
         }
     }
     
-    override var intrinsicContentSize: CGSize {
-        return frame.size
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
     }
     
-    private func resetProgram() {
-        nodesToDraw.removeAll()
-        images.removeAll()
-        
-        addNode(program?.start, parentPosition: CGPoint(x: -1, y: 0))
-        wrapProgram()
+    required init(coder: NSCoder) {
+        super.init(coder: coder)
+        commonInit()
     }
     
-    private func addNode(_ node: CardNode?, parentPosition: CGPoint) {
-        guard let node = node else {
+    private func commonInit() {
+        self.axis = .vertical
+        self.alignment = .leading
+        self.distribution = .fillProportionally
+        self.spacing = 24
+    }
+    
+    private func clear() {
+        for subView in arrangedSubviews {
+            subView.removeFromSuperview()
+        }
+    }
+    
+    private func populateProgramView() {
+        guard let editor = editor else {
             return
         }
         
-        let imageName = node.card.internalName
-        loadImage(withName: imageName)
+        //First add the main function to ensure it comes first
+        addArrangedSubview(createFunctionView(withProgram: editor.main))
         
-        let angle = CGFloat(node.entryAngle)
-        let denominator = abs(cos(angle)) + abs(sin(angle))
-        let x = parentPosition.x + cos(angle) / denominator
-        let y = parentPosition.y + sin(angle) / denominator
+        //Then add the remaining functions, if any
+        let programs = editor.allPrograms.filter {
+            $0 !== editor.main
+        }
         
-        let drawable = CardDrawable(imageName: imageName, x: x, y: y)
-        nodesToDraw.append(drawable)
-        
-        for child in node.children {
-            addNode(child, parentPosition: CGPoint(x: x, y: y))
+        for program in programs {
+            addArrangedSubview(createFunctionView(withProgram: program))
         }
     }
     
-    private func loadImage(withName name: String) {
-        if images[name] == nil {
-            images[name] = UIImage(named: name)
-        }
-    }
-    
-    private func wrapProgram() {
-        //Find minimum and maximum extent on both axes
-        var min = CGPoint(x: 0, y: 0)
-        var max = CGPoint(x: 0, y: 0)
+    private func createFunctionView(withProgram program: Program) -> FunctionView {
+        let fv = FunctionView()
+        fv.setContentHuggingPriority(.required, for: .vertical)
+        fv.setContentCompressionResistancePriority(.required, for: .vertical)
+        fv.backgroundColor = .clear
         
-        for drawable in nodesToDraw {
-            let drawableMin = CGPoint(x: drawable.x, y: drawable.y)
-            let drawableMax = CGPoint(x: drawable.x + 1, y: drawable.y + 1)
-            
-            if drawableMin.x < min.x {
-                min.x = drawableMin.x
-            }
-            if drawableMax.x > max.x {
-                max.x = drawableMax.x
-            }
-            
-            if drawableMin.y < min.y {
-                min.y = drawableMin.y
-            }
-            if drawableMax.y > max.y {
-                max.y = drawableMax.y
-            }
-        }
+        fv.program = program
         
-        xOffset = min.x
-        yOffset = min.y
-        
-        frame = CGRect(x: frame.minX, y: frame.minY, width: (max.x - min.x) * scale, height: (max.y - min.y) * scale)
+        return fv
     }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        setNeedsDisplay()
-    }
-    
-    override func draw(_ rect: CGRect) {
-        for drawable in nodesToDraw {
-            let image = images[drawable.imageName]
-            let imgRect = CGRect(x: (drawable.x - xOffset) * scale,
-                                 y: (drawable.y - yOffset) * scale,
-                                 width: scale,
-                                 height: scale)
-            image?.draw(in: imgRect)
-        }
-    }
-}
-
-private struct CardDrawable {
-    let imageName: String
-    let x: CGFloat
-    let y: CGFloat
 }

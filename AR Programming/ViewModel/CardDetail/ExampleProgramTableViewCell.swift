@@ -10,5 +10,5 @@ import UIKit
 
 class ExampleProgramTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var executableProgramView: ExecutableProgramView!
+    @IBOutlet weak var programView: ProgramView!
 }
