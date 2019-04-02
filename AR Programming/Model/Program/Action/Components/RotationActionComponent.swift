@@ -10,20 +10,28 @@ import Foundation
 
 class RotationActionComponent: ActionComponent {
     
-    let startRotation: simd_quatd
-    let goalRotation: simd_quatd
+    let rotation: simd_quatd
+    var startRotation: simd_quatd!
+    var goalRotation: simd_quatd!
     let duration: TimeInterval
     private var elapsedTime = TimeInterval(0)
     
-    init(from start: simd_quatd, by rotation: simd_quatd, duration: TimeInterval) {
-        self.startRotation = start
-        self.goalRotation = start * rotation
+    init(by rotation: simd_quatd, duration: TimeInterval) {
+        self.rotation = rotation
         self.duration = duration
         super.init()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func didAddToEntity() {
+        guard let transform = entity?.component(subclassOf: TransformComponent.self)
+            else { return }
+        
+        startRotation = transform.rotation
+        goalRotation = startRotation * rotation
     }
     
     override func update(deltaTime seconds: TimeInterval) {

@@ -21,8 +21,12 @@ class CardDescriptionViewController: UIViewController {
     var card: Card? {
         didSet {
             if let card = card {
-                self.cardName.text = "\(card.name) | \(card.summary)"
-                self.cardDescription.text = card.description
+                let name = NSLocalizedString("\(card.internalName).name", comment: "")
+                let summary = NSLocalizedString("\(card.internalName).summary", comment: "")
+                let description = NSLocalizedString("\(card.internalName).description", comment: "")
+                
+                self.cardName.text = "\(name) | \(summary)"
+                self.cardDescription.text = description
                 self.cardImage.image = UIImage(named: card.internalName)
             } else {
                 returnToLevelView()

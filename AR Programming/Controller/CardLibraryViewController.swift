@@ -45,8 +45,9 @@ extension CardLibraryViewController: UICollectionViewDataSource {
             let card = cardLibrary[indexPath.item]
             let cardLibraryImage = UIImage(named: card.internalName)
             cardCell.image.image = cardLibraryImage
-            cardCell.cardTitle = card.name
-            cardCell.cardDescription = card.description
+            //TODO: Get from localization
+//            cardCell.cardTitle = card.name
+//            cardCell.cardDescription = card.description
         }
         return cell
     }

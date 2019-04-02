@@ -11,7 +11,10 @@ import SceneKit
 
 class Program {
     
+    private var currentAction: Action?
+    
     let start: CardNode?
+    weak var state: ProgramState!
     weak var delegate: ProgramDelegate?
     
     init(startNode: CardNode?) {
@@ -29,14 +32,14 @@ class Program {
             return
         }
         
-        if let action = node.getCard().getAction(forEntity: entity) {
-            action.onComplete = { [weak self] in
-                self?.delegate?.program(self!, executed: node.getCard())
+        if let action = node.getAction(forEntity: entity, withProgramState: state) {
+            currentAction = action
+            action.run(onEntity: entity, withProgramDelegate: delegate) { [weak self] in
+                self?.delegate?.program(self!, executed: node.card)
                 self?.run(node.next(), on: entity)
             }
-            entity.addComponent(action)
         } else {
-            delegate?.program(self, executed: node.getCard())
+            delegate?.program(self, executed: node.card)
             run(node.next(), on: entity)
         }
     }
