@@ -10,13 +10,11 @@ import Foundation
 
 class CleanUpLevel: Level {
     
-    //private var dropOffGoals = [String:simd_double3]()
-    //private var dropOffAmounts = [String:Int]()
-    //private var collect = [String:[Entity]]()
-    
-    
     private var currentInventory = [Entity:[String:Int]]()
     private var goalInventory = [Entity:[String:Int]]()
+    private var resetInventory = [Entity:[String:Int]]()
+    
+    private var entitiesForReset = [Entity:simd_double3]()
     
     private var collectibles: [Entity] {
         get {
@@ -24,7 +22,11 @@ class CleanUpLevel: Level {
         }
     }
     
-    private var collectiblesForReset = [Entity]()
+    private var dropOffs: [Entity] {
+        get {
+            return entityManager.getEntities(withComponents: InventoryComponent.self)
+        }
+    }
     
     override var infoLabel: String? {
         return "infoLabl"
@@ -39,13 +41,16 @@ class CleanUpLevel: Level {
         for dropoff in dropOffs {
             let entity = createDropOff(fromJson: dropoff)
             entityManager.addEntity(entity)
+            let position = entity.component(subclassOf: TransformComponent.self)?.location
+            entitiesForReset[entity] = position
         }
         
         let items = try container.decode([IemJSON].self, forKey: .items)
         for item in items {
             let entity = createItem(fromJson: item)
             entityManager.addEntity(entity)
-            // collectiblesForReset.append(entity)
+            let position = entity.component(subclassOf: TransformComponent.self)?.location
+            entitiesForReset[entity] = position
         }
     }
     
@@ -98,8 +103,9 @@ class CleanUpLevel: Level {
             inventory.add(quantity: 0, ofType: type)
             currentInventory[dropOff]![type] = 0
         }
-
+        
         goalInventory[dropOff] = json.collectiveGoals
+        resetInventory = currentInventory
 
         return dropOff
     }
@@ -115,7 +121,6 @@ class CleanUpLevel: Level {
                         if let collectibleCollision = collectible.component(ofType: CollisionComponent.self) {
                             if dropoffCollision.collidesWith(other: collectibleCollision){
                                 addToDropoff(dropoff, collectible)
-                                
                             }
                         }
                     }
@@ -132,9 +137,8 @@ class CleanUpLevel: Level {
             
             if (currentInventory[dropoff]?[quantity.type]) != nil{
                 currentInventory[dropoff]?[quantity.type]? += quantity.quantity
-                item.removeComponent(ofType: QuantityComponent.self)
-                item.removeComponent(ofType: CollectibleComponent.self)
-                
+                item.removeComponent(ofType: CollisionComponent.self)
+    
                 if isComplete() {
                     complete()
                 }
@@ -153,15 +157,7 @@ class CleanUpLevel: Level {
                 }
             }
         }
-        //        for entity in collectibles {
-        //            guard let entityPosition = entity.component(subclassOf: TransformComponent.self)?.location else { return false }
-        //
-        //            for (type, goalPosition) in dropOffGoals {
-        //                if !simd_double3.vectEqual(entityPosition, goalPosition, tolerance: 0.1){
-        //                    return false
-        //                }
-        //            }
-        //        }
+
         return true
     }
     
@@ -170,21 +166,37 @@ class CleanUpLevel: Level {
         defer {
             objc_sync_exit(entityManager)
         }
-        
-        entityManager.player.component(ofType: InventoryComponent.self)?.reset()
-        
+
         for oldEntity in collectibles {
             entityManager.removeEntity(oldEntity)
         }
-        
-        for newEntity in collectiblesForReset {
-            entityManager.addEntity(newEntity)
+
+        for oldEntity in dropOffs {
+            entityManager.removeEntity(oldEntity)
         }
         
-        super.reset()
+        if entityManager.player.component(ofType: LinkComponent.self) != nil {
+            entityManager.player.removeComponent(ofType: LinkComponent.self)
+        }
+    
+        for (newEntity, position) in entitiesForReset {
+            newEntity.component(ofType: TransformComponent.self)?.location = position
+            let collision = CollisionComponent(size: simd_double3(0.1, 0.1, 0.1), offset: simd_double3(0, 0.05, 0))
+            newEntity.addComponent(collision)
+            entityManager.addEntity(newEntity)
+            print(newEntity.components)
+        }
+        
+        currentInventory = resetInventory
         
         delegate?.levelInfoChanged(self, info: infoLabel)
+        super.reset()
     }
+    
+    override func getScore() -> Int {
+        return 0
+    }
+    
 }
 
 // MARK: - Helpers

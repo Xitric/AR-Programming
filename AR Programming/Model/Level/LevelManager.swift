@@ -86,9 +86,7 @@ public class LevelManager {
             }
             
             markLevel(withName: levels[0].name, asUnlocked: true)
-            markLevel(withName: levels[4].name, asUnlocked: true)
             levels[0].unlocked = true
-            levels[4].unlocked = true
         }
         
         return levels
