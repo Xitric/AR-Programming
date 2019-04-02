@@ -93,9 +93,10 @@ class CleanUpLevel: Level {
         let inventory = InventoryComponent()
         dropOff.addComponent(inventory)
         
+        currentInventory[dropOff] = json.collectiveGoals
         for (type, _) in json.collectiveGoals {
             inventory.add(quantity: 0, ofType: type)
-            currentInventory[dropOff] = [type:0]
+            currentInventory[dropOff]![type] = 0
         }
 
         goalInventory[dropOff] = json.collectiveGoals
