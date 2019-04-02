@@ -22,7 +22,7 @@ class CleanUpLevel: Level {
         }
     }
     
-    private var dropOffs: [Entity] {
+    private var dropSpots: [Entity] {
         get {
             return entityManager.getEntities(withComponents: InventoryComponent.self)
         }
@@ -50,9 +50,9 @@ class CleanUpLevel: Level {
         try super.init(from: decoder)
         
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        let dropOffs = try container.decode([DropOffGoalJSON].self, forKey: .dropOffs)
-        for dropoff in dropOffs {
-            let entity = createDropOff(fromJson: dropoff)
+        let dropSpots = try container.decode([DropSpotGoalJSON].self, forKey: .dropSpots)
+        for dropSpot in dropSpots {
+            let entity = createDropSpots(fromJson: dropSpot)
             entityManager.addEntity(entity)
             let position = entity.component(subclassOf: TransformComponent.self)?.location
             entitiesForReset[entity] = position
@@ -68,7 +68,7 @@ class CleanUpLevel: Level {
     }
     
     private enum CodingKeys: String, CodingKey {
-        case dropOffs
+        case dropSpots
         case items
     }
     
@@ -96,44 +96,44 @@ class CleanUpLevel: Level {
         return item
     }
     
-    private func createDropOff(fromJson json: DropOffGoalJSON) -> Entity {
-        let dropOff = Entity()
+    private func createDropSpots(fromJson json: DropSpotGoalJSON) -> Entity {
+        let dropSpot = Entity()
         
         let transform = TransformComponent(location: simd_double3(x: Double(json.x), y: 0, z: Double(json.y)))
-        dropOff.addComponent(transform)
+        dropSpot.addComponent(transform)
         
         let collision = CollisionComponent(size: simd_double3(0.1, 0.1, 0.1), offset: simd_double3(0, 0.05, 0))
-        dropOff.addComponent(collision)
+        dropSpot.addComponent(collision)
         
         let resource = ResourceComponent(resourceIdentifier: json.resourceIdentifier)
-        dropOff.addComponent(resource)
+        dropSpot.addComponent(resource)
         
         let inventory = InventoryComponent()
-        dropOff.addComponent(inventory)
+        dropSpot.addComponent(inventory)
         
-        currentInventory[dropOff] = json.collectiveGoals
+        currentInventory[dropSpot] = json.collectiveGoals
         for (type, _) in json.collectiveGoals {
             inventory.add(quantity: 0, ofType: type)
-            currentInventory[dropOff]![type] = 0
+            currentInventory[dropSpot]![type] = 0
         }
         
-        goalInventory[dropOff] = json.collectiveGoals
+        goalInventory[dropSpot] = json.collectiveGoals
         resetInventory = currentInventory
 
-        return dropOff
+        return dropSpot
     }
     
     //MARK: - Logic
     override func update(delta: TimeInterval) {
-        let dropOffCollisions = entityManager.getEntities(withComponents: CollisionComponent.self, InventoryComponent.self)
+        let dropSpotEntities = entityManager.getEntities(withComponents: CollisionComponent.self, InventoryComponent.self)
         // Only check if dropspot collides with an item when the player is not holding anything
         if entityManager.player.component(ofType: LinkComponent.self) == nil {
-            for dropoff in dropOffCollisions {
-                if let dropoffCollision = dropoff.component(ofType: CollisionComponent.self) {
+            for dropSpot in dropSpotEntities {
+                if let dropSpotCollision = dropSpot.component(ofType: CollisionComponent.self) {
                     for collectible in collectibles {
                         if let collectibleCollision = collectible.component(ofType: CollisionComponent.self) {
-                            if dropoffCollision.collidesWith(other: collectibleCollision){
-                                addToDropoff(dropoff, collectible)
+                            if dropSpotCollision.collidesWith(other: collectibleCollision){
+                                addToDropSpotInventory(dropSpot, collectible)
                             }
                         }
                     }
@@ -142,14 +142,14 @@ class CleanUpLevel: Level {
         }
     }
     
-    private func addToDropoff(_ dropoff: Entity, _ item: Entity) {
+    private func addToDropSpotInventory(_ dropSpot: Entity, _ item: Entity) {
         if let quantity = item.component(ofType: QuantityComponent.self),
-            let dropoffInventory = dropoff.component(ofType: InventoryComponent.self) {
+            let dropSpotInventory = dropSpot.component(ofType: InventoryComponent.self) {
             
-            dropoffInventory.add(quantity: quantity.quantity, ofType: quantity.type)
+            dropSpotInventory.add(quantity: quantity.quantity, ofType: quantity.type)
             
-            if (currentInventory[dropoff]?[quantity.type]) != nil{
-                currentInventory[dropoff]?[quantity.type]? += quantity.quantity
+            if (currentInventory[dropSpot]?[quantity.type]) != nil{
+                currentInventory[dropSpot]?[quantity.type]? += quantity.quantity
                 item.removeComponent(ofType: CollisionComponent.self)
     
                 if isComplete() {
@@ -184,7 +184,7 @@ class CleanUpLevel: Level {
             entityManager.removeEntity(oldEntity)
         }
 
-        for oldEntity in dropOffs {
+        for oldEntity in dropSpots {
             entityManager.removeEntity(oldEntity)
         }
         
@@ -197,7 +197,6 @@ class CleanUpLevel: Level {
             let collision = CollisionComponent(size: simd_double3(0.1, 0.1, 0.1), offset: simd_double3(0, 0.05, 0))
             newEntity.addComponent(collision)
             entityManager.addEntity(newEntity)
-            print(newEntity.components)
         }
         
         currentInventory = resetInventory
@@ -213,7 +212,7 @@ class CleanUpLevel: Level {
 }
 
 // MARK: - Helpers
-private struct DropOffGoalJSON: Decodable {
+private struct DropSpotGoalJSON: Decodable {
     let x: Int
     let y: Int
     let resourceIdentifier: String

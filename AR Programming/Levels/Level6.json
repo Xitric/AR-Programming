@@ -3,60 +3,60 @@
     "type":"cleanup",
     "name":"Sorter tingene",
     "unlocks":"Level7",
-    "dropOffs":[
+    "dropSpots":[
         {
             "x":1,
             "y":0,
-            "resourceIdentifier":"DropSpot1",
+            "resourceIdentifier":"DropSpotBlue",
             "collectiveGoals": {
-                "blue":1
+                "Blå":1
             }
         },
         {
             "x":2,
             "y":0,
-            "resourceIdentifier":"DropSpot2",
+            "resourceIdentifier":"DropSpotGreen",
             "collectiveGoals": {
-                "green":1
+                "Grøn":1
             }
         },
         {
             "x":3,
             "y":0,
-            "resourceIdentifier":"DropSpot3",
+            "resourceIdentifier":"DropSpotRed",
             "collectiveGoals": {
-                "red":2
+                "Rød":2
             }
         },
     ],
     "items":[
         {
-            "type":"blue",
+            "type":"Blå",
             "x":0,
             "y":0,
             "quantity":1,
-            "resourceIdentifier":"Item1"
+            "resourceIdentifier":"PolygonBlue"
         },
         {
-            "type":"green",
+            "type":"Grøn",
             "x":1,
             "y":0,
             "quantity":1,
-            "resourceIdentifier":"Item2"
+            "resourceIdentifier":"PolygonGreen"
         },
         {
-            "type":"red",
+            "type":"Rød",
             "x":2,
             "y":0,
             "quantity":1,
-            "resourceIdentifier":"Item3"
+            "resourceIdentifier":"PolygonRed"
         },
         {
-            "type":"red",
+            "type":"Rød",
             "x":4,
             "y":0,
             "quantity":1,
-            "resourceIdentifier":"Item3"
+            "resourceIdentifier":"PolygonRed"
         }
     ],
     

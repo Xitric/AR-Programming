@@ -3,47 +3,47 @@
     "type":"cleanup",
     "name":"Sæt tingene på plads",
     "unlocks":"Level6",
-    "dropOffs":[
+    "dropSpots":[
         {
             "x":0,
             "y":0,
-            "resourceIdentifier":"DropSpot0",
+            "resourceIdentifier":"DropSpotGrey",
             "collectiveGoals": {
-                "blue":1,
-                "red":1,
-                "green":1,
-                "yellow":1
+                "Blå":1,
+                "Rød":1,
+                "Grøn":1,
+                "Gul":1
             }
         },
     ],
     "items":[
         {
-            "type":"blue",
+            "type":"Blå",
             "x":-1,
             "y":0,
             "quantity":1,
-            "resourceIdentifier":"Item1"
+            "resourceIdentifier":"PolygonBlue"
         },
         {
-            "type":"green",
+            "type":"Grøn",
             "x":1,
             "y":0,
             "quantity":1,
-            "resourceIdentifier":"Item2"
+            "resourceIdentifier":"PolygonGreen"
         },
         {
-            "type":"red",
+            "type":"Rød",
             "x":0,
             "y":-1,
             "quantity":1,
-            "resourceIdentifier":"Item3"
+            "resourceIdentifier":"PolygonRed"
         },
         {
-            "type":"yellow",
+            "type":"Gul",
             "x":0,
             "y":1,
             "quantity":1,
-            "resourceIdentifier":"Item4"
+            "resourceIdentifier":"PolygonYellow"
         }
     ],
     
