@@ -22,12 +22,14 @@ class CardLibraryViewController: UIViewController {
     }
     
     private lazy var dataSource: CardCollectionDataSource = {
-        let source = CardCollectionDataSource()
+        let source = CardCollectionDataSource(grade: grade)
         return source
     }()
     private lazy var flowLayoutDelegate: CardCollectionFlowLayoutDelegate = {
        return CardCollectionFlowLayoutDelegate()
     }()
+    
+    var grade: Int!
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()

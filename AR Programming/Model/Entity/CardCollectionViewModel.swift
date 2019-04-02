@@ -8,6 +8,10 @@
 
 import Foundation
 
+
+/// This class has the responsibility to filter the cards available in the model, such that it can more easily be presented in the view.
+///
+/// Cards are automatically divided into categories by type and sorted appropriately. Cards can also be filtered by grade, to show only those cards that are relevant to the current user.
 class CardCollectionViewModel {
     
     private var cards = [CardType:[Card]]()
@@ -23,12 +27,16 @@ class CardCollectionViewModel {
         }
     }
     
-    init(cards: [Card]) {
+    init(cards: [Card], grade: Int) {
+        let gradeConfig = Config.read(configFile: "cardClasses", toType: GradeConfig.self)!
+        
         for card in cards {
-            let cardType = card.type
-            var typeArray = self.cards[cardType] ?? [Card]()
-            typeArray.append(card)
-            self.cards[cardType] = typeArray
+            if gradeConfig.isIncluded(cardName: card.internalName, forGrade: grade) {
+                let cardType = card.type
+                var typeArray = self.cards[cardType] ?? [Card]()
+                typeArray.append(card)
+                self.cards[cardType] = typeArray
+            }
         }
     }
     
@@ -55,5 +63,20 @@ class CardCollectionViewModel {
         case .parameter:
             return "Talkort"
         }
+    }
+}
+
+private struct GradeConfig: Decodable {
+    
+    let includedCards: [[String]]
+    
+    func isIncluded(cardName: String, forGrade grade: Int) -> Bool {
+        for i in 0 ..< grade {
+            if includedCards[i].contains(cardName) {
+                return true
+            }
+        }
+        
+        return false
     }
 }

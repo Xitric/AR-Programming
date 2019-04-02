@@ -11,11 +11,23 @@ import Foundation
 class GradesTabBarController: UITabBarController {
     
     override func viewDidLoad() {
-        tabBar.items?[0].title = "1. Klasse"
-        tabBar.items?[1].title = "2. Klasse"
-        tabBar.items?[2].title = "3. Klasse"
-        tabBar.items?[3].title = "4. Klasse"
-        
+        configureChildViewControllers()
+        createHelpButton()
+    }
+    
+    private func configureChildViewControllers() {
+        for i in 0 ..< self.children.count {
+            let grade = i + 1
+            
+            //TODO: To reuse this in the LevelSelectViewController, we can introduce a GradeViewController protocol that exposes just the grade variable
+            tabBar.items?[i].title = "\(grade). Klasse"
+            if let child = children[i] as? CardLibraryViewController {
+                child.grade = grade
+            }
+        }
+    }
+    
+    private func createHelpButton() {
         let button1 = UIBarButtonItem(title: "?", style: .plain, target: self, action: #selector(GradesTabBarController.goToHelpView(_:)))
         self.navigationItem.rightBarButtonItem = button1
     }

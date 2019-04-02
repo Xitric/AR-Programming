@@ -10,7 +10,11 @@ import Foundation
 
 class CardCollectionDataSource: NSObject, UICollectionViewDataSource {
     
-    private let viewModel = CardCollectionViewModel(cards: CardNodeFactory.instance.cards)
+    private let viewModel: CardCollectionViewModel
+    
+    init(grade: Int) {
+        viewModel = CardCollectionViewModel(cards: CardNodeFactory.instance.cards, grade: grade)
+    }
     
     //MARK: - Sections
     func numberOfSections(in collectionView: UICollectionView) -> Int {
