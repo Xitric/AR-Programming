@@ -13,7 +13,7 @@
 
 "move.name" = "Gå";
 "move.summary" = "Få robotten til at gå frem.";
-"move.description" = "Når robotten ser dette kort, vil den tage ét skridt frem. Brug rotationskortene til at ændre robottens retning. Hvis robotten skal gå længere frem så brug dette kort flere gange.";
+"move.description" = "Dette kort vil få robotten til at gå ét skridt frem. Hvis robotten skal gå længere frem, så brug kortet flere gange. Du kan også bruge parameterkort til at ændre det antal skridt, robotten tager.\n\nRobotten går altid i den retning, den kigger i. Du kan bruge rotationskortene til at ændre robottens retning.";
 "move.parameter" = "Tallet kan ændre hvor mange skridt robotten tager.";
 
 "left.name" = "Venstre";

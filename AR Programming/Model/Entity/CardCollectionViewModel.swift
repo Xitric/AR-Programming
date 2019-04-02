@@ -17,7 +17,10 @@ class CardCollectionViewModel {
     }
     
     var cardTypes: [CardType] {
-        return Array<CardType>(cards.keys)
+        //Return card types in a specific order since the order returned from the model is arbitrary
+        return [.action, .control, .parameter].filter {
+            cards.keys.contains($0)
+        }
     }
     
     init(cards: [Card]) {
@@ -34,7 +37,13 @@ class CardCollectionViewModel {
     }
     
     func cards(ofType type: CardType) -> [Card] {
-        return cards[type] ?? [Card]()
+        if let cardsToReturn = cards[type] {
+            return cardsToReturn.sorted {
+                return $0.internalName < $1.internalName
+            }
+        }
+        
+        return [Card]()
     }
     
     func displayName(ofType type: CardType) -> String {
