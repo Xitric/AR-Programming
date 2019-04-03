@@ -22,6 +22,7 @@ import UIKit
         }
     }
     
+    //MARK: XIB Boilerplate
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupFromXib()

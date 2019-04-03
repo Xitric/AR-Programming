@@ -9,24 +9,25 @@
 import Foundation
 import UIKit
 
-class ProgramEditor: CardGraphDetectorDelegate {
+class ProgramEditor: CardGraphDetectorDelegate, ProgramState {
     
     private var currentProgram: Program?
-    private var savedProgram: Program?
     private let detector: BarcodeDetector
+    private var allStoredPrograms = [String:Program]()
     
     weak var delegate: ProgramEditorDelegate?
     
-    var program: Program {
-        get {
-            return savedProgram == nil ? Program(startNode: nil) : savedProgram!
-        }
+    var main: Program {
+        return allStoredPrograms["function0"] ?? Program(startNode: nil)
+    }
+    var allPrograms: [Program] {
+        return Array(allStoredPrograms.values)
     }
     
     init() {
-        let state = CardGraphDetector()
-        detector = BarcodeDetector(state: state)
-        state.delegate = self
+        let detectorState = CardGraphDetector()
+        detector = BarcodeDetector(state: detectorState)
+        detectorState.delegate = self
     }
     
     //Should only be called from the main thread
@@ -35,14 +36,17 @@ class ProgramEditor: CardGraphDetectorDelegate {
     }
     
     func saveProgram() {
-        savedProgram = currentProgram
+        if let cardIdentifier = currentProgram?.start?.card.internalName {
+            currentProgram?.state = self
+            allStoredPrograms[cardIdentifier] = currentProgram
+        }
     }
     
     func reset() {
-        savedProgram = nil
+        allStoredPrograms.removeAll()
     }
     
-    func graphDetector(_ detector: CardGraphDetector, found graph: ObservationGraph) {
+    func graphDetector(found graph: ObservationGraph) {
         do {
             let start = try CardNodeFactory.instance.build(from: graph)
             currentProgram = Program(startNode: start)
@@ -59,6 +63,10 @@ class ProgramEditor: CardGraphDetectorDelegate {
         }
         
         delegate?.programEditor(self, createdNew: currentProgram ?? Program(startNode: nil))
+    }
+    
+    func getProgram(forCard card: Card) -> Program? {
+        return allStoredPrograms[card.internalName]
     }
 }
 

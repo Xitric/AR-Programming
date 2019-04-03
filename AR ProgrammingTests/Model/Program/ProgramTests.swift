@@ -12,26 +12,29 @@ import XCTest
 class ProgramTests: XCTestCase {
 
     private var programNodes: CardNode!
+    private var editor: ProgramEditor!
     private var program: Program!
     private var entity: Entity!
     
     override func setUp() {
-        var currentCard = SuccessorCardNode(card: StartCard(), angles: [0])
+        var currentCard: CardNode = FunctionCardNode(functionNumber: 0, isCaller: false)
         programNodes = currentCard
         
-        var nextCard = SuccessorCardNode(card: MoveCard(), angles: [0])
-        currentCard.successors.append(nextCard)
+        var nextCard = SimpleActionCardNode(name: "move", action: MoveAction())
+        currentCard.addSuccessor(successor: nextCard)
         currentCard = nextCard
         
-        nextCard = SuccessorCardNode(card: RightCard(), angles: [0])
-        currentCard.successors.append(nextCard)
+        nextCard = SimpleActionCardNode(name: "right", action: RotationAction(direction: .right))
+        currentCard.addSuccessor(successor: nextCard)
         currentCard = nextCard
         
-        nextCard = SuccessorCardNode(card: JumpCard(), angles: [0])
-        currentCard.successors.append(nextCard)
+        nextCard = SimpleActionCardNode(name: "jump", action: JumpAction())
+        currentCard.addSuccessor(successor: nextCard)
         currentCard = nextCard
         
+        editor = ProgramEditor()
         program = Program(startNode: programNodes)
+        program.state = editor
         
         entity = Entity()
         entity.addComponent(TransformComponent())
@@ -50,7 +53,7 @@ class ProgramTests: XCTestCase {
     //MARK: run
     func testRun_SimpleProgram() {
         //Arrange
-        let delegate = TestProgramDelegate(entity: entity, expectedCallbacks: StartCard(), MoveCard(), RightCard(), JumpCard())
+        let delegate = TestProgramDelegate(entity: entity, expectedCallbacks: "function0", "move", "right", "jump")
         program.delegate = delegate
         
         //Act
@@ -69,9 +72,9 @@ private class TestProgramDelegate: ProgramDelegate {
     var startExpectation: XCTestExpectation
     var stopExpectation: XCTestExpectation
     var callbackExpectation: XCTestExpectation
-    private var expectedCards: [Card]
+    private var expectedCards: [String]
     
-    init(entity: Entity, expectedCallbacks: Card...) {
+    init(entity: Entity, expectedCallbacks: String...) {
         self.entity = entity
         
         startExpectation = XCTestExpectation(description: "Program delegate started")
@@ -87,7 +90,7 @@ private class TestProgramDelegate: ProgramDelegate {
     }
     
     func program(_ program: Program, executed card: Card) {
-        if card.internalName == expectedCards.first?.internalName {
+        if card.internalName == expectedCards.first {
             expectedCards.removeFirst()
             callbackExpectation.fulfill()
         }

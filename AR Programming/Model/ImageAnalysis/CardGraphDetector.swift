@@ -27,10 +27,6 @@ class CardGraphDetector: BarcodeDetectorState {
     
     func handle(result: ObservationSet) {
         let graph = ObservationGraph(observationSet: result)
-        delegate?.graphDetector(self, found: graph)
+        delegate?.graphDetector(found: graph)
     }
-}
-
-protocol CardGraphDetectorDelegate: class {
-    func graphDetector(_ detector: CardGraphDetector, found graph: ObservationGraph)
 }

@@ -50,7 +50,7 @@ class CardDetectionView: PassThroughView {
             addSubview(overlay)
         }
         
-        for next in node.successors {
+        for next in node.children {
             drawNode(next)
         }
     }
@@ -101,7 +101,7 @@ private class CardOverlay: UIImageView {
         let y = Double(UIScreen.main.bounds.height) - node.position.y - h / 2
         
         frame = CGRect(x: x, y: y, width: w, height: h)
-        card = node.getCard()
+        card = node.card
     }
     
     @objc func onTap(sender: UITapGestureRecognizer) {

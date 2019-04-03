@@ -12,71 +12,68 @@ import simd
 
 class BorderCardNode: CardNode {
     
-    private let successorAngle = 0.0
-    
-    var successors = [CardNode?]()
-    let position: simd_double2
-    let size: simd_double2
-    weak var parent: CardNode?
-    
-    var repeats: Int!
-    var loopCardNode: LoopCardNode? {
+    var remainingRepeats: Int!
+    var loopCardNode: LoopCardNode! {
         didSet {
             if let loopCard = loopCardNode {
-                repeats = loopCard.repeats
+                remainingRepeats = loopCard.parameter
             }
         }
     }
     
-    init(position: simd_double2, size: simd_double2) {
-        self.position = position
-        self.size = size
+    init() {
+        super.init(card: BasicCard(
+            internalName: "block",
+            type: .control,
+            supportsParameter: false,
+            requiresParameter: false,
+            connectionAngles: [0]))
     }
     
-    convenience init() {
-        self.init(position: simd_double2(0,0), size: simd_double2(0,0))
-    }
-    
-    func create(from node: ObservationNode, withParent parent: CardNode?, in graph: ObservationGraph) throws -> CardNode {
-        let clone = BorderCardNode(position: node.position, size: simd_double2(node.width, node.height))
-        clone.parent = parent
-        if let successor = graph.getSuccessor(by: successorAngle, to: node) {
-            graph.connect(from: node, to: successor, withAngle: successorAngle)
-            clone.successors.append(try CardNodeFactory.instance.cardNode(for: successor, withParent: clone, in: graph))
-        } else {
-            clone.successors.append(nil)
-        }
-        clone.loopCardNode = try clone.findLoopCard(in: graph)
+    override func create(from node: ObservationNode, withParent parent: CardNode?, in graph: ObservationGraph) throws -> CardNode {
+        let clone = try super.create(from: node, withParent: parent, in: graph) as! BorderCardNode
+        try clone.findLoop()
+        
         return clone
     }
     
-    func findLoopCard(in graph: ObservationGraph) throws -> LoopCardNode {
+    func findLoop() throws {
         var p = parent
+        var nestingDepth = 0
         
-        while(p != nil){
-            if let p = p as? LoopCardNode {
-                return p
-            } else {
-                p = p?.parent
+        while(p != nil) {
+            if p is BorderCardNode { // This loop contains a nested loop, ignore the next loop card
+                nestingDepth += 1
+            } else if let p = p as? LoopCardNode {
+                if nestingDepth == 0 { // We have found the loop card corresponding to our nesting depth
+                    loopCardNode = p
+                    return
+                }
+                
+                nestingDepth -= 1
             }
+            
+            p = p?.parent
         }
+        
         //We have reached a card with no parent
         throw CardSequenceError.syntax(message: "Border card is missing a corresponding loop card")
     }
     
-    func getCard() -> Card {
-        return BorderCard()
+    override func clone() -> CardNode {
+        return BorderCardNode()
     }
     
-    func next() -> CardNode? {
-        if let loopCard = loopCardNode {
-            if loopCard.repeats != 1 {
-                loopCard.repeats = loopCard.repeats - 1
-                return loopCard.next()
-            }
-            loopCard.repeats = repeats
+    override func next() -> CardNode? {
+        remainingRepeats = remainingRepeats - 1
+        
+        if remainingRepeats > 0 {
+            // We iterate back to the loop card
+            return loopCardNode.next()
         }
         
+        // We are done iterating
+        remainingRepeats = loopCardNode.parameter
         if successors.count > 0 {
             return successors[0]
         }
