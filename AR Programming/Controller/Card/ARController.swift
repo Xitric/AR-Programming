@@ -9,31 +9,25 @@
 import Foundation
 import ARKit
 
-class ARController: NSObject, ARSessionDelegate, ARSCNViewDelegate  {
+class ARController: NSObject  {
     
     private let sceneView: ARSCNView
     private var configuration : ARWorldTrackingConfiguration
     private var options : ARSession.RunOptions
-    let cardWorld = CardWorld()
-    
-    var cardMapper: CardMapper? {
-        didSet{
-            sceneView.session.pause()
-            sceneView.session.run(configuration, options: [options, ARSession.RunOptions.removeExistingAnchors])
-        }
-    }
-    
-    weak var cardScannerDelegate: CardScannerDelegate?
-    weak var planeDetectorDelegate: PlaneDetectorDelegate?
     private var currentPlane: Plane?
+    private var currentPlaneAnchor: ARAnchor?
+    
+    weak var updateDelegate: UpdateDelegate?
+    weak var frameDelegate: FrameDelegate?
+    weak var planeDetectorDelegate: PlaneDetectorDelegate?
     
     init(with scene: ARSCNView) {
         sceneView = scene
+        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
+        sceneView.autoenablesDefaultLighting = true
         
         configuration = ARWorldTrackingConfiguration()
-        configuration.maximumNumberOfTrackedImages = 6
         configuration.planeDetection = .horizontal
-        configuration.detectionImages = ARReferenceImage.referenceImages(inGroupNamed: "Cards", bundle: nil)
         
         options = [.resetTracking]
         
@@ -44,7 +38,6 @@ class ARController: NSObject, ARSessionDelegate, ARSCNViewDelegate  {
     }
     
     func start() {
-        cardWorld.reset()
         sceneView.session.run(configuration, options: options)
     }
     
@@ -52,69 +45,72 @@ class ARController: NSObject, ARSessionDelegate, ARSCNViewDelegate  {
         sceneView.session.pause()
     }
     
-    func session(_ session: ARSession, didUpdate anchors: [ARAnchor]) {
-        //This code has been disabled because if instability with ARKit - we did not have the time to resolve it
-//        for anchor in anchors {
-//            if let imageAnchor = anchor as? ARImageAnchor, let name = imageAnchor.referenceImage.name {
-//                if !imageAnchor.isTracked {
-//                    //Start timer to remove card
-//                } else {
-//                    //Stop timer for card, as it has been found again
-//                }
-//            }
-//        }
+    func restart() {
+        stop()
+        sceneView.session.run(configuration, options: [options, ARSession.RunOptions.removeExistingAnchors])
     }
-    
+}
+
+// MARK: - ARSCNViewDelegate
+extension ARController: ARSCNViewDelegate {
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-        if let imageAnchor = anchor as? ARImageAnchor {
-            handleCardDetected(imageAnchor: imageAnchor, node: node)
-        } else if let planeAnchor = anchor as? ARPlaneAnchor {
-            handlePlaneDetected(planeAnchor: planeAnchor, node: node)
-        }
-    }
-    
-    private func handleCardDetected(imageAnchor: ARImageAnchor, node: SCNNode) {
-        let referenceImage = imageAnchor.referenceImage
-        let plane = Plane(width: referenceImage.physicalSize.width, height: referenceImage.physicalSize.height, anchor: imageAnchor)
-        
-        if let cardIdentifier = Int(referenceImage.name!) {
-            if let card = cardMapper?.getCard(identifier: cardIdentifier) {
-                plane.node.geometry?.firstMaterial?.diffuse.contents = "Card Library/\(card.name).png"
-                node.addChildNode(plane.node)
-                
-                cardWorld.addCard(plane: plane, card: card)
+        if let planeAnchor = anchor as? ARPlaneAnchor {
+            if let currentPlaneAnchor = currentPlaneAnchor {
+                sceneView.session.remove(anchor: currentPlaneAnchor)
             }
+            currentPlaneAnchor = planeAnchor
+            
+            handlePlaneDetected(planeAnchor: planeAnchor, node: node)
         }
     }
     
     private func handlePlaneDetected(planeAnchor: ARPlaneAnchor, node: SCNNode) {
         if planeDetectorDelegate?.shouldDetectPlanes(self) ?? false {
-            let oldPlane = currentPlane
- 
-            let plane = Plane(width: 0.2, height: 0.2, anchor: planeAnchor)
-            plane.node.geometry?.materials.first?.diffuse.contents = UIImage(named: "tron_grid")
-            node.addChildNode(plane.node)
-            
-            currentPlane = plane
-            planeDetectorDelegate?.planeDetector(self, found: plane)
-            
-            if let plane = oldPlane {
-                sceneView.session.remove(anchor: plane.anchor)
-                plane.node.removeFromParentNode()
+            if currentPlane == nil {
+                currentPlane = createPlane()
+                sceneView.scene.rootNode.addChildNode(currentPlane!.root)
+                
+                if let frame = sceneView.session.currentFrame {
+                    updatePlanePosition(in: frame)
+                }
+                
+                planeDetectorDelegate?.planeDetector(self, found: currentPlane!)
             }
         }
     }
     
-    func session(_ session: ARSession, didUpdate frame: ARFrame) {
-        let hitResults = sceneView.hitTest(CGPoint(x: sceneView.frame.width / 2, y: sceneView.frame.height / 2), options: [SCNHitTestOption.searchMode: 1])
+    private func createPlane() -> Plane {
+        var plane = Plane()
         
-        for result in hitResults {
-            if let card = cardWorld.card(from: result.node) {
-                cardScannerDelegate?.cardScanner(self, scanned: card)
-                return
-            }
-        }
+        let ground = SCNNode(geometry: SCNPlane(width: 0.2, height: 0.2))
+        ground.eulerAngles.x = -.pi / 2
+        ground.geometry?.materials.first?.diffuse.contents = UIImage(named: "SurfaceArea.png")
+        plane.groundNode = ground
         
-        cardScannerDelegate?.cardScannerLostCard(self)
+        return plane
+    }
+    
+    func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
+        updateDelegate?.update(currentTime: time)
     }
 }
+
+// MARK: - ARSessionDelegate
+extension ARController: ARSessionDelegate {
+    func session(_ session: ARSession, didUpdate frame: ARFrame) {
+        let orientation = CGImagePropertyOrientation(UIDevice.current.orientation)
+        let image = frame.capturedImage
+        frameDelegate?.frameScanner(self, didUpdate: image, withOrientation: orientation)
+        
+        if planeDetectorDelegate?.shouldDetectPlanes(self) ?? false {
+            updatePlanePosition(in: frame)
+        }
+    }
+    
+    private func updatePlanePosition(in frame: ARFrame) {
+        if let hit = frame.hitTest(CGPoint(x: 0.5, y: 0.5), types: [.existingPlane]).first {
+            currentPlane?.root.position = SCNVector3(hit.worldTransform.translation)
+        }
+    }
+}
+
