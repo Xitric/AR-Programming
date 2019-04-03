@@ -13,6 +13,7 @@ struct ParameterCard: Card {
     var internalName: String {
         return "param\(parameter)"
     }
+    let type = CardType.parameter
     let supportsParameter = false
     let requiresParameter = false
     let connectionAngles = [Double]()

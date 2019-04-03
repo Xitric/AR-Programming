@@ -10,7 +10,14 @@ import Foundation
 
 protocol Card {
     var internalName: String { get }
+    var type: CardType { get }
     var supportsParameter: Bool { get }
     var requiresParameter: Bool { get }
     var connectionAngles: [Double] { get }
+}
+
+enum CardType {
+    case control
+    case action
+    case parameter
 }

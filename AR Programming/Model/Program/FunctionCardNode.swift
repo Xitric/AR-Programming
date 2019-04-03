@@ -18,6 +18,7 @@ class FunctionCardNode: CardNode {
         self.isCaller = isCaller
         super.init(card: BasicCard(
             internalName: "function\(functionNumber)",
+            type: .control,
             supportsParameter: false,
             requiresParameter: false,
             connectionAngles: [0]))

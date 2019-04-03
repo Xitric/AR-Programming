@@ -16,6 +16,7 @@ class SimpleActionCardNode: CardNode {
         self.action = action
         super.init(card: BasicCard(
             internalName: name,
+            type: .action,
             supportsParameter: true,
             requiresParameter: false,
             connectionAngles: [0]))

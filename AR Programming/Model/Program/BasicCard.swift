@@ -10,6 +10,7 @@ import Foundation
 
 struct BasicCard: Card {
     let internalName: String
+    let type: CardType
     let supportsParameter: Bool
     let requiresParameter: Bool
     let connectionAngles: [Double]

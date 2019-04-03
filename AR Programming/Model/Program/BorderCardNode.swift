@@ -24,6 +24,7 @@ class BorderCardNode: CardNode {
     init() {
         super.init(card: BasicCard(
             internalName: "block",
+            type: .control,
             supportsParameter: false,
             requiresParameter: false,
             connectionAngles: [0]))

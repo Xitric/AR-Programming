@@ -13,6 +13,7 @@ class LoopCardNode: CardNode {
     init() {
         super.init(card: BasicCard(
             internalName: "loop",
+            type: .control,
             supportsParameter: true,
             requiresParameter: true,
             connectionAngles: [0]))

@@ -174,11 +174,13 @@ class CardNodeFactoryTests: XCTestCase {
         //Act
         CardNodeFactory.instance.register(cardNode: CardNode(
             card: BasicCard(internalName: "left",
+                            type: .action,
                             supportsParameter: true,
                             requiresParameter: false,
                             connectionAngles: [0])), withCode: "200")
         CardNodeFactory.instance.register(cardNode: CardNode(
             card: BasicCard(internalName: "jump",
+                            type: .action,
                             supportsParameter: true,
                             requiresParameter: false,
                             connectionAngles: [0])), withCode: "-6")
@@ -197,6 +199,7 @@ class CardNodeFactoryTests: XCTestCase {
         //Act
         let cardNode = CardNode(
             card: BasicCard(internalName: "left",
+                            type: .action,
                             supportsParameter: true,
                             requiresParameter: false,
                             connectionAngles: [0]))
