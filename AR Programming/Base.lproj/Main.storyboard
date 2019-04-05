@@ -10,48 +10,96 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main Menu View Controller-->
         <scene sceneID="IG1-vf-qvC">
             <objects>
-                <viewController id="ULA-AN-k0r" sceneMemberID="viewController">
+                <viewController id="ULA-AN-k0r" customClass="MainMenuViewController" customModule="AR_Programming" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VIg-Yh-F9U">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="O5y-kj-Xf6">
-                                <rect key="frame" x="401.5" y="254.5" width="221" height="259"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8q8-7e-avp">
-                                        <rect key="frame" x="72.5" y="0.0" width="76" height="70"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="48"/>
-                                        <state key="normal" title="Spil"/>
-                                        <connections>
-                                            <segue destination="WzJ-Qi-3T2" kind="show" id="mIL-VR-zPn"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1zx-9e-Ey4">
-                                        <rect key="frame" x="22.5" y="94" width="176" height="70"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="48"/>
-                                        <state key="normal" title="Bibliotek"/>
-                                        <connections>
-                                            <segue destination="BnG-xc-Ia5" kind="show" id="hQr-ud-sAf"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="86h-ce-QxN">
-                                        <rect key="frame" x="0.0" y="188" width="221" height="71"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="49"/>
-                                        <state key="normal" title="Garderobe"/>
-                                        <connections>
-                                            <segue destination="wB7-4i-evA" kind="show" identifier="" id="MFO-gB-ofx"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LandingPageBackground" translatesAutoresizingMaskIntoConstraints="NO" id="CyM-bE-Asd">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                            </imageView>
+                            <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="omA-Us-Kj3">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1zx-9e-Ey4" customClass="RoundedButton" customModule="AR_Programming" customModuleProvider="target">
+                                <rect key="frame" x="206" y="540" width="100" height="100"/>
+                                <color key="backgroundColor" red="0.32639805603559041" green="0.64420793818620103" blue="0.99926453828811646" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="1zx-9e-Ey4" secondAttribute="height" multiplier="1:1" id="zxb-gc-lhG"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="16" minY="16" maxX="16" maxY="16"/>
+                                <state key="normal" image="LibraryIcon">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BnG-xc-Ia5" kind="show" id="4Uv-hN-k37"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="86h-ce-QxN" customClass="RoundedButton" customModule="AR_Programming" customModuleProvider="target">
+                                <rect key="frame" x="718" y="540" width="100" height="100"/>
+                                <color key="backgroundColor" red="0.32639805603559041" green="0.64420793818620103" blue="0.99926453828811646" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="86h-ce-QxN" secondAttribute="height" multiplier="1:1" id="iX0-WD-S7C"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="16" minY="16" maxX="16" maxY="16"/>
+                                <state key="normal" title="W" image="ClothesIcon">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="wB7-4i-evA" kind="show" identifier="" id="MFO-gB-ofx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8q8-7e-avp">
+                                <rect key="frame" x="307" y="334" width="410" height="100"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137254901957" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="Arc-tS-OnE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="48"/>
+                                <state key="normal" title="Play">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="WzJ-Qi-3T2" kind="show" id="mIL-VR-zPn"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AR Programming" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KNr-Qm-LG4">
+                                <rect key="frame" x="312" y="171" width="400" height="67"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="56"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="O5y-kj-Xf6" firstAttribute="centerY" secondItem="VIg-Yh-F9U" secondAttribute="centerY" id="IOr-YR-FPE"/>
-                            <constraint firstItem="O5y-kj-Xf6" firstAttribute="centerX" secondItem="VIg-Yh-F9U" secondAttribute="centerX" id="Xum-QG-56u"/>
+                            <constraint firstAttribute="bottom" secondItem="CyM-bE-Asd" secondAttribute="bottom" id="0F6-gc-97g"/>
+                            <constraint firstItem="CyM-bE-Asd" firstAttribute="leading" secondItem="VIg-Yh-F9U" secondAttribute="leading" id="2yr-s7-qT3"/>
+                            <constraint firstItem="86h-ce-QxN" firstAttribute="height" secondItem="8q8-7e-avp" secondAttribute="height" id="8rL-6s-CVV"/>
+                            <constraint firstItem="8q8-7e-avp" firstAttribute="centerY" secondItem="VIg-Yh-F9U" secondAttribute="centerY" id="AzI-Z1-prA"/>
+                            <constraint firstItem="Dh9-Ba-17c" firstAttribute="bottom" secondItem="86h-ce-QxN" secondAttribute="bottom" constant="128" id="Bsd-9L-pJU"/>
+                            <constraint firstItem="1zx-9e-Ey4" firstAttribute="centerX" secondItem="VIg-Yh-F9U" secondAttribute="centerX" multiplier="0.5" id="G1q-yM-voT"/>
+                            <constraint firstItem="KNr-Qm-LG4" firstAttribute="centerX" secondItem="VIg-Yh-F9U" secondAttribute="centerX" id="Isn-Ob-N8w"/>
+                            <constraint firstItem="8q8-7e-avp" firstAttribute="centerX" secondItem="VIg-Yh-F9U" secondAttribute="centerX" id="KZE-cL-LhM"/>
+                            <constraint firstItem="8q8-7e-avp" firstAttribute="width" secondItem="VIg-Yh-F9U" secondAttribute="width" multiplier="0.4" id="MTq-Rv-u0J"/>
+                            <constraint firstItem="omA-Us-Kj3" firstAttribute="leading" secondItem="VIg-Yh-F9U" secondAttribute="leading" id="Qa2-Je-GEv"/>
+                            <constraint firstItem="1zx-9e-Ey4" firstAttribute="bottom" secondItem="86h-ce-QxN" secondAttribute="bottom" id="STi-WC-mrx"/>
+                            <constraint firstAttribute="trailing" secondItem="CyM-bE-Asd" secondAttribute="trailing" id="URy-Rt-LXo"/>
+                            <constraint firstItem="1zx-9e-Ey4" firstAttribute="height" secondItem="8q8-7e-avp" secondAttribute="height" id="Uge-lU-ngF"/>
+                            <constraint firstAttribute="trailing" secondItem="omA-Us-Kj3" secondAttribute="trailing" id="WwY-mC-cSV"/>
+                            <constraint firstAttribute="bottom" secondItem="omA-Us-Kj3" secondAttribute="bottom" id="bjI-CH-Vgj"/>
+                            <constraint firstItem="86h-ce-QxN" firstAttribute="centerX" secondItem="VIg-Yh-F9U" secondAttribute="centerX" multiplier="1.5" id="bk0-nT-CN1"/>
+                            <constraint firstItem="CyM-bE-Asd" firstAttribute="top" secondItem="VIg-Yh-F9U" secondAttribute="top" id="hWN-Mb-bnR"/>
+                            <constraint firstItem="8q8-7e-avp" firstAttribute="top" secondItem="KNr-Qm-LG4" secondAttribute="bottom" constant="96" id="jLT-0a-B5T"/>
+                            <constraint firstItem="omA-Us-Kj3" firstAttribute="top" secondItem="VIg-Yh-F9U" secondAttribute="top" id="ppm-oJ-J9S"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Dh9-Ba-17c"/>
                     </view>
@@ -61,7 +109,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kpQ-se-CGO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1365" y="120"/>
+            <point key="canvasLocation" x="1344.140625" y="119.53125"/>
         </scene>
         <!--Wardrobe View Controller-->
         <scene sceneID="v9f-SA-hYL">
@@ -98,7 +146,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="af7-rH-0kZ" firstAttribute="centerY" secondItem="dmF-0S-RLO" secondAttribute="centerY" id="8qQ-TS-u68"/>
                             <constraint firstItem="8wM-cg-kyM" firstAttribute="centerY" secondItem="dmF-0S-RLO" secondAttribute="centerY" id="EKi-yN-efL"/>
@@ -628,8 +676,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eQR-Dm-66Y" customClass="SubtitleLabel" customModule="AR_Programming" customModuleProvider="target">
-                                <rect key="frame" x="64" y="20" width="896" height="52.5"/>
+                            <view contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="eQR-Dm-66Y" customClass="SubtitleLabel" customModule="AR_Programming" customModuleProvider="target">
+                                <rect key="frame" x="441.5" y="20" width="141" height="52.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SYT-AS-Sag">
@@ -701,28 +749,28 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v9Z-U8-b4o" customClass="SubtitleLabel" customModule="AR_Programming" customModuleProvider="target">
-                                <rect key="frame" x="64" y="583.5" width="896" height="52.5"/>
+                            <view contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="v9Z-U8-b4o" customClass="SubtitleLabel" customModule="AR_Programming" customModuleProvider="target">
+                                <rect key="frame" x="307" y="583.5" width="410.5" height="52.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="text" value="Bevæg din iPad rundt for at finde en overflade."/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8oG-xW-2tD" customClass="SubtitleLabel" customModule="AR_Programming" customModuleProvider="target">
-                                <rect key="frame" x="96" y="438.5" width="832" height="73"/>
+                            <view contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="8oG-xW-2tD" customClass="SubtitleLabel" customModule="AR_Programming" customModuleProvider="target">
+                                <rect key="frame" x="102.5" y="438.5" width="819" height="73"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="text" value="Tillykke, du har låst op for den næste opgave. Find den i opgavemenuen, eller nulstil opgaven for at prøve igen."/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WDh-Me-Nv9" customClass="SubtitleLabel" customModule="AR_Programming" customModuleProvider="target">
-                                <rect key="frame" x="64" y="583.5" width="896" height="52.5"/>
+                            <view hidden="YES" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="WDh-Me-Nv9" customClass="SubtitleLabel" customModule="AR_Programming" customModuleProvider="target">
+                                <rect key="frame" x="370.5" y="583.5" width="283" height="52.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="text" value="Placer spillet når du er tilfreds!"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" placeholderIntrinsicWidth="461" placeholderIntrinsicHeight="461" translatesAutoresizingMaskIntoConstraints="NO" id="pS7-9z-jz1">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="461" placeholderIntrinsicHeight="461" translatesAutoresizingMaskIntoConstraints="NO" id="pS7-9z-jz1">
                                 <rect key="frame" x="205" y="151" width="614" height="368.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="pS7-9z-jz1" secondAttribute="height" multiplier="5:3" id="Ok7-sQ-rUh"/>
@@ -917,7 +965,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="462" height="462"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ProgramExampleCell" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProgramExampleCell" id="w54-Sf-dAF" customClass="ExampleProgramTableViewCell" customModule="AR_Programming" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="ProgramExampleCell" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProgramExampleCell" id="w54-Sf-dAF" customClass="ExampleProgramTableViewCell" customModule="AR_Programming" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="462" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="w54-Sf-dAF" id="jUa-lG-ld2">
@@ -925,11 +973,11 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="390" placeholderIntrinsicHeight="64" translatesAutoresizingMaskIntoConstraints="NO" id="LGT-ef-wCa" customClass="ProgramView" customModule="AR_Programming" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="16" width="390" height="11.5"/>
+                                                    <rect key="frame" x="0.0" y="16" width="310" height="11.5"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
                                                 <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Km-jQ-DSe" customClass="RoundedButton" customModule="AR_Programming" customModuleProvider="target">
-                                                    <rect key="frame" x="398" y="-10.5" width="64" height="64.5"/>
+                                                    <rect key="frame" x="318" y="-10.5" width="64" height="64.5"/>
                                                     <color key="backgroundColor" red="0.085386164489999999" green="0.48004096750000003" blue="0.9989228845" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="64" id="DM6-o2-NL5"/>
@@ -991,6 +1039,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ClothesIcon" width="200" height="202"/>
+        <image name="LandingPageBackground" width="960" height="540"/>
+        <image name="LibraryIcon" width="201" height="200"/>
         <image name="Lock" width="156" height="172"/>
         <image name="PlayIcon" width="200" height="200"/>
         <image name="Retry" width="128" height="128"/>

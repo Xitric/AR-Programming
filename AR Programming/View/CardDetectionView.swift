@@ -87,7 +87,7 @@ private class CardOverlay: UIImageView {
     }
     
     private func commonInit() {
-        self.image = UIImage(named: "SurfaceArea")
+        self.image = UIImage(named: "DetectedCardBox")
         self.isUserInteractionEnabled = true
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.onTap(sender:)))

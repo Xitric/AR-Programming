@@ -94,6 +94,7 @@
 		562EF8D4224107CC00A8DC97 /* LinkComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562EF8D3224107CC00A8DC97 /* LinkComponentTests.swift */; };
 		562EF8D62241139C00A8DC97 /* simd_double4x4+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562EF8D52241139C00A8DC97 /* simd_double4x4+Helpers.swift */; };
 		562EF8D82241192300A8DC97 /* simd_double4x4+HelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562EF8D72241192300A8DC97 /* simd_double4x4+HelpersTests.swift */; };
+		562F2F2922538ABA00C46D83 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562F2F2822538ABA00C46D83 /* MainMenuViewController.swift */; };
 		562F2F23225355E100C46D83 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562F2F22225355E100C46D83 /* Config.swift */; };
 		562F2F27225358CA00C46D83 /* cardClasses.json in Resources */ = {isa = PBXBuildFile; fileRef = 562F2F26225358CA00C46D83 /* cardClasses.json */; };
 		562FC97D224FCD87001678B2 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562FC97C224FCD87001678B2 /* RoundedButton.swift */; };
@@ -253,6 +254,7 @@
 		562EF8D3224107CC00A8DC97 /* LinkComponentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkComponentTests.swift; sourceTree = "<group>"; };
 		562EF8D52241139C00A8DC97 /* simd_double4x4+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "simd_double4x4+Helpers.swift"; sourceTree = "<group>"; };
 		562EF8D72241192300A8DC97 /* simd_double4x4+HelpersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "simd_double4x4+HelpersTests.swift"; sourceTree = "<group>"; };
+		562F2F2822538ABA00C46D83 /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		562F2F22225355E100C46D83 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		562F2F26225358CA00C46D83 /* cardClasses.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = cardClasses.json; sourceTree = "<group>"; };
 		562FC97C224FCD87001678B2 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
@@ -666,6 +668,7 @@
 				901584C92199BE0200450E0B /* CardDescriptionViewController.swift */,
 				202219A6223BC07000A2A8EA /* WardrobeViewController.swift */,
 				90A55B0821A83B0700FD7CDD /* AudioController.swift */,
+				562F2F2822538ABA00C46D83 /* MainMenuViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1006,6 +1009,7 @@
 				56632E262240443700B6C4D5 /* SpinComponent.swift in Sources */,
 				562CABAA223BAD2D007120D5 /* CollisionComponent.swift in Sources */,
 				90DF7330216F441E00F51E0C /* AppDelegate.swift in Sources */,
+				562F2F2922538ABA00C46D83 /* MainMenuViewController.swift in Sources */,
 				56A62B1822310E8D009D0E83 /* simd_quatd+Helpers.swift in Sources */,
 				56E167BA2222BDA600D40FD0 /* GKEntity+Helpers.swift in Sources */,
 				562CCA7F220D750100BF6A8D /* CGImagePropertyOrientation+Helpers.swift in Sources */,
