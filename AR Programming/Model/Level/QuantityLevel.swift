@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import EntityComponentSystem
 
 class QuantityLevel: Level {
     

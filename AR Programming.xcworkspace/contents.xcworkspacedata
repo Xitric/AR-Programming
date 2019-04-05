@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:EntityComponentSystem/EntityComponentSystem.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:ProgramModel/ProgramModel.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:AR Programming.xcodeproj">
    </FileRef>
    <FileRef

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import GameplayKit
 
 class QuantityComponent: GKComponent {
     

@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import UIKit
+import ProgramModel
 
 //This implementation is inspired by:
 //https://cocoacasts.com/managing-view-controllers-with-container-view-controllers/

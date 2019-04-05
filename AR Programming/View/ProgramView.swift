@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ProgramModel
 
 class ProgramView: UIStackView {
     

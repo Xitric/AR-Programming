@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import SceneKit
 import AudioKit
+import ProgramModel
 
 class LevelViewController: UIViewController {
     

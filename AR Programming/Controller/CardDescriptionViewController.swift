@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-
+import ProgramModel
 
 /// A controller for displaying helpful information about a specific card.
 class CardDescriptionViewController: UIViewController {

@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import UIKit
+import ProgramModel
 
 class ExampleProgramTableDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     

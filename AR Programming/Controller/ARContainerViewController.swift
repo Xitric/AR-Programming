@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import ARKit
+import ProgramModel
 
 /// The root controller for the game view.
 ///

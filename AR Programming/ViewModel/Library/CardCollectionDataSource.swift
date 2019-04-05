@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import UIKit
+import ProgramModel
 
 class CardCollectionDataSource: NSObject, UICollectionViewDataSource {
     

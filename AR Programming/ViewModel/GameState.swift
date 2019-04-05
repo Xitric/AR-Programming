@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import ProgramModel
 
 /// This class is used to package the various objects that need to be shared between all the controllers that make up the game view.
 ///
