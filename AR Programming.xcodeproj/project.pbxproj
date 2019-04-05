@@ -20,6 +20,7 @@
 		206A0CB52240E5120018E6B7 /* WardrobeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206A0CB42240E5120018E6B7 /* WardrobeManager.swift */; };
 		206A0CB822410FD80018E6B7 /* WardrobeManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206A0CB722410FD80018E6B7 /* WardrobeManagerTests.swift */; };
 		20A7E308224A3CE800F1DE2F /* CleanUpLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A7E307224A3CE800F1DE2F /* CleanUpLevel.swift */; };
+		20F3C3992254CCF7007DAB2D /* CleanUpLevelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F3C3982254CCF7007DAB2D /* CleanUpLevelTests.swift */; };
 		20FA267C22369CAC00AF1083 /* LoopCardNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FA267B22369CAC00AF1083 /* LoopCardNodeTests.swift */; };
 		20FA267E2236A10C00AF1083 /* BorderCardNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FA267D2236A10C00AF1083 /* BorderCardNodeTests.swift */; };
 		56131F43224429C30044B6F4 /* InventoryComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56131F42224429C30044B6F4 /* InventoryComponent.swift */; };
@@ -163,6 +164,7 @@
 		206A0CB42240E5120018E6B7 /* WardrobeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeManager.swift; sourceTree = "<group>"; };
 		206A0CB722410FD80018E6B7 /* WardrobeManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeManagerTests.swift; sourceTree = "<group>"; };
 		20A7E307224A3CE800F1DE2F /* CleanUpLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanUpLevel.swift; sourceTree = "<group>"; };
+		20F3C3982254CCF7007DAB2D /* CleanUpLevelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanUpLevelTests.swift; sourceTree = "<group>"; };
 		20FA267B22369CAC00AF1083 /* LoopCardNodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopCardNodeTests.swift; sourceTree = "<group>"; };
 		20FA267D2236A10C00AF1083 /* BorderCardNodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderCardNodeTests.swift; sourceTree = "<group>"; };
 		4A504C3DA653AFF7DC70C564 /* Pods-AR ProgrammingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AR ProgrammingTests.debug.xcconfig"; path = "Target Support Files/Pods-AR ProgrammingTests/Pods-AR ProgrammingTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -474,6 +476,7 @@
 			isa = PBXGroup;
 			children = (
 				562ACDA62244E15100D2DA7C /* LevelTests.swift */,
+				20F3C3982254CCF7007DAB2D /* CleanUpLevelTests.swift */,
 				562ACDA72244E15500D2DA7C /* QuantityLevelTests.swift */,
 				562ACDAC2244E62900D2DA7C /* SimpleLevelLoader.swift */,
 				562ACDB02244F1D300D2DA7C /* InventoryComponentTests.swift */,
@@ -953,6 +956,7 @@
 				562CAB9D223A5CCC007120D5 /* RotationActionComponentTests.swift in Sources */,
 				562CCA9E220D92BC00BF6A8D /* SuccessorCardNodeTests.swift in Sources */,
 				562ACDA82244E15500D2DA7C /* LevelTests.swift in Sources */,
+				20F3C3992254CCF7007DAB2D /* CleanUpLevelTests.swift in Sources */,
 				56A55AE42224728500A8CEE3 /* AddRemoveDelegateMock.swift in Sources */,
 				562EF8D4224107CC00A8DC97 /* LinkComponentTests.swift in Sources */,
 				562CCAA4220D92CF00BF6A8D /* ObservationGraphTests.swift in Sources */,

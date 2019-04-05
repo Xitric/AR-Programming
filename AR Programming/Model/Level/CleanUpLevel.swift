@@ -34,12 +34,17 @@ class CleanUpLevel: Level {
     
     private func getCurrentInventoryComparedToGoal() -> String {
         var inventoryComparedToGoal = ""
+        var tempArray = [String]()
         for (entity, typeAmount) in currentInventory {
             for(type, amount) in typeAmount {
                 if let goalAmount = goalInventory[entity]?[type] {
-                    inventoryComparedToGoal.append("\(type) \(amount) / \(goalAmount)\n")
+                    tempArray.append("\(type) \(amount) / \(goalAmount)")
                 }
             }
+            tempArray.sort()
+        }
+        for string in tempArray {
+            inventoryComparedToGoal.append(string + "\n")
         }
         inventoryComparedToGoal.removeLast()
         return inventoryComparedToGoal
