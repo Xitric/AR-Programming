@@ -124,22 +124,25 @@ class CleanUpLevel: Level {
         
         goalInventory[dropSpot] = json.collectiveGoals
         resetInventory = currentInventory
-
+        
         return dropSpot
     }
     
     //MARK: - Logic
     override func update(delta: TimeInterval) {
         let dropSpotEntities = entityManager.getEntities(withComponents: CollisionComponent.self, InventoryComponent.self)
+        
         // Only check if dropspot collides with an item when the player is not holding anything
-        if entityManager.player.component(ofType: LinkComponent.self) == nil {
-            for dropSpot in dropSpotEntities {
-                if let dropSpotCollision = dropSpot.component(ofType: CollisionComponent.self) {
-                    for collectible in collectibles {
-                        if let collectibleCollision = collectible.component(ofType: CollisionComponent.self) {
-                            if dropSpotCollision.collidesWith(other: collectibleCollision){
-                                addToDropSpotInventory(dropSpot, collectible)
-                            }
+        if entityManager.player.component(ofType: LinkComponent.self) != nil {
+            return
+        }
+        
+        for dropSpot in dropSpotEntities {
+            if let dropSpotCollision = dropSpot.component(ofType: CollisionComponent.self) {
+                for collectible in collectibles {
+                    if let collectibleCollision = collectible.component(ofType: CollisionComponent.self) {
+                        if dropSpotCollision.collidesWith(other: collectibleCollision){
+                            addToDropSpotInventory(dropSpot, collectible)
                         }
                     }
                 }
@@ -156,7 +159,7 @@ class CleanUpLevel: Level {
             if (currentInventory[dropSpot]?[quantity.type]) != nil{
                 currentInventory[dropSpot]?[quantity.type]? += quantity.quantity
                 item.removeComponent(ofType: CollisionComponent.self)
-    
+                
                 if isComplete() {
                     complete()
                 }
@@ -175,7 +178,7 @@ class CleanUpLevel: Level {
                 }
             }
         }
-
+        
         return true
     }
     
@@ -184,11 +187,11 @@ class CleanUpLevel: Level {
         defer {
             objc_sync_exit(entityManager)
         }
-
+        
         for oldEntity in collectibles {
             entityManager.removeEntity(oldEntity)
         }
-
+        
         for oldEntity in dropSpots {
             entityManager.removeEntity(oldEntity)
         }
@@ -196,7 +199,7 @@ class CleanUpLevel: Level {
         if entityManager.player.component(ofType: LinkComponent.self) != nil {
             entityManager.player.removeComponent(ofType: LinkComponent.self)
         }
-    
+        
         for (newEntity, position) in entitiesForReset {
             newEntity.component(ofType: TransformComponent.self)?.location = position
             let collision = CollisionComponent(size: simd_double3(0.1, 0.1, 0.1), offset: simd_double3(0, 0.05, 0))
