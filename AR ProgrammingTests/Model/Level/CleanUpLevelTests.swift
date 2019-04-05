@@ -24,7 +24,7 @@ class CleanUpLevelTests: XCTestCase {
     private var yellowItem1: Entity!
     
     override func setUp() {
-        level = SimpleLevelLoader.loadLevel(ofType: CleanUpLevel.self, withName: "TestCleanupLevel.json")
+        level = SimpleLevelLoader.loadLevel(ofType: CleanUpLevel.self, withName: "TestCleanUpLevel.json")
         entityManager = level.entityManager
         inventoryEntities = entityManager.getEntities(withComponents: InventoryComponent.self)
         itemEntities = entityManager.getEntities(withComponents: QuantityComponent.self)
