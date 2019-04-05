@@ -25,7 +25,10 @@ class LevelSelectViewController: UIViewController {
         didSet {
             let gradientLayer = CAGradientLayer()
             gradientLayer.frame = freePlayView.bounds
-            gradientLayer.colors = [UIColor.black.cgColor, UIColor.white.cgColor]
+            gradientLayer.colors = [
+                UIColor.white.withAlphaComponent(0).cgColor,
+                UIColor.white.withAlphaComponent(1).cgColor
+            ]
             self.freePlayView.layer.insertSublayer(gradientLayer, at: 0)
         }
     }

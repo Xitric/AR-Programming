@@ -1,65 +1,111 @@
 {
     "number":6,
-    "type":"cleanup",
-    "name":"Sorter tingene",
+    "type":"quantity",
+    "name":"Så blev det svært",
     "unlocks":"Level7",
-    "dropSpots":[
-        {
-            "x":1,
-            "y":0,
-            "resourceIdentifier":"DropSpots/DropSpotBlue",
-            "collectiveGoals": {
-                "Blå":1
-            }
-        },
-        {
-            "x":2,
-            "y":0,
-            "resourceIdentifier":"DropSpots/DropSpotGreen",
-            "collectiveGoals": {
-                "Grøn":1
-            }
-        },
-        {
-            "x":3,
-            "y":0,
-            "resourceIdentifier":"DropSpots/DropSpotRed",
-            "collectiveGoals": {
-                "Rød":2
-            }
-        },
+    "doCollect":[
+        {"type":"mønter", "quantity":14}
     ],
-    "items":[
+    "dontCollect":[],
+    "collectibles":[
         {
-            "type":"Blå",
-            "x":0,
-            "y":0,
-            "quantity":1,
-            "resourceIdentifier":"Polygons/PolygonBlue"
-        },
-        {
-            "type":"Grøn",
             "x":1,
             "y":0,
             "quantity":1,
-            "resourceIdentifier":"Polygons/PolygonGreen"
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
         },
         {
-            "type":"Rød",
             "x":2,
             "y":0,
             "quantity":1,
-            "resourceIdentifier":"Polygons/PolygonRed"
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
         },
         {
-            "type":"Rød",
-            "x":4,
+            "x":2,
+            "y":1,
+            "quantity":1,
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
+        },
+        {
+            "x":2,
+            "y":2,
+            "quantity":1,
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
+        },
+        {
+            "x":1,
+            "y":2,
+            "quantity":1,
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
+        },
+        {
+            "x":0,
+            "y":2,
+            "quantity":1,
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
+        },
+        {
+            "x":0,
+            "y":1,
+            "quantity":1,
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
+        },
+        {
+            "x":-1,
             "y":0,
             "quantity":1,
-            "resourceIdentifier":"Polygons/PolygonRed"
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
+        },
+        {
+            "x":-2,
+            "y":0,
+            "quantity":1,
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
+        },
+        {
+            "x":-2,
+            "y":-1,
+            "quantity":1,
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
+        },
+        {
+            "x":-2,
+            "y":-2,
+            "quantity":1,
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
+        },
+        {
+            "x":-1,
+            "y":-2,
+            "quantity":1,
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
+        },
+        {
+            "x":0,
+            "y":-2,
+            "quantity":1,
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
+        },
+        {
+            "x":0,
+            "y":-1,
+            "quantity":1,
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
         }
     ],
-    
-    "props":[
-    ]
+    "props":[]
 }

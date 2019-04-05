@@ -12,36 +12,50 @@ class CardNodeFactory {
     
     static var instance = CardNodeFactory()
     
-    private let startCode: String
+    private let startCodes: [String]
     
     private var cardNodePrototypes = [String:CardNode]()
     
     var cards: [Card] {
-        return cardNodePrototypes.map{$0.value.getCard()}
+        return cardNodePrototypes.map{$0.value.card}
     }
     
     private init() {
-        startCode = "0"
+        startCodes = ["0", "13", "15", "17", "19"]
         
-        register(cardNode: SuccessorCardNode(card: StartCard(), angles: [0]), withCode: "0")
-        register(cardNode: SuccessorCardNode(card: MoveCard(), angles: [0]), withCode: "1")
-        register(cardNode: SuccessorCardNode(card: LeftCard(), angles: [0]), withCode: "2")
-        register(cardNode: SuccessorCardNode(card: RightCard(), angles: [0]), withCode: "3")
-        register(cardNode: SuccessorCardNode(card: JumpCard(), angles: [0]), withCode: "4")
-        register(cardNode: SuccessorCardNode(card: RandomBranchCard(), angles: [Double.pi/4, -Double.pi/4]), withCode: "5")
+        // Control
+        register(cardNode: FunctionCardNode(functionNumber: 0, isCaller: false), withCode: "0")
+        register(cardNode: FunctionCardNode(functionNumber: 1, isCaller: true), withCode: "12")
+        register(cardNode: FunctionCardNode(functionNumber: 1, isCaller: false), withCode: "13")
+        register(cardNode: FunctionCardNode(functionNumber: 2, isCaller: true), withCode: "14")
+        register(cardNode: FunctionCardNode(functionNumber: 2, isCaller: false), withCode: "15")
+        register(cardNode: FunctionCardNode(functionNumber: 3, isCaller: true), withCode: "16")
+        register(cardNode: FunctionCardNode(functionNumber: 3, isCaller: false), withCode: "17")
+        register(cardNode: FunctionCardNode(functionNumber: 4, isCaller: true), withCode: "18")
+        register(cardNode: FunctionCardNode(functionNumber: 4, isCaller: false), withCode: "19")
+        
+        // Loop
         register(cardNode: LoopCardNode(), withCode: "6")
         register(cardNode: BorderCardNode(), withCode: "7")
-        register(cardNode: ParameterCardNode(card: ParameterCard(paremeter: 1)), withCode: "8")
-        register(cardNode: ParameterCardNode(card: ParameterCard(paremeter: 2)), withCode: "9")
-        register(cardNode: ParameterCardNode(card: ParameterCard(paremeter: 3)), withCode: "10")
-        register(cardNode: ParameterCardNode(card: ParameterCard(paremeter: 4)), withCode: "11")
-        register(cardNode: SuccessorCardNode(card: PickupCard(), angles: [0]), withCode: "16")
-        register(cardNode: SuccessorCardNode(card: DropCard(), angles: [0]), withCode: "17")
+        
+        // Actions
+        register(cardNode: SimpleActionCardNode(name: "move", action: MoveAction()), withCode: "1")
+        register(cardNode: SimpleActionCardNode(name: "left", action: RotationAction(direction: .left)), withCode: "2")
+        register(cardNode: SimpleActionCardNode(name: "right", action: RotationAction(direction: .right)), withCode: "3")
+        register(cardNode: SimpleActionCardNode(name: "jump", action: JumpAction()), withCode: "4")
+        register(cardNode: SimpleActionCardNode(name: "pickup", action: PickupAction()), withCode: "20")
+        register(cardNode: SimpleActionCardNode(name: "drop", action: DropAction()), withCode: "21")
+        
+        // Parameters
+        register(cardNode: CardNode(card: ParameterCard(parameter: 1)), withCode: "8")
+        register(cardNode: CardNode(card: ParameterCard(parameter: 2)), withCode: "9")
+        register(cardNode: CardNode(card: ParameterCard(parameter: 3)), withCode: "10")
+        register(cardNode: CardNode(card: ParameterCard(parameter: 4)), withCode: "11")
     }
     
     
     func build(from graph: ObservationGraph) throws -> CardNode {
-        if let startNode = graph.firstNode(withPayload: startCode) {
+        if let startNode = graph.firstNode(withPayloadIn: startCodes) {
             return try cardNode(for: startNode, withParent: nil, in: graph)
         }
         
@@ -53,7 +67,6 @@ class CardNodeFactory {
     func cardNode(for node: ObservationNode, withParent parent: CardNode?, in graph: ObservationGraph) throws -> CardNode {
         if let prototype = try? cardNode(withCode: node.payload) {
             return try prototype.create(from: node, withParent: parent, in: graph)
-
         }
         
         throw CardSequenceError.unknownCode(code: node.payload)

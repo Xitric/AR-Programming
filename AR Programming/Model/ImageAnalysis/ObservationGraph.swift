@@ -11,7 +11,7 @@ import simd
 
 class ObservationGraph {
     
-    private static let maximumConnectionDistanceFraction = 1.5
+    private static let maximumConnectionDistanceFraction = 1.3
     private static let maximumConnectionAngleMargin = 0.35
     
     private let observationSet: ObservationSet
@@ -27,8 +27,8 @@ class ObservationGraph {
         self.nodeSize = observationSet.averageNodeDiagonal
     }
     
-    func firstNode(withPayload payload: String) -> ObservationNode? {
-        return observationSet.nodes.first { $0.payload == payload }
+    func firstNode(withPayloadIn payloads: [String]) -> ObservationNode? {
+        return observationSet.nodes.first { payloads.contains($0.payload) }
     }
     
     func nodes(near node: ObservationNode) -> [ObservationNode] {

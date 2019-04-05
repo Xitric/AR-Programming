@@ -1,52 +1,153 @@
 {
     "number":5,
-    "type":"cleanup",
-    "name":"Sæt tingene på plads",
+    "type":"quantity",
+    "name":"Sagde du gentagelser?",
     "unlocks":"Level6",
-    "dropSpots":[
-        {
-            "x":0,
-            "y":0,
-            "resourceIdentifier":"DropSpots/DropSpotGrey",
-            "collectiveGoals": {
-                "Blå":1,
-                "Rød":1,
-                "Grøn":1,
-                "Gul":1
-            }
-        },
+    "doCollect":[
+        {"type":"mønter", "quantity":20}
     ],
-    "items":[
+    "dontCollect":[],
+    "collectibles":[
         {
-            "type":"Blå",
-            "x":-1,
-            "y":0,
-            "quantity":1,
-            "resourceIdentifier":"Polygons/PolygonBlue"
-        },
-        {
-            "type":"Grøn",
             "x":1,
             "y":0,
             "quantity":1,
-            "resourceIdentifier":"Polygons/PolygonGreen"
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
         },
         {
-            "type":"Rød",
-            "x":0,
+            "x":2,
+            "y":0,
+            "quantity":1,
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
+        },
+        {
+            "x":2,
+            "y":1,
+            "quantity":1,
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
+        },
+        {
+            "x":2,
             "y":-1,
             "quantity":1,
-            "resourceIdentifier":"Polygons/PolygonRed"
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
         },
         {
-            "type":"Gul",
+            "x":-1,
+            "y":0,
+            "quantity":1,
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
+        },
+        {
+            "x":-2,
+            "y":0,
+            "quantity":1,
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
+        },
+        {
+            "x":-2,
+            "y":1,
+            "quantity":1,
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
+        },
+        {
+            "x":-2,
+            "y":-1,
+            "quantity":1,
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
+        },
+        {
             "x":0,
             "y":1,
             "quantity":1,
-            "resourceIdentifier":"Polygons/PolygonYellow"
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
+        },
+        {
+            "x":0,
+            "y":-1,
+            "quantity":1,
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
+        },
+        {
+            "x":-2,
+            "y":2,
+            "quantity":1,
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
+        },
+        {
+            "x":-1,
+            "y":2,
+            "quantity":1,
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
+        },
+        {
+            "x":0,
+            "y":2,
+            "quantity":1,
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
+        },
+        {
+            "x":1,
+            "y":2,
+            "quantity":1,
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
+        },
+        {
+            "x":2,
+            "y":2,
+            "quantity":1,
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
+        },
+        {
+            "x":-2,
+            "y":-2,
+            "quantity":1,
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
+        },
+        {
+            "x":-1,
+            "y":-2,
+            "quantity":1,
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
+        },
+        {
+            "x":0,
+            "y":-2,
+            "quantity":1,
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
+        },
+        {
+            "x":1,
+            "y":-2,
+            "quantity":1,
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
+        },
+        {
+            "x":2,
+            "y":-2,
+            "quantity":1,
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
         }
     ],
-    
-    "props":[
-    ]
+    "props":[]
 }

@@ -98,10 +98,10 @@ class LevelViewController: UIViewController {
     }
     
     @IBAction func detectCards(_ sender: UIButton) {
-        editor.saveProgram()
-        editor.program.delegate = self
+        programEditor?.main.delegate = self
+        programEditor?.saveProgram()
         
-        detectButton.isHidden = true
+//        detectButton.isHidden = true
         executeButton.isHidden = false
         resetButton.isHidden = false
     }
@@ -109,14 +109,14 @@ class LevelViewController: UIViewController {
     @IBAction func executeSequence(_ sender: UIButton) {
         if let levelViewModel = levelViewModel {
             let player = levelViewModel.player
-            editor.program.run(on: player)
+            programEditor?.main.run(on: player)
         }
     }
     
     @IBAction func resetLevel(_ sender: UIButton) {
         levelViewModel?.levelModel.reset()
-        editor.program.delegate = nil
-        editor.reset()
+        programEditor?.main.delegate = nil
+        programEditor?.reset()
         
         detectButton.isHidden = false
         executeButton.isHidden = true
