@@ -13,5 +13,5 @@ before_install:
 jobs:
   include:
    - script: xcodebuild -workspace AR\ Programming.xcworkspace -scheme Pods-AR\ ProgrammingTests -destination platform\=iOS\ Simulator,OS\=12.1,name\=iPad\ Pro\ \(9.7-inch\) build test | xcpretty
-   - script: xcodebuild -workspace AR\ Programming.xcworkspace -scheme EntityComponentSystemTests -destination platform\=iOS\ Simulator,OS\=12.1,name\=iPad\ Pro\ \(9.7-inch\) build test | xcpretty
-   - script: xcodebuild -workspace AR\ Programming.xcworkspace -scheme ProgramModelTests -destination platform\=iOS\ Simulator,OS\=12.1,name\=iPad\ Pro\ \(9.7-inch\) build test | xcpretty
+   - script: xcodebuild -workspace AR\ Programming.xcworkspace -scheme EntityComponentSystem/EntityComponentSystemTests -destination platform\=iOS\ Simulator,OS\=12.1,name\=iPad\ Pro\ \(9.7-inch\) build test | xcpretty
+   - script: xcodebuild -workspace AR\ Programming.xcworkspace -scheme ProgramModel/ProgramModelTests -destination platform\=iOS\ Simulator,OS\=12.1,name\=iPad\ Pro\ \(9.7-inch\) build test | xcpretty
