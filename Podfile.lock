@@ -5,17 +5,21 @@ PODS:
   - AudioKit/Core (4.5.6)
   - AudioKit/UI (4.5.6):
     - AudioKit/Core
+  - Swinject (2.6.0)
 
 DEPENDENCIES:
   - AudioKit (~> 4.5)
+  - Swinject (~> 2.6)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AudioKit
+    - Swinject
 
 SPEC CHECKSUMS:
   AudioKit: 84f5a444902a74ac32cfe8488e72782792ff2edc
+  Swinject: 48a96cda93633cf2860697b4ce76ab5db9ebaca2
 
-PODFILE CHECKSUM: 4ecfccb3b8adc24410feef8f0dbb5fa896b222d1
+PODFILE CHECKSUM: e9269eb3cc6a0ee37316edbd74aa694551e785cf
 
 COCOAPODS: 1.5.3

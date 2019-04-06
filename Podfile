@@ -3,11 +3,17 @@ platform :ios, '12.1'
 
 workspace 'ARProgramming'
 
+# Shared dependency injection framework
+def swinject
+    pod 'Swinject', '~> 2.6'
+end
+
 target 'ARProgramming' do
   project 'ARProgramming/ARProgramming'
   use_frameworks!
   
   # Pods for ARProgramming
+  swinject
   pod 'AudioKit', '~> 4.5'
   
   target 'ARProgrammingTests' do
@@ -22,6 +28,7 @@ target 'ProgramModel' do
     use_frameworks!
     
     # Pods for ProgramModel
+    swinject
     
     target 'ProgramModelTests' do
         inherit! :search_paths
@@ -35,6 +42,7 @@ target 'EntityComponentSystem' do
     use_frameworks!
     
     # Pods for EntityComponentSystem
+    swinject
     
     target 'EntityComponentSystemTests' do
         inherit! :search_paths
