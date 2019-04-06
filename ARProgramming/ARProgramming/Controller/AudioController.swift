@@ -7,46 +7,46 @@
 //
 
 import Foundation
-//import AudioKit
+import AudioKit
 
 //Inspired by:
 //https://github.com/AudioKit/AudioKit/blob/master/Examples/macOS/FlangerAndChorus/FlangerAndChorus/Conductor.swift
 class AudioController {
     
     static let instance = AudioController()
-//    var mixer: AKMixer?
+    var mixer: AKMixer?
     
     private init(){
-//        mixer = AKMixer()
-//        AudioKit.output = mixer
+        mixer = AKMixer()
+        AudioKit.output = mixer
     }
     
-//    public func makeSound(withName name: String) -> AKAudioPlayer? {
-//        if let soundFile = try? AKAudioFile(readFileName: name) {
-//            if let player = try? AKAudioPlayer(file: soundFile) {
-//                player.looping = false
-//                mixer?.connect(input: player)
-//                return player
-//            }
-//        }
-//
-//        print("Error: Could not read sound file with name \(name)")
-//        return nil
-//    }
+    public func makeSound(withName name: String) -> AKAudioPlayer? {
+        if let soundFile = try? AKAudioFile(readFileName: name) {
+            if let player = try? AKAudioPlayer(file: soundFile) {
+                player.looping = false
+                mixer?.connect(input: player)
+                return player
+            }
+        }
+
+        print("Error: Could not read sound file with name \(name)")
+        return nil
+    }
     
     public func start() {
-//        do {
-//            try AudioKit.start()
-//        } catch {
-//            print("Error: AudioKit was unable to start")
-//        }
+        do {
+            try AudioKit.start()
+        } catch {
+            print("Error: AudioKit was unable to start")
+        }
     }
     
     public func stop() {
-//        do {
-//            try AudioKit.stop()
-//        } catch {
-//            print("Error: AudioKit was unable to stop")
-//        }
+        do {
+            try AudioKit.stop()
+        } catch {
+            print("Error: AudioKit was unable to stop")
+        }
     }
 }

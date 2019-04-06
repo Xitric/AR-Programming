@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 import SceneKit
-//import AudioKit
+import AudioKit
 import ProgramModel
 
 class LevelViewController: UIViewController {
@@ -29,8 +29,8 @@ class LevelViewController: UIViewController {
     @IBOutlet weak var planeDetectionAnimation: UIImageView!
     
     //MARK: Sound
-//    private var winSound = AudioController.instance.makeSound(withName: "win.wav")
-//    private var pickupSound = AudioController.instance.makeSound(withName: "pickup.wav")
+    private var winSound = AudioController.instance.makeSound(withName: "win.wav")
+    private var pickupSound = AudioController.instance.makeSound(withName: "pickup.wav")
 
     //MARK: State
     private var programEditor: ProgramEditor?
@@ -87,7 +87,6 @@ class LevelViewController: UIViewController {
         programEditor?.saveProgram()
         programEditor?.main.delegate = self
         
-//        detectButton.isHidden = true
         executeButton.isHidden = false
         resetButton.isHidden = false
     }
@@ -181,7 +180,7 @@ extension LevelViewController: ProgramDelegate {
 extension LevelViewController: LevelDelegate {
     
     func levelCompleted(_ level: Level) {
-//        self.winSound?.play()
+        self.winSound?.play()
         
         DispatchQueue.main.async { [unowned self] in
             self.winLabel.isHidden = false
