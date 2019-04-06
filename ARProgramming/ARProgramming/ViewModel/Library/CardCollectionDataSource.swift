@@ -14,8 +14,12 @@ class CardCollectionDataSource: NSObject, UICollectionViewDataSource {
     
     private let viewModel: CardCollectionViewModel
     
-    init(grade: Int, cards: CardCollection) {
-        viewModel = CardCollectionViewModel(cards: cards, grade: grade)
+    init(viewModel: CardCollectionViewModel) {
+        self.viewModel = viewModel
+    }
+    
+    func setGrade(grade: Int) {
+        viewModel.setGrade(grade: grade)
     }
     
     //MARK: - Sections

@@ -13,15 +13,20 @@ import ProgramModel
 class ExampleProgramTableDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     
     private var examples = [ProgramEditor]()
+    private let deserializer: CardGraphDeserializer
     
     weak var delegate: ExampleProgramSelectorDelegate?
     
-    init(exampleBaseName: String, deserializer: CardGraphDeserializer) {
+    init(deserializer: CardGraphDeserializer) {
+        self.deserializer = deserializer
+    }
+    
+    func showExamplesForCard(withName name: String) {
         if let folderUrl = Bundle.main.resourceURL?
             .appendingPathComponent("ExamplePrograms", isDirectory: true)
-            .appendingPathComponent(exampleBaseName, isDirectory: true),
+            .appendingPathComponent(name, isDirectory: true),
             let urls = try? FileManager.default.contentsOfDirectory(at: folderUrl, includingPropertiesForKeys: nil) {
-
+            
             for url in urls {
                 if let data = try? Data(contentsOf: url),
                     let editor = try? deserializer.deserialize(from: data) {

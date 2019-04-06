@@ -64,6 +64,7 @@
 		56EB87AF2258B0CF00B4894D /* ProgramModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 560D204E2257A47E0015EC95 /* ProgramModel.framework */; };
 		56EB87B02258B0CF00B4894D /* ProgramModel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 560D204E2257A47E0015EC95 /* ProgramModel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		56EB87C02258DC2B00B4894D /* SwinjectStoryboard+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB87BF2258DC2B00B4894D /* SwinjectStoryboard+Setup.swift */; };
+		56EB87CA22593E6E00B4894D /* GradeCardConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB87C922593E6E00B4894D /* GradeCardConfiguration.swift */; };
 		8AD9CB08624962A19ED920C3 /* Pods_ARProgrammingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DBAF3627264578871A17E7D /* Pods_ARProgrammingTests.framework */; };
 		900F135A219447AF001C2DC2 /* LevelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900F1359219447AF001C2DC2 /* LevelManager.swift */; };
 		901584C82199BDF400450E0B /* LevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901584C72199BDF400450E0B /* LevelViewController.swift */; };
@@ -177,6 +178,7 @@
 		56EB87A02258B04300B4894D /* Pods_EntityComponentSystem.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_EntityComponentSystem.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56EB87A22258B04A00B4894D /* Pods_ProgramModel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_ProgramModel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56EB87BF2258DC2B00B4894D /* SwinjectStoryboard+Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwinjectStoryboard+Setup.swift"; sourceTree = "<group>"; };
+		56EB87C922593E6E00B4894D /* GradeCardConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradeCardConfiguration.swift; sourceTree = "<group>"; };
 		65C4BBB84CF770EB1ECE0612 /* Pods-ARProgrammingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARProgrammingTests.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-ARProgrammingTests/Pods-ARProgrammingTests.debug.xcconfig"; sourceTree = "<group>"; };
 		900F1359219447AF001C2DC2 /* LevelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelManager.swift; sourceTree = "<group>"; };
 		901584C72199BDF400450E0B /* LevelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelViewController.swift; sourceTree = "<group>"; };
@@ -291,6 +293,7 @@
 		562ACDC1224967E500D2DA7C /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				56EB87C922593E6E00B4894D /* GradeCardConfiguration.swift */,
 				56D8CC0422577D84004EE8B1 /* CardCollectionViewModel.swift */,
 				562ACDC62249726C00D2DA7C /* CardCollectionViewSectionHeader.swift */,
 				C74785E8219427A3000148BC /* CardCollectionViewCell.swift */,
@@ -723,6 +726,7 @@
 				562E68512252411700D07C69 /* ProgramView.swift in Sources */,
 				206A0CB52240E5120018E6B7 /* WardrobeManager.swift in Sources */,
 				202219A7223BC07000A2A8EA /* WardrobeViewController.swift in Sources */,
+				56EB87CA22593E6E00B4894D /* GradeCardConfiguration.swift in Sources */,
 				56431D2922328C7700BFAC36 /* QuantityComponent.swift in Sources */,
 				C725B2C321A85A7B00DD147A /* Model.xcdatamodeld in Sources */,
 				562ACDB3224522CB00D2DA7C /* GameState.swift in Sources */,

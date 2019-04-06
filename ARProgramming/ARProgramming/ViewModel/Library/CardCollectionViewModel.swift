@@ -14,6 +14,8 @@ import ProgramModel
 /// Cards are automatically divided into categories by type and sorted appropriately. Cards can also be filtered by grade, to show only those cards that are relevant to the current user.
 class CardCollectionViewModel {
     
+    private let cardCollection: CardCollection
+    private let configuration: GradeCardConfiguration
     private var cards = [CardType:[Card]]()
     
     var numberOfTypes: Int {
@@ -27,11 +29,16 @@ class CardCollectionViewModel {
         }
     }
     
-    init(cards: CardCollection, grade: Int) {
-        let gradeConfig = Config.read(configFile: "cardClasses", toType: GradeConfig.self)!
+    init(cardCollection: CardCollection, configuration: GradeCardConfiguration) {
+        self.cardCollection = cardCollection
+        self.configuration = configuration
+    }
+    
+    func setGrade(grade: Int) {
+        cards.removeAll()
         
-        for card in cards.cards {
-            if gradeConfig.isIncluded(cardName: card.internalName, forGrade: grade) {
+        for card in cardCollection.cards {
+            if configuration.isIncluded(cardName: card.internalName, forGrade: grade) {
                 let cardType = card.type
                 var typeArray = self.cards[cardType] ?? [Card]()
                 typeArray.append(card)
@@ -63,20 +70,5 @@ class CardCollectionViewModel {
         case .parameter:
             return "Talkort"
         }
-    }
-}
-
-private struct GradeConfig: Decodable {
-    
-    let includedCards: [[String]]
-    
-    func isIncluded(cardName: String, forGrade grade: Int) -> Bool {
-        for i in 0 ..< grade {
-            if includedCards[i].contains(cardName) {
-                return true
-            }
-        }
-        
-        return false
     }
 }

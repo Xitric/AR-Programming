@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// A container storing all cards available for programming.
 public protocol CardCollection {
     var cards: [Card] { get }
 }

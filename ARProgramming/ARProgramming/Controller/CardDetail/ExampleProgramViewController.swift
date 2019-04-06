@@ -13,7 +13,13 @@ import ProgramModel
 
 class ExampleProgramViewController: UIViewController {
     
-    @IBOutlet weak var exampleProgramTable: UITableView!
+    @IBOutlet weak var exampleProgramTable: UITableView! {
+        didSet {
+            tableDataSource?.delegate = self
+            exampleProgramTable.dataSource = tableDataSource
+            exampleProgramTable.delegate = tableDataSource
+        }
+    }
     @IBOutlet weak var previewScene: SCNView! {
         didSet {
             previewScene.autoenablesDefaultLighting = true
@@ -43,17 +49,12 @@ class ExampleProgramViewController: UIViewController {
         }
     }
     
-    private var tableDataSource: ExampleProgramTableDataSource!
     private var levelViewModel: LevelViewModel!
     
-    var deserializer: CardGraphDeserializer!
+    var tableDataSource: ExampleProgramTableDataSource?
     
     func showExamples(forCard card: Card) {
-        tableDataSource = ExampleProgramTableDataSource(exampleBaseName: card.internalName, deserializer: deserializer)
-        tableDataSource.delegate = self
-        
-        exampleProgramTable.dataSource = tableDataSource
-        exampleProgramTable.delegate = tableDataSource
+        tableDataSource?.showExamplesForCard(withName: card.internalName)
     }
 }
 
