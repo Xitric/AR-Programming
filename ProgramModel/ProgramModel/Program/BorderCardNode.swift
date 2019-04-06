@@ -29,11 +29,8 @@ class BorderCardNode: CardNode {
             connectionAngles: [0]))
     }
     
-    override func create(from node: ObservationNode, withParent parent: CardNode?, in graph: ObservationGraph) throws -> CardNode {
-        let clone = try super.create(from: node, withParent: parent, in: graph) as! BorderCardNode
-        try clone.findLoop()
-        
-        return clone
+    override func link() throws {
+        try findLoop()
     }
     
     func findLoop() throws {

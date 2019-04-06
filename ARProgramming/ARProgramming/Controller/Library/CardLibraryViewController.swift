@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-import CoreData
+import ProgramModel
 
 class CardLibraryViewController: UIViewController {
     
@@ -22,14 +22,16 @@ class CardLibraryViewController: UIViewController {
     }
     
     private lazy var dataSource: CardCollectionDataSource = {
-        let source = CardCollectionDataSource(grade: grade)
+        let source = CardCollectionDataSource(grade: grade, cards: cards)
         return source
     }()
     private lazy var flowLayoutDelegate: CardCollectionFlowLayoutDelegate = {
        return CardCollectionFlowLayoutDelegate()
     }()
     
+    // Injected properties
     var grade: Int!
+    var cards: CardCollection!
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()

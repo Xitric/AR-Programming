@@ -29,8 +29,14 @@ class LevelViewController: UIViewController {
     @IBOutlet weak var planeDetectionAnimation: UIImageView!
     
     //MARK: Sound
-    private var winSound = AudioController.instance.makeSound(withName: "win.wav")
-    private var pickupSound = AudioController.instance.makeSound(withName: "pickup.wav")
+    var audioController: AudioController? {
+        didSet {
+            winSound = audioController?.makeSound(withName: "win.wav")
+            pickupSound = audioController?.makeSound(withName: "pickup.wav")
+        }
+    }
+    private var winSound: AKAudioPlayer?
+    private var pickupSound: AKAudioPlayer?
 
     //MARK: State
     private var programEditor: ProgramEditor?
@@ -68,7 +74,7 @@ class LevelViewController: UIViewController {
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        AudioController.instance.start()
+        audioController?.start()
         createPlaneAnimation()
     }
     
@@ -79,7 +85,7 @@ class LevelViewController: UIViewController {
     }
     
     deinit {
-        AudioController.instance.stop()
+        audioController?.stop()
     }
     
     // MARK: - Button actions    

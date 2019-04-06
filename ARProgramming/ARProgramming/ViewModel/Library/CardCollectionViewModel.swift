@@ -27,10 +27,10 @@ class CardCollectionViewModel {
         }
     }
     
-    init(cards: [Card], grade: Int) {
+    init(cards: CardCollection, grade: Int) {
         let gradeConfig = Config.read(configFile: "cardClasses", toType: GradeConfig.self)!
         
-        for card in cards {
+        for card in cards.cards {
             if gradeConfig.isIncluded(cardName: card.internalName, forGrade: grade) {
                 let cardType = card.type
                 var typeArray = self.cards[cardType] ?? [Card]()

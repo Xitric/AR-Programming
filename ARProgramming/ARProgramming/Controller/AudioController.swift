@@ -13,10 +13,9 @@ import AudioKit
 //https://github.com/AudioKit/AudioKit/blob/master/Examples/macOS/FlangerAndChorus/FlangerAndChorus/Conductor.swift
 class AudioController {
     
-    static let instance = AudioController()
     var mixer: AKMixer?
     
-    private init(){
+    init(){
         mixer = AKMixer()
         AudioKit.output = mixer
     }

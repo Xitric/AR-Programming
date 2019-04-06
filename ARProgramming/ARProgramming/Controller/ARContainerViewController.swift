@@ -30,12 +30,12 @@ class ARContainerViewController: UIViewController {
     
     private var levelViewModel: LevelViewModel?
     private var arController: ARController!
-    private var programEditor = ProgramEditor()
     
     private var coordinationController: GameCoordinationViewController!
     
-    /// Property used for injecting a level instance into this controller.
+    /// Injected properties
     var level: Level?
+    var programEditor: ProgramEditor!
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let overlayController = segue.destination as? GameCoordinationViewController {

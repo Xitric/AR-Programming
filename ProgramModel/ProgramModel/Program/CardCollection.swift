@@ -1,5 +1,5 @@
 //
-//  CardGraphDeserializer.swift
+//  CardCollection.swift
 //  ProgramModel
 //  
 //  Created by Kasper Schultz Davidsen on 06/04/2019.
@@ -8,6 +8,7 @@
 
 import Foundation
 
-public protocol CardGraphDeserializer {
-    func deserialize(from data: Data) throws -> ProgramEditor
+public protocol CardCollection {
+    var cards: [Card] { get }
 }
+

@@ -38,7 +38,6 @@
 		56D8CBA722577AD4004EE8B1 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D8CB8A22577AD3004EE8B1 /* Card.swift */; };
 		56D8CBA822577AD4004EE8B1 /* ProgramState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D8CB8B22577AD4004EE8B1 /* ProgramState.swift */; };
 		56D8CBA922577AD4004EE8B1 /* FunctionCardNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D8CB8C22577AD4004EE8B1 /* FunctionCardNode.swift */; };
-		56D8CBAA22577AD4004EE8B1 /* CardGraphDetectorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D8CB8D22577AD4004EE8B1 /* CardGraphDetectorDelegate.swift */; };
 		56D8CBAC22577AD4004EE8B1 /* CardNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D8CB8F22577AD4004EE8B1 /* CardNode.swift */; };
 		56D8CBAD22577AD4004EE8B1 /* LoopCardNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D8CB9022577AD4004EE8B1 /* LoopCardNode.swift */; };
 		56D8CBBB22577B5C004EE8B1 /* CardNodeFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D8CBAF22577B5C004EE8B1 /* CardNodeFactoryTests.swift */; };
@@ -56,13 +55,17 @@
 		56D8CC1D22577EAF004EE8B1 /* ObservationSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D8CC1622577EAE004EE8B1 /* ObservationSet.swift */; };
 		56D8CC1E22577EAF004EE8B1 /* ObservationGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D8CC1722577EAE004EE8B1 /* ObservationGraph.swift */; };
 		56D8CC1F22577EAF004EE8B1 /* BarcodeDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D8CC1822577EAF004EE8B1 /* BarcodeDetector.swift */; };
-		56D8CC2022577EAF004EE8B1 /* CardGraphDeserializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D8CC1922577EAF004EE8B1 /* CardGraphDeserializer.swift */; };
+		56D8CC2022577EAF004EE8B1 /* CardGraphDeserializerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D8CC1922577EAF004EE8B1 /* CardGraphDeserializerImpl.swift */; };
 		56D8CC2122577EAF004EE8B1 /* ObservationNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D8CC1A22577EAF004EE8B1 /* ObservationNode.swift */; };
 		56D8CC2722577ECA004EE8B1 /* ObservationGraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D8CC2322577ECA004EE8B1 /* ObservationGraphTests.swift */; };
 		56D8CC2822577ECA004EE8B1 /* ObservationNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D8CC2422577ECA004EE8B1 /* ObservationNodeTests.swift */; };
 		56D8CC2922577ECA004EE8B1 /* ObservationSetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D8CC2522577ECA004EE8B1 /* ObservationSetTests.swift */; };
 		56D8CC2A22577ECA004EE8B1 /* ObservationEdgeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D8CC2622577ECA004EE8B1 /* ObservationEdgeTests.swift */; };
 		56EB87AB2258B0BE00B4894D /* EntityComponentSystem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 560D204422579DA50015EC95 /* EntityComponentSystem.framework */; };
+		56EB87BC2258C34F00B4894D /* CardGraphDeserializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB87BB2258C34F00B4894D /* CardGraphDeserializer.swift */; };
+		56EB87BE2258C41100B4894D /* ProgramModelServiceCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB87BD2258C41100B4894D /* ProgramModelServiceCollection.swift */; };
+		56EB87C42258FF8200B4894D /* ObservationGraphCardNodeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB87C32258FF8200B4894D /* ObservationGraphCardNodeBuilder.swift */; };
+		56EB87C6225908C600B4894D /* CardCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB87C5225908C600B4894D /* CardCollection.swift */; };
 		9D3FBEB79F1FE923D91FC804 /* Pods_ProgramModelTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DB26A2367FD4CBD45B29057 /* Pods_ProgramModelTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -114,7 +117,6 @@
 		56D8CB8A22577AD3004EE8B1 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		56D8CB8B22577AD4004EE8B1 /* ProgramState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgramState.swift; sourceTree = "<group>"; };
 		56D8CB8C22577AD4004EE8B1 /* FunctionCardNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunctionCardNode.swift; sourceTree = "<group>"; };
-		56D8CB8D22577AD4004EE8B1 /* CardGraphDetectorDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardGraphDetectorDelegate.swift; sourceTree = "<group>"; };
 		56D8CB8F22577AD4004EE8B1 /* CardNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardNode.swift; sourceTree = "<group>"; };
 		56D8CB9022577AD4004EE8B1 /* LoopCardNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoopCardNode.swift; sourceTree = "<group>"; };
 		56D8CBAF22577B5C004EE8B1 /* CardNodeFactoryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardNodeFactoryTests.swift; sourceTree = "<group>"; };
@@ -132,13 +134,17 @@
 		56D8CC1622577EAE004EE8B1 /* ObservationSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationSet.swift; sourceTree = "<group>"; };
 		56D8CC1722577EAE004EE8B1 /* ObservationGraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationGraph.swift; sourceTree = "<group>"; };
 		56D8CC1822577EAF004EE8B1 /* BarcodeDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeDetector.swift; sourceTree = "<group>"; };
-		56D8CC1922577EAF004EE8B1 /* CardGraphDeserializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardGraphDeserializer.swift; sourceTree = "<group>"; };
+		56D8CC1922577EAF004EE8B1 /* CardGraphDeserializerImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardGraphDeserializerImpl.swift; sourceTree = "<group>"; };
 		56D8CC1A22577EAF004EE8B1 /* ObservationNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationNode.swift; sourceTree = "<group>"; };
 		56D8CC2322577ECA004EE8B1 /* ObservationGraphTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationGraphTests.swift; sourceTree = "<group>"; };
 		56D8CC2422577ECA004EE8B1 /* ObservationNodeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationNodeTests.swift; sourceTree = "<group>"; };
 		56D8CC2522577ECA004EE8B1 /* ObservationSetTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationSetTests.swift; sourceTree = "<group>"; };
 		56D8CC2622577ECA004EE8B1 /* ObservationEdgeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationEdgeTests.swift; sourceTree = "<group>"; };
 		56EB87A42258B05600B4894D /* Pods_EntityComponentSystem.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_EntityComponentSystem.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		56EB87BB2258C34F00B4894D /* CardGraphDeserializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGraphDeserializer.swift; sourceTree = "<group>"; };
+		56EB87BD2258C41100B4894D /* ProgramModelServiceCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramModelServiceCollection.swift; sourceTree = "<group>"; };
+		56EB87C32258FF8200B4894D /* ObservationGraphCardNodeBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservationGraphCardNodeBuilder.swift; sourceTree = "<group>"; };
+		56EB87C5225908C600B4894D /* CardCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollection.swift; sourceTree = "<group>"; };
 		702E5DD9A7B316901835C0D6 /* Pods-ProgramModel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProgramModel.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-ProgramModel/Pods-ProgramModel.debug.xcconfig"; sourceTree = "<group>"; };
 		7D4493E1E80920FED7CFF713 /* Pods-ProgramModelTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProgramModelTests.release.xcconfig"; path = "../Pods/Target Support Files/Pods-ProgramModelTests/Pods-ProgramModelTests.release.xcconfig"; sourceTree = "<group>"; };
 		845DDA34E49A17391AD23F82 /* Pods-ProgramModel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProgramModel.release.xcconfig"; path = "../Pods/Target Support Files/Pods-ProgramModel/Pods-ProgramModel.release.xcconfig"; sourceTree = "<group>"; };
@@ -232,6 +238,7 @@
 				56D8CAFB22577943004EE8B1 /* Program */,
 				56D8CAE3225778C8004EE8B1 /* ProgramModel.h */,
 				56D8CAE4225778C8004EE8B1 /* Info.plist */,
+				56EB87BD2258C41100B4894D /* ProgramModelServiceCollection.swift */,
 			);
 			path = ProgramModel;
 			sourceTree = "<group>";
@@ -252,20 +259,21 @@
 			isa = PBXGroup;
 			children = (
 				56D8CB7322577AD3004EE8B1 /* Action */,
-				56D8CB7222577AD3004EE8B1 /* BasicCard.swift */,
-				56D8CB8322577AD3004EE8B1 /* BorderCardNode.swift */,
 				56D8CB8A22577AD3004EE8B1 /* Card.swift */,
-				56D8CB8D22577AD4004EE8B1 /* CardGraphDetectorDelegate.swift */,
-				56D8CB8F22577AD4004EE8B1 /* CardNode.swift */,
+				56D8CB7222577AD3004EE8B1 /* BasicCard.swift */,
+				56D8CB8922577AD3004EE8B1 /* ParameterCard.swift */,
 				56D8CB8422577AD3004EE8B1 /* CardNodeFactory.swift */,
-				56D8CB8822577AD3004EE8B1 /* CardSequenceError.swift */,
+				56EB87C32258FF8200B4894D /* ObservationGraphCardNodeBuilder.swift */,
+				56D8CB8F22577AD4004EE8B1 /* CardNode.swift */,
+				56D8CB8622577AD3004EE8B1 /* SimpleActionCardNode.swift */,
+				56D8CB8322577AD3004EE8B1 /* BorderCardNode.swift */,
 				56D8CB8C22577AD4004EE8B1 /* FunctionCardNode.swift */,
 				56D8CB9022577AD4004EE8B1 /* LoopCardNode.swift */,
-				56D8CB8922577AD3004EE8B1 /* ParameterCard.swift */,
+				56D8CB8822577AD3004EE8B1 /* CardSequenceError.swift */,
 				56D8CB8522577AD3004EE8B1 /* Program.swift */,
 				56D8CB8722577AD3004EE8B1 /* ProgramEditor.swift */,
 				56D8CB8B22577AD4004EE8B1 /* ProgramState.swift */,
-				56D8CB8622577AD3004EE8B1 /* SimpleActionCardNode.swift */,
+				56EB87C5225908C600B4894D /* CardCollection.swift */,
 			);
 			path = Program;
 			sourceTree = "<group>";
@@ -340,8 +348,9 @@
 				56D8CC1622577EAE004EE8B1 /* ObservationSet.swift */,
 				56D8CC1722577EAE004EE8B1 /* ObservationGraph.swift */,
 				56D8CC1822577EAF004EE8B1 /* BarcodeDetector.swift */,
-				56D8CC1922577EAF004EE8B1 /* CardGraphDeserializer.swift */,
 				56D8CC1A22577EAF004EE8B1 /* ObservationNode.swift */,
+				56EB87BB2258C34F00B4894D /* CardGraphDeserializer.swift */,
+				56D8CC1922577EAF004EE8B1 /* CardGraphDeserializerImpl.swift */,
 			);
 			path = ImageAnalysis;
 			sourceTree = "<group>";
@@ -544,6 +553,8 @@
 				56D8CBA322577AD4004EE8B1 /* SimpleActionCardNode.swift in Sources */,
 				56D8CBA622577AD4004EE8B1 /* ParameterCard.swift in Sources */,
 				56D8CC1F22577EAF004EE8B1 /* BarcodeDetector.swift in Sources */,
+				56EB87C6225908C600B4894D /* CardCollection.swift in Sources */,
+				56EB87BE2258C41100B4894D /* ProgramModelServiceCollection.swift in Sources */,
 				56D8CB9E22577AD4004EE8B1 /* ProgramAction.swift in Sources */,
 				56D8CB9C22577AD4004EE8B1 /* DropAction.swift in Sources */,
 				56D8CBA822577AD4004EE8B1 /* ProgramState.swift in Sources */,
@@ -551,12 +562,12 @@
 				56D8CBAC22577AD4004EE8B1 /* CardNode.swift in Sources */,
 				56D8CB9622577AD4004EE8B1 /* RotationActionComponent.swift in Sources */,
 				56D8CB9722577AD4004EE8B1 /* MovementActionComponent.swift in Sources */,
-				56D8CC2022577EAF004EE8B1 /* CardGraphDeserializer.swift in Sources */,
+				56D8CC2022577EAF004EE8B1 /* CardGraphDeserializerImpl.swift in Sources */,
 				56D8CB9822577AD4004EE8B1 /* PickupActionComponent.swift in Sources */,
+				56EB87C42258FF8200B4894D /* ObservationGraphCardNodeBuilder.swift in Sources */,
 				56D8CB9D22577AD4004EE8B1 /* RotationAction.swift in Sources */,
 				56D8CBA422577AD4004EE8B1 /* ProgramEditor.swift in Sources */,
 				56D8CC1E22577EAF004EE8B1 /* ObservationGraph.swift in Sources */,
-				56D8CBAA22577AD4004EE8B1 /* CardGraphDetectorDelegate.swift in Sources */,
 				56D8CC2122577EAF004EE8B1 /* ObservationNode.swift in Sources */,
 				56D8CBA122577AD4004EE8B1 /* CardNodeFactory.swift in Sources */,
 				56D8CB9422577AD4004EE8B1 /* MoveAction.swift in Sources */,
@@ -572,6 +583,7 @@
 				56D8CC1C22577EAF004EE8B1 /* CardGraphDetector.swift in Sources */,
 				560D20482257A1610015EC95 /* Double+Helpers.swift in Sources */,
 				56D8CB9F22577AD4004EE8B1 /* Action.swift in Sources */,
+				56EB87BC2258C34F00B4894D /* CardGraphDeserializer.swift in Sources */,
 				56D8CB9B22577AD4004EE8B1 /* ComponentAction.swift in Sources */,
 				56D8CBA522577AD4004EE8B1 /* CardSequenceError.swift in Sources */,
 			);

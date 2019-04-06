@@ -46,8 +46,10 @@ class ExampleProgramViewController: UIViewController {
     private var tableDataSource: ExampleProgramTableDataSource!
     private var levelViewModel: LevelViewModel!
     
+    var deserializer: CardGraphDeserializer!
+    
     func showExamples(forCard card: Card) {
-        tableDataSource = ExampleProgramTableDataSource(exampleBaseName: card.internalName)
+        tableDataSource = ExampleProgramTableDataSource(exampleBaseName: card.internalName, deserializer: deserializer)
         tableDataSource.delegate = self
         
         exampleProgramTable.dataSource = tableDataSource

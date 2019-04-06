@@ -63,6 +63,7 @@
 		56EB87AD2258B0CB00B4894D /* EntityComponentSystem.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 560D20502257A4850015EC95 /* EntityComponentSystem.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		56EB87AF2258B0CF00B4894D /* ProgramModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 560D204E2257A47E0015EC95 /* ProgramModel.framework */; };
 		56EB87B02258B0CF00B4894D /* ProgramModel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 560D204E2257A47E0015EC95 /* ProgramModel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		56EB87C02258DC2B00B4894D /* SwinjectStoryboard+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB87BF2258DC2B00B4894D /* SwinjectStoryboard+Setup.swift */; };
 		8AD9CB08624962A19ED920C3 /* Pods_ARProgrammingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DBAF3627264578871A17E7D /* Pods_ARProgrammingTests.framework */; };
 		900F135A219447AF001C2DC2 /* LevelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900F1359219447AF001C2DC2 /* LevelManager.swift */; };
 		901584C82199BDF400450E0B /* LevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901584C72199BDF400450E0B /* LevelViewController.swift */; };
@@ -175,6 +176,7 @@
 		56D8CC0422577D84004EE8B1 /* CardCollectionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCollectionViewModel.swift; sourceTree = "<group>"; };
 		56EB87A02258B04300B4894D /* Pods_EntityComponentSystem.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_EntityComponentSystem.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56EB87A22258B04A00B4894D /* Pods_ProgramModel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_ProgramModel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		56EB87BF2258DC2B00B4894D /* SwinjectStoryboard+Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwinjectStoryboard+Setup.swift"; sourceTree = "<group>"; };
 		65C4BBB84CF770EB1ECE0612 /* Pods-ARProgrammingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARProgrammingTests.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-ARProgrammingTests/Pods-ARProgrammingTests.debug.xcconfig"; sourceTree = "<group>"; };
 		900F1359219447AF001C2DC2 /* LevelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelManager.swift; sourceTree = "<group>"; };
 		901584C72199BDF400450E0B /* LevelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelViewController.swift; sourceTree = "<group>"; };
@@ -398,6 +400,7 @@
 				202219A6223BC07000A2A8EA /* WardrobeViewController.swift */,
 				90A55B0821A83B0700FD7CDD /* AudioController.swift */,
 				562F2F2822538ABA00C46D83 /* MainMenuViewController.swift */,
+				56EB87BF2258DC2B00B4894D /* SwinjectStoryboard+Setup.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -625,12 +628,14 @@
 			inputPaths = (
 				"${SRCROOT}/../Pods/Target Support Files/Pods-ARProgramming/Pods-ARProgramming-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
+				"${BUILT_PRODUCTS_DIR}/SwinjectStoryboard/SwinjectStoryboard.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwinjectStoryboard.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -741,6 +746,7 @@
 				562ACDC522496BD400D2DA7C /* CardCollectionDataSource.swift in Sources */,
 				561083F8224A7607009A0039 /* ExampleProgramTableDataSource.swift in Sources */,
 				56431D392232A82700BFAC36 /* UpdateDelegate.swift in Sources */,
+				56EB87C02258DC2B00B4894D /* SwinjectStoryboard+Setup.swift in Sources */,
 				C7273114217714E900754543 /* Plane.swift in Sources */,
 				905A3C882179BE74005E3AA5 /* PlaneDetectorDelegate.swift in Sources */,
 			);

@@ -11,6 +11,7 @@ import UIKit
 
 public class ProgramEditor: CardGraphDetectorDelegate, ProgramState {
     
+    private let factory: CardNodeFactory
     private var currentProgram: Program?
     private let detector: BarcodeDetector
     private var allStoredPrograms = [String:Program]()
@@ -24,7 +25,9 @@ public class ProgramEditor: CardGraphDetectorDelegate, ProgramState {
         return Array(allStoredPrograms.values)
     }
     
-    public init() {
+    init(factory: CardNodeFactory) {
+        self.factory = factory
+        
         let detectorState = CardGraphDetector()
         detector = BarcodeDetector(state: detectorState)
         detectorState.delegate = self
@@ -48,8 +51,16 @@ public class ProgramEditor: CardGraphDetectorDelegate, ProgramState {
     
     func graphDetector(found graph: ObservationGraph) {
         do {
-            let start = try CardNodeFactory.instance.build(from: graph)
-            currentProgram = Program(startNode: start)
+            if let startObservation = graph.firstNode(withPayloadIn: factory.functionDeclarationCodes) {
+                
+                let start = try ObservationGraphCardNodeBuilder()
+                    .using(factory: factory)
+                    .createFrom(graph: graph)
+                    .using(node: startObservation)
+                    .getResult()
+                
+                currentProgram = Program(startNode: start)
+            }
         } catch CardSequenceError.missingStart {
             currentProgram = nil
             

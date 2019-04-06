@@ -16,15 +16,15 @@ class ExampleProgramTableDataSource: NSObject, UITableViewDataSource, UITableVie
     
     weak var delegate: ExampleProgramSelectorDelegate?
     
-    init(exampleBaseName: String) {
+    init(exampleBaseName: String, deserializer: CardGraphDeserializer) {
         if let folderUrl = Bundle.main.resourceURL?
             .appendingPathComponent("ExamplePrograms", isDirectory: true)
             .appendingPathComponent(exampleBaseName, isDirectory: true),
             let urls = try? FileManager.default.contentsOfDirectory(at: folderUrl, includingPropertiesForKeys: nil) {
-            
+
             for url in urls {
                 if let data = try? Data(contentsOf: url),
-                    let editor = try? CardGraphDeserializer().deserialize(from: data) {
+                    let editor = try? deserializer.deserialize(from: data) {
                     examples.append(editor)
                 }
             }
