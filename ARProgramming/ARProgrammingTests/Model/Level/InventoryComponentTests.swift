@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import AR_Programming
+@testable import ARProgramming
 
 class InventoryComponentTests: XCTestCase {
     

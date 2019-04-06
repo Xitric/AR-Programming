@@ -8,7 +8,7 @@
 
 import XCTest
 import EntityComponentSystem
-@testable import AR_Programming
+@testable import ARProgramming
 
 class QuantityLevelTests: XCTestCase {
     

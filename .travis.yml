@@ -12,6 +12,6 @@ before_install:
 
 jobs:
   include:
-   - script: set -o pipefail && xcodebuild -workspace AR\ Programming.xcworkspace -scheme Pods-AR\ ProgrammingTests -destination platform\=iOS\ Simulator,OS\=12.1,name\=iPad\ Pro\ \(9.7-inch\) build test | xcpretty
-   - script: set -o pipefail && xcodebuild -workspace AR\ Programming.xcworkspace -scheme EntityComponentSystem -destination platform\=iOS\ Simulator,OS\=12.1,name\=iPad\ Pro\ \(9.7-inch\) build test | xcpretty
-   - script: set -o pipefail && xcodebuild -workspace AR\ Programming.xcworkspace -scheme ProgramModel -destination platform\=iOS\ Simulator,OS\=12.1,name\=iPad\ Pro\ \(9.7-inch\) build test | xcpretty
+   - script: set -o pipefail && xcodebuild -workspace ARProgramming.xcworkspace -scheme EntityComponentSystem -destination platform\=iOS\ Simulator,OS\=12.1,name\=iPad\ Pro\ \(9.7-inch\) build test | xcpretty
+   - script: set -o pipefail && xcodebuild -workspace ARProgramming.xcworkspace -scheme ProgramModel -destination platform\=iOS\ Simulator,OS\=12.1,name\=iPad\ Pro\ \(9.7-inch\) build test | xcpretty
+   - script: set -o pipefail && xcodebuild -workspace ARProgramming.xcworkspace -scheme ARProgramming -destination platform\=iOS\ Simulator,OS\=12.1,name\=iPad\ Pro\ \(9.7-inch\) build test | xcpretty
