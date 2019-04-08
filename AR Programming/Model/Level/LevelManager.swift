@@ -18,8 +18,9 @@ public class LevelManager {
         return EmptyLevel()
     }
     
-    private static let levelFactories = [
-        QuantityLevelFactory()
+    private static let levelFactories: [LevelFactory] = [
+        QuantityLevelFactory(),
+        CleanUpLevelFactory()
     ]
     
     private static var levelDirectoryUrl: URL? {

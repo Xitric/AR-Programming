@@ -13,6 +13,8 @@
 		203B0F1322310E62000685D3 /* BorderCardNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203B0F1222310E62000685D3 /* BorderCardNode.swift */; };
 		204AEC14220DCA1E00E0F624 /* ARContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204AEC13220DCA1E00E0F624 /* ARContainerViewController.swift */; };
 		204BC648222D6DD000D34B07 /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204BC647222D6DD000D34B07 /* Component.swift */; };
+		204F37DA225B369A0094E82E /* CleanUpLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204F37D9225B369A0094E82E /* CleanUpLevel.swift */; };
+		204F37DC225B36AC0094E82E /* CleanUpLevelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204F37DB225B36AC0094E82E /* CleanUpLevelTests.swift */; };
 		206A0CB52240E5120018E6B7 /* WardrobeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206A0CB42240E5120018E6B7 /* WardrobeManager.swift */; };
 		206A0CB822410FD80018E6B7 /* WardrobeManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206A0CB722410FD80018E6B7 /* WardrobeManagerTests.swift */; };
 		20FA267E2236A10C00AF1083 /* BorderCardNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FA267D2236A10C00AF1083 /* BorderCardNodeTests.swift */; };
@@ -94,9 +96,9 @@
 		562EF8D4224107CC00A8DC97 /* LinkComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562EF8D3224107CC00A8DC97 /* LinkComponentTests.swift */; };
 		562EF8D62241139C00A8DC97 /* simd_double4x4+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562EF8D52241139C00A8DC97 /* simd_double4x4+Helpers.swift */; };
 		562EF8D82241192300A8DC97 /* simd_double4x4+HelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562EF8D72241192300A8DC97 /* simd_double4x4+HelpersTests.swift */; };
-		562F2F2922538ABA00C46D83 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562F2F2822538ABA00C46D83 /* MainMenuViewController.swift */; };
 		562F2F23225355E100C46D83 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562F2F22225355E100C46D83 /* Config.swift */; };
 		562F2F27225358CA00C46D83 /* cardClasses.json in Resources */ = {isa = PBXBuildFile; fileRef = 562F2F26225358CA00C46D83 /* cardClasses.json */; };
+		562F2F2922538ABA00C46D83 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562F2F2822538ABA00C46D83 /* MainMenuViewController.swift */; };
 		562FC97D224FCD87001678B2 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562FC97C224FCD87001678B2 /* RoundedButton.swift */; };
 		56319DE82237D3C600469D5E /* ResourceComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56319DE72237D3C500469D5E /* ResourceComponent.swift */; };
 		56319DEA2237D40F00469D5E /* TransformComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56319DE92237D40F00469D5E /* TransformComponent.swift */; };
@@ -171,6 +173,8 @@
 		203B0F1222310E62000685D3 /* BorderCardNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderCardNode.swift; sourceTree = "<group>"; };
 		204AEC13220DCA1E00E0F624 /* ARContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARContainerViewController.swift; sourceTree = "<group>"; };
 		204BC647222D6DD000D34B07 /* Component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
+		204F37D9225B369A0094E82E /* CleanUpLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CleanUpLevel.swift; sourceTree = "<group>"; };
+		204F37DB225B36AC0094E82E /* CleanUpLevelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CleanUpLevelTests.swift; sourceTree = "<group>"; };
 		206A0CB42240E5120018E6B7 /* WardrobeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeManager.swift; sourceTree = "<group>"; };
 		206A0CB722410FD80018E6B7 /* WardrobeManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeManagerTests.swift; sourceTree = "<group>"; };
 		20FA267D2236A10C00AF1083 /* BorderCardNodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderCardNodeTests.swift; sourceTree = "<group>"; };
@@ -254,9 +258,9 @@
 		562EF8D3224107CC00A8DC97 /* LinkComponentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkComponentTests.swift; sourceTree = "<group>"; };
 		562EF8D52241139C00A8DC97 /* simd_double4x4+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "simd_double4x4+Helpers.swift"; sourceTree = "<group>"; };
 		562EF8D72241192300A8DC97 /* simd_double4x4+HelpersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "simd_double4x4+HelpersTests.swift"; sourceTree = "<group>"; };
-		562F2F2822538ABA00C46D83 /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		562F2F22225355E100C46D83 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		562F2F26225358CA00C46D83 /* cardClasses.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = cardClasses.json; sourceTree = "<group>"; };
+		562F2F2822538ABA00C46D83 /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		562FC97C224FCD87001678B2 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		56319DE72237D3C500469D5E /* ResourceComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceComponent.swift; sourceTree = "<group>"; };
 		56319DE92237D40F00469D5E /* TransformComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransformComponent.swift; sourceTree = "<group>"; };
@@ -536,6 +540,7 @@
 			isa = PBXGroup;
 			children = (
 				562ACDA62244E15100D2DA7C /* LevelTests.swift */,
+				204F37DB225B36AC0094E82E /* CleanUpLevelTests.swift */,
 				562ACDA72244E15500D2DA7C /* QuantityLevelTests.swift */,
 				562ACDAC2244E62900D2DA7C /* SimpleLevelLoader.swift */,
 				562ACDB02244F1D300D2DA7C /* InventoryComponentTests.swift */,
@@ -634,6 +639,7 @@
 				202219A4223BA13E00A2A8EA /* EmptyLevel.swift */,
 				900F1359219447AF001C2DC2 /* LevelManager.swift */,
 				56A62B1922311501009D0E83 /* LevelFactory.swift */,
+				204F37D9225B369A0094E82E /* CleanUpLevel.swift */,
 				56A62B1B223115B9009D0E83 /* QuantityLevel.swift */,
 				56431D2822328C7700BFAC36 /* QuantityComponent.swift */,
 				56131F42224429C30044B6F4 /* InventoryComponent.swift */,
@@ -1019,6 +1025,7 @@
 				56A62B1C223115B9009D0E83 /* QuantityLevel.swift in Sources */,
 				562CCA7E220D750100BF6A8D /* Double+Helpers.swift in Sources */,
 				562EF8CC2240FE4D00A8DC97 /* DropActionComponent.swift in Sources */,
+				204F37DA225B369A0094E82E /* CleanUpLevel.swift in Sources */,
 				905A3C92217A0891005E3AA5 /* LevelSelectViewController.swift in Sources */,
 				562CCA72220D74AF00BF6A8D /* ProgramEditor.swift in Sources */,
 				562F2F23225355E100C46D83 /* Config.swift in Sources */,
@@ -1049,6 +1056,7 @@
 				568AE7742223064D00A7348C /* EntityTests.swift in Sources */,
 				562CCAAC220D933E00BF6A8D /* Double+HelpersTests.swift in Sources */,
 				568AE77622233AC100A7348C /* EntityManagerTests.swift in Sources */,
+				204F37DC225B36AC0094E82E /* CleanUpLevelTests.swift in Sources */,
 				56F3D4C72243731500E7260A /* CollisionComponentTests.swift in Sources */,
 				562CAB9A223A5A3A007120D5 /* MovementActionComponentTests.swift in Sources */,
 				562CCA9C220D92BC00BF6A8D /* CardNodeFactoryTests.swift in Sources */,
