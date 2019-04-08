@@ -62,7 +62,7 @@ class ExampleProgramViewController: UIViewController {
 //MARK: - ExampleProgramSelectorDelegate
 extension ExampleProgramViewController: ExampleProgramSelectorDelegate, ProgramDelegate {
     
-    func programSelected(program: Program) {
+    func programSelected(program: ProgramProtocol) {
         levelViewModel.levelModel.reset()
         exampleProgramTable.allowsSelection = false
         program.delegate = self
@@ -76,15 +76,15 @@ extension ExampleProgramViewController: ExampleProgramSelectorDelegate, ProgramD
         }
     }
     
-    func programBegan(_ program: Program) {
+    func programBegan(_ program: ProgramProtocol) {
         //Ignore
     }
     
-    func program(_ program: Program, executed card: Card) {
+    func program(_ program: ProgramProtocol, executed card: Card) {
         //Ignore
     }
     
-    func programEnded(_ program: Program) {
+    func programEnded(_ program: ProgramProtocol) {
         DispatchQueue.main.async { [weak self] in
             self?.exampleProgramTable.allowsSelection = true
         }

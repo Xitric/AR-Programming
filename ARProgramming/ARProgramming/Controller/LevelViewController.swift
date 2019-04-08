@@ -39,7 +39,7 @@ class LevelViewController: UIViewController {
     private var pickupSound: AKAudioPlayer?
 
     //MARK: State
-    private var programEditor: ProgramEditor?
+    private var programEditor: ProgramEditorProtocol?
     private var levelViewModel: LevelViewModel? {
         didSet {
             winLabel.isHidden = true
@@ -162,7 +162,7 @@ extension LevelViewController: PlaneDetectorDelegate {
 
 // MARK: - ProgramDelegate
 extension LevelViewController: ProgramDelegate {
-    func programBegan(_ program: Program) {
+    func programBegan(_ program: ProgramProtocol) {
         DispatchQueue.main.async { [unowned self] in
             self.executeButton.isEnabled = false
             self.resetButton.isEnabled = false
@@ -170,11 +170,11 @@ extension LevelViewController: ProgramDelegate {
     }
     
     //TODO: A method for when we are about to execute a card so that we can highlight it
-    func program(_ program: Program, executed card: Card) {
+    func program(_ program: ProgramProtocol, executed card: Card) {
         
     }
     
-    func programEnded(_ program: Program) {
+    func programEnded(_ program: ProgramProtocol) {
         DispatchQueue.main.async { [unowned self] in
             self.executeButton.isEnabled = true
             self.resetButton.isEnabled = true

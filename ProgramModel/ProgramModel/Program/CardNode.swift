@@ -10,14 +10,15 @@ import Foundation
 import EntityComponentSystem
 
 /// A representation of a statement in a program sequence.
-public class CardNode {
+class CardNode: CardNodeProtocol {
     
-    public internal(set) var position = simd_double2(0, 0)
-    public internal(set) var size = simd_double2(0, 0)
-    public internal(set) var entryAngle = 0.0
-    public private(set) var children = [CardNode]()
+    internal(set) var position = simd_double2(0, 0)
+    internal(set) var size = simd_double2(0, 0)
+    internal(set) var entryAngle = 0.0
+    private(set) var children = [CardNodeProtocol]()
+    let card: Card
+    
     private(set) var successors = [CardNode?]()
-    public let card: Card
     
     weak var parent: CardNode?
     var parameter: Int?

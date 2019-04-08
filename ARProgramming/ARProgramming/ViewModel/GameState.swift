@@ -17,8 +17,7 @@ class GameState {
     
     var levelViewModel: LevelViewModel
     let arController: ARController
-    let programEditor: ProgramEditor
-    
+    let programEditor: ProgramEditorProtocol
     
     /// Constructs a new GameState instance.
     ///
@@ -26,7 +25,7 @@ class GameState {
     ///   - levelViewModel: The view model of the currently active level.
     ///   - arController: The handler for integrating with the ARKit callbacks.
     ///   - programEditor: The model for analyzing images and constructing program sequences.
-    init(levelViewModel: LevelViewModel, arController: ARController, programEditor: ProgramEditor) {
+    init(levelViewModel: LevelViewModel, arController: ARController, programEditor: ProgramEditorProtocol) {
         self.levelViewModel = levelViewModel
         self.arController = arController
         self.programEditor = programEditor

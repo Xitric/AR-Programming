@@ -27,15 +27,15 @@ class ProgramAction: Action, ProgramDelegate {
         program.run(on: entity)
     }
     
-    func programBegan(_ program: Program) {
+    func programBegan(_ program: ProgramProtocol) {
         // Ignored
     }
     
-    func program(_ program: Program, executed card: Card) {
+    func program(_ program: ProgramProtocol, executed card: Card) {
         delegate?.program(program, executed: card)
     }
     
-    func programEnded(_ program: Program) {
+    func programEnded(_ program: ProgramProtocol) {
         completion?()
     }
 }

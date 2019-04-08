@@ -12,12 +12,12 @@ import ProgramModel
 
 class ExampleProgramTableDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     
-    private var examples = [ProgramEditor]()
-    private let deserializer: CardGraphDeserializer
+    private var examples = [ProgramEditorProtocol]()
+    private let deserializer: CardGraphDeserializerProtocol
     
     weak var delegate: ExampleProgramSelectorDelegate?
     
-    init(deserializer: CardGraphDeserializer) {
+    init(deserializer: CardGraphDeserializerProtocol) {
         self.deserializer = deserializer
     }
     
@@ -58,5 +58,5 @@ class ExampleProgramTableDataSource: NSObject, UITableViewDataSource, UITableVie
 }
 
 protocol ExampleProgramSelectorDelegate: class {
-    func programSelected(program: Program)
+    func programSelected(program: ProgramProtocol)
 }

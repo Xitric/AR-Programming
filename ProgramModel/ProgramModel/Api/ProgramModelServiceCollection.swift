@@ -19,12 +19,12 @@ public extension Container {
         register(CardCollection.self) { _ in factory }
             .inObjectScope(.container)
         
-        register(CardGraphDeserializer.self) { container in
+        register(CardGraphDeserializerProtocol.self) { container in
             let factory = container.resolve(CardNodeFactory.self)!
-            return CardGraphDeserializerImpl(factory: factory)
+            return CardGraphDeserializer(factory: factory)
         }
         
-        register(ProgramEditor.self) { container in
+        register(ProgramEditorProtocol.self) { container in
             let factory = container.resolve(CardNodeFactory.self)!
             return ProgramEditor(factory: factory)
         }

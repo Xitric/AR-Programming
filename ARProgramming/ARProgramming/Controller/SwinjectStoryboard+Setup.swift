@@ -14,7 +14,7 @@ import ProgramModel
 extension SwinjectStoryboard {
     class func setup() {
         defaultContainer.storyboardInitCompleted(ARContainerViewController.self) { container, controller in
-            controller.programEditor = container.resolve(ProgramEditor.self)
+            controller.programEditor = container.resolve(ProgramEditorProtocol.self)
         }
         
         defaultContainer.storyboardInitCompleted(LevelViewController.self) { container, controller in
@@ -53,7 +53,7 @@ extension SwinjectStoryboard {
     
     private class func addCardDetail() {
         defaultContainer.storyboardInitCompleted(ExampleProgramViewController.self) { container, controller in
-            controller.tableDataSource = ExampleProgramTableDataSource(deserializer: container.resolve(CardGraphDeserializer.self)!)
+            controller.tableDataSource = ExampleProgramTableDataSource(deserializer: container.resolve(CardGraphDeserializerProtocol.self)!)
         }
     }
 }

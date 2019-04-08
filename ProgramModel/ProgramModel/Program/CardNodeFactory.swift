@@ -20,7 +20,7 @@ class CardNodeFactory: CardCollection {
     let functionDeclarationCodes: [String]
     
     /// An array of all Cards available for making programs.
-    public var cards: [Card] {
+    var cards: [Card] {
         return cardNodePrototypes.map{$0.value.card}
     }
     

@@ -35,7 +35,7 @@ class ARContainerViewController: UIViewController {
     
     /// Injected properties
     var level: Level?
-    var programEditor: ProgramEditor!
+    var programEditor: ProgramEditorProtocol!
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let overlayController = segue.destination as? GameCoordinationViewController {
@@ -87,7 +87,7 @@ extension ARContainerViewController: FrameDelegate {
 
 // MARK: - ProgramEditorDelegate
 extension ARContainerViewController: ProgramEditorDelegate {
-    func programEditor(_ programEditor: ProgramEditor, createdNew program: Program) {
+    func programEditor(_ programEditor: ProgramEditorProtocol, createdNew program: ProgramProtocol) {
         cardDetectionView.display(program: program.start)
     }
 }

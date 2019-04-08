@@ -8,6 +8,9 @@
 
 import Foundation
 
+/// A representation of a physical programming card.
+///
+/// A card contains various metadata that describes the connections it will allow and which it will require in a sequence of cards.
 public protocol Card {
     var internalName: String { get }
     var type: CardType { get }
