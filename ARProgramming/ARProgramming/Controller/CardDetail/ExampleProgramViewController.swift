@@ -51,6 +51,7 @@ class ExampleProgramViewController: UIViewController {
     
     private var levelViewModel: LevelViewModel!
     
+    // Injected properties
     var tableDataSource: ExampleProgramTableDataSource?
     
     func showExamples(forCard card: Card) {

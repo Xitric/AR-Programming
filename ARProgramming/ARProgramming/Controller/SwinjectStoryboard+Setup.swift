@@ -34,37 +34,26 @@ extension SwinjectStoryboard {
     }
     
     private class func addLibrary() {
-        defaultContainer.register(GradeCardConfiguration.self) { _ in GradeConfig() }
-        
-        defaultContainer.register(CardCollectionViewModel.self) { container in
-            return CardCollectionViewModel(
-                cardCollection: container.resolve(CardCollection.self)!,
-                configuration: container.resolve(GradeCardConfiguration.self)!)
-        }
-        
         let cardCollectionId = "CardCollection"
-        
-        defaultContainer.register(CardCollectionDataSource.self, name: cardCollectionId) { container in
-            CardCollectionDataSource(viewModel: container.resolve(CardCollectionViewModel.self)!)
-        }
         
         defaultContainer.register(UICollectionViewDelegateFlowLayout.self, name: cardCollectionId) { _ in
             CardCollectionFlowLayoutDelegate()
         }
         
         defaultContainer.storyboardInitCompleted(CardLibraryViewController.self) { container, controller in
-            controller.dataSource = container.resolve(CardCollectionDataSource.self, name: cardCollectionId)
+            let dataSource = CardCollectionDataSource(
+                viewModel: CardCollectionViewModel(
+                    cardCollection: container.resolve(CardCollection.self)!,
+                    configuration: GradeConfig()))
+            
+            controller.dataSource = dataSource
             controller.flowLayoutDelegate = container.resolve(UICollectionViewDelegateFlowLayout.self, name: cardCollectionId)
         }
     }
     
     private class func addCardDetail() {
-        defaultContainer.register(ExampleProgramTableDataSource.self) { container in
-            ExampleProgramTableDataSource(deserializer: container.resolve(CardGraphDeserializer.self)!)
-        }
-        
         defaultContainer.storyboardInitCompleted(ExampleProgramViewController.self) { container, controller in
-            controller.tableDataSource = container.resolve(ExampleProgramTableDataSource.self)
+            controller.tableDataSource = ExampleProgramTableDataSource(deserializer: container.resolve(CardGraphDeserializer.self)!)
         }
     }
 }
