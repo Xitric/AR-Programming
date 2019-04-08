@@ -63,7 +63,7 @@ class CleanUpLevel: Level {
             entitiesForReset[entity] = position
         }
         
-        let items = try container.decode([IemJSON].self, forKey: .items)
+        let items = try container.decode([ItemJSON].self, forKey: .items)
         for item in items {
             let entity = createItem(fromJson: item)
             entityManager.addEntity(entity)
@@ -77,7 +77,7 @@ class CleanUpLevel: Level {
         case items
     }
     
-    private func createItem(fromJson json: IemJSON) -> Entity {
+    private func createItem(fromJson json: ItemJSON) -> Entity {
         let item = Entity()
         
         let collectible = CollectibleComponent()
@@ -227,7 +227,7 @@ private struct DropSpotGoalJSON: Decodable {
     let collectiveGoals: [String:Int]
 }
 
-private struct IemJSON: Decodable {
+private struct ItemJSON: Decodable {
     let type: String
     let x: Int
     let y: Int
