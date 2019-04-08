@@ -16,6 +16,7 @@ class ProgramTests: XCTestCase {
     private var editor: ProgramEditor!
     private var program: Program!
     private var entity: Entity!
+    private var manager: EntityManager!
     
     override func setUp() {
         var currentCard: CardNode = FunctionCardNode(functionNumber: 0, isCaller: false)
@@ -39,14 +40,17 @@ class ProgramTests: XCTestCase {
         
         entity = Entity()
         entity.addComponent(TransformComponent())
+        
+        manager = EntityManager()
+        manager.addEntity(entity)
     }
     
-    private func updateEntity() {
-        //We need to simulate a queue that continuously updates the entity
+    private func updateManager() {
+        //We need to simulate a queue that continuously updates the entity manager
         let queue = DispatchQueue(label: "dk.sdu.ARProgramming.programTestQueue")
         queue.sync { [unowned self] in
             for _ in 0..<100 {
-                self.entity.update(deltaTime: 1)
+                self.manager.update(delta: 1)
             }
         }
     }
@@ -59,7 +63,7 @@ class ProgramTests: XCTestCase {
         
         //Act
         program.run(on: entity)
-        updateEntity()
+        updateManager()
         
         //Assert
         wait(for: [delegate.startExpectation, delegate.callbackExpectation, delegate.stopExpectation], timeout: 1)

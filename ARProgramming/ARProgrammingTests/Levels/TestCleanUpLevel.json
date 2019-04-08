@@ -2,7 +2,7 @@
     "number":0,
     "type":"cleanup",
     "name":"Test sorter",
-    "unlocks":"None",
+    "unlocks":-1,
     "dropSpots":[
         {
             "x":0,

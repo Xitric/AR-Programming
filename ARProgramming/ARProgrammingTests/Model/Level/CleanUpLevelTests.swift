@@ -7,7 +7,8 @@
 //
 
 import XCTest
-@testable import AR_Programming
+import EntityComponentSystem
+@testable import ARProgramming
 
 class CleanUpLevelTests: XCTestCase {
     

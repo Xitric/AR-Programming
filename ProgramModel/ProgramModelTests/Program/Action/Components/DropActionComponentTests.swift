@@ -48,6 +48,7 @@ class DropActionComponentTests: XCTestCase {
         
         //Act
         entityManager.update(delta: 2)
+        entityManager.update(delta: 2)
         
         //Assert
         let linkAfter = owner.component(ofType: LinkComponent.self)
