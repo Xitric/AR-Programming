@@ -29,7 +29,7 @@ class ExampleProgramViewController: UIViewController {
             previewScene.isPlaying = true
             
             //Load empty level for previews
-            levelViewModel = LevelViewModel(level: LevelManager.emptylevel)
+            levelViewModel = LevelViewModel(level: levelManager.emptylevel, wardrobe: wardrobe)
             previewScene.scene?.rootNode.addChildNode(levelViewModel.levelView)
             
             //Set up camera
@@ -52,7 +52,9 @@ class ExampleProgramViewController: UIViewController {
     private var levelViewModel: LevelViewModel!
     
     // Injected properties
-    var tableDataSource: ExampleProgramTableDataSource?
+    var tableDataSource: ExampleProgramTableDataSource!
+    var wardrobe: WardrobeProtocol!
+    var levelManager: LevelManager!
     
     func showExamples(forCard card: Card) {
         tableDataSource?.showExamplesForCard(withName: card.internalName)

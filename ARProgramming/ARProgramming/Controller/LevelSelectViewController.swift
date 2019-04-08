@@ -13,6 +13,9 @@ class LevelSelectViewController: UIViewController {
     private var levels = [Level]()
     var selectedLevel: Level?
     
+    //Injected properties
+    var levelManager: LevelManager!
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var levelSelectCollectionView: UICollectionView! {
@@ -38,7 +41,7 @@ class LevelSelectViewController: UIViewController {
         
         //TODO: Error dialog?
         levels.removeAll()
-        if let allLevels = try? LevelManager.loadAllLevels() {
+        if let allLevels = try? levelManager.loadAllLevels() {
             levels.append(contentsOf: allLevels)
         }
         collectionView.reloadData()
@@ -51,7 +54,7 @@ class LevelSelectViewController: UIViewController {
     }
     
     @IBAction func freePlay(_ sender: UIButton) {
-        selectedLevel = LevelManager.emptylevel
+        selectedLevel = levelManager.emptylevel
         performSegue(withIdentifier: "arContainerSegue", sender: self)
     }
     

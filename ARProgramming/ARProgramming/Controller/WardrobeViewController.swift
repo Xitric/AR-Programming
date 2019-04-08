@@ -14,6 +14,9 @@ class WardrobeViewController: UIViewController {
     @IBOutlet weak var robotChoiceLabel: UILabel!
     @IBOutlet weak var sceneView: SCNView!
     
+    //Injected properties
+    var wardrobe: WardrobeProtocol!
+    
     private var robotChoice = 0 {
         didSet {
             updateChoiceLabel()
@@ -27,7 +30,7 @@ class WardrobeViewController: UIViewController {
     
     private var robotFiles: [String] = [] {
         didSet {
-            robotChoice = robotFiles.firstIndex(of: WardrobeManager.robotChoice()) ?? 0
+            robotChoice = robotFiles.firstIndex(of: wardrobe.selectedRobotSkin()) ?? 0
             robotCount = robotFiles.count
             setRobot(daeFile: robotFiles[robotChoice])
         }
@@ -35,7 +38,7 @@ class WardrobeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        robotFiles = WardrobeManager.getFileNames()
+        robotFiles = wardrobe.getFileNames()
     }
     
     override func viewDidLoad() {
@@ -46,7 +49,7 @@ class WardrobeViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        WardrobeManager.setRobotChoice(choice: robotFiles[robotChoice])
+        wardrobe.setRobotChoice(choice: robotFiles[robotChoice], callback: nil)
     }
     
     @IBAction func nextRobot(_ sender: UIButton) {

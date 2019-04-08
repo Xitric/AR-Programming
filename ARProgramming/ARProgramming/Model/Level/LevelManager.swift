@@ -12,21 +12,24 @@ import CoreData
 
 public class LevelManager {
     
-    static let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    static var managedObjectContext = appDelegate.persistentContainer.viewContext
-    static var emptylevel: Level {
-        return EmptyLevel()
-    }
-    
-    private static let levelFactories = [
+    private let context: CoreDataRepository
+    private let levelFactories = [
         QuantityLevelFactory()
     ]
     
-    private static var levelDirectoryUrl: URL? {
+    private var levelDirectoryUrl: URL? {
         return Bundle.main.resourceURL?.appendingPathComponent("Levels", isDirectory: true)
     }
     
-    static func loadLevel(byName name: String) throws -> Level {
+    var emptylevel: Level {
+        return EmptyLevel()
+    }
+    
+    init(context: CoreDataRepository) {
+        self.context = context
+    }
+    
+    func loadLevel(byName name: String) throws -> Level {
         guard let levelDirectoryUrl = levelDirectoryUrl
             else { throw LevelLoadingError.noSuchLevel(levelName: name) }
         
@@ -34,7 +37,7 @@ public class LevelManager {
         return try loadLevel(fromUrl: url)
     }
     
-    private static func loadLevel(fromUrl url: URL) throws -> Level {
+    private func loadLevel(fromUrl url: URL) throws -> Level {
         let jsonData: Data
         
         do {
@@ -43,13 +46,10 @@ public class LevelManager {
             throw LevelLoadingError.noSuchLevel(levelName: url.lastPathComponent)
         }
         
-        let level = try loadLevel(fromData: jsonData)
-        level.unlocked = isLevelUnlocked(withNumber: level.levelNumber)
-        
-        return level
+        return try loadLevel(fromData: jsonData)
     }
     
-    private static func loadLevel(fromData data: Data) throws -> Level {
+    private func loadLevel(fromData data: Data) throws -> Level {
         //Figure out the level type so that we can use the correct LevelFactory
         guard let jsonLevelUntyped = try? JSONSerialization.jsonObject(with: data, options: []),
             let jsonLevel = jsonLevelUntyped as? [String:Any],
@@ -60,7 +60,10 @@ public class LevelManager {
         for factory in levelFactories {
             if factory.canReadLevel(ofType: levelType) {
                 do {
-                    return try factory.initLevel(json: data)
+                    let level = try factory.initLevel(json: data)
+                    level.unlocked = isLevelUnlocked(withNumber: level.levelNumber)
+                    level.levelManager = self
+                    return level
                 } catch {
                     throw LevelLoadingError.badFormat()
                 }
@@ -70,7 +73,7 @@ public class LevelManager {
         throw LevelLoadingError.unsupportedLevelType(type: levelType)
     }
     
-    static func loadAllLevels() throws -> [Level] {
+    func loadAllLevels() throws -> [Level] {
         var levels = [Level]()
         
         guard let levelDirectoryUrl = levelDirectoryUrl
@@ -79,6 +82,7 @@ public class LevelManager {
         if let urls = try? FileManager.default.contentsOfDirectory(at: levelDirectoryUrl, includingPropertiesForKeys: nil) {
             for url in urls {
                 let level = try loadLevel(fromUrl: url)
+                level.levelManager = self
                 levels.append(level)
             }
             
@@ -93,9 +97,11 @@ public class LevelManager {
         return levels
     }
     
-    private static func isLevelUnlocked(withNumber levelNumber: Int) -> Bool {
+    private func isLevelUnlocked(withNumber levelNumber: Int) -> Bool {
+        let managedObjectContext = context.persistentContainer.viewContext
         let request = NSFetchRequest<LevelEntity>(entityName: "LevelEntity")
         request.predicate = NSPredicate(format: "level = %d", levelNumber)
+        
         if let result = try? managedObjectContext.fetch(request){
             if result.count != 0 {
                 return result[0].unlocked
@@ -104,11 +110,12 @@ public class LevelManager {
         return false
     }
     
-    static func markLevel(withName name: String, asUnlocked unlocked: Bool, whenDone completion: (() -> Void)? = nil) {
+    func markLevel(withName name: String, asUnlocked unlocked: Bool, whenDone completion: (() -> Void)? = nil) {
         if let level = try? loadLevel(byName: name) {
             level.unlocked = unlocked
 
-            managedObjectContext.perform {
+            let managedObjectContext = context.persistentContainer.viewContext
+            managedObjectContext.perform { [unowned self] in
                 let request = NSFetchRequest<LevelEntity>(entityName: "LevelEntity")
                 request.predicate = NSPredicate(format: "level = %d", level.levelNumber)
                 if let result = try? managedObjectContext.fetch(request){
@@ -121,7 +128,7 @@ public class LevelManager {
                     } else {
                         result[0].setValue(unlocked, forKey: "unlocked")
                     }
-                    appDelegate.saveContext()
+                    self.context.saveContext()
                     completion?()
                 }
             }

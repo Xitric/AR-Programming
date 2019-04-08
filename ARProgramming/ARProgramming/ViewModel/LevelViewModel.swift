@@ -20,10 +20,13 @@ struct LevelViewModel {
         return levelModel.entityManager.player
     }
     
-    init(level: Level) {
+    init(level: Level, wardrobe: WardrobeProtocol) {
         levelModel = level
         levelView = SCNNode()
         levelView.scale = SCNVector3(0.15, 0.15, 0.15)
+        
+        let playerResource = ResourceComponent(resourceIdentifier: wardrobe.selectedRobotSkin())
+        levelModel.entityManager.player.addComponent(playerResource)
         
         modelLoader = EntityModelLoader(entityManager: level.entityManager, root: levelView)
     }

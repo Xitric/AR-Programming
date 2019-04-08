@@ -15,15 +15,34 @@ extension SwinjectStoryboard {
     class func setup() {
         defaultContainer.storyboardInitCompleted(ARContainerViewController.self) { container, controller in
             controller.programEditor = container.resolve(ProgramEditorProtocol.self)
+            controller.wardrobe = container.resolve(WardrobeProtocol.self)
         }
         
         defaultContainer.storyboardInitCompleted(LevelViewController.self) { container, controller in
             controller.audioController = container.resolve(AudioController.self)
         }
         
+        defaultContainer.storyboardInitCompleted(WardrobeViewController.self) { container, controller in
+            controller.wardrobe = container.resolve(WardrobeProtocol.self)
+        }
+        
+        defaultContainer.storyboardInitCompleted(LevelSelectViewController.self) { container, controller in
+            controller.levelManager = container.resolve(LevelManager.self)
+        }
+        
         defaultContainer.register(AudioController.self) { _ in AudioController() }
             .inObjectScope(.container)
         defaultContainer.addProgram()
+        
+        defaultContainer.register(CoreDataRepository.self) { _ in CoreDataRepository() }
+        
+        defaultContainer.register(WardrobeProtocol.self) { container in
+            WardrobeManager(context: container.resolve(CoreDataRepository.self)!)
+        }
+        
+        defaultContainer.register(LevelManager.self) { container in
+            LevelManager(context: container.resolve(CoreDataRepository.self)!)
+        }
         
         addLibrary()
         addCardDetail()
@@ -54,6 +73,12 @@ extension SwinjectStoryboard {
     private class func addCardDetail() {
         defaultContainer.storyboardInitCompleted(ExampleProgramViewController.self) { container, controller in
             controller.tableDataSource = ExampleProgramTableDataSource(deserializer: container.resolve(CardGraphDeserializerProtocol.self)!)
+            controller.wardrobe = container.resolve(WardrobeProtocol.self)
+            controller.levelManager = container.resolve(LevelManager.self)
+        }
+        
+        defaultContainer.storyboardInitCompleted(CardDetailViewController.self) { container, controller in
+            controller.levelManager = container.resolve(LevelManager.self)
         }
     }
 }

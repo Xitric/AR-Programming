@@ -48,6 +48,7 @@
 		56431D392232A82700BFAC36 /* UpdateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56431D382232A82700BFAC36 /* UpdateDelegate.swift */; };
 		56431D3B2232AA9A00BFAC36 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56431D3A2232AA9A00BFAC36 /* Level.swift */; };
 		56431D3D2232B5DB00BFAC36 /* LevelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56431D3C2232B5DB00BFAC36 /* LevelViewModel.swift */; };
+		566066C5225BE4FC00FB0FB0 /* CoreDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566066C4225BE4FC00FB0FB0 /* CoreDataRepository.swift */; };
 		56A62B0E22310727009D0E83 /* EntityModelLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A62B0D22310727009D0E83 /* EntityModelLoader.swift */; };
 		56A62B122231097E009D0E83 /* SCNNodeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A62B112231097E009D0E83 /* SCNNodeComponent.swift */; };
 		56A62B1622310DA2009D0E83 /* simd_double3+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A62B1522310DA2009D0E83 /* simd_double3+Helpers.swift */; };
@@ -164,6 +165,7 @@
 		56431D382232A82700BFAC36 /* UpdateDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDelegate.swift; sourceTree = "<group>"; };
 		56431D3A2232AA9A00BFAC36 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		56431D3C2232B5DB00BFAC36 /* LevelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelViewModel.swift; sourceTree = "<group>"; };
+		566066C4225BE4FC00FB0FB0 /* CoreDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataRepository.swift; sourceTree = "<group>"; };
 		56A62B0D22310727009D0E83 /* EntityModelLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityModelLoader.swift; sourceTree = "<group>"; };
 		56A62B112231097E009D0E83 /* SCNNodeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNNodeComponent.swift; sourceTree = "<group>"; };
 		56A62B1522310DA2009D0E83 /* simd_double3+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "simd_double3+Helpers.swift"; sourceTree = "<group>"; };
@@ -383,6 +385,7 @@
 			children = (
 				206A0CB32240E4FC0018E6B7 /* Wardrobe */,
 				6CD69940218F392500A9E755 /* Level */,
+				566066C4225BE4FC00FB0FB0 /* CoreDataRepository.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -403,7 +406,6 @@
 				202219A6223BC07000A2A8EA /* WardrobeViewController.swift */,
 				90A55B0821A83B0700FD7CDD /* AudioController.swift */,
 				562F2F2822538ABA00C46D83 /* MainMenuViewController.swift */,
-				56EB87BF2258DC2B00B4894D /* SwinjectStoryboard+Setup.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -474,6 +476,7 @@
 				9057369E2175D42900F231E1 /* Controller */,
 				905736992175D19000F231E1 /* Model */,
 				90DF732F216F441E00F51E0C /* AppDelegate.swift */,
+				56EB87BF2258DC2B00B4894D /* SwinjectStoryboard+Setup.swift */,
 				90DF7335216F441E00F51E0C /* Main.storyboard */,
 				90DF733A216F442000F51E0C /* LaunchScreen.storyboard */,
 				90DF7338216F442000F51E0C /* Assets.xcassets */,
@@ -752,6 +755,7 @@
 				56431D392232A82700BFAC36 /* UpdateDelegate.swift in Sources */,
 				56EB87C02258DC2B00B4894D /* SwinjectStoryboard+Setup.swift in Sources */,
 				C7273114217714E900754543 /* Plane.swift in Sources */,
+				566066C5225BE4FC00FB0FB0 /* CoreDataRepository.swift in Sources */,
 				905A3C882179BE74005E3AA5 /* PlaneDetectorDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

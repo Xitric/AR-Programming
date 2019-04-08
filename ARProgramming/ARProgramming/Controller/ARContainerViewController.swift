@@ -36,11 +36,12 @@ class ARContainerViewController: UIViewController {
     /// Injected properties
     var level: Level?
     var programEditor: ProgramEditorProtocol!
+    var wardrobe: WardrobeProtocol!
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let overlayController = segue.destination as? GameCoordinationViewController {
             if let level = level {
-                levelViewModel = LevelViewModel(level: level)
+                levelViewModel = LevelViewModel(level: level, wardrobe: wardrobe)
                 
                 let state = GameState(levelViewModel: levelViewModel!,
                                       arController: arController,

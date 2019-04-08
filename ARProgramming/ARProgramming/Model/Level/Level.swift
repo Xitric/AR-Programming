@@ -22,6 +22,7 @@ class Level: Decodable, UpdateDelegate {
         return nil
     }
     var entityManager: EntityManager
+    var levelManager: LevelManager?
     
     weak var delegate: LevelDelegate?
     
@@ -70,7 +71,7 @@ class Level: Decodable, UpdateDelegate {
     
     func complete() {
         if let unlocks = unlocks {
-            LevelManager.markLevel(withName: unlocks, asUnlocked: true)
+            levelManager?.markLevel(withName: unlocks, asUnlocked: true)
         }
         delegate?.levelCompleted(self)
     }
