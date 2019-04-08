@@ -48,6 +48,8 @@
 		56431D392232A82700BFAC36 /* UpdateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56431D382232A82700BFAC36 /* UpdateDelegate.swift */; };
 		56431D3B2232AA9A00BFAC36 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56431D3A2232AA9A00BFAC36 /* Level.swift */; };
 		56431D3D2232B5DB00BFAC36 /* LevelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56431D3C2232B5DB00BFAC36 /* LevelViewModel.swift */; };
+		56606668225B50DD00FB0FB0 /* CleanUpLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56606667225B50DD00FB0FB0 /* CleanUpLevel.swift */; };
+		5660666A225B515D00FB0FB0 /* CleanUpLevelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56606669225B515D00FB0FB0 /* CleanUpLevelTests.swift */; };
 		56A62B0E22310727009D0E83 /* EntityModelLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A62B0D22310727009D0E83 /* EntityModelLoader.swift */; };
 		56A62B122231097E009D0E83 /* SCNNodeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A62B112231097E009D0E83 /* SCNNodeComponent.swift */; };
 		56A62B1622310DA2009D0E83 /* simd_double3+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A62B1522310DA2009D0E83 /* simd_double3+Helpers.swift */; };
@@ -162,6 +164,8 @@
 		56431D382232A82700BFAC36 /* UpdateDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDelegate.swift; sourceTree = "<group>"; };
 		56431D3A2232AA9A00BFAC36 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		56431D3C2232B5DB00BFAC36 /* LevelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelViewModel.swift; sourceTree = "<group>"; };
+		56606667225B50DD00FB0FB0 /* CleanUpLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CleanUpLevel.swift; sourceTree = "<group>"; };
+		56606669225B515D00FB0FB0 /* CleanUpLevelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CleanUpLevelTests.swift; sourceTree = "<group>"; };
 		56A62B0D22310727009D0E83 /* EntityModelLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityModelLoader.swift; sourceTree = "<group>"; };
 		56A62B112231097E009D0E83 /* SCNNodeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNNodeComponent.swift; sourceTree = "<group>"; };
 		56A62B1522310DA2009D0E83 /* simd_double3+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "simd_double3+Helpers.swift"; sourceTree = "<group>"; };
@@ -328,6 +332,7 @@
 				562ACDA72244E15500D2DA7C /* QuantityLevelTests.swift */,
 				562ACDAC2244E62900D2DA7C /* SimpleLevelLoader.swift */,
 				562ACDB02244F1D300D2DA7C /* InventoryComponentTests.swift */,
+				56606669225B515D00FB0FB0 /* CleanUpLevelTests.swift */,
 			);
 			path = Level;
 			sourceTree = "<group>";
@@ -358,6 +363,7 @@
 				56A62B1B223115B9009D0E83 /* QuantityLevel.swift */,
 				56431D2822328C7700BFAC36 /* QuantityComponent.swift */,
 				56131F42224429C30044B6F4 /* InventoryComponent.swift */,
+				56606667225B50DD00FB0FB0 /* CleanUpLevel.swift */,
 			);
 			path = Level;
 			sourceTree = "<group>";
@@ -694,6 +700,7 @@
 				204AEC14220DCA1E00E0F624 /* ARContainerViewController.swift in Sources */,
 				562E68512252411700D07C69 /* ProgramView.swift in Sources */,
 				206A0CB52240E5120018E6B7 /* WardrobeManager.swift in Sources */,
+				56606668225B50DD00FB0FB0 /* CleanUpLevel.swift in Sources */,
 				202219A7223BC07000A2A8EA /* WardrobeViewController.swift in Sources */,
 				56431D2922328C7700BFAC36 /* QuantityComponent.swift in Sources */,
 				C725B2C321A85A7B00DD147A /* Model.xcdatamodeld in Sources */,
@@ -727,6 +734,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5660666A225B515D00FB0FB0 /* CleanUpLevelTests.swift in Sources */,
 				560D20622257AD2F0015EC95 /* XCTestCase+Helpers.swift in Sources */,
 				206A0CB822410FD80018E6B7 /* WardrobeManagerTests.swift in Sources */,
 				562ACDA82244E15500D2DA7C /* LevelTests.swift in Sources */,

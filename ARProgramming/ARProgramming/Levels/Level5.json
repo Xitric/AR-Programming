@@ -2,7 +2,7 @@
     "number":5,
     "type":"quantity",
     "name":"Sagde du gentagelser?",
-    "unlocks":"Level6",
+    "unlocks":6,
     "doCollect":[
         {"type":"mønter", "quantity":20}
     ],

@@ -14,7 +14,11 @@ class ActionComponent: Component {
     var onComplete: (() -> Void)?
     
     func complete() {
-        entity?.removeComponent(ofType: type(of: self))
-        onComplete?()
+        entityManager?.invokeAfterUpdate { [weak self] in
+            if let self = self {
+                self.entity?.removeComponent(ofType: type(of: self))
+                self.onComplete?()
+            }
+        }
     }
 }

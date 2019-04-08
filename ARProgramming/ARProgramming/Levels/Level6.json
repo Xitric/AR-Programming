@@ -2,7 +2,7 @@
     "number":6,
     "type":"quantity",
     "name":"Så blev det svært",
-    "unlocks":"Level7",
+    "unlocks":7,
     "doCollect":[
         {"type":"mønter", "quantity":14}
     ],

@@ -2,7 +2,7 @@
     "number":3,
     "type":"quantity",
     "name":"Lidt men godt",
-    "unlocks":"Level4",
+    "unlocks":4,
     "doCollect":[
         {"type":"mønter", "quantity":7}
     ],
