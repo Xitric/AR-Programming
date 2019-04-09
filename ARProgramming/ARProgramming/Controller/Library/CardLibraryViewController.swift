@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import CoreData
 
-class CardLibraryViewController: UIViewController {
+class CardLibraryViewController: UIViewController, GradeViewController {
     
     @IBOutlet weak var cardCollectionView: UICollectionView! {
         didSet {

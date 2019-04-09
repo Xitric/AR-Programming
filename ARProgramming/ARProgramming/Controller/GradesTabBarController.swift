@@ -12,25 +12,20 @@ import UIKit
 class GradesTabBarController: UITabBarController {
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         configureChildViewControllers()
-        createHelpButton()
     }
     
     private func configureChildViewControllers() {
         for i in 0 ..< self.children.count {
             let grade = i + 1
             
-            //TODO: To reuse this in the LevelSelectViewController, we can introduce a GradeViewController protocol that exposes just the grade variable
             tabBar.items?[i].title = "\(grade). Klasse"
-            if let child = children[i] as? CardLibraryViewController {
+            
+            if var child = children[i] as? GradeViewController {
                 child.grade = grade
             }
         }
-    }
-    
-    private func createHelpButton() {
-        let button1 = UIBarButtonItem(title: "?", style: .plain, target: self, action: #selector(GradesTabBarController.goToHelpView(_:)))
-        self.navigationItem.rightBarButtonItem = button1
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,7 +38,8 @@ class GradesTabBarController: UITabBarController {
         navigationController?.navigationBar.prefersLargeTitles = false
     }
     
-    @objc private func goToHelpView(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "HelpSegue", sender: nil)
-    }
+}
+
+protocol GradeViewController {
+    var grade: Int! { get set }
 }
