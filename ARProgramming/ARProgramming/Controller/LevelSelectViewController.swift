@@ -61,7 +61,7 @@ extension LevelSelectViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let level  = collectionView.cellForItem(at: indexPath) as? LevelCollectionViewCell {
             selectedLevel = level.level
+            performSegue(withIdentifier: "arContainerSegue", sender: self)
         }
-        performSegue(withIdentifier: "arContainerSegue", sender: self)
     }
 }

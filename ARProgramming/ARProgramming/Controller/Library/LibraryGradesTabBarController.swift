@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 class LibraryGradesTabBarController: GradesTabBarController {
-    var grade: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()

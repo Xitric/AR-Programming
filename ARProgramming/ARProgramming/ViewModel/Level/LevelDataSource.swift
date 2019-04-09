@@ -11,7 +11,7 @@ import UIKit
 
 class LevelDataSource: NSObject, UICollectionViewDataSource {
     
-    private var levelsForGrade = [Int: [LevelViewModel]]()
+    private var levelsForGrade = [Int: [Level]]()
     private let grade: Int
     
     init(grade: Int) {
@@ -23,7 +23,7 @@ class LevelDataSource: NSObject, UICollectionViewDataSource {
         
         for levelName in levelsForGrades[grade-1]{
             if let level = try? LevelManager.loadLevel(byName: levelName) {
-                levelsForGrade[grade]?.append(LevelViewModel(level: level))
+                levelsForGrade[grade]?.append(level)
             }
         }
     }
@@ -39,18 +39,19 @@ class LevelDataSource: NSObject, UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "levelCell", for: indexPath)
         
         if let levelCell = cell as? LevelCollectionViewCell {
-            let levelModel = levelsForGrade[grade]?[indexPath.item].levelModel
+            let level = levelsForGrade[grade]?[indexPath.item]
             if (indexPath.item == 0) {
-                if let level = levelModel{
+                if let level = level{
                     LevelManager.markLevel(withNumber: level.levelNumber, asUnlocked: true)
                     levelCell.unlocked = true
                 }
             } else {
-                levelCell.unlocked = levelModel?.unlocked
+                levelCell.unlocked = level?.unlocked
             }
-            levelCell.level = levelModel
-            levelCell.levelName.text = levelModel?.name
-            if let levelTypeString = levelModel?.levelType {
+            
+            levelCell.level = level
+            levelCell.levelName.text = level?.name
+            if let levelTypeString = level?.levelType {
                 levelCell.levelType.text = NSLocalizedString("levelType.\(levelTypeString)", comment: "")
             }
         }
