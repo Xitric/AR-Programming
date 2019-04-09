@@ -14,11 +14,15 @@ class ActionComponentTests: XCTestCase {
 
     private var component: ActionComponent!
     private var entity: Entity!
+    private var manager: EntityManager!
     
     override func setUp() {
         component = ActionComponent()
         entity = Entity()
         entity.addComponent(component)
+        
+        manager = EntityManager()
+        manager.addEntity(entity)
     }
 
     //MARK: complete
@@ -31,6 +35,7 @@ class ActionComponentTests: XCTestCase {
         
         //Act
         component.complete()
+        manager.update(delta: 1)
         
         //Assert
         wait(for: [completionHandlerExpectation], timeout: 1)

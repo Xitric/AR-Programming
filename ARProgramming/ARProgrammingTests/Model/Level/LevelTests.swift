@@ -31,7 +31,7 @@ class LevelTests: XCTestCase {
         XCTAssertEqual(level?.name, "Test Level")
         XCTAssertEqual(level?.levelNumber, 0)
         XCTAssertEqual(level?.unlocked, false)
-        XCTAssertEqual(level?.unlocks, "TestUnlockLevel")
+        XCTAssertEqual(level?.unlocks, 5)
         XCTAssertNil(level!.infoLabel)
         
         let entities = level?.entityManager.getEntities(withComponents: TransformComponent.self)

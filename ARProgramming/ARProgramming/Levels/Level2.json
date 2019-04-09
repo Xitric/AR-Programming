@@ -2,7 +2,7 @@
     "number":2,
     "type":"quantity",
     "name":"De første skridt",
-    "unlocks":"Level3",
+    "unlocks":3,
     "doCollect":[
         {"type":"mønter", "quantity":3}
     ],

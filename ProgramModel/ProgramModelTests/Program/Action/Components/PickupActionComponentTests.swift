@@ -50,6 +50,7 @@ class PickupActionComponentTests: XCTestCase {
         
         //Act
         entityManager.update(delta: 2)
+        entityManager.update(delta: 2)
         
         //Assert
         let link = owner.component(ofType: LinkComponent.self)

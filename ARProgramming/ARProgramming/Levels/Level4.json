@@ -2,7 +2,7 @@
     "number":4,
     "type":"quantity",
     "name":"Undgå rubinerne!",
-    "unlocks":"Level5",
+    "unlocks":5,
     "doCollect":[
         {"type":"mønter", "quantity":7}
     ],

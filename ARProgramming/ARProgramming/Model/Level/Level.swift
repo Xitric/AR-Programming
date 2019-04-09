@@ -17,7 +17,7 @@ class Level: Decodable, UpdateDelegate {
     let name: String
     let levelNumber: Int
     var unlocked = false
-    var unlocks: String?
+    var unlocks: Int?
     var infoLabel: String? {
         return nil
     }
@@ -26,7 +26,7 @@ class Level: Decodable, UpdateDelegate {
     
     weak var delegate: LevelDelegate?
     
-    init(levelType: String, name: String, levelNumber: Int, unlocked: Bool, unlocks: String?) {
+    init(levelType: String, name: String, levelNumber: Int, unlocked: Bool, unlocks: Int?) {
         self.levelType = levelType
         self.name = name
         self.levelNumber = levelNumber
@@ -71,7 +71,7 @@ class Level: Decodable, UpdateDelegate {
     
     func complete() {
         if let unlocks = unlocks {
-            levelManager?.markLevel(withName: unlocks, asUnlocked: true)
+            levelManager?.markLevel(withNumber: unlocks, asUnlocked: true)
         }
         delegate?.levelCompleted(self)
     }
@@ -83,7 +83,7 @@ class Level: Decodable, UpdateDelegate {
         levelType = try container.decode(String.self, forKey: .type)
         name = try container.decode(String.self, forKey: .name)
         levelNumber = try container.decode(Int.self, forKey: .number)
-        unlocks = try? container.decode(String.self, forKey: .unlocks)
+        unlocks = try? container.decode(Int.self, forKey: .unlocks)
         entityManager = EntityManager()
         
         let props = try container.decode([PropJSON].self, forKey: .props)

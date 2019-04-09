@@ -13,8 +13,9 @@ import CoreData
 public class LevelManager {
     
     private let context: CoreDataRepository
-    private let levelFactories = [
-        QuantityLevelFactory()
+    private let levelFactories: [LevelFactory] = [
+        QuantityLevelFactory(),
+        CleanUpLevelFactory()
     ]
     
     private var levelDirectoryUrl: URL? {
@@ -90,7 +91,7 @@ public class LevelManager {
                 return a.levelNumber < b.levelNumber
             }
             
-            markLevel(withName: levels[0].name, asUnlocked: true)
+            markLevel(withNumber: levels[0].levelNumber, asUnlocked: true)
             levels[0].unlocked = true
         }
         
@@ -110,27 +111,23 @@ public class LevelManager {
         return false
     }
     
-    func markLevel(withName name: String, asUnlocked unlocked: Bool, whenDone completion: (() -> Void)? = nil) {
-        if let level = try? loadLevel(byName: name) {
-            level.unlocked = unlocked
-
-            let managedObjectContext = context.persistentContainer.viewContext
-            managedObjectContext.perform { [unowned self] in
-                let request = NSFetchRequest<LevelEntity>(entityName: "LevelEntity")
-                request.predicate = NSPredicate(format: "level = %d", level.levelNumber)
-                if let result = try? managedObjectContext.fetch(request){
-                    if result.count == 0 {
-                        let entity = NSEntityDescription.entity(forEntityName: "LevelEntity", in: managedObjectContext)
-                        let levelEntity = LevelEntity(entity: entity!, insertInto: managedObjectContext)
-                        levelEntity.setValue(level.levelNumber, forKey: "level")
-                        levelEntity.setValue(unlocked, forKey: "unlocked")
-
-                    } else {
-                        result[0].setValue(unlocked, forKey: "unlocked")
-                    }
-                    self.context.saveContext()
-                    completion?()
+    func markLevel(withNumber id: Int, asUnlocked unlocked: Bool, whenDone completion: (() -> Void)? = nil) {
+        let managedObjectContext = context.persistentContainer.viewContext
+        
+        managedObjectContext.perform {
+            let request = NSFetchRequest<LevelEntity>(entityName: "LevelEntity")
+            request.predicate = NSPredicate(format: "level = %d", id)
+            if let result = try? managedObjectContext.fetch(request){
+                if result.count == 0 {
+                    let entity = NSEntityDescription.entity(forEntityName: "LevelEntity", in: managedObjectContext)
+                    let levelEntity = LevelEntity(entity: entity!, insertInto: managedObjectContext)
+                    levelEntity.setValue(id, forKey: "level")
+                    levelEntity.setValue(unlocked, forKey: "unlocked")
+                } else {
+                    result[0].setValue(unlocked, forKey: "unlocked")
                 }
+                self.context.saveContext()
+                completion?()
             }
         }
     }

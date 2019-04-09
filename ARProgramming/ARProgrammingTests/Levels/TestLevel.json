@@ -2,7 +2,7 @@
     "number":0,
     "type":"quantity",
     "name":"Test Level",
-    "unlocks":"TestUnlockLevel",
+    "unlocks":5,
     "doCollect":[
         {"type":"mønter", "quantity":7}
     ],

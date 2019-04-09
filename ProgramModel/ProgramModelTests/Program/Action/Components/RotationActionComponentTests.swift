@@ -14,12 +14,16 @@ class RotationActionComponentTests: XCTestCase {
 
     private var entity: Entity!
     private var transform: TransformComponent!
+    private var manager: EntityManager!
     
     override func setUp() {
         entity = Entity()
         transform = TransformComponent()
         
         entity.addComponent(transform)
+        
+        manager = EntityManager()
+        manager.addEntity(entity)
     }
     
     //MARK: update
@@ -31,7 +35,7 @@ class RotationActionComponentTests: XCTestCase {
         entity.addComponent(rotationComponent)
         
         //Act
-        entity.update(deltaTime: 2)
+        manager.update(delta: 2)
         
         //Assert
         XCTAssertTrue(quatEqual(transform.rotation, goal, tolerance: 0.000001))
@@ -66,7 +70,7 @@ class RotationActionComponentTests: XCTestCase {
         }
         
         //Act
-        entity.update(deltaTime: 3)
+        manager.update(delta: 3)
         
         //Assert
         wait(for: [completionHandlerExpectation], timeout: 1)

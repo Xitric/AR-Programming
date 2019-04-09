@@ -15,6 +15,7 @@ class MovementActionComponentTests: XCTestCase {
     private var entity: Entity!
     private var transform: TransformComponent!
     private var moveComponent: MovementActionComponent!
+    private var manager: EntityManager!
     
     override func setUp() {
         entity = Entity()
@@ -23,12 +24,15 @@ class MovementActionComponentTests: XCTestCase {
         
         entity.addComponent(transform)
         entity.addComponent(moveComponent)
+        
+        manager = EntityManager()
+        manager.addEntity(entity)
     }
     
     //MARK: update
     func testUpdate_MovementNoRotation() {
         //Act
-        entity.update(deltaTime: 3)
+        manager.update(delta: 3)
         
         //Assert
         XCTAssertTrue(vectEqual(transform.location, simd_double3(1, -2, 0), tolerance: 0.000001))
@@ -39,7 +43,7 @@ class MovementActionComponentTests: XCTestCase {
         transform.rotation = simd_quatd(angle: 0.25 * Double.pi, axis: simd_double3(0, 1, 0))
         
         //Act
-        entity.update(deltaTime: 3)
+        manager.update(delta: 3)
         
         //Assert
         XCTAssertTrue(vectEqual(transform.location, simd_double3(0.707, -2, -0.707), tolerance: 0.001))
@@ -53,7 +57,7 @@ class MovementActionComponentTests: XCTestCase {
         }
         
         //Act
-        entity.update(deltaTime: 3)
+        manager.update(delta: 3)
         
         //Assert
         wait(for: [completionHandlerExpectation], timeout: 1)

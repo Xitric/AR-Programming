@@ -18,6 +18,7 @@ public class EntityManager: NSObject {
     
     private var systems = [String:GKComponentSystem]()
     private var entities = [Entity]()
+    private var closureQueue = [() -> Void]()
     
     public weak var delegate: EntityManagerDelegate?
     public var player: Entity
@@ -93,6 +94,15 @@ public class EntityManager: NSObject {
         for entity in entities {
             entity.update(deltaTime: delta)
         }
+        
+        if !closureQueue.isEmpty {
+            //Iterate over a copy to allow new closures to be added from other closures
+            let closuresToRun = closureQueue
+            closureQueue.removeAll()
+            for closure in closuresToRun {
+                closure()
+            }
+        }
     }
     
     public func getEntities(withComponents componentTypes: GKComponent.Type...) -> [Entity] {
@@ -108,6 +118,10 @@ public class EntityManager: NSObject {
             }
         }
         return true
+    }
+    
+    public func invokeAfterUpdate(closure: @escaping () -> Void) {
+        closureQueue.append(closure)
     }
 }
 
