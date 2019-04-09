@@ -76,9 +76,5 @@ extension SwinjectStoryboard {
             controller.wardrobe = container.resolve(WardrobeProtocol.self)
             controller.levelManager = container.resolve(LevelManager.self)
         }
-        
-        defaultContainer.storyboardInitCompleted(CardDetailViewController.self) { container, controller in
-            controller.levelManager = container.resolve(LevelManager.self)
-        }
     }
 }

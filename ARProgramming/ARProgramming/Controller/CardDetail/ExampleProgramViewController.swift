@@ -59,6 +59,15 @@ class ExampleProgramViewController: UIViewController {
     func showExamples(forCard card: Card) {
         tableDataSource?.showExamplesForCard(withName: card.internalName)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.destination {
+        case let arContainer as ARContainerViewController:
+            arContainer.level = levelManager.emptylevel
+        default:
+            break
+        }
+    }
 }
 
 //MARK: - ExampleProgramSelectorDelegate

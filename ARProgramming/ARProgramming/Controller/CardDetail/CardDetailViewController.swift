@@ -23,7 +23,6 @@ class CardDetailViewController: UIViewController {
     // Injected properties
     var card: Card!
     var cardPreview: UIImage?
-    var levelManager: LevelManager!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,8 +43,6 @@ class CardDetailViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.destination {
-        case let arContainer as ARContainerViewController:
-            arContainer.level = levelManager.emptylevel
         case let exampleProgram as ExampleProgramViewController:
             exampleProgram.view.translatesAutoresizingMaskIntoConstraints = false
             exampleProgram.showExamples(forCard: card)
