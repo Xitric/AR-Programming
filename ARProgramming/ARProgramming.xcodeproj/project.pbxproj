@@ -16,6 +16,8 @@
 		561083F6224A68FD009A0039 /* FunctionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561083F5224A68FD009A0039 /* FunctionView.swift */; };
 		561083F8224A7607009A0039 /* ExampleProgramTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561083F7224A7607009A0039 /* ExampleProgramTableDataSource.swift */; };
 		56108442224D3CC1009A0039 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 56108440224D3CC1009A0039 /* Localizable.strings */; };
+		56153E30225D3CE700824BEE /* Level.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56153E2F225D3CE700824BEE /* Level.framework */; };
+		56153E31225D3CE700824BEE /* Level.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 56153E2F225D3CE700824BEE /* Level.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		56216E502252162A00613486 /* ExamplePrograms in Resources */ = {isa = PBXBuildFile; fileRef = 56216E4F2252162A00613486 /* ExamplePrograms */; };
 		5621C83A221AE5F800756628 /* SCNVector3+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5621C839221AE5F800756628 /* SCNVector3+Helpers.swift */; };
 		5621C83C221AE67A00756628 /* simd_float4x4+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5621C83B221AE67A00756628 /* simd_float4x4+Helpers.swift */; };
@@ -37,8 +39,6 @@
 		56413DFD220E2AC30064332E /* GameplayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56413DFC220E2AC30064332E /* GameplayController.swift */; };
 		56431D392232A82700BFAC36 /* UpdateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56431D382232A82700BFAC36 /* UpdateDelegate.swift */; };
 		56431D3D2232B5DB00BFAC36 /* LevelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56431D3C2232B5DB00BFAC36 /* LevelViewModel.swift */; };
-		564553D5225C94720084D97F /* Level.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 564553D4225C94720084D97F /* Level.framework */; };
-		564553D6225C94720084D97F /* Level.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 564553D4225C94720084D97F /* Level.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		566066C5225BE4FC00FB0FB0 /* CoreDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566066C4225BE4FC00FB0FB0 /* CoreDataRepository.swift */; };
 		56A62B0E22310727009D0E83 /* EntityModelLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A62B0D22310727009D0E83 /* EntityModelLoader.swift */; };
 		56A62B122231097E009D0E83 /* SCNNodeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A62B112231097E009D0E83 /* SCNNodeComponent.swift */; };
@@ -55,7 +55,6 @@
 		56EB87B02258B0CF00B4894D /* ProgramModel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 560D204E2257A47E0015EC95 /* ProgramModel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		56EB87C02258DC2B00B4894D /* SwinjectStoryboard+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB87BF2258DC2B00B4894D /* SwinjectStoryboard+Setup.swift */; };
 		56EB87CA22593E6E00B4894D /* GradeCardConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB87C922593E6E00B4894D /* GradeCardConfiguration.swift */; };
-		8AD9CB08624962A19ED920C3 /* Pods_ARProgrammingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DBAF3627264578871A17E7D /* Pods_ARProgrammingTests.framework */; };
 		901584C82199BDF400450E0B /* LevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901584C72199BDF400450E0B /* LevelViewController.swift */; };
 		901584CA2199BE0200450E0B /* CardDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901584C92199BE0200450E0B /* CardDescriptionViewController.swift */; };
 		901584CC2199C32100450E0B /* ARController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901584CB2199C32100450E0B /* ARController.swift */; };
@@ -71,12 +70,13 @@
 		90DF7337216F441E00F51E0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90DF7335216F441E00F51E0C /* Main.storyboard */; };
 		90DF7339216F442000F51E0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90DF7338216F442000F51E0C /* Assets.xcassets */; };
 		90DF733C216F442000F51E0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90DF733A216F442000F51E0C /* LaunchScreen.storyboard */; };
-		A1170FD9BE70DCC32CEDEB7A /* Pods_ARProgramming.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 368B5D87B95E4B389AC2E943 /* Pods_ARProgramming.framework */; };
+		999C5FFA2A632C540C0D10F1 /* libPods-ARProgramming.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7929382C4D24F6EE5C399ACC /* libPods-ARProgramming.a */; };
 		C725B2C321A85A7B00DD147A /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C725B2C121A85A7B00DD147A /* Model.xcdatamodeld */; };
 		C7273114217714E900754543 /* Plane.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7273113217714E900754543 /* Plane.swift */; };
 		C74785E9219427A3000148BC /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74785E8219427A3000148BC /* CardCollectionViewCell.swift */; };
 		C74785EB219427F8000148BC /* CardLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74785EA219427F8000148BC /* CardLibraryViewController.swift */; };
 		C74785ED219448F1000148BC /* CardDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74785EC219448F1000148BC /* CardDetailViewController.swift */; };
+		FE3BC67E123B32C1A7ABE6A2 /* libPods-ARProgrammingTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C7BA5E65B204867145AFAAA0 /* libPods-ARProgrammingTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,7 +98,7 @@
 			files = (
 				56EB87AD2258B0CB00B4894D /* EntityComponentSystem.framework in Embed Frameworks */,
 				56EB87B02258B0CF00B4894D /* ProgramModel.framework in Embed Frameworks */,
-				564553D6225C94720084D97F /* Level.framework in Embed Frameworks */,
+				56153E31225D3CE700824BEE /* Level.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -112,7 +112,6 @@
 		206A0CB42240E5120018E6B7 /* WardrobeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeManager.swift; sourceTree = "<group>"; };
 		206A0CB722410FD80018E6B7 /* WardrobeManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeManagerTests.swift; sourceTree = "<group>"; };
 		2777F7558E4CBDF869F88EFD /* Pods-ARProgrammingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARProgrammingTests.release.xcconfig"; path = "../Pods/Target Support Files/Pods-ARProgrammingTests/Pods-ARProgrammingTests.release.xcconfig"; sourceTree = "<group>"; };
-		368B5D87B95E4B389AC2E943 /* Pods_ARProgramming.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARProgramming.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		560D204E2257A47E0015EC95 /* ProgramModel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ProgramModel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		560D20502257A4850015EC95 /* EntityComponentSystem.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EntityComponentSystem.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		561083E7224A246F009A0039 /* CardCollectionViewHomeHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardCollectionViewHomeHeader.xib; sourceTree = "<group>"; };
@@ -120,6 +119,7 @@
 		561083F5224A68FD009A0039 /* FunctionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionView.swift; sourceTree = "<group>"; };
 		561083F7224A7607009A0039 /* ExampleProgramTableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleProgramTableDataSource.swift; sourceTree = "<group>"; };
 		56108441224D3CC1009A0039 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		56153E2F225D3CE700824BEE /* Level.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Level.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56216E4F2252162A00613486 /* ExamplePrograms */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ExamplePrograms; sourceTree = "<group>"; };
 		5621C839221AE5F800756628 /* SCNVector3+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNVector3+Helpers.swift"; sourceTree = "<group>"; };
 		5621C83B221AE67A00756628 /* simd_float4x4+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "simd_float4x4+Helpers.swift"; sourceTree = "<group>"; };
@@ -141,7 +141,6 @@
 		56413DFC220E2AC30064332E /* GameplayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameplayController.swift; sourceTree = "<group>"; };
 		56431D382232A82700BFAC36 /* UpdateDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDelegate.swift; sourceTree = "<group>"; };
 		56431D3C2232B5DB00BFAC36 /* LevelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelViewModel.swift; sourceTree = "<group>"; };
-		564553D4225C94720084D97F /* Level.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Level.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		566066C4225BE4FC00FB0FB0 /* CoreDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataRepository.swift; sourceTree = "<group>"; };
 		56A62B0D22310727009D0E83 /* EntityModelLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityModelLoader.swift; sourceTree = "<group>"; };
 		56A62B112231097E009D0E83 /* SCNNodeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNNodeComponent.swift; sourceTree = "<group>"; };
@@ -157,6 +156,7 @@
 		56EB87BF2258DC2B00B4894D /* SwinjectStoryboard+Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwinjectStoryboard+Setup.swift"; sourceTree = "<group>"; };
 		56EB87C922593E6E00B4894D /* GradeCardConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradeCardConfiguration.swift; sourceTree = "<group>"; };
 		65C4BBB84CF770EB1ECE0612 /* Pods-ARProgrammingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARProgrammingTests.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-ARProgrammingTests/Pods-ARProgrammingTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7929382C4D24F6EE5C399ACC /* libPods-ARProgramming.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ARProgramming.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		901584C72199BDF400450E0B /* LevelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelViewController.swift; sourceTree = "<group>"; };
 		901584C92199BE0200450E0B /* CardDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDescriptionViewController.swift; sourceTree = "<group>"; };
 		901584CB2199C32100450E0B /* ARController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARController.swift; sourceTree = "<group>"; };
@@ -176,13 +176,13 @@
 		90DF733D216F442000F51E0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		90DF7342216F442100F51E0C /* ARProgrammingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ARProgrammingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		90DF7348216F442100F51E0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9DBAF3627264578871A17E7D /* Pods_ARProgrammingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARProgrammingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A863410762BEC44717A4728F /* Pods-ARProgramming.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARProgramming.release.xcconfig"; path = "../Pods/Target Support Files/Pods-ARProgramming/Pods-ARProgramming.release.xcconfig"; sourceTree = "<group>"; };
 		C725B2C221A85A7B00DD147A /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		C7273113217714E900754543 /* Plane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plane.swift; sourceTree = "<group>"; };
 		C74785E8219427A3000148BC /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
 		C74785EA219427F8000148BC /* CardLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardLibraryViewController.swift; sourceTree = "<group>"; };
 		C74785EC219448F1000148BC /* CardDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewController.swift; sourceTree = "<group>"; };
+		C7BA5E65B204867145AFAAA0 /* libPods-ARProgrammingTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ARProgrammingTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,8 +192,8 @@
 			files = (
 				56EB87AF2258B0CF00B4894D /* ProgramModel.framework in Frameworks */,
 				56EB87AC2258B0CB00B4894D /* EntityComponentSystem.framework in Frameworks */,
-				A1170FD9BE70DCC32CEDEB7A /* Pods_ARProgramming.framework in Frameworks */,
-				564553D5225C94720084D97F /* Level.framework in Frameworks */,
+				999C5FFA2A632C540C0D10F1 /* libPods-ARProgramming.a in Frameworks */,
+				56153E30225D3CE700824BEE /* Level.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,7 +201,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8AD9CB08624962A19ED920C3 /* Pods_ARProgrammingTests.framework in Frameworks */,
+				FE3BC67E123B32C1A7ABE6A2 /* libPods-ARProgrammingTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,8 +232,8 @@
 				56EB87A02258B04300B4894D /* Pods_EntityComponentSystem.framework */,
 				560D20502257A4850015EC95 /* EntityComponentSystem.framework */,
 				560D204E2257A47E0015EC95 /* ProgramModel.framework */,
-				368B5D87B95E4B389AC2E943 /* Pods_ARProgramming.framework */,
-				9DBAF3627264578871A17E7D /* Pods_ARProgrammingTests.framework */,
+				7929382C4D24F6EE5C399ACC /* libPods-ARProgramming.a */,
+				C7BA5E65B204867145AFAAA0 /* libPods-ARProgrammingTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -394,7 +394,7 @@
 		90DF7323216F441E00F51E0C = {
 			isa = PBXGroup;
 			children = (
-				564553D4225C94720084D97F /* Level.framework */,
+				56153E2F225D3CE700824BEE /* Level.framework */,
 				90DF732E216F441E00F51E0C /* ARProgramming */,
 				90DF7345216F442100F51E0C /* ARProgrammingTests */,
 				90DF732D216F441E00F51E0C /* Products */,
@@ -464,7 +464,6 @@
 				90DF7329216F441E00F51E0C /* Frameworks */,
 				90DF732A216F441E00F51E0C /* Resources */,
 				56EB87AE2258B0CB00B4894D /* Embed Frameworks */,
-				292EB75DAE3FBCD15B400034 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -564,30 +563,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		292EB75DAE3FBCD15B400034 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/../Pods/Target Support Files/Pods-ARProgramming/Pods-ARProgramming-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
-				"${BUILT_PRODUCTS_DIR}/SwinjectStoryboard/SwinjectStoryboard.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwinjectStoryboard.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-ARProgramming/Pods-ARProgramming-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		C912703A9A52D7E658CD3570 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

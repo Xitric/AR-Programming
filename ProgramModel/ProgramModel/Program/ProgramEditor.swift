@@ -50,16 +50,12 @@ class ProgramEditor: ProgramEditorProtocol, ProgramState, CardGraphDetectorDeleg
     
     func graphDetector(found graph: ObservationGraph) {
         do {
-            if let startObservation = graph.firstNode(withPayloadIn: factory.functionDeclarationCodes) {
-                
-                let start = try ObservationGraphCardNodeBuilder()
-                    .using(factory: factory)
-                    .createFrom(graph: graph)
-                    .using(node: startObservation)
-                    .getResult()
-                
-                currentProgram = Program(startNode: start)
-            }
+            let start = try ObservationGraphCardNodeBuilder()
+                .using(factory: factory)
+                .createFrom(graph: graph)
+                .getResult()
+            
+            currentProgram = Program(startNode: start)
         } catch CardSequenceError.missingStart {
             currentProgram = nil
             

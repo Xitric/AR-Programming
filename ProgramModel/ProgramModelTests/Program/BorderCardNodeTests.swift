@@ -12,6 +12,9 @@ import simd
 
 class BorderCardNodeTests: XCTestCase {
 
+    private var factory: CardNodeFactory!
+    private var programBuilder: ObservationGraphCardNodeBuilder!
+    
     private var nodeStart: ObservationNode!
     private var nodeJump: ObservationNode!
     private var nodeParameter: ObservationNode!
@@ -22,6 +25,9 @@ class BorderCardNodeTests: XCTestCase {
     private var jumpCardNode: CardNode!
     
     override func setUp() {
+        factory = CardNodeFactory()
+        programBuilder = ObservationGraphCardNodeBuilder()
+        
         nodeStart = ObservationNode(payload: "0", position: simd_double2(0, 0), width: 0.8, height: 0.8)
         nodeJump = ObservationNode(payload: "4", position: simd_double2(2, 0), width: 0.8, height: 0.8)
         nodeParameter = ObservationNode(payload: "11", position: simd_double2(1.2, 1), width: 0.8, height: 0.8)
@@ -45,9 +51,13 @@ class BorderCardNodeTests: XCTestCase {
         observationSet.add(nodeJump)
         let graph = ObservationGraph(observationSet: observationSet)
         
-        
         //Act & Assert
-        XCTAssertThrowsError(try CardNodeFactory.instance.build(from: graph)) { error in
+        let startObservation = graph.firstNode(withPayloadIn: factory.functionDeclarationCodes)!
+        XCTAssertThrowsError(try programBuilder
+            .using(factory: factory)
+            .createFrom(graph: graph)
+            .using(node: startObservation)
+            .getResult()) { error in
             XCTAssertNotNil(error as? CardSequenceError)
         }
     }
@@ -66,7 +76,10 @@ class BorderCardNodeTests: XCTestCase {
         observationSet.add(nodeParameter)
         let graph = ObservationGraph(observationSet: observationSet)
         
-        let start = try? CardNodeFactory.instance.build(from: graph)
+        let start = try? programBuilder
+            .using(factory: factory)
+            .createFrom(graph: graph)
+            .getResult()
         let loop = start?.successors[0]
         let jump = loop?.successors[0]
         let border = (jump?.successors[0]) as! BorderCardNode
@@ -95,7 +108,10 @@ class BorderCardNodeTests: XCTestCase {
         let graph = ObservationGraph(observationSet: observationSet)
         
         //Act & Assert
-        XCTAssertThrowsError(try CardNodeFactory.instance.build(from: graph)) { error in
+        XCTAssertThrowsError(try programBuilder
+            .using(factory: factory)
+            .createFrom(graph: graph)
+            .getResult()) { error in
             XCTAssertNotNil(error as? CardSequenceError)
         }
     }
@@ -120,7 +136,10 @@ class BorderCardNodeTests: XCTestCase {
         observationSet.add(nodeOuterBorder)
         let graph = ObservationGraph(observationSet: observationSet)
         
-        let start = try? CardNodeFactory.instance.build(from: graph)
+        let start = try? programBuilder
+            .using(factory: factory)
+            .createFrom(graph: graph)
+            .getResult()
         let outerLoop = start?.successors[0]
         let jump = outerLoop?.successors[0]
         let innerLoop = jump?.successors[0]
@@ -149,9 +168,9 @@ class BorderCardNodeTests: XCTestCase {
         //Arrange: Loop, Border, Move
         borderCardNode.loopCardNode = loopCardNode
         borderCardNode.parent = loopCardNode
-        borderCardNode.addSuccessor(successor: moveCardNode)
+        borderCardNode.addSuccessor(moveCardNode)
         loopCardNode.parameter = 2
-        loopCardNode.addSuccessor(successor: borderCardNode)
+        loopCardNode.addSuccessor(borderCardNode)
         try? borderCardNode.findLoop()
         
         //Act
@@ -167,9 +186,9 @@ class BorderCardNodeTests: XCTestCase {
         //Arrange: Loop, Move, Border, Jump
         moveCardNode.parent = loopCardNode
         borderCardNode.parent = moveCardNode
-        borderCardNode.addSuccessor(successor: jumpCardNode)
-        moveCardNode.addSuccessor(successor: borderCardNode)
-        loopCardNode.addSuccessor(successor: moveCardNode)
+        borderCardNode.addSuccessor(jumpCardNode)
+        moveCardNode.addSuccessor(borderCardNode)
+        loopCardNode.addSuccessor(moveCardNode)
         
         //Act
         loopCardNode.parameter = 1

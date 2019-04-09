@@ -1,0 +1,1 @@
+../../../../AudioKit/iOS/AudioKit.framework/Headers/AKAutoPannerDSP.hpp

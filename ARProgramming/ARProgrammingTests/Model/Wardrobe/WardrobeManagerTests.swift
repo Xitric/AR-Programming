@@ -20,22 +20,24 @@ class WardrobeManagerTests: XCTestCase {
         let blueExpectation = expectation(description: "Blue robot was chosen")
         let greenExpectation = expectation(description: "Green robot was chosen")
         
+        let wardrobe = WardrobeManager(context: CoreDataRepository())
+        
         //Act
-        WardrobeManager.setRobotChoice(choice: blueRobotFile) {
+        wardrobe.setRobotChoice(choice: blueRobotFile) {
             blueExpectation.fulfill()
         }
         
         //Assert
         wait(for: [blueExpectation], timeout: 1)
-        XCTAssertTrue(WardrobeManager.robotChoice() == blueRobotFile)
+        XCTAssertTrue(wardrobe.selectedRobotSkin() == blueRobotFile)
         
         //Act
-        WardrobeManager.setRobotChoice(choice: greenRobotFile) {
+        wardrobe.setRobotChoice(choice: greenRobotFile) {
             greenExpectation.fulfill()
         }
         
         //Assert
         wait(for: [greenExpectation], timeout: 1)
-        XCTAssertTrue(WardrobeManager.robotChoice() == greenRobotFile)
+        XCTAssertTrue(wardrobe.selectedRobotSkin() == greenRobotFile)
     }
 }

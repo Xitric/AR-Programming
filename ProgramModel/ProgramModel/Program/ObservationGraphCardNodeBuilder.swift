@@ -16,7 +16,7 @@ class ObservationGraphCardNodeBuilder {
     
     private var factory: CardNodeFactory!
     private var graph: ObservationGraph!
-    private var node: ObservationNode!
+    private var node: ObservationNode?
     private var parent: CardNode?
     private var result: CardNode!
     
@@ -41,6 +41,12 @@ class ObservationGraphCardNodeBuilder {
     }
     
     func getResult() throws -> CardNode {
+        guard let node = node ?? graph.firstNode(withPayloadIn: factory.functionDeclarationCodes) else {
+            throw CardSequenceError.missingStart
+        }
+        
+        self.node = node
+        
         result = try factory.cardNode(withCode: node.payload)
         result.position = node.position
         result.size = simd_double2(node.width, node.height)
@@ -63,6 +69,9 @@ class ObservationGraphCardNodeBuilder {
     }
     
     func findParameter() throws -> CardNode? {
+        guard let node = node
+            else { return nil }
+        
         for angle in [Double.pi/2, -Double.pi/2] {
             if let neighbor = graph.getSuccessor(by: angle, to: node) {
                 let neighborCard = try factory.cardNode(withCode: neighbor.payload).card
@@ -82,6 +91,8 @@ class ObservationGraphCardNodeBuilder {
     
     func findSuccessors(byAngles angles: [Double]) throws -> [CardNode?] {
         var successors = [CardNode?]()
+        guard let node = node
+            else { return successors }
         
         for angle in angles {
             if let successor = graph.getSuccessor(by: angle, to: node) {

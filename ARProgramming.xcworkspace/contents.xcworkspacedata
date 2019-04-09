@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Level/Level.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:ARProgramming/ARProgramming.xcodeproj">
    </FileRef>
    <FileRef
@@ -12,6 +9,9 @@
    </FileRef>
    <FileRef
       location = "group:ProgramModel/ProgramModel.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Level/Level.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
