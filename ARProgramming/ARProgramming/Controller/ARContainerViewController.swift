@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import ARKit
 import ProgramModel
+import Level
 
 /// The root controller for the game view.
 ///
@@ -34,7 +35,7 @@ class ARContainerViewController: UIViewController {
     private var coordinationController: GameCoordinationViewController!
     
     /// Injected properties
-    var level: Level?
+    var level: LevelProtocol?
     var programEditor: ProgramEditorProtocol!
     var wardrobe: WardrobeProtocol!
     
@@ -49,7 +50,7 @@ class ARContainerViewController: UIViewController {
                 overlayController.enter(withState: state)
             }
             
-            arController.updateDelegate = level
+            arController.updateDelegate = self
             coordinationController = overlayController
         }
     }
@@ -83,6 +84,13 @@ class ARContainerViewController: UIViewController {
 extension ARContainerViewController: FrameDelegate {
     func frameScanner(_ scanner: ARController, didUpdate frame: CVPixelBuffer, withOrientation orientation: CGImagePropertyOrientation) {
         programEditor.newFrame(frame, oriented: orientation, frameWidth: Double(UIScreen.main.bounds.width), frameHeight: Double(UIScreen.main.bounds.height))
+    }
+}
+
+// MARK: - UpdateDelegate
+extension ARContainerViewController: UpdateDelegate {
+    func update(currentTime: TimeInterval) {
+        level?.update(currentTime: currentTime)
     }
 }
 

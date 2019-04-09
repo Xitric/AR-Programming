@@ -10,6 +10,7 @@ import Foundation
 import Swinject
 import SwinjectStoryboard
 import ProgramModel
+import Level
 
 extension SwinjectStoryboard {
     class func setup() {
@@ -27,22 +28,18 @@ extension SwinjectStoryboard {
         }
         
         defaultContainer.storyboardInitCompleted(LevelSelectViewController.self) { container, controller in
-            controller.levelManager = container.resolve(LevelManager.self)
+            controller.levelRepository = container.resolve(LevelRepository.self)
         }
         
         defaultContainer.register(AudioController.self) { _ in AudioController() }
             .inObjectScope(.container)
+        
+        defaultContainer.register(WardrobeProtocol.self) { _ in
+            WardrobeManager(context: CoreDataRepository())
+        }
+        
         defaultContainer.addProgram()
-        
-        defaultContainer.register(CoreDataRepository.self) { _ in CoreDataRepository() }
-        
-        defaultContainer.register(WardrobeProtocol.self) { container in
-            WardrobeManager(context: container.resolve(CoreDataRepository.self)!)
-        }
-        
-        defaultContainer.register(LevelManager.self) { container in
-            LevelManager(context: container.resolve(CoreDataRepository.self)!)
-        }
+        defaultContainer.addLevel()
         
         addLibrary()
         addCardDetail()
@@ -74,7 +71,7 @@ extension SwinjectStoryboard {
         defaultContainer.storyboardInitCompleted(ExampleProgramViewController.self) { container, controller in
             controller.tableDataSource = ExampleProgramTableDataSource(deserializer: container.resolve(CardGraphDeserializerProtocol.self)!)
             controller.wardrobe = container.resolve(WardrobeProtocol.self)
-            controller.levelManager = container.resolve(LevelManager.self)
+            controller.levelRepository = container.resolve(LevelRepository.self)
         }
     }
 }

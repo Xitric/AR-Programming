@@ -8,7 +8,7 @@
 
 import XCTest
 import EntityComponentSystem
-@testable import ARProgramming
+@testable import Level
 
 class QuantityLevelTests: XCTestCase {
     
@@ -158,15 +158,15 @@ class LevelDelegateMock: LevelDelegate {
         infoExpectation = XCTestExpectation(description: "Info changed")
     }
     
-    func levelCompleted(_ level: Level) {
+    func levelCompleted(_ level: LevelProtocol) {
         completionExpectation.fulfill()
     }
     
-    func levelReset(_ level: Level) {
+    func levelReset(_ level: LevelProtocol) {
         resetExpectation.fulfill()
     }
     
-    func levelInfoChanged(_ level: Level, info: String?) {
+    func levelInfoChanged(_ level: LevelProtocol, info: String?) {
         infoExpectation.fulfill()
     }
 }

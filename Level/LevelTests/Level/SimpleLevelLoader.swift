@@ -7,7 +7,7 @@
 //
 
 import Foundation
-@testable import ARProgramming
+@testable import Level
 
 class SimpleLevelLoader {
     

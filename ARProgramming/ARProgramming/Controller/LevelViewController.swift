@@ -11,6 +11,7 @@ import UIKit
 import SceneKit
 import AudioKit
 import ProgramModel
+import Level
 
 class LevelViewController: UIViewController {
     
@@ -133,7 +134,7 @@ extension LevelViewController: GameplayController {
         state.arController.planeDetectorDelegate = self
         
         self.programEditor = state.programEditor
-        if self.levelViewModel?.levelModel != state.levelViewModel.levelModel {
+        if self.levelViewModel?.levelModel.levelNumber != state.levelViewModel.levelModel.levelNumber {
             self.levelViewModel = state.levelViewModel
             
             DispatchQueue.main.async { [unowned self] in
@@ -185,7 +186,7 @@ extension LevelViewController: ProgramDelegate {
 // MARK: - LevelDelegate
 extension LevelViewController: LevelDelegate {
     
-    func levelCompleted(_ level: Level) {
+    func levelCompleted(_ level: LevelProtocol) {
         self.winSound?.play()
         
         DispatchQueue.main.async { [unowned self] in
@@ -194,14 +195,14 @@ extension LevelViewController: LevelDelegate {
         }
     }
     
-    func levelReset(_ level: Level) {
+    func levelReset(_ level: LevelProtocol) {
         DispatchQueue.main.async { [unowned self] in
             self.winLabel.isHidden = true
             self.winDescription.isHidden = true
         }
     }
     
-    func levelInfoChanged(_ level: Level, info: String?) {
+    func levelInfoChanged(_ level: LevelProtocol, info: String?) {
         DispatchQueue.main.async { [unowned self] in
             self.levelInfo.text = info
             self.levelInfo.isHidden = info == nil

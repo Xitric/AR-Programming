@@ -22,7 +22,7 @@ class ExampleProgramTableDataSource: NSObject, UITableViewDataSource, UITableVie
     }
     
     func showExamplesForCard(withName name: String) {
-        if let folderUrl = Bundle.main.resourceURL?
+        if let folderUrl = Bundle(for: type(of: self)).resourceURL?
             .appendingPathComponent("ExamplePrograms", isDirectory: true)
             .appendingPathComponent(name, isDirectory: true),
             let urls = try? FileManager.default.contentsOfDirectory(at: folderUrl, includingPropertiesForKeys: nil) {

@@ -38,6 +38,20 @@ target 'ProgramModel' do
     
 end
 
+target 'Level' do
+    project 'Level/Level'
+    use_frameworks!
+    
+    # Pods for Level
+    swinject
+    
+    target 'LevelTests' do
+        inherit! :search_paths
+        # Pods for testing
+    end
+    
+end
+
 target 'EntityComponentSystem' do
     project 'EntityComponentSystem/EntityComponentSystem'
     use_frameworks!

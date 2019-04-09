@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import SceneKit
 import ProgramModel
+import Level
 
 class ExampleProgramViewController: UIViewController {
     
@@ -29,7 +30,7 @@ class ExampleProgramViewController: UIViewController {
             previewScene.isPlaying = true
             
             //Load empty level for previews
-            levelViewModel = LevelViewModel(level: levelManager.emptylevel, wardrobe: wardrobe)
+            levelViewModel = LevelViewModel(level: levelRepository.emptylevel, wardrobe: wardrobe)
             previewScene.scene?.rootNode.addChildNode(levelViewModel.levelView)
             
             //Set up camera
@@ -54,7 +55,7 @@ class ExampleProgramViewController: UIViewController {
     // Injected properties
     var tableDataSource: ExampleProgramTableDataSource!
     var wardrobe: WardrobeProtocol!
-    var levelManager: LevelManager!
+    var levelRepository: LevelRepository!
     
     func showExamples(forCard card: Card) {
         tableDataSource?.showExamplesForCard(withName: card.internalName)
@@ -63,7 +64,7 @@ class ExampleProgramViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.destination {
         case let arContainer as ARContainerViewController:
-            arContainer.level = levelManager.emptylevel
+            arContainer.level = levelRepository.emptylevel
         default:
             break
         }

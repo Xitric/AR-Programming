@@ -9,22 +9,21 @@
 import Foundation
 import EntityComponentSystem
 
-class Level: Decodable, UpdateDelegate {
+class Level: LevelProtocol, Decodable {
     
-    private var lastUpdate = TimeInterval(0)
-    
-    let levelType: String
-    let name: String
-    let levelNumber: Int
-    var unlocked = false
-    var unlocks: Int?
-    var infoLabel: String? {
+    public let name: String
+    public let levelNumber: Int
+    public let levelType: String
+    public var unlocked = false
+    public var infoLabel: String? {
         return nil
     }
-    var entityManager: EntityManager
-    var levelManager: LevelManager?
+    public var entityManager: EntityManager
+    public weak var delegate: LevelDelegate?
     
-    weak var delegate: LevelDelegate?
+    private var lastUpdate = TimeInterval(0)
+    var unlocks: Int?
+    var levelRepository: LevelRepository?
     
     init(levelType: String, name: String, levelNumber: Int, unlocked: Bool, unlocks: Int?) {
         self.levelType = levelType
@@ -35,7 +34,7 @@ class Level: Decodable, UpdateDelegate {
         self.entityManager = EntityManager()
     }
     
-    final func update(currentTime: TimeInterval) {
+    public final func update(currentTime: TimeInterval) {
         objc_sync_enter(entityManager)
         defer {
             objc_sync_exit(entityManager)
@@ -48,19 +47,15 @@ class Level: Decodable, UpdateDelegate {
         update(delta: delta)
     }
     
-    func update(delta: TimeInterval) {
-        
-    }
-    
-    func isComplete() -> Bool {
+    public func isComplete() -> Bool {
         return false
     }
     
-    func getScore() -> Int {
+    public func getScore() -> Int {
         return 0
     }
     
-    func reset() {
+    public func reset() {
         if let playerTransform = entityManager.player.component(subclassOf: TransformComponent.self) {
             playerTransform.location = simd_double3(0, 0, 0)
             playerTransform.rotation = simd_quatd(ix: 0, iy: 0, iz: 0, r: 1)
@@ -69,9 +64,11 @@ class Level: Decodable, UpdateDelegate {
         delegate?.levelReset(self)
     }
     
+    func update(delta: TimeInterval) { }
+    
     func complete() {
         if let unlocks = unlocks {
-            levelManager?.markLevel(withNumber: unlocks, asUnlocked: true)
+            levelRepository?.markLevel(withNumber: unlocks, asUnlocked: true, completion: nil)
         }
         delegate?.levelCompleted(self)
     }
@@ -114,30 +111,9 @@ class Level: Decodable, UpdateDelegate {
     }
 }
 
-// MARK: - Hashable
-extension Level: Hashable {
-    
-    static func == (lhs: Level, rhs: Level) -> Bool {
-        return lhs.levelType == rhs.levelType &&
-            lhs.name == rhs.name &&
-            lhs.levelNumber == rhs.levelNumber
-    }
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(levelType)
-        hasher.combine(name)
-        hasher.combine(levelNumber)
-    }
-}
-
+// MARK: - Helpers
 struct PropJSON: Decodable {
     let x: Double
     let y: Double
     let resourceIdentifier: String
-}
-
-protocol LevelDelegate: class {
-    func levelCompleted(_ level: Level)
-    func levelReset(_ level: Level)
-    func levelInfoChanged(_ level: Level, info: String?)
 }

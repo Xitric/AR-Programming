@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Level/Level.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:ARProgramming/ARProgramming.xcodeproj">
    </FileRef>
    <FileRef

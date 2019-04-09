@@ -23,7 +23,7 @@ class WardrobeManager: WardrobeProtocol {
     func getFileNames() -> [String] {
         var fileNames: [String] = []
         
-        if let path = Bundle.main.resourcePath {
+        if let path = Bundle(for: type(of: self)).resourcePath {
             do {
                 let files = try FileManager.default.contentsOfDirectory(atPath: path + targetDirectory)
                 

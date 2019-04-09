@@ -10,27 +10,25 @@ import Foundation
 import UIKit
 import CoreData
 
-public class LevelManager {
+class LevelManager: LevelRepository {
     
     private let context: CoreDataRepository
-    private let levelFactories: [LevelFactory] = [
-        QuantityLevelFactory(),
-        CleanUpLevelFactory()
-    ]
+    private let levelFactories: [LevelFactory]
     
     private var levelDirectoryUrl: URL? {
-        return Bundle.main.resourceURL?.appendingPathComponent("Levels", isDirectory: true)
+        return Bundle(for: type(of: self)).resourceURL?.appendingPathComponent("Levels", isDirectory: true)
     }
     
-    var emptylevel: Level {
+    var emptylevel: LevelProtocol {
         return EmptyLevel()
     }
     
-    init(context: CoreDataRepository) {
+    init(context: CoreDataRepository, factories: [LevelFactory]) {
         self.context = context
+        self.levelFactories = factories
     }
     
-    func loadLevel(byName name: String) throws -> Level {
+    func loadLevel(byName name: String) throws -> LevelProtocol {
         guard let levelDirectoryUrl = levelDirectoryUrl
             else { throw LevelLoadingError.noSuchLevel(levelName: name) }
         
@@ -63,7 +61,7 @@ public class LevelManager {
                 do {
                     let level = try factory.initLevel(json: data)
                     level.unlocked = isLevelUnlocked(withNumber: level.levelNumber)
-                    level.levelManager = self
+                    level.levelRepository = self
                     return level
                 } catch {
                     throw LevelLoadingError.badFormat()
@@ -74,7 +72,7 @@ public class LevelManager {
         throw LevelLoadingError.unsupportedLevelType(type: levelType)
     }
     
-    func loadAllLevels() throws -> [Level] {
+    func loadAllLevels() throws -> [LevelProtocol] {
         var levels = [Level]()
         
         guard let levelDirectoryUrl = levelDirectoryUrl
@@ -83,7 +81,7 @@ public class LevelManager {
         if let urls = try? FileManager.default.contentsOfDirectory(at: levelDirectoryUrl, includingPropertiesForKeys: nil) {
             for url in urls {
                 let level = try loadLevel(fromUrl: url)
-                level.levelManager = self
+                level.levelRepository = self
                 levels.append(level)
             }
             
@@ -91,7 +89,7 @@ public class LevelManager {
                 return a.levelNumber < b.levelNumber
             }
             
-            markLevel(withNumber: levels[0].levelNumber, asUnlocked: true)
+            markLevel(withNumber: levels[0].levelNumber, asUnlocked: true, completion: nil)
             levels[0].unlocked = true
         }
         
@@ -111,7 +109,7 @@ public class LevelManager {
         return false
     }
     
-    func markLevel(withNumber id: Int, asUnlocked unlocked: Bool, whenDone completion: (() -> Void)? = nil) {
+    func markLevel(withNumber id: Int, asUnlocked unlocked: Bool, completion: (() -> Void)?) {
         let managedObjectContext = context.persistentContainer.viewContext
         
         managedObjectContext.perform {

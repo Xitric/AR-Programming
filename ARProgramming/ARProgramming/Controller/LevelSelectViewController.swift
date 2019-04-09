@@ -7,14 +7,15 @@
 //
 
 import UIKit
+import Level
 
 class LevelSelectViewController: UIViewController {
     
-    private var levels = [Level]()
-    var selectedLevel: Level?
+    private var levels = [LevelProtocol]()
+    var selectedLevel: LevelProtocol?
     
     //Injected properties
-    var levelManager: LevelManager!
+    var levelRepository: LevelRepository!
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -41,7 +42,7 @@ class LevelSelectViewController: UIViewController {
         
         //TODO: Error dialog?
         levels.removeAll()
-        if let allLevels = try? levelManager.loadAllLevels() {
+        if let allLevels = try? levelRepository.loadAllLevels() {
             levels.append(contentsOf: allLevels)
         }
         collectionView.reloadData()
@@ -54,10 +55,9 @@ class LevelSelectViewController: UIViewController {
     }
     
     @IBAction func freePlay(_ sender: UIButton) {
-        selectedLevel = levelManager.emptylevel
+        selectedLevel = levelRepository.emptylevel
         performSegue(withIdentifier: "arContainerSegue", sender: self)
     }
-    
 }
 
 // MARK: - UICollectionViewDataSource

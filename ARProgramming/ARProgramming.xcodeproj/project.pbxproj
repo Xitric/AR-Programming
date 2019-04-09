@@ -7,26 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		202219A5223BA13E00A2A8EA /* EmptyLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202219A4223BA13E00A2A8EA /* EmptyLevel.swift */; };
 		202219A7223BC07000A2A8EA /* WardrobeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202219A6223BC07000A2A8EA /* WardrobeViewController.swift */; };
 		204AEC14220DCA1E00E0F624 /* ARContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204AEC13220DCA1E00E0F624 /* ARContainerViewController.swift */; };
 		206A0CB52240E5120018E6B7 /* WardrobeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206A0CB42240E5120018E6B7 /* WardrobeManager.swift */; };
 		206A0CB822410FD80018E6B7 /* WardrobeManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206A0CB722410FD80018E6B7 /* WardrobeManagerTests.swift */; };
-		560D20622257AD2F0015EC95 /* XCTestCase+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560D20612257AD2F0015EC95 /* XCTestCase+Helpers.swift */; };
 		561083E8224A246F009A0039 /* CardCollectionViewHomeHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 561083E7224A246F009A0039 /* CardCollectionViewHomeHeader.xib */; };
 		561083EA224A2B11009A0039 /* CardCollectionViewSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 561083E9224A2B11009A0039 /* CardCollectionViewSectionHeader.xib */; };
 		561083F6224A68FD009A0039 /* FunctionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561083F5224A68FD009A0039 /* FunctionView.swift */; };
 		561083F8224A7607009A0039 /* ExampleProgramTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561083F7224A7607009A0039 /* ExampleProgramTableDataSource.swift */; };
 		56108442224D3CC1009A0039 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 56108440224D3CC1009A0039 /* Localizable.strings */; };
-		56131F43224429C30044B6F4 /* InventoryComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56131F42224429C30044B6F4 /* InventoryComponent.swift */; };
 		56216E502252162A00613486 /* ExamplePrograms in Resources */ = {isa = PBXBuildFile; fileRef = 56216E4F2252162A00613486 /* ExamplePrograms */; };
 		5621C83A221AE5F800756628 /* SCNVector3+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5621C839221AE5F800756628 /* SCNVector3+Helpers.swift */; };
 		5621C83C221AE67A00756628 /* simd_float4x4+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5621C83B221AE67A00756628 /* simd_float4x4+Helpers.swift */; };
-		562ACDA82244E15500D2DA7C /* LevelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562ACDA62244E15100D2DA7C /* LevelTests.swift */; };
-		562ACDA92244E15500D2DA7C /* QuantityLevelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562ACDA72244E15500D2DA7C /* QuantityLevelTests.swift */; };
-		562ACDAB2244E39100D2DA7C /* Levels in Resources */ = {isa = PBXBuildFile; fileRef = 562ACDAA2244E39100D2DA7C /* Levels */; };
-		562ACDAD2244E62900D2DA7C /* SimpleLevelLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562ACDAC2244E62900D2DA7C /* SimpleLevelLoader.swift */; };
-		562ACDB12244F1D300D2DA7C /* InventoryComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562ACDB02244F1D300D2DA7C /* InventoryComponentTests.swift */; };
 		562ACDB3224522CB00D2DA7C /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562ACDB2224522CB00D2DA7C /* GameState.swift */; };
 		562ACDB522456D5900D2DA7C /* CardDetectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562ACDB422456D5900D2DA7C /* CardDetectionView.swift */; };
 		562ACDB9224583DC00D2DA7C /* PassThroughView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562ACDB8224583DC00D2DA7C /* PassThroughView.swift */; };
@@ -43,20 +35,15 @@
 		562F2F2922538ABA00C46D83 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562F2F2822538ABA00C46D83 /* MainMenuViewController.swift */; };
 		562FC97D224FCD87001678B2 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562FC97C224FCD87001678B2 /* RoundedButton.swift */; };
 		56413DFD220E2AC30064332E /* GameplayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56413DFC220E2AC30064332E /* GameplayController.swift */; };
-		56431D2922328C7700BFAC36 /* QuantityComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56431D2822328C7700BFAC36 /* QuantityComponent.swift */; };
-		56431D372232969A00BFAC36 /* Levels in Resources */ = {isa = PBXBuildFile; fileRef = 56431D362232969A00BFAC36 /* Levels */; };
 		56431D392232A82700BFAC36 /* UpdateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56431D382232A82700BFAC36 /* UpdateDelegate.swift */; };
-		56431D3B2232AA9A00BFAC36 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56431D3A2232AA9A00BFAC36 /* Level.swift */; };
 		56431D3D2232B5DB00BFAC36 /* LevelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56431D3C2232B5DB00BFAC36 /* LevelViewModel.swift */; };
+		564553D5225C94720084D97F /* Level.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 564553D4225C94720084D97F /* Level.framework */; };
+		564553D6225C94720084D97F /* Level.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 564553D4225C94720084D97F /* Level.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		566066C5225BE4FC00FB0FB0 /* CoreDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566066C4225BE4FC00FB0FB0 /* CoreDataRepository.swift */; };
-		56606668225B50DD00FB0FB0 /* CleanUpLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56606667225B50DD00FB0FB0 /* CleanUpLevel.swift */; };
-		5660666A225B515D00FB0FB0 /* CleanUpLevelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56606669225B515D00FB0FB0 /* CleanUpLevelTests.swift */; };
 		56A62B0E22310727009D0E83 /* EntityModelLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A62B0D22310727009D0E83 /* EntityModelLoader.swift */; };
 		56A62B122231097E009D0E83 /* SCNNodeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A62B112231097E009D0E83 /* SCNNodeComponent.swift */; };
 		56A62B1622310DA2009D0E83 /* simd_double3+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A62B1522310DA2009D0E83 /* simd_double3+Helpers.swift */; };
 		56A62B1822310E8D009D0E83 /* simd_quatd+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A62B1722310E8D009D0E83 /* simd_quatd+Helpers.swift */; };
-		56A62B1A22311501009D0E83 /* LevelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A62B1922311501009D0E83 /* LevelFactory.swift */; };
-		56A62B1C223115B9009D0E83 /* QuantityLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A62B1B223115B9009D0E83 /* QuantityLevel.swift */; };
 		56AEAC63221EC4CF00ACED36 /* SubtitleLabel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56AEAC62221EC4CF00ACED36 /* SubtitleLabel.xib */; };
 		56AEAC65221EC63800ACED36 /* SubtitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AEAC64221EC63800ACED36 /* SubtitleLabel.swift */; };
 		56AEACA1221F5DC500ACED36 /* UIImage+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AEACA0221F5DC500ACED36 /* UIImage+Helpers.swift */; };
@@ -69,7 +56,6 @@
 		56EB87C02258DC2B00B4894D /* SwinjectStoryboard+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB87BF2258DC2B00B4894D /* SwinjectStoryboard+Setup.swift */; };
 		56EB87CA22593E6E00B4894D /* GradeCardConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB87C922593E6E00B4894D /* GradeCardConfiguration.swift */; };
 		8AD9CB08624962A19ED920C3 /* Pods_ARProgrammingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DBAF3627264578871A17E7D /* Pods_ARProgrammingTests.framework */; };
-		900F135A219447AF001C2DC2 /* LevelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900F1359219447AF001C2DC2 /* LevelManager.swift */; };
 		901584C82199BDF400450E0B /* LevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901584C72199BDF400450E0B /* LevelViewController.swift */; };
 		901584CA2199BE0200450E0B /* CardDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901584C92199BE0200450E0B /* CardDescriptionViewController.swift */; };
 		901584CC2199C32100450E0B /* ARController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901584CB2199C32100450E0B /* ARController.swift */; };
@@ -91,8 +77,6 @@
 		C74785E9219427A3000148BC /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74785E8219427A3000148BC /* CardCollectionViewCell.swift */; };
 		C74785EB219427F8000148BC /* CardLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74785EA219427F8000148BC /* CardLibraryViewController.swift */; };
 		C74785ED219448F1000148BC /* CardDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74785EC219448F1000148BC /* CardDetailViewController.swift */; };
-		C76A214721AC1405008A07D9 /* LevelEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76A214521AC1405008A07D9 /* LevelEntity+CoreDataClass.swift */; };
-		C76A214821AC1405008A07D9 /* LevelEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76A214621AC1405008A07D9 /* LevelEntity+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +98,7 @@
 			files = (
 				56EB87AD2258B0CB00B4894D /* EntityComponentSystem.framework in Embed Frameworks */,
 				56EB87B02258B0CF00B4894D /* ProgramModel.framework in Embed Frameworks */,
+				564553D6225C94720084D97F /* Level.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -122,7 +107,6 @@
 
 /* Begin PBXFileReference section */
 		0D460CD1A0ADB708EBA3149E /* Pods-ARProgramming.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARProgramming.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-ARProgramming/Pods-ARProgramming.debug.xcconfig"; sourceTree = "<group>"; };
-		202219A4223BA13E00A2A8EA /* EmptyLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyLevel.swift; sourceTree = "<group>"; };
 		202219A6223BC07000A2A8EA /* WardrobeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeViewController.swift; sourceTree = "<group>"; };
 		204AEC13220DCA1E00E0F624 /* ARContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARContainerViewController.swift; sourceTree = "<group>"; };
 		206A0CB42240E5120018E6B7 /* WardrobeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeManager.swift; sourceTree = "<group>"; };
@@ -131,21 +115,14 @@
 		368B5D87B95E4B389AC2E943 /* Pods_ARProgramming.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARProgramming.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		560D204E2257A47E0015EC95 /* ProgramModel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ProgramModel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		560D20502257A4850015EC95 /* EntityComponentSystem.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EntityComponentSystem.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		560D20612257AD2F0015EC95 /* XCTestCase+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Helpers.swift"; sourceTree = "<group>"; };
 		561083E7224A246F009A0039 /* CardCollectionViewHomeHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardCollectionViewHomeHeader.xib; sourceTree = "<group>"; };
 		561083E9224A2B11009A0039 /* CardCollectionViewSectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardCollectionViewSectionHeader.xib; sourceTree = "<group>"; };
 		561083F5224A68FD009A0039 /* FunctionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionView.swift; sourceTree = "<group>"; };
 		561083F7224A7607009A0039 /* ExampleProgramTableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleProgramTableDataSource.swift; sourceTree = "<group>"; };
 		56108441224D3CC1009A0039 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
-		56131F42224429C30044B6F4 /* InventoryComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryComponent.swift; sourceTree = "<group>"; };
 		56216E4F2252162A00613486 /* ExamplePrograms */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ExamplePrograms; sourceTree = "<group>"; };
 		5621C839221AE5F800756628 /* SCNVector3+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNVector3+Helpers.swift"; sourceTree = "<group>"; };
 		5621C83B221AE67A00756628 /* simd_float4x4+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "simd_float4x4+Helpers.swift"; sourceTree = "<group>"; };
-		562ACDA62244E15100D2DA7C /* LevelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelTests.swift; sourceTree = "<group>"; };
-		562ACDA72244E15500D2DA7C /* QuantityLevelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuantityLevelTests.swift; sourceTree = "<group>"; };
-		562ACDAA2244E39100D2DA7C /* Levels */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Levels; sourceTree = "<group>"; };
-		562ACDAC2244E62900D2DA7C /* SimpleLevelLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleLevelLoader.swift; sourceTree = "<group>"; };
-		562ACDB02244F1D300D2DA7C /* InventoryComponentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryComponentTests.swift; sourceTree = "<group>"; };
 		562ACDB2224522CB00D2DA7C /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
 		562ACDB422456D5900D2DA7C /* CardDetectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetectionView.swift; sourceTree = "<group>"; };
 		562ACDB8224583DC00D2DA7C /* PassThroughView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassThroughView.swift; sourceTree = "<group>"; };
@@ -162,20 +139,14 @@
 		562F2F2822538ABA00C46D83 /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		562FC97C224FCD87001678B2 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		56413DFC220E2AC30064332E /* GameplayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameplayController.swift; sourceTree = "<group>"; };
-		56431D2822328C7700BFAC36 /* QuantityComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuantityComponent.swift; sourceTree = "<group>"; };
-		56431D362232969A00BFAC36 /* Levels */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Levels; sourceTree = "<group>"; };
 		56431D382232A82700BFAC36 /* UpdateDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDelegate.swift; sourceTree = "<group>"; };
-		56431D3A2232AA9A00BFAC36 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		56431D3C2232B5DB00BFAC36 /* LevelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelViewModel.swift; sourceTree = "<group>"; };
+		564553D4225C94720084D97F /* Level.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Level.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		566066C4225BE4FC00FB0FB0 /* CoreDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataRepository.swift; sourceTree = "<group>"; };
-		56606667225B50DD00FB0FB0 /* CleanUpLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CleanUpLevel.swift; sourceTree = "<group>"; };
-		56606669225B515D00FB0FB0 /* CleanUpLevelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CleanUpLevelTests.swift; sourceTree = "<group>"; };
 		56A62B0D22310727009D0E83 /* EntityModelLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityModelLoader.swift; sourceTree = "<group>"; };
 		56A62B112231097E009D0E83 /* SCNNodeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNNodeComponent.swift; sourceTree = "<group>"; };
 		56A62B1522310DA2009D0E83 /* simd_double3+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "simd_double3+Helpers.swift"; sourceTree = "<group>"; };
 		56A62B1722310E8D009D0E83 /* simd_quatd+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "simd_quatd+Helpers.swift"; sourceTree = "<group>"; };
-		56A62B1922311501009D0E83 /* LevelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelFactory.swift; sourceTree = "<group>"; };
-		56A62B1B223115B9009D0E83 /* QuantityLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuantityLevel.swift; sourceTree = "<group>"; };
 		56AEAC62221EC4CF00ACED36 /* SubtitleLabel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubtitleLabel.xib; sourceTree = "<group>"; };
 		56AEAC64221EC63800ACED36 /* SubtitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtitleLabel.swift; sourceTree = "<group>"; };
 		56AEACA0221F5DC500ACED36 /* UIImage+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Helpers.swift"; sourceTree = "<group>"; };
@@ -186,7 +157,6 @@
 		56EB87BF2258DC2B00B4894D /* SwinjectStoryboard+Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwinjectStoryboard+Setup.swift"; sourceTree = "<group>"; };
 		56EB87C922593E6E00B4894D /* GradeCardConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradeCardConfiguration.swift; sourceTree = "<group>"; };
 		65C4BBB84CF770EB1ECE0612 /* Pods-ARProgrammingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARProgrammingTests.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-ARProgrammingTests/Pods-ARProgrammingTests.debug.xcconfig"; sourceTree = "<group>"; };
-		900F1359219447AF001C2DC2 /* LevelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelManager.swift; sourceTree = "<group>"; };
 		901584C72199BDF400450E0B /* LevelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelViewController.swift; sourceTree = "<group>"; };
 		901584C92199BE0200450E0B /* CardDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDescriptionViewController.swift; sourceTree = "<group>"; };
 		901584CB2199C32100450E0B /* ARController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARController.swift; sourceTree = "<group>"; };
@@ -213,8 +183,6 @@
 		C74785E8219427A3000148BC /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
 		C74785EA219427F8000148BC /* CardLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardLibraryViewController.swift; sourceTree = "<group>"; };
 		C74785EC219448F1000148BC /* CardDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewController.swift; sourceTree = "<group>"; };
-		C76A214521AC1405008A07D9 /* LevelEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LevelEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
-		C76A214621AC1405008A07D9 /* LevelEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LevelEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +193,7 @@
 				56EB87AF2258B0CF00B4894D /* ProgramModel.framework in Frameworks */,
 				56EB87AC2258B0CB00B4894D /* EntityComponentSystem.framework in Frameworks */,
 				A1170FD9BE70DCC32CEDEB7A /* Pods_ARProgramming.framework in Frameworks */,
+				564553D5225C94720084D97F /* Level.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,22 +295,9 @@
 		562CCA80220D752B00BF6A8D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				562EF8D922413C5200A8DC97 /* Level */,
 				206A0CB622410FB40018E6B7 /* Wardrobe */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		562EF8D922413C5200A8DC97 /* Level */ = {
-			isa = PBXGroup;
-			children = (
-				562ACDA62244E15100D2DA7C /* LevelTests.swift */,
-				562ACDA72244E15500D2DA7C /* QuantityLevelTests.swift */,
-				562ACDAC2244E62900D2DA7C /* SimpleLevelLoader.swift */,
-				562ACDB02244F1D300D2DA7C /* InventoryComponentTests.swift */,
-				56606669225B515D00FB0FB0 /* CleanUpLevelTests.swift */,
-			);
-			path = Level;
 			sourceTree = "<group>";
 		};
 		56AEAC5F221EC3C200ACED36 /* View */ = {
@@ -360,21 +316,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		6CD69940218F392500A9E755 /* Level */ = {
-			isa = PBXGroup;
-			children = (
-				56431D3A2232AA9A00BFAC36 /* Level.swift */,
-				202219A4223BA13E00A2A8EA /* EmptyLevel.swift */,
-				900F1359219447AF001C2DC2 /* LevelManager.swift */,
-				56A62B1922311501009D0E83 /* LevelFactory.swift */,
-				56A62B1B223115B9009D0E83 /* QuantityLevel.swift */,
-				56431D2822328C7700BFAC36 /* QuantityComponent.swift */,
-				56131F42224429C30044B6F4 /* InventoryComponent.swift */,
-				56606667225B50DD00FB0FB0 /* CleanUpLevel.swift */,
-			);
-			path = Level;
-			sourceTree = "<group>";
-		};
 		6E2B9FA02C20809CF828356C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -390,7 +331,6 @@
 			isa = PBXGroup;
 			children = (
 				206A0CB32240E4FC0018E6B7 /* Wardrobe */,
-				6CD69940218F392500A9E755 /* Level */,
 				566066C4225BE4FC00FB0FB0 /* CoreDataRepository.swift */,
 			);
 			path = Model;
@@ -454,6 +394,7 @@
 		90DF7323216F441E00F51E0C = {
 			isa = PBXGroup;
 			children = (
+				564553D4225C94720084D97F /* Level.framework */,
 				90DF732E216F441E00F51E0C /* ARProgramming */,
 				90DF7345216F442100F51E0C /* ARProgrammingTests */,
 				90DF732D216F441E00F51E0C /* Products */,
@@ -488,7 +429,6 @@
 				90DF7338216F442000F51E0C /* Assets.xcassets */,
 				90CDABC121773E2700664640 /* Meshes.scnassets */,
 				56216E4F2252162A00613486 /* ExamplePrograms */,
-				56431D362232969A00BFAC36 /* Levels */,
 				90DF733D216F442000F51E0C /* Info.plist */,
 				56108440224D3CC1009A0039 /* Localizable.strings */,
 			);
@@ -499,8 +439,6 @@
 			isa = PBXGroup;
 			children = (
 				562CCA80220D752B00BF6A8D /* Model */,
-				562ACDAA2244E39100D2DA7C /* Levels */,
-				560D20612257AD2F0015EC95 /* XCTestCase+Helpers.swift */,
 				90DF7348216F442100F51E0C /* Info.plist */,
 			);
 			path = ARProgrammingTests;
@@ -509,8 +447,6 @@
 		C725B2C021A85A6D00DD147A /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
-				C76A214521AC1405008A07D9 /* LevelEntity+CoreDataClass.swift */,
-				C76A214621AC1405008A07D9 /* LevelEntity+CoreDataProperties.swift */,
 				C725B2C121A85A7B00DD147A /* Model.xcdatamodeld */,
 			);
 			path = Persistence;
@@ -608,7 +544,6 @@
 				90DF7339216F442000F51E0C /* Assets.xcassets in Resources */,
 				561083E8224A246F009A0039 /* CardCollectionViewHomeHeader.xib in Resources */,
 				90CDABC221773E2700664640 /* Meshes.scnassets in Resources */,
-				56431D372232969A00BFAC36 /* Levels in Resources */,
 				56216E502252162A00613486 /* ExamplePrograms in Resources */,
 				56AEAC63221EC4CF00ACED36 /* SubtitleLabel.xib in Resources */,
 				90A55B0E21A84DB000FD7CDD /* win.wav in Resources */,
@@ -623,7 +558,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				562ACDAB2244E39100D2DA7C /* Levels in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -710,8 +644,6 @@
 				562ACDC72249726C00D2DA7C /* CardCollectionViewSectionHeader.swift in Sources */,
 				56431D3D2232B5DB00BFAC36 /* LevelViewModel.swift in Sources */,
 				5621C83A221AE5F800756628 /* SCNVector3+Helpers.swift in Sources */,
-				C76A214721AC1405008A07D9 /* LevelEntity+CoreDataClass.swift in Sources */,
-				56431D3B2232AA9A00BFAC36 /* Level.swift in Sources */,
 				56AFF2C822521F7000E854B1 /* ExampleProgramViewController.swift in Sources */,
 				56D8CC0522577D84004EE8B1 /* CardCollectionViewModel.swift in Sources */,
 				56A62B1622310DA2009D0E83 /* simd_double3+Helpers.swift in Sources */,
@@ -723,40 +655,32 @@
 				901584CA2199BE0200450E0B /* CardDescriptionViewController.swift in Sources */,
 				C74785ED219448F1000148BC /* CardDetailViewController.swift in Sources */,
 				562FC97D224FCD87001678B2 /* RoundedButton.swift in Sources */,
-				202219A5223BA13E00A2A8EA /* EmptyLevel.swift in Sources */,
 				562ACDB522456D5900D2DA7C /* CardDetectionView.swift in Sources */,
 				56A62B0E22310727009D0E83 /* EntityModelLoader.swift in Sources */,
 				56413DFD220E2AC30064332E /* GameplayController.swift in Sources */,
 				562ACDBD2248C78500D2DA7C /* GameCoordinationViewController.swift in Sources */,
 				56AEACA1221F5DC500ACED36 /* UIImage+Helpers.swift in Sources */,
-				900F135A219447AF001C2DC2 /* LevelManager.swift in Sources */,
 				5621C83C221AE67A00756628 /* simd_float4x4+Helpers.swift in Sources */,
 				204AEC14220DCA1E00E0F624 /* ARContainerViewController.swift in Sources */,
 				562E68512252411700D07C69 /* ProgramView.swift in Sources */,
 				206A0CB52240E5120018E6B7 /* WardrobeManager.swift in Sources */,
-				56606668225B50DD00FB0FB0 /* CleanUpLevel.swift in Sources */,
 				202219A7223BC07000A2A8EA /* WardrobeViewController.swift in Sources */,
 				56EB87CA22593E6E00B4894D /* GradeCardConfiguration.swift in Sources */,
-				56431D2922328C7700BFAC36 /* QuantityComponent.swift in Sources */,
 				C725B2C321A85A7B00DD147A /* Model.xcdatamodeld in Sources */,
 				562ACDB3224522CB00D2DA7C /* GameState.swift in Sources */,
 				561083F6224A68FD009A0039 /* FunctionView.swift in Sources */,
 				C74785E9219427A3000148BC /* CardCollectionViewCell.swift in Sources */,
-				C76A214821AC1405008A07D9 /* LevelEntity+CoreDataProperties.swift in Sources */,
 				90DF7330216F441E00F51E0C /* AppDelegate.swift in Sources */,
 				562F2F2922538ABA00C46D83 /* MainMenuViewController.swift in Sources */,
 				56A62B1822310E8D009D0E83 /* simd_quatd+Helpers.swift in Sources */,
 				562CCA7F220D750100BF6A8D /* CGImagePropertyOrientation+Helpers.swift in Sources */,
 				562ACDCD224986F300D2DA7C /* GradesTabBarController.swift in Sources */,
-				56A62B1C223115B9009D0E83 /* QuantityLevel.swift in Sources */,
 				905A3C92217A0891005E3AA5 /* LevelSelectViewController.swift in Sources */,
 				562F2F23225355E100C46D83 /* Config.swift in Sources */,
 				562ACDB9224583DC00D2DA7C /* PassThroughView.swift in Sources */,
 				C74785EB219427F8000148BC /* CardLibraryViewController.swift in Sources */,
 				905A3C94217A09D0005E3AA5 /* LevelCollectionViewCell.swift in Sources */,
 				90A55B0921A83B0700FD7CDD /* AudioController.swift in Sources */,
-				56131F43224429C30044B6F4 /* InventoryComponent.swift in Sources */,
-				56A62B1A22311501009D0E83 /* LevelFactory.swift in Sources */,
 				562ACDC522496BD400D2DA7C /* CardCollectionDataSource.swift in Sources */,
 				561083F8224A7607009A0039 /* ExampleProgramTableDataSource.swift in Sources */,
 				56431D392232A82700BFAC36 /* UpdateDelegate.swift in Sources */,
@@ -771,13 +695,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5660666A225B515D00FB0FB0 /* CleanUpLevelTests.swift in Sources */,
-				560D20622257AD2F0015EC95 /* XCTestCase+Helpers.swift in Sources */,
 				206A0CB822410FD80018E6B7 /* WardrobeManagerTests.swift in Sources */,
-				562ACDA82244E15500D2DA7C /* LevelTests.swift in Sources */,
-				562ACDA92244E15500D2DA7C /* QuantityLevelTests.swift in Sources */,
-				562ACDB12244F1D300D2DA7C /* InventoryComponentTests.swift in Sources */,
-				562ACDAD2244E62900D2DA7C /* SimpleLevelLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

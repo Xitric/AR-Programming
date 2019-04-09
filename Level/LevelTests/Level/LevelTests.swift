@@ -8,7 +8,7 @@
 
 import XCTest
 import EntityComponentSystem
-@testable import ARProgramming
+@testable import Level
 
 class LevelTests: XCTestCase {
 
