@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E7A74E9A4A96B8A63A838C1 /* Pods_ProgramModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D08BBD3FC4D94E2541C495 /* Pods_ProgramModel.framework */; };
 		560D20482257A1610015EC95 /* Double+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560D20472257A1610015EC95 /* Double+Helpers.swift */; };
 		560D204B2257A1AC0015EC95 /* Double+HelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560D204A2257A1AC0015EC95 /* Double+HelpersTests.swift */; };
 		560D20602257AD190015EC95 /* XCTestCase+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560D205F2257AD190015EC95 /* XCTestCase+Helpers.swift */; };
@@ -69,8 +70,7 @@
 		56EB87CE225B398700B4894D /* ProgramEditorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB87CD225B398700B4894D /* ProgramEditorProtocol.swift */; };
 		56EB87D2225B3A1600B4894D /* ProgramProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB87D1225B3A1600B4894D /* ProgramProtocol.swift */; };
 		56EB87D4225B3A3F00B4894D /* CardNodeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB87D3225B3A3F00B4894D /* CardNodeProtocol.swift */; };
-		A512203AEA4488DB7134CABD /* libPods-ProgramModel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9951BFC976F4B6658DAE9673 /* libPods-ProgramModel.a */; };
-		B841F31629CCE3728E2414AD /* libPods-ProgramModelTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BCF0275A273DED00418807E /* libPods-ProgramModelTests.a */; };
+		62C29804FBD5AD84807D316E /* Pods_ProgramModelTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09B043D2616314DB7651E228 /* Pods_ProgramModelTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +84,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04D08BBD3FC4D94E2541C495 /* Pods_ProgramModel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProgramModel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		09B043D2616314DB7651E228 /* Pods_ProgramModelTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProgramModelTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		358E94D91BA44920DE961AD7 /* Pods-ProgramModelTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProgramModelTests.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-ProgramModelTests/Pods-ProgramModelTests.debug.xcconfig"; sourceTree = "<group>"; };
 		560D204422579DA50015EC95 /* EntityComponentSystem.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EntityComponentSystem.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		560D20472257A1610015EC95 /* Double+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Helpers.swift"; sourceTree = "<group>"; };
@@ -151,11 +153,9 @@
 		56EB87CD225B398700B4894D /* ProgramEditorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramEditorProtocol.swift; sourceTree = "<group>"; };
 		56EB87D1225B3A1600B4894D /* ProgramProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramProtocol.swift; sourceTree = "<group>"; };
 		56EB87D3225B3A3F00B4894D /* CardNodeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardNodeProtocol.swift; sourceTree = "<group>"; };
-		5BCF0275A273DED00418807E /* libPods-ProgramModelTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ProgramModelTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		702E5DD9A7B316901835C0D6 /* Pods-ProgramModel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProgramModel.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-ProgramModel/Pods-ProgramModel.debug.xcconfig"; sourceTree = "<group>"; };
 		7D4493E1E80920FED7CFF713 /* Pods-ProgramModelTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProgramModelTests.release.xcconfig"; path = "../Pods/Target Support Files/Pods-ProgramModelTests/Pods-ProgramModelTests.release.xcconfig"; sourceTree = "<group>"; };
 		845DDA34E49A17391AD23F82 /* Pods-ProgramModel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProgramModel.release.xcconfig"; path = "../Pods/Target Support Files/Pods-ProgramModel/Pods-ProgramModel.release.xcconfig"; sourceTree = "<group>"; };
-		9951BFC976F4B6658DAE9673 /* libPods-ProgramModel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ProgramModel.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,7 +164,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				56EB87AB2258B0BE00B4894D /* EntityComponentSystem.framework in Frameworks */,
-				A512203AEA4488DB7134CABD /* libPods-ProgramModel.a in Frameworks */,
+				2E7A74E9A4A96B8A63A838C1 /* Pods_ProgramModel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,7 +173,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				56D8CAEA225778C8004EE8B1 /* ProgramModel.framework in Frameworks */,
-				B841F31629CCE3728E2414AD /* libPods-ProgramModelTests.a in Frameworks */,
+				62C29804FBD5AD84807D316E /* Pods_ProgramModelTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,8 +196,8 @@
 			children = (
 				56EB87A42258B05600B4894D /* Pods_EntityComponentSystem.framework */,
 				560D204422579DA50015EC95 /* EntityComponentSystem.framework */,
-				9951BFC976F4B6658DAE9673 /* libPods-ProgramModel.a */,
-				5BCF0275A273DED00418807E /* libPods-ProgramModelTests.a */,
+				04D08BBD3FC4D94E2541C495 /* Pods_ProgramModel.framework */,
+				09B043D2616314DB7651E228 /* Pods_ProgramModelTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -427,6 +427,7 @@
 				56D8CAE5225778C8004EE8B1 /* Sources */,
 				56D8CAE6225778C8004EE8B1 /* Frameworks */,
 				56D8CAE7225778C8004EE8B1 /* Resources */,
+				97D50213C8CE511E866751A5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -493,6 +494,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		97D50213C8CE511E866751A5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/../Pods/Target Support Files/Pods-ProgramModelTests/Pods-ProgramModelTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-ProgramModelTests/Pods-ProgramModelTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		A7D4BC1B1A7AE487010188CF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

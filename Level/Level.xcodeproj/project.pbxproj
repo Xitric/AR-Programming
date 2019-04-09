@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		240ECBF92FEF523925D0241B /* libPods-LevelTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DB05703382D42E58A7A1944 /* libPods-LevelTests.a */; };
+		1C02092AC18E8DF78D56F4B9 /* Pods_LevelTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D669D1B9F5300FC07B15E3D4 /* Pods_LevelTests.framework */; };
 		564553D0225C8A070084D97F /* CoreDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564553CF225C8A070084D97F /* CoreDataRepository.swift */; };
 		564553D3225C8A310084D97F /* LevelModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 564553D1225C8A310084D97F /* LevelModel.xcdatamodeld */; };
 		564553D8225C9E300084D97F /* XCTestCase+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564553D7225C9E300084D97F /* XCTestCase+Helpers.swift */; };
@@ -32,7 +32,7 @@
 		5660670F225C849F00FB0FB0 /* LevelServiceCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5660670E225C849F00FB0FB0 /* LevelServiceCollection.swift */; };
 		56606711225C84AE00FB0FB0 /* LevelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56606710225C84AE00FB0FB0 /* LevelProtocol.swift */; };
 		56606713225C84C000FB0FB0 /* LevelRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56606712225C84C000FB0FB0 /* LevelRepository.swift */; };
-		95FEB457735FE24F52C623E7 /* libPods-Level.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F45915A1EFD653DEDABDE18E /* libPods-Level.a */; };
+		99743111557709CE223A0A63 /* Pods_Level.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 005380AE98BBA8ECCE8AE3AC /* Pods_Level.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		005380AE98BBA8ECCE8AE3AC /* Pods_Level.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Level.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		564553CF225C8A070084D97F /* CoreDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataRepository.swift; sourceTree = "<group>"; };
 		564553D2225C8A310084D97F /* LevelModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LevelModel.xcdatamodel; sourceTree = "<group>"; };
 		564553D7225C9E300084D97F /* XCTestCase+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Helpers.swift"; sourceTree = "<group>"; };
@@ -73,11 +74,10 @@
 		5660670E225C849F00FB0FB0 /* LevelServiceCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelServiceCollection.swift; sourceTree = "<group>"; };
 		56606710225C84AE00FB0FB0 /* LevelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelProtocol.swift; sourceTree = "<group>"; };
 		56606712225C84C000FB0FB0 /* LevelRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelRepository.swift; sourceTree = "<group>"; };
-		6DB05703382D42E58A7A1944 /* libPods-LevelTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LevelTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		874F477F89346012B1B05DF7 /* Pods-Level.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Level.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-Level/Pods-Level.debug.xcconfig"; sourceTree = "<group>"; };
+		D669D1B9F5300FC07B15E3D4 /* Pods_LevelTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LevelTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E79334B12CD5FD082438353B /* Pods-LevelTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LevelTests.release.xcconfig"; path = "../Pods/Target Support Files/Pods-LevelTests/Pods-LevelTests.release.xcconfig"; sourceTree = "<group>"; };
 		EA081F12E6504F307E4D7675 /* Pods-Level.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Level.release.xcconfig"; path = "../Pods/Target Support Files/Pods-Level/Pods-Level.release.xcconfig"; sourceTree = "<group>"; };
-		F45915A1EFD653DEDABDE18E /* libPods-Level.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Level.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCE6E2BE18E23DC5981D496A /* Pods-LevelTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LevelTests.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-LevelTests/Pods-LevelTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,7 +87,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5660670C225C846400FB0FB0 /* EntityComponentSystem.framework in Frameworks */,
-				95FEB457735FE24F52C623E7 /* libPods-Level.a in Frameworks */,
+				99743111557709CE223A0A63 /* Pods_Level.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,7 +96,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				566066DA225C838C00FB0FB0 /* Level.framework in Frameworks */,
-				240ECBF92FEF523925D0241B /* libPods-LevelTests.a in Frameworks */,
+				1C02092AC18E8DF78D56F4B9 /* Pods_LevelTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,8 +187,8 @@
 			isa = PBXGroup;
 			children = (
 				5660670B225C846400FB0FB0 /* EntityComponentSystem.framework */,
-				F45915A1EFD653DEDABDE18E /* libPods-Level.a */,
-				6DB05703382D42E58A7A1944 /* libPods-LevelTests.a */,
+				005380AE98BBA8ECCE8AE3AC /* Pods_Level.framework */,
+				D669D1B9F5300FC07B15E3D4 /* Pods_LevelTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -255,6 +255,7 @@
 				566066D5225C838C00FB0FB0 /* Sources */,
 				566066D6225C838C00FB0FB0 /* Frameworks */,
 				566066D7225C838C00FB0FB0 /* Resources */,
+				717F1B18B1F725367A553FB4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -322,6 +323,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		717F1B18B1F725367A553FB4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/../Pods/Target Support Files/Pods-LevelTests/Pods-LevelTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-LevelTests/Pods-LevelTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		824CADDB7F490630A1FB51E7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

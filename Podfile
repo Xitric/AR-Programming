@@ -10,6 +10,7 @@ end
 
 target 'ARProgramming' do
   project 'ARProgramming/ARProgramming'
+  use_frameworks!
   
   # Pods for ARProgramming
   swinject
@@ -25,6 +26,7 @@ end
 
 target 'ProgramModel' do
     project 'ProgramModel/ProgramModel'
+    use_frameworks!
     
     # Pods for ProgramModel
     swinject
@@ -38,6 +40,7 @@ end
 
 target 'Level' do
     project 'Level/Level'
+    use_frameworks!
     
     # Pods for Level
     swinject
@@ -51,6 +54,7 @@ end
 
 target 'EntityComponentSystem' do
     project 'EntityComponentSystem/EntityComponentSystem'
+    use_frameworks!
     
     # Pods for EntityComponentSystem
     swinject

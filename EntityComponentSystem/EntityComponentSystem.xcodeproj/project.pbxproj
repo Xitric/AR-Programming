@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3019D976D17997C944DF3A26 /* libPods-EntityComponentSystem.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64900F69C3759A144C950D9C /* libPods-EntityComponentSystem.a */; };
-		45DFE1803454AF83BA6BE784 /* libPods-EntityComponentSystemTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 577EE796CF1B8FD8C8BECD6F /* libPods-EntityComponentSystemTests.a */; };
+		08CAC9F023D47406F864CE33 /* Pods_EntityComponentSystemTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A78A1C523F8167E3B1DCF607 /* Pods_EntityComponentSystemTests.framework */; };
 		565F49D62257900C00359A9C /* EntityComponentSystem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 565F49CC2257900C00359A9C /* EntityComponentSystem.framework */; };
 		565F49DD2257900C00359A9C /* EntityComponentSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = 565F49CF2257900C00359A9C /* EntityComponentSystem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		565F49F42257904300359A9C /* SpinComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565F49E72257904300359A9C /* SpinComponent.swift */; };
@@ -31,6 +30,7 @@
 		565F4A0E2257905400359A9C /* EntityManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565F4A062257905300359A9C /* EntityManagerTests.swift */; };
 		565F4A0F2257905400359A9C /* simd_double4x4+HelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565F4A082257905300359A9C /* simd_double4x4+HelpersTests.swift */; };
 		56EB87BA2258B60300B4894D /* XCTestCase+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB87B92258B60300B4894D /* XCTestCase+Helpers.swift */; };
+		AD25BA806FD304F317072614 /* Pods_EntityComponentSystem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4CD84381CF85ADB0A9D3A8C /* Pods_EntityComponentSystem.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,9 +72,9 @@
 		565F4A062257905300359A9C /* EntityManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityManagerTests.swift; sourceTree = "<group>"; };
 		565F4A082257905300359A9C /* simd_double4x4+HelpersTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "simd_double4x4+HelpersTests.swift"; sourceTree = "<group>"; };
 		56EB87B92258B60300B4894D /* XCTestCase+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Helpers.swift"; sourceTree = "<group>"; };
-		577EE796CF1B8FD8C8BECD6F /* libPods-EntityComponentSystemTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EntityComponentSystemTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		64900F69C3759A144C950D9C /* libPods-EntityComponentSystem.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EntityComponentSystem.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A78A1C523F8167E3B1DCF607 /* Pods_EntityComponentSystemTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EntityComponentSystemTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB4BE2F4B6FA956DCDA12C86 /* Pods-EntityComponentSystemTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EntityComponentSystemTests.release.xcconfig"; path = "../Pods/Target Support Files/Pods-EntityComponentSystemTests/Pods-EntityComponentSystemTests.release.xcconfig"; sourceTree = "<group>"; };
+		E4CD84381CF85ADB0A9D3A8C /* Pods_EntityComponentSystem.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EntityComponentSystem.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3019D976D17997C944DF3A26 /* libPods-EntityComponentSystem.a in Frameworks */,
+				AD25BA806FD304F317072614 /* Pods_EntityComponentSystem.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,7 +91,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				565F49D62257900C00359A9C /* EntityComponentSystem.framework in Frameworks */,
-				45DFE1803454AF83BA6BE784 /* libPods-EntityComponentSystemTests.a in Frameworks */,
+				08CAC9F023D47406F864CE33 /* Pods_EntityComponentSystemTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,8 +201,8 @@
 		565F4A102257906D00359A9C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				64900F69C3759A144C950D9C /* libPods-EntityComponentSystem.a */,
-				577EE796CF1B8FD8C8BECD6F /* libPods-EntityComponentSystemTests.a */,
+				E4CD84381CF85ADB0A9D3A8C /* Pods_EntityComponentSystem.framework */,
+				A78A1C523F8167E3B1DCF607 /* Pods_EntityComponentSystemTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -249,6 +249,7 @@
 				565F49D12257900C00359A9C /* Sources */,
 				565F49D22257900C00359A9C /* Frameworks */,
 				565F49D32257900C00359A9C /* Resources */,
+				0E919509F406429EA424FE69 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -314,6 +315,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0E919509F406429EA424FE69 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/../Pods/Target Support Files/Pods-EntityComponentSystemTests/Pods-EntityComponentSystemTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-EntityComponentSystemTests/Pods-EntityComponentSystemTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		DC756A15F15A12D98528806F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

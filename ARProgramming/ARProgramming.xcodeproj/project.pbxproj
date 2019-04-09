@@ -55,6 +55,7 @@
 		56EB87B02258B0CF00B4894D /* ProgramModel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 560D204E2257A47E0015EC95 /* ProgramModel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		56EB87C02258DC2B00B4894D /* SwinjectStoryboard+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB87BF2258DC2B00B4894D /* SwinjectStoryboard+Setup.swift */; };
 		56EB87CA22593E6E00B4894D /* GradeCardConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB87C922593E6E00B4894D /* GradeCardConfiguration.swift */; };
+		80A00AF5D71203C4164A8FCE /* Pods_ARProgramming.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D954E4C70AEB4D6FC732078 /* Pods_ARProgramming.framework */; };
 		901584C82199BDF400450E0B /* LevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901584C72199BDF400450E0B /* LevelViewController.swift */; };
 		901584CA2199BE0200450E0B /* CardDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901584C92199BE0200450E0B /* CardDescriptionViewController.swift */; };
 		901584CC2199C32100450E0B /* ARController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901584CB2199C32100450E0B /* ARController.swift */; };
@@ -70,13 +71,12 @@
 		90DF7337216F441E00F51E0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90DF7335216F441E00F51E0C /* Main.storyboard */; };
 		90DF7339216F442000F51E0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90DF7338216F442000F51E0C /* Assets.xcassets */; };
 		90DF733C216F442000F51E0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90DF733A216F442000F51E0C /* LaunchScreen.storyboard */; };
-		999C5FFA2A632C540C0D10F1 /* libPods-ARProgramming.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7929382C4D24F6EE5C399ACC /* libPods-ARProgramming.a */; };
+		A7C221E5DC1EC301B7086A19 /* Pods_ARProgrammingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4208C6B4372E5AAA04A35EA0 /* Pods_ARProgrammingTests.framework */; };
 		C725B2C321A85A7B00DD147A /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C725B2C121A85A7B00DD147A /* Model.xcdatamodeld */; };
 		C7273114217714E900754543 /* Plane.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7273113217714E900754543 /* Plane.swift */; };
 		C74785E9219427A3000148BC /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74785E8219427A3000148BC /* CardCollectionViewCell.swift */; };
 		C74785EB219427F8000148BC /* CardLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74785EA219427F8000148BC /* CardLibraryViewController.swift */; };
 		C74785ED219448F1000148BC /* CardDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74785EC219448F1000148BC /* CardDetailViewController.swift */; };
-		FE3BC67E123B32C1A7ABE6A2 /* libPods-ARProgrammingTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C7BA5E65B204867145AFAAA0 /* libPods-ARProgrammingTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +112,7 @@
 		206A0CB42240E5120018E6B7 /* WardrobeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeManager.swift; sourceTree = "<group>"; };
 		206A0CB722410FD80018E6B7 /* WardrobeManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeManagerTests.swift; sourceTree = "<group>"; };
 		2777F7558E4CBDF869F88EFD /* Pods-ARProgrammingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARProgrammingTests.release.xcconfig"; path = "../Pods/Target Support Files/Pods-ARProgrammingTests/Pods-ARProgrammingTests.release.xcconfig"; sourceTree = "<group>"; };
+		4208C6B4372E5AAA04A35EA0 /* Pods_ARProgrammingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARProgrammingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		560D204E2257A47E0015EC95 /* ProgramModel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ProgramModel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		560D20502257A4850015EC95 /* EntityComponentSystem.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EntityComponentSystem.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		561083E7224A246F009A0039 /* CardCollectionViewHomeHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardCollectionViewHomeHeader.xib; sourceTree = "<group>"; };
@@ -156,7 +157,7 @@
 		56EB87BF2258DC2B00B4894D /* SwinjectStoryboard+Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwinjectStoryboard+Setup.swift"; sourceTree = "<group>"; };
 		56EB87C922593E6E00B4894D /* GradeCardConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradeCardConfiguration.swift; sourceTree = "<group>"; };
 		65C4BBB84CF770EB1ECE0612 /* Pods-ARProgrammingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARProgrammingTests.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-ARProgrammingTests/Pods-ARProgrammingTests.debug.xcconfig"; sourceTree = "<group>"; };
-		7929382C4D24F6EE5C399ACC /* libPods-ARProgramming.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ARProgramming.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D954E4C70AEB4D6FC732078 /* Pods_ARProgramming.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARProgramming.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		901584C72199BDF400450E0B /* LevelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelViewController.swift; sourceTree = "<group>"; };
 		901584C92199BE0200450E0B /* CardDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDescriptionViewController.swift; sourceTree = "<group>"; };
 		901584CB2199C32100450E0B /* ARController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARController.swift; sourceTree = "<group>"; };
@@ -182,7 +183,6 @@
 		C74785E8219427A3000148BC /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
 		C74785EA219427F8000148BC /* CardLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardLibraryViewController.swift; sourceTree = "<group>"; };
 		C74785EC219448F1000148BC /* CardDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewController.swift; sourceTree = "<group>"; };
-		C7BA5E65B204867145AFAAA0 /* libPods-ARProgrammingTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ARProgrammingTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,8 +192,8 @@
 			files = (
 				56EB87AF2258B0CF00B4894D /* ProgramModel.framework in Frameworks */,
 				56EB87AC2258B0CB00B4894D /* EntityComponentSystem.framework in Frameworks */,
-				999C5FFA2A632C540C0D10F1 /* libPods-ARProgramming.a in Frameworks */,
 				56153E30225D3CE700824BEE /* Level.framework in Frameworks */,
+				80A00AF5D71203C4164A8FCE /* Pods_ARProgramming.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,7 +201,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE3BC67E123B32C1A7ABE6A2 /* libPods-ARProgrammingTests.a in Frameworks */,
+				A7C221E5DC1EC301B7086A19 /* Pods_ARProgrammingTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,8 +232,8 @@
 				56EB87A02258B04300B4894D /* Pods_EntityComponentSystem.framework */,
 				560D20502257A4850015EC95 /* EntityComponentSystem.framework */,
 				560D204E2257A47E0015EC95 /* ProgramModel.framework */,
-				7929382C4D24F6EE5C399ACC /* libPods-ARProgramming.a */,
-				C7BA5E65B204867145AFAAA0 /* libPods-ARProgrammingTests.a */,
+				6D954E4C70AEB4D6FC732078 /* Pods_ARProgramming.framework */,
+				4208C6B4372E5AAA04A35EA0 /* Pods_ARProgrammingTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -464,6 +464,7 @@
 				90DF7329216F441E00F51E0C /* Frameworks */,
 				90DF732A216F441E00F51E0C /* Resources */,
 				56EB87AE2258B0CB00B4894D /* Embed Frameworks */,
+				1D43E1CF20112A6BFE85B1C1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -563,6 +564,30 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1D43E1CF20112A6BFE85B1C1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/../Pods/Target Support Files/Pods-ARProgramming/Pods-ARProgramming-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
+				"${BUILT_PRODUCTS_DIR}/SwinjectStoryboard/SwinjectStoryboard.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwinjectStoryboard.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-ARProgramming/Pods-ARProgramming-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		C912703A9A52D7E658CD3570 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
