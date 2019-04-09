@@ -8,16 +8,21 @@
 
 import UIKit
 
-class LevelSelectViewController: UIViewController {
-    
-    private var levels = [Level]()
+class LevelSelectViewController: UIViewController, GradeViewController {
+    var grade: Int!
+
     var selectedLevel: Level?
+    
+    private lazy var dataSource: LevelDataSource = {
+        let source = LevelDataSource(grade: grade)
+        return source
+    }()
     
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var levelSelectCollectionView: UICollectionView! {
         didSet {
-            levelSelectCollectionView.dataSource = self
+            levelSelectCollectionView.dataSource = dataSource
             levelSelectCollectionView.delegate = self
         }
     }
@@ -35,19 +40,13 @@ class LevelSelectViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        //TODO: Error dialog?
-        levels.removeAll()
-        if let allLevels = try? LevelManager.loadAllLevels() {
-            levels.append(contentsOf: allLevels)
-        }
-        collectionView.reloadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let arContainer = segue.destination as? ARContainerViewController {
             arContainer.level = selectedLevel
         }
+
     }
     
     @IBAction func freePlay(_ sender: UIButton) {
@@ -57,29 +56,12 @@ class LevelSelectViewController: UIViewController {
     
 }
 
-// MARK: - UICollectionViewDataSource
-extension LevelSelectViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return levels.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "levelCell", for: indexPath)
-        
-        if let levelCell = cell as? LevelCollectionViewCell {
-            let level = levels[indexPath.item]
-            levelCell.levelName.text = level.name
-            levelCell.unlocked = level.unlocked
-        }
-        
-        return cell
-    }
-}
-
 // MARK: - UICollectionViewDelegate
 extension LevelSelectViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectedLevel = levels[indexPath.item]
-        performSegue(withIdentifier: "arContainerSegue", sender: self)
+        if let level  = collectionView.cellForItem(at: indexPath) as? LevelCollectionViewCell {
+            selectedLevel = level.level
+            performSegue(withIdentifier: "arContainerSegue", sender: self)
+        }
     }
 }
