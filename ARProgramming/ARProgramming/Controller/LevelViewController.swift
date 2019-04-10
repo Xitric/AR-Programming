@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 import SceneKit
-//import AudioKit
+import AVFoundation
 import ProgramModel
 import Level
 
@@ -30,14 +30,14 @@ class LevelViewController: UIViewController {
     @IBOutlet weak var planeDetectionAnimation: UIImageView!
     
     //MARK: Sound
-//    var audioController: AudioController? {
-//        didSet {
-//            winSound = audioController?.makeSound(withName: "win.wav")
-//            pickupSound = audioController?.makeSound(withName: "pickup.wav")
-//        }
-//    }
-//    private var winSound: AKAudioPlayer?
-//    private var pickupSound: AKAudioPlayer?
+    var audioController: AudioController? {
+        didSet {
+            winSound = audioController?.makeSound(withName: "win.wav")
+            pickupSound = audioController?.makeSound(withName: "pickup.wav")
+        }
+    }
+    private var winSound: AVAudioPlayer?
+    private var pickupSound: AVAudioPlayer?
 
     //MARK: State
     private var programEditor: ProgramEditorProtocol?
@@ -75,7 +75,6 @@ class LevelViewController: UIViewController {
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-      //  audioController?.start()
         createPlaneAnimation()
     }
     
@@ -84,10 +83,6 @@ class LevelViewController: UIViewController {
         planeDetectionAnimation.animationDuration = 2.8
         planeDetectionAnimation.startAnimating()
     }
-    
-//    deinit {
-//        audioController?.stop()
-//    }
     
     // MARK: - Button actions    
     @IBAction func detectCards(_ sender: UIButton) {
@@ -187,7 +182,7 @@ extension LevelViewController: ProgramDelegate {
 extension LevelViewController: LevelDelegate {
     
     func levelCompleted(_ level: LevelProtocol) {
-        //self.winSound?.play()
+        self.winSound?.play()
         
         DispatchQueue.main.async { [unowned self] in
             self.winLabel.isHidden = false
