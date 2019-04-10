@@ -19,9 +19,9 @@ extension SwinjectStoryboard {
             controller.wardrobe = container.resolve(WardrobeProtocol.self)
         }
         
-        defaultContainer.storyboardInitCompleted(LevelViewController.self) { container, controller in
-            controller.audioController = container.resolve(AudioController.self)
-        }
+//        defaultContainer.storyboardInitCompleted(LevelViewController.self) { container, controller in
+//            controller.audioController = container.resolve(AudioController.self)
+//        }
         
         defaultContainer.storyboardInitCompleted(WardrobeViewController.self) { container, controller in
             controller.wardrobe = container.resolve(WardrobeProtocol.self)
@@ -31,8 +31,8 @@ extension SwinjectStoryboard {
             controller.levelRepository = container.resolve(LevelRepository.self)
         }
         
-        defaultContainer.register(AudioController.self) { _ in AudioController() }
-            .inObjectScope(.container)
+//        defaultContainer.register(AudioController.self) { _ in AudioController() }
+//            .inObjectScope(.container)
         
         defaultContainer.register(WardrobeProtocol.self) { _ in
             WardrobeManager(context: CoreDataRepository())

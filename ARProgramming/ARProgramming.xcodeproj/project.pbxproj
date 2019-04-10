@@ -572,7 +572,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/../Pods/Target Support Files/Pods-ARProgramming/Pods-ARProgramming-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-ARProgramming/Pods-ARProgramming-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
 				"${BUILT_PRODUCTS_DIR}/SwinjectStoryboard/SwinjectStoryboard.framework",
 			);
@@ -585,7 +585,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-ARProgramming/Pods-ARProgramming-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ARProgramming/Pods-ARProgramming-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C912703A9A52D7E658CD3570 /* [CP] Check Pods Manifest.lock */ = {

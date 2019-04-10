@@ -255,7 +255,6 @@
 				565F49D12257900C00359A9C /* Sources */,
 				565F49D22257900C00359A9C /* Frameworks */,
 				565F49D32257900C00359A9C /* Resources */,
-				0E919509F406429EA424FE69 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -321,28 +320,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0E919509F406429EA424FE69 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/../Pods/Target Support Files/Pods-EntityComponentSystemTests/Pods-EntityComponentSystemTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-EntityComponentSystemTests/Pods-EntityComponentSystemTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		DC756A15F15A12D98528806F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

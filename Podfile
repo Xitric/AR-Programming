@@ -15,7 +15,6 @@ target 'ARProgramming' do
   # Pods for ARProgramming
   swinject
   pod 'SwinjectStoryboard', '~> 2.2'
-  pod 'AudioKit', '~> 4.5'
   
   target 'ARProgrammingTests' do
     inherit! :search_paths
