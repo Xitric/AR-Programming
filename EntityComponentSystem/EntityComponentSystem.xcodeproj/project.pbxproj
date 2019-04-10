@@ -72,9 +72,12 @@
 		565F4A062257905300359A9C /* EntityManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityManagerTests.swift; sourceTree = "<group>"; };
 		565F4A082257905300359A9C /* simd_double4x4+HelpersTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "simd_double4x4+HelpersTests.swift"; sourceTree = "<group>"; };
 		56EB87B92258B60300B4894D /* XCTestCase+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Helpers.swift"; sourceTree = "<group>"; };
+		9DFB5259C98BE8BE0770CD8B /* Pods-EntityComponentSystem-EntityComponentSystemTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EntityComponentSystem-EntityComponentSystemTests.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-EntityComponentSystem-EntityComponentSystemTests/Pods-EntityComponentSystem-EntityComponentSystemTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A78A1C523F8167E3B1DCF607 /* Pods_EntityComponentSystemTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EntityComponentSystemTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB4BE2F4B6FA956DCDA12C86 /* Pods-EntityComponentSystemTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EntityComponentSystemTests.release.xcconfig"; path = "../Pods/Target Support Files/Pods-EntityComponentSystemTests/Pods-EntityComponentSystemTests.release.xcconfig"; sourceTree = "<group>"; };
 		E4CD84381CF85ADB0A9D3A8C /* Pods_EntityComponentSystem.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EntityComponentSystem.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9ED9C1E8C765EE9AF5A2293 /* Pods-EntityComponentSystem-EntityComponentSystemTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EntityComponentSystem-EntityComponentSystemTests.release.xcconfig"; path = "../Pods/Target Support Files/Pods-EntityComponentSystem-EntityComponentSystemTests/Pods-EntityComponentSystem-EntityComponentSystemTests.release.xcconfig"; sourceTree = "<group>"; };
+		EBBEE56A2CCEEC7ABD69C8AD /* Pods_EntityComponentSystem_EntityComponentSystemTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EntityComponentSystem_EntityComponentSystemTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +108,8 @@
 				3A3D939C3E2144F73D6E42B7 /* Pods-EntityComponentSystem.release.xcconfig */,
 				27F1E6929385EDDD4E62E7FA /* Pods-EntityComponentSystemTests.debug.xcconfig */,
 				BB4BE2F4B6FA956DCDA12C86 /* Pods-EntityComponentSystemTests.release.xcconfig */,
+				9DFB5259C98BE8BE0770CD8B /* Pods-EntityComponentSystem-EntityComponentSystemTests.debug.xcconfig */,
+				E9ED9C1E8C765EE9AF5A2293 /* Pods-EntityComponentSystem-EntityComponentSystemTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -203,6 +208,7 @@
 			children = (
 				E4CD84381CF85ADB0A9D3A8C /* Pods_EntityComponentSystem.framework */,
 				A78A1C523F8167E3B1DCF607 /* Pods_EntityComponentSystemTests.framework */,
+				EBBEE56A2CCEEC7ABD69C8AD /* Pods_EntityComponentSystem_EntityComponentSystemTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

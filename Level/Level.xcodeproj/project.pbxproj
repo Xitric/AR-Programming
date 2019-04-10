@@ -75,9 +75,12 @@
 		56606710225C84AE00FB0FB0 /* LevelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelProtocol.swift; sourceTree = "<group>"; };
 		56606712225C84C000FB0FB0 /* LevelRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelRepository.swift; sourceTree = "<group>"; };
 		874F477F89346012B1B05DF7 /* Pods-Level.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Level.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-Level/Pods-Level.debug.xcconfig"; sourceTree = "<group>"; };
+		8ED1B1CF3C8C0B69C5D41CED /* Pods_Level_LevelTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Level_LevelTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D669D1B9F5300FC07B15E3D4 /* Pods_LevelTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LevelTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E79334B12CD5FD082438353B /* Pods-LevelTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LevelTests.release.xcconfig"; path = "../Pods/Target Support Files/Pods-LevelTests/Pods-LevelTests.release.xcconfig"; sourceTree = "<group>"; };
 		EA081F12E6504F307E4D7675 /* Pods-Level.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Level.release.xcconfig"; path = "../Pods/Target Support Files/Pods-Level/Pods-Level.release.xcconfig"; sourceTree = "<group>"; };
+		EAFDB2A656F07DB2F084D616 /* Pods-Level-LevelTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Level-LevelTests.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-Level-LevelTests/Pods-Level-LevelTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F01B366B2CB647FCAA42E35B /* Pods-Level-LevelTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Level-LevelTests.release.xcconfig"; path = "../Pods/Target Support Files/Pods-Level-LevelTests/Pods-Level-LevelTests.release.xcconfig"; sourceTree = "<group>"; };
 		FCE6E2BE18E23DC5981D496A /* Pods-LevelTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LevelTests.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-LevelTests/Pods-LevelTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -189,6 +192,7 @@
 				5660670B225C846400FB0FB0 /* EntityComponentSystem.framework */,
 				005380AE98BBA8ECCE8AE3AC /* Pods_Level.framework */,
 				D669D1B9F5300FC07B15E3D4 /* Pods_LevelTests.framework */,
+				8ED1B1CF3C8C0B69C5D41CED /* Pods_Level_LevelTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -210,6 +214,8 @@
 				EA081F12E6504F307E4D7675 /* Pods-Level.release.xcconfig */,
 				FCE6E2BE18E23DC5981D496A /* Pods-LevelTests.debug.xcconfig */,
 				E79334B12CD5FD082438353B /* Pods-LevelTests.release.xcconfig */,
+				EAFDB2A656F07DB2F084D616 /* Pods-Level-LevelTests.debug.xcconfig */,
+				F01B366B2CB647FCAA42E35B /* Pods-Level-LevelTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
