@@ -11,6 +11,9 @@
 		204AEC14220DCA1E00E0F624 /* ARContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204AEC13220DCA1E00E0F624 /* ARContainerViewController.swift */; };
 		206A0CB52240E5120018E6B7 /* WardrobeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206A0CB42240E5120018E6B7 /* WardrobeManager.swift */; };
 		206A0CB822410FD80018E6B7 /* WardrobeManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206A0CB722410FD80018E6B7 /* WardrobeManagerTests.swift */; };
+		20D9BAD1225BF45400DCB87D /* LibraryGradesTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D9BAD0225BF45300DCB87D /* LibraryGradesTabBarController.swift */; };
+		20D9BAD3225C7E7B00DCB87D /* LevelClasses.json in Resources */ = {isa = PBXBuildFile; fileRef = 20D9BAD2225C7E7B00DCB87D /* LevelClasses.json */; };
+		20D9BAD6225C7EF300DCB87D /* LevelDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D9BAD5225C7EF300DCB87D /* LevelDataSource.swift */; };
 		561083E8224A246F009A0039 /* CardCollectionViewHomeHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 561083E7224A246F009A0039 /* CardCollectionViewHomeHeader.xib */; };
 		561083EA224A2B11009A0039 /* CardCollectionViewSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 561083E9224A2B11009A0039 /* CardCollectionViewSectionHeader.xib */; };
 		561083F6224A68FD009A0039 /* FunctionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561083F5224A68FD009A0039 /* FunctionView.swift */; };
@@ -53,8 +56,6 @@
 		56EB87AD2258B0CB00B4894D /* EntityComponentSystem.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 560D20502257A4850015EC95 /* EntityComponentSystem.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		56EB87AF2258B0CF00B4894D /* ProgramModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 560D204E2257A47E0015EC95 /* ProgramModel.framework */; };
 		56EB87B02258B0CF00B4894D /* ProgramModel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 560D204E2257A47E0015EC95 /* ProgramModel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		56EB87C02258DC2B00B4894D /* SwinjectStoryboard+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB87BF2258DC2B00B4894D /* SwinjectStoryboard+Setup.swift */; };
-		56EB87CA22593E6E00B4894D /* GradeCardConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB87C922593E6E00B4894D /* GradeCardConfiguration.swift */; };
 		80A00AF5D71203C4164A8FCE /* Pods_ARProgramming.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D954E4C70AEB4D6FC732078 /* Pods_ARProgramming.framework */; };
 		901584C82199BDF400450E0B /* LevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901584C72199BDF400450E0B /* LevelViewController.swift */; };
 		901584CA2199BE0200450E0B /* CardDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901584C92199BE0200450E0B /* CardDescriptionViewController.swift */; };
@@ -111,6 +112,9 @@
 		204AEC13220DCA1E00E0F624 /* ARContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARContainerViewController.swift; sourceTree = "<group>"; };
 		206A0CB42240E5120018E6B7 /* WardrobeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeManager.swift; sourceTree = "<group>"; };
 		206A0CB722410FD80018E6B7 /* WardrobeManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeManagerTests.swift; sourceTree = "<group>"; };
+		20D9BAD0225BF45300DCB87D /* LibraryGradesTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryGradesTabBarController.swift; sourceTree = "<group>"; };
+		20D9BAD2225C7E7B00DCB87D /* LevelClasses.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = LevelClasses.json; path = "../New Group/LevelClasses.json"; sourceTree = "<group>"; };
+		20D9BAD5225C7EF300DCB87D /* LevelDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelDataSource.swift; sourceTree = "<group>"; };
 		2777F7558E4CBDF869F88EFD /* Pods-ARProgrammingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARProgrammingTests.release.xcconfig"; path = "../Pods/Target Support Files/Pods-ARProgrammingTests/Pods-ARProgrammingTests.release.xcconfig"; sourceTree = "<group>"; };
 		4208C6B4372E5AAA04A35EA0 /* Pods_ARProgrammingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARProgrammingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		560D204E2257A47E0015EC95 /* ProgramModel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ProgramModel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -225,6 +229,17 @@
 			path = Wardrobe;
 			sourceTree = "<group>";
 		};
+		20D9BAD4225C7E8200DCB87D /* Level */ = {
+			isa = PBXGroup;
+			children = (
+				20D9BAD2225C7E7B00DCB87D /* LevelClasses.json */,
+				56431D3C2232B5DB00BFAC36 /* LevelViewModel.swift */,
+				905A3C93217A09D0005E3AA5 /* LevelCollectionViewCell.swift */,
+				20D9BAD5225C7EF300DCB87D /* LevelDataSource.swift */,
+			);
+			path = Level;
+			sourceTree = "<group>";
+		};
 		303DB45C8FD81C058632CA1B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -260,7 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				C74785EA219427F8000148BC /* CardLibraryViewController.swift */,
-				562ACDCC224986F300D2DA7C /* GradesTabBarController.swift */,
+				20D9BAD0225BF45300DCB87D /* LibraryGradesTabBarController.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -343,7 +358,7 @@
 				562ACDC02249657200D2DA7C /* Library */,
 				905A3C782179BDC3005E3AA5 /* Card */,
 				905A3C91217A0891005E3AA5 /* LevelSelectViewController.swift */,
-				905A3C93217A09D0005E3AA5 /* LevelCollectionViewCell.swift */,
+				562ACDCC224986F300D2DA7C /* GradesTabBarController.swift */,
 				56413DFC220E2AC30064332E /* GameplayController.swift */,
 				204AEC13220DCA1E00E0F624 /* ARContainerViewController.swift */,
 				562ACDBC2248C78500D2DA7C /* GameCoordinationViewController.swift */,
@@ -381,9 +396,9 @@
 			children = (
 				561083F4224A68A6009A0039 /* CardDetail */,
 				562ACDC1224967E500D2DA7C /* Library */,
+				20D9BAD4225C7E8200DCB87D /* Level */,
 				56A62B0D22310727009D0E83 /* EntityModelLoader.swift */,
 				56A62B112231097E009D0E83 /* SCNNodeComponent.swift */,
-				56431D3C2232B5DB00BFAC36 /* LevelViewModel.swift */,
 				C7273113217714E900754543 /* Plane.swift */,
 				562ACDB2224522CB00D2DA7C /* GameState.swift */,
 				562F2F22225355E100C46D83 /* Config.swift */,
@@ -544,6 +559,7 @@
 				90DF7339216F442000F51E0C /* Assets.xcassets in Resources */,
 				561083E8224A246F009A0039 /* CardCollectionViewHomeHeader.xib in Resources */,
 				90CDABC221773E2700664640 /* Meshes.scnassets in Resources */,
+				20D9BAD3225C7E7B00DCB87D /* LevelClasses.json in Resources */,
 				56216E502252162A00613486 /* ExamplePrograms in Resources */,
 				56AEAC63221EC4CF00ACED36 /* SubtitleLabel.xib in Resources */,
 				90A55B0E21A84DB000FD7CDD /* win.wav in Resources */,
@@ -665,7 +681,7 @@
 				562E68512252411700D07C69 /* ProgramView.swift in Sources */,
 				206A0CB52240E5120018E6B7 /* WardrobeManager.swift in Sources */,
 				202219A7223BC07000A2A8EA /* WardrobeViewController.swift in Sources */,
-				56EB87CA22593E6E00B4894D /* GradeCardConfiguration.swift in Sources */,
+				20D9BAD6225C7EF300DCB87D /* LevelDataSource.swift in Sources */,
 				C725B2C321A85A7B00DD147A /* Model.xcdatamodeld in Sources */,
 				562ACDB3224522CB00D2DA7C /* GameState.swift in Sources */,
 				561083F6224A68FD009A0039 /* FunctionView.swift in Sources */,
@@ -684,7 +700,7 @@
 				562ACDC522496BD400D2DA7C /* CardCollectionDataSource.swift in Sources */,
 				561083F8224A7607009A0039 /* ExampleProgramTableDataSource.swift in Sources */,
 				56431D392232A82700BFAC36 /* UpdateDelegate.swift in Sources */,
-				56EB87C02258DC2B00B4894D /* SwinjectStoryboard+Setup.swift in Sources */,
+				20D9BAD1225BF45400DCB87D /* LibraryGradesTabBarController.swift in Sources */,
 				C7273114217714E900754543 /* Plane.swift in Sources */,
 				566066C5225BE4FC00FB0FB0 /* CoreDataRepository.swift in Sources */,
 				905A3C882179BE74005E3AA5 /* PlaneDetectorDelegate.swift in Sources */,

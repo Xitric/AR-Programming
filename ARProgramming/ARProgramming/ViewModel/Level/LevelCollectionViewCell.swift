@@ -7,12 +7,17 @@
 //
 
 import UIKit
+import Level
 
 class LevelCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var levelPreview: UIImageView!
     @IBOutlet weak var lock: UIImageView!
     @IBOutlet weak var levelName: UILabel!
+    @IBOutlet weak var levelType: UILabel!
+    @IBOutlet weak var score: UILabel!
+    
+    var level: LevelProtocol?
     
     var unlocked: Bool? {
         didSet {

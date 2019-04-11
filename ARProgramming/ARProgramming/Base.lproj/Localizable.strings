@@ -89,3 +89,6 @@
 
 "card.parameterSupported" = "Kan placeres over og under kortet.";
 "card.parameterUnsupported" = "Dette kort kan ikke bruges sammen med talkort.";
+
+"levelType.quantity" = "Mængdeopgave";
+"levelType.cleanup" = "Oprydningsopgave";
