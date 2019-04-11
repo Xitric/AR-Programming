@@ -7,21 +7,25 @@
 //
 
 import Foundation
+import simd
 
-public class CardNodeFactory {
-    
-    public static var instance = CardNodeFactory()
-    
-    private let startCodes: [String]
+/// Factory for constructing CardNode objects from a code string.
+///
+/// This class implements the factory pattern to provide a method for constructing CardNode objects. To encapsulate the concrete types of CardNodes constructed, the class further makes use of the prototype pattern.
+class CardNodeFactory: CardCollection {
     
     private var cardNodePrototypes = [String:CardNode]()
     
-    public var cards: [Card] {
+    /// An array of codes for cards that define the beginnings of functions.
+    let functionDeclarationCodes: [String]
+    
+    /// An array of all Cards available for making programs.
+    var cards: [Card] {
         return cardNodePrototypes.map{$0.value.card}
     }
     
-    private init() {
-        startCodes = ["0", "13", "15", "17", "19"]
+    init() {
+        functionDeclarationCodes = ["0", "13", "15", "17", "19"]
         
         // Control
         register(cardNode: FunctionCardNode(functionNumber: 0, isCaller: false), withCode: "0")
@@ -52,34 +56,27 @@ public class CardNodeFactory {
         register(cardNode: CardNode(card: ParameterCard(parameter: 3)), withCode: "10")
         register(cardNode: CardNode(card: ParameterCard(parameter: 4)), withCode: "11")
     }
-    
-    
-    func build(from graph: ObservationGraph) throws -> CardNode {
-        if let startNode = graph.firstNode(withPayloadIn: startCodes) {
-            return try cardNode(for: startNode, withParent: nil, in: graph)
-        }
-        
-        throw CardSequenceError.missingStart
-    }
-    
-    
-    
-    func cardNode(for node: ObservationNode, withParent parent: CardNode?, in graph: ObservationGraph) throws -> CardNode {
-        if let prototype = try? cardNode(withCode: node.payload) {
-            return try prototype.create(from: node, withParent: parent, in: graph)
-        }
-        
-        throw CardSequenceError.unknownCode(code: node.payload)
-    }
-    
+
+    /// Get a new CardNode instance that represents a card with the specified code.
+    ///
+    /// This method makes use of the prototype pattern. As such, it will always return a clone of a prototype CardNode. It is safe to mutate this clone in any way.
+    ///
+    /// - Parameter code: The code of the card to represent.
+    /// - Returns: A CardNode instance for a card with the specified code.
+    /// - Throws: A CardSequenceError if the code is invalid.
     func cardNode(withCode code: String) throws -> CardNode {
         if let node = cardNodePrototypes[code] {
-            return node
+            return node.clone()
         }
         
         throw CardSequenceError.unknownCode(code: code)
     }
     
+    /// Register a new prototype CardNode with the specified code.
+    ///
+    /// - Parameters:
+    ///   - node: The prototype CardNode to register.
+    ///   - code: The code used to retrieve clones of this prototype later.
     func register(cardNode node: CardNode, withCode code: String) {
         cardNodePrototypes[code] = node
     }

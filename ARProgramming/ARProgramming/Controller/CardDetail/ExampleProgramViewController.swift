@@ -10,10 +10,17 @@ import Foundation
 import UIKit
 import SceneKit
 import ProgramModel
+import Level
 
 class ExampleProgramViewController: UIViewController {
     
-    @IBOutlet weak var exampleProgramTable: UITableView!
+    @IBOutlet weak var exampleProgramTable: UITableView! {
+        didSet {
+            tableDataSource?.delegate = self
+            exampleProgramTable.dataSource = tableDataSource
+            exampleProgramTable.delegate = tableDataSource
+        }
+    }
     @IBOutlet weak var previewScene: SCNView! {
         didSet {
             previewScene.autoenablesDefaultLighting = true
@@ -23,7 +30,7 @@ class ExampleProgramViewController: UIViewController {
             previewScene.isPlaying = true
             
             //Load empty level for previews
-            levelViewModel = LevelViewModel(level: LevelManager.emptylevel)
+            levelViewModel = LevelViewModel(level: levelRepository.emptylevel, wardrobe: wardrobe)
             previewScene.scene?.rootNode.addChildNode(levelViewModel.levelView)
             
             //Set up camera
@@ -43,22 +50,31 @@ class ExampleProgramViewController: UIViewController {
         }
     }
     
-    private var tableDataSource: ExampleProgramTableDataSource!
     private var levelViewModel: LevelViewModel!
     
+    // Injected properties
+    var tableDataSource: ExampleProgramTableDataSource!
+    var wardrobe: WardrobeProtocol!
+    var levelRepository: LevelRepository!
+    
     func showExamples(forCard card: Card) {
-        tableDataSource = ExampleProgramTableDataSource(exampleBaseName: card.internalName)
-        tableDataSource.delegate = self
-        
-        exampleProgramTable.dataSource = tableDataSource
-        exampleProgramTable.delegate = tableDataSource
+        tableDataSource?.showExamplesForCard(withName: card.internalName)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.destination {
+        case let arContainer as ARContainerViewController:
+            arContainer.level = levelRepository.emptylevel
+        default:
+            break
+        }
     }
 }
 
 //MARK: - ExampleProgramSelectorDelegate
 extension ExampleProgramViewController: ExampleProgramSelectorDelegate, ProgramDelegate {
     
-    func programSelected(program: Program) {
+    func programSelected(program: ProgramProtocol) {
         levelViewModel.levelModel.reset()
         exampleProgramTable.allowsSelection = false
         program.delegate = self
@@ -72,15 +88,15 @@ extension ExampleProgramViewController: ExampleProgramSelectorDelegate, ProgramD
         }
     }
     
-    func programBegan(_ program: Program) {
+    func programBegan(_ program: ProgramProtocol) {
         //Ignore
     }
     
-    func program(_ program: Program, executed card: Card) {
+    func program(_ program: ProgramProtocol, executed card: Card) {
         //Ignore
     }
     
-    func programEnded(_ program: Program) {
+    func programEnded(_ program: ProgramProtocol) {
         DispatchQueue.main.async { [weak self] in
             self?.exampleProgramTable.allowsSelection = true
         }

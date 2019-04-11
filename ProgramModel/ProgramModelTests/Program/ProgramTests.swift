@@ -23,18 +23,18 @@ class ProgramTests: XCTestCase {
         programNodes = currentCard
         
         var nextCard = SimpleActionCardNode(name: "move", action: MoveAction())
-        currentCard.addSuccessor(successor: nextCard)
+        currentCard.addSuccessor(nextCard)
         currentCard = nextCard
         
         nextCard = SimpleActionCardNode(name: "right", action: RotationAction(direction: .right))
-        currentCard.addSuccessor(successor: nextCard)
+        currentCard.addSuccessor(nextCard)
         currentCard = nextCard
         
         nextCard = SimpleActionCardNode(name: "jump", action: JumpAction())
-        currentCard.addSuccessor(successor: nextCard)
+        currentCard.addSuccessor(nextCard)
         currentCard = nextCard
         
-        editor = ProgramEditor()
+        editor = ProgramEditor(factory: CardNodeFactory())
         program = Program(startNode: programNodes)
         program.state = editor
         
@@ -90,18 +90,18 @@ private class TestProgramDelegate: ProgramDelegate {
         expectedCards = expectedCallbacks
     }
     
-    func programBegan(_ program: Program) {
+    func programBegan(_ program: ProgramProtocol) {
         startExpectation.fulfill()
     }
     
-    func program(_ program: Program, executed card: Card) {
+    func program(_ program: ProgramProtocol, executed card: Card) {
         if card.internalName == expectedCards.first {
             expectedCards.removeFirst()
             callbackExpectation.fulfill()
         }
     }
     
-    func programEnded(_ program: Program) {
+    func programEnded(_ program: ProgramProtocol) {
         stopExpectation.fulfill()
     }
 }

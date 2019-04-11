@@ -9,22 +9,25 @@
 import Foundation
 import EntityComponentSystem
 
-public class Program {
+class Program: ProgramProtocol {
     
     private var currentAction: Action?
+    private let startNode: CardNode?
     
     weak var state: ProgramState!
     
-    public let start: CardNode?
-    public weak var delegate: ProgramDelegate?
+    var start: CardNodeProtocol? {
+        return startNode
+    }
+    weak var delegate: ProgramDelegate?
     
     init(startNode: CardNode?) {
-        start = startNode
+        self.startNode = startNode
     }
     
-    public func run(on entity: Entity) {
+    func run(on entity: Entity) {
         delegate?.programBegan(self)
-        run(start, on: entity)
+        run(startNode, on: entity)
     }
     
     private func run(_ node: CardNode?, on entity: Entity) {
@@ -44,10 +47,4 @@ public class Program {
             run(node.next(), on: entity)
         }
     }
-}
-
-public protocol ProgramDelegate: class {
-    func programBegan(_ program: Program)
-    func program(_ program: Program, executed card: Card)
-    func programEnded(_ program: Program)
 }

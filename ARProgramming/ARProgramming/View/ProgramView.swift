@@ -11,7 +11,7 @@ import ProgramModel
 
 class ProgramView: UIStackView {
     
-    var editor: ProgramEditor? {
+    var editor: ProgramEditorProtocol? {
         didSet {
             clear()
             populateProgramView()
@@ -59,7 +59,7 @@ class ProgramView: UIStackView {
         }
     }
     
-    private func createFunctionView(withProgram program: Program) -> FunctionView {
+    private func createFunctionView(withProgram program: ProgramProtocol) -> FunctionView {
         let fv = FunctionView()
         fv.setContentHuggingPriority(.required, for: .vertical)
         fv.setContentCompressionResistancePriority(.required, for: .vertical)

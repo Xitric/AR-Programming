@@ -9,8 +9,9 @@
 import Foundation
 import UIKit
 import SceneKit
-import AudioKit
+import AVFoundation
 import ProgramModel
+import Level
 
 class LevelViewController: UIViewController {
     
@@ -29,11 +30,17 @@ class LevelViewController: UIViewController {
     @IBOutlet weak var planeDetectionAnimation: UIImageView!
     
     //MARK: Sound
-    private var winSound = AudioController.instance.makeSound(withName: "win.wav")
-    private var pickupSound = AudioController.instance.makeSound(withName: "pickup.wav")
+    var audioController: AudioController? {
+        didSet {
+            winSound = audioController?.makeSound(withName: "win.wav")
+            pickupSound = audioController?.makeSound(withName: "pickup.wav")
+        }
+    }
+    private var winSound: AVAudioPlayer?
+    private var pickupSound: AVAudioPlayer?
 
     //MARK: State
-    private var programEditor: ProgramEditor?
+    private var programEditor: ProgramEditorProtocol?
     private var levelViewModel: LevelViewModel? {
         didSet {
             winLabel.isHidden = true
@@ -68,7 +75,6 @@ class LevelViewController: UIViewController {
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        AudioController.instance.start()
         createPlaneAnimation()
     }
     
@@ -76,10 +82,6 @@ class LevelViewController: UIViewController {
         planeDetectionAnimation.animationImages = UIImage.loadAnimation(named: "ScanSurface", withFrames: 50)
         planeDetectionAnimation.animationDuration = 2.8
         planeDetectionAnimation.startAnimating()
-    }
-    
-    deinit {
-        AudioController.instance.stop()
     }
     
     // MARK: - Button actions    
@@ -127,7 +129,7 @@ extension LevelViewController: GameplayController {
         state.arController.planeDetectorDelegate = self
         
         self.programEditor = state.programEditor
-        if self.levelViewModel?.levelModel != state.levelViewModel.levelModel {
+        if self.levelViewModel?.levelModel.levelNumber != state.levelViewModel.levelModel.levelNumber {
             self.levelViewModel = state.levelViewModel
             
             DispatchQueue.main.async { [unowned self] in
@@ -156,7 +158,7 @@ extension LevelViewController: PlaneDetectorDelegate {
 
 // MARK: - ProgramDelegate
 extension LevelViewController: ProgramDelegate {
-    func programBegan(_ program: Program) {
+    func programBegan(_ program: ProgramProtocol) {
         DispatchQueue.main.async { [unowned self] in
             self.executeButton.isEnabled = false
             self.resetButton.isEnabled = false
@@ -164,11 +166,11 @@ extension LevelViewController: ProgramDelegate {
     }
     
     //TODO: A method for when we are about to execute a card so that we can highlight it
-    func program(_ program: Program, executed card: Card) {
+    func program(_ program: ProgramProtocol, executed card: Card) {
         
     }
     
-    func programEnded(_ program: Program) {
+    func programEnded(_ program: ProgramProtocol) {
         DispatchQueue.main.async { [unowned self] in
             self.executeButton.isEnabled = true
             self.resetButton.isEnabled = true
@@ -179,7 +181,7 @@ extension LevelViewController: ProgramDelegate {
 // MARK: - LevelDelegate
 extension LevelViewController: LevelDelegate {
     
-    func levelCompleted(_ level: Level) {
+    func levelCompleted(_ level: LevelProtocol) {
         self.winSound?.play()
         
         DispatchQueue.main.async { [unowned self] in
@@ -188,14 +190,14 @@ extension LevelViewController: LevelDelegate {
         }
     }
     
-    func levelReset(_ level: Level) {
+    func levelReset(_ level: LevelProtocol) {
         DispatchQueue.main.async { [unowned self] in
             self.winLabel.isHidden = true
             self.winDescription.isHidden = true
         }
     }
     
-    func levelInfoChanged(_ level: Level, info: String?) {
+    func levelInfoChanged(_ level: LevelProtocol, info: String?) {
         DispatchQueue.main.async { [unowned self] in
             self.levelInfo.text = info
             self.levelInfo.isHidden = info == nil

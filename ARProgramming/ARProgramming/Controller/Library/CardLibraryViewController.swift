@@ -8,28 +8,27 @@
 
 import Foundation
 import UIKit
-import CoreData
+import ProgramModel
 
 class CardLibraryViewController: UIViewController, GradeViewController {
     
     @IBOutlet weak var cardCollectionView: UICollectionView! {
         didSet {
-            cardCollectionView.dataSource = dataSource
             cardCollectionView.delegate = flowLayoutDelegate
+            cardCollectionView.dataSource = dataSource
             cardCollectionView.register(UINib(nibName: "CardCollectionViewHomeHeader", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HomeHeader")
             cardCollectionView.register(UINib(nibName: "CardCollectionViewSectionHeader", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "SectionHeader")
         }
     }
     
-    private lazy var dataSource: CardCollectionDataSource = {
-        let source = CardCollectionDataSource(grade: grade)
-        return source
-    }()
-    private lazy var flowLayoutDelegate: CardCollectionFlowLayoutDelegate = {
-       return CardCollectionFlowLayoutDelegate()
-    }()
-    
-    var grade: Int!
+    // Injected properties
+    var flowLayoutDelegate: UICollectionViewDelegateFlowLayout?
+    var dataSource: CardCollectionDataSource?
+    var grade: Int! {
+        didSet {
+            dataSource?.setGrade(grade: grade)
+        }
+    }
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()

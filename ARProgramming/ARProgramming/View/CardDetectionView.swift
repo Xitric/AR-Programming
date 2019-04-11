@@ -40,7 +40,7 @@ class CardDetectionView: PassThroughView {
         }
     }
     
-    private func drawNode(_ node: CardNode?) {
+    private func drawNode(_ node: CardNodeProtocol?) {
         guard let node = node else {
             return
         }
@@ -57,7 +57,7 @@ class CardDetectionView: PassThroughView {
         }
     }
     
-    func display(program: CardNode?) {
+    func display(program: CardNodeProtocol?) {
         nextOverlay = 0
         drawNode(program)
         hideRemainingOverlays()
@@ -96,7 +96,7 @@ private class CardOverlay: UIImageView {
         addGestureRecognizer(tapGesture)
     }
     
-    func setNode(_ node: CardNode) {
+    func setNode(_ node: CardNodeProtocol) {
         let w = node.size.x
         let h = node.size.y
         let x = node.position.x - w / 2

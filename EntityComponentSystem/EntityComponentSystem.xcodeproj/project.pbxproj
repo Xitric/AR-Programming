@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08CAC9F023D47406F864CE33 /* Pods_EntityComponentSystemTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A78A1C523F8167E3B1DCF607 /* Pods_EntityComponentSystemTests.framework */; };
 		565F49D62257900C00359A9C /* EntityComponentSystem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 565F49CC2257900C00359A9C /* EntityComponentSystem.framework */; };
 		565F49DD2257900C00359A9C /* EntityComponentSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = 565F49CF2257900C00359A9C /* EntityComponentSystem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		565F49F42257904300359A9C /* SpinComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565F49E72257904300359A9C /* SpinComponent.swift */; };
@@ -29,8 +30,7 @@
 		565F4A0E2257905400359A9C /* EntityManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565F4A062257905300359A9C /* EntityManagerTests.swift */; };
 		565F4A0F2257905400359A9C /* simd_double4x4+HelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565F4A082257905300359A9C /* simd_double4x4+HelpersTests.swift */; };
 		56EB87BA2258B60300B4894D /* XCTestCase+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB87B92258B60300B4894D /* XCTestCase+Helpers.swift */; };
-		96F9A1531D90258B322D32C8 /* Pods_EntityComponentSystemTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D11D8456D29B13C44812A36D /* Pods_EntityComponentSystemTests.framework */; };
-		C34E45EAFB6F12C0F4C319FF /* Pods_EntityComponentSystem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2240685A5D1CD01F1F6537A4 /* Pods_EntityComponentSystem.framework */; };
+		AD25BA806FD304F317072614 /* Pods_EntityComponentSystem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4CD84381CF85ADB0A9D3A8C /* Pods_EntityComponentSystem.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +44,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2240685A5D1CD01F1F6537A4 /* Pods_EntityComponentSystem.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EntityComponentSystem.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		27F1E6929385EDDD4E62E7FA /* Pods-EntityComponentSystemTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EntityComponentSystemTests.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-EntityComponentSystemTests/Pods-EntityComponentSystemTests.debug.xcconfig"; sourceTree = "<group>"; };
 		35D2326CEB5D8A86F02FD348 /* Pods-EntityComponentSystem.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EntityComponentSystem.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-EntityComponentSystem/Pods-EntityComponentSystem.debug.xcconfig"; sourceTree = "<group>"; };
 		3A3D939C3E2144F73D6E42B7 /* Pods-EntityComponentSystem.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EntityComponentSystem.release.xcconfig"; path = "../Pods/Target Support Files/Pods-EntityComponentSystem/Pods-EntityComponentSystem.release.xcconfig"; sourceTree = "<group>"; };
@@ -73,8 +72,12 @@
 		565F4A062257905300359A9C /* EntityManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityManagerTests.swift; sourceTree = "<group>"; };
 		565F4A082257905300359A9C /* simd_double4x4+HelpersTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "simd_double4x4+HelpersTests.swift"; sourceTree = "<group>"; };
 		56EB87B92258B60300B4894D /* XCTestCase+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Helpers.swift"; sourceTree = "<group>"; };
+		9DFB5259C98BE8BE0770CD8B /* Pods-EntityComponentSystem-EntityComponentSystemTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EntityComponentSystem-EntityComponentSystemTests.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-EntityComponentSystem-EntityComponentSystemTests/Pods-EntityComponentSystem-EntityComponentSystemTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A78A1C523F8167E3B1DCF607 /* Pods_EntityComponentSystemTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EntityComponentSystemTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB4BE2F4B6FA956DCDA12C86 /* Pods-EntityComponentSystemTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EntityComponentSystemTests.release.xcconfig"; path = "../Pods/Target Support Files/Pods-EntityComponentSystemTests/Pods-EntityComponentSystemTests.release.xcconfig"; sourceTree = "<group>"; };
-		D11D8456D29B13C44812A36D /* Pods_EntityComponentSystemTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EntityComponentSystemTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4CD84381CF85ADB0A9D3A8C /* Pods_EntityComponentSystem.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EntityComponentSystem.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9ED9C1E8C765EE9AF5A2293 /* Pods-EntityComponentSystem-EntityComponentSystemTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EntityComponentSystem-EntityComponentSystemTests.release.xcconfig"; path = "../Pods/Target Support Files/Pods-EntityComponentSystem-EntityComponentSystemTests/Pods-EntityComponentSystem-EntityComponentSystemTests.release.xcconfig"; sourceTree = "<group>"; };
+		EBBEE56A2CCEEC7ABD69C8AD /* Pods_EntityComponentSystem_EntityComponentSystemTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EntityComponentSystem_EntityComponentSystemTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C34E45EAFB6F12C0F4C319FF /* Pods_EntityComponentSystem.framework in Frameworks */,
+				AD25BA806FD304F317072614 /* Pods_EntityComponentSystem.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,7 +94,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				565F49D62257900C00359A9C /* EntityComponentSystem.framework in Frameworks */,
-				96F9A1531D90258B322D32C8 /* Pods_EntityComponentSystemTests.framework in Frameworks */,
+				08CAC9F023D47406F864CE33 /* Pods_EntityComponentSystemTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +108,8 @@
 				3A3D939C3E2144F73D6E42B7 /* Pods-EntityComponentSystem.release.xcconfig */,
 				27F1E6929385EDDD4E62E7FA /* Pods-EntityComponentSystemTests.debug.xcconfig */,
 				BB4BE2F4B6FA956DCDA12C86 /* Pods-EntityComponentSystemTests.release.xcconfig */,
+				9DFB5259C98BE8BE0770CD8B /* Pods-EntityComponentSystem-EntityComponentSystemTests.debug.xcconfig */,
+				E9ED9C1E8C765EE9AF5A2293 /* Pods-EntityComponentSystem-EntityComponentSystemTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -201,8 +206,9 @@
 		565F4A102257906D00359A9C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2240685A5D1CD01F1F6537A4 /* Pods_EntityComponentSystem.framework */,
-				D11D8456D29B13C44812A36D /* Pods_EntityComponentSystemTests.framework */,
+				E4CD84381CF85ADB0A9D3A8C /* Pods_EntityComponentSystem.framework */,
+				A78A1C523F8167E3B1DCF607 /* Pods_EntityComponentSystemTests.framework */,
+				EBBEE56A2CCEEC7ABD69C8AD /* Pods_EntityComponentSystem_EntityComponentSystemTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -249,6 +255,7 @@
 				565F49D12257900C00359A9C /* Sources */,
 				565F49D22257900C00359A9C /* Frameworks */,
 				565F49D32257900C00359A9C /* Resources */,
+				C3B1EC961D19B4DABD8EE046 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -314,6 +321,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		C3B1EC961D19B4DABD8EE046 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/../Pods/Target Support Files/Pods-EntityComponentSystemTests/Pods-EntityComponentSystemTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-EntityComponentSystemTests/Pods-EntityComponentSystemTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		DC756A15F15A12D98528806F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -540,6 +569,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = EntityComponentSystem/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -566,6 +596,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = EntityComponentSystem/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -583,7 +614,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 27F1E6929385EDDD4E62E7FA /* Pods-EntityComponentSystemTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8VP2CK62GJ;
 				INFOPLIST_FILE = EntityComponentSystemTests/Info.plist;
@@ -603,7 +634,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BB4BE2F4B6FA956DCDA12C86 /* Pods-EntityComponentSystemTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8VP2CK62GJ;
 				INFOPLIST_FILE = EntityComponentSystemTests/Info.plist;

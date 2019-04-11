@@ -10,20 +10,22 @@ import Foundation
 import UIKit
 import CoreData
 
-class WardrobeManager {
+class WardrobeManager: WardrobeProtocol {
     
-    private static let targetDirectory = "/Meshes.scnassets/Robot"
-    private static let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    private static let managedObjectContext = appDelegate.persistentContainer.viewContext
+    private let context: CoreDataRepository
+    private let targetDirectory = "/Meshes.scnassets/Robot"
+    private var robotFiles: [String] = []
     
-    private static var robotFiles: [String] = []
+    init(context: CoreDataRepository) {
+        self.context = context
+    }
     
-    static func getFileNames() -> [String] {
+    func getFileNames() -> [String] {
         var fileNames: [String] = []
         
-        if let path = Bundle.main.resourcePath {
+        if let path = Bundle(for: type(of: self)).resourcePath {
             do {
-                let files = try FileManager.default.contentsOfDirectory(atPath: path + WardrobeManager.targetDirectory)
+                let files = try FileManager.default.contentsOfDirectory(atPath: path + targetDirectory)
                 
                 for name in files {
                     let extensionIndex = name.firstIndex(of: ".") ?? name.endIndex
@@ -38,9 +40,10 @@ class WardrobeManager {
         return fileNames
     }
     
-    static func robotChoice() -> String {
+    func selectedRobotSkin() -> String {
         let request = NSFetchRequest<RobotEntity>(entityName: "RobotEntity")
         
+        let managedObjectContext = context.persistentContainer.viewContext
         if let result = try? managedObjectContext.fetch(request){
             if result.count != 0 {
                 return result[0].choice!
@@ -48,26 +51,34 @@ class WardrobeManager {
         }
         
         robotFiles = getFileNames()
-        setRobotChoice(choice: robotFiles[0])
+        setRobotChoice(choice: robotFiles[0], callback: nil)
         return robotFiles[0]
     }
     
-    static func setRobotChoice(choice: String, callback: (() -> Void)? = nil) {
-        managedObjectContext.perform {
+    func setRobotChoice(choice: String, callback: (() -> Void)?) {
+        let managedObjectContext = context.persistentContainer.viewContext
+        
+        managedObjectContext.perform { [unowned self] in
             let request = NSFetchRequest<RobotEntity>(entityName: "RobotEntity")
-            if let result = try? managedObjectContext.fetch(request){
+            if let result = try? managedObjectContext.fetch(request) {
                 if result.count == 0 {
                     let robotEntity = NSEntityDescription.entity(forEntityName: "RobotEntity", in: managedObjectContext)
                     let newRobotEntity = RobotEntity(entity: robotEntity!, insertInto: managedObjectContext)
                     newRobotEntity.setValue(choice, forKey: "choice")
-                    appDelegate.saveContext()
+                    self.context.saveContext()
                 } else {
                     result[0].setValue(choice, forKey: "choice")
                 }
                 
-                appDelegate.saveContext()
+                self.context.saveContext()
                 callback?()
             }
         }
     }
+}
+
+protocol WardrobeProtocol {
+    func selectedRobotSkin() -> String
+    func getFileNames() -> [String]
+    func setRobotChoice(choice: String, callback: (() -> Void)?)
 }

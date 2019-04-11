@@ -20,6 +20,7 @@ class CardDetailViewController: UIViewController {
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var parameterLabel: UILabel!
     
+    // Injected properties
     var card: Card!
     var cardPreview: UIImage?
     
@@ -42,8 +43,6 @@ class CardDetailViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.destination {
-        case let arContainer as ARContainerViewController:
-            arContainer.level = LevelManager.emptylevel
         case let exampleProgram as ExampleProgramViewController:
             exampleProgram.view.translatesAutoresizingMaskIntoConstraints = false
             exampleProgram.showExamples(forCard: card)

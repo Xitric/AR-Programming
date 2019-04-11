@@ -12,19 +12,24 @@ import ProgramModel
 
 class ExampleProgramTableDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     
-    private var examples = [ProgramEditor]()
+    private var examples = [ProgramEditorProtocol]()
+    private let deserializer: CardGraphDeserializerProtocol
     
     weak var delegate: ExampleProgramSelectorDelegate?
     
-    init(exampleBaseName: String) {
-        if let folderUrl = Bundle.main.resourceURL?
+    init(deserializer: CardGraphDeserializerProtocol) {
+        self.deserializer = deserializer
+    }
+    
+    func showExamplesForCard(withName name: String) {
+        if let folderUrl = Bundle(for: type(of: self)).resourceURL?
             .appendingPathComponent("ExamplePrograms", isDirectory: true)
-            .appendingPathComponent(exampleBaseName, isDirectory: true),
+            .appendingPathComponent(name, isDirectory: true),
             let urls = try? FileManager.default.contentsOfDirectory(at: folderUrl, includingPropertiesForKeys: nil) {
             
             for url in urls {
                 if let data = try? Data(contentsOf: url),
-                    let editor = try? CardGraphDeserializer().deserialize(from: data) {
+                    let editor = try? deserializer.deserialize(from: data) {
                     examples.append(editor)
                 }
             }
@@ -53,5 +58,5 @@ class ExampleProgramTableDataSource: NSObject, UITableViewDataSource, UITableVie
 }
 
 protocol ExampleProgramSelectorDelegate: class {
-    func programSelected(program: Program)
+    func programSelected(program: ProgramProtocol)
 }

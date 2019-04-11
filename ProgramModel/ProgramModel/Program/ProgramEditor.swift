@@ -9,46 +9,52 @@
 import Foundation
 import UIKit
 
-public class ProgramEditor: CardGraphDetectorDelegate, ProgramState {
+class ProgramEditor: ProgramEditorProtocol, ProgramState, CardGraphDetectorDelegate {
     
+    private let factory: CardNodeFactory
     private var currentProgram: Program?
     private let detector: BarcodeDetector
     private var allStoredPrograms = [String:Program]()
     
-    public weak var delegate: ProgramEditorDelegate?
+    weak var delegate: ProgramEditorDelegate?
     
-    public var main: Program {
+    var main: ProgramProtocol {
         return allStoredPrograms["function0"] ?? Program(startNode: nil)
     }
-    public var allPrograms: [Program] {
+    var allPrograms: [ProgramProtocol] {
         return Array(allStoredPrograms.values)
     }
     
-    public init() {
+    init(factory: CardNodeFactory) {
+        self.factory = factory
+        
         let detectorState = CardGraphDetector()
         detector = BarcodeDetector(state: detectorState)
         detectorState.delegate = self
     }
     
-    //Should only be called from the main thread
-    public func newFrame(_ frame: CVPixelBuffer, oriented orientation: CGImagePropertyOrientation, frameWidth: Double, frameHeight: Double) {
+    func newFrame(_ frame: CVPixelBuffer, oriented orientation: CGImagePropertyOrientation, frameWidth: Double, frameHeight: Double) {
         detector.analyze(frame: frame, oriented: orientation, frameWidth: frameWidth, frameHeight: frameHeight)
     }
     
-    public func saveProgram() {
+    func saveProgram() {
         if let cardIdentifier = currentProgram?.start?.card.internalName {
             currentProgram?.state = self
             allStoredPrograms[cardIdentifier] = currentProgram
         }
     }
     
-    public func reset() {
+    func reset() {
         allStoredPrograms.removeAll()
     }
     
     func graphDetector(found graph: ObservationGraph) {
         do {
-            let start = try CardNodeFactory.instance.build(from: graph)
+            let start = try ObservationGraphCardNodeBuilder()
+                .using(factory: factory)
+                .createFrom(graph: graph)
+                .getResult()
+            
             currentProgram = Program(startNode: start)
         } catch CardSequenceError.missingStart {
             currentProgram = nil
@@ -69,8 +75,4 @@ public class ProgramEditor: CardGraphDetectorDelegate, ProgramState {
     func getProgram(forCard card: Card) -> Program? {
         return allStoredPrograms[card.internalName]
     }
-}
-
-public protocol ProgramEditorDelegate: class {
-    func programEditor(_ programEditor: ProgramEditor, createdNew program: Program)
 }

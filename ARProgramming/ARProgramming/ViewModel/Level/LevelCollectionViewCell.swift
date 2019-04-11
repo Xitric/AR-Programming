@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Level
 
 class LevelCollectionViewCell: UICollectionViewCell {
     
@@ -16,7 +17,7 @@ class LevelCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var levelType: UILabel!
     @IBOutlet weak var score: UILabel!
     
-    var level: Level?
+    var level: LevelProtocol?
     
     var unlocked: Bool? {
         didSet {

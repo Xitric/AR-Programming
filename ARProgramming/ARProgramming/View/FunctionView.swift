@@ -18,7 +18,7 @@ class FunctionView: UIView {
     private var yOffset = CGFloat(0)
     
     var scale = CGFloat(60)
-    var program: Program? {
+    var program: ProgramProtocol? {
         didSet {
             resetProgram()
         }
@@ -36,7 +36,7 @@ class FunctionView: UIView {
         wrapProgram()
     }
     
-    private func addNode(_ node: CardNode?, parentPosition: CGPoint) {
+    private func addNode(_ node: CardNodeProtocol?, parentPosition: CGPoint) {
         guard let node = node else {
             return
         }

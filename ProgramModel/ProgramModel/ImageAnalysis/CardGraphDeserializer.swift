@@ -9,17 +9,18 @@
 import Foundation
 import simd
 
-public class CardGraphDeserializer {
+class CardGraphDeserializer: CardGraphDeserializerProtocol {
     
     private static let cardSide = 0.8
+    private let factory: CardNodeFactory
     
-    public init() {
-        
+    init(factory: CardNodeFactory) {
+        self.factory = factory
     }
     
-    public func deserialize(from data: Data) throws -> ProgramEditor {
+    func deserialize(from data: Data) throws -> ProgramEditorProtocol {
         let functions = try JSONDecoder().decode([JsonFunction].self, from: data)
-        let editor = ProgramEditor()
+        let editor = ProgramEditor(factory: factory)
         
         for function in functions {
             let graph = makeGraph(fromFunction: function)

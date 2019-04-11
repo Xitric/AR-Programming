@@ -9,13 +9,15 @@
 import Foundation
 import EntityComponentSystem
 
-public class CardNode {
+/// A representation of a statement in a program sequence.
+class CardNode: CardNodeProtocol {
     
-    public private(set) var position = simd_double2(0, 0)
-    public private(set) var size = simd_double2(0, 0)
-    public private(set) var entryAngle = 0.0
-    public private(set) var children = [CardNode]()
-    public let card: Card
+    internal(set) var position = simd_double2(0, 0)
+    internal(set) var size = simd_double2(0, 0)
+    internal(set) var entryAngle = 0.0
+    private(set) var children = [CardNodeProtocol]()
+    let card: Card
+    
     private(set) var successors = [CardNode?]()
     
     weak var parent: CardNode?
@@ -25,70 +27,43 @@ public class CardNode {
         self.card = card
     }
     
-    func create(from node: ObservationNode, withParent parent: CardNode?, in graph: ObservationGraph) throws -> CardNode {
-        let clone = self.clone()
-        clone.position = node.position
-        clone.size = simd_double2(node.width, node.height)
-        clone.parent = parent
-        
-        if (card.supportsParameter) {
-            try clone.findParameter(to: node, in: graph)
-        }
-        try clone.findSuccessors(to: node, in: graph)
-        
-        return clone
-    }
-    
-    func findSuccessors(to node: ObservationNode, in graph: ObservationGraph) throws {
-        for angle in card.connectionAngles {
-            if let successor = graph.getSuccessor(by: angle, to: node) {
-                
-                graph.connect(from: node, to: successor, withAngle: angle)
-                let nextCardNode = try CardNodeFactory.instance.cardNode(for: successor, withParent: self, in: graph)
-                nextCardNode.entryAngle = angle
-                addSuccessor(successor: nextCardNode)
-                
-            } else {
-                self.successors.append(nil)
-            }
-        }
-    }
-    
-    func findParameter(to node: ObservationNode, in graph: ObservationGraph) throws {
-        for angle in [Double.pi/2, -Double.pi/2] {
-            if let neighbor = graph.getSuccessor(by: angle, to: node) {
-                let neighborCard = try CardNodeFactory.instance.cardNode(withCode: neighbor.payload).card
-                
-                if let parameterCard = neighborCard as? ParameterCard {
-                    graph.connect(from: node, to: neighbor, withAngle: angle)
-                    let nextCardNode = try CardNodeFactory.instance.cardNode(for: neighbor, withParent: self, in: graph)
-                    parameter = parameterCard.parameter
-                    nextCardNode.entryAngle = angle
-                    self.children.append(nextCardNode)
-                    
-                    return
-                }
-            }
-        }
-        
-        if card.requiresParameter {
-            throw CardSequenceError.syntax(message: "This card requires a parameter")
-        }
-    }
-    
-    func addSuccessor(successor: CardNode) {
-        children.append(successor)
-        successors.append(successor)
-    }
-    
     func clone() -> CardNode {
         return CardNode(card: card)
     }
     
+    func addSuccessor(_ successor: CardNode?) {
+        successors.append(successor)
+        
+        if let successor = successor {
+            children.append(successor)
+        }
+    }
+    
+    func setParameter(_ parameterNode: CardNode) {
+        if let parameterCard = parameterNode.card as? ParameterCard {
+            parameter = parameterCard.parameter
+            children.append(parameterNode)
+        }
+    }
+    
+    /// Overridable by subclasses to perform any linking after the CardNode composite has been constructed.
+    ///
+    /// - Throws: A CardSequenceError if the linking operation failed.
+    func link() throws { }
+    
+    /// Get the action to be performed when executing this program statement, if any.
+    ///
+    /// - Parameters:
+    ///   - entity: The entity on which the program is running.
+    ///   - state: The complete state representation of the running program.
+    /// - Returns: The action to be performed, or nil if this statement specifies no action.
     func getAction(forEntity entity: Entity, withProgramState state: ProgramState) -> Action? {
         return nil
     }
     
+    /// Get the next statement in the program.
+    ///
+    /// - Returns: The next statement in the program, or nil if this statement is the last.
     func next() -> CardNode? {
         if successors.count > 0 {
             return successors[0]

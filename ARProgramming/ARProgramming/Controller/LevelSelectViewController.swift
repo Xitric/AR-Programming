@@ -7,16 +7,18 @@
 //
 
 import UIKit
+import Level
 
 class LevelSelectViewController: UIViewController, GradeViewController {
-    var grade: Int!
 
-    var selectedLevel: Level?
-    
-    private lazy var dataSource: LevelDataSource = {
-        let source = LevelDataSource(grade: grade)
-        return source
-    }()
+    var grade: Int! {
+        didSet {
+            self.dataSource.grade = grade
+        }
+    }
+    var selectedLevel: LevelProtocol?
+    var levelRepository: LevelRepository!
+    var dataSource: LevelDataSource!
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -50,10 +52,9 @@ class LevelSelectViewController: UIViewController, GradeViewController {
     }
     
     @IBAction func freePlay(_ sender: UIButton) {
-        selectedLevel = LevelManager.emptylevel
+        selectedLevel = levelRepository.emptylevel
         performSegue(withIdentifier: "arContainerSegue", sender: self)
     }
-    
 }
 
 // MARK: - UICollectionViewDelegate

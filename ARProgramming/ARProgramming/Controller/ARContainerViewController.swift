@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import ARKit
 import ProgramModel
+import Level
 
 /// The root controller for the game view.
 ///
@@ -30,17 +31,18 @@ class ARContainerViewController: UIViewController {
     
     private var levelViewModel: LevelViewModel?
     private var arController: ARController!
-    private var programEditor = ProgramEditor()
     
     private var coordinationController: GameCoordinationViewController!
     
-    /// Property used for injecting a level instance into this controller.
-    var level: Level?
+    /// Injected properties
+    var level: LevelProtocol?
+    var programEditor: ProgramEditorProtocol!
+    var wardrobe: WardrobeProtocol!
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let overlayController = segue.destination as? GameCoordinationViewController {
             if let level = level {
-                levelViewModel = LevelViewModel(level: level)
+                levelViewModel = LevelViewModel(level: level, wardrobe: wardrobe)
                 
                 let state = GameState(levelViewModel: levelViewModel!,
                                       arController: arController,
@@ -48,7 +50,7 @@ class ARContainerViewController: UIViewController {
                 overlayController.enter(withState: state)
             }
             
-            arController.updateDelegate = level
+            arController.updateDelegate = self
             coordinationController = overlayController
         }
     }
@@ -85,9 +87,16 @@ extension ARContainerViewController: FrameDelegate {
     }
 }
 
+// MARK: - UpdateDelegate
+extension ARContainerViewController: UpdateDelegate {
+    func update(currentTime: TimeInterval) {
+        level?.update(currentTime: currentTime)
+    }
+}
+
 // MARK: - ProgramEditorDelegate
 extension ARContainerViewController: ProgramEditorDelegate {
-    func programEditor(_ programEditor: ProgramEditor, createdNew program: Program) {
+    func programEditor(_ programEditor: ProgramEditorProtocol, createdNew program: ProgramProtocol) {
         cardDetectionView.display(program: program.start)
     }
 }

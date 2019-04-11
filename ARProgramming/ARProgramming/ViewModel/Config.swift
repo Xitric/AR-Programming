@@ -11,7 +11,7 @@ import Foundation
 class Config {
     
     static func read<T>(configFile: String, toType type: T.Type) -> T? where T: Decodable {
-        if let url = Bundle.main.url(forResource: configFile, withExtension: "json"),
+        if let url = Bundle(for: Config.self).url(forResource: configFile, withExtension: "json"),
             let data = try? Data(contentsOf: url) {
             return try? JSONDecoder().decode(T.self, from: data)
         }
