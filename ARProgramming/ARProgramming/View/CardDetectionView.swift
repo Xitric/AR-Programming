@@ -15,6 +15,9 @@ class CardDetectionView: PassThroughView {
     private var overlays = [CardOverlay]()
     private var nextOverlay = 0
     
+    private var dotSize = CGFloat(48)
+    private var programDots = [CGPoint]()
+    
     weak var delegate: CardDetectionViewDelegate? {
         didSet {
             for overlay in overlays {
@@ -40,27 +43,35 @@ class CardDetectionView: PassThroughView {
         }
     }
     
-    private func drawNode(_ node: CardNodeProtocol?) {
-        guard let node = node else {
-            return
-        }
-        
-        let overlay = getCachedOverlay()
-        overlay.setNode(node)
-        
-        if (!overlay.isDescendant(of: self)) {
-            addSubview(overlay)
-        }
-        
-        for next in node.children {
-            drawNode(next)
+    private func drawNodes(_ nodes: [CardNodeProtocol]) {
+        for node in nodes {
+            let overlay = getCachedOverlay()
+            overlay.setNode(node)
+            
+            if (!overlay.isDescendant(of: self)) {
+                addSubview(overlay)
+            }
         }
     }
     
-    func display(program: CardNodeProtocol?) {
+    private func drawProgramNode(_ program: CardNodeProtocol?) {
+        guard let node = program else { return }
+        
+        programDots.append(CGPoint(x: node.position.x, y: node.position.y))
+        
+        for child in node.children {
+            drawProgramNode(child)
+        }
+    }
+    
+    func display(nodes: [CardNodeProtocol], program: CardNodeProtocol?) {
         nextOverlay = 0
-        drawNode(program)
+        drawNodes(nodes)
         hideRemainingOverlays()
+        
+        programDots.removeAll()
+        drawProgramNode(program)
+        setNeedsDisplay()
     }
     
     override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
@@ -69,6 +80,19 @@ class CardDetectionView: PassThroughView {
             delegate?.cardView(didPressCard: nil)
         }
         return result
+    }
+    
+    override func draw(_ rect: CGRect) {
+        for dot in programDots {
+            let circle = UIBezierPath(ovalIn: CGRect(
+                x: dot.x - dotSize / 2,
+                y: bounds.height - dot.y - dotSize / 2,
+                width: dotSize,
+                height: dotSize
+            ))
+            UIColor.blue.setFill()
+            circle.fill()
+        }
     }
 }
 

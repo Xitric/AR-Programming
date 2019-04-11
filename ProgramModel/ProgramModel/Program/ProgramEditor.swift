@@ -7,9 +7,9 @@
 //
 
 import Foundation
-import UIKit
+import simd
 
-class ProgramEditor: ProgramEditorProtocol, ProgramState, CardGraphDetectorDelegate {
+class ProgramEditor: ProgramEditorProtocol, ProgramState, BarcodeDetectorDelegate {
     
     private let factory: CardNodeFactory
     private var currentProgram: Program?
@@ -24,13 +24,13 @@ class ProgramEditor: ProgramEditorProtocol, ProgramState, CardGraphDetectorDeleg
     var allPrograms: [ProgramProtocol] {
         return Array(allStoredPrograms.values)
     }
+    var allCards = [CardNodeProtocol]()
     
     init(factory: CardNodeFactory) {
         self.factory = factory
         
-        let detectorState = CardGraphDetector()
-        detector = BarcodeDetector(state: detectorState)
-        detectorState.delegate = self
+        detector = BarcodeDetector()
+        detector.delegate = self
     }
     
     func newFrame(_ frame: CVPixelBuffer, oriented orientation: CGImagePropertyOrientation, frameWidth: Double, frameHeight: Double) {
@@ -48,8 +48,28 @@ class ProgramEditor: ProgramEditorProtocol, ProgramState, CardGraphDetectorDeleg
         allStoredPrograms.removeAll()
     }
     
-    func graphDetector(found graph: ObservationGraph) {
+    func barcodeDetector(found nodes: ObservationSet) {
+        handleDetectedNodes(nodes)
+        handleDetectedProgram(nodes)
+    }
+    
+    private func handleDetectedNodes(_ nodeSet: ObservationSet) {
+        allCards = nodeSet.nodes
+            .map {
+                let cardNode = try? factory.cardNode(withCode: $0.payload)
+                cardNode?.position = $0.position
+                cardNode?.size = simd_double2($0.width, $0.height)
+                return cardNode
+            }.filter {
+                $0 != nil
+            }.map {
+                $0!
+        }
+    }
+    
+    private func handleDetectedProgram(_ nodeSet: ObservationSet) {
         do {
+            let graph = ObservationGraph(observationSet: nodeSet)
             let start = try ObservationGraphCardNodeBuilder()
                 .using(factory: factory)
                 .createFrom(graph: graph)

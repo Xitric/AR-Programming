@@ -13,8 +13,17 @@ import Foundation
 /// An editor can be compared to a highly simplistic IDE used for developing software.
 public protocol ProgramEditorProtocol {
     var delegate: ProgramEditorDelegate? { get set }
+    
+    /// The man program created by this editor. This is usually the first program that should be executed.
     var main: ProgramProtocol { get }
+    
+    /// All programs created by this editor. This contains both the main program and any functions.
     var allPrograms: [ProgramProtocol] { get }
+    
+    /// A collection of all cards that are currently being used inside this editor.
+    ///
+    /// This contains all cards that are visible to the application. Some of these cards may be part of a program, while others may not.
+    var allCards: [CardNodeProtocol] { get }
     
     /// Saves the program currently being edited into the memory of this editor.
     ///

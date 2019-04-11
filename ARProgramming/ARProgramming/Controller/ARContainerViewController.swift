@@ -97,7 +97,7 @@ extension ARContainerViewController: UpdateDelegate {
 // MARK: - ProgramEditorDelegate
 extension ARContainerViewController: ProgramEditorDelegate {
     func programEditor(_ programEditor: ProgramEditorProtocol, createdNew program: ProgramProtocol) {
-        cardDetectionView.display(program: program.start)
+        cardDetectionView.display(nodes: programEditor.allCards, program: program.start)
     }
 }
 

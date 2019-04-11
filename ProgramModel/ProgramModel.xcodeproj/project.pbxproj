@@ -52,7 +52,6 @@
 		56D8CBC322577B5C004EE8B1 /* BorderCardNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D8CBB922577B5C004EE8B1 /* BorderCardNodeTests.swift */; };
 		56D8CBC422577B5C004EE8B1 /* CardNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D8CBBA22577B5C004EE8B1 /* CardNodeTests.swift */; };
 		56D8CC1B22577EAF004EE8B1 /* ObservationEdge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D8CC1422577EAE004EE8B1 /* ObservationEdge.swift */; };
-		56D8CC1C22577EAF004EE8B1 /* CardGraphDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D8CC1522577EAE004EE8B1 /* CardGraphDetector.swift */; };
 		56D8CC1D22577EAF004EE8B1 /* ObservationSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D8CC1622577EAE004EE8B1 /* ObservationSet.swift */; };
 		56D8CC1E22577EAF004EE8B1 /* ObservationGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D8CC1722577EAE004EE8B1 /* ObservationGraph.swift */; };
 		56D8CC1F22577EAF004EE8B1 /* BarcodeDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D8CC1822577EAF004EE8B1 /* BarcodeDetector.swift */; };
@@ -137,7 +136,6 @@
 		56D8CBB922577B5C004EE8B1 /* BorderCardNodeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderCardNodeTests.swift; sourceTree = "<group>"; };
 		56D8CBBA22577B5C004EE8B1 /* CardNodeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardNodeTests.swift; sourceTree = "<group>"; };
 		56D8CC1422577EAE004EE8B1 /* ObservationEdge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationEdge.swift; sourceTree = "<group>"; };
-		56D8CC1522577EAE004EE8B1 /* CardGraphDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardGraphDetector.swift; sourceTree = "<group>"; };
 		56D8CC1622577EAE004EE8B1 /* ObservationSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationSet.swift; sourceTree = "<group>"; };
 		56D8CC1722577EAE004EE8B1 /* ObservationGraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationGraph.swift; sourceTree = "<group>"; };
 		56D8CC1822577EAF004EE8B1 /* BarcodeDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeDetector.swift; sourceTree = "<group>"; };
@@ -356,7 +354,6 @@
 			isa = PBXGroup;
 			children = (
 				56D8CC1422577EAE004EE8B1 /* ObservationEdge.swift */,
-				56D8CC1522577EAE004EE8B1 /* CardGraphDetector.swift */,
 				56D8CC1622577EAE004EE8B1 /* ObservationSet.swift */,
 				56D8CC1722577EAE004EE8B1 /* ObservationGraph.swift */,
 				56D8CC1822577EAF004EE8B1 /* BarcodeDetector.swift */,
@@ -608,7 +605,6 @@
 				56D8CBA722577AD4004EE8B1 /* Card.swift in Sources */,
 				56D8CC1D22577EAF004EE8B1 /* ObservationSet.swift in Sources */,
 				56D8CBA022577AD4004EE8B1 /* BorderCardNode.swift in Sources */,
-				56D8CC1C22577EAF004EE8B1 /* CardGraphDetector.swift in Sources */,
 				560D20482257A1610015EC95 /* Double+Helpers.swift in Sources */,
 				56D8CB9F22577AD4004EE8B1 /* Action.swift in Sources */,
 				56EB87BC2258C34F00B4894D /* CardGraphDeserializerProtocol.swift in Sources */,

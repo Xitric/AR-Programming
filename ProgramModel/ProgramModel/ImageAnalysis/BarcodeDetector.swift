@@ -14,15 +14,12 @@ class BarcodeDetector {
     
     private var processing = false
     private let analyzerQueue = DispatchQueue(label: "dk.sdu.ARProgramming.serialBarcodeDetectorQueue")
-    private var state: BarcodeDetectorState
     
     private var widthScale: Double!
     private var heightScale: Double!
     private var observationSet = ObservationSet()
     
-    init(state: BarcodeDetectorState) {
-        self.state = state
-    }
+    weak var delegate: BarcodeDetectorDelegate?
     
     //Should only be called from the main thread
     func analyze(frame: CVPixelBuffer, oriented orientation: CGImagePropertyOrientation, frameWidth: Double, frameHeight: Double) {
@@ -33,7 +30,9 @@ class BarcodeDetector {
         processing = true
         
         //Use a serial queue for processing frames only one at a time
-        analyzerQueue.async { [unowned self] in
+        analyzerQueue.async { [weak self] in
+            guard let self = self else { return }
+            
             self.widthScale = frameWidth
             self.heightScale = frameHeight
             
@@ -49,8 +48,13 @@ class BarcodeDetector {
     }
     
     private func detectBarcodes(inFrame frame: CVPixelBuffer, oriented orientation: CGImagePropertyOrientation) throws {
-        let handler = state.getHandler(for: frame, oriented: orientation)
-        let requests = state.getRequests()
+        let handler = VNImageRequestHandler(cvPixelBuffer: frame, orientation: orientation)
+        
+        let request = VNDetectBarcodesRequest()
+        request.usesCPUOnly = true
+        request.symbologies = [.Aztec]
+        let requests = [request]
+        
         try handler.perform(requests)
         
         observationSet.markIteration()
@@ -63,8 +67,9 @@ class BarcodeDetector {
         }
         
         //Since we are on the processing queue, we must return to main for calling the delegate
-        DispatchQueue.main.async { [unowned self] in
-            self.state.handle(result: self.observationSet)
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.delegate?.barcodeDetector(found: self.observationSet)
         }
     }
     
@@ -83,8 +88,6 @@ class BarcodeDetector {
     }
 }
 
-protocol BarcodeDetectorState {
-    func getHandler(for frame: CVPixelBuffer, oriented orientation: CGImagePropertyOrientation) -> VNImageRequestHandler
-    func getRequests() -> [VNDetectBarcodesRequest]
-    func handle(result: ObservationSet)
+protocol BarcodeDetectorDelegate: class {
+    func barcodeDetector(found nodes: ObservationSet)
 }

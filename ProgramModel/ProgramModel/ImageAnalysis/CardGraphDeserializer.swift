@@ -23,15 +23,15 @@ class CardGraphDeserializer: CardGraphDeserializerProtocol {
         let editor = ProgramEditor(factory: factory)
         
         for function in functions {
-            let graph = makeGraph(fromFunction: function)
-            editor.graphDetector(found: graph)
+            let set = makeObservationSet(fromFunction: function)
+            editor.barcodeDetector(found: set)
             editor.saveProgram()
         }
         
         return editor
     }
     
-    private func makeGraph(fromFunction function: JsonFunction) -> ObservationGraph {
+    private func makeObservationSet(fromFunction function: JsonFunction) -> ObservationSet {
         var observationSet = ObservationSet()
         
         for card in function.cards {
@@ -43,7 +43,7 @@ class CardGraphDeserializer: CardGraphDeserializerProtocol {
             observationSet.add(observation)
         }
         
-        return ObservationGraph(observationSet: observationSet)
+        return observationSet
     }
 }
 
