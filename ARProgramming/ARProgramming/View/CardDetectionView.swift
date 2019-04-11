@@ -15,8 +15,8 @@ class CardDetectionView: PassThroughView {
     private var overlays = [CardOverlay]()
     private var nextOverlay = 0
     
-    private var dotSize = CGFloat(48)
-    private var programDots = [CGPoint]()
+    private var dotSize = 48.0
+    private var program: CardNodeProtocol?
     
     weak var delegate: CardDetectionViewDelegate? {
         didSet {
@@ -54,23 +54,12 @@ class CardDetectionView: PassThroughView {
         }
     }
     
-    private func drawProgramNode(_ program: CardNodeProtocol?) {
-        guard let node = program else { return }
-        
-        programDots.append(CGPoint(x: node.position.x, y: node.position.y))
-        
-        for child in node.children {
-            drawProgramNode(child)
-        }
-    }
-    
     func display(nodes: [CardNodeProtocol], program: CardNodeProtocol?) {
         nextOverlay = 0
         drawNodes(nodes)
         hideRemainingOverlays()
         
-        programDots.removeAll()
-        drawProgramNode(program)
+        self.program = program
         setNeedsDisplay()
     }
     
@@ -83,15 +72,31 @@ class CardDetectionView: PassThroughView {
     }
     
     override func draw(_ rect: CGRect) {
-        for dot in programDots {
-            let circle = UIBezierPath(ovalIn: CGRect(
-                x: dot.x - dotSize / 2,
-                y: bounds.height - dot.y - dotSize / 2,
-                width: dotSize,
-                height: dotSize
-            ))
-            UIColor.blue.setFill()
-            circle.fill()
+        guard let program = program else { return }
+        
+        UIColor.blue.setFill()
+        UIColor.blue.setStroke()
+        drawProgramNode(program)
+    }
+    
+    private func drawProgramNode(_ node: CardNodeProtocol) {
+        let circle = UIBezierPath(ovalIn: CGRect(
+            x: node.position.x - dotSize / 2,
+            y: Double(bounds.height) - node.position.y - dotSize / 2,
+            width: dotSize,
+            height: dotSize
+        ))
+        circle.fill()
+        
+        for child in node.children {
+            let line = UIBezierPath()
+            line.move(to: CGPoint(x: node.position.x,
+                                  y: Double(bounds.height) - node.position.y))
+            line.addLine(to: CGPoint(x: child.position.x,
+                                     y: Double(bounds.height) - child.position.y))
+            line.lineWidth = 4
+            line.stroke()
+            drawProgramNode(child)
         }
     }
 }
