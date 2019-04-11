@@ -11,13 +11,14 @@ import Level
 
 class LevelSelectViewController: UIViewController, GradeViewController {
 
-    var grade: Int!
+    var grade: Int! {
+        didSet {
+            self.dataSource.grade = grade
+        }
+    }
     var selectedLevel: LevelProtocol?
-    
-    private lazy var dataSource: LevelDataSource = {
-        let source = LevelDataSource(grade: grade)
-        return source
-    }()
+    var levelRepository: LevelRepository!
+    var dataSource: LevelDataSource!
     
     @IBOutlet weak var collectionView: UICollectionView!
     

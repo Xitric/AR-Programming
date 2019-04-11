@@ -28,6 +28,8 @@ extension SwinjectStoryboard {
         }
         
         defaultContainer.storyboardInitCompleted(LevelSelectViewController.self) { container, controller in
+            let dataSource = LevelDataSource(levelRepository: container.resolve(LevelRepository.self)!)
+            controller.dataSource = dataSource
             controller.levelRepository = container.resolve(LevelRepository.self)
         }
         

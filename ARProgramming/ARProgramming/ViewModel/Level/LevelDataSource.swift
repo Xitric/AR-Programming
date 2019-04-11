@@ -8,28 +8,39 @@
 
 import Foundation
 import UIKit
+import Level
 
 class LevelDataSource: NSObject, UICollectionViewDataSource {
     
     private var levelsForGrade = [Int: [LevelProtocol]]()
-    private let grade: Int
     
-    init(grade: Int) {
-        self.grade = grade
-        levelsForGrade[grade] = []
-        
-        let levelGradeConfig = Config.read(configFile: "LevelClasses", toType: LevelGradeConfig.self)!
-        let levelsForGrades = levelGradeConfig.levels
-        
-        for levelName in levelsForGrades[grade-1]{
-            if let level = try? LevelManager.loadLevel(byName: levelName) {
-                levelsForGrade[grade]?.append(level)
+    var grade: Int? {
+        didSet {
+            if let grade = grade {
+                levelsForGrade[grade] = []
+                let levelGradeConfig = Config.read(configFile: "LevelClasses", toType: LevelGradeConfig.self)!
+                let levelsForGrades = levelGradeConfig.levels
+                for levelName in levelsForGrades[grade-1]{
+                    if let level = try? levelRepository.loadLevel(byName: levelName) {
+                        levelsForGrade[grade]?.append(level)
+                    }
+                }
             }
         }
     }
+    var levelRepository: LevelRepository!
+    
+    init(levelRepository: LevelRepository) {
+        self.levelRepository = levelRepository
+        
+        
+        
+        
+        
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if let numberOfLevels = levelsForGrade[grade]?.count {
+        if let grade = grade, let numberOfLevels = levelsForGrade[grade]?.count {
             return numberOfLevels
         }
         return 0
@@ -38,11 +49,11 @@ class LevelDataSource: NSObject, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "levelCell", for: indexPath)
         
-        if let levelCell = cell as? LevelCollectionViewCell {
+        if let grade = grade, let levelCell = cell as? LevelCollectionViewCell {
             let level = levelsForGrade[grade]?[indexPath.item]
             if (indexPath.item == 0) {
                 if let level = level{
-                    LevelManager.markLevel(withNumber: level.levelNumber, asUnlocked: true)
+                    levelRepository.markLevel(withNumber: level.levelNumber, asUnlocked: true, completion: nil)
                     levelCell.unlocked = true
                 }
             } else {
