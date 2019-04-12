@@ -19,6 +19,12 @@ class ScoreManager: ScoreProtocol{
         self.context = context
         minCardsForMaxScore[1] = 2
         minCardsForMaxScore[2] = 3
+        minCardsForMaxScore[3] = 4
+        minCardsForMaxScore[4] = 5
+        minCardsForMaxScore[5] = 6
+        minCardsForMaxScore[6] = 7
+        minCardsForMaxScore[7] = 8
+        minCardsForMaxScore[8] = 9
     }
     
     public func incrementCardCount(){

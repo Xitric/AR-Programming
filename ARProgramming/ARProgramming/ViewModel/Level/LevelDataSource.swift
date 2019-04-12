@@ -48,17 +48,15 @@ class LevelDataSource: NSObject, UICollectionViewDataSource {
         
         if let grade = grade, let levelCell = cell as? LevelCollectionViewCell {
             let level = levelsForGrade[grade]?[indexPath.item]
-            
-            if let level = level{
-                levelCell.score.text = String(repeating: "⭐", count: scoreManager.getScore(forLevel: level.levelNumber))
-                if (indexPath.item == 0) {
+            if (indexPath.item == 0) {
+                if let level = level{
                     levelRepository.markLevel(withNumber: level.levelNumber, asUnlocked: true, completion: nil)
                     levelCell.unlocked = true
                 }
             } else {
                 levelCell.unlocked = level?.unlocked
             }
-            
+            levelCell.score.text = score(levelNumber: level)
             levelCell.level = level
             levelCell.levelName.text = level?.name
             if let levelTypeString = level?.levelType {
@@ -66,6 +64,20 @@ class LevelDataSource: NSObject, UICollectionViewDataSource {
             }
         }
         return cell
+    }
+    
+    private func score(levelNumber: LevelProtocol?) -> String{
+        var score = "☆☆☆"
+        if let level = levelNumber {
+            let scoreCount = scoreManager.getScore(forLevel: level.levelNumber)
+            if scoreCount > 0 {
+                score = String(repeating: "⭐", count: scoreCount)
+                let blackStars = String(repeating: "☆", count: 3-scoreCount)
+                score.append(blackStars)
+            }
+            print(score)
+        }
+        return score
     }
 }
 
