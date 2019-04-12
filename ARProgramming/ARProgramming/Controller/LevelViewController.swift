@@ -14,7 +14,7 @@ import ProgramModel
 import Level
 
 class LevelViewController: UIViewController {
-    
+
     //MARK: View
     @IBOutlet weak var placeButton: UIButton!
     @IBOutlet weak var detectButton: UIButton!
@@ -28,6 +28,9 @@ class LevelViewController: UIViewController {
     @IBOutlet weak var winLabel: UILabel!
     
     @IBOutlet weak var planeDetectionAnimation: UIImageView!
+    
+    //Injected properties
+    var score: ScoreProtocol!
     
     //MARK: Sound
     var audioController: AudioController? {
@@ -166,8 +169,10 @@ extension LevelViewController: ProgramDelegate {
     }
     
     //TODO: A method for when we are about to execute a card so that we can highlight it
+
     func program(_ program: ProgramProtocol, executed card: Card) {
-        
+        score.incrementCardCount()
+        // problem is the number card
     }
     
     func programEnded(_ program: ProgramProtocol) {
@@ -175,6 +180,7 @@ extension LevelViewController: ProgramDelegate {
             self.executeButton.isEnabled = true
             self.resetButton.isEnabled = true
         }
+        
     }
 }
 
@@ -183,6 +189,7 @@ extension LevelViewController: LevelDelegate {
     
     func levelCompleted(_ level: LevelProtocol) {
         self.winSound?.play()
+        score.computeScore(level: level.levelNumber)
         
         DispatchQueue.main.async { [unowned self] in
             self.winLabel.isHidden = false
@@ -191,6 +198,7 @@ extension LevelViewController: LevelDelegate {
     }
     
     func levelReset(_ level: LevelProtocol) {
+        score.resetScore()
         DispatchQueue.main.async { [unowned self] in
             self.winLabel.isHidden = true
             self.winDescription.isHidden = true

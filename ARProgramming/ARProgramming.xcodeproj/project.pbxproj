@@ -13,6 +13,7 @@
 		206A0CB822410FD80018E6B7 /* WardrobeManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206A0CB722410FD80018E6B7 /* WardrobeManagerTests.swift */; };
 		207DA723225F2891003AE8EC /* GradeCardConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207DA722225F2891003AE8EC /* GradeCardConfiguration.swift */; };
 		207DA725225F2934003AE8EC /* SwinjectStoryboard+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207DA724225F2933003AE8EC /* SwinjectStoryboard+Setup.swift */; };
+		207DA727225F339C003AE8EC /* ScoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207DA726225F339C003AE8EC /* ScoreManager.swift */; };
 		20D9BAD1225BF45400DCB87D /* LibraryGradesTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D9BAD0225BF45300DCB87D /* LibraryGradesTabBarController.swift */; };
 		20D9BAD3225C7E7B00DCB87D /* LevelClasses.json in Resources */ = {isa = PBXBuildFile; fileRef = 20D9BAD2225C7E7B00DCB87D /* LevelClasses.json */; };
 		20D9BAD6225C7EF300DCB87D /* LevelDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D9BAD5225C7EF300DCB87D /* LevelDataSource.swift */; };
@@ -116,6 +117,7 @@
 		206A0CB722410FD80018E6B7 /* WardrobeManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeManagerTests.swift; sourceTree = "<group>"; };
 		207DA722225F2891003AE8EC /* GradeCardConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradeCardConfiguration.swift; sourceTree = "<group>"; };
 		207DA724225F2933003AE8EC /* SwinjectStoryboard+Setup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SwinjectStoryboard+Setup.swift"; path = "ARProgramming/SwinjectStoryboard+Setup.swift"; sourceTree = SOURCE_ROOT; };
+		207DA726225F339C003AE8EC /* ScoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreManager.swift; sourceTree = "<group>"; };
 		20D9BAD0225BF45300DCB87D /* LibraryGradesTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryGradesTabBarController.swift; sourceTree = "<group>"; };
 		20D9BAD2225C7E7B00DCB87D /* LevelClasses.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = LevelClasses.json; path = "../New Group/LevelClasses.json"; sourceTree = "<group>"; };
 		20D9BAD5225C7EF300DCB87D /* LevelDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelDataSource.swift; sourceTree = "<group>"; };
@@ -349,6 +351,7 @@
 			children = (
 				206A0CB32240E4FC0018E6B7 /* Wardrobe */,
 				566066C4225BE4FC00FB0FB0 /* CoreDataRepository.swift */,
+				207DA726225F339C003AE8EC /* ScoreManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -691,6 +694,7 @@
 				561083F6224A68FD009A0039 /* FunctionView.swift in Sources */,
 				C74785E9219427A3000148BC /* CardCollectionViewCell.swift in Sources */,
 				90DF7330216F441E00F51E0C /* AppDelegate.swift in Sources */,
+				207DA727225F339C003AE8EC /* ScoreManager.swift in Sources */,
 				562F2F2922538ABA00C46D83 /* MainMenuViewController.swift in Sources */,
 				56A62B1822310E8D009D0E83 /* simd_quatd+Helpers.swift in Sources */,
 				562CCA7F220D750100BF6A8D /* CGImagePropertyOrientation+Helpers.swift in Sources */,
@@ -881,17 +885,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 8VP2CK62GJ;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5E6DK5G4XC;
 				INFOPLIST_FILE = ARProgramming/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = dk.sdu.ARProgramming;
+				PRODUCT_BUNDLE_IDENTIFIER = dk.sdu.ARProgramming23;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = ARProgramming;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
@@ -905,17 +910,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 8VP2CK62GJ;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5E6DK5G4XC;
 				INFOPLIST_FILE = ARProgramming/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = dk.sdu.ARProgramming;
+				PRODUCT_BUNDLE_IDENTIFIER = dk.sdu.ARProgramming23;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = ARProgramming;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

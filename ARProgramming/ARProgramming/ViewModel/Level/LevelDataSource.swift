@@ -28,15 +28,12 @@ class LevelDataSource: NSObject, UICollectionViewDataSource {
             }
         }
     }
+    var scoreManager: ScoreProtocol!
     var levelRepository: LevelRepository!
     
-    init(levelRepository: LevelRepository) {
+    init(levelRepository: LevelRepository, scoreManager: ScoreProtocol) {
         self.levelRepository = levelRepository
-        
-        
-        
-        
-        
+        self.scoreManager = scoreManager
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -51,8 +48,10 @@ class LevelDataSource: NSObject, UICollectionViewDataSource {
         
         if let grade = grade, let levelCell = cell as? LevelCollectionViewCell {
             let level = levelsForGrade[grade]?[indexPath.item]
-            if (indexPath.item == 0) {
-                if let level = level{
+            
+            if let level = level{
+                levelCell.score.text = String(repeating: "⭐", count: scoreManager.getScore(forLevel: level.levelNumber))
+                if (indexPath.item == 0) {
                     levelRepository.markLevel(withNumber: level.levelNumber, asUnlocked: true, completion: nil)
                     levelCell.unlocked = true
                 }
