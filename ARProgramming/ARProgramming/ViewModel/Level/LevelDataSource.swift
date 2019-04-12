@@ -75,7 +75,6 @@ class LevelDataSource: NSObject, UICollectionViewDataSource {
                 let blackStars = String(repeating: "☆", count: 3-scoreCount)
                 score.append(blackStars)
             }
-            print(score)
         }
         return score
     }

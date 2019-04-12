@@ -144,6 +144,7 @@ extension LevelViewController: GameplayController {
     }
     
     func exit(withState state: GameState) {
+        score.resetScore()
         state.arController.planeDetectorDelegate = nil
     }
 }
@@ -172,7 +173,6 @@ extension LevelViewController: ProgramDelegate {
 
     func program(_ program: ProgramProtocol, executed card: Card) {
         score.incrementCardCount()
-        // problem is the number card
     }
     
     func programEnded(_ program: ProgramProtocol) {

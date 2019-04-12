@@ -13,18 +13,16 @@ class ScoreManager: ScoreProtocol{
     private var cardsUsed = 0
     private let context: CoreDataRepository
     
-    private var minCardsForMaxScore = [Int:Int]()
+    private var minCardsForMaxScoreInLevel = [Int:Int]()
     
     init(context: CoreDataRepository) {
         self.context = context
-        minCardsForMaxScore[1] = 2
-        minCardsForMaxScore[2] = 3
-        minCardsForMaxScore[3] = 4
-        minCardsForMaxScore[4] = 5
-        minCardsForMaxScore[5] = 6
-        minCardsForMaxScore[6] = 7
-        minCardsForMaxScore[7] = 8
-        minCardsForMaxScore[8] = 9
+        loadScoreConfigurations()
+    }
+    
+    private func loadScoreConfigurations(){
+        let data = Config.read(configFile: "CardsForMaxScore", toType: CardsForMaxScore.self)!
+        minCardsForMaxScoreInLevel = data.cardsForMaxScore
     }
     
     public func incrementCardCount(){
@@ -36,9 +34,8 @@ class ScoreManager: ScoreProtocol{
     }
     
     public func computeScore(level: Int){
-        print("card used \(cardsUsed)")
         var score = 1
-        if let minCardsInLevel = minCardsForMaxScore[level] {
+        if let minCardsInLevel = minCardsForMaxScoreInLevel[level] {
             if cardsUsed <= minCardsInLevel {
                 score = 3
             } else if cardsUsed <= minCardsInLevel*2 {
@@ -74,7 +71,7 @@ class ScoreManager: ScoreProtocol{
                         newScoreEntity.setValue(forLevel, forKey: "levelNumber")
                         newScoreEntity.setValue(score, forKey: "score")
                     } else {
-                        result[0].setValue(score, forKey: "levelNumber")
+                        result[0].setValue(score, forKey: "score")
                     }
                     self.context.saveContext()
                 }
@@ -91,3 +88,6 @@ protocol ScoreProtocol {
     func getScore(forLevel: Int) -> Int
 }
 
+struct CardsForMaxScore: Decodable {
+    let cardsForMaxScore: [Int:Int]
+}

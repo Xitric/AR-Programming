@@ -14,6 +14,7 @@
 		207DA723225F2891003AE8EC /* GradeCardConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207DA722225F2891003AE8EC /* GradeCardConfiguration.swift */; };
 		207DA725225F2934003AE8EC /* SwinjectStoryboard+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207DA724225F2933003AE8EC /* SwinjectStoryboard+Setup.swift */; };
 		207DA727225F339C003AE8EC /* ScoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207DA726225F339C003AE8EC /* ScoreManager.swift */; };
+		2082BA1D2260A27C00069A91 /* CardsForMaxScore.json in Resources */ = {isa = PBXBuildFile; fileRef = 2082BA1C2260A27C00069A91 /* CardsForMaxScore.json */; };
 		20D9BAD1225BF45400DCB87D /* LibraryGradesTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D9BAD0225BF45300DCB87D /* LibraryGradesTabBarController.swift */; };
 		20D9BAD3225C7E7B00DCB87D /* LevelClasses.json in Resources */ = {isa = PBXBuildFile; fileRef = 20D9BAD2225C7E7B00DCB87D /* LevelClasses.json */; };
 		20D9BAD6225C7EF300DCB87D /* LevelDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D9BAD5225C7EF300DCB87D /* LevelDataSource.swift */; };
@@ -118,6 +119,7 @@
 		207DA722225F2891003AE8EC /* GradeCardConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradeCardConfiguration.swift; sourceTree = "<group>"; };
 		207DA724225F2933003AE8EC /* SwinjectStoryboard+Setup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SwinjectStoryboard+Setup.swift"; path = "ARProgramming/SwinjectStoryboard+Setup.swift"; sourceTree = SOURCE_ROOT; };
 		207DA726225F339C003AE8EC /* ScoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreManager.swift; sourceTree = "<group>"; };
+		2082BA1C2260A27C00069A91 /* CardsForMaxScore.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CardsForMaxScore.json; sourceTree = "<group>"; };
 		20D9BAD0225BF45300DCB87D /* LibraryGradesTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryGradesTabBarController.swift; sourceTree = "<group>"; };
 		20D9BAD2225C7E7B00DCB87D /* LevelClasses.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = LevelClasses.json; path = "../New Group/LevelClasses.json"; sourceTree = "<group>"; };
 		20D9BAD5225C7EF300DCB87D /* LevelDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelDataSource.swift; sourceTree = "<group>"; };
@@ -352,6 +354,7 @@
 				206A0CB32240E4FC0018E6B7 /* Wardrobe */,
 				566066C4225BE4FC00FB0FB0 /* CoreDataRepository.swift */,
 				207DA726225F339C003AE8EC /* ScoreManager.swift */,
+				2082BA1C2260A27C00069A91 /* CardsForMaxScore.json */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -560,6 +563,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				90DF733C216F442000F51E0C /* LaunchScreen.storyboard in Resources */,
+				2082BA1D2260A27C00069A91 /* CardsForMaxScore.json in Resources */,
 				561083EA224A2B11009A0039 /* CardCollectionViewSectionHeader.xib in Resources */,
 				90DF7339216F442000F51E0C /* Assets.xcassets in Resources */,
 				561083E8224A246F009A0039 /* CardCollectionViewHomeHeader.xib in Resources */,
