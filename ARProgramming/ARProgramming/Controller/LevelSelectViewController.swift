@@ -28,33 +28,13 @@ class LevelSelectViewController: UIViewController, GradeViewController {
             levelSelectCollectionView.delegate = self
         }
     }
-    @IBOutlet weak var freePlayView: UIView! {
-        didSet {
-            let gradientLayer = CAGradientLayer()
-            gradientLayer.frame = freePlayView.bounds
-            gradientLayer.colors = [
-                UIColor.white.withAlphaComponent(0).cgColor,
-                UIColor.white.withAlphaComponent(1).cgColor
-            ]
-            self.freePlayView.layer.insertSublayer(gradientLayer, at: 0)
-        }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let arContainer = segue.destination as? ARContainerViewController {
             arContainer.level = selectedLevel
         }
-
     }
     
-    @IBAction func freePlay(_ sender: UIButton) {
-        selectedLevel = levelRepository.emptylevel
-        performSegue(withIdentifier: "arContainerSegue", sender: self)
-    }
 }
 
 // MARK: - UICollectionViewDelegate

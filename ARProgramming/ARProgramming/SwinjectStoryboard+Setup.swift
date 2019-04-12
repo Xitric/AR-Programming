@@ -33,6 +33,10 @@ extension SwinjectStoryboard {
             controller.levelRepository = container.resolve(LevelRepository.self)
         }
         
+        defaultContainer.storyboardInitCompleted(BranchLevelSelectViewController.self) { container, controller in
+            controller.levelRepository = container.resolve(LevelRepository.self)
+        }
+        
         defaultContainer.register(AudioController.self) { _ in AudioController() }
             .inObjectScope(.container)
         
