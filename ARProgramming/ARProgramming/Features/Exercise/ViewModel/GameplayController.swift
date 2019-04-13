@@ -10,6 +10,5 @@ import Foundation
 
 /// Protocol to implement on all controllers that need to share an instance of LevelViewModel.
 protocol GameplayController: class {
-    
     var levelViewModel: LevelViewModel? { get set }
 }

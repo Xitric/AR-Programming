@@ -29,18 +29,13 @@ class CardDescriptionViewController: UIViewController {
                 self.cardDescription.text = description
                 self.cardImage.image = UIImage(named: card.internalName)
             } else {
-                returnToLevelView()
+                delegate?.auxiliaryViewCompleted(self)
             }
         }
     }
+    weak var delegate: AuxiliaryExerciseViewDelegate?
     
     @IBAction func back(_ sender: UIButton) {
-        returnToLevelView()
-    }
-    
-    private func returnToLevelView() {
-        if let parent = self.parent as? GameCoordinationViewController {
-            parent.goToLevelView()
-        }
+        delegate?.auxiliaryViewCompleted(self)
     }
 }

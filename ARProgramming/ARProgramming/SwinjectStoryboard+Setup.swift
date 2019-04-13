@@ -92,9 +92,26 @@ extension SwinjectStoryboard {
             controller.arController = container.resolve(ARController.self)
         }
         
+        defaultContainer.storyboardInitCompleted(GameCoordinationViewController.self) { container, controller in
+            let storyboard = UIStoryboard(name: "Exercise", bundle: Bundle.main)
+            let surfaceController = storyboard.instantiateViewController(withIdentifier: "SurfaceDetectionScene")
+            let levelController = storyboard.instantiateViewController(withIdentifier: "LevelScene")
+            let cardController = storyboard.instantiateViewController(withIdentifier: "CardDescriptionScene")
+            
+            controller.surfaceViewController = surfaceController
+            controller.levelViewController = levelController
+            controller.cardViewController = cardController
+            
+            (surfaceController as? SurfaceDetectionViewController)?.delegate = controller
+            (cardController as? CardDescriptionViewController)?.delegate = controller
+        }
+        
+        defaultContainer.storyboardInitCompleted(SurfaceDetectionViewController.self) { container, controller in
+            controller.planeViewModel = container.resolve(PlaneViewModel.self)
+        }
+        
         defaultContainer.storyboardInitCompleted(LevelViewController.self) { container, controller in
             controller.audioController = container.resolve(AudioController.self)
-            controller.planeViewModel = container.resolve(PlaneViewModel.self)
             controller.programEditor = programEditor
         }
     }

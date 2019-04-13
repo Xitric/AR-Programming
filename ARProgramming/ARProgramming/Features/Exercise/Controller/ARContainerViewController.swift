@@ -37,7 +37,11 @@ class ARContainerViewController: UIViewController, GameplayController {
             arController.updateDelegate = levelViewModel
         }
     }
-    var programEditor: ProgramEditorProtocol!
+    var programEditor: ProgramEditorProtocol! {
+        didSet {
+            programEditor.delegate = self
+        }
+    }
     var arController: ARController!
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -45,11 +49,6 @@ class ARContainerViewController: UIViewController, GameplayController {
             overlayController.levelViewModel = levelViewModel
             coordinationController = overlayController
         }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        programEditor.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -89,10 +88,6 @@ extension ARContainerViewController: ProgramEditorDelegate {
 // MARK: UICardRectDelegate
 extension ARContainerViewController: CardDetectionViewDelegate {
     func cardView(didPressCard card: Card?) {
-        if let card = card {
-            coordinationController.goToCardDescriptionView(withCard: card)
-        } else {
-            coordinationController.goToLevelView()
-        }
+        coordinationController.goToCardDescriptionView(withCard: card)
     }
 }

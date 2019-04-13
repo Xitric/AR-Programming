@@ -39,30 +39,9 @@ class LevelViewModel: UpdateDelegate {
     var player: Entity? {
         return levelModel?.entityManager.player
     }
-    var isAnchored: Bool {
-        return levelView?.parent != nil
-    }
-    
-    /// Inform this view model about where to place the level in the SceneKit or AR scene.
-    ///
-    /// - Parameter parent: The node to anchor this level to, or nil to remove the level from its current anchor.
-    func anchor(at parent: SCNNode?) {
-        if let levelView = levelView {
-            levelView.removeFromParentNode()
-            parent?.addChildNode(levelView)
-            levelAnchored?()
-        }
-    }
-    
-    func addNode(_ node: SCNNode) {
-        if let levelView = levelView {
-            levelView.addChildNode(node)
-        }
-    }
     
     //MARK: - Bindings
     var levelChanged: (() -> Void)?
-    var levelAnchored: (() -> Void)?
     
     //MARK: - Init
     init(wardrobe: WardrobeProtocol) {
@@ -72,5 +51,24 @@ class LevelViewModel: UpdateDelegate {
     //MARK: - UpdateDelegate
     func update(currentTime: TimeInterval) {
         levelModel?.update(currentTime: currentTime)
+    }
+    
+    /// Inform this view model about where to place the level in the SceneKit or AR scene.
+    ///
+    /// - Parameter parent: The node to anchor this level to, or nil to remove the level from its current anchor.
+    func anchor(at parent: SCNNode?) {
+        if let levelView = levelView {
+            levelView.removeFromParentNode()
+            parent?.addChildNode(levelView)
+        }
+    }
+    
+    /// Add a SCNNode to be displayed as part of this level.
+    ///
+    /// - Parameter node: The node to add.
+    func addNode(_ node: SCNNode) {
+        if let levelView = levelView {
+            levelView.addChildNode(node)
+        }
     }
 }

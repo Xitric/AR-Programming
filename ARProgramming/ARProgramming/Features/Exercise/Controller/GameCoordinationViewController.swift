@@ -22,15 +22,11 @@ class GameCoordinationViewController: UIViewController, GameplayController {
         return children.first
     }
     
-    private lazy var levelViewController: LevelViewController = {
-        return storyboard?.instantiateViewController(withIdentifier: "LevelScene") as! LevelViewController
-    }()
-    private lazy var cardViewController: CardDescriptionViewController = {
-        return storyboard?.instantiateViewController(withIdentifier: "CardDescriptionScene") as! CardDescriptionViewController
-    }()
-    
     //MARK: - Injected properties
     var levelViewModel: LevelViewModel?
+    var surfaceViewController: UIViewController!
+    var levelViewController: UIViewController!
+    var cardViewController: UIViewController!
     
     //MARK: - View controller navigation
     private func showViewController(controller: UIViewController) {
@@ -65,17 +61,20 @@ class GameCoordinationViewController: UIViewController, GameplayController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        showViewController(controller: levelViewController)
+        showViewController(controller: surfaceViewController)
     }
     
-    func goToLevelView() {
-        showViewController(controller: levelViewController)
-    }
-    
-    func goToCardDescriptionView(withCard card: Card) {
+    func goToCardDescriptionView(withCard card: Card?) {
         showViewController(controller: cardViewController)
         if let descriptionView = childViewController as? CardDescriptionViewController {
             descriptionView.card = card
         }
+    }
+}
+
+//MARK: - AuxiliaryExerciseViewDelegate
+extension GameCoordinationViewController: AuxiliaryExerciseViewDelegate {
+    func auxiliaryViewCompleted(_ controller: UIViewController) {
+        showViewController(controller: levelViewController)
     }
 }

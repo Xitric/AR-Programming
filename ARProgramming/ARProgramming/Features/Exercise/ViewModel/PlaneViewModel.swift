@@ -9,6 +9,7 @@
 import Foundation
 import SceneKit
 
+/// View model that acts as a data source and delegate for AR plane detection.
 class PlaneViewModel: PlaneDetectorDelegate {
     
     private lazy var root: SCNNode = {
