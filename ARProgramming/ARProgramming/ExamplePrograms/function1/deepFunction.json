@@ -1,25 +1,25 @@
 [
     {
         "cards": [
-            { "x": 0, "y": 0, "payload": "0" },
-            { "x": 1, "y": 0, "payload": "1" },
-            { "x": 2, "y": 0, "payload": "12" }
+            { "x": 0, "y": 0, "width": 0.8, "height": 0.8, "payload": "0" },
+            { "x": 1, "y": 0, "width": 0.8, "height": 0.8, "payload": "1" },
+            { "x": 2, "y": 0, "width": 0.8, "height": 0.8, "payload": "12" }
         ]
     },
     {
         "cards": [
-            { "x": 0, "y": 0, "payload": "13" },
-            { "x": 1, "y": 0, "payload": "1" },
-            { "x": 2, "y": 0, "payload": "3" },
-            { "x": 3, "y": 0, "payload": "14" }
+            { "x": 0, "y": 0, "width": 0.8, "height": 0.8, "payload": "13" },
+            { "x": 1, "y": 0, "width": 0.8, "height": 0.8, "payload": "1" },
+            { "x": 2, "y": 0, "width": 0.8, "height": 0.8, "payload": "3" },
+            { "x": 3, "y": 0, "width": 0.8, "height": 0.8, "payload": "14" }
         ]
     },
     {
         "cards": [
-            { "x": 0, "y": 0, "payload": "15" },
-            { "x": 1, "y": 0, "payload": "4" },
-            { "x": 2, "y": 0, "payload": "3" },
-            { "x": 3, "y": 0, "payload": "1" }
+            { "x": 0, "y": 0, "width": 0.8, "height": 0.8, "payload": "15" },
+            { "x": 1, "y": 0, "width": 0.8, "height": 0.8, "payload": "4" },
+            { "x": 2, "y": 0, "width": 0.8, "height": 0.8, "payload": "3" },
+            { "x": 3, "y": 0, "width": 0.8, "height": 0.8, "payload": "1" }
         ]
     }
 ]
