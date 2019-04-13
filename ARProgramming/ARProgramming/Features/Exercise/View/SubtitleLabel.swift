@@ -19,6 +19,9 @@ import UIKit
         }
         set {
             label.text = newValue
+            if !isHidden && newValue == nil {
+                isHidden = true
+            }
         }
     }
     

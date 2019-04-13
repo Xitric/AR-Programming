@@ -26,7 +26,6 @@
 		56216E502252162A00613486 /* ExamplePrograms in Resources */ = {isa = PBXBuildFile; fileRef = 56216E4F2252162A00613486 /* ExamplePrograms */; };
 		5621C83A221AE5F800756628 /* SCNVector3+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5621C839221AE5F800756628 /* SCNVector3+Helpers.swift */; };
 		5621C83C221AE67A00756628 /* simd_float4x4+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5621C83B221AE67A00756628 /* simd_float4x4+Helpers.swift */; };
-		562ACDB3224522CB00D2DA7C /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562ACDB2224522CB00D2DA7C /* GameState.swift */; };
 		562ACDB522456D5900D2DA7C /* CardDetectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562ACDB422456D5900D2DA7C /* CardDetectionView.swift */; };
 		562ACDB9224583DC00D2DA7C /* PassThroughView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562ACDB8224583DC00D2DA7C /* PassThroughView.swift */; };
 		562ACDBD2248C78500D2DA7C /* GameCoordinationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562ACDBC2248C78500D2DA7C /* GameCoordinationViewController.swift */; };
@@ -45,6 +44,9 @@
 		56431D392232A82700BFAC36 /* UpdateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56431D382232A82700BFAC36 /* UpdateDelegate.swift */; };
 		56431D3D2232B5DB00BFAC36 /* LevelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56431D3C2232B5DB00BFAC36 /* LevelViewModel.swift */; };
 		566066C5225BE4FC00FB0FB0 /* CoreDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566066C4225BE4FC00FB0FB0 /* CoreDataRepository.swift */; };
+		5672096C2260956E0054BD52 /* Exercise.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5672096B2260956E0054BD52 /* Exercise.storyboard */; };
+		56720970226097250054BD52 /* MainMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5672096F226097250054BD52 /* MainMenu.storyboard */; };
+		5672097222609C340054BD52 /* PlaneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5672097122609C340054BD52 /* PlaneViewModel.swift */; };
 		56A62B0E22310727009D0E83 /* EntityModelLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A62B0D22310727009D0E83 /* EntityModelLoader.swift */; };
 		56A62B122231097E009D0E83 /* SCNNodeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A62B112231097E009D0E83 /* SCNNodeComponent.swift */; };
 		56A62B1622310DA2009D0E83 /* simd_double3+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A62B1522310DA2009D0E83 /* simd_double3+Helpers.swift */; };
@@ -76,7 +78,6 @@
 		90DF733C216F442000F51E0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90DF733A216F442000F51E0C /* LaunchScreen.storyboard */; };
 		A7C221E5DC1EC301B7086A19 /* Pods_ARProgrammingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4208C6B4372E5AAA04A35EA0 /* Pods_ARProgrammingTests.framework */; };
 		C725B2C321A85A7B00DD147A /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C725B2C121A85A7B00DD147A /* Model.xcdatamodeld */; };
-		C7273114217714E900754543 /* Plane.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7273113217714E900754543 /* Plane.swift */; };
 		C74785E9219427A3000148BC /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74785E8219427A3000148BC /* CardCollectionViewCell.swift */; };
 		C74785EB219427F8000148BC /* CardLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74785EA219427F8000148BC /* CardLibraryViewController.swift */; };
 		C74785ED219448F1000148BC /* CardDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74785EC219448F1000148BC /* CardDetailViewController.swift */; };
@@ -132,7 +133,6 @@
 		56216E4F2252162A00613486 /* ExamplePrograms */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ExamplePrograms; sourceTree = "<group>"; };
 		5621C839221AE5F800756628 /* SCNVector3+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNVector3+Helpers.swift"; sourceTree = "<group>"; };
 		5621C83B221AE67A00756628 /* simd_float4x4+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "simd_float4x4+Helpers.swift"; sourceTree = "<group>"; };
-		562ACDB2224522CB00D2DA7C /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
 		562ACDB422456D5900D2DA7C /* CardDetectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetectionView.swift; sourceTree = "<group>"; };
 		562ACDB8224583DC00D2DA7C /* PassThroughView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassThroughView.swift; sourceTree = "<group>"; };
 		562ACDBC2248C78500D2DA7C /* GameCoordinationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCoordinationViewController.swift; sourceTree = "<group>"; };
@@ -151,6 +151,9 @@
 		56431D382232A82700BFAC36 /* UpdateDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDelegate.swift; sourceTree = "<group>"; };
 		56431D3C2232B5DB00BFAC36 /* LevelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelViewModel.swift; sourceTree = "<group>"; };
 		566066C4225BE4FC00FB0FB0 /* CoreDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataRepository.swift; sourceTree = "<group>"; };
+		5672096B2260956E0054BD52 /* Exercise.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Exercise.storyboard; sourceTree = "<group>"; };
+		5672096F226097250054BD52 /* MainMenu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainMenu.storyboard; sourceTree = "<group>"; };
+		5672097122609C340054BD52 /* PlaneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaneViewModel.swift; sourceTree = "<group>"; };
 		56A62B0D22310727009D0E83 /* EntityModelLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityModelLoader.swift; sourceTree = "<group>"; };
 		56A62B112231097E009D0E83 /* SCNNodeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNNodeComponent.swift; sourceTree = "<group>"; };
 		56A62B1522310DA2009D0E83 /* simd_double3+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "simd_double3+Helpers.swift"; sourceTree = "<group>"; };
@@ -185,7 +188,6 @@
 		90DF7348216F442100F51E0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A863410762BEC44717A4728F /* Pods-ARProgramming.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARProgramming.release.xcconfig"; path = "../Pods/Target Support Files/Pods-ARProgramming/Pods-ARProgramming.release.xcconfig"; sourceTree = "<group>"; };
 		C725B2C221A85A7B00DD147A /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		C7273113217714E900754543 /* Plane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plane.swift; sourceTree = "<group>"; };
 		C74785E8219427A3000148BC /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
 		C74785EA219427F8000148BC /* CardLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardLibraryViewController.swift; sourceTree = "<group>"; };
 		C74785EC219448F1000148BC /* CardDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewController.swift; sourceTree = "<group>"; };
@@ -235,7 +237,6 @@
 			isa = PBXGroup;
 			children = (
 				20D9BAD2225C7E7B00DCB87D /* LevelClasses.json */,
-				56431D3C2232B5DB00BFAC36 /* LevelViewModel.swift */,
 				905A3C93217A09D0005E3AA5 /* LevelCollectionViewCell.swift */,
 				20D9BAD5225C7EF300DCB87D /* LevelDataSource.swift */,
 			);
@@ -317,11 +318,69 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		56720967226094E40054BD52 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				5672096E226096ED0054BD52 /* MainMenu */,
+				56720968226094FA0054BD52 /* Exercise */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		56720968226094FA0054BD52 /* Exercise */ = {
+			isa = PBXGroup;
+			children = (
+				5672096D226096A20054BD52 /* Controller */,
+				5672096A226095120054BD52 /* ViewModel */,
+				567209692260950C0054BD52 /* View */,
+			);
+			path = Exercise;
+			sourceTree = "<group>";
+		};
+		567209692260950C0054BD52 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5672096B2260956E0054BD52 /* Exercise.storyboard */,
+				56AEAC62221EC4CF00ACED36 /* SubtitleLabel.xib */,
+				56AEAC64221EC63800ACED36 /* SubtitleLabel.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5672096A226095120054BD52 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				56431D3C2232B5DB00BFAC36 /* LevelViewModel.swift */,
+				5672097122609C340054BD52 /* PlaneViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		5672096D226096A20054BD52 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				901584CB2199C32100450E0B /* ARController.swift */,
+				56413DFC220E2AC30064332E /* GameplayController.swift */,
+				204AEC13220DCA1E00E0F624 /* ARContainerViewController.swift */,
+				562ACDBC2248C78500D2DA7C /* GameCoordinationViewController.swift */,
+				901584C72199BDF400450E0B /* LevelViewController.swift */,
+				901584C92199BE0200450E0B /* CardDescriptionViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		5672096E226096ED0054BD52 /* MainMenu */ = {
+			isa = PBXGroup;
+			children = (
+				5672096F226097250054BD52 /* MainMenu.storyboard */,
+				562F2F2822538ABA00C46D83 /* MainMenuViewController.swift */,
+			);
+			path = MainMenu;
+			sourceTree = "<group>";
+		};
 		56AEAC5F221EC3C200ACED36 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				56AEAC62221EC4CF00ACED36 /* SubtitleLabel.xib */,
-				56AEAC64221EC63800ACED36 /* SubtitleLabel.swift */,
 				561083E7224A246F009A0039 /* CardCollectionViewHomeHeader.xib */,
 				561083E9224A2B11009A0039 /* CardCollectionViewSectionHeader.xib */,
 				561083F5224A68FD009A0039 /* FunctionView.swift */,
@@ -361,14 +420,8 @@
 				905A3C782179BDC3005E3AA5 /* Card */,
 				905A3C91217A0891005E3AA5 /* LevelSelectViewController.swift */,
 				562ACDCC224986F300D2DA7C /* GradesTabBarController.swift */,
-				56413DFC220E2AC30064332E /* GameplayController.swift */,
-				204AEC13220DCA1E00E0F624 /* ARContainerViewController.swift */,
-				562ACDBC2248C78500D2DA7C /* GameCoordinationViewController.swift */,
-				901584C72199BDF400450E0B /* LevelViewController.swift */,
-				901584C92199BE0200450E0B /* CardDescriptionViewController.swift */,
 				202219A6223BC07000A2A8EA /* WardrobeViewController.swift */,
 				90A55B0821A83B0700FD7CDD /* AudioController.swift */,
-				562F2F2822538ABA00C46D83 /* MainMenuViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -379,7 +432,6 @@
 				905A3C832179BE54005E3AA5 /* FrameDelegate.swift */,
 				56431D382232A82700BFAC36 /* UpdateDelegate.swift */,
 				905A3C872179BE74005E3AA5 /* PlaneDetectorDelegate.swift */,
-				901584CB2199C32100450E0B /* ARController.swift */,
 			);
 			path = Card;
 			sourceTree = "<group>";
@@ -401,8 +453,6 @@
 				20D9BAD4225C7E8200DCB87D /* Level */,
 				56A62B0D22310727009D0E83 /* EntityModelLoader.swift */,
 				56A62B112231097E009D0E83 /* SCNNodeComponent.swift */,
-				C7273113217714E900754543 /* Plane.swift */,
-				562ACDB2224522CB00D2DA7C /* GameState.swift */,
 				562F2F22225355E100C46D83 /* Config.swift */,
 			);
 			path = ViewModel;
@@ -432,6 +482,7 @@
 		90DF732E216F441E00F51E0C /* ARProgramming */ = {
 			isa = PBXGroup;
 			children = (
+				56720967226094E40054BD52 /* Features */,
 				56AEAC5F221EC3C200ACED36 /* View */,
 				562CCA7B220D74F200BF6A8D /* Utilities */,
 				C725B2C021A85A6D00DD147A /* Persistence */,
@@ -561,11 +612,13 @@
 				90DF7339216F442000F51E0C /* Assets.xcassets in Resources */,
 				561083E8224A246F009A0039 /* CardCollectionViewHomeHeader.xib in Resources */,
 				90CDABC221773E2700664640 /* Meshes.scnassets in Resources */,
+				56720970226097250054BD52 /* MainMenu.storyboard in Resources */,
 				20D9BAD3225C7E7B00DCB87D /* LevelClasses.json in Resources */,
 				56216E502252162A00613486 /* ExamplePrograms in Resources */,
 				56AEAC63221EC4CF00ACED36 /* SubtitleLabel.xib in Resources */,
 				90A55B0E21A84DB000FD7CDD /* win.wav in Resources */,
 				90D7538821AC259A00B1F2E4 /* pickup.wav in Resources */,
+				5672096C2260956E0054BD52 /* Exercise.storyboard in Resources */,
 				562F2F27225358CA00C46D83 /* cardClasses.json in Resources */,
 				90DF7337216F441E00F51E0C /* Main.storyboard in Resources */,
 				56108442224D3CC1009A0039 /* Localizable.strings in Resources */,
@@ -687,11 +740,11 @@
 				20D9BAD6225C7EF300DCB87D /* LevelDataSource.swift in Sources */,
 				207DA725225F2934003AE8EC /* SwinjectStoryboard+Setup.swift in Sources */,
 				C725B2C321A85A7B00DD147A /* Model.xcdatamodeld in Sources */,
-				562ACDB3224522CB00D2DA7C /* GameState.swift in Sources */,
 				561083F6224A68FD009A0039 /* FunctionView.swift in Sources */,
 				C74785E9219427A3000148BC /* CardCollectionViewCell.swift in Sources */,
 				90DF7330216F441E00F51E0C /* AppDelegate.swift in Sources */,
 				562F2F2922538ABA00C46D83 /* MainMenuViewController.swift in Sources */,
+				5672097222609C340054BD52 /* PlaneViewModel.swift in Sources */,
 				56A62B1822310E8D009D0E83 /* simd_quatd+Helpers.swift in Sources */,
 				562CCA7F220D750100BF6A8D /* CGImagePropertyOrientation+Helpers.swift in Sources */,
 				562ACDCD224986F300D2DA7C /* GradesTabBarController.swift in Sources */,
@@ -705,7 +758,6 @@
 				561083F8224A7607009A0039 /* ExampleProgramTableDataSource.swift in Sources */,
 				56431D392232A82700BFAC36 /* UpdateDelegate.swift in Sources */,
 				20D9BAD1225BF45400DCB87D /* LibraryGradesTabBarController.swift in Sources */,
-				C7273114217714E900754543 /* Plane.swift in Sources */,
 				566066C5225BE4FC00FB0FB0 /* CoreDataRepository.swift in Sources */,
 				905A3C882179BE74005E3AA5 /* PlaneDetectorDelegate.swift in Sources */,
 			);

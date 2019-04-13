@@ -29,9 +29,8 @@ class ExampleProgramViewController: UIViewController {
             previewScene.delegate = self
             previewScene.isPlaying = true
             
-            //Load empty level for previews
-            levelViewModel = LevelViewModel(level: levelRepository.emptylevel, wardrobe: wardrobe)
-            previewScene.scene?.rootNode.addChildNode(levelViewModel.levelView)
+            //Load empty level for preview
+            previewLevelViewModel.anchor(at: previewScene.scene?.rootNode)
             
             //Set up camera
             let camera = SCNNode()
@@ -41,21 +40,28 @@ class ExampleProgramViewController: UIViewController {
             camera.position = SCNVector3(0, 0.9, 0.5)
             camera.rotation = SCNVector4(-1, -0.033, -0.025, 1.1)
             previewScene.pointOfView = camera
+        }
+    }
+    
+    //MARK: - Injected properties
+    var tableDataSource: ExampleProgramTableDataSource!
+    var levelRepository: LevelRepository!
+    var previewLevelViewModel: LevelViewModel! {
+        didSet {
+            previewLevelViewModel.levelModel = levelRepository.emptylevel
             
             //Add grid floor
             let ground = SCNNode(geometry: SCNPlane(width: 5, height: 5))
             ground.eulerAngles.x = -.pi / 2
             ground.geometry?.materials.first?.diffuse.contents = UIImage(named: "ExampleProgramGridFloor.png")
-            levelViewModel.levelView.addChildNode(ground)
+            previewLevelViewModel.addNode(ground)
         }
     }
-    
-    private var levelViewModel: LevelViewModel!
-    
-    // Injected properties
-    var tableDataSource: ExampleProgramTableDataSource!
-    var wardrobe: WardrobeProtocol!
-    var levelRepository: LevelRepository!
+    var gameLevelViewModel: LevelViewModel! {
+        didSet {
+            gameLevelViewModel.levelModel = levelRepository.emptylevel
+        }
+    }
     
     func showExamples(forCard card: Card) {
         tableDataSource?.showExamplesForCard(withName: card.internalName)
@@ -64,7 +70,7 @@ class ExampleProgramViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.destination {
         case let arContainer as ARContainerViewController:
-            arContainer.level = levelRepository.emptylevel
+            arContainer.levelViewModel = gameLevelViewModel
         default:
             break
         }
@@ -75,12 +81,12 @@ class ExampleProgramViewController: UIViewController {
 extension ExampleProgramViewController: ExampleProgramSelectorDelegate, ProgramDelegate {
     
     func programSelected(program: ProgramProtocol) {
-        levelViewModel.levelModel.reset()
+        previewLevelViewModel.levelModel?.reset()
         exampleProgramTable.allowsSelection = false
         program.delegate = self
         
         DispatchQueue.main.asyncAfter(wallDeadline: DispatchWallTime.now() + 0.5) { [weak self] in
-            if let entity = self?.levelViewModel.levelModel.entityManager.player {
+            if let entity = self?.previewLevelViewModel.player {
                 program.run(on: entity)
             } else {
                 self?.exampleProgramTable.allowsSelection = true
@@ -106,6 +112,6 @@ extension ExampleProgramViewController: ExampleProgramSelectorDelegate, ProgramD
 //MARK: - SCNSceneRendererDelegate
 extension ExampleProgramViewController: SCNSceneRendererDelegate {
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
-        levelViewModel.levelModel.update(currentTime: time)
+        previewLevelViewModel.levelModel?.update(currentTime: time)
     }
 }

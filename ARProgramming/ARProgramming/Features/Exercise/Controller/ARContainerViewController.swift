@@ -15,11 +15,11 @@ import Level
 /// The root controller for the game view.
 ///
 /// This controller is responsible for creating the ARSCNView which, for technical reasons, must be shared between all other controllers for the game views. This is accomplished by using a ContainerView to place the views of other controllers on top of this shared ARSCNView.
-class ARContainerViewController: UIViewController {
+class ARContainerViewController: UIViewController, GameplayController {
     
     @IBOutlet weak var arSceneView: ARSCNView! {
         didSet {
-            arController = ARController(with: arSceneView)
+            arController.sceneView = arSceneView
             arController.frameDelegate = self
         }
     }
@@ -29,28 +29,20 @@ class ARContainerViewController: UIViewController {
         }
     }
     
-    private var levelViewModel: LevelViewModel?
-    private var arController: ARController!
-    
     private var coordinationController: GameCoordinationViewController!
     
-    /// Injected properties
-    var level: LevelProtocol?
+    //MARK: - Injected properties
+    var levelViewModel: LevelViewModel? {
+        didSet {
+            arController.updateDelegate = levelViewModel
+        }
+    }
     var programEditor: ProgramEditorProtocol!
-    var wardrobe: WardrobeProtocol!
+    var arController: ARController!
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let overlayController = segue.destination as? GameCoordinationViewController {
-            if let level = level {
-                levelViewModel = LevelViewModel(level: level, wardrobe: wardrobe)
-                
-                let state = GameState(levelViewModel: levelViewModel!,
-                                      arController: arController,
-                                      programEditor: programEditor)
-                overlayController.enter(withState: state)
-            }
-            
-            arController.updateDelegate = self
+            overlayController.levelViewModel = levelViewModel
             coordinationController = overlayController
         }
     }
@@ -84,13 +76,6 @@ class ARContainerViewController: UIViewController {
 extension ARContainerViewController: FrameDelegate {
     func frameScanner(_ scanner: ARController, didUpdate frame: CVPixelBuffer, withOrientation orientation: CGImagePropertyOrientation) {
         programEditor.newFrame(frame, oriented: orientation, frameWidth: Double(UIScreen.main.bounds.width), frameHeight: Double(UIScreen.main.bounds.height))
-    }
-}
-
-// MARK: - UpdateDelegate
-extension ARContainerViewController: UpdateDelegate {
-    func update(currentTime: TimeInterval) {
-        level?.update(currentTime: currentTime)
     }
 }
 

@@ -21,7 +21,7 @@ class CardLibraryViewController: UIViewController, GradeViewController {
         }
     }
     
-    // Injected properties
+    //MARK: - Injected properties
     var flowLayoutDelegate: UICollectionViewDelegateFlowLayout?
     var dataSource: CardCollectionDataSource?
     var grade: Int! {

@@ -11,32 +11,32 @@ import ARKit
 
 class ARController: NSObject  {
     
-    private let sceneView: ARSCNView
-    private var configuration : ARWorldTrackingConfiguration
-    private var options : ARSession.RunOptions
-    private var currentPlane: Plane?
+    private var configuration : ARWorldTrackingConfiguration!
+    private var options : ARSession.RunOptions!
+    private weak var currentPlane: SCNNode?
     private var currentPlaneAnchor: ARAnchor?
     
     weak var updateDelegate: UpdateDelegate?
     weak var frameDelegate: FrameDelegate?
     weak var planeDetectorDelegate: PlaneDetectorDelegate?
     
-    init(with scene: ARSCNView) {
-        sceneView = scene
-        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
-        sceneView.autoenablesDefaultLighting = true
-        
-        configuration = ARWorldTrackingConfiguration()
-        configuration.planeDetection = .horizontal
-        
-        options = [.resetTracking]
-        
-        super.init()
-        
-        sceneView.delegate = self
-        sceneView.session.delegate = self
+    //MARK: - Injected properties
+    weak var sceneView: ARSCNView! {
+        didSet {
+            sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
+            sceneView.autoenablesDefaultLighting = true
+            
+            configuration = ARWorldTrackingConfiguration()
+            configuration.planeDetection = .horizontal
+            
+            options = [.resetTracking]
+            
+            sceneView.delegate = self
+            sceneView.session.delegate = self
+        }
     }
     
+    //MARK: - Life cycle
     func start() {
         sceneView.session.run(configuration, options: options)
     }
@@ -58,36 +58,23 @@ extension ARController: ARSCNViewDelegate {
             if let currentPlaneAnchor = currentPlaneAnchor {
                 sceneView.session.remove(anchor: currentPlaneAnchor)
             }
-            currentPlaneAnchor = planeAnchor
             
             handlePlaneDetected(planeAnchor: planeAnchor, node: node)
+            currentPlaneAnchor = planeAnchor
         }
     }
     
     private func handlePlaneDetected(planeAnchor: ARPlaneAnchor, node: SCNNode) {
         if planeDetectorDelegate?.shouldDetectPlanes(self) ?? false {
-            if currentPlane == nil {
-                currentPlane = createPlane()
-                sceneView.scene.rootNode.addChildNode(currentPlane!.root)
+            if currentPlane == nil, let plane = planeDetectorDelegate?.createPlaneNode(self) {
+                currentPlane = plane
+                sceneView.scene.rootNode.addChildNode(plane)
                 
                 if let frame = sceneView.session.currentFrame {
                     updatePlanePosition(in: frame)
                 }
-                
-                planeDetectorDelegate?.planeDetector(self, found: currentPlane!)
             }
         }
-    }
-    
-    private func createPlane() -> Plane {
-        var plane = Plane()
-        
-        let ground = SCNNode(geometry: SCNPlane(width: 0.2, height: 0.2))
-        ground.eulerAngles.x = -.pi / 2
-        ground.geometry?.materials.first?.diffuse.contents = UIImage(named: "SurfaceArea.png")
-        plane.groundNode = ground
-        
-        return plane
     }
     
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
@@ -102,14 +89,19 @@ extension ARController: ARSessionDelegate {
         let image = frame.capturedImage
         frameDelegate?.frameScanner(self, didUpdate: image, withOrientation: orientation)
         
-        if planeDetectorDelegate?.shouldDetectPlanes(self) ?? false {
+        if currentPlane == nil {
+            if currentPlaneAnchor != nil {
+                sceneView.session.remove(anchor: currentPlaneAnchor!)
+                currentPlaneAnchor = nil
+            }
+        } else if planeDetectorDelegate?.shouldDetectPlanes(self) ?? false {
             updatePlanePosition(in: frame)
         }
     }
     
     private func updatePlanePosition(in frame: ARFrame) {
         if let hit = frame.hitTest(CGPoint(x: 0.5, y: 0.5), types: [.existingPlane]).first {
-            currentPlane?.root.position = SCNVector3(hit.worldTransform.translation)
+            currentPlane?.position = SCNVector3(hit.worldTransform.translation)
         }
     }
 }

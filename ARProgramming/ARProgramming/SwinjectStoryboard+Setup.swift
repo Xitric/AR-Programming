@@ -14,23 +14,8 @@ import Level
 
 extension SwinjectStoryboard {
     class func setup() {
-        defaultContainer.storyboardInitCompleted(ARContainerViewController.self) { container, controller in
-            controller.programEditor = container.resolve(ProgramEditorProtocol.self)
-            controller.wardrobe = container.resolve(WardrobeProtocol.self)
-        }
-        
-        defaultContainer.storyboardInitCompleted(LevelViewController.self) { container, controller in
-            controller.audioController = container.resolve(AudioController.self)
-        }
-        
         defaultContainer.storyboardInitCompleted(WardrobeViewController.self) { container, controller in
             controller.wardrobe = container.resolve(WardrobeProtocol.self)
-        }
-        
-        defaultContainer.storyboardInitCompleted(LevelSelectViewController.self) { container, controller in
-            let dataSource = LevelDataSource(levelRepository: container.resolve(LevelRepository.self)!)
-            controller.dataSource = dataSource
-            controller.levelRepository = container.resolve(LevelRepository.self)
         }
         
         defaultContainer.register(AudioController.self) { _ in AudioController() }
@@ -45,6 +30,7 @@ extension SwinjectStoryboard {
         
         addLibrary()
         addCardDetail()
+        addLevel()
         
         //Response to:
         //https://github.com/Swinject/Swinject/issues/213
@@ -72,8 +58,44 @@ extension SwinjectStoryboard {
     private class func addCardDetail() {
         defaultContainer.storyboardInitCompleted(ExampleProgramViewController.self) { container, controller in
             controller.tableDataSource = ExampleProgramTableDataSource(deserializer: container.resolve(CardGraphDeserializerProtocol.self)!)
-            controller.wardrobe = container.resolve(WardrobeProtocol.self)
             controller.levelRepository = container.resolve(LevelRepository.self)
+            controller.previewLevelViewModel = container.resolve(LevelViewModel.self)
+            controller.gameLevelViewModel = container.resolve(LevelViewModel.self)
+        }
+    }
+    
+    private class func addLevel() {
+        defaultContainer.register(ARController.self) { _ in ARController() }
+            .inObjectScope(.container)
+        
+        defaultContainer.register(LevelViewModel.self) { container in
+            LevelViewModel(wardrobe: container.resolve(WardrobeProtocol.self)!)
+        }.inObjectScope(.transient)
+        
+        defaultContainer.register(PlaneViewModel.self) { container in
+            let pvm = PlaneViewModel()
+            container.resolve(ARController.self)!.planeDetectorDelegate = pvm
+            return pvm
+        }
+        
+        defaultContainer.storyboardInitCompleted(LevelSelectViewController.self) { container, controller in
+            let dataSource = LevelDataSource(levelRepository: container.resolve(LevelRepository.self)!)
+            controller.dataSource = dataSource
+            controller.levelRepository = container.resolve(LevelRepository.self)
+            controller.levelViewModel = container.resolve(LevelViewModel.self)
+        }
+        
+        let programEditor = defaultContainer.resolve(ProgramEditorProtocol.self)
+        
+        defaultContainer.storyboardInitCompleted(ARContainerViewController.self) { container, controller in
+            controller.programEditor = programEditor
+            controller.arController = container.resolve(ARController.self)
+        }
+        
+        defaultContainer.storyboardInitCompleted(LevelViewController.self) { container, controller in
+            controller.audioController = container.resolve(AudioController.self)
+            controller.planeViewModel = container.resolve(PlaneViewModel.self)
+            controller.programEditor = programEditor
         }
     }
 }

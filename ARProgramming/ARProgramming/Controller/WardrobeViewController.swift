@@ -14,7 +14,7 @@ class WardrobeViewController: UIViewController {
     @IBOutlet weak var robotChoiceLabel: UILabel!
     @IBOutlet weak var sceneView: SCNView!
     
-    //Injected properties
+    //MARK: - Injected properties
     var wardrobe: WardrobeProtocol!
     
     private var robotChoice = 0 {

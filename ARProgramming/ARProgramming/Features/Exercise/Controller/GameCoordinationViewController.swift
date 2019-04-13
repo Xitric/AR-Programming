@@ -16,9 +16,8 @@ import ProgramModel
 /// This controller is responsible for switching between the curently active controller while the user is playing a level.
 ///
 /// Initially the level controller is active, and occasionally the card detail controller must be active. Only one of these controllers can be active at the same time.
-class GameCoordinationViewController: UIViewController {
+class GameCoordinationViewController: UIViewController, GameplayController {
     
-    private var gameState: GameState?
     private var childViewController: UIViewController? {
         return children.first
     }
@@ -30,6 +29,10 @@ class GameCoordinationViewController: UIViewController {
         return storyboard?.instantiateViewController(withIdentifier: "CardDescriptionScene") as! CardDescriptionViewController
     }()
     
+    //MARK: - Injected properties
+    var levelViewModel: LevelViewModel?
+    
+    //MARK: - View controller navigation
     private func showViewController(controller: UIViewController) {
         if let oldChild = childViewController {
             if oldChild == controller {
@@ -51,16 +54,10 @@ class GameCoordinationViewController: UIViewController {
         
         controller.didMove(toParent: self)
         
-        if let gameState = gameState {
-            (controller as? GameplayController)?.enter(withState: gameState)
-        }
+        (controller as? GameplayController)?.levelViewModel = levelViewModel
     }
     
     private func removeViewController(_ controller: UIViewController) {
-        if let gameState = gameState {
-            (controller as? GameplayController)?.exit(withState: gameState)
-        }
-        
         controller.willMove(toParent: nil)
         controller.view.removeFromSuperview()
         controller.removeFromParent()
@@ -80,16 +77,5 @@ class GameCoordinationViewController: UIViewController {
         if let descriptionView = childViewController as? CardDescriptionViewController {
             descriptionView.card = card
         }
-    }
-}
-
-// MARK: - GamePlayController
-extension GameCoordinationViewController: GameplayController {
-    func enter(withState state: GameState) {
-        self.gameState = state
-    }
-    
-    func exit(withState state: GameState) {
-        self.gameState = nil
     }
 }

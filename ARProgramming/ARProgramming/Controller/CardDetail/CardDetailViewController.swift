@@ -20,7 +20,7 @@ class CardDetailViewController: UIViewController {
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var parameterLabel: UILabel!
     
-    // Injected properties
+    //MARK: - Injected properties
     var card: Card!
     var cardPreview: UIImage?
     
