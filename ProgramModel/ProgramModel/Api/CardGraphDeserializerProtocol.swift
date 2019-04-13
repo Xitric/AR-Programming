@@ -8,7 +8,11 @@
 
 import Foundation
 
-/// An object for reading program sequences out of a json file. This is an alternative to using a program editor directly when programs are not constructed from images but rather from configuration files.
+/// An object for converting between programs and json.
+///
+/// This can be used as an alternative to a program editor when programs are not constructed from images but rather from configuration files. It is also useful for converting programs into a format that is more easily exchangeable.
 public protocol CardGraphDeserializerProtocol {
+    func serialize(_ program: ProgramProtocol) -> Data?
+    func serialize(_ editor: ProgramEditorProtocol) -> Data?
     func deserialize(from data: Data) throws -> ProgramEditorProtocol
 }

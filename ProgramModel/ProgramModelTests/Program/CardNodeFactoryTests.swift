@@ -76,4 +76,12 @@ class CardNodeFactoryTests: XCTestCase {
         XCTAssertNotNil(result)
         XCTAssertEqual(result?.card.internalName, cardNode.card.internalName)
     }
+    
+    //MARK: cardCode
+    func testCardCode() {
+        XCTAssertEqual(factory.cardCode(fromInternalName: "move"), "1")
+        XCTAssertEqual(factory.cardCode(fromInternalName: "block"), "7")
+        XCTAssertEqual(factory.cardCode(fromInternalName: "param2"), "9")
+        XCTAssertNil(factory.cardCode(fromInternalName: "definitelyNotACard"))
+    }
 }

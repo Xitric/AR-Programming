@@ -80,4 +80,18 @@ class CardNodeFactory: CardCollection {
     func register(cardNode node: CardNode, withCode code: String) {
         cardNodePrototypes[code] = node
     }
+    
+    /// Get the code or payload associated with the specified internal name.
+    ///
+    /// - Parameter internalName: The internal name of the card to look up, which is assumed to be unique.
+    /// - Returns: The code of the card associated with the internal name, or nil if no such card was found
+    func cardCode(fromInternalName internalName: String) -> String? {
+        for (code, prototype) in cardNodePrototypes {
+            if prototype.card.internalName == internalName {
+                return code
+            }
+        }
+        
+        return nil
+    }
 }
