@@ -26,6 +26,7 @@ class ARContainerViewController: UIViewController, GameplayController {
     @IBOutlet weak var cardDetectionView: CardDetectionView! {
         didSet {
             cardDetectionView.delegate = self
+            cardDetectionView.addInteraction(UIDragInteraction(delegate: dragDelegate))
         }
     }
     
@@ -43,6 +44,7 @@ class ARContainerViewController: UIViewController, GameplayController {
         }
     }
     var arController: ARController!
+    var dragDelegate: ProgramDragInteractionDelegate!
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let overlayController = segue.destination as? GameCoordinationViewController {
@@ -82,6 +84,7 @@ extension ARContainerViewController: FrameDelegate {
 extension ARContainerViewController: ProgramEditorDelegate {
     func programEditor(_ programEditor: ProgramEditorProtocol, createdNew program: ProgramProtocol) {
         cardDetectionView.display(nodes: programEditor.allCards, program: program.start)
+        dragDelegate.currentProgram = program
     }
 }
 

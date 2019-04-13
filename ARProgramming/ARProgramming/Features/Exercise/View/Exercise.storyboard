@@ -118,6 +118,7 @@
                     <tabBarItem key="tabBarItem" title="Level" id="zS2-fd-QEQ"/>
                     <connections>
                         <outlet property="levelInfo" destination="eQR-Dm-66Y" id="XW4-da-l9b"/>
+                        <outlet property="programWindow" destination="J5o-eS-br1" id="U3m-cB-ymG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="buh-NS-jlc" userLabel="First Responder" sceneMemberID="firstResponder"/>

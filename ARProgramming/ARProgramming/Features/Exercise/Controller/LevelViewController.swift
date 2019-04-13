@@ -33,6 +33,14 @@ class LevelViewController: UIViewController, GameplayController {
     }
     var programEditor: ProgramEditorProtocol!
     
+    //TODO
+    var dropDelegate: ProgramDropInteractionDelegate!
+    @IBOutlet weak var programWindow: UIView! {
+        didSet {
+            programWindow.addInteraction(UIDropInteraction(delegate: dropDelegate))
+        }
+    }
+    
     //MARK: - Sound
     var audioController: AudioController? {
         didSet {

@@ -90,6 +90,7 @@ extension SwinjectStoryboard {
         defaultContainer.storyboardInitCompleted(ARContainerViewController.self) { container, controller in
             controller.programEditor = programEditor
             controller.arController = container.resolve(ARController.self)
+            controller.dragDelegate = ProgramDragInteractionDelegate(serializer: container.resolve(CardGraphDeserializerProtocol.self)!)
         }
         
         defaultContainer.storyboardInitCompleted(GameCoordinationViewController.self) { container, controller in
@@ -113,6 +114,9 @@ extension SwinjectStoryboard {
         defaultContainer.storyboardInitCompleted(LevelViewController.self) { container, controller in
             controller.audioController = container.resolve(AudioController.self)
             controller.programEditor = programEditor
+            
+            //TODO
+            controller.dropDelegate = ProgramDropInteractionDelegate(serializer: container.resolve(CardGraphDeserializerProtocol.self)!)
         }
     }
 }
