@@ -42,6 +42,7 @@
 		562FC97D224FCD87001678B2 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562FC97C224FCD87001678B2 /* RoundedButton.swift */; };
 		563B0FC122633D0800BFEAA4 /* ProgramEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563B0FC022633D0800BFEAA4 /* ProgramEditorViewModel.swift */; };
 		563B0FC322633FEF00BFEAA4 /* ObservableProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563B0FC222633FEF00BFEAA4 /* ObservableProperty.swift */; };
+		563B0FC5226374A200BFEAA4 /* ProgramsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563B0FC4226374A200BFEAA4 /* ProgramsViewModel.swift */; };
 		56413DFD220E2AC30064332E /* GameplayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56413DFC220E2AC30064332E /* GameplayController.swift */; };
 		56431D392232A82700BFAC36 /* UpdateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56431D382232A82700BFAC36 /* UpdateDelegate.swift */; };
 		56431D3D2232B5DB00BFAC36 /* LevelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56431D3C2232B5DB00BFAC36 /* LevelViewModel.swift */; };
@@ -156,6 +157,7 @@
 		562FC97C224FCD87001678B2 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		563B0FC022633D0800BFEAA4 /* ProgramEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramEditorViewModel.swift; sourceTree = "<group>"; };
 		563B0FC222633FEF00BFEAA4 /* ObservableProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableProperty.swift; sourceTree = "<group>"; };
+		563B0FC4226374A200BFEAA4 /* ProgramsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramsViewModel.swift; sourceTree = "<group>"; };
 		56413DFC220E2AC30064332E /* GameplayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameplayController.swift; sourceTree = "<group>"; };
 		56431D382232A82700BFAC36 /* UpdateDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDelegate.swift; sourceTree = "<group>"; };
 		56431D3C2232B5DB00BFAC36 /* LevelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelViewModel.swift; sourceTree = "<group>"; };
@@ -372,6 +374,7 @@
 				5672097D226274CF0054BD52 /* ProgramDragInteractionDelegate.swift */,
 				5672097F226274DC0054BD52 /* ProgramDropInteractionDelegate.swift */,
 				563B0FC022633D0800BFEAA4 /* ProgramEditorViewModel.swift */,
+				563B0FC4226374A200BFEAA4 /* ProgramsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -774,6 +777,7 @@
 				5672097222609C340054BD52 /* PlaneViewModel.swift in Sources */,
 				56A62B1822310E8D009D0E83 /* simd_quatd+Helpers.swift in Sources */,
 				562CCA7F220D750100BF6A8D /* CGImagePropertyOrientation+Helpers.swift in Sources */,
+				563B0FC5226374A200BFEAA4 /* ProgramsViewModel.swift in Sources */,
 				563B0FC122633D0800BFEAA4 /* ProgramEditorViewModel.swift in Sources */,
 				562ACDCD224986F300D2DA7C /* GradesTabBarController.swift in Sources */,
 				905A3C92217A0891005E3AA5 /* LevelSelectViewController.swift in Sources */,

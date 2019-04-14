@@ -65,11 +65,7 @@ extension SwinjectStoryboard {
     }
     
     private class func addLevel() {
-        defaultContainer.register(ARController.self) { container in
-            let controller = ARController()
-            controller.frameDelegate = container.resolve(ProgramEditorViewModeling.self)!
-            return controller
-        }.inObjectScope(.container)
+        defaultContainer.register(ARController.self) { container in ARController() }.inObjectScope(.container)
         
         defaultContainer.register(LevelViewModel.self) { container in
             LevelViewModel(wardrobe: container.resolve(WardrobeProtocol.self)!)
@@ -81,9 +77,17 @@ extension SwinjectStoryboard {
             return pvm
         }
         
+        let programEditor = defaultContainer.resolve(ProgramEditorProtocol.self)!
+        
         defaultContainer.register(ProgramEditorViewModeling.self) { container in
-            ProgramEditorViewModel(editor: defaultContainer.resolve(ProgramEditorProtocol.self)!)
-        }.inObjectScope(.container)
+            let viewModel = ProgramEditorViewModel(editor: programEditor)
+            container.resolve(ARController.self)?.frameDelegate = viewModel
+            return viewModel
+        }
+        
+        defaultContainer.register(ProgramsViewModeling.self) { container in
+            ProgramsViewModel(editor: programEditor)
+        }
         
         defaultContainer.storyboardInitCompleted(LevelSelectViewController.self) { container, controller in
             let dataSource = LevelDataSource(levelRepository: container.resolve(LevelRepository.self)!)
@@ -118,7 +122,7 @@ extension SwinjectStoryboard {
         
         defaultContainer.storyboardInitCompleted(LevelViewController.self) { container, controller in
             controller.audioController = container.resolve(AudioController.self)
-            controller.programEditorViewModel = container.resolve(ProgramEditorViewModeling.self)
+            controller.programsViewModel = container.resolve(ProgramsViewModeling.self)
             controller.dropDelegate = ProgramDropInteractionDelegate(serializer: container.resolve(CardGraphDeserializerProtocol.self)!)
         }
     }

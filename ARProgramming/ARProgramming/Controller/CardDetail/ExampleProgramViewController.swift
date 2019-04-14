@@ -80,7 +80,7 @@ class ExampleProgramViewController: UIViewController {
 //MARK: - ExampleProgramSelectorDelegate
 extension ExampleProgramViewController: ExampleProgramSelectorDelegate {
     
-    func editorSelected(editor: ProgramEditorViewModeling) {
+    func editorSelected(editor: ProgramsViewModeling) {
         previewLevelViewModel.levelModel?.reset()
         exampleProgramTable.allowsSelection = false
         

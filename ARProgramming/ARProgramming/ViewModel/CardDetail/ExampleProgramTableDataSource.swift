@@ -12,7 +12,7 @@ import ProgramModel
 
 class ExampleProgramTableDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     
-    private var examples = [ProgramEditorViewModeling]()
+    private var examples = [ProgramsViewModeling]()
     private let deserializer: CardGraphDeserializerProtocol
     
     weak var delegate: ExampleProgramSelectorDelegate?
@@ -30,7 +30,7 @@ class ExampleProgramTableDataSource: NSObject, UITableViewDataSource, UITableVie
             for url in urls {
                 if let data = try? Data(contentsOf: url),
                     let editor = try? deserializer.deserialize(from: data) {
-                    examples.append(ProgramEditorViewModel(editor: editor))
+                    examples.append(ProgramsViewModel(editor: editor))
                 }
             }
         }
@@ -45,7 +45,7 @@ class ExampleProgramTableDataSource: NSObject, UITableViewDataSource, UITableVie
         let row = tableView.dequeueReusableCell(withIdentifier: "ProgramExampleCell", for: indexPath)
         
         if let row = row as? ExampleProgramTableViewCell {
-            row.programView.programEditorViewModel = examples[indexPath.row]
+            row.programView.programsViewModel = examples[indexPath.row]
         }
         
         return row
@@ -58,5 +58,5 @@ class ExampleProgramTableDataSource: NSObject, UITableViewDataSource, UITableVie
 }
 
 protocol ExampleProgramSelectorDelegate: class {
-    func editorSelected(editor: ProgramEditorViewModeling)
+    func editorSelected(editor: ProgramsViewModeling)
 }

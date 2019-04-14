@@ -26,7 +26,7 @@ class LevelViewController: UIViewController, GameplayController {
     }
     @IBOutlet weak var programView: ProgramView! {
         didSet {
-            programView.programEditorViewModel = programEditorViewModel
+            programView.programsViewModel = programsViewModel
         }
     }
     
@@ -43,9 +43,9 @@ class LevelViewController: UIViewController, GameplayController {
             }
         }
     }
-    var programEditorViewModel: ProgramEditorViewModeling! {
+    var programsViewModel: ProgramsViewModeling! {
         didSet {
-            programEditorViewModel.running.onValue = { [weak self] running in
+            programsViewModel.running.onValue = { [weak self] running in
                 self?.resetButton.isEnabled = !running
                 self?.playButton.isEnabled = !running
             }
@@ -55,7 +55,7 @@ class LevelViewController: UIViewController, GameplayController {
         didSet {
             dropDelegate.droppedProgram.onValue = { [weak self] program in
                 if let program = program {
-                    self?.programEditorViewModel.add(program: program)
+                    self?.programsViewModel.add(program: program)
                 }
             }
         }
@@ -73,14 +73,14 @@ class LevelViewController: UIViewController, GameplayController {
     
     // MARK: - Button actions
     @IBAction func onReset(_ sender: UIButton) {
-        programEditorViewModel.reset()
+        programsViewModel.reset()
         levelViewModel?.levelModel?.reset() //TODO: Handle level reset by reloading level
         onLevelChanged()
     }
     
     @IBAction func onPlay(_ sender: UIButton) {
         if let player = levelViewModel?.player {
-            programEditorViewModel.start(on: player)
+            programsViewModel.start(on: player)
         }
     }
     
