@@ -94,8 +94,12 @@ private class TestProgramDelegate: ProgramDelegate {
         startExpectation.fulfill()
     }
     
-    func program(_ program: ProgramProtocol, executed card: Card) {
-        if card.internalName == expectedCards.first {
+    func program(_ program: ProgramProtocol, willExecute cardNode: CardNodeProtocol) {
+        
+    }
+    
+    func program(_ program: ProgramProtocol, executed cardNode: CardNodeProtocol) {
+        if cardNode.card.internalName == expectedCards.first {
             expectedCards.removeFirst()
             callbackExpectation.fulfill()
         }
