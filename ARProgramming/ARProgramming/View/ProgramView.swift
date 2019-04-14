@@ -20,9 +20,9 @@ class ProgramView: UIStackView {
             
             populateProgramView(with: programsViewModel.programs.value)
             
-//            programEditorViewModel.activeCard.onValue = { [weak self] programs in
-//                //TODO: Highlight current card
-//            }
+            programsViewModel.activeCard.onValue = { [weak self] cardNode in
+                self?.highlight(cardNode: cardNode)
+            }
         }
     }
     
@@ -75,5 +75,13 @@ class ProgramView: UIStackView {
         fv.program = program
         
         return fv
+    }
+    
+    private func highlight(cardNode: CardNodeProtocol?) {
+        for subview in self.arrangedSubviews {
+            if let functionView = subview as? FunctionView {
+                functionView.highlightNode = cardNode
+            }
+        }
     }
 }

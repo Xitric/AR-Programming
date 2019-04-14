@@ -23,6 +23,11 @@ class FunctionView: UIView {
             resetProgram()
         }
     }
+    var highlightNode: CardNodeProtocol? {
+        didSet {
+            resetProgram()
+        }
+    }
     
     override var intrinsicContentSize: CGSize {
         return frame.size
@@ -34,6 +39,7 @@ class FunctionView: UIView {
         
         addNode(program?.start, parentPosition: CGPoint(x: -1, y: 0))
         wrapProgram()
+        setNeedsDisplay()
     }
     
     private func addNode(_ node: CardNodeProtocol?, parentPosition: CGPoint) {
@@ -49,7 +55,10 @@ class FunctionView: UIView {
         let x = parentPosition.x + cos(angle) / denominator
         let y = parentPosition.y - sin(angle) / denominator
         
-        let drawable = CardDrawable(imageName: imageName, x: x, y: y)
+        let drawable = CardDrawable(imageName: imageName,
+                                    x: x,
+                                    y: y,
+                                    highlighted: node === highlightNode)
         nodesToDraw.append(drawable)
         
         for child in node.children {
@@ -106,6 +115,16 @@ class FunctionView: UIView {
                                  width: scale,
                                  height: scale)
             image?.draw(in: imgRect)
+            
+            if drawable.highlighted {
+                let highlight = UIBezierPath(rect: imgRect)
+                UIColor.white.setStroke()
+                highlight.lineWidth = 2
+                highlight.stroke()
+                
+                UIColor.white.withAlphaComponent(0.75).setFill()
+                highlight.fill()
+            }
         }
     }
 }
@@ -114,4 +133,5 @@ private struct CardDrawable {
     let imageName: String
     let x: CGFloat
     let y: CGFloat
+    let highlighted: Bool
 }

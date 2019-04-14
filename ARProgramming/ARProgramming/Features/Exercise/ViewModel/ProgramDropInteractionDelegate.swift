@@ -29,9 +29,7 @@ class ProgramDropInteractionDelegate: NSObject, UIDropInteractionDelegate {
     }
     
     func dropInteraction(_ interaction: UIDropInteraction, performDrop session: UIDropSession) {
-        //TODO: Do we need to allow internal movement of data?
-        //This does not get called :´(
-        if let program = session.localDragSession?.localContext as? ProgramProtocol {
+        if let program = session.items.first?.localObject as? ProgramProtocol {
             droppedProgram.value = program
             return
         }
