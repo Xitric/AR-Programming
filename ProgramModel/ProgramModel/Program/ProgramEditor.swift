@@ -12,9 +12,8 @@ import simd
 class ProgramEditor: ProgramEditorProtocol, ProgramState, BarcodeDetectorDelegate {
     
     private let factory: CardNodeFactory
-    private var currentProgram: Program?
     private let detector: BarcodeDetector
-    private var allStoredPrograms = [String:Program]()
+    private var allStoredPrograms = [String:ProgramProtocol]()
     
     weak var delegate: ProgramEditorDelegate?
     
@@ -37,10 +36,13 @@ class ProgramEditor: ProgramEditorProtocol, ProgramState, BarcodeDetectorDelegat
         detector.analyze(frame: frame, oriented: orientation, frameWidth: frameWidth, frameHeight: frameHeight)
     }
     
-    func saveProgram() {
-        if let cardIdentifier = currentProgram?.start?.card.internalName {
-            currentProgram?.state = self
-            allStoredPrograms[cardIdentifier] = currentProgram
+    func save(_ program: ProgramProtocol) {
+        if let cardIdentifier = program.start?.card.internalName {
+            if let program = program as? Program {
+                program.state = self
+            }
+            
+            allStoredPrograms[cardIdentifier] = program
         }
     }
     
@@ -68,6 +70,8 @@ class ProgramEditor: ProgramEditorProtocol, ProgramState, BarcodeDetectorDelegat
     }
     
     private func handleDetectedProgram(_ nodeSet: ObservationSet) {
+        var detectedProgram = Program(startNode: nil)
+        
         do {
             let graph = ObservationGraph(observationSet: nodeSet)
             let start = try ObservationGraphCardNodeBuilder()
@@ -75,10 +79,8 @@ class ProgramEditor: ProgramEditorProtocol, ProgramState, BarcodeDetectorDelegat
                 .createFrom(graph: graph)
                 .getResult()
             
-            currentProgram = Program(startNode: start)
+            detectedProgram = Program(startNode: start)
         } catch CardSequenceError.missingStart {
-            currentProgram = nil
-            
             //TODO: Call delegate when these errors occur a number of times? (to ensure accuracy)
         } catch CardSequenceError.unknownCode(let code) {
             print("Found unexpected code: \(code)")
@@ -88,11 +90,11 @@ class ProgramEditor: ProgramEditorProtocol, ProgramState, BarcodeDetectorDelegat
             print("Unexpected error")
         }
         
-        delegate?.programEditor(self, createdNew: currentProgram ?? Program(startNode: nil))
+        delegate?.programEditor(self, createdNew: detectedProgram)
     }
     
     //MARK: ProgramState
-    func getProgram(forCard card: Card) -> Program? {
+    func getProgram(forCard card: Card) -> ProgramProtocol? {
         return allStoredPrograms[card.internalName]
     }
 }

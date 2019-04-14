@@ -25,10 +25,12 @@ public protocol ProgramEditorProtocol {
     /// This contains all cards that are visible to the application. Some of these cards may be part of a program, while others may not.
     var allCards: [CardNodeProtocol] { get }
     
-    /// Saves the program currently being edited into the memory of this editor.
+    /// Saves the specified program in the memory of this editor.
     ///
     /// This will overwrite any existing program, if any, that shares the same function id as the program being saved. The function id of a program is represented by the first card in the sequence. This can be a start card or a function card.
-    func saveProgram()
+    ///
+    /// - Parameter program: The program to save.
+    func save(_ program: ProgramProtocol)
     
     /// Clears the memory of this editor, deleting all currently stored programs.
     func reset()

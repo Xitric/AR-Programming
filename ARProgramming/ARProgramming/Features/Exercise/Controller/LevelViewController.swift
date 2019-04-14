@@ -17,6 +17,18 @@ class LevelViewController: UIViewController, GameplayController {
     
     //MARK: - View
     @IBOutlet weak var levelInfo: SubtitleLabel!
+    @IBOutlet weak var resetButton: UIButton!
+    @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var programScrollView: UIScrollView! {
+        didSet {
+            programScrollView.addInteraction(UIDropInteraction(delegate: dropDelegate))
+        }
+    }
+    @IBOutlet weak var programView: ProgramView! {
+        didSet {
+            programView.programEditorViewModel = programEditorViewModel
+        }
+    }
     
     //MARK: - Injected properties
     var levelViewModel: LevelViewModel? {
@@ -31,13 +43,21 @@ class LevelViewController: UIViewController, GameplayController {
             }
         }
     }
-    var programEditor: ProgramEditorProtocol!
-    
-    //TODO
-    var dropDelegate: ProgramDropInteractionDelegate!
-    @IBOutlet weak var programWindow: UIView! {
+    var programEditorViewModel: ProgramEditorViewModeling! {
         didSet {
-            programWindow.addInteraction(UIDropInteraction(delegate: dropDelegate))
+            programEditorViewModel.running.onValue = { [weak self] running in
+                self?.resetButton.isEnabled = !running
+                self?.playButton.isEnabled = !running
+            }
+        }
+    }
+    var dropDelegate: ProgramDropInteractionDelegate! {
+        didSet {
+            dropDelegate.droppedProgram.onValue = { [weak self] program in
+                if let program = program {
+                    self?.programEditorViewModel.add(program: program)
+                }
+            }
         }
     }
     
@@ -51,55 +71,26 @@ class LevelViewController: UIViewController, GameplayController {
     private var winSound: AVAudioPlayer?
     private var pickupSound: AVAudioPlayer?
     
-    // MARK: - Button actions    
-//    @IBAction func detectCards(_ sender: UIButton) {
-//        programEditor?.saveProgram()
-//        programEditor?.main.delegate = self
-//
-//        executeButton.isHidden = false
-//        resetButton.isHidden = false
-//    }
+    // MARK: - Button actions
+    @IBAction func onReset(_ sender: UIButton) {
+        programEditorViewModel.reset()
+        levelViewModel?.levelModel?.reset() //TODO: Handle level reset by reloading level
+        onLevelChanged()
+    }
     
-//    @IBAction func executeSequence(_ sender: UIButton) {
-//        if let player = levelViewModel?.player {
-//            programEditor.main.run(on: player)
-//        }
-//    }
-    
-//    @IBAction func resetLevel(_ sender: UIButton) {
-//        levelViewModel?.levelModel?.reset() //TODO: Handle level reset by reloading level
-//        onLevelChanged()
-//    }
+    @IBAction func onPlay(_ sender: UIButton) {
+        if let player = levelViewModel?.player {
+            programEditorViewModel.start(on: player)
+        }
+    }
     
     private func onLevelChanged() {
-        programEditor?.main.delegate = nil
-        programEditor.reset()
+//        programEditor?.main.delegate = nil
+//        programEditor.reset()
         
         levelViewModel?.levelModel?.delegate = self
         let info = self.levelViewModel?.levelModel?.infoLabel
         levelInfo.text = info
-    }
-}
-
-// MARK: - ProgramDelegate
-extension LevelViewController: ProgramDelegate {
-    func programBegan(_ program: ProgramProtocol) {
-        DispatchQueue.main.async { [weak self] in
-//            self?.executeButton.isEnabled = false
-//            self?.resetButton.isEnabled = false
-        }
-    }
-    
-    //TODO: A method for when we are about to execute a card so that we can highlight it
-    func program(_ program: ProgramProtocol, executed card: Card) {
-        
-    }
-    
-    func programEnded(_ program: ProgramProtocol) {
-        DispatchQueue.main.async { [weak self] in
-//            self?.executeButton.isEnabled = true
-//            self?.resetButton.isEnabled = true
-        }
     }
 }
 

@@ -11,10 +11,18 @@ import ProgramModel
 
 class ProgramView: UIStackView {
     
-    var editor: ProgramEditorProtocol? {
+    var programEditorViewModel: ProgramEditorViewModeling! {
         didSet {
-            clear()
-            populateProgramView()
+            programEditorViewModel.programs.onValue = { [weak self] programs in
+                self?.clear()
+                self?.populateProgramView(with: programs)
+            }
+            
+            populateProgramView(with: programEditorViewModel.programs.value)
+            
+//            programEditorViewModel.activeCard.onValue = { [weak self] programs in
+//                //TODO: Highlight current card
+//            }
         }
     }
     
@@ -41,20 +49,19 @@ class ProgramView: UIStackView {
         }
     }
     
-    private func populateProgramView() {
-        guard let editor = editor else {
-            return
-        }
+    private func populateProgramView(with programs: [ProgramProtocol]) {
         
         //First add the main function to ensure it comes first
-        addArrangedSubview(createFunctionView(withProgram: editor.main))
-        
-        //Then add the remaining functions, if any
-        let programs = editor.allPrograms.filter {
-            $0 !== editor.main
+        if let main = programEditorViewModel.main.value {
+            addArrangedSubview(createFunctionView(withProgram: main))
         }
         
-        for program in programs {
+        //Then add the remaining functions, if any
+        let filteredPrograms = programs.filter {
+            $0 !== programEditorViewModel.main.value
+        }
+        
+        for program in filteredPrograms {
             addArrangedSubview(createFunctionView(withProgram: program))
         }
     }

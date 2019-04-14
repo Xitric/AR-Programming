@@ -63,8 +63,13 @@ class CardGraphDeserializer: CardGraphDeserializerProtocol {
         
         for function in functions {
             let set = makeObservationSet(fromFunction: function)
-            editor.barcodeDetector(found: set)
-            editor.saveProgram()
+            let graph = ObservationGraph(observationSet: set)
+            if let start = try? ObservationGraphCardNodeBuilder()
+                .using(factory: factory)
+                .createFrom(graph: graph)
+                .getResult() {
+                editor.save(Program(startNode: start))
+            }
         }
         
         return editor

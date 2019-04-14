@@ -78,33 +78,22 @@ class ExampleProgramViewController: UIViewController {
 }
 
 //MARK: - ExampleProgramSelectorDelegate
-extension ExampleProgramViewController: ExampleProgramSelectorDelegate, ProgramDelegate {
+extension ExampleProgramViewController: ExampleProgramSelectorDelegate {
     
-    func programSelected(program: ProgramProtocol) {
+    func editorSelected(editor: ProgramEditorViewModeling) {
         previewLevelViewModel.levelModel?.reset()
         exampleProgramTable.allowsSelection = false
-        program.delegate = self
+        
+        editor.running.onValue = { [weak self] running in
+            self?.exampleProgramTable.allowsSelection = !running
+        }
         
         DispatchQueue.main.asyncAfter(wallDeadline: DispatchWallTime.now() + 0.5) { [weak self] in
             if let entity = self?.previewLevelViewModel.player {
-                program.run(on: entity)
+                editor.start(on: entity)
             } else {
                 self?.exampleProgramTable.allowsSelection = true
             }
-        }
-    }
-    
-    func programBegan(_ program: ProgramProtocol) {
-        //Ignore
-    }
-    
-    func program(_ program: ProgramProtocol, executed card: Card) {
-        //Ignore
-    }
-    
-    func programEnded(_ program: ProgramProtocol) {
-        DispatchQueue.main.async { [weak self] in
-            self?.exampleProgramTable.allowsSelection = true
         }
     }
 }

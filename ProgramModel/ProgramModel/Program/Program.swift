@@ -36,14 +36,16 @@ class Program: ProgramProtocol {
             return
         }
         
+        delegate?.program(self, willExecute: node)
+        
         if let action = node.getAction(forEntity: entity, withProgramState: state) {
             currentAction = action
             action.run(onEntity: entity, withProgramDelegate: delegate) { [weak self] in
-                self?.delegate?.program(self!, executed: node.card)
+                self?.delegate?.program(self!, executed: node)
                 self?.run(node.next(), on: entity)
             }
         } else {
-            delegate?.program(self, executed: node.card)
+            delegate?.program(self, executed: node)
             run(node.next(), on: entity)
         }
     }

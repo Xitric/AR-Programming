@@ -20,7 +20,6 @@ class ARContainerViewController: UIViewController, GameplayController {
     @IBOutlet weak var arSceneView: ARSCNView! {
         didSet {
             arController.sceneView = arSceneView
-            arController.frameDelegate = self
         }
     }
     @IBOutlet weak var cardDetectionView: CardDetectionView! {
@@ -38,9 +37,13 @@ class ARContainerViewController: UIViewController, GameplayController {
             arController.updateDelegate = levelViewModel
         }
     }
-    var programEditor: ProgramEditorProtocol! {
+    var programEditorViewModel: ProgramEditorViewModeling! {
         didSet {
-            programEditor.delegate = self
+            programEditorViewModel.editedCards.onValue = { [weak self] programs in
+                self?.cardDetectionView.display(nodes: self!.programEditorViewModel.editedCards.value,
+                                          program: self?.programEditorViewModel.editedProgram.value)
+                self?.dragDelegate.currentProgram = self?.programEditorViewModel.editedProgram.value
+            }
         }
     }
     var arController: ARController!
@@ -70,21 +73,6 @@ class ARContainerViewController: UIViewController, GameplayController {
         self.navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
         self.navigationController?.navigationBar.shadowImage = nil
         self.navigationController?.navigationBar.tintColor = nil
-    }
-}
-
-// MARK: - FrameDelegate
-extension ARContainerViewController: FrameDelegate {
-    func frameScanner(_ scanner: ARController, didUpdate frame: CVPixelBuffer, withOrientation orientation: CGImagePropertyOrientation) {
-        programEditor.newFrame(frame, oriented: orientation, frameWidth: Double(UIScreen.main.bounds.width), frameHeight: Double(UIScreen.main.bounds.height))
-    }
-}
-
-// MARK: - ProgramEditorDelegate
-extension ARContainerViewController: ProgramEditorDelegate {
-    func programEditor(_ programEditor: ProgramEditorProtocol, createdNew program: ProgramProtocol) {
-        cardDetectionView.display(nodes: programEditor.allCards, program: program.start)
-        dragDelegate.currentProgram = program
     }
 }
 

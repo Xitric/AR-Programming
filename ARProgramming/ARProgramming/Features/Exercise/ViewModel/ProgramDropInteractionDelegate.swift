@@ -14,6 +14,8 @@ class ProgramDropInteractionDelegate: NSObject, UIDropInteractionDelegate {
     
     private let serializer: CardGraphDeserializerProtocol
     
+    let droppedProgram = ObservableProperty<ProgramProtocol?>()
+    
     init(serializer: CardGraphDeserializerProtocol) {
         self.serializer = serializer
     }
@@ -27,17 +29,21 @@ class ProgramDropInteractionDelegate: NSObject, UIDropInteractionDelegate {
     }
     
     func dropInteraction(_ interaction: UIDropInteraction, performDrop session: UIDropSession) {
+        //TODO: Do we need to allow internal movement of data?
+        //This does not get called :´(
         if let program = session.localDragSession?.localContext as? ProgramProtocol {
-            print(program.start?.card.internalName)
+            droppedProgram.value = program
             return
         }
         
         session.loadObjects(ofClass: DataItemProvider.self) { [weak self] results in
             if let result = results.first as? DataItemProvider,
-                let self = self {
-                let editor = try? self.serializer.deserialize(from: result.data)
-                let program = editor?.allPrograms.first
-                print(program?.start?.card.internalName)
+                let self = self,
+                let editor = try? self.serializer.deserialize(from: result.data),
+                let program = editor.allPrograms.first {
+                DispatchQueue.main.async { [weak self] in
+                    self?.droppedProgram.value = program
+                }
             }
         }
     }

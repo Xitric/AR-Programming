@@ -54,12 +54,12 @@ class CardDetectionView: PassThroughView {
         }
     }
     
-    func display(nodes: [CardNodeProtocol], program: CardNodeProtocol?) {
+    func display(nodes: [CardNodeProtocol], program: ProgramProtocol?) {
         nextOverlay = 0
         drawNodes(nodes)
         hideRemainingOverlays()
         
-        self.program = program
+        self.program = program?.start
         setNeedsDisplay()
     }
     

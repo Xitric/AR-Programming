@@ -65,8 +65,11 @@ extension SwinjectStoryboard {
     }
     
     private class func addLevel() {
-        defaultContainer.register(ARController.self) { _ in ARController() }
-            .inObjectScope(.container)
+        defaultContainer.register(ARController.self) { container in
+            let controller = ARController()
+            controller.frameDelegate = container.resolve(ProgramEditorViewModeling.self)!
+            return controller
+        }.inObjectScope(.container)
         
         defaultContainer.register(LevelViewModel.self) { container in
             LevelViewModel(wardrobe: container.resolve(WardrobeProtocol.self)!)
@@ -78,6 +81,10 @@ extension SwinjectStoryboard {
             return pvm
         }
         
+        defaultContainer.register(ProgramEditorViewModeling.self) { container in
+            ProgramEditorViewModel(editor: defaultContainer.resolve(ProgramEditorProtocol.self)!)
+        }.inObjectScope(.container)
+        
         defaultContainer.storyboardInitCompleted(LevelSelectViewController.self) { container, controller in
             let dataSource = LevelDataSource(levelRepository: container.resolve(LevelRepository.self)!)
             controller.dataSource = dataSource
@@ -85,10 +92,8 @@ extension SwinjectStoryboard {
             controller.levelViewModel = container.resolve(LevelViewModel.self)
         }
         
-        let programEditor = defaultContainer.resolve(ProgramEditorProtocol.self)
-        
         defaultContainer.storyboardInitCompleted(ARContainerViewController.self) { container, controller in
-            controller.programEditor = programEditor
+            controller.programEditorViewModel = container.resolve(ProgramEditorViewModeling.self)
             controller.arController = container.resolve(ARController.self)
             controller.dragDelegate = ProgramDragInteractionDelegate(serializer: container.resolve(CardGraphDeserializerProtocol.self)!)
         }
@@ -113,9 +118,7 @@ extension SwinjectStoryboard {
         
         defaultContainer.storyboardInitCompleted(LevelViewController.self) { container, controller in
             controller.audioController = container.resolve(AudioController.self)
-            controller.programEditor = programEditor
-            
-            //TODO
+            controller.programEditorViewModel = container.resolve(ProgramEditorViewModeling.self)
             controller.dropDelegate = ProgramDropInteractionDelegate(serializer: container.resolve(CardGraphDeserializerProtocol.self)!)
         }
     }
