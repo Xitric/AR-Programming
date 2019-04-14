@@ -32,9 +32,20 @@
                                     <segue destination="Pbx-vb-cHP" kind="embed" id="klG-fC-Rog"/>
                                 </connections>
                             </containerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z20-lV-mX9" customClass="ShadowedButton" customModule="ARProgramming" customModuleProvider="target">
+                                <rect key="frame" x="20" y="30" width="64" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="MEb-9I-Ihp"/>
+                                </constraints>
+                                <state key="normal" image="CloseIconInv"/>
+                                <connections>
+                                    <action selector="onBack:" destination="KUo-xe-Pty" eventType="touchUpInside" id="oKv-HP-sYD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="z20-lV-mX9" firstAttribute="leading" secondItem="zVx-cN-QfO" secondAttribute="leading" constant="20" id="1F8-sc-loC"/>
                             <constraint firstItem="TBB-6V-c8T" firstAttribute="top" secondItem="1lc-bQ-cvK" secondAttribute="top" id="3Q7-dd-KUc"/>
                             <constraint firstAttribute="bottom" secondItem="9iJ-Tx-N3A" secondAttribute="bottom" id="AGJ-x2-KHy"/>
                             <constraint firstItem="zVx-cN-QfO" firstAttribute="trailing" secondItem="TBB-6V-c8T" secondAttribute="trailing" id="HiZ-T9-z70"/>
@@ -42,6 +53,8 @@
                             <constraint firstItem="TBB-6V-c8T" firstAttribute="leading" secondItem="zVx-cN-QfO" secondAttribute="leading" id="LBQ-Vc-1Tk"/>
                             <constraint firstItem="9iJ-Tx-N3A" firstAttribute="top" secondItem="1lc-bQ-cvK" secondAttribute="top" id="RTn-FW-for"/>
                             <constraint firstItem="3kN-Py-6xm" firstAttribute="top" secondItem="1lc-bQ-cvK" secondAttribute="top" id="VNp-rD-geD"/>
+                            <constraint firstItem="z20-lV-mX9" firstAttribute="width" secondItem="z20-lV-mX9" secondAttribute="height" multiplier="1:1" id="Wat-nU-dMY"/>
+                            <constraint firstItem="z20-lV-mX9" firstAttribute="top" secondItem="1lc-bQ-cvK" secondAttribute="top" constant="30" id="d2j-qh-AK4"/>
                             <constraint firstAttribute="bottom" secondItem="TBB-6V-c8T" secondAttribute="bottom" id="fip-Pn-ojy"/>
                             <constraint firstItem="9iJ-Tx-N3A" firstAttribute="trailing" secondItem="zVx-cN-QfO" secondAttribute="trailing" id="p8Z-bF-eea"/>
                             <constraint firstItem="3kN-Py-6xm" firstAttribute="trailing" secondItem="zVx-cN-QfO" secondAttribute="trailing" id="qqx-Hp-YfG"/>
@@ -69,7 +82,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bPX-RM-Lik">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bPX-RM-Lik" customClass="ShadowedButton" customModule="ARProgramming" customModuleProvider="target">
                                 <rect key="frame" x="940" y="30" width="64" height="64"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="bPX-RM-Lik" secondAttribute="height" multiplier="1:1" id="HIF-Pd-B6m"/>
@@ -80,7 +93,7 @@
                                     <action selector="onPlay:" destination="YHe-0I-6P8" eventType="touchUpInside" id="KcK-Lp-dy2"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oSY-mL-31g">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oSY-mL-31g" customClass="ShadowedButton" customModule="ARProgramming" customModuleProvider="target">
                                 <rect key="frame" x="856" y="30" width="64" height="64"/>
                                 <state key="normal" image="ResetIconInv"/>
                                 <connections>
@@ -174,22 +187,17 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eub-3O-VUI">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eub-3O-VUI" customClass="RoundedButton" customModule="ARProgramming" customModuleProvider="target">
                                         <rect key="frame" x="948" y="68" width="60" height="60"/>
                                         <color key="backgroundColor" red="0.085386164489999999" green="0.48004096750000003" blue="0.9989228845" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="fP8-0n-f2W"/>
                                             <constraint firstAttribute="width" constant="60" id="t42-xo-lbd"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                        <state key="normal" title="✓">
+                                        <inset key="imageEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
+                                        <state key="normal" image="CloseIcon">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="30"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="back:" destination="v2U-1n-6tb" eventType="touchUpInside" id="nop-Gk-zle"/>
                                         </connections>
@@ -262,7 +270,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="text" value="Bevæg din iPad rundt for at finde en overflade."/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hTh-5f-7nh" userLabel="Detect">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hTh-5f-7nh" userLabel="Detect" customClass="RoundedButton" customModule="ARProgramming" customModuleProvider="target">
                                 <rect key="frame" x="427.5" y="688" width="169" height="60"/>
                                 <color key="backgroundColor" red="0.0" green="0.47934520244598389" blue="0.99908632040023804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -273,11 +281,6 @@
                                 <state key="normal" title="Placer">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="30"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="onPlaceAction:" destination="61L-0Y-icp" eventType="touchUpInside" id="DC1-uk-8Vu"/>
                                 </connections>
@@ -335,6 +338,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="CloseIcon" width="200" height="200"/>
+        <image name="CloseIconInv" width="200" height="200"/>
         <image name="PlayIconInv" width="200" height="200"/>
         <image name="ResetIconInv" width="200" height="200"/>
     </resources>

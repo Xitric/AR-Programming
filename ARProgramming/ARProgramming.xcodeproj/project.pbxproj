@@ -43,6 +43,7 @@
 		563B0FC122633D0800BFEAA4 /* ProgramEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563B0FC022633D0800BFEAA4 /* ProgramEditorViewModel.swift */; };
 		563B0FC322633FEF00BFEAA4 /* ObservableProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563B0FC222633FEF00BFEAA4 /* ObservableProperty.swift */; };
 		563B0FC5226374A200BFEAA4 /* ProgramsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563B0FC4226374A200BFEAA4 /* ProgramsViewModel.swift */; };
+		563B0FC7226388D200BFEAA4 /* ShadowedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563B0FC6226388D200BFEAA4 /* ShadowedButton.swift */; };
 		56413DFD220E2AC30064332E /* GameplayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56413DFC220E2AC30064332E /* GameplayController.swift */; };
 		56431D392232A82700BFAC36 /* UpdateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56431D382232A82700BFAC36 /* UpdateDelegate.swift */; };
 		56431D3D2232B5DB00BFAC36 /* LevelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56431D3C2232B5DB00BFAC36 /* LevelViewModel.swift */; };
@@ -158,6 +159,7 @@
 		563B0FC022633D0800BFEAA4 /* ProgramEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramEditorViewModel.swift; sourceTree = "<group>"; };
 		563B0FC222633FEF00BFEAA4 /* ObservableProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableProperty.swift; sourceTree = "<group>"; };
 		563B0FC4226374A200BFEAA4 /* ProgramsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramsViewModel.swift; sourceTree = "<group>"; };
+		563B0FC6226388D200BFEAA4 /* ShadowedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowedButton.swift; sourceTree = "<group>"; };
 		56413DFC220E2AC30064332E /* GameplayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameplayController.swift; sourceTree = "<group>"; };
 		56431D382232A82700BFAC36 /* UpdateDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDelegate.swift; sourceTree = "<group>"; };
 		56431D3C2232B5DB00BFAC36 /* LevelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelViewModel.swift; sourceTree = "<group>"; };
@@ -410,6 +412,7 @@
 				562ACDB422456D5900D2DA7C /* CardDetectionView.swift */,
 				562ACDB8224583DC00D2DA7C /* PassThroughView.swift */,
 				562FC97C224FCD87001678B2 /* RoundedButton.swift */,
+				563B0FC6226388D200BFEAA4 /* ShadowedButton.swift */,
 				562E68502252411700D07C69 /* ProgramView.swift */,
 			);
 			path = View;
@@ -745,6 +748,7 @@
 				901584C82199BDF400450E0B /* LevelViewController.swift in Sources */,
 				562E684D22522E4300D07C69 /* ExampleProgramTableViewCell.swift in Sources */,
 				56AEAC65221EC63800ACED36 /* SubtitleLabel.swift in Sources */,
+				563B0FC7226388D200BFEAA4 /* ShadowedButton.swift in Sources */,
 				901584CC2199C32100450E0B /* ARController.swift in Sources */,
 				905A3C842179BE54005E3AA5 /* FrameDelegate.swift in Sources */,
 				901584CA2199BE0200450E0B /* CardDescriptionViewController.swift in Sources */,

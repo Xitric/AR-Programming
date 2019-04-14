@@ -56,23 +56,21 @@ class ARContainerViewController: UIViewController, GameplayController {
         }
     }
     
+    @IBAction func onBack(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         arController?.start()
-        
-        //From https://stackoverflow.com/questions/25845855/transparent-navigation-bar-ios
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.tintColor = .white
+        self.navigationController?.navigationBar.isHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         arController?.stop()
-        
-        self.navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
-        self.navigationController?.navigationBar.shadowImage = nil
-        self.navigationController?.navigationBar.tintColor = nil
+        self.navigationController?.navigationBar.isHidden = false
     }
 }
 
