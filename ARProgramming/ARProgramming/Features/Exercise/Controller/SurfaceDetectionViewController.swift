@@ -15,6 +15,7 @@ class SurfaceDetectionViewController: UIViewController, GameplayController {
     @IBOutlet weak var surfaceDetectionLabel: SubtitleLabel!
     @IBOutlet weak var planePlacementLabel: SubtitleLabel!
     @IBOutlet weak var placeButton: UIButton!
+    @IBOutlet var surfacePlacementGesture: UITapGestureRecognizer!
     
     //MARK: - Injected properties
     weak var delegate: AuxiliaryExerciseViewDelegate?
@@ -35,6 +36,7 @@ class SurfaceDetectionViewController: UIViewController, GameplayController {
         
         planePlacementLabel.isHidden = false
         placeButton.isHidden = false
+        surfacePlacementGesture.isEnabled = true
     }
     
     @IBAction func onPlaceAction(_ sender: Any) {

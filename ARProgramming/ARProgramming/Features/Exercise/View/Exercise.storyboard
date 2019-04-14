@@ -263,8 +263,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" verticalHuggingPriority="1000" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SGy-Rb-GGZ" customClass="SubtitleLabel" customModule="ARProgramming" customModuleProvider="target">
-                                <rect key="frame" x="307" y="616.5" width="410.5" height="15.5"/>
+                            <view contentMode="scaleToFill" verticalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="SGy-Rb-GGZ" customClass="SubtitleLabel" customModule="ARProgramming" customModuleProvider="target">
+                                <rect key="frame" x="307" y="579.5" width="410.5" height="52.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="text" value="Bevæg din iPad rundt for at finde en overflade."/>
@@ -293,7 +293,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="461" placeholderIntrinsicHeight="461" translatesAutoresizingMaskIntoConstraints="NO" id="pS7-9z-jz1">
-                                <rect key="frame" x="205" y="199.5" width="614" height="369"/>
+                                <rect key="frame" x="205" y="163" width="614" height="368.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="pS7-9z-jz1" secondAttribute="height" multiplier="5:3" id="Ok7-sQ-rUh"/>
                                 </constraints>
@@ -322,13 +322,14 @@
                     </view>
                     <connections>
                         <outlet property="placeButton" destination="hTh-5f-7nh" id="w2b-81-a5b"/>
-                        <outlet property="planePlacementLabel" destination="LUR-h7-kMS" id="hKW-pS-eGV"/>
+                        <outlet property="planePlacementLabel" destination="LUR-h7-kMS" id="Y4h-aV-4mM"/>
                         <outlet property="surfaceDetectionAnimation" destination="pS7-9z-jz1" id="TTx-uU-sOr"/>
                         <outlet property="surfaceDetectionLabel" destination="SGy-Rb-GGZ" id="n1g-MX-gVe"/>
+                        <outlet property="surfacePlacementGesture" destination="ea1-Mc-T6M" id="wZd-5R-kR2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bin-dC-s0a" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="ea1-Mc-T6M">
+                <tapGestureRecognizer enabled="NO" id="ea1-Mc-T6M">
                     <connections>
                         <action selector="onPlaceAction:" destination="61L-0Y-icp" id="VjX-uu-yRd"/>
                     </connections>

@@ -39,7 +39,9 @@ class LevelViewController: UIViewController, GameplayController {
             
             levelViewModel?.levelInfo.onValue = { [weak self] info in
                 self?.levelInfo.text = info
+                self?.levelInfo.isHidden = (info == nil)
             }
+            levelInfo.isHidden = (levelViewModel?.levelInfo.value == nil)
             
             levelViewModel?.complete.onValue = { [weak self] complete in
                 if complete {
