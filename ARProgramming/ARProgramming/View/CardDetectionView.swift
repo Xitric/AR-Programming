@@ -15,7 +15,7 @@ class CardDetectionView: PassThroughView {
     private var overlays = [CardOverlay]()
     private var nextOverlay = 0
     
-    private var dotSize = 48.0
+    private var dotSizeFraction = 0.6
     private var program: CardNodeProtocol?
     
     weak var delegate: CardDetectionViewDelegate? {
@@ -74,12 +74,14 @@ class CardDetectionView: PassThroughView {
     override func draw(_ rect: CGRect) {
         guard let program = program else { return }
         
-        UIColor.blue.setFill()
-        UIColor.blue.setStroke()
+        UIColor.white.setFill()
+        UIColor.white.setStroke()
         drawProgramNode(program)
     }
     
     private func drawProgramNode(_ node: CardNodeProtocol) {
+        let dotSize = min(node.size.x, node.size.y) * dotSizeFraction
+        
         let circle = UIBezierPath(ovalIn: CGRect(
             x: node.position.x - dotSize / 2,
             y: Double(bounds.height) - node.position.y - dotSize / 2,

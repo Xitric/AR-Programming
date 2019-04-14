@@ -47,7 +47,7 @@ class FunctionView: UIView {
         let angle = CGFloat(node.entryAngle)
         let denominator = abs(cos(angle)) + abs(sin(angle))
         let x = parentPosition.x + cos(angle) / denominator
-        let y = parentPosition.y + sin(angle) / denominator
+        let y = parentPosition.y - sin(angle) / denominator
         
         let drawable = CardDrawable(imageName: imageName, x: x, y: y)
         nodesToDraw.append(drawable)
