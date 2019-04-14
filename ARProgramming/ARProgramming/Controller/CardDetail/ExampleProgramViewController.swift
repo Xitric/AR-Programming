@@ -46,9 +46,9 @@ class ExampleProgramViewController: UIViewController {
     //MARK: - Injected properties
     var tableDataSource: ExampleProgramTableDataSource!
     var levelRepository: LevelRepository!
-    var previewLevelViewModel: LevelViewModel! {
+    var previewLevelViewModel: LevelViewModeling! {
         didSet {
-            previewLevelViewModel.levelModel = levelRepository.emptylevel
+            previewLevelViewModel.display(level: levelRepository.emptylevel)
             
             //Add grid floor
             let ground = SCNNode(geometry: SCNPlane(width: 5, height: 5))
@@ -57,9 +57,9 @@ class ExampleProgramViewController: UIViewController {
             previewLevelViewModel.addNode(ground)
         }
     }
-    var gameLevelViewModel: LevelViewModel! {
+    var gameLevelViewModel: LevelViewModeling! {
         didSet {
-            gameLevelViewModel.levelModel = levelRepository.emptylevel
+            gameLevelViewModel.display(level: levelRepository.emptylevel)
         }
     }
     
@@ -81,7 +81,7 @@ class ExampleProgramViewController: UIViewController {
 extension ExampleProgramViewController: ExampleProgramSelectorDelegate {
     
     func editorSelected(editor: ProgramsViewModeling) {
-        previewLevelViewModel.levelModel?.reset()
+        previewLevelViewModel.reset()
         exampleProgramTable.allowsSelection = false
         
         editor.running.onValue = { [weak self] running in
@@ -101,6 +101,6 @@ extension ExampleProgramViewController: ExampleProgramSelectorDelegate {
 //MARK: - SCNSceneRendererDelegate
 extension ExampleProgramViewController: SCNSceneRendererDelegate {
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
-        previewLevelViewModel.levelModel?.update(currentTime: time)
+        previewLevelViewModel.update(currentTime: time)
     }
 }

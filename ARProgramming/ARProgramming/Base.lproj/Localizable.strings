@@ -7,9 +7,9 @@
 */
 
 // Basic card info
-"function0.name" = "Start";
-"function0.summary" = "Dit program starter her.";
-"function0.description" = "Brug dette kort til at bestemme hvor programmet starter. Alle programmer skal indeholde et startkort. Startkortet skal være det første kort i rækken.";
+"function0a.name" = "Start";
+"function0a.summary" = "Dit program starter her.";
+"function0a.description" = "Brug dette kort til at bestemme hvor programmet starter. Alle programmer skal indeholde et startkort. Startkortet skal være det første kort i rækken.";
 
 "move.name" = "Gå";
 "move.summary" = "Få robotten til at gå frem.";

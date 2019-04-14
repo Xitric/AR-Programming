@@ -19,7 +19,7 @@ class LevelSelectViewController: UIViewController, GradeViewController {
     }
     var levelRepository: LevelRepository!
     var dataSource: LevelDataSource!
-    var levelViewModel: LevelViewModel!
+    var levelViewModel: LevelViewModeling!
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -52,7 +52,7 @@ class LevelSelectViewController: UIViewController, GradeViewController {
     }
     
     @IBAction func freePlay(_ sender: UIButton) {
-        levelViewModel.levelModel = levelRepository.emptylevel
+        levelViewModel.display(level: levelRepository.emptylevel)
         performSegue(withIdentifier: "arContainerSegue", sender: self)
     }
 }
@@ -61,7 +61,7 @@ class LevelSelectViewController: UIViewController, GradeViewController {
 extension LevelSelectViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let levelCell = collectionView.cellForItem(at: indexPath) as? LevelCollectionViewCell {
-            levelViewModel.levelModel = levelCell.level
+            levelViewModel.display(level: levelCell.level)
             performSegue(withIdentifier: "arContainerSegue", sender: self)
         }
     }

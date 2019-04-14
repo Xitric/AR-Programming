@@ -25,7 +25,7 @@ class PlaneViewModel: PlaneDetectorDelegate {
     }()
     
     //MARK: - State
-    func placeLevel(_ level: LevelViewModel) {
+    func placeLevel(_ level: LevelViewModeling) {
         ground.removeFromParentNode()
         level.anchor(at: root)
     }

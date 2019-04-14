@@ -32,7 +32,7 @@ class ARContainerViewController: UIViewController, GameplayController {
     private var coordinationController: GameCoordinationViewController!
     
     //MARK: - Injected properties
-    var levelViewModel: LevelViewModel? {
+    var levelViewModel: LevelViewModeling? {
         didSet {
             arController.updateDelegate = levelViewModel
         }
@@ -77,6 +77,8 @@ class ARContainerViewController: UIViewController, GameplayController {
 // MARK: UICardRectDelegate
 extension ARContainerViewController: CardDetectionViewDelegate {
     func cardView(didPressCard card: Card?) {
-        coordinationController.goToCardDescriptionView(withCard: card)
+        if let card = card {
+            coordinationController.goToCardDescriptionView(withCard: card)
+        }
     }
 }

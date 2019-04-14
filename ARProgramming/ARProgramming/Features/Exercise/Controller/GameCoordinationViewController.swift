@@ -23,7 +23,7 @@ class GameCoordinationViewController: UIViewController, GameplayController {
     }
     
     //MARK: - Injected properties
-    var levelViewModel: LevelViewModel?
+    var levelViewModel: LevelViewModeling?
     var surfaceViewController: UIViewController!
     var levelViewController: UIViewController!
     var cardViewController: UIViewController!
@@ -64,7 +64,7 @@ class GameCoordinationViewController: UIViewController, GameplayController {
         showViewController(controller: surfaceViewController)
     }
     
-    func goToCardDescriptionView(withCard card: Card?) {
+    func goToCardDescriptionView(withCard card: Card) {
         showViewController(controller: cardViewController)
         if let descriptionView = childViewController as? CardDescriptionViewController {
             descriptionView.card = card

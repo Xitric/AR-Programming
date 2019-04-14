@@ -58,7 +58,7 @@ class ProgramTests: XCTestCase {
     //MARK: run
     func testRun_SimpleProgram() {
         //Arrange
-        let delegate = TestProgramDelegate(entity: entity, expectedCallbacks: "function0", "move", "right", "jump")
+        let delegate = TestProgramDelegate(entity: entity, expectedCallbacks: "function0a", "move", "right", "jump")
         program.delegate = delegate
         
         //Act

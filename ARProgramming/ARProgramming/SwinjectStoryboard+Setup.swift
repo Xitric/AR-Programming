@@ -59,15 +59,15 @@ extension SwinjectStoryboard {
         defaultContainer.storyboardInitCompleted(ExampleProgramViewController.self) { container, controller in
             controller.tableDataSource = ExampleProgramTableDataSource(deserializer: container.resolve(CardGraphDeserializerProtocol.self)!)
             controller.levelRepository = container.resolve(LevelRepository.self)
-            controller.previewLevelViewModel = container.resolve(LevelViewModel.self)
-            controller.gameLevelViewModel = container.resolve(LevelViewModel.self)
+            controller.previewLevelViewModel = container.resolve(LevelViewModeling.self)
+            controller.gameLevelViewModel = container.resolve(LevelViewModeling.self)
         }
     }
     
     private class func addLevel() {
         defaultContainer.register(ARController.self) { container in ARController() }.inObjectScope(.container)
         
-        defaultContainer.register(LevelViewModel.self) { container in
+        defaultContainer.register(LevelViewModeling.self) { container in
             LevelViewModel(wardrobe: container.resolve(WardrobeProtocol.self)!)
         }.inObjectScope(.transient)
         
@@ -93,7 +93,7 @@ extension SwinjectStoryboard {
             let dataSource = LevelDataSource(levelRepository: container.resolve(LevelRepository.self)!)
             controller.dataSource = dataSource
             controller.levelRepository = container.resolve(LevelRepository.self)
-            controller.levelViewModel = container.resolve(LevelViewModel.self)
+            controller.levelViewModel = container.resolve(LevelViewModeling.self)
         }
         
         defaultContainer.storyboardInitCompleted(ARContainerViewController.self) { container, controller in

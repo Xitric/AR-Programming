@@ -31,15 +31,20 @@ class LevelViewController: UIViewController, GameplayController {
     }
     
     //MARK: - Injected properties
-    var levelViewModel: LevelViewModel? {
+    var levelViewModel: LevelViewModeling? {
         didSet {
             //TODO: Can we move this responsibility elsewhere?
             //  Like always inject a new level object?
-            levelViewModel?.levelModel?.reset()
+            levelViewModel?.reset()
             
-            levelViewModel?.levelModel?.delegate = self
-            levelViewModel?.levelChanged = { [weak self] in
-                self?.onLevelChanged()
+            levelViewModel?.levelInfo.onValue = { [weak self] info in
+                self?.levelInfo.text = info
+            }
+            
+            levelViewModel?.complete.onValue = { [weak self] complete in
+                if complete {
+                    self?.winSound?.play()
+                }
             }
         }
     }
@@ -78,48 +83,12 @@ class LevelViewController: UIViewController, GameplayController {
     // MARK: - Button actions
     @IBAction func onReset(_ sender: UIButton) {
         programsViewModel.reset()
-        levelViewModel?.levelModel?.reset() //TODO: Handle level reset by reloading level
-        onLevelChanged()
+        levelViewModel?.reset()
     }
     
     @IBAction func onPlay(_ sender: UIButton) {
         if let player = levelViewModel?.player {
             programsViewModel.start(on: player)
-        }
-    }
-    
-    private func onLevelChanged() {
-//        programEditor?.main.delegate = nil
-//        programEditor.reset()
-        
-        levelViewModel?.levelModel?.delegate = self
-        let info = self.levelViewModel?.levelModel?.infoLabel
-        levelInfo.text = info
-    }
-}
-
-// MARK: - LevelDelegate
-extension LevelViewController: LevelDelegate {
-    
-    func levelCompleted(_ level: LevelProtocol) {
-        self.winSound?.play()
-        
-        DispatchQueue.main.async { [weak self] in
-//            self?.winLabel.isHidden = false
-//            self?.winDescription.isHidden = false
-        }
-    }
-    
-    func levelReset(_ level: LevelProtocol) {
-        DispatchQueue.main.async { [weak self] in
-//            self?.winLabel.isHidden = true
-//            self?.winDescription.isHidden = true
-        }
-    }
-    
-    func levelInfoChanged(_ level: LevelProtocol, info: String?) {
-        DispatchQueue.main.async { [weak self] in
-            self?.levelInfo.text = info
         }
     }
 }

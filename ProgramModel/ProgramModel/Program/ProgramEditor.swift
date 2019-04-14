@@ -18,7 +18,7 @@ class ProgramEditor: ProgramEditorProtocol, ProgramState, BarcodeDetectorDelegat
     weak var delegate: ProgramEditorDelegate?
     
     var main: ProgramProtocol {
-        return allStoredPrograms["function0"] ?? Program(startNode: nil)
+        return allStoredPrograms["function0a"] ?? Program(startNode: nil)
     }
     var allPrograms: [ProgramProtocol] {
         return Array(allStoredPrograms.values)

@@ -8,7 +8,7 @@
 
 import Foundation
 
-/// Protocol to implement on all controllers that need to share an instance of LevelViewModel.
+/// Protocol to implement on all controllers that need to share an instance of LevelViewModeling.
 protocol GameplayController: class {
-    var levelViewModel: LevelViewModel? { get set }
+    var levelViewModel: LevelViewModeling? { get set }
 }

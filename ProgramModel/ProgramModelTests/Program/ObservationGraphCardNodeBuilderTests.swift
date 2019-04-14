@@ -37,7 +37,7 @@ class ObservationGraphCardNodeBuilderTests: XCTestCase {
         
         //Assert
         XCTAssertNotNil(result)
-        XCTAssertEqual(result.card.internalName, "function0")
+        XCTAssertEqual(result.card.internalName, "function0a")
         XCTAssertNil(result.parent)
         XCTAssertEqual(result.successors.count, 1)
         XCTAssertEqual(result.children.count, 1)
@@ -151,7 +151,7 @@ class ObservationGraphCardNodeBuilderTests: XCTestCase {
         
         //Assert
         XCTAssertNotNil(result)
-        XCTAssertEqual(result.card.internalName, "function0")
+        XCTAssertEqual(result.card.internalName, "function0a")
         XCTAssertNil(result.parent)
         XCTAssertEqual(result.successors.count, 1)
         XCTAssertEqual(result.children.count, 1)

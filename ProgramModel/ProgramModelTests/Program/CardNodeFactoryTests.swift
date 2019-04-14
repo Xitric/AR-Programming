@@ -82,6 +82,8 @@ class CardNodeFactoryTests: XCTestCase {
         XCTAssertEqual(factory.cardCode(fromInternalName: "move"), "1")
         XCTAssertEqual(factory.cardCode(fromInternalName: "block"), "7")
         XCTAssertEqual(factory.cardCode(fromInternalName: "param2"), "9")
+        XCTAssertEqual(factory.cardCode(fromInternalName: "function1a"), "13")
+        XCTAssertEqual(factory.cardCode(fromInternalName: "function2b"), "14")
         XCTAssertNil(factory.cardCode(fromInternalName: "definitelyNotACard"))
     }
 }

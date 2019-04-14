@@ -44,6 +44,7 @@
 		563B0FC322633FEF00BFEAA4 /* ObservableProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563B0FC222633FEF00BFEAA4 /* ObservableProperty.swift */; };
 		563B0FC5226374A200BFEAA4 /* ProgramsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563B0FC4226374A200BFEAA4 /* ProgramsViewModel.swift */; };
 		563B0FC7226388D200BFEAA4 /* ShadowedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563B0FC6226388D200BFEAA4 /* ShadowedButton.swift */; };
+		563B0FC9226391F000BFEAA4 /* ImmutableObservableProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563B0FC8226391F000BFEAA4 /* ImmutableObservableProperty.swift */; };
 		56413DFD220E2AC30064332E /* GameplayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56413DFC220E2AC30064332E /* GameplayController.swift */; };
 		56431D392232A82700BFAC36 /* UpdateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56431D382232A82700BFAC36 /* UpdateDelegate.swift */; };
 		56431D3D2232B5DB00BFAC36 /* LevelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56431D3C2232B5DB00BFAC36 /* LevelViewModel.swift */; };
@@ -160,6 +161,7 @@
 		563B0FC222633FEF00BFEAA4 /* ObservableProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableProperty.swift; sourceTree = "<group>"; };
 		563B0FC4226374A200BFEAA4 /* ProgramsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramsViewModel.swift; sourceTree = "<group>"; };
 		563B0FC6226388D200BFEAA4 /* ShadowedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowedButton.swift; sourceTree = "<group>"; };
+		563B0FC8226391F000BFEAA4 /* ImmutableObservableProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmutableObservableProperty.swift; sourceTree = "<group>"; };
 		56413DFC220E2AC30064332E /* GameplayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameplayController.swift; sourceTree = "<group>"; };
 		56431D382232A82700BFAC36 /* UpdateDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDelegate.swift; sourceTree = "<group>"; };
 		56431D3C2232B5DB00BFAC36 /* LevelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelViewModel.swift; sourceTree = "<group>"; };
@@ -481,6 +483,7 @@
 				56A62B112231097E009D0E83 /* SCNNodeComponent.swift */,
 				562F2F22225355E100C46D83 /* Config.swift */,
 				563B0FC222633FEF00BFEAA4 /* ObservableProperty.swift */,
+				563B0FC8226391F000BFEAA4 /* ImmutableObservableProperty.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -787,6 +790,7 @@
 				905A3C92217A0891005E3AA5 /* LevelSelectViewController.swift in Sources */,
 				562F2F23225355E100C46D83 /* Config.swift in Sources */,
 				562ACDB9224583DC00D2DA7C /* PassThroughView.swift in Sources */,
+				563B0FC9226391F000BFEAA4 /* ImmutableObservableProperty.swift in Sources */,
 				C74785EB219427F8000148BC /* CardLibraryViewController.swift in Sources */,
 				905A3C94217A09D0005E3AA5 /* LevelCollectionViewCell.swift in Sources */,
 				90A55B0921A83B0700FD7CDD /* AudioController.swift in Sources */,

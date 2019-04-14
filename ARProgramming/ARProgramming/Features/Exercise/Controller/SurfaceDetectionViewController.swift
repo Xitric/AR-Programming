@@ -18,7 +18,7 @@ class SurfaceDetectionViewController: UIViewController, GameplayController {
     
     //MARK: - Injected properties
     weak var delegate: AuxiliaryExerciseViewDelegate?
-    var levelViewModel: LevelViewModel?
+    var levelViewModel: LevelViewModeling?
     var planeViewModel: PlaneViewModel! {
         didSet {
             planeViewModel.planeDetected = { [weak self] in
