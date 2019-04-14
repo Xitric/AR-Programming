@@ -19,7 +19,11 @@ class LevelViewModel: LevelViewModeling, LevelDelegate {
     private let wardrobe: WardrobeProtocol
     private let _level = ObservableProperty<LevelProtocol?>()
     private var modelLoader: EntityModelLoader?
-    private var levelView: SCNNode?
+    private let levelView: SCNNode = {
+        let node = SCNNode()
+        node.scale = SCNVector3(0.15, 0.15, 0.15)
+        return node
+    }()
     
     //MARK: - State
     var level: ImmutableObservableProperty<LevelProtocol?> {
@@ -39,34 +43,33 @@ class LevelViewModel: LevelViewModeling, LevelDelegate {
     func display(level: LevelProtocol?) {
         _level.value = level
         level?.delegate = self
-        
         complete.value = level?.isComplete() ?? false
         levelInfo.value = level?.infoLabel
         
-        //TODO: Repopulate existing scene node!
-        levelView = SCNNode()
-        levelView?.scale = SCNVector3(0.15, 0.15, 0.15)
+        clearSceneNode()
         
         if let levelModel = _level.value {
             modelLoader = EntityModelLoader(entityManager: levelModel.entityManager,
                                             wardrobe: wardrobe,
-                                            root: levelView!)
+                                            root: levelView)
         } else {
             modelLoader = nil
         }
     }
     
-    func anchor(at parent: SCNNode?) {
-        if let levelView = levelView {
-            levelView.removeFromParentNode()
-            parent?.addChildNode(levelView)
+    private func clearSceneNode() {
+        for child in levelView.childNodes {
+            child.removeFromParentNode()
         }
     }
     
+    func anchor(at parent: SCNNode?) {
+        levelView.removeFromParentNode()
+        parent?.addChildNode(levelView)
+    }
+    
     func addNode(_ node: SCNNode) {
-        if let levelView = levelView {
-            levelView.addChildNode(node)
-        }
+        levelView.addChildNode(node)
     }
     
     func reset() {
