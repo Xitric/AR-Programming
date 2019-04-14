@@ -18,7 +18,7 @@ class FunctionCardNode: CardNode {
         self.functionNumber = functionNumber
         self.isCaller = isCaller
         super.init(card: BasicCard(
-            internalName: "function\(functionNumber)",
+            internalName: "function\(functionNumber)\(isCaller ? "b" : "a")",
             type: .control,
             supportsParameter: false,
             requiresParameter: false,

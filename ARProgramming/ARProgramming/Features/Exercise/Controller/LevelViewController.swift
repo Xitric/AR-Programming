@@ -61,6 +61,10 @@ class LevelViewController: UIViewController, GameplayController {
         }
     }
     
+    deinit {
+        programsViewModel.reset()
+    }
+    
     //MARK: - Sound
     var audioController: AudioController? {
         didSet {

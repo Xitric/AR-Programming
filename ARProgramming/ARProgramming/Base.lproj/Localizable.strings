@@ -66,21 +66,21 @@
 "param4.summary" = "Tal for dit program.";
 "param4.description" = "Brug dette kort til at fortælle, at et gentagelseskort skal gentage sig 4 gange. Dette talkort skal placeres over eller under et gentagelseskort.";
 
-"function1.name" = "Gul Funktion";
-"function1.summary" = "Funktionskort for dit program.";
-"function1.description" = "";
+"function1a.name" = "Gul Funktion";
+"function1a.summary" = "Funktionskort for dit program.";
+"function1a.description" = "";
 
-"function2.name" = "Orange Funktion";
-"function2.summary" = "Funktionskort for dit program.";
-"function2.description" = "";
+"function2a.name" = "Orange Funktion";
+"function2a.summary" = "Funktionskort for dit program.";
+"function2a.description" = "";
 
-"function3.name" = "Blå Funktion";
-"function3.summary" = "Funktionskort for dit program.";
-"function3.description" = "";
+"function3a.name" = "Blå Funktion";
+"function3a.summary" = "Funktionskort for dit program.";
+"function3a.description" = "";
 
-"function4.name" = "Grøn Funktion";
-"function4.summary" = "Funktionskort for dit program.";
-"function4.description" = "";
+"function4a.name" = "Grøn Funktion";
+"function4a.summary" = "Funktionskort for dit program.";
+"function4a.description" = "";
 
 // Cross-cutting card info
 "cardType.control" = "Kontrol";
