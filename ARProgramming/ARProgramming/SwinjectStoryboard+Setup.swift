@@ -93,6 +93,11 @@ extension SwinjectStoryboard {
             ScoreManager(context: CoreDataRepository())
         }
         
+        defaultContainer.storyboardInitCompleted(BranchLevelSelectViewController.self) { container, controller in
+            controller.levelRepository = container.resolve(LevelRepository.self)
+            controller.levelViewModel = container.resolve(LevelViewModeling.self)
+        }
+        
         defaultContainer.storyboardInitCompleted(LevelSelectViewController.self) { container, controller in
             let dataSource = LevelDataSource(
                 levelRepository: container.resolve(LevelRepository.self)!,

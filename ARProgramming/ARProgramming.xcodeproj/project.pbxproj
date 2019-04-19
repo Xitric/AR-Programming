@@ -35,6 +35,7 @@
 		562CCA7F220D750100BF6A8D /* CGImagePropertyOrientation+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA7D220D750100BF6A8D /* CGImagePropertyOrientation+Helpers.swift */; };
 		562D86F7226A1242001A154E /* ScoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D86F6226A1242001A154E /* ScoreManager.swift */; };
 		562D86F9226A128E001A154E /* CardsForMaxScore.json in Resources */ = {isa = PBXBuildFile; fileRef = 562D86F8226A128E001A154E /* CardsForMaxScore.json */; };
+		562D86FB226A1BB0001A154E /* BranchLevelSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D86FA226A1BB0001A154E /* BranchLevelSelectViewController.swift */; };
 		562E684D22522E4300D07C69 /* ExampleProgramTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562E684C22522E4300D07C69 /* ExampleProgramTableViewCell.swift */; };
 		562E68512252411700D07C69 /* ProgramView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562E68502252411700D07C69 /* ProgramView.swift */; };
 		562F2F23225355E100C46D83 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562F2F22225355E100C46D83 /* Config.swift */; };
@@ -152,6 +153,7 @@
 		562CCA7D220D750100BF6A8D /* CGImagePropertyOrientation+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGImagePropertyOrientation+Helpers.swift"; sourceTree = "<group>"; };
 		562D86F6226A1242001A154E /* ScoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreManager.swift; sourceTree = "<group>"; };
 		562D86F8226A128E001A154E /* CardsForMaxScore.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CardsForMaxScore.json; sourceTree = "<group>"; };
+		562D86FA226A1BB0001A154E /* BranchLevelSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchLevelSelectViewController.swift; sourceTree = "<group>"; };
 		562E684C22522E4300D07C69 /* ExampleProgramTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleProgramTableViewCell.swift; sourceTree = "<group>"; };
 		562E68502252411700D07C69 /* ProgramView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramView.swift; sourceTree = "<group>"; };
 		562F2F22225355E100C46D83 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -462,6 +464,7 @@
 			isa = PBXGroup;
 			children = (
 				905A3C91217A0891005E3AA5 /* LevelSelectViewController.swift */,
+				562D86FA226A1BB0001A154E /* BranchLevelSelectViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -810,6 +813,7 @@
 				5621C83A221AE5F800756628 /* SCNVector3+Helpers.swift in Sources */,
 				56AFF2C822521F7000E854B1 /* ExampleProgramViewController.swift in Sources */,
 				56D8CC0522577D84004EE8B1 /* CardCollectionViewModel.swift in Sources */,
+				562D86FB226A1BB0001A154E /* BranchLevelSelectViewController.swift in Sources */,
 				56A62B1622310DA2009D0E83 /* simd_double3+Helpers.swift in Sources */,
 				901584C82199BDF400450E0B /* LevelViewController.swift in Sources */,
 				562E684D22522E4300D07C69 /* ExampleProgramTableViewCell.swift in Sources */,
