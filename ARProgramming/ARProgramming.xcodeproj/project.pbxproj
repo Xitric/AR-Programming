@@ -36,6 +36,10 @@
 		562D86F7226A1242001A154E /* ScoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D86F6226A1242001A154E /* ScoreManager.swift */; };
 		562D86F9226A128E001A154E /* CardsForMaxScore.json in Resources */ = {isa = PBXBuildFile; fileRef = 562D86F8226A128E001A154E /* CardsForMaxScore.json */; };
 		562D86FB226A1BB0001A154E /* BranchLevelSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D86FA226A1BB0001A154E /* BranchLevelSelectViewController.swift */; };
+		562D86FD226A202E001A154E /* CardDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 562D86FC226A202E001A154E /* CardDetail.storyboard */; };
+		562D86FF226A205D001A154E /* Library.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 562D86FE226A205D001A154E /* Library.storyboard */; };
+		562D8701226A2097001A154E /* LevelSelect.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 562D8700226A2097001A154E /* LevelSelect.storyboard */; };
+		562D8703226A20C5001A154E /* Wardrobe.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 562D8702226A20C5001A154E /* Wardrobe.storyboard */; };
 		562E684D22522E4300D07C69 /* ExampleProgramTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562E684C22522E4300D07C69 /* ExampleProgramTableViewCell.swift */; };
 		562E68512252411700D07C69 /* ProgramView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562E68502252411700D07C69 /* ProgramView.swift */; };
 		562F2F23225355E100C46D83 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562F2F22225355E100C46D83 /* Config.swift */; };
@@ -154,6 +158,10 @@
 		562D86F6226A1242001A154E /* ScoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreManager.swift; sourceTree = "<group>"; };
 		562D86F8226A128E001A154E /* CardsForMaxScore.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CardsForMaxScore.json; sourceTree = "<group>"; };
 		562D86FA226A1BB0001A154E /* BranchLevelSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchLevelSelectViewController.swift; sourceTree = "<group>"; };
+		562D86FC226A202E001A154E /* CardDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CardDetail.storyboard; sourceTree = "<group>"; };
+		562D86FE226A205D001A154E /* Library.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Library.storyboard; sourceTree = "<group>"; };
+		562D8700226A2097001A154E /* LevelSelect.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LevelSelect.storyboard; sourceTree = "<group>"; };
+		562D8702226A20C5001A154E /* Wardrobe.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Wardrobe.storyboard; sourceTree = "<group>"; };
 		562E684C22522E4300D07C69 /* ExampleProgramTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleProgramTableViewCell.swift; sourceTree = "<group>"; };
 		562E68502252411700D07C69 /* ProgramView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramView.swift; sourceTree = "<group>"; };
 		562F2F22225355E100C46D83 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -326,6 +334,7 @@
 		563B0FCE2263CCCF00BFEAA4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				562D86FE226A205D001A154E /* Library.storyboard */,
 				561083E7224A246F009A0039 /* CardCollectionViewHomeHeader.xib */,
 				561083E9224A2B11009A0039 /* CardCollectionViewSectionHeader.xib */,
 			);
@@ -335,6 +344,7 @@
 		563B0FCF2263CCE300BFEAA4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				562D86FC226A202E001A154E /* CardDetail.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -413,6 +423,7 @@
 		563B0FDB2263CF5D00BFEAA4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				562D8702226A20C5001A154E /* Wardrobe.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -446,6 +457,7 @@
 		563B0FDF2263CFF300BFEAA4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				562D8700226A2097001A154E /* LevelSelect.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -707,11 +719,15 @@
 				561083EA224A2B11009A0039 /* CardCollectionViewSectionHeader.xib in Resources */,
 				90DF7339216F442000F51E0C /* Assets.xcassets in Resources */,
 				561083E8224A246F009A0039 /* CardCollectionViewHomeHeader.xib in Resources */,
+				562D8703226A20C5001A154E /* Wardrobe.storyboard in Resources */,
 				90CDABC221773E2700664640 /* Meshes.scnassets in Resources */,
+				562D8701226A2097001A154E /* LevelSelect.storyboard in Resources */,
 				56720970226097250054BD52 /* MainMenu.storyboard in Resources */,
 				56216E502252162A00613486 /* ExamplePrograms in Resources */,
 				562D86F9226A128E001A154E /* CardsForMaxScore.json in Resources */,
+				562D86FF226A205D001A154E /* Library.storyboard in Resources */,
 				56AEAC63221EC4CF00ACED36 /* SubtitleLabel.xib in Resources */,
+				562D86FD226A202E001A154E /* CardDetail.storyboard in Resources */,
 				5672096C2260956E0054BD52 /* Exercise.storyboard in Resources */,
 				562F2F27225358CA00C46D83 /* cardClasses.json in Resources */,
 				90DF7337216F441E00F51E0C /* Main.storyboard in Resources */,
