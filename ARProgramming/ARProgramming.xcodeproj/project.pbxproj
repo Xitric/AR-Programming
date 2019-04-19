@@ -13,6 +13,7 @@
 		206A0CB822410FD80018E6B7 /* WardrobeManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206A0CB722410FD80018E6B7 /* WardrobeManagerTests.swift */; };
 		207DA723225F2891003AE8EC /* GradeCardConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207DA722225F2891003AE8EC /* GradeCardConfiguration.swift */; };
 		207DA725225F2934003AE8EC /* SwinjectStoryboard+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207DA724225F2933003AE8EC /* SwinjectStoryboard+Setup.swift */; };
+		2082BA1F2260C5F200069A91 /* BranchLevelSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2082BA1E2260C5F200069A91 /* BranchLevelSelectViewController.swift */; };
 		20D9BAD1225BF45400DCB87D /* LibraryGradesTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D9BAD0225BF45300DCB87D /* LibraryGradesTabBarController.swift */; };
 		20D9BAD3225C7E7B00DCB87D /* LevelClasses.json in Resources */ = {isa = PBXBuildFile; fileRef = 20D9BAD2225C7E7B00DCB87D /* LevelClasses.json */; };
 		20D9BAD6225C7EF300DCB87D /* LevelDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D9BAD5225C7EF300DCB87D /* LevelDataSource.swift */; };
@@ -116,6 +117,7 @@
 		206A0CB722410FD80018E6B7 /* WardrobeManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeManagerTests.swift; sourceTree = "<group>"; };
 		207DA722225F2891003AE8EC /* GradeCardConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradeCardConfiguration.swift; sourceTree = "<group>"; };
 		207DA724225F2933003AE8EC /* SwinjectStoryboard+Setup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SwinjectStoryboard+Setup.swift"; path = "ARProgramming/SwinjectStoryboard+Setup.swift"; sourceTree = SOURCE_ROOT; };
+		2082BA1E2260C5F200069A91 /* BranchLevelSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchLevelSelectViewController.swift; sourceTree = "<group>"; };
 		20D9BAD0225BF45300DCB87D /* LibraryGradesTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryGradesTabBarController.swift; sourceTree = "<group>"; };
 		20D9BAD2225C7E7B00DCB87D /* LevelClasses.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = LevelClasses.json; path = "../New Group/LevelClasses.json"; sourceTree = "<group>"; };
 		20D9BAD5225C7EF300DCB87D /* LevelDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelDataSource.swift; sourceTree = "<group>"; };
@@ -360,6 +362,7 @@
 				562ACDC02249657200D2DA7C /* Library */,
 				905A3C782179BDC3005E3AA5 /* Card */,
 				905A3C91217A0891005E3AA5 /* LevelSelectViewController.swift */,
+				2082BA1E2260C5F200069A91 /* BranchLevelSelectViewController.swift */,
 				562ACDCC224986F300D2DA7C /* GradesTabBarController.swift */,
 				56413DFC220E2AC30064332E /* GameplayController.swift */,
 				204AEC13220DCA1E00E0F624 /* ARContainerViewController.swift */,
@@ -658,6 +661,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				56A62B122231097E009D0E83 /* SCNNodeComponent.swift in Sources */,
+				2082BA1F2260C5F200069A91 /* BranchLevelSelectViewController.swift in Sources */,
 				562ACDCB22497F3400D2DA7C /* CardCollectionFlowLayoutDelegate.swift in Sources */,
 				562ACDC72249726C00D2DA7C /* CardCollectionViewSectionHeader.swift in Sources */,
 				56431D3D2232B5DB00BFAC36 /* LevelViewModel.swift in Sources */,

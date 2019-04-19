@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Eqa-iU-lTA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Eqa-iU-lTA">
     <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -69,7 +69,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="zJe-du-w5T" kind="show" id="mIL-VR-zPn"/>
+                                    <segue destination="8sd-0W-YAc" kind="show" id="8ZL-ik-MuJ"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AR Programming" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KNr-Qm-LG4">
@@ -263,44 +263,11 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x2r-Rw-u5c">
-                                <rect key="frame" x="0.0" y="650" width="1024" height="68"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JYw-QI-ZQr">
-                                        <rect key="frame" x="362" y="8" width="300" height="52"/>
-                                        <color key="backgroundColor" red="0.0" green="0.4793452024" blue="0.99908632040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="52" id="D6g-xc-unj"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="Fb9-Qk-sDJ"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <state key="normal" title="Frit spil">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="10"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="freePlay:" destination="WzJ-Qi-3T2" eventType="touchUpInside" id="e7H-9r-V9l"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="JYw-QI-ZQr" firstAttribute="centerY" secondItem="x2r-Rw-u5c" secondAttribute="centerY" id="OtS-Xd-hJ2"/>
-                                    <constraint firstItem="JYw-QI-ZQr" firstAttribute="centerX" secondItem="x2r-Rw-u5c" secondAttribute="centerX" id="iva-h7-VL0"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="x2r-Rw-u5c" firstAttribute="top" secondItem="3LD-7s-TaH" secondAttribute="bottom" constant="-68" id="LlQ-b0-nJC"/>
-                            <constraint firstItem="x2r-Rw-u5c" firstAttribute="leading" secondItem="Jzw-BA-Nyy" secondAttribute="leading" id="TdW-0v-rTo"/>
                             <constraint firstItem="U06-1X-lGY" firstAttribute="trailing" secondItem="3LD-7s-TaH" secondAttribute="trailing" id="Tdp-KA-lrM"/>
-                            <constraint firstItem="x2r-Rw-u5c" firstAttribute="bottom" secondItem="U06-1X-lGY" secondAttribute="bottom" id="Wdn-EI-Dfo"/>
                             <constraint firstItem="3LD-7s-TaH" firstAttribute="leading" secondItem="U06-1X-lGY" secondAttribute="leading" id="YRB-9c-H2r"/>
-                            <constraint firstAttribute="trailing" secondItem="x2r-Rw-u5c" secondAttribute="trailing" id="dSS-pK-8og"/>
                             <constraint firstItem="3LD-7s-TaH" firstAttribute="top" secondItem="U06-1X-lGY" secondAttribute="top" id="fp4-mZ-1lS"/>
                             <constraint firstItem="U06-1X-lGY" firstAttribute="bottom" secondItem="3LD-7s-TaH" secondAttribute="bottom" id="nFA-WD-41r"/>
                         </constraints>
@@ -310,7 +277,6 @@
                     <navigationItem key="navigationItem" title="Opgavemenu" id="B2b-lB-Lab"/>
                     <connections>
                         <outlet property="collectionView" destination="3LD-7s-TaH" id="738-ft-7T4"/>
-                        <outlet property="freePlayView" destination="x2r-Rw-u5c" id="dcO-FE-jQx"/>
                         <outlet property="levelSelectCollectionView" destination="3LD-7s-TaH" id="5iX-Mm-s3L"/>
                         <segue destination="KUo-xe-Pty" kind="show" identifier="arContainerSegue" id="YX8-mn-Rmn"/>
                     </connections>
@@ -631,18 +597,18 @@
             <objects>
                 <viewController id="KUo-xe-Pty" customClass="ARContainerViewController" customModule="ARProgramming" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1lc-bQ-cvK">
-                        <rect key="frame" x="0.0" y="0.0" width="944" height="462"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9iJ-Tx-N3A">
-                                <rect key="frame" x="0.0" y="0.0" width="944" height="462"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                             </arscnView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TBB-6V-c8T" customClass="CardDetectionView" customModule="ARProgramming" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="944" height="462"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3kN-Py-6xm" customClass="PassThroughView" customModule="ARProgramming" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="944" height="462"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <segue destination="Pbx-vb-cHP" kind="embed" id="klG-fC-Rog"/>
@@ -934,7 +900,7 @@
             <objects>
                 <viewController id="Pbx-vb-cHP" customClass="GameCoordinationViewController" customModule="ARProgramming" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CQX-0o-dL3" customClass="PassThroughView" customModule="ARProgramming" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="944" height="462"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="xVX-38-gwc"/>
@@ -974,7 +940,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="462" height="462"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ProgramExampleCell" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProgramExampleCell" id="w54-Sf-dAF" customClass="ExampleProgramTableViewCell" customModule="ARProgramming" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="ProgramExampleCell" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProgramExampleCell" id="w54-Sf-dAF" customClass="ExampleProgramTableViewCell" customModule="ARProgramming" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="462" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="w54-Sf-dAF" id="jUa-lG-ld2">
@@ -982,11 +948,11 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="390" placeholderIntrinsicHeight="64" translatesAutoresizingMaskIntoConstraints="NO" id="LGT-ef-wCa" customClass="ProgramView" customModule="ARProgramming" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="16" width="390" height="11.5"/>
+                                                    <rect key="frame" x="0.0" y="16" width="310" height="11.5"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
                                                 <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Km-jQ-DSe" customClass="RoundedButton" customModule="ARProgramming" customModuleProvider="target">
-                                                    <rect key="frame" x="398" y="-10.5" width="64" height="64.5"/>
+                                                    <rect key="frame" x="318" y="-10.5" width="64" height="64.5"/>
                                                     <color key="backgroundColor" red="0.085386164489999999" green="0.48004096750000003" blue="0.9989228845" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="64" id="DM6-o2-NL5"/>
@@ -1085,6 +1051,70 @@
             </objects>
             <point key="canvasLocation" x="2315.625" y="121.875"/>
         </scene>
+        <!--Branch Level Select View Controller-->
+        <scene sceneID="3fa-CX-Fb5">
+            <objects>
+                <viewController id="8sd-0W-YAc" customClass="BranchLevelSelectViewController" customModule="ARProgramming" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4Jd-DN-wto">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ELr-RW-aTI">
+                                <rect key="frame" x="307" y="222" width="410" height="100"/>
+                                <color key="backgroundColor" red="0.0" green="0.4793452024" blue="0.99908632040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="Hi2-GJ-dps"/>
+                                    <constraint firstAttribute="width" constant="410" id="UO9-11-gPH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="40"/>
+                                <state key="normal" title="Opgaver">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="zJe-du-w5T" kind="show" id="W9w-WE-mGG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hwy-am-ryi">
+                                <rect key="frame" x="307" y="448" width="410" height="100"/>
+                                <color key="backgroundColor" red="0.0" green="0.4793452024" blue="0.99908632040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="410" id="vuY-Gb-6et"/>
+                                    <constraint firstAttribute="height" constant="100" id="zT1-Jq-hUl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="40"/>
+                                <state key="normal" title="Frit spil">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="KUo-xe-Pty" kind="show" identifier="" id="UsR-jf-45V"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="uge-ab-Bqw" firstAttribute="bottom" secondItem="hwy-am-ryi" secondAttribute="bottom" constant="220" id="Gbn-zT-yEv"/>
+                            <constraint firstItem="hwy-am-ryi" firstAttribute="firstBaseline" relation="greaterThanOrEqual" secondItem="ELr-RW-aTI" secondAttribute="baseline" constant="48" symbolType="layoutAnchor" id="SAs-7w-5TD"/>
+                            <constraint firstItem="ELr-RW-aTI" firstAttribute="centerX" secondItem="uge-ab-Bqw" secondAttribute="centerX" id="eDQ-Jq-WjL"/>
+                            <constraint firstItem="ELr-RW-aTI" firstAttribute="top" secondItem="uge-ab-Bqw" secondAttribute="top" constant="152" id="hSE-8U-koQ"/>
+                            <constraint firstItem="hwy-am-ryi" firstAttribute="centerX" secondItem="uge-ab-Bqw" secondAttribute="centerX" id="tQo-mE-xzY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="uge-ab-Bqw"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aR6-54-SfX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2316" y="920"/>
+        </scene>
     </scenes>
     <resources>
         <image name="ClothesIcon" width="200" height="202"/>
@@ -1097,7 +1127,7 @@
         <image name="robo" width="540" height="540"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="JDz-zJ-pe2"/>
+        <segue reference="UsR-jf-45V"/>
         <segue reference="5e6-It-6Sx"/>
         <segue reference="Yql-JE-K7O"/>
     </inferredMetricsTieBreakers>
