@@ -46,15 +46,28 @@ class LevelViewController: UIViewController, GameplayController {
             levelViewModel?.complete.onValue = { [weak self] complete in
                 if complete {
                     self?.winSound?.play()
+                    
+                    if let levelNumber = self?.levelViewModel?.level.value?.levelNumber {
+                        self?.scoreManager.computeScore(level: levelNumber)
+                    }
                 }
             }
         }
     }
+    var scoreManager: ScoreProtocol!
     var programsViewModel: ProgramsViewModeling! {
         didSet {
             programsViewModel.running.onValue = { [weak self] running in
                 self?.resetButton.isEnabled = !running
                 self?.playButton.isEnabled = !running
+            }
+            
+            programsViewModel.executedCards.onValue = { [weak self] cardCount in
+                if cardCount == 0 {
+                    self?.scoreManager.resetScore()
+                } else {
+                    self?.scoreManager.incrementCardCount()
+                }
             }
         }
     }

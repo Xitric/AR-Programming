@@ -28,15 +28,12 @@ class LevelDataSource: NSObject, UICollectionViewDataSource {
             }
         }
     }
-    var levelRepository: LevelRepository!
+    let levelRepository: LevelRepository
+    let scoreManager: ScoreProtocol
     
-    init(levelRepository: LevelRepository) {
+    init(levelRepository: LevelRepository, scoreManager: ScoreProtocol) {
         self.levelRepository = levelRepository
-        
-        
-        
-        
-        
+        self.scoreManager = scoreManager
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -60,6 +57,7 @@ class LevelDataSource: NSObject, UICollectionViewDataSource {
                 levelCell.unlocked = level?.unlocked
             }
             
+            levelCell.score.text = score(levelNumber: level)
             levelCell.level = level
             levelCell.levelName.text = level?.name
             if let levelTypeString = level?.levelType {
@@ -67,6 +65,19 @@ class LevelDataSource: NSObject, UICollectionViewDataSource {
             }
         }
         return cell
+    }
+    
+    private func score(levelNumber: LevelProtocol?) -> String{
+        var score = "☆☆☆"
+        if let level = levelNumber {
+            let scoreCount = scoreManager.getScore(forLevel: level.levelNumber)
+            if scoreCount > 0 {
+                score = String(repeating: "⭐", count: scoreCount)
+                let blackStars = String(repeating: "☆", count: 3-scoreCount)
+                score.append(blackStars)
+            }
+        }
+        return score
     }
 }
 

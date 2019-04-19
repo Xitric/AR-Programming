@@ -33,6 +33,8 @@
 		562ACDCB22497F3400D2DA7C /* CardCollectionFlowLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562ACDCA22497F3400D2DA7C /* CardCollectionFlowLayoutDelegate.swift */; };
 		562ACDCD224986F300D2DA7C /* GradesTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562ACDCC224986F300D2DA7C /* GradesTabBarController.swift */; };
 		562CCA7F220D750100BF6A8D /* CGImagePropertyOrientation+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA7D220D750100BF6A8D /* CGImagePropertyOrientation+Helpers.swift */; };
+		562D86F7226A1242001A154E /* ScoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D86F6226A1242001A154E /* ScoreManager.swift */; };
+		562D86F9226A128E001A154E /* CardsForMaxScore.json in Resources */ = {isa = PBXBuildFile; fileRef = 562D86F8226A128E001A154E /* CardsForMaxScore.json */; };
 		562E684D22522E4300D07C69 /* ExampleProgramTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562E684C22522E4300D07C69 /* ExampleProgramTableViewCell.swift */; };
 		562E68512252411700D07C69 /* ProgramView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562E68502252411700D07C69 /* ProgramView.swift */; };
 		562F2F23225355E100C46D83 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562F2F22225355E100C46D83 /* Config.swift */; };
@@ -148,6 +150,8 @@
 		562ACDCA22497F3400D2DA7C /* CardCollectionFlowLayoutDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionFlowLayoutDelegate.swift; sourceTree = "<group>"; };
 		562ACDCC224986F300D2DA7C /* GradesTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradesTabBarController.swift; sourceTree = "<group>"; };
 		562CCA7D220D750100BF6A8D /* CGImagePropertyOrientation+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGImagePropertyOrientation+Helpers.swift"; sourceTree = "<group>"; };
+		562D86F6226A1242001A154E /* ScoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreManager.swift; sourceTree = "<group>"; };
+		562D86F8226A128E001A154E /* CardsForMaxScore.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CardsForMaxScore.json; sourceTree = "<group>"; };
 		562E684C22522E4300D07C69 /* ExampleProgramTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleProgramTableViewCell.swift; sourceTree = "<group>"; };
 		562E68502252411700D07C69 /* ProgramView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramView.swift; sourceTree = "<group>"; };
 		562F2F22225355E100C46D83 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -512,6 +516,8 @@
 				905A3C832179BE54005E3AA5 /* FrameDelegate.swift */,
 				56431D382232A82700BFAC36 /* UpdateDelegate.swift */,
 				905A3C872179BE74005E3AA5 /* PlaneDetectorDelegate.swift */,
+				562D86F6226A1242001A154E /* ScoreManager.swift */,
+				562D86F8226A128E001A154E /* CardsForMaxScore.json */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -701,6 +707,7 @@
 				90CDABC221773E2700664640 /* Meshes.scnassets in Resources */,
 				56720970226097250054BD52 /* MainMenu.storyboard in Resources */,
 				56216E502252162A00613486 /* ExamplePrograms in Resources */,
+				562D86F9226A128E001A154E /* CardsForMaxScore.json in Resources */,
 				56AEAC63221EC4CF00ACED36 /* SubtitleLabel.xib in Resources */,
 				5672096C2260956E0054BD52 /* Exercise.storyboard in Resources */,
 				562F2F27225358CA00C46D83 /* cardClasses.json in Resources */,
@@ -808,6 +815,7 @@
 				562E684D22522E4300D07C69 /* ExampleProgramTableViewCell.swift in Sources */,
 				56AEAC65221EC63800ACED36 /* SubtitleLabel.swift in Sources */,
 				563B0FC7226388D200BFEAA4 /* ShadowedButton.swift in Sources */,
+				562D86F7226A1242001A154E /* ScoreManager.swift in Sources */,
 				901584CC2199C32100450E0B /* ARController.swift in Sources */,
 				905A3C842179BE54005E3AA5 /* FrameDelegate.swift in Sources */,
 				901584CA2199BE0200450E0B /* CardDescriptionViewController.swift in Sources */,

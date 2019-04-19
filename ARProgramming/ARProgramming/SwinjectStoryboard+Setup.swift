@@ -89,8 +89,14 @@ extension SwinjectStoryboard {
             ProgramsViewModel(editor: programEditor)
         }
         
+        defaultContainer.register(ScoreProtocol.self) { _ in
+            ScoreManager(context: CoreDataRepository())
+        }
+        
         defaultContainer.storyboardInitCompleted(LevelSelectViewController.self) { container, controller in
-            let dataSource = LevelDataSource(levelRepository: container.resolve(LevelRepository.self)!)
+            let dataSource = LevelDataSource(
+                levelRepository: container.resolve(LevelRepository.self)!,
+                scoreManager: container.resolve(ScoreProtocol.self)!)
             controller.dataSource = dataSource
             controller.levelRepository = container.resolve(LevelRepository.self)
             controller.levelViewModel = container.resolve(LevelViewModeling.self)
@@ -122,6 +128,7 @@ extension SwinjectStoryboard {
         
         defaultContainer.storyboardInitCompleted(LevelViewController.self) { container, controller in
             controller.audioController = container.resolve(AudioController.self)
+            controller.scoreManager = container.resolve(ScoreProtocol.self)
             controller.programsViewModel = container.resolve(ProgramsViewModeling.self)
             controller.dropDelegate = ProgramDropInteractionDelegate(serializer: container.resolve(CardGraphDeserializerProtocol.self)!)
         }

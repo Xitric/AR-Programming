@@ -16,6 +16,7 @@ class ProgramsViewModel: ProgramsViewModeling, ProgramDelegate {
     let activeCard = ObservableProperty<CardNodeProtocol?>()
     let main: ObservableProperty<ProgramProtocol?>
     let programs: ObservableProperty<[ProgramProtocol]>
+    let executedCards = ObservableProperty<Int>(0)
     
     private var editor: ProgramEditorProtocol
     
@@ -47,12 +48,14 @@ class ProgramsViewModel: ProgramsViewModeling, ProgramDelegate {
     //MARK: - ProgramDelegate
     func programBegan(_ program: ProgramProtocol) {
         DispatchQueue.main.async { [weak self] in
+            self?.executedCards.value = 0
             self?.running.value = true
         }
     }
     
     func program(_ program: ProgramProtocol, willExecute cardNode: CardNodeProtocol) {
         DispatchQueue.main.async { [weak self] in
+            self?.executedCards.value += 1
             self?.activeCard.value = cardNode
         }
     }
@@ -76,6 +79,7 @@ protocol ProgramsViewModeling {
     var activeCard: ObservableProperty<CardNodeProtocol?> { get }
     var main: ObservableProperty<ProgramProtocol?> { get }
     var programs: ObservableProperty<[ProgramProtocol]> { get }
+    var executedCards: ObservableProperty<Int> { get }
     
     func start(on entity: Entity)
     func reset()
