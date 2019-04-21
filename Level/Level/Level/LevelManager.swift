@@ -28,24 +28,17 @@ class LevelManager: LevelRepository {
         self.levelFactories = factories
     }
     
-    func loadLevel(byName name: String) throws -> LevelProtocol {
+    func loadLevel(withNumber id: Int) throws -> LevelProtocol {
         guard let levelDirectoryUrl = levelDirectoryUrl
-            else { throw LevelLoadingError.noSuchLevel(levelName: name) }
+            else { throw LevelLoadingError.noSuchLevel(levelNumber: id) }
         
-        let url = levelDirectoryUrl.appendingPathComponent("\(name).json")
-        return try loadLevel(fromUrl: url)
-    }
-    
-    private func loadLevel(fromUrl url: URL) throws -> Level {
-        let jsonData: Data
-        
+        let url = levelDirectoryUrl.appendingPathComponent("Level\(id).json")
         do {
-            jsonData = try Data(contentsOf: url)
+            let jsonData = try Data(contentsOf: url)
+            return try loadLevel(fromData: jsonData)
         } catch {
-            throw LevelLoadingError.noSuchLevel(levelName: url.lastPathComponent)
+            throw LevelLoadingError.noSuchLevel(levelNumber: id)
         }
-        
-        return try loadLevel(fromData: jsonData)
     }
     
     private func loadLevel(fromData data: Data) throws -> Level {
@@ -72,28 +65,29 @@ class LevelManager: LevelRepository {
         throw LevelLoadingError.unsupportedLevelType(type: levelType)
     }
     
-    func loadAllLevels() throws -> [LevelProtocol] {
-        var levels = [Level]()
+    func loadPreviews(forLevels levelIds: [Int]) throws -> [LevelInfoProtocol] {
+        var levelPreviews = [LevelInfo]()
         
         guard let levelDirectoryUrl = levelDirectoryUrl
-            else { return levels }
+            else { return levelPreviews }
         
-        if let urls = try? FileManager.default.contentsOfDirectory(at: levelDirectoryUrl, includingPropertiesForKeys: nil) {
-            for url in urls {
-                let level = try loadLevel(fromUrl: url)
-                level.levelRepository = self
-                levels.append(level)
-            }
+        for id in levelIds {
+            let url = levelDirectoryUrl.appendingPathComponent("Level\(id).json")
+            let jsonData = try Data(contentsOf: url)
+            var levelInfo = try JSONDecoder().decode(LevelInfo.self, from: jsonData)
+            levelInfo.unlocked = isLevelUnlocked(withNumber: levelInfo.levelNumber)
             
-            levels.sort { a,b in
-                return a.levelNumber < b.levelNumber
-            }
-            
-            markLevel(withNumber: levels[0].levelNumber, asUnlocked: true, completion: nil)
-            levels[0].unlocked = true
+            levelPreviews.append(levelInfo)
         }
         
-        return levels
+        levelPreviews.sort { a,b in
+            return a.levelNumber < b.levelNumber
+        }
+        
+        markLevel(withNumber: levelPreviews[0].levelNumber, asUnlocked: true, completion: nil)
+        levelPreviews[0].unlocked = true
+        
+        return levelPreviews
     }
     
     private func isLevelUnlocked(withNumber levelNumber: Int) -> Bool {

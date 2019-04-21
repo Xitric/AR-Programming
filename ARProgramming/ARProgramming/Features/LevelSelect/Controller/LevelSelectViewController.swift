@@ -30,6 +30,12 @@ class LevelSelectViewController: UIViewController, GradeViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        dataSource.reloadData()
+        collectionView.reloadData()
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let gameplayController = segue.destination as? GameplayController {
             gameplayController.levelViewModel = levelViewModel
@@ -41,8 +47,10 @@ class LevelSelectViewController: UIViewController, GradeViewController {
 extension LevelSelectViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let levelCell = collectionView.cellForItem(at: indexPath) as? LevelCollectionViewCell {
-            levelViewModel.display(level: levelCell.level)
-            performSegue(withIdentifier: "arContainerSegue", sender: self)
+            if let level = try? levelRepository.loadLevel(withNumber: levelCell.levelNumber!) {
+                levelViewModel.display(level: level)
+                performSegue(withIdentifier: "arContainerSegue", sender: self)
+            }
         }
     }
 }

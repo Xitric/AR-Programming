@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1C02092AC18E8DF78D56F4B9 /* Pods_LevelTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D669D1B9F5300FC07B15E3D4 /* Pods_LevelTests.framework */; };
+		562D870B226A2317001A154E /* LevelInfoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D870A226A2317001A154E /* LevelInfoProtocol.swift */; };
+		562D870D226A233C001A154E /* LevelInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D870C226A233C001A154E /* LevelInfo.swift */; };
 		564553D0225C8A070084D97F /* CoreDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564553CF225C8A070084D97F /* CoreDataRepository.swift */; };
 		564553D3225C8A310084D97F /* LevelModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 564553D1225C8A310084D97F /* LevelModel.xcdatamodeld */; };
 		564553D8225C9E300084D97F /* XCTestCase+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564553D7225C9E300084D97F /* XCTestCase+Helpers.swift */; };
@@ -47,6 +49,8 @@
 
 /* Begin PBXFileReference section */
 		005380AE98BBA8ECCE8AE3AC /* Pods_Level.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Level.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		562D870A226A2317001A154E /* LevelInfoProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelInfoProtocol.swift; sourceTree = "<group>"; };
+		562D870C226A233C001A154E /* LevelInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelInfo.swift; sourceTree = "<group>"; };
 		564553CF225C8A070084D97F /* CoreDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataRepository.swift; sourceTree = "<group>"; };
 		564553D2225C8A310084D97F /* LevelModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LevelModel.xcdatamodel; sourceTree = "<group>"; };
 		564553D7225C9E300084D97F /* XCTestCase+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Helpers.swift"; sourceTree = "<group>"; };
@@ -182,6 +186,7 @@
 				564553CF225C8A070084D97F /* CoreDataRepository.swift */,
 				566066FA225C845600FB0FB0 /* QuantityComponent.swift */,
 				566066FD225C845600FB0FB0 /* InventoryComponent.swift */,
+				562D870C226A233C001A154E /* LevelInfo.swift */,
 			);
 			path = Level;
 			sourceTree = "<group>";
@@ -203,6 +208,7 @@
 				56606710225C84AE00FB0FB0 /* LevelProtocol.swift */,
 				56606712225C84C000FB0FB0 /* LevelRepository.swift */,
 				5660670E225C849F00FB0FB0 /* LevelServiceCollection.swift */,
+				562D870A226A2317001A154E /* LevelInfoProtocol.swift */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -411,6 +417,8 @@
 				56606704225C845700FB0FB0 /* CleanUpLevel.swift in Sources */,
 				564553D0225C8A070084D97F /* CoreDataRepository.swift in Sources */,
 				56606713225C84C000FB0FB0 /* LevelRepository.swift in Sources */,
+				562D870B226A2317001A154E /* LevelInfoProtocol.swift in Sources */,
+				562D870D226A233C001A154E /* LevelInfo.swift in Sources */,
 				56606711225C84AE00FB0FB0 /* LevelProtocol.swift in Sources */,
 				56606709225C845700FB0FB0 /* QuantityLevel.swift in Sources */,
 				56606706225C845700FB0FB0 /* LevelManager.swift in Sources */,
