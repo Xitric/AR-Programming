@@ -94,7 +94,7 @@ class ProgramEditor: ProgramEditorProtocol, ProgramState, BarcodeDetectorDelegat
     }
     
     //MARK: ProgramState
-    func getProgram(forCard card: Card) -> ProgramProtocol? {
-        return allStoredPrograms[card.internalName]
+    func getProgram(forCardWithName internalName: String) -> ProgramProtocol? {
+        return allStoredPrograms[internalName]
     }
 }

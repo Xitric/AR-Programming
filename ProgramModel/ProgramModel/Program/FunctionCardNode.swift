@@ -31,7 +31,8 @@ class FunctionCardNode: CardNode {
     
     override func getAction(forEntity entity: Entity, withProgramState state: ProgramState) -> Action? {
         if isCaller {
-            if let function = state.getProgram(forCard: card) {
+            let functionName = "function\(functionNumber)a"
+            if let function = state.getProgram(forCardWithName: functionName) {
                 return ProgramAction(program: function)
             }
         }
