@@ -45,6 +45,7 @@ class ExampleProgramTableDataSource: NSObject, UITableViewDataSource, UITableVie
         let row = tableView.dequeueReusableCell(withIdentifier: "ProgramExampleCell", for: indexPath)
         
         if let row = row as? ExampleProgramTableViewCell {
+            row.programView.scale = 100
             row.programView.programsViewModel = examples[indexPath.row]
         }
         
