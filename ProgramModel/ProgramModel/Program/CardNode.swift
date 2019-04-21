@@ -58,7 +58,7 @@ class CardNode: CardNodeProtocol {
     ///   - state: The complete state representation of the running program.
     /// - Returns: The action to be performed, or nil if this statement specifies no action.
     func getAction(forEntity entity: Entity, withProgramState state: ProgramState) -> Action? {
-        return nil
+        return WaitAction(waitTime: 1)
     }
     
     /// Get the next statement in the program.

@@ -33,10 +33,12 @@ class FunctionCardNode: CardNode {
         if isCaller {
             let functionName = "function\(functionNumber)a"
             if let function = state.getProgram(forCardWithName: functionName) {
-                return ProgramAction(program: function)
+                return CompoundAction(
+                    WaitAction(waitTime: 1),
+                    ProgramAction(program: function))
             }
         }
         
-        return nil
+        return WaitAction(waitTime: 1)
     }
 }

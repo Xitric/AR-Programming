@@ -19,14 +19,10 @@ class ProgramTests: XCTestCase {
     private var manager: EntityManager!
     
     override func setUp() {
-        var currentCard: CardNode = FunctionCardNode(functionNumber: 0, isCaller: false)
+        var currentCard: CardNode = SimpleActionCardNode(name: "move", action: MoveAction())
         programNodes = currentCard
         
-        var nextCard = SimpleActionCardNode(name: "move", action: MoveAction())
-        currentCard.addSuccessor(nextCard)
-        currentCard = nextCard
-        
-        nextCard = SimpleActionCardNode(name: "right", action: RotationAction(direction: .right))
+        var nextCard = SimpleActionCardNode(name: "right", action: RotationAction(direction: .right))
         currentCard.addSuccessor(nextCard)
         currentCard = nextCard
         
@@ -58,7 +54,7 @@ class ProgramTests: XCTestCase {
     //MARK: run
     func testRun_SimpleProgram() {
         //Arrange
-        let delegate = TestProgramDelegate(entity: entity, expectedCallbacks: "function0a", "move", "right", "jump")
+        let delegate = TestProgramDelegate(entity: entity, expectedCallbacks: "move", "right", "jump")
         program.delegate = delegate
         
         //Act

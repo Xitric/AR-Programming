@@ -11,6 +11,8 @@
 		560D20482257A1610015EC95 /* Double+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560D20472257A1610015EC95 /* Double+Helpers.swift */; };
 		560D204B2257A1AC0015EC95 /* Double+HelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560D204A2257A1AC0015EC95 /* Double+HelpersTests.swift */; };
 		560D20602257AD190015EC95 /* XCTestCase+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560D205F2257AD190015EC95 /* XCTestCase+Helpers.swift */; };
+		562D8713226CAD91001A154E /* WaitAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D8712226CAD91001A154E /* WaitAction.swift */; };
+		562D8715226CB145001A154E /* CompoundAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D8714226CB145001A154E /* CompoundAction.swift */; };
 		564553DA225CA98A0084D97F /* ObservationGraphCardNodeBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564553D9225CA98A0084D97F /* ObservationGraphCardNodeBuilderTests.swift */; };
 		56D8CAEA225778C8004EE8B1 /* ProgramModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56D8CAE0225778C8004EE8B1 /* ProgramModel.framework */; };
 		56D8CAF1225778C8004EE8B1 /* ProgramModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 56D8CAE3225778C8004EE8B1 /* ProgramModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -92,6 +94,8 @@
 		560D20472257A1610015EC95 /* Double+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Helpers.swift"; sourceTree = "<group>"; };
 		560D204A2257A1AC0015EC95 /* Double+HelpersTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+HelpersTests.swift"; sourceTree = "<group>"; };
 		560D205F2257AD190015EC95 /* XCTestCase+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Helpers.swift"; sourceTree = "<group>"; };
+		562D8712226CAD91001A154E /* WaitAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitAction.swift; sourceTree = "<group>"; };
+		562D8714226CB145001A154E /* CompoundAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompoundAction.swift; sourceTree = "<group>"; };
 		564553D9225CA98A0084D97F /* ObservationGraphCardNodeBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservationGraphCardNodeBuilderTests.swift; sourceTree = "<group>"; };
 		56D8CAE0225778C8004EE8B1 /* ProgramModel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ProgramModel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56D8CAE3225778C8004EE8B1 /* ProgramModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProgramModel.h; sourceTree = "<group>"; };
@@ -299,6 +303,8 @@
 				56D8CB8022577AD3004EE8B1 /* RotationAction.swift */,
 				56D8CB8122577AD3004EE8B1 /* ProgramAction.swift */,
 				56D8CB8222577AD3004EE8B1 /* Action.swift */,
+				562D8712226CAD91001A154E /* WaitAction.swift */,
+				562D8714226CB145001A154E /* CompoundAction.swift */,
 			);
 			path = Action;
 			sourceTree = "<group>";
@@ -572,6 +578,7 @@
 			files = (
 				56D8CB9522577AD4004EE8B1 /* CompoundActionComponent.swift in Sources */,
 				56EB87D4225B3A3F00B4894D /* CardNodeProtocol.swift in Sources */,
+				562D8713226CAD91001A154E /* WaitAction.swift in Sources */,
 				56D8CBAD22577AD4004EE8B1 /* LoopCardNode.swift in Sources */,
 				56D8CB9922577AD4004EE8B1 /* DropActionComponent.swift in Sources */,
 				56D8CBA322577AD4004EE8B1 /* SimpleActionCardNode.swift in Sources */,
@@ -609,6 +616,7 @@
 				56D8CB9F22577AD4004EE8B1 /* Action.swift in Sources */,
 				56EB87BC2258C34F00B4894D /* CardGraphDeserializerProtocol.swift in Sources */,
 				56D8CB9B22577AD4004EE8B1 /* ComponentAction.swift in Sources */,
+				562D8715226CB145001A154E /* CompoundAction.swift in Sources */,
 				56D8CBA522577AD4004EE8B1 /* CardSequenceError.swift in Sources */,
 				56EB87CE225B398700B4894D /* ProgramEditorProtocol.swift in Sources */,
 			);
