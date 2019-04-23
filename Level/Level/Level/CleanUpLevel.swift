@@ -30,7 +30,10 @@ class CleanUpLevel: Level {
     }
     
     override var infoLabel: String? {
-        return getCurrentInventoryComparedToGoal()
+        if !goalInventory.isEmpty {
+            return getCurrentInventoryComparedToGoal()
+        }
+        return nil
     }
     
     private func getCurrentInventoryComparedToGoal() -> String {
