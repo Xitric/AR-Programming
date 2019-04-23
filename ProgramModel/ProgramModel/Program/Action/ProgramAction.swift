@@ -14,9 +14,9 @@ class ProgramAction: Action, ProgramDelegate {
     private var delegate: ProgramDelegate?
     private var completion: (() -> Void)?
     
-    let program: Program
+    let program: ProgramProtocol
     
-    init(program: Program) {
+    init(program: ProgramProtocol) {
         self.program = program
     }
     
@@ -31,8 +31,12 @@ class ProgramAction: Action, ProgramDelegate {
         // Ignored
     }
     
-    func program(_ program: ProgramProtocol, executed card: Card) {
-        delegate?.program(program, executed: card)
+    func program(_ program: ProgramProtocol, willExecute cardNode: CardNodeProtocol) {
+        delegate?.program(program, willExecute: cardNode)
+    }
+    
+    func program(_ program: ProgramProtocol, executed cardNode: CardNodeProtocol) {
+        delegate?.program(program, executed: cardNode)
     }
     
     func programEnded(_ program: ProgramProtocol) {

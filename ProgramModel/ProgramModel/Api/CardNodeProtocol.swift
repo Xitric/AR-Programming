@@ -12,7 +12,7 @@ import simd
 /// A representation of a program statement.
 ///
 /// A CardNode will also contain information about its spatial location in relation to other CardNodes.
-public protocol CardNodeProtocol {
+public protocol CardNodeProtocol: class {
     
     var position: simd_double2 { get }
     var size: simd_double2 { get }

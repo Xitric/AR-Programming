@@ -9,5 +9,5 @@
 import Foundation
 
 protocol ProgramState: class {
-    func getProgram(forCard card: Card) -> Program?
+    func getProgram(forCard card: Card) -> ProgramProtocol?
 }

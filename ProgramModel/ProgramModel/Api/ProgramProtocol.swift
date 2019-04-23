@@ -27,7 +27,8 @@ public protocol ProgramProtocol: class {
 /// An object that can receive callbacks at various times during the execution of a program.
 public protocol ProgramDelegate: class {
     func programBegan(_ program: ProgramProtocol)
-    func program(_ program: ProgramProtocol, executed card: Card)
+    func program(_ program: ProgramProtocol, willExecute cardNode: CardNodeProtocol)
+    func program(_ program: ProgramProtocol, executed cardNode: CardNodeProtocol)
     func programEnded(_ program: ProgramProtocol)
 }
 
