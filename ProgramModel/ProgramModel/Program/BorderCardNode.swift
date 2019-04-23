@@ -65,7 +65,7 @@ class BorderCardNode: CardNode {
         
         if remainingRepeats > 0 {
             // We iterate back to the loop card
-            return loopCardNode.next()
+            return loopCardNode
         }
         
         // We are done iterating
