@@ -43,12 +43,12 @@ class LevelViewModel: LevelViewModeling, LevelDelegate {
     }
     
     func display(level: LevelProtocol?) {
+        clearSceneNode()
+        
         _level.value = level
         level?.delegate = self
         complete.value = level?.isComplete() ?? false
         levelInfo.value = level?.infoLabel
-        
-        clearSceneNode()
         
         if let levelModel = _level.value {
             modelLoader = EntityModelLoader(entityManager: levelModel.entityManager,
