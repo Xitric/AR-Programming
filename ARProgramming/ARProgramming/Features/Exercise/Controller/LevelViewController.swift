@@ -104,8 +104,8 @@ class LevelViewController: UIViewController, GameplayController {
     //MARK: - Sound
     var audioController: AudioController? {
         didSet {
-            winSound = audioController?.makeSound(withName: "win.wav")
-            pickupSound = audioController?.makeSound(withName: "pickup.wav")
+            winSound = audioController?.makeSound(withName: "Sounds/win.wav")
+            pickupSound = audioController?.makeSound(withName: "Sounds/pickup.wav")
         }
     }
     private var winSound: AVAudioPlayer?
