@@ -174,6 +174,9 @@ class CleanUpLevel: Level {
     
     
     override func isComplete() -> Bool {
+        if goalInventory.isEmpty {
+            return false
+        }
         for (entity, dict) in currentInventory {
             for (type, value) in dict {
                 var typeGoal = goalInventory[entity]!
