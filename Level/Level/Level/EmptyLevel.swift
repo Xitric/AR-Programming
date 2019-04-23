@@ -8,13 +8,16 @@
 
 import Foundation
 
-class EmptyLevel: Level {
+//No need for a separate Level subclass, since the Empty level does not do anything
+
+// MARK: - LevelFactory
+class EmptyLevelFactory: LevelFactory {
     
-    init() {
-        super.init(levelType: "Empty", name: "Frit spil", levelNumber: 0, unlocked: true, unlocks: nil)
+    func canReadLevel(ofType levelType: String) -> Bool {
+        return "empty" == levelType
     }
     
-    required init(from decoder: Decoder) throws {
-        fatalError("init(from:) has not been implemented")
+    func initLevel(json: Data) throws -> Level {
+        return try JSONDecoder().decode(Level.self, from: json)
     }
 }

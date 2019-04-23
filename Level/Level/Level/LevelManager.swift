@@ -20,7 +20,8 @@ class LevelManager: LevelRepository {
     }
     
     var emptylevel: LevelProtocol {
-        return EmptyLevel()
+        //This should absolutely never fail
+        return try! loadLevel(withNumber: 0)
     }
     
     init(context: CoreDataRepository, factories: [LevelFactory]) {

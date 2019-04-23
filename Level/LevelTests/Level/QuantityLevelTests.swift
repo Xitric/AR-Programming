@@ -121,29 +121,6 @@ class QuantityLevelTests: XCTestCase {
         wait(for: [delegate.completionExpectation], timeout: 1)
         XCTAssertTrue(level.isComplete())
     }
-    
-    //MARK: reset
-    func testReset() {
-        //Arrange
-        let delegate = LevelDelegateMock()
-        level.delegate = delegate
-        
-        playerInventory.add(quantity: 3, ofType: "mønter")
-        playerInventory.add(quantity: 1, ofType: "rubiner")
-        let collectibles = entityManager.getEntities(withComponents: QuantityComponent.self)
-        entityManager.removeEntity(collectibles[0])
-        entityManager.removeEntity(collectibles[2])
-        XCTAssertEqual(entityManager.getEntities(withComponents: QuantityComponent.self).count, 6)
-        
-        //Act
-        level.reset()
-        
-        //Assert
-        XCTAssertNil(playerInventory.quantities["mønter"])
-        XCTAssertNil(playerInventory.quantities["rubiner"])
-        XCTAssertEqual(entityManager.getEntities(withComponents: QuantityComponent.self).count, 8)
-        wait(for: [delegate.resetExpectation], timeout: 1)
-    }
 }
 
 class LevelDelegateMock: LevelDelegate {
