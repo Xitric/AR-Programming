@@ -12,22 +12,9 @@ import Level
 
 class LevelDataSource: NSObject, UICollectionViewDataSource {
     
-    private var levelsForGrade = [Int: [LevelProtocol]]()
+    private var levelPreviews: [LevelInfoProtocol]?
     
-    var grade: Int? {
-        didSet {
-            if let grade = grade {
-                levelsForGrade[grade] = []
-                let levelGradeConfig = Config.read(configFile: "LevelClasses", toType: LevelGradeConfig.self)!
-                let levelsForGrades = levelGradeConfig.levels
-                for levelName in levelsForGrades[grade-1]{
-                    if let level = try? levelRepository.loadLevel(byName: levelName) {
-                        levelsForGrade[grade]?.append(level)
-                    }
-                }
-            }
-        }
-    }
+    var grade: Int?
     let levelRepository: LevelRepository
     let scoreManager: ScoreProtocol
     
@@ -36,29 +23,25 @@ class LevelDataSource: NSObject, UICollectionViewDataSource {
         self.scoreManager = scoreManager
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if let grade = grade, let numberOfLevels = levelsForGrade[grade]?.count {
-            return numberOfLevels
+    func reloadData() {
+        if let grade = grade {
+            let levelGradeConfig = Config.read(configFile: "LevelClasses", toType: LevelGradeConfig.self)!
+            levelPreviews = try? levelRepository.loadPreviews(forLevels: levelGradeConfig.levels[grade-1])
         }
-        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return levelPreviews?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "levelCell", for: indexPath)
         
-        if let grade = grade, let levelCell = cell as? LevelCollectionViewCell {
-            let level = levelsForGrade[grade]?[indexPath.item]
-            if (indexPath.item == 0) {
-                if let level = level{
-                    levelRepository.markLevel(withNumber: level.levelNumber, asUnlocked: true, completion: nil)
-                    levelCell.unlocked = true
-                }
-            } else {
-                levelCell.unlocked = level?.unlocked
-            }
-            
-            levelCell.score.text = score(levelNumber: level)
-            levelCell.level = level
+        if let levelCell = cell as? LevelCollectionViewCell {
+            let level = levelPreviews?[indexPath.item]
+            levelCell.unlocked = level?.unlocked
+            levelCell.score.text = score(levelNumber: level!.levelNumber)
+            levelCell.levelNumber = level?.levelNumber
             levelCell.levelName.text = level?.name
             if let levelTypeString = level?.levelType {
                 levelCell.levelType.text = NSLocalizedString("levelType.\(levelTypeString)", comment: "")
@@ -67,20 +50,18 @@ class LevelDataSource: NSObject, UICollectionViewDataSource {
         return cell
     }
     
-    private func score(levelNumber: LevelProtocol?) -> String{
+    private func score(levelNumber: Int) -> String{
         var score = "☆☆☆"
-        if let level = levelNumber {
-            let scoreCount = scoreManager.getScore(forLevel: level.levelNumber)
-            if scoreCount > 0 {
-                score = String(repeating: "⭐", count: scoreCount)
-                let blackStars = String(repeating: "☆", count: 3-scoreCount)
-                score.append(blackStars)
-            }
+        let scoreCount = scoreManager.getScore(forLevel: levelNumber)
+        if scoreCount > 0 {
+            score = String(repeating: "⭐", count: scoreCount)
+            let blackStars = String(repeating: "☆", count: 3-scoreCount)
+            score.append(blackStars)
         }
         return score
     }
 }
 
 private struct LevelGradeConfig: Decodable {
-    let levels: [[String]]
+    let levels: [[Int]]
 }

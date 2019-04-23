@@ -30,7 +30,10 @@ class CleanUpLevel: Level {
     }
     
     override var infoLabel: String? {
-        return getCurrentInventoryComparedToGoal()
+        if !goalInventory.isEmpty {
+            return getCurrentInventoryComparedToGoal()
+        }
+        return nil
     }
     
     private func getCurrentInventoryComparedToGoal() -> String {
@@ -171,6 +174,9 @@ class CleanUpLevel: Level {
     
     
     override func isComplete() -> Bool {
+        if goalInventory.isEmpty {
+            return false
+        }
         for (entity, dict) in currentInventory {
             for (type, value) in dict {
                 var typeGoal = goalInventory[entity]!

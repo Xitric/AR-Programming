@@ -33,14 +33,11 @@ class LevelViewController: UIViewController, GameplayController {
     //MARK: - Injected properties
     var levelViewModel: LevelViewModeling? {
         didSet {
-            //TODO: Can we move this responsibility elsewhere?
-            //  Like always inject a new level object?
-            levelViewModel?.reset()
-            
             levelViewModel?.levelInfo.onValue = { [weak self] info in
                 self?.levelInfo.text = info
                 self?.levelInfo.isHidden = (info == nil)
             }
+            levelInfo.text = levelViewModel?.levelInfo.value
             levelInfo.isHidden = (levelViewModel?.levelInfo.value == nil)
             
             levelViewModel?.complete.onValue = { [weak self] complete in

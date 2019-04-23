@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="ipad9_7" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="Gjj-vR-fwo">
+            <objects>
+                <viewController id="OCY-82-Rbn" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bye-pO-oW0">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*Video*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lGi-QP-qfb">
+                                <rect key="frame" x="357.5" y="326.5" width="309" height="115"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="96"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="lGi-QP-qfb" firstAttribute="centerX" secondItem="bye-pO-oW0" secondAttribute="centerX" id="Xsa-JD-Xhi"/>
+                            <constraint firstItem="lGi-QP-qfb" firstAttribute="centerY" secondItem="bye-pO-oW0" secondAttribute="centerY" id="dWO-Jc-SU2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="72O-WL-f6S"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lIb-ZR-FxG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3051" y="-1384"/>
+        </scene>
+        <!--Bibliotek-->
+        <scene sceneID="5Ii-66-MJI">
+            <objects>
+                <tabBarController storyboardIdentifier="UITabBarController-BnG-xc-Ia5" title="Bibliotek" id="BnG-xc-Ia5" customClass="LibraryGradesTabBarController" customModule="ARProgramming" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hec-7f-LKB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Kmx-Ec-htG" kind="relationship" relationship="viewControllers" id="bBM-OD-Otv"/>
+                        <segue destination="Kmx-Ec-htG" kind="relationship" relationship="viewControllers" id="5e6-It-6Sx"/>
+                        <segue destination="Kmx-Ec-htG" kind="relationship" relationship="viewControllers" id="QbQ-1L-5hP"/>
+                        <segue destination="Kmx-Ec-htG" kind="relationship" relationship="viewControllers" id="eJp-UG-W80"/>
+                        <segue destination="OCY-82-Rbn" kind="show" identifier="HelpSegue" id="vsX-VW-M5P"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ncu-4I-wdg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2316" y="-605"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="9d5-SN-uIq">
+            <objects>
+                <viewController id="Kmx-Ec-htG" customClass="CardLibraryViewController" customModule="ARProgramming" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="L2h-L0-0S5">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7qX-ce-PT1">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="718"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bn6-xO-dM3">
+                                    <size key="itemSize" width="256" height="256"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CardCell" id="Tlx-02-3Ur" customClass="CardCollectionViewCell" customModule="ARProgramming" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="256" height="256"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="256" height="256"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gwN-O0-F3m">
+                                                    <rect key="frame" x="8" y="8" width="240" height="240"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="bottomMargin" secondItem="gwN-O0-F3m" secondAttribute="bottomMargin" constant="8" id="5d2-C8-zF6"/>
+                                            <constraint firstItem="gwN-O0-F3m" firstAttribute="leading" secondItem="Tlx-02-3Ur" secondAttribute="leading" constant="8" id="MbK-8L-ooG"/>
+                                            <constraint firstItem="gwN-O0-F3m" firstAttribute="trailing" secondItem="Tlx-02-3Ur" secondAttribute="trailingMargin" id="i2W-iF-PyD"/>
+                                            <constraint firstItem="gwN-O0-F3m" firstAttribute="top" secondItem="Tlx-02-3Ur" secondAttribute="top" constant="8" id="wgX-Id-oJY"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="image" destination="gwN-O0-F3m" id="jfF-1b-NPr"/>
+                                            <segue destination="fLm-rO-YH6" kind="show" identifier="CardDetailSegue" id="Aux-ei-e4P"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="7qX-ce-PT1" firstAttribute="trailing" secondItem="vTO-re-0dc" secondAttribute="trailing" id="DxP-4H-OiU"/>
+                            <constraint firstItem="7qX-ce-PT1" firstAttribute="bottom" secondItem="vTO-re-0dc" secondAttribute="bottom" id="LjK-i6-kTA"/>
+                            <constraint firstItem="7qX-ce-PT1" firstAttribute="leading" secondItem="vTO-re-0dc" secondAttribute="leading" id="fNF-Hz-b89"/>
+                            <constraint firstItem="7qX-ce-PT1" firstAttribute="top" secondItem="L2h-L0-0S5" secondAttribute="top" id="l9o-sS-XyO"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="vTO-re-0dc"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="b8b-Cm-kb2"/>
+                    <connections>
+                        <outlet property="cardCollectionView" destination="7qX-ce-PT1" id="G8V-72-Jo8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="en8-CW-xWB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3051" y="-605"/>
+        </scene>
+        <!--CardDetail-->
+        <scene sceneID="gIq-P0-27g">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CardDetail" id="fLm-rO-YH6" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7fS-5B-dkF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3523" y="-605"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="5e6-It-6Sx"/>
+    </inferredMetricsTieBreakers>
+</document>

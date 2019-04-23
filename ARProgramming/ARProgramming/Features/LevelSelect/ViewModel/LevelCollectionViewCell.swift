@@ -17,7 +17,7 @@ class LevelCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var levelType: UILabel!
     @IBOutlet weak var score: UILabel!
     
-    var level: LevelProtocol?
+    var levelNumber: Int?
     
     var unlocked: Bool? {
         didSet {
