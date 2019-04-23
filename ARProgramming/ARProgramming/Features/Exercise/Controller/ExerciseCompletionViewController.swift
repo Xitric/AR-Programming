@@ -12,8 +12,17 @@ import Level
 
 class ExerciseCompletionViewController: UIViewController {
     
+    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var noMoreExercisesLabel: UILabel!
+    
     //MARK: - Injected properties
-    var levelViewModel: LevelViewModeling?
+    var levelViewModel: LevelViewModeling? {
+        didSet {
+            let hasNextLevel = levelViewModel?.level.value?.unlocks != nil
+            nextButton.isHidden = !hasNextLevel
+            noMoreExercisesLabel.isHidden = hasNextLevel
+        }
+    }
     
     override func viewDidLoad() {
         view.translatesAutoresizingMaskIntoConstraints = false

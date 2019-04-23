@@ -372,7 +372,13 @@
                                     <action selector="onRestart" destination="bVf-3G-qTZ" eventType="touchUpInside" id="lHk-M7-VEf"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GES-Xl-Tb1" customClass="RoundedButton" customModule="ARProgramming" customModuleProvider="target">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Der er ikke flere opgaver" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ssh-o2-PNx">
+                                <rect key="frame" x="34.5" y="127.5" width="331" height="38.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GES-Xl-Tb1" customClass="RoundedButton" customModule="ARProgramming" customModuleProvider="target">
                                 <rect key="frame" x="36" y="119" width="328" height="55"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
@@ -397,6 +403,8 @@
                             <constraint firstItem="o4i-Mg-HgW" firstAttribute="centerX" secondItem="EYF-YC-Z61" secondAttribute="centerX" id="Yb3-99-c8Y"/>
                             <constraint firstItem="6kh-qz-Dp0" firstAttribute="centerX" secondItem="EYF-YC-Z61" secondAttribute="centerX" id="bB4-4L-eNX"/>
                             <constraint firstItem="GES-Xl-Tb1" firstAttribute="centerX" secondItem="EYF-YC-Z61" secondAttribute="centerX" id="f1f-46-qDR"/>
+                            <constraint firstItem="ssh-o2-PNx" firstAttribute="centerY" secondItem="GES-Xl-Tb1" secondAttribute="centerY" id="h8M-7d-CMH"/>
+                            <constraint firstItem="ssh-o2-PNx" firstAttribute="centerX" secondItem="GES-Xl-Tb1" secondAttribute="centerX" id="iwz-l9-bA6"/>
                             <constraint firstItem="o4i-Mg-HgW" firstAttribute="top" secondItem="GES-Xl-Tb1" secondAttribute="bottom" constant="20" id="nfV-zF-lRT"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -405,6 +413,10 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
+                    <connections>
+                        <outlet property="nextButton" destination="GES-Xl-Tb1" id="MvB-XP-TXg"/>
+                        <outlet property="noMoreExercisesLabel" destination="ssh-o2-PNx" id="twX-51-bXm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GSe-eB-T6l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
