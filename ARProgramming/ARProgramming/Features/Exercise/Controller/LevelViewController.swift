@@ -29,6 +29,9 @@ class LevelViewController: UIViewController, GameplayController {
             programView.programsViewModel = programsViewModel
         }
     }
+    @IBOutlet weak var exerciseCompletionView: UIView!
+    
+    private var exerciseCompletionController: ExerciseCompletionViewController?
     
     //MARK: - Injected properties
     var levelViewModel: LevelViewModeling? {
@@ -48,7 +51,17 @@ class LevelViewController: UIViewController, GameplayController {
                         self?.scoreManager.computeScore(level: levelNumber)
                     }
                 }
+                
+                self?.exerciseCompletionView.isHidden = !complete
             }
+            
+            levelViewModel?.level.onValue = { [weak self] level in
+                self?.resetButton.isEnabled = true
+                self?.playButton.isEnabled = true
+                self?.programsViewModel.reset()
+            }
+            
+            exerciseCompletionController?.levelViewModel = levelViewModel
         }
     }
     var scoreManager: ScoreProtocol!
@@ -80,6 +93,12 @@ class LevelViewController: UIViewController, GameplayController {
     
     deinit {
         programsViewModel.reset()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let view = segue.destination as? ExerciseCompletionViewController {
+            exerciseCompletionController = view
+        }
     }
     
     //MARK: - Sound

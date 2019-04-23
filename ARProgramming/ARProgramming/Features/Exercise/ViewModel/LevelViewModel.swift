@@ -17,6 +17,7 @@ import Level
 class LevelViewModel: LevelViewModeling, LevelDelegate {
     
     private let wardrobe: WardrobeProtocol
+    private let repository: LevelRepository
     private let _level = ObservableProperty<LevelProtocol?>()
     private var modelLoader: EntityModelLoader?
     private let levelView: SCNNode = {
@@ -36,8 +37,9 @@ class LevelViewModel: LevelViewModeling, LevelDelegate {
     }
     
     //MARK: - Init
-    init(wardrobe: WardrobeProtocol) {
+    init(wardrobe: WardrobeProtocol, levelRepository: LevelRepository) {
         self.wardrobe = wardrobe
+        self.repository = levelRepository
     }
     
     func display(level: LevelProtocol?) {
@@ -73,7 +75,19 @@ class LevelViewModel: LevelViewModeling, LevelDelegate {
     }
     
     func reset() {
-        _level.value?.reset()
+        if let levelNumber = _level.value?.levelNumber {
+            if let newLevel = try? repository.loadLevel(withNumber: levelNumber) {
+                display(level: newLevel)
+            }
+        }
+    }
+    
+    func goToNext() {
+        if let nextLevelNumber = _level.value?.unlocks {
+            if let nextLevel = try? repository.loadLevel(withNumber: nextLevelNumber) {
+                display(level: nextLevel)
+            }
+        }
     }
     
     //MARK: - UpdateDelegate
@@ -124,7 +138,9 @@ protocol LevelViewModeling: UpdateDelegate {
     /// - Parameter node: The node to add.
     func addNode(_ node: SCNNode)
     
-    
     /// Reset the current level.
     func reset()
+    
+    /// Load and display the level that follows the currently displayed level.
+    func goToNext()
 }
