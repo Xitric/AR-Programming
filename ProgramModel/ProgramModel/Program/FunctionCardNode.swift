@@ -31,11 +31,14 @@ class FunctionCardNode: CardNode {
     
     override func getAction(forEntity entity: Entity, withProgramState state: ProgramState) -> Action? {
         if isCaller {
-            if let function = state.getProgram(forCard: card) {
-                return ProgramAction(program: function)
+            let functionName = "function\(functionNumber)a"
+            if let function = state.getProgram(forCardWithName: functionName) {
+                return CompoundAction(
+                    WaitAction(waitTime: 1),
+                    ProgramAction(program: function))
             }
         }
         
-        return nil
+        return WaitAction(waitTime: 1)
     }
 }

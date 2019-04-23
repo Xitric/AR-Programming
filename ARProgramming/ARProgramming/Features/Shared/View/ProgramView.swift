@@ -13,6 +13,7 @@ class ProgramView: UIStackView {
     
     var programsViewModel: ProgramsViewModeling! {
         didSet {
+            clear()
             programsViewModel.programs.onValue = { [weak self] programs in
                 self?.clear()
                 self?.populateProgramView(with: programs)
@@ -25,6 +26,7 @@ class ProgramView: UIStackView {
             }
         }
     }
+    var scale: CGFloat?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -72,6 +74,9 @@ class ProgramView: UIStackView {
         fv.setContentCompressionResistancePriority(.required, for: .vertical)
         fv.backgroundColor = .clear
         
+        if let scale = scale {
+            fv.scale = scale
+        }
         fv.program = program
         
         return fv

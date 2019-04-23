@@ -36,6 +36,8 @@ class ObservationGraph {
             $0 != node
                 && !isConnected($0)
                 && simd_distance(node.position, $0.position) < maximumConnectionDistance
+        }.sorted {
+            simd_distance(node.position, $0.position) < simd_distance(node.position, $1.position)
         }
     }
     

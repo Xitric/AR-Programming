@@ -10,6 +10,7 @@ import Foundation
 
 public protocol LevelRepository {
     var emptylevel: LevelProtocol { get }
+    var levelWithItem: LevelProtocol { get }
     
     func loadLevel(withNumber id: Int) throws -> LevelProtocol
     func markLevel(withNumber id: Int, asUnlocked unlocked: Bool, completion: (() -> Void)?)

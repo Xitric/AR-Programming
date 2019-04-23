@@ -195,8 +195,6 @@
                         <outlet property="descriptionLabel" destination="NiK-sB-k8X" id="5yM-jF-s70"/>
                         <outlet property="parameterLabel" destination="SAX-h3-jy3" id="97m-hQ-kAV"/>
                         <outlet property="previewImage" destination="gEs-Av-2Nk" id="dAJ-ld-Zcs"/>
-                        <outlet property="programExampleTable" destination="ZqU-ys-R9J" id="3jh-oZ-ilb"/>
-                        <outlet property="sceneView" destination="fcY-9R-Nt8" id="yCN-Nj-JMg"/>
                         <outlet property="scrollView" destination="JXb-o2-n6a" id="WTs-Ga-sWI"/>
                         <outlet property="summaryLabel" destination="Tzs-hP-f2R" id="hwc-6c-9SE"/>
                         <outlet property="titleLabel" destination="ePW-B4-8Ni" id="5Dy-UU-CIh"/>
@@ -207,31 +205,103 @@
             </objects>
             <point key="canvasLocation" x="3773.4374999999995" y="-605.46875"/>
         </scene>
+        <!--Eksempel-->
+        <scene sceneID="EOm-h8-mE8">
+            <objects>
+                <viewController id="pcY-cB-9Rs" customClass="ExamplePreviewViewController" customModule="ARProgramming" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fZ6-QU-HGY">
+                        <rect key="frame" x="0.0" y="0.0" width="944" height="462"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fcY-9R-Nt8">
+                                <rect key="frame" x="0.0" y="20" width="944" height="302"/>
+                            </sceneKitView>
+                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="904" placeholderIntrinsicHeight="100" translatesAutoresizingMaskIntoConstraints="NO" id="dCV-CA-a6Z" customClass="ProgramView" customModule="ARProgramming" customModuleProvider="target">
+                                <rect key="frame" x="20" y="342" width="904" height="100"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9UN-A7-gEh" customClass="RoundedButton" customModule="ARProgramming" customModuleProvider="target">
+                                <rect key="frame" x="860" y="30" width="64" height="64"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="9UN-A7-gEh" secondAttribute="height" multiplier="1:1" id="6rl-fq-W4L"/>
+                                    <constraint firstAttribute="height" constant="64" id="ks8-8o-QTt"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
+                                <state key="normal" image="PlayIcon"/>
+                                <connections>
+                                    <action selector="onPlay:" destination="pcY-cB-9Rs" eventType="touchUpInside" id="snw-Tb-MXW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YCk-6p-LlK" customClass="RoundedButton" customModule="ARProgramming" customModuleProvider="target">
+                                <rect key="frame" x="20" y="30" width="64" height="64"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="YCk-6p-LlK" secondAttribute="height" multiplier="1:1" id="ebw-Km-CoT"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
+                                <state key="normal" image="CloseIcon"/>
+                                <connections>
+                                    <action selector="onDismiss:" destination="pcY-cB-9Rs" eventType="touchUpInside" id="4ua-ZB-TVv"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="fcY-9R-Nt8" firstAttribute="leading" secondItem="dX7-wV-EPe" secondAttribute="leading" id="9RO-ua-nOa"/>
+                            <constraint firstItem="YCk-6p-LlK" firstAttribute="leading" secondItem="dX7-wV-EPe" secondAttribute="leading" constant="20" id="AJg-Pb-utm"/>
+                            <constraint firstItem="dX7-wV-EPe" firstAttribute="trailing" secondItem="9UN-A7-gEh" secondAttribute="trailing" constant="20" id="YDi-2H-RBF"/>
+                            <constraint firstItem="YCk-6p-LlK" firstAttribute="top" secondItem="dX7-wV-EPe" secondAttribute="top" constant="10" id="acj-2e-eFm"/>
+                            <constraint firstItem="dX7-wV-EPe" firstAttribute="bottom" secondItem="dCV-CA-a6Z" secondAttribute="bottom" constant="20" id="b2X-hs-uHs"/>
+                            <constraint firstItem="9UN-A7-gEh" firstAttribute="top" secondItem="dX7-wV-EPe" secondAttribute="top" constant="10" id="kcq-W6-Iwu"/>
+                            <constraint firstItem="dX7-wV-EPe" firstAttribute="trailing" secondItem="fcY-9R-Nt8" secondAttribute="trailing" id="ly7-v1-HO1"/>
+                            <constraint firstItem="dX7-wV-EPe" firstAttribute="trailing" secondItem="dCV-CA-a6Z" secondAttribute="trailing" constant="20" id="pWg-0u-J8j"/>
+                            <constraint firstItem="dCV-CA-a6Z" firstAttribute="leading" secondItem="dX7-wV-EPe" secondAttribute="leading" constant="20" id="qfz-yv-Vlr"/>
+                            <constraint firstItem="YCk-6p-LlK" firstAttribute="height" secondItem="9UN-A7-gEh" secondAttribute="height" id="uVE-JY-79B"/>
+                            <constraint firstItem="dCV-CA-a6Z" firstAttribute="top" secondItem="fcY-9R-Nt8" secondAttribute="bottom" constant="20" id="xv8-MF-xrZ"/>
+                            <constraint firstItem="fcY-9R-Nt8" firstAttribute="top" secondItem="dX7-wV-EPe" secondAttribute="top" id="yAp-QH-bS1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dX7-wV-EPe"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Eksempel" id="VUG-Kb-hW8"/>
+                    <connections>
+                        <outlet property="playButton" destination="9UN-A7-gEh" id="w1f-sq-CNx"/>
+                        <outlet property="previewScene" destination="fcY-9R-Nt8" id="wQm-S1-T7w"/>
+                        <outlet property="programView" destination="dCV-CA-a6Z" id="OQV-R2-rk7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C5w-57-N3h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4400" y="2"/>
+        </scene>
         <!--Example Program View Controller-->
         <scene sceneID="sTd-hT-IkM">
             <objects>
                 <viewController id="Ygo-rm-8KZ" customClass="ExampleProgramViewController" customModule="ARProgramming" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iCE-Qc-qVH">
-                        <rect key="frame" x="0.0" y="0.0" width="944" height="546"/>
+                        <rect key="frame" x="0.0" y="0.0" width="924" height="546"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZqU-ys-R9J">
-                                <rect key="frame" x="0.0" y="0.0" width="462" height="462"/>
+                                <rect key="frame" x="0.0" y="0.0" width="924" height="462"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ZqU-ys-R9J" secondAttribute="height" multiplier="2:1" id="F3j-rB-Nbn"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ProgramExampleCell" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProgramExampleCell" id="w54-Sf-dAF" customClass="ExampleProgramTableViewCell" customModule="ARProgramming" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="462" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="924" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="w54-Sf-dAF" id="jUa-lG-ld2">
-                                            <rect key="frame" x="0.0" y="0.0" width="462" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="924" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="390" placeholderIntrinsicHeight="64" translatesAutoresizingMaskIntoConstraints="NO" id="LGT-ef-wCa" customClass="ProgramView" customModule="ARProgramming" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="16" width="390" height="11.5"/>
+                                                    <rect key="frame" x="84" y="16" width="825" height="11.5"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
                                                 <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Km-jQ-DSe" customClass="RoundedButton" customModule="ARProgramming" customModuleProvider="target">
-                                                    <rect key="frame" x="398" y="-10.5" width="64" height="64.5"/>
+                                                    <rect key="frame" x="0.0" y="-10.5" width="64" height="64.5"/>
                                                     <color key="backgroundColor" red="0.085386164489999999" green="0.48004096750000003" blue="0.9989228845" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="64" id="DM6-o2-NL5"/>
@@ -245,11 +315,11 @@
                                             <constraints>
                                                 <constraint firstItem="LGT-ef-wCa" firstAttribute="centerY" secondItem="jUa-lG-ld2" secondAttribute="centerY" id="70Q-yO-xok"/>
                                                 <constraint firstAttribute="bottom" secondItem="8Km-jQ-DSe" secondAttribute="bottom" priority="750" constant="16" id="B32-se-aWs"/>
-                                                <constraint firstAttribute="trailing" secondItem="8Km-jQ-DSe" secondAttribute="trailing" id="R8h-bd-fAA"/>
                                                 <constraint firstItem="8Km-jQ-DSe" firstAttribute="centerY" secondItem="jUa-lG-ld2" secondAttribute="centerY" id="c0b-gB-NKz"/>
-                                                <constraint firstItem="LGT-ef-wCa" firstAttribute="leading" secondItem="jUa-lG-ld2" secondAttribute="leading" id="c4E-CX-04B"/>
-                                                <constraint firstItem="8Km-jQ-DSe" firstAttribute="leading" secondItem="LGT-ef-wCa" secondAttribute="trailing" constant="8" id="cG3-RN-T5z"/>
+                                                <constraint firstItem="LGT-ef-wCa" firstAttribute="leading" secondItem="8Km-jQ-DSe" secondAttribute="trailing" constant="20" id="c4E-CX-04B"/>
+                                                <constraint firstItem="8Km-jQ-DSe" firstAttribute="leading" secondItem="jUa-lG-ld2" secondAttribute="leading" id="cG3-RN-T5z"/>
                                                 <constraint firstItem="LGT-ef-wCa" firstAttribute="top" relation="greaterThanOrEqual" secondItem="jUa-lG-ld2" secondAttribute="top" constant="16" id="gWv-jd-szi"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="LGT-ef-wCa" secondAttribute="trailing" id="gY0-gB-wqL"/>
                                                 <constraint firstItem="8Km-jQ-DSe" firstAttribute="top" secondItem="jUa-lG-ld2" secondAttribute="top" priority="750" constant="16" id="hYE-KL-d4A"/>
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="LGT-ef-wCa" secondAttribute="bottom" constant="16" id="mEf-nM-BYC"/>
                                                 <constraint firstItem="8Km-jQ-DSe" firstAttribute="width" secondItem="8Km-jQ-DSe" secondAttribute="height" multiplier="1:1" id="tqo-7C-fSe"/>
@@ -262,14 +332,8 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fcY-9R-Nt8">
-                                <rect key="frame" x="482" y="0.0" width="462" height="462"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="fcY-9R-Nt8" secondAttribute="height" multiplier="1:1" id="sES-oO-pe3"/>
-                                </constraints>
-                            </sceneKitView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gJ5-61-cES" customClass="RoundedButton" customModule="ARProgramming" customModuleProvider="target">
-                                <rect key="frame" x="330.5" y="482" width="283" height="64"/>
+                                <rect key="frame" x="323.5" y="482" width="277" height="64"/>
                                 <color key="backgroundColor" red="0.085386164489999999" green="0.48004096750000003" blue="0.9989228845" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="rwQ-V1-Poa"/>
@@ -287,22 +351,18 @@
                         <constraints>
                             <constraint firstItem="ZqU-ys-R9J" firstAttribute="top" secondItem="iCE-Qc-qVH" secondAttribute="top" id="1Ol-kF-EZb"/>
                             <constraint firstItem="gJ5-61-cES" firstAttribute="centerX" secondItem="iCE-Qc-qVH" secondAttribute="centerX" id="3cT-Fb-lt0"/>
-                            <constraint firstItem="fcY-9R-Nt8" firstAttribute="leading" secondItem="ZqU-ys-R9J" secondAttribute="trailing" constant="20" id="7i6-YL-KWb"/>
                             <constraint firstItem="gJ5-61-cES" firstAttribute="top" secondItem="ZqU-ys-R9J" secondAttribute="bottom" constant="20" id="7kB-De-nUE"/>
-                            <constraint firstAttribute="trailing" secondItem="fcY-9R-Nt8" secondAttribute="trailing" id="BZ9-UR-85M"/>
                             <constraint firstItem="ZqU-ys-R9J" firstAttribute="leading" secondItem="iCE-Qc-qVH" secondAttribute="leading" id="C9U-Ay-Pec"/>
-                            <constraint firstItem="fcY-9R-Nt8" firstAttribute="width" secondItem="ZqU-ys-R9J" secondAttribute="width" id="JxF-jK-CWC"/>
-                            <constraint firstItem="gJ5-61-cES" firstAttribute="top" secondItem="fcY-9R-Nt8" secondAttribute="bottom" constant="20" id="Rpb-ip-hc4"/>
+                            <constraint firstItem="ull-gj-kWd" firstAttribute="trailing" secondItem="ZqU-ys-R9J" secondAttribute="trailing" id="VdM-FQ-v1l"/>
                             <constraint firstItem="gJ5-61-cES" firstAttribute="width" secondItem="iCE-Qc-qVH" secondAttribute="width" multiplier="0.3" id="pyw-7C-PM7"/>
                             <constraint firstItem="ull-gj-kWd" firstAttribute="bottom" secondItem="gJ5-61-cES" secondAttribute="bottom" id="qgj-O3-OQa"/>
-                            <constraint firstItem="fcY-9R-Nt8" firstAttribute="top" secondItem="iCE-Qc-qVH" secondAttribute="top" id="sXy-yA-Jdg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ull-gj-kWd"/>
                     </view>
-                    <size key="freeformSize" width="944" height="546"/>
+                    <size key="freeformSize" width="924" height="546"/>
                     <connections>
                         <outlet property="exampleProgramTable" destination="ZqU-ys-R9J" id="ATV-Aa-Rmc"/>
-                        <outlet property="previewScene" destination="fcY-9R-Nt8" id="P5d-ua-cdl"/>
+                        <segue destination="pcY-cB-9Rs" kind="presentation" identifier="showProgramExample" id="hFH-QB-jZV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Quw-hc-WHS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -319,6 +379,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="CloseIcon" width="200" height="200"/>
         <image name="PlayIcon" width="200" height="200"/>
         <image name="SpeakerIcon" width="200" height="200"/>
     </resources>

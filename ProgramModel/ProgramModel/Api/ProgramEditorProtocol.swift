@@ -14,7 +14,7 @@ import Foundation
 public protocol ProgramEditorProtocol {
     var delegate: ProgramEditorDelegate? { get set }
     
-    /// The man program created by this editor. This is usually the first program that should be executed.
+    /// The main program created by this editor. This is usually the first program that should be executed.
     var main: ProgramProtocol { get }
     
     /// All programs created by this editor. This contains both the main program and any functions.

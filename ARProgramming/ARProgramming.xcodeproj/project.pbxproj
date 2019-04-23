@@ -40,6 +40,7 @@
 		562D86FF226A205D001A154E /* Library.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 562D86FE226A205D001A154E /* Library.storyboard */; };
 		562D8701226A2097001A154E /* LevelSelect.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 562D8700226A2097001A154E /* LevelSelect.storyboard */; };
 		562D8703226A20C5001A154E /* Wardrobe.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 562D8702226A20C5001A154E /* Wardrobe.storyboard */; };
+		562D8711226C821B001A154E /* ExamplePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D8710226C821B001A154E /* ExamplePreviewViewController.swift */; };
 		562E684D22522E4300D07C69 /* ExampleProgramTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562E684C22522E4300D07C69 /* ExampleProgramTableViewCell.swift */; };
 		562E68512252411700D07C69 /* ProgramView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562E68502252411700D07C69 /* ProgramView.swift */; };
 		562F2F23225355E100C46D83 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562F2F22225355E100C46D83 /* Config.swift */; };
@@ -163,6 +164,7 @@
 		562D86FE226A205D001A154E /* Library.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Library.storyboard; sourceTree = "<group>"; };
 		562D8700226A2097001A154E /* LevelSelect.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LevelSelect.storyboard; sourceTree = "<group>"; };
 		562D8702226A20C5001A154E /* Wardrobe.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Wardrobe.storyboard; sourceTree = "<group>"; };
+		562D8710226C821B001A154E /* ExamplePreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamplePreviewViewController.swift; sourceTree = "<group>"; };
 		562E684C22522E4300D07C69 /* ExampleProgramTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleProgramTableViewCell.swift; sourceTree = "<group>"; };
 		562E68502252411700D07C69 /* ProgramView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramView.swift; sourceTree = "<group>"; };
 		562F2F22225355E100C46D83 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -365,6 +367,7 @@
 			children = (
 				C74785EC219448F1000148BC /* CardDetailViewController.swift */,
 				56AFF2C722521F7000E854B1 /* ExampleProgramViewController.swift */,
+				562D8710226C821B001A154E /* ExamplePreviewViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -831,6 +834,7 @@
 				56431D3D2232B5DB00BFAC36 /* LevelViewModel.swift in Sources */,
 				5621C83A221AE5F800756628 /* SCNVector3+Helpers.swift in Sources */,
 				56AFF2C822521F7000E854B1 /* ExampleProgramViewController.swift in Sources */,
+				562D8711226C821B001A154E /* ExamplePreviewViewController.swift in Sources */,
 				56D8CC0522577D84004EE8B1 /* CardCollectionViewModel.swift in Sources */,
 				562D86FB226A1BB0001A154E /* BranchLevelSelectViewController.swift in Sources */,
 				56A62B1622310DA2009D0E83 /* simd_double3+Helpers.swift in Sources */,

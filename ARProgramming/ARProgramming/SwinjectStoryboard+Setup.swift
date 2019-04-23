@@ -59,8 +59,12 @@ extension SwinjectStoryboard {
         defaultContainer.storyboardInitCompleted(ExampleProgramViewController.self) { container, controller in
             controller.tableDataSource = ExampleProgramTableDataSource(deserializer: container.resolve(CardGraphDeserializerProtocol.self)!)
             controller.levelRepository = container.resolve(LevelRepository.self)
-            controller.previewLevelViewModel = container.resolve(LevelViewModeling.self)
             controller.gameLevelViewModel = container.resolve(LevelViewModeling.self)
+        }
+        
+        defaultContainer.storyboardInitCompleted(ExamplePreviewViewController.self) { container, controller in
+            controller.levelRepository = container.resolve(LevelRepository.self)
+            controller.previewLevelViewModel = container.resolve(LevelViewModeling.self)
         }
     }
     
