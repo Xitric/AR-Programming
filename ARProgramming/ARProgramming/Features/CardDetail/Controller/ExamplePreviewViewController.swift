@@ -42,6 +42,17 @@ class ExamplePreviewViewController: UIViewController {
     }
     @IBOutlet weak var playButton: UIButton!
     
+    var currentCard: String? {
+        didSet {
+            if (self.currentCard == "pickup" || self.currentCard == "drop") {
+                previewLevelViewModel.display(level: levelRepository.levelWithItem)
+            } else {
+                previewLevelViewModel.display(level: levelRepository.emptylevel)
+            }
+            runProgram()
+        }
+    }
+    
     //MARK: - Injected properties
     var levelRepository: LevelRepository!
     var previewLevelViewModel: LevelViewModeling! {
@@ -66,7 +77,18 @@ class ExamplePreviewViewController: UIViewController {
     @IBAction func onPlay(_ sender: UIButton) {
         previewLevelViewModel.reset()
         playButton.isEnabled = false
-
+        runProgram()
+    }
+    
+    @IBAction func onDismiss(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        playButton.isEnabled = false
+    }
+    
+    func runProgram() {
         DispatchQueue.main.asyncAfter(wallDeadline: DispatchWallTime.now() + 0.5) { [weak self] in
             if let entity = self?.previewLevelViewModel.player {
                 self?.viewModel.start(on: entity)
@@ -74,10 +96,6 @@ class ExamplePreviewViewController: UIViewController {
                 self?.playButton.isEnabled = true
             }
         }
-    }
-    
-    @IBAction func onDismiss(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
     }
 }
 

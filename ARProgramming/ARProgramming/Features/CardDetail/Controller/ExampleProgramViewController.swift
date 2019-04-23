@@ -22,23 +22,31 @@ class ExampleProgramViewController: UIViewController {
         }
     }
     
-    //MARK: - Injected properties
-    var tableDataSource: ExampleProgramTableDataSource!
-    var levelRepository: LevelRepository!
-    var gameLevelViewModel: LevelViewModeling! {
+    var currentCard: String? {
         didSet {
-            gameLevelViewModel.display(level: levelRepository.emptylevel)
+            if (self.currentCard == "pickup" || self.currentCard == "drop") {
+                gameLevelViewModel.display(level: levelRepository.levelWithItem)
+            } else {
+                gameLevelViewModel.display(level: levelRepository.emptylevel)
+            }
         }
     }
     
+    //MARK: - Injected properties
+    var tableDataSource: ExampleProgramTableDataSource!
+    var levelRepository: LevelRepository!
+    var gameLevelViewModel: LevelViewModeling!
+    
     func showExamples(forCard card: Card) {
+        currentCard = card.internalName
         tableDataSource?.showExamplesForCard(withName: card.internalName)
     }
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.destination {
         case let exampleController as ExamplePreviewViewController:
             exampleController.viewModel = sender as? ProgramsViewModeling
+            exampleController.currentCard = currentCard
         case let arContainer as ARContainerViewController:
             arContainer.levelViewModel = gameLevelViewModel
         default:

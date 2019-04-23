@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import CoreData
 
-class LevelManager: LevelRepository {
+class LevelManager: LevelRepository {    
     
     private let context: CoreDataRepository
     private let levelFactories: [LevelFactory]
@@ -21,6 +21,10 @@ class LevelManager: LevelRepository {
     
     var emptylevel: LevelProtocol {
         return EmptyLevel()
+    }
+    
+    var levelWithItem: LevelProtocol {
+        return try! loadLevel(withNumber: 9000)
     }
     
     init(context: CoreDataRepository, factories: [LevelFactory]) {

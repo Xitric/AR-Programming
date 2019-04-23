@@ -16,7 +16,7 @@ class BranchLevelSelectViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let arContainer = segue.destination as? ARContainerViewController {
-            levelViewModel.display(level: levelRepository.emptylevel)
+            levelViewModel.display(level: levelRepository.levelWithItem)
             arContainer.levelViewModel = levelViewModel
         }
     }
