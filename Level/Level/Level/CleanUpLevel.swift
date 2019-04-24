@@ -188,42 +188,6 @@ class CleanUpLevel: Level {
         
         return true
     }
-    
-    override func reset() {
-        objc_sync_enter(entityManager)
-        defer {
-            objc_sync_exit(entityManager)
-        }
-        
-        for oldEntity in collectibles {
-            entityManager.removeEntity(oldEntity)
-        }
-        
-        for oldEntity in dropSpots {
-            entityManager.removeEntity(oldEntity)
-        }
-        
-        if entityManager.player.component(ofType: LinkComponent.self) != nil {
-            entityManager.player.removeComponent(ofType: LinkComponent.self)
-        }
-        
-        for (newEntity, position) in entitiesForReset {
-            newEntity.component(ofType: TransformComponent.self)?.location = position
-            let collision = CollisionComponent(size: simd_double3(0.1, 0.1, 0.1), offset: simd_double3(0, 0.05, 0))
-            newEntity.addComponent(collision)
-            entityManager.addEntity(newEntity)
-        }
-        
-        currentInventory = resetInventory
-        
-        delegate?.levelInfoChanged(self, info: infoLabel)
-        super.reset()
-    }
-    
-    override func getScore() -> Int {
-        return 0
-    }
-    
 }
 
 // MARK: - Helpers

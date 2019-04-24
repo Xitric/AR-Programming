@@ -15,6 +15,7 @@ class Level: LevelProtocol, Decodable {
     public let levelNumber: Int
     public let levelType: String
     public var unlocked = false
+    public let unlocks: Int?
     public var infoLabel: String? {
         return nil
     }
@@ -22,17 +23,7 @@ class Level: LevelProtocol, Decodable {
     public weak var delegate: LevelDelegate?
     
     private var lastUpdate = TimeInterval(0)
-    var unlocks: Int?
     var levelRepository: LevelRepository?
-    
-    init(levelType: String, name: String, levelNumber: Int, unlocked: Bool, unlocks: Int?) {
-        self.levelType = levelType
-        self.name = name
-        self.levelNumber = levelNumber
-        self.unlocked = unlocked
-        self.unlocks = unlocks
-        self.entityManager = EntityManager()
-    }
     
     public final func update(currentTime: TimeInterval) {
         objc_sync_enter(entityManager)
@@ -49,19 +40,6 @@ class Level: LevelProtocol, Decodable {
     
     public func isComplete() -> Bool {
         return false
-    }
-    
-    public func getScore() -> Int {
-        return 0
-    }
-    
-    public func reset() {
-        if let playerTransform = entityManager.player.component(subclassOf: TransformComponent.self) {
-            playerTransform.location = simd_double3(0, 0, 0)
-            playerTransform.rotation = simd_quatd(ix: 0, iy: 0, iz: 0, r: 1)
-        }
-        
-        delegate?.levelReset(self)
     }
     
     func update(delta: TimeInterval) { }

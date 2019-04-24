@@ -15,6 +15,7 @@ public extension Container {
             LevelManager(
                 context: CoreDataRepository(),
                 factories: [
+                    EmptyLevelFactory(),
                     QuantityLevelFactory(),
                     CleanUpLevelFactory()
                 ]

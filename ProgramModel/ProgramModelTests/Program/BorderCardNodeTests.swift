@@ -178,7 +178,7 @@ class BorderCardNodeTests: XCTestCase {
         
         //Assert
         XCTAssertTrue(borderCardNode.parent?.card.internalName == "loop")
-        XCTAssertTrue(result === borderCardNode)
+        XCTAssertTrue(result === loopCardNode)
         XCTAssertTrue(borderCardNode.remainingRepeats == 1)
     }
     
@@ -212,6 +212,6 @@ class BorderCardNodeTests: XCTestCase {
         result = borderCardNode.next()
         
         //Assert
-        XCTAssertTrue(result === moveCardNode)
+        XCTAssertTrue(result === loopCardNode)
     }
 }

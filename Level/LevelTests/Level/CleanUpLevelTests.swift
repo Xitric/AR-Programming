@@ -57,7 +57,7 @@ class CleanUpLevelTests: XCTestCase {
         XCTAssertEqual(level.infoLabel, "Sæt tingene på plads\nBlå 0 / 1\nGrøn 0 / 1\nGrøn 0 / 2\nGul 0 / 10\nRød 0 / 3")
     }
     
-    //MARK: level
+    //MARK: isComplete
     func testLevelCompleted() {
     
         //Act
@@ -108,29 +108,6 @@ class CleanUpLevelTests: XCTestCase {
         //Assert
         XCTAssertEqual(level.infoLabel, "Sæt tingene på plads\nBlå 1 / 1\nGrøn 1 / 1\nGrøn 2 / 2\nGul 10 / 10\nRød 3 / 3")
         XCTAssertEqual(level.isComplete(), true)
-    }
-   
-    func testReset() {
-        //Arrange
-        moveItem(item: blueItem1, x: 1, y: 1, z: 1)
-        moveItem(item: yellowItem1, x: -2, y: 0, z: 0)
-        
-        //Assert
-        XCTAssertEqual(blueItem1.component(subclassOf: TransformComponent.self)?.location, simd_double3(0,1,1))
-        XCTAssertEqual(yellowItem1.component(subclassOf: TransformComponent.self)?.location, simd_double3(0,0,0))
-        XCTAssertEqual(level.infoLabel, "Sæt tingene på plads\nBlå 0 / 1\nGrøn 0 / 1\nGrøn 0 / 2\nGul 10 / 10\nRød 0 / 3")
-        XCTAssertEqual(entityManager.getEntities(withComponents: InventoryComponent.self).count, 2)
-        XCTAssertEqual(entityManager.getEntities(withComponents: QuantityComponent.self).count, 7)
-        
-        //Act
-        level.reset()
-        
-        //Assert
-        XCTAssertEqual(blueItem1.component(subclassOf: TransformComponent.self)?.location, simd_double3(-1,0,0))
-        XCTAssertEqual(yellowItem1.component(subclassOf: TransformComponent.self)?.location, simd_double3(2,0,0))
-        XCTAssertEqual(level.infoLabel, "Sæt tingene på plads\nBlå 0 / 1\nGrøn 0 / 1\nGrøn 0 / 2\nGul 0 / 10\nRød 0 / 3")
-        XCTAssertEqual(entityManager.getEntities(withComponents: InventoryComponent.self).count, 2)
-        XCTAssertEqual(entityManager.getEntities(withComponents: QuantityComponent.self).count, 7)
     }
     
     private func moveItem(item: Entity, x: Double, y: Double, z: Double){

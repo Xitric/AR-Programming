@@ -183,31 +183,6 @@ class QuantityLevel: Level {
     private func collectedQuantity(forType type: String) -> Int {
         return entityManager.player.component(ofType: InventoryComponent.self)?.quantities[type] ?? 0
     }
-    
-    override func getScore() -> Int {
-        return 0
-    }
-    
-    override func reset() {
-        objc_sync_enter(entityManager)
-        defer {
-            objc_sync_exit(entityManager)
-        }
-        
-        entityManager.player.component(ofType: InventoryComponent.self)?.reset()
-        
-        for oldEntity in collectibles {
-            entityManager.removeEntity(oldEntity)
-        }
-        
-        for newEntity in collectiblesForReset {
-            entityManager.addEntity(newEntity)
-        }
-        
-        super.reset()
-        
-        delegate?.levelInfoChanged(self, info: infoLabel)
-    }
 }
 
 // MARK: - Helpers

@@ -57,13 +57,13 @@ class ExamplePreviewViewController: UIViewController {
     var levelRepository: LevelRepository!
     var previewLevelViewModel: LevelViewModeling! {
         didSet {
-            previewLevelViewModel.display(level: levelRepository.emptylevel)
-            
-            //Add grid floor
-            let ground = SCNNode(geometry: SCNPlane(width: 5, height: 5))
-            ground.eulerAngles.x = -.pi / 2
-            ground.geometry?.materials.first?.diffuse.contents = UIImage(named: "ExampleProgramGridFloor.png")
-            previewLevelViewModel.addNode(ground)
+            previewLevelViewModel.level.onValue = { [weak self] level in
+                //Add grid floor
+                let ground = SCNNode(geometry: SCNPlane(width: 5, height: 5))
+                ground.eulerAngles.x = -.pi / 2
+                ground.geometry?.materials.first?.diffuse.contents = UIImage(named: "ExampleProgramGridFloor.png")
+                self?.previewLevelViewModel.addNode(ground)
+            }
         }
     }
     var viewModel: ProgramsViewModeling! {
@@ -88,7 +88,7 @@ class ExamplePreviewViewController: UIViewController {
         playButton.isEnabled = false
     }
     
-    func runProgram() {
+    private func runProgram() {
         DispatchQueue.main.asyncAfter(wallDeadline: DispatchWallTime.now() + 0.5) { [weak self] in
             if let entity = self?.previewLevelViewModel.player {
                 self?.viewModel.start(on: entity)
