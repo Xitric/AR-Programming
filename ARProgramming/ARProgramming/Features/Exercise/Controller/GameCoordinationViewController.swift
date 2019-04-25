@@ -24,7 +24,9 @@ class GameCoordinationViewController: UIViewController, GameplayController {
     
     //MARK: - Injected properties
     var levelViewModel: LevelViewModeling?
+    var levelConfig: GradeLevelConfiguration!
     var surfaceViewController: UIViewController!
+    var onboardingViewController: UIViewController!
     var levelViewController: UIViewController!
     var cardViewController: UIViewController!
     
@@ -75,6 +77,16 @@ class GameCoordinationViewController: UIViewController, GameplayController {
 //MARK: - AuxiliaryExerciseViewDelegate
 extension GameCoordinationViewController: AuxiliaryExerciseViewDelegate {
     func auxiliaryViewCompleted(_ controller: UIViewController) {
-        showViewController(controller: levelViewController)
+        switch controller {
+        case surfaceViewController:
+            if let firstLevel = levelConfig.levels(forGrade: 1).first,
+                levelViewModel?.level.value?.levelNumber == firstLevel {
+                showViewController(controller: onboardingViewController)
+            } else {
+                fallthrough
+            }
+        default:
+            showViewController(controller: levelViewController)
+        }
     }
 }

@@ -48,7 +48,7 @@ extension SwinjectStoryboard {
             let dataSource = CardCollectionDataSource(
                 viewModel: CardCollectionViewModel(
                     cardCollection: container.resolve(CardCollection.self)!,
-                    configuration: GradeConfig()))
+                    configuration: CardConfig()))
             
             controller.dataSource = dataSource
             controller.flowLayoutDelegate = container.resolve(UICollectionViewDelegateFlowLayout.self, name: cardCollectionId)
@@ -106,7 +106,8 @@ extension SwinjectStoryboard {
         defaultContainer.storyboardInitCompleted(LevelSelectViewController.self) { container, controller in
             let dataSource = LevelDataSource(
                 levelRepository: container.resolve(LevelRepository.self)!,
-                scoreManager: container.resolve(ScoreProtocol.self)!)
+                scoreManager: container.resolve(ScoreProtocol.self)!,
+                configuration: LevelConfig())
             controller.dataSource = dataSource
             controller.levelRepository = container.resolve(LevelRepository.self)
             controller.levelViewModel = container.resolve(LevelViewModeling.self)
@@ -121,14 +122,18 @@ extension SwinjectStoryboard {
         defaultContainer.storyboardInitCompleted(GameCoordinationViewController.self) { container, controller in
             let storyboard = UIStoryboard(name: "Exercise", bundle: Bundle.main)
             let surfaceController = storyboard.instantiateViewController(withIdentifier: "SurfaceDetectionScene")
+            let onboardController = storyboard.instantiateViewController(withIdentifier: "CardDragScene")
             let levelController = storyboard.instantiateViewController(withIdentifier: "LevelScene")
             let cardController = storyboard.instantiateViewController(withIdentifier: "CardDescriptionScene")
             
+            controller.levelConfig = LevelConfig()
             controller.surfaceViewController = surfaceController
+            controller.onboardingViewController = onboardController
             controller.levelViewController = levelController
             controller.cardViewController = cardController
             
             (surfaceController as? SurfaceDetectionViewController)?.delegate = controller
+            (onboardController as? CardDragOnboardingViewController)?.delegate = controller
             (cardController as? CardDescriptionViewController)?.delegate = controller
         }
         

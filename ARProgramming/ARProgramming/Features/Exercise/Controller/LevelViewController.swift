@@ -56,7 +56,6 @@ class LevelViewController: UIViewController, GameplayController {
             }
             
             levelViewModel?.level.onValue = { [weak self] level in
-                self?.resetButton.isEnabled = true
                 self?.playButton.isEnabled = true
                 self?.programsViewModel.reset()
             }
@@ -68,7 +67,6 @@ class LevelViewController: UIViewController, GameplayController {
     var programsViewModel: ProgramsViewModeling! {
         didSet {
             programsViewModel.running.onValue = { [weak self] running in
-                self?.resetButton.isEnabled = !running
                 self?.playButton.isEnabled = !running
             }
             
@@ -96,8 +94,8 @@ class LevelViewController: UIViewController, GameplayController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let view = segue.destination as? ExerciseCompletionViewController {
-            exerciseCompletionController = view
+        if let controller = segue.destination as? ExerciseCompletionViewController {
+            exerciseCompletionController = controller
         }
     }
     

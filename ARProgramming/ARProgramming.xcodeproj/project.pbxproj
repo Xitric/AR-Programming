@@ -32,6 +32,8 @@
 		562ACDC72249726C00D2DA7C /* CardCollectionViewSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562ACDC62249726C00D2DA7C /* CardCollectionViewSectionHeader.swift */; };
 		562ACDCB22497F3400D2DA7C /* CardCollectionFlowLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562ACDCA22497F3400D2DA7C /* CardCollectionFlowLayoutDelegate.swift */; };
 		562ACDCD224986F300D2DA7C /* GradesTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562ACDCC224986F300D2DA7C /* GradesTabBarController.swift */; };
+		562ADC912270EA0700A94DA7 /* CardDragOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562ADC902270EA0700A94DA7 /* CardDragOnboardingViewController.swift */; };
+		562ADC932270EB9700A94DA7 /* GradeLevelConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562ADC922270EB9700A94DA7 /* GradeLevelConfiguration.swift */; };
 		562CCA7F220D750100BF6A8D /* CGImagePropertyOrientation+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA7D220D750100BF6A8D /* CGImagePropertyOrientation+Helpers.swift */; };
 		562D86F7226A1242001A154E /* ScoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D86F6226A1242001A154E /* ScoreManager.swift */; };
 		562D86F9226A128E001A154E /* CardsForMaxScore.json in Resources */ = {isa = PBXBuildFile; fileRef = 562D86F8226A128E001A154E /* CardsForMaxScore.json */; };
@@ -156,6 +158,8 @@
 		562ACDC62249726C00D2DA7C /* CardCollectionViewSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewSectionHeader.swift; sourceTree = "<group>"; };
 		562ACDCA22497F3400D2DA7C /* CardCollectionFlowLayoutDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionFlowLayoutDelegate.swift; sourceTree = "<group>"; };
 		562ACDCC224986F300D2DA7C /* GradesTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradesTabBarController.swift; sourceTree = "<group>"; };
+		562ADC902270EA0700A94DA7 /* CardDragOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDragOnboardingViewController.swift; sourceTree = "<group>"; };
+		562ADC922270EB9700A94DA7 /* GradeLevelConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeLevelConfiguration.swift; sourceTree = "<group>"; };
 		562CCA7D220D750100BF6A8D /* CGImagePropertyOrientation+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGImagePropertyOrientation+Helpers.swift"; sourceTree = "<group>"; };
 		562D86F6226A1242001A154E /* ScoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreManager.swift; sourceTree = "<group>"; };
 		562D86F8226A128E001A154E /* CardsForMaxScore.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CardsForMaxScore.json; sourceTree = "<group>"; };
@@ -472,6 +476,7 @@
 			children = (
 				905A3C93217A09D0005E3AA5 /* LevelCollectionViewCell.swift */,
 				20D9BAD5225C7EF300DCB87D /* LevelDataSource.swift */,
+				562ADC922270EB9700A94DA7 /* GradeLevelConfiguration.swift */,
 				563B0FD62263CEF500BFEAA4 /* LevelClasses.json */,
 			);
 			path = ViewModel;
@@ -552,6 +557,7 @@
 				901584C72199BDF400450E0B /* LevelViewController.swift */,
 				901584C92199BE0200450E0B /* CardDescriptionViewController.swift */,
 				56B3664D226F0A1100F32153 /* ExerciseCompletionViewController.swift */,
+				562ADC902270EA0700A94DA7 /* CardDragOnboardingViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -877,6 +883,7 @@
 				562CCA7F220D750100BF6A8D /* CGImagePropertyOrientation+Helpers.swift in Sources */,
 				563B0FC5226374A200BFEAA4 /* ProgramsViewModel.swift in Sources */,
 				563B0FC122633D0800BFEAA4 /* ProgramEditorViewModel.swift in Sources */,
+				562ADC932270EB9700A94DA7 /* GradeLevelConfiguration.swift in Sources */,
 				562ACDCD224986F300D2DA7C /* GradesTabBarController.swift in Sources */,
 				905A3C92217A0891005E3AA5 /* LevelSelectViewController.swift in Sources */,
 				562F2F23225355E100C46D83 /* Config.swift in Sources */,
@@ -887,6 +894,7 @@
 				90A55B0921A83B0700FD7CDD /* AudioController.swift in Sources */,
 				562ACDC522496BD400D2DA7C /* CardCollectionDataSource.swift in Sources */,
 				561083F8224A7607009A0039 /* ExampleProgramTableDataSource.swift in Sources */,
+				562ADC912270EA0700A94DA7 /* CardDragOnboardingViewController.swift in Sources */,
 				56431D392232A82700BFAC36 /* UpdateDelegate.swift in Sources */,
 				20D9BAD1225BF45400DCB87D /* LibraryGradesTabBarController.swift in Sources */,
 				566066C5225BE4FC00FB0FB0 /* CoreDataRepository.swift in Sources */,

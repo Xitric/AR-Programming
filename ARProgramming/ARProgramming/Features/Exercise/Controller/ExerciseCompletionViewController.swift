@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Level
 
-class ExerciseCompletionViewController: UIViewController {
+class ExerciseCompletionViewController: UIViewController, GameplayController {
     
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var noMoreExercisesLabel: UILabel!
@@ -25,6 +25,7 @@ class ExerciseCompletionViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         view.translatesAutoresizingMaskIntoConstraints = false
     }
     

@@ -13,20 +13,21 @@ import Level
 class LevelDataSource: NSObject, UICollectionViewDataSource {
     
     private var levelPreviews: [LevelInfoProtocol]?
+    private let levelRepository: LevelRepository
+    private let scoreManager: ScoreProtocol
+    private let configuration: GradeLevelConfiguration
     
     var grade: Int?
-    let levelRepository: LevelRepository
-    let scoreManager: ScoreProtocol
     
-    init(levelRepository: LevelRepository, scoreManager: ScoreProtocol) {
+    init(levelRepository: LevelRepository, scoreManager: ScoreProtocol, configuration: GradeLevelConfiguration) {
         self.levelRepository = levelRepository
         self.scoreManager = scoreManager
+        self.configuration = configuration
     }
     
     func reloadData() {
         if let grade = grade {
-            let levelGradeConfig = Config.read(configFile: "LevelClasses", toType: LevelGradeConfig.self)!
-            levelPreviews = try? levelRepository.loadPreviews(forLevels: levelGradeConfig.levels[grade-1])
+            levelPreviews = try? levelRepository.loadPreviews(forLevels: configuration.levels(forGrade: grade))
         }
     }
     
@@ -60,8 +61,4 @@ class LevelDataSource: NSObject, UICollectionViewDataSource {
         }
         return score
     }
-}
-
-private struct LevelGradeConfig: Decodable {
-    let levels: [[Int]]
 }
