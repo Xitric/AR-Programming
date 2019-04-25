@@ -73,6 +73,7 @@
 		56AEAC65221EC63800ACED36 /* SubtitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AEAC64221EC63800ACED36 /* SubtitleLabel.swift */; };
 		56AEACA1221F5DC500ACED36 /* UIImage+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AEACA0221F5DC500ACED36 /* UIImage+Helpers.swift */; };
 		56AFF2C822521F7000E854B1 /* ExampleProgramViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AFF2C722521F7000E854B1 /* ExampleProgramViewController.swift */; };
+		56B3664E226F0A1100F32153 /* ExerciseCompletionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B3664D226F0A1100F32153 /* ExerciseCompletionViewController.swift */; };
 		56D8CC0522577D84004EE8B1 /* CardCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D8CC0422577D84004EE8B1 /* CardCollectionViewModel.swift */; };
 		56EB87AC2258B0CB00B4894D /* EntityComponentSystem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 560D20502257A4850015EC95 /* EntityComponentSystem.framework */; };
 		56EB87AD2258B0CB00B4894D /* EntityComponentSystem.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 560D20502257A4850015EC95 /* EntityComponentSystem.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -196,6 +197,7 @@
 		56AEAC64221EC63800ACED36 /* SubtitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtitleLabel.swift; sourceTree = "<group>"; };
 		56AEACA0221F5DC500ACED36 /* UIImage+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Helpers.swift"; sourceTree = "<group>"; };
 		56AFF2C722521F7000E854B1 /* ExampleProgramViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleProgramViewController.swift; sourceTree = "<group>"; };
+		56B3664D226F0A1100F32153 /* ExerciseCompletionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCompletionViewController.swift; sourceTree = "<group>"; };
 		56D8CC0422577D84004EE8B1 /* CardCollectionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCollectionViewModel.swift; sourceTree = "<group>"; };
 		56EB87A02258B04300B4894D /* Pods_EntityComponentSystem.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_EntityComponentSystem.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56EB87A22258B04A00B4894D /* Pods_ProgramModel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_ProgramModel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -549,6 +551,7 @@
 				5672097322622F640054BD52 /* SurfaceDetectionViewController.swift */,
 				901584C72199BDF400450E0B /* LevelViewController.swift */,
 				901584C92199BE0200450E0B /* CardDescriptionViewController.swift */,
+				56B3664D226F0A1100F32153 /* ExerciseCompletionViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -856,6 +859,7 @@
 				5621C83C221AE67A00756628 /* simd_float4x4+Helpers.swift in Sources */,
 				567209782262365E0054BD52 /* AuxiliaryExerciseViewDelegate.swift in Sources */,
 				204AEC14220DCA1E00E0F624 /* ARContainerViewController.swift in Sources */,
+				56B3664E226F0A1100F32153 /* ExerciseCompletionViewController.swift in Sources */,
 				562E68512252411700D07C69 /* ProgramView.swift in Sources */,
 				206A0CB52240E5120018E6B7 /* WardrobeManager.swift in Sources */,
 				56720982226278FE0054BD52 /* DataItemProvider.swift in Sources */,

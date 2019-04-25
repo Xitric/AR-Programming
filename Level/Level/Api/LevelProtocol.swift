@@ -14,14 +14,13 @@ public protocol LevelProtocol: class {
     var levelNumber: Int { get }
     var levelType: String { get }
     var unlocked: Bool { get }
+    var unlocks: Int? { get }
     var infoLabel: String? { get }
     var entityManager: EntityManager { get }
     var delegate: LevelDelegate? { get set }
     
     func update(currentTime: TimeInterval)
     func isComplete() -> Bool
-    func getScore() -> Int
-    func reset()
 }
 
 public protocol LevelDelegate: class {

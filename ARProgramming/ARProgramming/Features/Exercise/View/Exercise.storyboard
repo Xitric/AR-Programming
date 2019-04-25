@@ -124,11 +124,18 @@
                                     <constraint firstAttribute="bottom" secondItem="J5o-eS-br1" secondAttribute="bottom" constant="20" id="brX-GH-bLD"/>
                                 </constraints>
                             </scrollView>
+                            <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="400" placeholderIntrinsicHeight="300" translatesAutoresizingMaskIntoConstraints="NO" id="Opz-Ap-O9W">
+                                <rect key="frame" x="312" y="234" width="400" height="300"/>
+                                <connections>
+                                    <segue destination="bVf-3G-qTZ" kind="embed" id="xx0-es-21N"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="eQR-Dm-66Y" firstAttribute="top" secondItem="bPX-RM-Lik" secondAttribute="top" id="8E3-Bj-hjb"/>
                             <constraint firstAttribute="trailing" secondItem="r7f-Fu-KoH" secondAttribute="trailing" id="91a-Gs-XmC"/>
+                            <constraint firstItem="Opz-Ap-O9W" firstAttribute="centerY" secondItem="IsN-tU-7YM" secondAttribute="centerY" id="9I4-iZ-aot"/>
                             <constraint firstItem="bPX-RM-Lik" firstAttribute="top" secondItem="IsN-tU-7YM" secondAttribute="top" constant="30" id="B15-r7-rO7"/>
                             <constraint firstItem="oSY-mL-31g" firstAttribute="width" secondItem="oSY-mL-31g" secondAttribute="height" multiplier="1:1" id="Ey7-FF-xKH"/>
                             <constraint firstItem="fdU-Ya-Iei" firstAttribute="bottom" secondItem="r7f-Fu-KoH" secondAttribute="bottom" id="OpF-Wp-2tv"/>
@@ -141,11 +148,13 @@
                             <constraint firstItem="oSY-mL-31g" firstAttribute="top" secondItem="bPX-RM-Lik" secondAttribute="top" id="akQ-kD-0Lf"/>
                             <constraint firstItem="eQR-Dm-66Y" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="IsN-tU-7YM" secondAttribute="leading" constant="64" id="rEf-LG-TGg"/>
                             <constraint firstItem="r7f-Fu-KoH" firstAttribute="trailing" secondItem="bPX-RM-Lik" secondAttribute="trailing" constant="20" id="rv5-AU-dUb"/>
+                            <constraint firstItem="Opz-Ap-O9W" firstAttribute="centerX" secondItem="IsN-tU-7YM" secondAttribute="centerX" id="y4d-5B-5HB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="r7f-Fu-KoH"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Level" id="zS2-fd-QEQ"/>
                     <connections>
+                        <outlet property="exerciseCompletionView" destination="Opz-Ap-O9W" id="Xkb-F2-fDf"/>
                         <outlet property="levelInfo" destination="eQR-Dm-66Y" id="XW4-da-l9b"/>
                         <outlet property="playButton" destination="bPX-RM-Lik" id="K3G-84-wne"/>
                         <outlet property="programScrollView" destination="fdU-Ya-Iei" id="bnF-49-vPN"/>
@@ -336,6 +345,82 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3797" y="1613"/>
+        </scene>
+        <!--Exercise Completion View Controller-->
+        <scene sceneID="7sF-Lv-SQm">
+            <objects>
+                <viewController id="bVf-3G-qTZ" customClass="ExerciseCompletionViewController" customModule="ARProgramming" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EYF-YC-Z61">
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="300"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" text="Opgave gennemført!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6kh-qz-Dp0">
+                                <rect key="frame" x="36" y="36" width="328" height="43"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o4i-Mg-HgW" customClass="RoundedButton" customModule="ARProgramming" customModuleProvider="target">
+                                <rect key="frame" x="36" y="194" width="328" height="55"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <inset key="contentEdgeInsets" minX="16" minY="8" maxX="16" maxY="8"/>
+                                <state key="normal" title="Spil igen">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="onRestart" destination="bVf-3G-qTZ" eventType="touchUpInside" id="lHk-M7-VEf"/>
+                                </connections>
+                            </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Der er ikke flere opgaver" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ssh-o2-PNx">
+                                <rect key="frame" x="34.5" y="127.5" width="331" height="38.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GES-Xl-Tb1" customClass="RoundedButton" customModule="ARProgramming" customModuleProvider="target">
+                                <rect key="frame" x="36" y="119" width="328" height="55"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <inset key="contentEdgeInsets" minX="16" minY="8" maxX="16" maxY="8"/>
+                                <state key="normal" title="Næste opgave">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="onNext" destination="bVf-3G-qTZ" eventType="touchUpInside" id="gMO-3d-aNB"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottomMargin" secondItem="o4i-Mg-HgW" secondAttribute="bottom" priority="999" constant="16" id="07v-Gg-BAE"/>
+                            <constraint firstItem="6kh-qz-Dp0" firstAttribute="top" secondItem="EYF-YC-Z61" secondAttribute="topMargin" constant="16" id="3sl-Qw-pXu"/>
+                            <constraint firstItem="6kh-qz-Dp0" firstAttribute="leading" secondItem="EYF-YC-Z61" secondAttribute="leadingMargin" constant="16" id="7Xq-SP-3p0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6kh-qz-Dp0" secondAttribute="trailing" constant="16" id="GVa-f2-Jj0"/>
+                            <constraint firstItem="o4i-Mg-HgW" firstAttribute="width" secondItem="6kh-qz-Dp0" secondAttribute="width" id="MRC-Fg-CIT"/>
+                            <constraint firstItem="GES-Xl-Tb1" firstAttribute="width" secondItem="6kh-qz-Dp0" secondAttribute="width" id="NYl-rI-LFk"/>
+                            <constraint firstItem="GES-Xl-Tb1" firstAttribute="top" secondItem="6kh-qz-Dp0" secondAttribute="bottom" constant="40" id="RZ6-bW-NTe"/>
+                            <constraint firstItem="o4i-Mg-HgW" firstAttribute="centerX" secondItem="EYF-YC-Z61" secondAttribute="centerX" id="Yb3-99-c8Y"/>
+                            <constraint firstItem="6kh-qz-Dp0" firstAttribute="centerX" secondItem="EYF-YC-Z61" secondAttribute="centerX" id="bB4-4L-eNX"/>
+                            <constraint firstItem="GES-Xl-Tb1" firstAttribute="centerX" secondItem="EYF-YC-Z61" secondAttribute="centerX" id="f1f-46-qDR"/>
+                            <constraint firstItem="ssh-o2-PNx" firstAttribute="centerY" secondItem="GES-Xl-Tb1" secondAttribute="centerY" id="h8M-7d-CMH"/>
+                            <constraint firstItem="ssh-o2-PNx" firstAttribute="centerX" secondItem="GES-Xl-Tb1" secondAttribute="centerX" id="iwz-l9-bA6"/>
+                            <constraint firstItem="o4i-Mg-HgW" firstAttribute="top" secondItem="GES-Xl-Tb1" secondAttribute="bottom" constant="20" id="nfV-zF-lRT"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="30"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <connections>
+                        <outlet property="nextButton" destination="GES-Xl-Tb1" id="MvB-XP-TXg"/>
+                        <outlet property="noMoreExercisesLabel" destination="ssh-o2-PNx" id="twX-51-bXm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GSe-eB-T6l" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5064" y="1613"/>
         </scene>
     </scenes>
     <resources>

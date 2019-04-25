@@ -13,18 +13,14 @@ import EntityComponentSystem
 class LevelTests: XCTestCase {
 
     private var level: LevelMock!
-    private var entityManager: EntityManager!
     
     override func setUp() {
-        entityManager = EntityManager()
-        level = LevelMock(expectedDelta: 5, entityManager: entityManager)
+        level = SimpleLevelLoader.loadLevel(ofType: LevelMock.self, withName: "TestLevel.json")
+        level.expectedDelta = 5
     }
     
     //MARK: init
     func testInit() {
-        //Act
-        level = SimpleLevelLoader.loadLevel(ofType: LevelMock.self, withName: "TestLevel.json")
-        
         //Assert
         XCTAssertNotNil(level)
         XCTAssertEqual(level?.levelType, "quantity")
@@ -62,35 +58,12 @@ class LevelTests: XCTestCase {
         //Assert
         wait(for: [level.updateExpectation], timeout: 1)
     }
-    
-    //MARK: reset
-    func testReset() {
-        //Arrange
-        let playerTransform = entityManager.player.component(subclassOf: TransformComponent.self)!
-        
-        playerTransform.location = simd_double3(2, 4, -9)
-        playerTransform.rotation = simd_quatd(ix: 0, iy: -0.707, iz: 0, r: 0.707)
-        
-        //Act
-        level.reset()
-        
-        //Assert
-        XCTAssertTrue(vectEqual(playerTransform.location, simd_double3(0, 0, 0), tolerance: 0.000001))
-        XCTAssertTrue(quatEqual(playerTransform.rotation, simd_quatd(ix: 0, iy: 0, iz: 0, r: 1), tolerance: 0.000001))
-    }
 }
 
 class LevelMock: Level {
     
     let updateExpectation: XCTestExpectation!
     var expectedDelta = 0.0
-    
-    init(expectedDelta: Double, entityManager: EntityManager) {
-        updateExpectation = XCTestExpectation(description: "Update with delta called")
-        self.expectedDelta = expectedDelta
-        super.init(levelType: "TestLevel", name: "Test Level", levelNumber: -1, unlocked: true, unlocks: nil)
-        self.entityManager = entityManager
-    }
     
     required init(from decoder: Decoder) throws {
         updateExpectation = XCTestExpectation(description: "Update with delta called")

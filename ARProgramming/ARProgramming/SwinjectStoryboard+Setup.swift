@@ -72,7 +72,8 @@ extension SwinjectStoryboard {
         defaultContainer.register(ARController.self) { container in ARController() }.inObjectScope(.container)
         
         defaultContainer.register(LevelViewModeling.self) { container in
-            LevelViewModel(wardrobe: container.resolve(WardrobeProtocol.self)!)
+            LevelViewModel(wardrobe: container.resolve(WardrobeProtocol.self)!,
+                           levelRepository: container.resolve(LevelRepository.self)!)
         }.inObjectScope(.transient)
         
         defaultContainer.register(PlaneViewModel.self) { container in
