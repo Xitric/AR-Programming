@@ -179,13 +179,22 @@
                                             <segue destination="SUT-wU-ZhM" kind="show" id="eEY-zS-3Zb"/>
                                         </connections>
                                     </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SandboxBot" translatesAutoresizingMaskIntoConstraints="NO" id="VK5-fL-17R">
+                                        <rect key="frame" x="38.5" y="219.5" width="434.5" height="309"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="T69-S4-cWp" firstAttribute="width" secondItem="6iI-of-OCH" secondAttribute="width" multiplier="0.5" id="112-WX-ZX5"/>
                                     <constraint firstItem="T69-S4-cWp" firstAttribute="centerX" secondItem="6iI-of-OCH" secondAttribute="centerX" id="32x-1e-JM5"/>
+                                    <constraint firstItem="VK5-fL-17R" firstAttribute="centerY" secondItem="6iI-of-OCH" secondAttribute="centerY" id="ZmO-Ld-7uj"/>
+                                    <constraint firstItem="VK5-fL-17R" firstAttribute="centerX" secondItem="6iI-of-OCH" secondAttribute="centerX" id="u95-7Z-vOo"/>
                                     <constraint firstAttribute="bottom" secondItem="T69-S4-cWp" secondAttribute="bottom" constant="40" id="wMO-b1-B2J"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="PZB-n7-Jra" appends="YES" id="OFc-pb-Wb9"/>
+                                </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SYc-Td-neJ">
                                 <rect key="frame" x="511.5" y="0.0" width="1" height="768"/>
@@ -211,11 +220,24 @@
                                             <segue destination="zJe-du-w5T" kind="show" id="LYX-qj-NRN"/>
                                         </connections>
                                     </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ExerciseBot" translatesAutoresizingMaskIntoConstraints="NO" id="V7J-rn-jm0">
+                                        <rect key="frame" x="38.5" y="219.5" width="434.5" height="309"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="V7J-rn-jm0" secondAttribute="height" multiplier="38:27" id="Vbi-JQ-c9C"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
                                 <constraints>
+                                    <constraint firstItem="V7J-rn-jm0" firstAttribute="centerX" secondItem="uhQ-Bd-Zs8" secondAttribute="centerX" id="A52-o1-JVf"/>
                                     <constraint firstItem="JWj-o9-TTj" firstAttribute="centerX" secondItem="uhQ-Bd-Zs8" secondAttribute="centerX" id="QhE-OU-TUQ"/>
+                                    <constraint firstItem="V7J-rn-jm0" firstAttribute="centerY" secondItem="uhQ-Bd-Zs8" secondAttribute="centerY" id="Zsx-KT-q2f"/>
+                                    <constraint firstItem="V7J-rn-jm0" firstAttribute="width" secondItem="uhQ-Bd-Zs8" secondAttribute="width" multiplier="0.85" id="qsR-ZJ-SjO"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="0ge-Uc-BaV" appends="YES" id="EDj-KH-5qF"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -227,6 +249,8 @@
                             <constraint firstItem="SYc-Td-neJ" firstAttribute="top" secondItem="jWG-Nm-4j5" secondAttribute="top" id="M0G-Tq-8hJ"/>
                             <constraint firstItem="HBI-vC-wEP" firstAttribute="bottom" secondItem="6iI-of-OCH" secondAttribute="bottom" id="Moa-ro-eGx"/>
                             <constraint firstItem="SYc-Td-neJ" firstAttribute="leading" secondItem="6iI-of-OCH" secondAttribute="trailing" id="PjI-6V-Gj6"/>
+                            <constraint firstItem="VK5-fL-17R" firstAttribute="width" secondItem="V7J-rn-jm0" secondAttribute="width" id="WUz-TT-FeW"/>
+                            <constraint firstItem="VK5-fL-17R" firstAttribute="height" secondItem="V7J-rn-jm0" secondAttribute="height" id="WqR-69-GFX"/>
                             <constraint firstItem="SYc-Td-neJ" firstAttribute="bottom" secondItem="HBI-vC-wEP" secondAttribute="bottom" id="Z7W-gJ-gyX"/>
                             <constraint firstItem="HBI-vC-wEP" firstAttribute="trailing" secondItem="uhQ-Bd-Zs8" secondAttribute="trailing" id="Zkd-SQ-xe8"/>
                             <constraint firstItem="uhQ-Bd-Zs8" firstAttribute="leading" secondItem="SYc-Td-neJ" secondAttribute="trailing" id="d2Q-lc-V8K"/>
@@ -238,16 +262,29 @@
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TW9-H8-h3Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="PZB-n7-Jra">
+                    <connections>
+                        <segue destination="SUT-wU-ZhM" kind="show" id="9G2-Q6-jnP"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="0ge-Uc-BaV">
+                    <connections>
+                        <segue destination="zJe-du-w5T" kind="show" id="rao-F7-FAL"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1577.9296875" y="121.875"/>
         </scene>
     </scenes>
     <resources>
+        <image name="ExerciseBot" width="1520" height="1080"/>
         <image name="Lock" width="156" height="172"/>
+        <image name="SandboxBot" width="1520" height="1080"/>
         <image name="robo" width="540" height="540"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="eEY-zS-3Zb"/>
+        <segue reference="LYX-qj-NRN"/>
         <segue reference="QlB-48-D6d"/>
     </inferredMetricsTieBreakers>
 </document>
