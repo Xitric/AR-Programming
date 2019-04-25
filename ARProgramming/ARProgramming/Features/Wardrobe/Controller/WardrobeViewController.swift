@@ -62,9 +62,14 @@ class WardrobeViewController: UIViewController {
         setRobot(daeFile: robotFiles[robotChoice])
     }
     
+    @IBAction func pickRobot(_ sender: UIButton) {
+        navigationController?.popViewController(animated: true)
+    }
+    
     private func setRobot(daeFile: String) {
         let scene = SCNScene(named: "Meshes.scnassets/" + daeFile)
         scene?.rootNode.rotation = SCNVector4(0, -1, 0, 1)
+        scene?.rootNode.position = SCNVector3(0.025, 0, -0.5)
         sceneView.scene = scene
     }
     
