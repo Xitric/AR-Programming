@@ -34,7 +34,13 @@ class CardDragOnboardingViewController: UIViewController, GameplayController {
     }
     
     private func createDragAnimation() {
-        cardDragAnimation.animationImages = UIImage.loadAnimation(named: "SwipeCard", withFrames: 50)
+        var animationImages = UIImage.loadAnimation(named: "SwipeCard", withFrames: 50)
+        //Simulate a delay by repeating the last frame 15 times
+        for _ in 0..<15 {
+            animationImages.append(animationImages[49])
+        }
+        
+        cardDragAnimation.animationImages = animationImages
         cardDragAnimation.animationDuration = 2.8
     }
     

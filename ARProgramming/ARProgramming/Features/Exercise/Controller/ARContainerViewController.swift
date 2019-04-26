@@ -47,7 +47,13 @@ class ARContainerViewController: UIViewController, GameplayController {
         }
     }
     var arController: ARController!
-    var dragDelegate: ProgramDragInteractionDelegate!
+    var dragDelegate: ProgramDragInteractionDelegate! {
+        didSet {
+            dragDelegate.dragBegan = { [weak self] in
+                self?.coordinationController.auxiliaryViewCompleted(self!.coordinationController.cardViewController)
+            }
+        }
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let overlayController = segue.destination as? GameCoordinationViewController {
@@ -65,6 +71,11 @@ class ARContainerViewController: UIViewController, GameplayController {
         super.viewWillAppear(animated)
         arController?.start()
         self.navigationController?.navigationBar.isHidden = true
+        
+        //The children seemed to have difficulty using drag-n-drop, so we made the delay for picking up the cards much shorter
+        if let longPressRecognizer = cardDetectionView.gestureRecognizers?.compactMap({ $0 as? UILongPressGestureRecognizer}).first {
+            longPressRecognizer.minimumPressDuration = 0.1
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {

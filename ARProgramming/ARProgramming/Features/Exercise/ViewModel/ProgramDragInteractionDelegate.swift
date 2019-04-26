@@ -27,6 +27,7 @@ class ProgramDragInteractionDelegate: NSObject, UIDragInteractionDelegate {
         return params
     }
     
+    var dragBegan: (() -> Void)?
     var currentProgram: ProgramProtocol?
     
     init(serializer: CardGraphDeserializerProtocol) {
@@ -46,6 +47,7 @@ class ProgramDragInteractionDelegate: NSObject, UIDragInteractionDelegate {
                 return UIDragPreview(view: view, parameters: params)
             }
             
+            dragBegan?()
             return [dragItem]
         }
         

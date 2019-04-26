@@ -100,7 +100,7 @@
                                     <action selector="onReset:" destination="YHe-0I-6P8" eventType="touchUpInside" id="s71-Yd-hKi"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" verticalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="eQR-Dm-66Y" customClass="SubtitleLabel" customModule="ARProgramming" customModuleProvider="target">
+                            <view contentMode="scaleToFill" verticalHuggingPriority="1000" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eQR-Dm-66Y" customClass="SubtitleLabel" customModule="ARProgramming" customModuleProvider="target">
                                 <rect key="frame" x="432.5" y="30" width="159" height="52.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
@@ -432,10 +432,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NRw-iI-FTc">
-                                <rect key="frame" x="253.5" y="40" width="517.5" height="688.5"/>
+                                <rect key="frame" x="253.5" y="79.5" width="517.5" height="609"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SDn-QI-Hjh">
-                                        <rect key="frame" x="233.5" y="613.5" width="50" height="55"/>
+                                        <rect key="frame" x="233.5" y="534" width="50" height="55"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                         <state key="normal" title="OK"/>
                                         <connections>
@@ -443,16 +443,16 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Når iPad'en har fundet et program, kan du trække ét af kortene ned i bunden af skærmen for at gemme det." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dRS-kf-e34">
-                                        <rect key="frame" x="20" y="517.5" width="477.5" height="86"/>
+                                        <rect key="frame" x="20" y="438" width="477.5" height="86"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="17t-cf-Rh9">
-                                        <rect key="frame" x="20" y="20" width="477.5" height="477.5"/>
+                                        <rect key="frame" x="20" y="20" width="477.5" height="398"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="480" id="Bl5-iS-3ny"/>
-                                            <constraint firstAttribute="width" secondItem="17t-cf-Rh9" secondAttribute="height" multiplier="1:1" id="Usc-gG-JO0"/>
+                                            <constraint firstAttribute="width" secondItem="17t-cf-Rh9" secondAttribute="height" multiplier="6:5" id="Usc-gG-JO0"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
