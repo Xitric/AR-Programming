@@ -12,8 +12,8 @@ import ProgramModel
 
 class ExampleProgramTableDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     
-    private var examples = [ProgramsViewModeling]()
     private let deserializer: CardGraphDeserializerProtocol
+    private var examples = [ProgramsViewModeling]()
     
     weak var delegate: ExampleProgramSelectorDelegate?
     
@@ -45,8 +45,9 @@ class ExampleProgramTableDataSource: NSObject, UITableViewDataSource, UITableVie
         let row = tableView.dequeueReusableCell(withIdentifier: "ProgramExampleCell", for: indexPath)
         
         if let row = row as? ExampleProgramTableViewCell {
-            row.programView.scale = 100
-            row.programView.programsViewModel = examples[indexPath.row]
+            let viewModel = examples[indexPath.row]
+            viewModel.cardSize.value = 100
+            row.programView.viewModel = viewModel
         }
         
         return row

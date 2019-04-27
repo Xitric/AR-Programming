@@ -45,7 +45,7 @@ class CardDetailViewController: UIViewController {
         switch segue.destination {
         case let exampleProgram as ExampleProgramViewController:
             exampleProgram.view.translatesAutoresizingMaskIntoConstraints = false
-            exampleProgram.showExamples(forCard: card)
+            exampleProgram.viewModel.cardName.value = card.internalName
         default:
             break
         }

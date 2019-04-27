@@ -56,15 +56,18 @@ extension SwinjectStoryboard {
     }
     
     private class func addCardDetail() {
+        defaultContainer.register(ExampleProgramViewModeling.self) { container in
+            ExampleProgramViewModel(levelRepository: container.resolve(LevelRepository.self)!)
+        }
+        
         defaultContainer.storyboardInitCompleted(ExampleProgramViewController.self) { container, controller in
             controller.tableDataSource = ExampleProgramTableDataSource(deserializer: container.resolve(CardGraphDeserializerProtocol.self)!)
-            controller.levelRepository = container.resolve(LevelRepository.self)
-            controller.gameLevelViewModel = container.resolve(LevelViewModeling.self)
+            controller.viewModel = container.resolve(ExampleProgramViewModeling.self)
         }
         
         defaultContainer.storyboardInitCompleted(ExamplePreviewViewController.self) { container, controller in
-            controller.levelRepository = container.resolve(LevelRepository.self)
-            controller.previewLevelViewModel = container.resolve(LevelViewModeling.self)
+            controller.viewModel = container.resolve(ExampleProgramViewModeling.self)
+            controller.levelViewModel = container.resolve(LevelViewModeling.self)
         }
     }
     

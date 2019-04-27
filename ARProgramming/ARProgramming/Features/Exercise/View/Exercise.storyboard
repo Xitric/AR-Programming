@@ -100,7 +100,7 @@
                                     <action selector="onReset:" destination="YHe-0I-6P8" eventType="touchUpInside" id="s71-Yd-hKi"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" verticalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="eQR-Dm-66Y" customClass="SubtitleLabel" customModule="ARProgramming" customModuleProvider="target">
+                            <view contentMode="scaleToFill" verticalHuggingPriority="1000" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eQR-Dm-66Y" customClass="SubtitleLabel" customModule="ARProgramming" customModuleProvider="target">
                                 <rect key="frame" x="432.5" y="30" width="159" height="52.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
@@ -110,7 +110,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fdU-Ya-Iei">
                                 <rect key="frame" x="0.0" y="624" width="1024" height="144"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" placeholderIntrinsicWidth="984" placeholderIntrinsicHeight="104" translatesAutoresizingMaskIntoConstraints="NO" id="J5o-eS-br1" customClass="ProgramView" customModule="ARProgramming" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" placeholderIntrinsicWidth="984" placeholderIntrinsicHeight="104" translatesAutoresizingMaskIntoConstraints="NO" id="J5o-eS-br1" customClass="InteractiveProgramView" customModule="ARProgramming" customModuleProvider="target">
                                         <rect key="frame" x="20" y="20" width="984" height="104"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
@@ -272,8 +272,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" verticalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="SGy-Rb-GGZ" customClass="SubtitleLabel" customModule="ARProgramming" customModuleProvider="target">
-                                <rect key="frame" x="307" y="579.5" width="410.5" height="52.5"/>
+                            <view contentMode="scaleToFill" verticalHuggingPriority="1000" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SGy-Rb-GGZ" customClass="SubtitleLabel" customModule="ARProgramming" customModuleProvider="target">
+                                <rect key="frame" x="307" y="616.5" width="410.5" height="15.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="text" value="Bevæg din iPad rundt for at finde en overflade."/>
@@ -302,7 +302,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="461" placeholderIntrinsicHeight="461" translatesAutoresizingMaskIntoConstraints="NO" id="pS7-9z-jz1">
-                                <rect key="frame" x="205" y="163" width="614" height="368.5"/>
+                                <rect key="frame" x="205" y="199.5" width="614" height="369"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="pS7-9z-jz1" secondAttribute="height" multiplier="5:3" id="Ok7-sQ-rUh"/>
                                 </constraints>
@@ -407,6 +407,7 @@
                             <constraint firstItem="ssh-o2-PNx" firstAttribute="centerX" secondItem="GES-Xl-Tb1" secondAttribute="centerX" id="iwz-l9-bA6"/>
                             <constraint firstItem="o4i-Mg-HgW" firstAttribute="top" secondItem="GES-Xl-Tb1" secondAttribute="bottom" constant="20" id="nfV-zF-lRT"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="8Ns-Mi-th1"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                 <integer key="value" value="30"/>

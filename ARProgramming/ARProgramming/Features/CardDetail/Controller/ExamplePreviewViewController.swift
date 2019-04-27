@@ -21,8 +21,8 @@ class ExamplePreviewViewController: UIViewController {
             previewScene.delegate = self
             previewScene.isPlaying = true
             
-            //Load empty level for preview
-            previewLevelViewModel.anchor(at: previewScene.scene?.rootNode)
+            //Display empty level for preview
+            levelViewModel.anchor(at: previewScene.scene?.rootNode)
             
             //Set up camera
             let camera = SCNNode()
@@ -34,48 +34,59 @@ class ExamplePreviewViewController: UIViewController {
             previewScene.pointOfView = camera
         }
     }
-    @IBOutlet weak var programView: ProgramView! {
-        didSet {
-            programView.scale = 100
-            programView.programsViewModel = viewModel
-        }
-    }
     @IBOutlet weak var playButton: UIButton!
-    
-    var currentCard: String? {
+    @IBOutlet weak var programView: InteractiveProgramView! {
         didSet {
-            if (self.currentCard == "pickup" || self.currentCard == "drop") {
-                previewLevelViewModel.display(level: levelRepository.levelWithItem)
-            } else {
-                previewLevelViewModel.display(level: levelRepository.emptylevel)
-            }
-            runProgram()
+            programView.viewModel = programsViewModel
         }
     }
+    
+    //MARK: - Observers
+    private var levelObserver: Observer!
+    private var runningObserver: Observer!
+    private var levelModelObserver: Observer!
     
     //MARK: - Injected properties
-    var levelRepository: LevelRepository!
-    var previewLevelViewModel: LevelViewModeling! {
+    var viewModel: ExampleProgramViewModeling! {
         didSet {
-            previewLevelViewModel.level.onValue = { [weak self] level in
+            levelObserver = viewModel.level.observeFuture { [weak self] level in
+                self?.levelViewModel.display(level: level)
+            }
+        }
+    }
+    var levelViewModel: LevelViewModeling! {
+        didSet {
+            levelModelObserver = levelViewModel.level.observeFuture { [weak self] level in
                 //Add grid floor
                 let ground = SCNNode(geometry: SCNPlane(width: 5, height: 5))
                 ground.eulerAngles.x = -.pi / 2
                 ground.geometry?.materials.first?.diffuse.contents = UIImage(named: "ExampleProgramGridFloor.png")
-                self?.previewLevelViewModel.addNode(ground)
+                self?.levelViewModel.addNode(ground)
             }
         }
     }
-    var viewModel: ProgramsViewModeling! {
+    var programsViewModel: ProgramsViewModeling! {
         didSet {
-            viewModel.running.onValue = { [weak self] running in
+            programsViewModel.cardSize.value = 100
+            runningObserver = programsViewModel.running.observeFuture { [weak self] running in
                 self?.playButton.isEnabled = !running
             }
         }
     }
     
+    deinit {
+        levelObserver.release()
+        runningObserver.release()
+        levelModelObserver.release()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        runProgram()
+    }
+    
     @IBAction func onPlay(_ sender: UIButton) {
-        previewLevelViewModel.reset()
+        levelViewModel.reset()
         playButton.isEnabled = false
         runProgram()
     }
@@ -90,8 +101,8 @@ class ExamplePreviewViewController: UIViewController {
     
     private func runProgram() {
         DispatchQueue.main.asyncAfter(wallDeadline: DispatchWallTime.now() + 0.5) { [weak self] in
-            if let entity = self?.previewLevelViewModel.player {
-                self?.viewModel.start(on: entity)
+            if let entity = self?.levelViewModel.player {
+                self?.programsViewModel.start(on: entity)
             } else {
                 self?.playButton.isEnabled = true
             }
@@ -102,6 +113,6 @@ class ExamplePreviewViewController: UIViewController {
 //MARK: - SCNSceneRendererDelegate
 extension ExamplePreviewViewController: SCNSceneRendererDelegate {
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
-        previewLevelViewModel.update(currentTime: time)
+        levelViewModel.update(currentTime: time)
     }
 }
