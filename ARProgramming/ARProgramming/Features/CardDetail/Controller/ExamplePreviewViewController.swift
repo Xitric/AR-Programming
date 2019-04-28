@@ -50,8 +50,6 @@ class ExamplePreviewViewController: UIViewController {
     var viewModel: ExampleProgramViewModeling!
     var levelViewModel: LevelSceneViewModeling! {
         didSet {
-            levelViewModel.setLevel(level: viewModel.level)
-            
             levelObserver = levelViewModel.levelRedrawn.observeFuture { [weak self] in
                 //Add grid floor
                 let ground = SCNNode(geometry: SCNPlane(width: 5, height: 5))

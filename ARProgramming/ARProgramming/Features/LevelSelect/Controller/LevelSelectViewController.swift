@@ -49,12 +49,6 @@ class LevelSelectViewController: UIViewController, GradeViewController {
         super.viewWillDisappear(animated)
         levelObserver?.release()
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let gameplayController = segue.destination as? GameplayController {
-            gameplayController.level = viewModel.level
-        }
-    }
 }
 
 // MARK: - UICollectionViewDelegate

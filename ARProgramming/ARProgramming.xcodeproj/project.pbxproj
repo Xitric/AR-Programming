@@ -52,7 +52,6 @@
 		563B0FC7226388D200BFEAA4 /* ShadowedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563B0FC6226388D200BFEAA4 /* ShadowedButton.swift */; };
 		563B0FD72263CEF500BFEAA4 /* LevelClasses.json in Resources */ = {isa = PBXBuildFile; fileRef = 563B0FD62263CEF500BFEAA4 /* LevelClasses.json */; };
 		563B0FD92263CF2000BFEAA4 /* Sounds in Resources */ = {isa = PBXBuildFile; fileRef = 563B0FD82263CF1F00BFEAA4 /* Sounds */; };
-		56413DFD220E2AC30064332E /* GameplayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56413DFC220E2AC30064332E /* GameplayController.swift */; };
 		56431D392232A82700BFAC36 /* UpdateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56431D382232A82700BFAC36 /* UpdateDelegate.swift */; };
 		56431D3D2232B5DB00BFAC36 /* LevelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56431D3C2232B5DB00BFAC36 /* LevelViewModel.swift */; };
 		566066C5225BE4FC00FB0FB0 /* CoreDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566066C4225BE4FC00FB0FB0 /* CoreDataRepository.swift */; };
@@ -65,6 +64,7 @@
 		566875012274F8B800DC3ABD /* ARContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566875002274F8B800DC3ABD /* ARContainerViewModel.swift */; };
 		566875032275B10B00DC3ABD /* LevelSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566875022275B10B00DC3ABD /* LevelSceneViewModel.swift */; };
 		566875052275D3BD00DC3ABD /* ExerciseCompletionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566875042275D3BD00DC3ABD /* ExerciseCompletionViewModel.swift */; };
+		5668750922762DF000DC3ABD /* CurrentLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5668750822762DF000DC3ABD /* CurrentLevel.swift */; };
 		5672096C2260956E0054BD52 /* Exercise.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5672096B2260956E0054BD52 /* Exercise.storyboard */; };
 		56720970226097250054BD52 /* MainMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5672096F226097250054BD52 /* MainMenu.storyboard */; };
 		5672097222609C340054BD52 /* SurfaceDetectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5672097122609C340054BD52 /* SurfaceDetectionViewModel.swift */; };
@@ -184,7 +184,6 @@
 		563B0FC6226388D200BFEAA4 /* ShadowedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowedButton.swift; sourceTree = "<group>"; };
 		563B0FD62263CEF500BFEAA4 /* LevelClasses.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LevelClasses.json; sourceTree = "<group>"; };
 		563B0FD82263CF1F00BFEAA4 /* Sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sounds; sourceTree = "<group>"; };
-		56413DFC220E2AC30064332E /* GameplayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameplayController.swift; sourceTree = "<group>"; };
 		56431D382232A82700BFAC36 /* UpdateDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDelegate.swift; sourceTree = "<group>"; };
 		56431D3C2232B5DB00BFAC36 /* LevelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelViewModel.swift; sourceTree = "<group>"; };
 		566066C4225BE4FC00FB0FB0 /* CoreDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataRepository.swift; sourceTree = "<group>"; };
@@ -197,6 +196,7 @@
 		566875002274F8B800DC3ABD /* ARContainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARContainerViewModel.swift; sourceTree = "<group>"; };
 		566875022275B10B00DC3ABD /* LevelSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSceneViewModel.swift; sourceTree = "<group>"; };
 		566875042275D3BD00DC3ABD /* ExerciseCompletionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCompletionViewModel.swift; sourceTree = "<group>"; };
+		5668750822762DF000DC3ABD /* CurrentLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLevel.swift; sourceTree = "<group>"; };
 		5672096B2260956E0054BD52 /* Exercise.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Exercise.storyboard; sourceTree = "<group>"; };
 		5672096F226097250054BD52 /* MainMenu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainMenu.storyboard; sourceTree = "<group>"; };
 		5672097122609C340054BD52 /* SurfaceDetectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfaceDetectionViewModel.swift; sourceTree = "<group>"; };
@@ -403,6 +403,7 @@
 				566874EB2274685A00DC3ABD /* Observer.swift */,
 				90A55B0821A83B0700FD7CDD /* AudioController.swift */,
 				566066C4225BE4FC00FB0FB0 /* CoreDataRepository.swift */,
+				5668750822762DF000DC3ABD /* CurrentLevel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -600,7 +601,6 @@
 				566875022275B10B00DC3ABD /* LevelSceneViewModel.swift */,
 				56431D3C2232B5DB00BFAC36 /* LevelViewModel.swift */,
 				566875042275D3BD00DC3ABD /* ExerciseCompletionViewModel.swift */,
-				56413DFC220E2AC30064332E /* GameplayController.swift */,
 				567209772262365E0054BD52 /* AuxiliaryExerciseViewDelegate.swift */,
 				56720981226278FE0054BD52 /* DataItemProvider.swift */,
 				5672097D226274CF0054BD52 /* ProgramDragInteractionDelegate.swift */,
@@ -925,7 +925,6 @@
 				562ACDB522456D5900D2DA7C /* CardDetectionView.swift in Sources */,
 				5672097E226274CF0054BD52 /* ProgramDragInteractionDelegate.swift in Sources */,
 				56A62B0E22310727009D0E83 /* EntityModelLoader.swift in Sources */,
-				56413DFD220E2AC30064332E /* GameplayController.swift in Sources */,
 				562ACDBD2248C78500D2DA7C /* GameCoordinationViewController.swift in Sources */,
 				207DA723225F2891003AE8EC /* GradeCardConfiguration.swift in Sources */,
 				56AEACA1221F5DC500ACED36 /* UIImage+Helpers.swift in Sources */,
@@ -966,6 +965,7 @@
 				562ACDC522496BD400D2DA7C /* CardCollectionDataSource.swift in Sources */,
 				561083F8224A7607009A0039 /* ExampleProgramTableDataSource.swift in Sources */,
 				56431D392232A82700BFAC36 /* UpdateDelegate.swift in Sources */,
+				5668750922762DF000DC3ABD /* CurrentLevel.swift in Sources */,
 				20D9BAD1225BF45400DCB87D /* LibraryGradesTabBarController.swift in Sources */,
 				566066C5225BE4FC00FB0FB0 /* CoreDataRepository.swift in Sources */,
 				905A3C882179BE74005E3AA5 /* PlaneDetectorDelegate.swift in Sources */,

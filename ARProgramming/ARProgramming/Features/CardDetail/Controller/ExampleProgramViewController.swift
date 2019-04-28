@@ -45,8 +45,6 @@ class ExampleProgramViewController: UIViewController {
         case let exampleController as ExamplePreviewViewController:
             exampleController.programsViewModel = sender as? ProgramsViewModeling
             exampleController.viewModel.cardName.value = viewModel.cardName.value
-        case let arContainer as ARContainerViewController:
-            arContainer.level = viewModel.level
         default:
             break
         }

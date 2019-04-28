@@ -36,10 +36,4 @@ class BranchLevelSelectViewController: UIViewController {
     @IBAction func onFreePlay(_ sender: Any) {
         viewModel.loadLevel(withNumber: 9000)
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let arContainer = segue.destination as? ARContainerViewController {
-            arContainer.level = viewModel.level
-        }
-    }
 }

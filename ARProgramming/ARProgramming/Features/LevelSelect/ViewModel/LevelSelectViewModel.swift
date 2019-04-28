@@ -11,24 +11,28 @@ import Level
 
 class LevelSelectViewModel: LevelSelectViewModeling {
     
+    private let levelContainer: CurrentLevelProtocol
     private let levelRepository: LevelRepository
     
-    lazy var level = ObservableProperty<LevelProtocol>(levelRepository.emptyLevel)
+    var level: ObservableProperty<LevelProtocol?> {
+        return levelContainer.level
+    }
     
-    init(levelRepository: LevelRepository) {
+    init(level: CurrentLevelProtocol, levelRepository: LevelRepository) {
+        self.levelContainer = level
         self.levelRepository = levelRepository
     }
     
     func loadLevel(withNumber levelNumber: Int) {
         if let level = try? levelRepository.loadLevel(withNumber: levelNumber) {
-            self.level.value = level
+            self.levelContainer.level.value = level
         }
     }
 }
 
 protocol LevelSelectViewModeling {
     
-    var level: ObservableProperty<LevelProtocol> { get }
+    var level: ObservableProperty<LevelProtocol?> { get }
     
     func loadLevel(withNumber: Int)
 }

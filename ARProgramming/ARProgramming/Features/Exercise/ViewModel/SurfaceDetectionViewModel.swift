@@ -29,7 +29,6 @@ class SurfaceDetectionViewModel: SurfaceDetectionViewModeling {
     }
     
     func placeLevel(_ level: LevelSceneViewModeling) {
-        ground.removeFromParentNode()
         level.anchor(at: root)
     }
     
