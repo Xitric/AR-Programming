@@ -17,7 +17,7 @@ import Level
 class LevelSceneViewModel: LevelSceneViewModeling {
     
     //MARK: - Observers
-    private var levelObserver: Observer!
+    private var levelObserver: Observer?
     
     //MARK: - State
     private let wardrobe: WardrobeProtocol
@@ -45,7 +45,7 @@ class LevelSceneViewModel: LevelSceneViewModeling {
     }
     
     deinit {
-        levelObserver.release()
+        levelObserver?.release()
     }
     
     //MARK: - Functionality

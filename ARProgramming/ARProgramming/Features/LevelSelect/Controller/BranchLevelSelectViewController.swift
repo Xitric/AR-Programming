@@ -12,19 +12,25 @@ import Level
 class BranchLevelSelectViewController: UIViewController {
     
     //MARK: - Observers
-    private var levelObserver: Observer!
+    private var levelObserver: Observer?
     
     //MARK: - Injected properties
-    var viewModel: LevelSelectViewModeling! {
-        didSet {
-            levelObserver = viewModel.level.observeFuture { [weak self] level in
-                self?.performSegue(withIdentifier: "freePlaySegue", sender: self)
-            }
+    var viewModel: LevelSelectViewModeling!
+    
+    deinit {
+        levelObserver?.release()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        levelObserver = viewModel.level.observeFuture { [weak self] level in
+            self?.performSegue(withIdentifier: "freePlaySegue", sender: self)
         }
     }
     
-    deinit {
-        levelObserver.release()
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        levelObserver?.release()
     }
     
     @IBAction func onFreePlay(_ sender: Any) {

@@ -64,6 +64,7 @@
 		566874FF2274F33C00DC3ABD /* LevelSelectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566874FE2274F33C00DC3ABD /* LevelSelectViewModel.swift */; };
 		566875012274F8B800DC3ABD /* ARContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566875002274F8B800DC3ABD /* ARContainerViewModel.swift */; };
 		566875032275B10B00DC3ABD /* LevelSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566875022275B10B00DC3ABD /* LevelSceneViewModel.swift */; };
+		566875052275D3BD00DC3ABD /* ExerciseCompletionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566875042275D3BD00DC3ABD /* ExerciseCompletionViewModel.swift */; };
 		5672096C2260956E0054BD52 /* Exercise.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5672096B2260956E0054BD52 /* Exercise.storyboard */; };
 		56720970226097250054BD52 /* MainMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5672096F226097250054BD52 /* MainMenu.storyboard */; };
 		5672097222609C340054BD52 /* SurfaceDetectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5672097122609C340054BD52 /* SurfaceDetectionViewModel.swift */; };
@@ -195,6 +196,7 @@
 		566874FE2274F33C00DC3ABD /* LevelSelectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSelectViewModel.swift; sourceTree = "<group>"; };
 		566875002274F8B800DC3ABD /* ARContainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARContainerViewModel.swift; sourceTree = "<group>"; };
 		566875022275B10B00DC3ABD /* LevelSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSceneViewModel.swift; sourceTree = "<group>"; };
+		566875042275D3BD00DC3ABD /* ExerciseCompletionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCompletionViewModel.swift; sourceTree = "<group>"; };
 		5672096B2260956E0054BD52 /* Exercise.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Exercise.storyboard; sourceTree = "<group>"; };
 		5672096F226097250054BD52 /* MainMenu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainMenu.storyboard; sourceTree = "<group>"; };
 		5672097122609C340054BD52 /* SurfaceDetectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfaceDetectionViewModel.swift; sourceTree = "<group>"; };
@@ -597,6 +599,7 @@
 				5672097122609C340054BD52 /* SurfaceDetectionViewModel.swift */,
 				566875022275B10B00DC3ABD /* LevelSceneViewModel.swift */,
 				56431D3C2232B5DB00BFAC36 /* LevelViewModel.swift */,
+				566875042275D3BD00DC3ABD /* ExerciseCompletionViewModel.swift */,
 				56413DFC220E2AC30064332E /* GameplayController.swift */,
 				567209772262365E0054BD52 /* AuxiliaryExerciseViewDelegate.swift */,
 				56720981226278FE0054BD52 /* DataItemProvider.swift */,
@@ -939,6 +942,7 @@
 				566874FB2274AE8100DC3ABD /* ExampleProgramViewModel.swift in Sources */,
 				207DA725225F2934003AE8EC /* SwinjectStoryboard+Setup.swift in Sources */,
 				C725B2C321A85A7B00DD147A /* Model.xcdatamodeld in Sources */,
+				566875052275D3BD00DC3ABD /* ExerciseCompletionViewModel.swift in Sources */,
 				561083F6224A68FD009A0039 /* FunctionView.swift in Sources */,
 				56720980226274DC0054BD52 /* ProgramDropInteractionDelegate.swift in Sources */,
 				C74785E9219427A3000148BC /* CardCollectionViewCell.swift in Sources */,

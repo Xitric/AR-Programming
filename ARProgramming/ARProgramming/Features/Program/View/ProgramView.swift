@@ -12,8 +12,8 @@ import ProgramModel
 class ProgramView: UIStackView {
     
     //MARK: - Observers
-    private var programsObserver: Observer!
-    private var cardSizeObserver: Observer!
+    private var programsObserver: Observer?
+    private var cardSizeObserver: Observer?
     
     //MARK: - Injected properties
     var viewModel: ProgramsViewModeling! {
@@ -54,8 +54,8 @@ class ProgramView: UIStackView {
     }
     
     deinit {
-        programsObserver.release()
-        cardSizeObserver.release()
+        programsObserver?.release()
+        cardSizeObserver?.release()
     }
     
     //MARK: - Functionality

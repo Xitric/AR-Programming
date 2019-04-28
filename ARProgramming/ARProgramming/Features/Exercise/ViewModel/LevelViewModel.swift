@@ -11,136 +11,97 @@ import SceneKit
 import EntityComponentSystem
 import Level
 
-/// A layer of abstraction built on top of the Level model to automatically manage its graphical representation in the UI.
-///
-/// This view model will synchronize the state of the Level model with a SceneKit representation. It is allso possible to bind to this view model to be notified of any changes to the selected Level.
+/// View model for binding level related data such as level completion and info labels.
 class LevelViewModel: LevelViewModeling, LevelDelegate {
     
-    private let wardrobe: WardrobeProtocol
     private let repository: LevelRepository
-    private let _level = ObservableProperty<LevelProtocol?>()
-    private var modelLoader: EntityModelLoader?
-    private let levelView: SCNNode = {
-        let node = SCNNode()
-        node.scale = SCNVector3(0.15, 0.15, 0.15)
-        return node
-    }()
+    private let scoreManager: ScoreProtocol
+    private var level: ObservableProperty<LevelProtocol>? {
+        didSet {
+            levelObserver = level?.observe { [weak self] newLevel in
+                newLevel.delegate = self
+                self?._complete.value = newLevel.isComplete()
+                self?._levelInfo.value = newLevel.infoLabel
+            }
+        }
+    }
+    private let _complete = ObservableProperty<Bool>(false)
+    private let _levelInfo = ObservableProperty<String?>()
+    
+    //MARK: - Observers
+    private var levelObserver: Observer?
     
     //MARK: - State
-    var level: ImmutableObservableProperty<LevelProtocol?> {
-        return _level
+    var complete: ImmutableObservableProperty<Bool> {
+        return _complete
     }
-    let complete = ObservableProperty<Bool>(false)
-    let levelInfo = ObservableProperty<String?>()
+    var levelInfo: ImmutableObservableProperty<String?> {
+        return _levelInfo
+    }
     var player: Entity? {
-        return _level.value?.entityManager.player
+        return level?.value.entityManager.player
     }
     
     //MARK: - Init
-    init(wardrobe: WardrobeProtocol, levelRepository: LevelRepository) {
-        self.wardrobe = wardrobe
+    init(levelRepository: LevelRepository, scoreManager: ScoreProtocol) {
         self.repository = levelRepository
+        self.scoreManager = scoreManager
     }
     
-    func display(level: LevelProtocol?) {
-        clearSceneNode()
-        
-        _level.value = level
-        level?.delegate = self
-        complete.value = level?.isComplete() ?? false
-        levelInfo.value = level?.infoLabel
-        
-        if let levelModel = _level.value {
-            modelLoader = EntityModelLoader(entityManager: levelModel.entityManager,
-                                            wardrobe: wardrobe,
-                                            root: levelView)
-        } else {
-            modelLoader = nil
-        }
+    deinit {
+        levelObserver?.release()
     }
     
-    private func clearSceneNode() {
-        for child in levelView.childNodes {
-            child.removeFromParentNode()
-        }
-    }
-    
-    func anchor(at parent: SCNNode?) {
-        levelView.removeFromParentNode()
-        parent?.addChildNode(levelView)
-    }
-    
-    func addNode(_ node: SCNNode) {
-        levelView.addChildNode(node)
+    func setLevel(level: ObservableProperty<LevelProtocol>) {
+        self.level = level
     }
     
     func reset() {
-        if let levelNumber = _level.value?.levelNumber {
+        if let levelNumber = level?.value.levelNumber {
             if let newLevel = try? repository.loadLevel(withNumber: levelNumber) {
-                display(level: newLevel)
+                level?.value = newLevel
             }
         }
     }
     
-    func goToNext() {
-        if let nextLevelNumber = _level.value?.unlocks {
-            if let nextLevel = try? repository.loadLevel(withNumber: nextLevelNumber) {
-                display(level: nextLevel)
-            }
+    func scoreUpdated(newScore: Int) {
+        if newScore == 0 {
+            scoreManager.resetScore()
+        } else {
+            scoreManager.incrementCardCount()
         }
-    }
-    
-    //MARK: - UpdateDelegate
-    func update(currentTime: TimeInterval) {
-        _level.value?.update(currentTime: currentTime)
     }
     
     //MARK: - LevelDelegate
     func levelCompleted(_ level: LevelProtocol) {
         DispatchQueue.main.async { [weak self] in
-            self?.complete.value = true
-        }
-    }
-    
-    func levelReset(_ level: LevelProtocol) {
-        DispatchQueue.main.async { [weak self] in
-            self?.complete.value = self?._level.value?.isComplete() ?? false
+            self?.scoreManager.computeScore(level: level.levelNumber)
+            self?._complete.value = true
         }
     }
     
     func levelInfoChanged(_ level: LevelProtocol, info: String?) {
         DispatchQueue.main.async { [weak self] in
-            self?.levelInfo.value = info
+            self?._levelInfo.value = info
         }
     }
 }
 
-protocol LevelViewModeling: UpdateDelegate {
-    var level: ImmutableObservableProperty<LevelProtocol?> { get }
-    var complete: ObservableProperty<Bool> { get }
-    var levelInfo: ObservableProperty<String?> { get }
+protocol LevelViewModeling {
+    var complete: ImmutableObservableProperty<Bool> { get }
+    var levelInfo: ImmutableObservableProperty<String?> { get }
     var player: Entity? { get }
     
-    /// Inform this view model to display the specified level.
+    /// Since the concrete level is not available when this view model is constructed, it is the responsibility of the client to finalize its initialization by setting the level property.
     ///
-    /// This allows the same view model to be used for various levels. Clients bound to the level property are automatically informed.
-    ///
-    /// - Parameter level: The level to display.
-    func display(level: LevelProtocol?)
-    
-    /// Inform this view model about where to place the level in the SceneKit or AR scene.
-    ///
-    /// - Parameter parent: The node to anchor this level to, or nil to remove the level from its current anchor.
-    func anchor(at parent: SCNNode?)
-    
-    /// Add a SCNNode to be displayed as part of this level.
-    ///
-    /// - Parameter node: The node to add.
-    func addNode(_ node: SCNNode)
+    /// - Parameter level: The currently active level.
+    func setLevel(level: ObservableProperty<LevelProtocol>)
     
     /// Reset the current level.
     func reset()
     
-    /// Load and display the level that follows the currently displayed level.
-    func goToNext()
+    /// Notify this view model that the player's score has changed.
+    ///
+    /// - Parameter newScore: The new score.
+    func scoreUpdated(newScore: Int)
 }

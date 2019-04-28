@@ -20,7 +20,7 @@ class LevelSelectViewController: UIViewController, GradeViewController {
     }
     
     //MARK: - Observers
-    private var levelObserver: Observer!
+    private var levelObserver: Observer?
     
     //MARK: - Injected properties
     var grade: Int! {
@@ -28,23 +28,26 @@ class LevelSelectViewController: UIViewController, GradeViewController {
             self.dataSource.grade = grade
         }
     }
-    var viewModel: LevelSelectViewModeling! {
-        didSet {
-            levelObserver = viewModel.level.observeFuture { [weak self] level in
-                self?.performSegue(withIdentifier: "arContainerSegue", sender: self)
-            }
-        }
-    }
+    var viewModel: LevelSelectViewModeling!
     var dataSource: LevelDataSource!
     
     deinit {
-        levelObserver.release()
+        levelObserver?.release()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         dataSource.reloadData()
         collectionView.reloadData()
+        
+        levelObserver = viewModel.level.observeFuture { [weak self] level in
+            self?.performSegue(withIdentifier: "arContainerSegue", sender: self)
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        levelObserver?.release()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

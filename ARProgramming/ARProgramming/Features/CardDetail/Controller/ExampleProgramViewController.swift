@@ -23,7 +23,7 @@ class ExampleProgramViewController: UIViewController {
     }
     
     //MARK: - Observers
-    private var cardObserver: Observer!
+    private var cardObserver: Observer?
     
     //MARK: - Injected properties
     var tableDataSource: ExampleProgramTableDataSource!
@@ -37,7 +37,7 @@ class ExampleProgramViewController: UIViewController {
     }
     
     deinit {
-        cardObserver.release()
+        cardObserver?.release()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

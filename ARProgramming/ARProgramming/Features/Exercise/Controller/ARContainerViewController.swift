@@ -32,7 +32,7 @@ class ARContainerViewController: UIViewController, GameplayController {
     private var coordinationController: GameCoordinationViewController!
     
     //MARK: - Observers
-    private var editedCardsObserver: Observer!
+    private var editedCardsObserver: Observer?
     
     //MARK: - Injected properties
     var viewModel: ARContainerViewModeling! {
@@ -53,7 +53,7 @@ class ARContainerViewController: UIViewController, GameplayController {
     }
     
     deinit {
-        editedCardsObserver.release()
+        editedCardsObserver?.release()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

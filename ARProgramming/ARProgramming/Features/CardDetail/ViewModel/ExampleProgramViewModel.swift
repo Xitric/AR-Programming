@@ -13,7 +13,7 @@ import EntityComponentSystem
 class ExampleProgramViewModel: ExampleProgramViewModeling {
     
     private let levelRepository: LevelRepository
-    private var cardObserver: Observer!
+    private var cardObserver: Observer?
     
     let cardName = ObservableProperty<String?>()
     lazy var level = ObservableProperty<LevelProtocol>(levelRepository.emptyLevel)
@@ -36,7 +36,7 @@ class ExampleProgramViewModel: ExampleProgramViewModeling {
     }
     
     deinit {
-        cardObserver.release()
+        cardObserver?.release()
     }
     
     func reset() {

@@ -12,7 +12,7 @@ import ProgramModel
 class InteractiveProgramView: ProgramView {
     
     //MARK: - Observers
-    private var activeCardObserver: Observer!
+    private var activeCardObserver: Observer?
     
     //MARK: - Injected properties
     override var viewModel: ProgramsViewModeling! {
@@ -28,7 +28,7 @@ class InteractiveProgramView: ProgramView {
     }
     
     deinit {
-        activeCardObserver.release()
+        activeCardObserver?.release()
     }
     
     private func highlight(cardNode: CardNodeProtocol?) {

@@ -42,8 +42,8 @@ class ExamplePreviewViewController: UIViewController {
     }
     
     //MARK: - Observers
-    private var levelObserver: Observer!
-    private var runningObserver: Observer!
+    private var levelObserver: Observer?
+    private var runningObserver: Observer?
     
     //MARK: - Injected properties
     var viewModel: ExampleProgramViewModeling!
@@ -70,8 +70,8 @@ class ExamplePreviewViewController: UIViewController {
     }
     
     deinit {
-        levelObserver.release()
-        runningObserver.release()
+        levelObserver?.release()
+        runningObserver?.release()
     }
     
     override func viewDidAppear(_ animated: Bool) {

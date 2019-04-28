@@ -19,7 +19,7 @@ class SurfaceDetectionViewController: UIViewController, GameplayController {
     @IBOutlet var surfacePlacementGesture: UITapGestureRecognizer!
     
     //MARK: - Observers
-    private var planeObserver: Observer!
+    private var planeObserver: Observer?
     
     //MARK: - Injected properties
     var viewModel: SurfaceDetectionViewModeling! {
@@ -40,7 +40,7 @@ class SurfaceDetectionViewController: UIViewController, GameplayController {
     weak var delegate: AuxiliaryExerciseViewDelegate?
     
     deinit {
-        planeObserver.release()
+        planeObserver?.release()
     }
     
     //MARK: - Control

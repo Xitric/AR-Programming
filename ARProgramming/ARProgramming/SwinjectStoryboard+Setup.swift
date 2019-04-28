@@ -72,12 +72,7 @@ extension SwinjectStoryboard {
     }
     
     private class func addLevel() {
-        defaultContainer.register(ARController.self) { container in ARController() }.inObjectScope(.container)
-        
-        defaultContainer.register(LevelViewModeling.self) { container in
-            LevelViewModel(wardrobe: container.resolve(WardrobeProtocol.self)!,
-                           levelRepository: container.resolve(LevelRepository.self)!)
-        }.inObjectScope(.transient)
+        defaultContainer.register(ARController.self) { container in ARController() }.inObjectScope(.weak)
         
         defaultContainer.register(SurfaceDetectionViewModeling.self) { container in
             let pvm = SurfaceDetectionViewModel()
@@ -106,6 +101,15 @@ extension SwinjectStoryboard {
         
         defaultContainer.register(ScoreProtocol.self) { _ in
             ScoreManager(context: CoreDataRepository())
+        }
+        
+        defaultContainer.register(LevelViewModeling.self) { container in
+            LevelViewModel(levelRepository: container.resolve(LevelRepository.self)!,
+                           scoreManager: container.resolve(ScoreProtocol.self)!)
+        }
+        
+        defaultContainer.register(ExerciseCompletionViewModeling.self) { container in
+            ExerciseCompletionViewModel(repository: container.resolve(LevelRepository.self)!)
         }
         
         defaultContainer.storyboardInitCompleted(BranchLevelSelectViewController.self) { container, controller in
@@ -146,9 +150,13 @@ extension SwinjectStoryboard {
         
         defaultContainer.storyboardInitCompleted(LevelViewController.self) { container, controller in
             controller.audioController = container.resolve(AudioController.self)
-            controller.scoreManager = container.resolve(ScoreProtocol.self)
+            controller.viewModel = container.resolve(LevelViewModeling.self)
             controller.programsViewModel = container.resolve(ProgramsViewModeling.self)
             controller.dropDelegate = ProgramDropInteractionDelegate(serializer: container.resolve(CardGraphDeserializerProtocol.self)!)
+        }
+        
+        defaultContainer.storyboardInitCompleted(ExerciseCompletionViewController.self) { container, controller in
+            controller.viewModel = container.resolve(ExerciseCompletionViewModeling.self)
         }
     }
 }

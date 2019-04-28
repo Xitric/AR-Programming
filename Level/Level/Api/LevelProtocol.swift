@@ -25,6 +25,5 @@ public protocol LevelProtocol: class {
 
 public protocol LevelDelegate: class {
     func levelCompleted(_ level: LevelProtocol)
-    func levelReset(_ level: LevelProtocol)
     func levelInfoChanged(_ level: LevelProtocol, info: String?)
 }
