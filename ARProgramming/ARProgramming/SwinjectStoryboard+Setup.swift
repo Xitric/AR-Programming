@@ -56,38 +56,47 @@ extension SwinjectStoryboard {
     }
     
     private class func addCardDetail() {
+        defaultContainer.register(ExampleProgramViewModeling.self) { container in
+            ExampleProgramViewModel(levelRepository: container.resolve(LevelRepository.self)!)
+        }
+        
         defaultContainer.storyboardInitCompleted(ExampleProgramViewController.self) { container, controller in
             controller.tableDataSource = ExampleProgramTableDataSource(deserializer: container.resolve(CardGraphDeserializerProtocol.self)!)
-            controller.levelRepository = container.resolve(LevelRepository.self)
-            controller.gameLevelViewModel = container.resolve(LevelViewModeling.self)
+            controller.viewModel = container.resolve(ExampleProgramViewModeling.self)
         }
         
         defaultContainer.storyboardInitCompleted(ExamplePreviewViewController.self) { container, controller in
-            controller.levelRepository = container.resolve(LevelRepository.self)
-            controller.previewLevelViewModel = container.resolve(LevelViewModeling.self)
+            controller.viewModel = container.resolve(ExampleProgramViewModeling.self)
+            controller.levelViewModel = container.resolve(LevelSceneViewModeling.self)
         }
     }
     
     private class func addLevel() {
-        defaultContainer.register(ARController.self) { container in ARController() }.inObjectScope(.container)
+        defaultContainer.register(ARController.self) { container in ARController() }.inObjectScope(.weak)
         
-        defaultContainer.register(LevelViewModeling.self) { container in
-            LevelViewModel(wardrobe: container.resolve(WardrobeProtocol.self)!,
-                           levelRepository: container.resolve(LevelRepository.self)!)
-        }.inObjectScope(.transient)
-        
-        defaultContainer.register(PlaneViewModel.self) { container in
-            let pvm = PlaneViewModel()
+        defaultContainer.register(SurfaceDetectionViewModeling.self) { container in
+            let pvm = SurfaceDetectionViewModel()
             container.resolve(ARController.self)!.planeDetectorDelegate = pvm
             return pvm
         }
         
+        defaultContainer.register(LevelSceneViewModeling.self) { container in
+            LevelSceneViewModel(wardrobe: container.resolve(WardrobeProtocol.self)!)
+        }
+        
         let programEditor = defaultContainer.resolve(ProgramEditorProtocol.self)!
         
-        defaultContainer.register(ProgramEditorViewModeling.self) { container in
-            let viewModel = ProgramEditorViewModel(editor: programEditor)
-            container.resolve(ARController.self)?.frameDelegate = viewModel
-            return viewModel
+        defaultContainer.register(ARContainerViewModeling.self) { container in
+            ARContainerViewModel(editor: programEditor,
+                                 arController: container.resolve(ARController.self)!)
+        }
+        
+        defaultContainer.register(GameCoordinationViewModeling.self) { container in
+            GameCoordinationViewModel(levelConfig: LevelConfig())
+        }
+        
+        defaultContainer.register(LevelSelectViewModeling.self) { controller in
+            LevelSelectViewModel(levelRepository: controller.resolve(LevelRepository.self)!)
         }
         
         defaultContainer.register(ProgramsViewModeling.self) { container in
@@ -98,9 +107,17 @@ extension SwinjectStoryboard {
             ScoreManager(context: CoreDataRepository())
         }
         
+        defaultContainer.register(LevelViewModeling.self) { container in
+            LevelViewModel(levelRepository: container.resolve(LevelRepository.self)!,
+                           scoreManager: container.resolve(ScoreProtocol.self)!)
+        }
+        
+        defaultContainer.register(ExerciseCompletionViewModeling.self) { container in
+            ExerciseCompletionViewModel(repository: container.resolve(LevelRepository.self)!)
+        }
+        
         defaultContainer.storyboardInitCompleted(BranchLevelSelectViewController.self) { container, controller in
-            controller.levelRepository = container.resolve(LevelRepository.self)
-            controller.levelViewModel = container.resolve(LevelViewModeling.self)
+            controller.viewModel = container.resolve(LevelSelectViewModeling.self)
         }
         
         defaultContainer.storyboardInitCompleted(LevelSelectViewController.self) { container, controller in
@@ -109,13 +126,11 @@ extension SwinjectStoryboard {
                 scoreManager: container.resolve(ScoreProtocol.self)!,
                 configuration: LevelConfig())
             controller.dataSource = dataSource
-            controller.levelRepository = container.resolve(LevelRepository.self)
-            controller.levelViewModel = container.resolve(LevelViewModeling.self)
+            controller.viewModel = container.resolve(LevelSelectViewModeling.self)
         }
         
         defaultContainer.storyboardInitCompleted(ARContainerViewController.self) { container, controller in
-            controller.programEditorViewModel = container.resolve(ProgramEditorViewModeling.self)
-            controller.arController = container.resolve(ARController.self)
+            controller.viewModel = container.resolve(ARContainerViewModeling.self)
             controller.dragDelegate = ProgramDragInteractionDelegate(serializer: container.resolve(CardGraphDeserializerProtocol.self)!)
         }
         
@@ -126,7 +141,7 @@ extension SwinjectStoryboard {
             let levelController = storyboard.instantiateViewController(withIdentifier: "LevelScene")
             let cardController = storyboard.instantiateViewController(withIdentifier: "CardDescriptionScene")
             
-            controller.levelConfig = LevelConfig()
+            controller.viewModel = container.resolve(GameCoordinationViewModeling.self)
             controller.surfaceViewController = surfaceController
             controller.onboardingViewController = onboardController
             controller.levelViewController = levelController
@@ -138,14 +153,19 @@ extension SwinjectStoryboard {
         }
         
         defaultContainer.storyboardInitCompleted(SurfaceDetectionViewController.self) { container, controller in
-            controller.planeViewModel = container.resolve(PlaneViewModel.self)
+            controller.viewModel = container.resolve(SurfaceDetectionViewModeling.self)
+            controller.levelViewModel = container.resolve(LevelSceneViewModeling.self)
         }
         
         defaultContainer.storyboardInitCompleted(LevelViewController.self) { container, controller in
             controller.audioController = container.resolve(AudioController.self)
-            controller.scoreManager = container.resolve(ScoreProtocol.self)
+            controller.viewModel = container.resolve(LevelViewModeling.self)
             controller.programsViewModel = container.resolve(ProgramsViewModeling.self)
             controller.dropDelegate = ProgramDropInteractionDelegate(serializer: container.resolve(CardGraphDeserializerProtocol.self)!)
+        }
+        
+        defaultContainer.storyboardInitCompleted(ExerciseCompletionViewController.self) { container, controller in
+            controller.viewModel = container.resolve(ExerciseCompletionViewModeling.self)
         }
     }
 }

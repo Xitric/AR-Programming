@@ -13,6 +13,7 @@ import ProgramModel
 class ProgramDragInteractionDelegate: NSObject, UIDragInteractionDelegate {
     
     private let serializer: CardGraphDeserializerProtocol
+    private let _dragBegan = ObservableProperty<Void>(())
     
     private var dragPreviewView: UIView {
         let functionView = FunctionView()
@@ -27,8 +28,10 @@ class ProgramDragInteractionDelegate: NSObject, UIDragInteractionDelegate {
         return params
     }
     
-    var dragBegan: (() -> Void)?
     var currentProgram: ProgramProtocol?
+    var dragBegan: ImmutableObservableProperty<Void> {
+        return _dragBegan
+    }
     
     init(serializer: CardGraphDeserializerProtocol) {
         self.serializer = serializer
@@ -47,7 +50,7 @@ class ProgramDragInteractionDelegate: NSObject, UIDragInteractionDelegate {
                 return UIDragPreview(view: view, parameters: params)
             }
             
-            dragBegan?()
+            _dragBegan.value = ()
             return [dragItem]
         }
         

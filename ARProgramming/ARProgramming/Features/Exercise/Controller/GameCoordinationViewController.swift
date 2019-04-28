@@ -8,14 +8,15 @@
 
 import Foundation
 import UIKit
+import Level
 import ProgramModel
 
 //This implementation is inspired by:
 //https://cocoacasts.com/managing-view-controllers-with-container-view-controllers/
 
-/// This controller is responsible for switching between the curently active controller while the user is playing a level.
+/// This controller is responsible for switching between the currently active controller while the user is playing a level.
 ///
-/// Initially the level controller is active, and occasionally the card detail controller must be active. Only one of these controllers can be active at the same time.
+/// This controller is inspired by the Coordinator, whose responsibility is to manage the navigation between a set of child view controllers / coordinators. In this way, the child view controllers can be independent of each other and send callbacks only back to their coordinator by means of a delegate.
 class GameCoordinationViewController: UIViewController, GameplayController {
     
     private var childViewController: UIViewController? {
@@ -23,8 +24,14 @@ class GameCoordinationViewController: UIViewController, GameplayController {
     }
     
     //MARK: - Injected properties
-    var levelViewModel: LevelViewModeling?
-    var levelConfig: GradeLevelConfiguration!
+    var viewModel: GameCoordinationViewModeling!
+    var level: ObservableProperty<LevelProtocol>? {
+        didSet {
+            if let level = level {
+                viewModel.setLevel(level: level)
+            }
+        }
+    }
     var surfaceViewController: UIViewController!
     var onboardingViewController: UIViewController!
     var levelViewController: UIViewController!
@@ -52,7 +59,7 @@ class GameCoordinationViewController: UIViewController, GameplayController {
         
         controller.didMove(toParent: self)
         
-        (controller as? GameplayController)?.levelViewModel = levelViewModel
+        (controller as? GameplayController)?.level = level
     }
     
     private func removeViewController(_ controller: UIViewController) {
@@ -79,8 +86,7 @@ extension GameCoordinationViewController: AuxiliaryExerciseViewDelegate {
     func auxiliaryViewCompleted(_ controller: UIViewController) {
         switch controller {
         case surfaceViewController:
-            if let firstLevel = levelConfig.levels(forGrade: 1).first,
-                levelViewModel?.level.value?.levelNumber == firstLevel {
+            if viewModel.isFirstLevel {
                 showViewController(controller: onboardingViewController)
             } else {
                 fallthrough

@@ -22,33 +22,31 @@ class ExampleProgramViewController: UIViewController {
         }
     }
     
-    var currentCard: String? {
+    //MARK: - Observers
+    private var cardObserver: Observer?
+    
+    //MARK: - Injected properties
+    var tableDataSource: ExampleProgramTableDataSource!
+    var viewModel: ExampleProgramViewModeling! {
         didSet {
-            if (self.currentCard == "pickup" || self.currentCard == "drop") {
-                gameLevelViewModel.display(level: levelRepository.levelWithItem)
-            } else {
-                gameLevelViewModel.display(level: levelRepository.emptylevel)
+            cardObserver = viewModel.cardName.observeFuture { [weak self] card in
+                guard let cardName = card else { return }
+                self?.tableDataSource.showExamplesForCard(withName: cardName)
             }
         }
     }
     
-    //MARK: - Injected properties
-    var tableDataSource: ExampleProgramTableDataSource!
-    var levelRepository: LevelRepository!
-    var gameLevelViewModel: LevelViewModeling!
-    
-    func showExamples(forCard card: Card) {
-        currentCard = card.internalName
-        tableDataSource?.showExamplesForCard(withName: card.internalName)
+    deinit {
+        cardObserver?.release()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.destination {
         case let exampleController as ExamplePreviewViewController:
-            exampleController.viewModel = sender as? ProgramsViewModeling
-            exampleController.currentCard = currentCard
+            exampleController.programsViewModel = sender as? ProgramsViewModeling
+            exampleController.viewModel.cardName.value = viewModel.cardName.value
         case let arContainer as ARContainerViewController:
-            arContainer.levelViewModel = gameLevelViewModel
+            arContainer.level = viewModel.level
         default:
             break
         }

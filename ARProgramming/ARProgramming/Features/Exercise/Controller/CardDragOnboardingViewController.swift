@@ -9,13 +9,12 @@
 import Foundation
 import UIKit
 
-class CardDragOnboardingViewController: UIViewController, GameplayController {
+class CardDragOnboardingViewController: UIViewController {
     
     @IBOutlet weak var cardDragAnimation: UIImageView!
     
     //MARK: - Injected properties
     weak var delegate: AuxiliaryExerciseViewDelegate?
-    var levelViewModel: LevelViewModeling?
     
     //MARK: - Life cycle
     override func viewDidLoad() {

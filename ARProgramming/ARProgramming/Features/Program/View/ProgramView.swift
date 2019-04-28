@@ -11,23 +11,31 @@ import ProgramModel
 
 class ProgramView: UIStackView {
     
-    var programsViewModel: ProgramsViewModeling! {
+    //MARK: - Observers
+    private var programsObserver: Observer?
+    private var cardSizeObserver: Observer?
+    
+    //MARK: - Injected properties
+    var viewModel: ProgramsViewModeling! {
         didSet {
-            clear()
-            programsViewModel.programs.onValue = { [weak self] programs in
-                self?.clear()
+            programsObserver = viewModel.programs.observe { [weak self] programs in
                 self?.populateProgramView(with: programs)
             }
             
-            populateProgramView(with: programsViewModel.programs.value)
-            
-            programsViewModel.activeCard.onValue = { [weak self] cardNode in
-                self?.highlight(cardNode: cardNode)
+            cardSizeObserver = viewModel.cardSize.observe { [weak self] size in
+                self?.scale = size == nil ? nil : CGFloat(size!)
             }
         }
     }
-    var scale: CGFloat?
+    private var scale: CGFloat? {
+        didSet {
+            if (scale != oldValue) {
+                self.populateProgramView(with: viewModel.programs.value)
+            }
+        }
+    }
     
+    //MARK: - Life cycle
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -45,6 +53,12 @@ class ProgramView: UIStackView {
         self.spacing = 24
     }
     
+    deinit {
+        programsObserver?.release()
+        cardSizeObserver?.release()
+    }
+    
+    //MARK: - Functionality
     private func clear() {
         for subView in arrangedSubviews {
             subView.removeFromSuperview()
@@ -52,15 +66,16 @@ class ProgramView: UIStackView {
     }
     
     private func populateProgramView(with programs: [ProgramProtocol]) {
+        clear()
         
         //First add the main function to ensure it comes first
-        if let main = programsViewModel.main.value {
+        if let main = viewModel.main.value {
             addArrangedSubview(createFunctionView(withProgram: main))
         }
         
         //Then add the remaining functions, if any
         let filteredPrograms = programs.filter {
-            $0 !== programsViewModel.main.value
+            $0 !== viewModel.main.value
         }
         
         for program in filteredPrograms {
@@ -68,7 +83,7 @@ class ProgramView: UIStackView {
         }
     }
     
-    private func createFunctionView(withProgram program: ProgramProtocol) -> FunctionView {
+    func createFunctionView(withProgram program: ProgramProtocol) -> FunctionView {
         let fv = FunctionView()
         fv.setContentHuggingPriority(.required, for: .vertical)
         fv.setContentCompressionResistancePriority(.required, for: .vertical)
@@ -80,13 +95,5 @@ class ProgramView: UIStackView {
         fv.program = program
         
         return fv
-    }
-    
-    private func highlight(cardNode: CardNodeProtocol?) {
-        for subview in self.arrangedSubviews {
-            if let functionView = subview as? FunctionView {
-                functionView.highlightNode = cardNode
-            }
-        }
     }
 }
