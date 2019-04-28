@@ -176,7 +176,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="SUT-wU-ZhM" kind="show" id="eEY-zS-3Zb"/>
+                                            <action selector="onFreePlay:" destination="gdo-zk-U0a" eventType="touchUpInside" id="6Xx-LR-T13"/>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SandboxBot" translatesAutoresizingMaskIntoConstraints="NO" id="VK5-fL-17R">
@@ -260,11 +260,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HBI-vC-wEP"/>
                     </view>
+                    <connections>
+                        <segue destination="SUT-wU-ZhM" kind="show" identifier="freePlaySegue" id="ux6-LA-uIc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TW9-H8-h3Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="PZB-n7-Jra">
                     <connections>
-                        <segue destination="SUT-wU-ZhM" kind="show" id="9G2-Q6-jnP"/>
+                        <action selector="onFreePlay:" destination="gdo-zk-U0a" id="5q5-g4-QkT"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="0ge-Uc-BaV">
@@ -283,7 +286,7 @@
         <image name="robo" width="540" height="540"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="eEY-zS-3Zb"/>
+        <segue reference="ux6-LA-uIc"/>
         <segue reference="LYX-qj-NRN"/>
         <segue reference="QlB-48-D6d"/>
     </inferredMetricsTieBreakers>

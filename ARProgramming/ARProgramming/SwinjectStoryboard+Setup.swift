@@ -67,7 +67,7 @@ extension SwinjectStoryboard {
         
         defaultContainer.storyboardInitCompleted(ExamplePreviewViewController.self) { container, controller in
             controller.viewModel = container.resolve(ExampleProgramViewModeling.self)
-            controller.levelViewModel = container.resolve(LevelViewModeling.self)
+            controller.levelViewModel = container.resolve(LevelSceneViewModeling.self)
         }
     }
     
@@ -79,18 +79,25 @@ extension SwinjectStoryboard {
                            levelRepository: container.resolve(LevelRepository.self)!)
         }.inObjectScope(.transient)
         
-        defaultContainer.register(PlaneViewModel.self) { container in
-            let pvm = PlaneViewModel()
+        defaultContainer.register(SurfaceDetectionViewModeling.self) { container in
+            let pvm = SurfaceDetectionViewModel()
             container.resolve(ARController.self)!.planeDetectorDelegate = pvm
             return pvm
         }
         
+        defaultContainer.register(LevelSceneViewModeling.self) { container in
+            LevelSceneViewModel(wardrobe: container.resolve(WardrobeProtocol.self)!)
+        }
+        
         let programEditor = defaultContainer.resolve(ProgramEditorProtocol.self)!
         
-        defaultContainer.register(ProgramEditorViewModeling.self) { container in
-            let viewModel = ProgramEditorViewModel(editor: programEditor)
-            container.resolve(ARController.self)?.frameDelegate = viewModel
-            return viewModel
+        defaultContainer.register(ARContainerViewModeling.self) { container in
+            ARContainerViewModel(editor: programEditor,
+                                 arController: container.resolve(ARController.self)!)
+        }
+        
+        defaultContainer.register(LevelSelectViewModeling.self) { controller in
+            LevelSelectViewModel(levelRepository: controller.resolve(LevelRepository.self)!)
         }
         
         defaultContainer.register(ProgramsViewModeling.self) { container in
@@ -102,8 +109,7 @@ extension SwinjectStoryboard {
         }
         
         defaultContainer.storyboardInitCompleted(BranchLevelSelectViewController.self) { container, controller in
-            controller.levelRepository = container.resolve(LevelRepository.self)
-            controller.levelViewModel = container.resolve(LevelViewModeling.self)
+            controller.viewModel = container.resolve(LevelSelectViewModeling.self)
         }
         
         defaultContainer.storyboardInitCompleted(LevelSelectViewController.self) { container, controller in
@@ -111,13 +117,11 @@ extension SwinjectStoryboard {
                 levelRepository: container.resolve(LevelRepository.self)!,
                 scoreManager: container.resolve(ScoreProtocol.self)!)
             controller.dataSource = dataSource
-            controller.levelRepository = container.resolve(LevelRepository.self)
-            controller.levelViewModel = container.resolve(LevelViewModeling.self)
+            controller.viewModel = container.resolve(LevelSelectViewModeling.self)
         }
         
         defaultContainer.storyboardInitCompleted(ARContainerViewController.self) { container, controller in
-            controller.programEditorViewModel = container.resolve(ProgramEditorViewModeling.self)
-            controller.arController = container.resolve(ARController.self)
+            controller.viewModel = container.resolve(ARContainerViewModeling.self)
             controller.dragDelegate = ProgramDragInteractionDelegate(serializer: container.resolve(CardGraphDeserializerProtocol.self)!)
         }
         
@@ -136,7 +140,8 @@ extension SwinjectStoryboard {
         }
         
         defaultContainer.storyboardInitCompleted(SurfaceDetectionViewController.self) { container, controller in
-            controller.planeViewModel = container.resolve(PlaneViewModel.self)
+            controller.viewModel = container.resolve(SurfaceDetectionViewModeling.self)
+            controller.levelViewModel = container.resolve(LevelSceneViewModeling.self)
         }
         
         defaultContainer.storyboardInitCompleted(LevelViewController.self) { container, controller in

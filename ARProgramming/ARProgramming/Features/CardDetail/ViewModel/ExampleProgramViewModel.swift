@@ -8,16 +8,17 @@
 
 import Foundation
 import Level
+import EntityComponentSystem
 
 class ExampleProgramViewModel: ExampleProgramViewModeling {
     
     private let levelRepository: LevelRepository
     private var cardObserver: Observer!
-    private lazy var _level = ObservableProperty<LevelProtocol>(levelRepository.emptyLevel)
     
     let cardName = ObservableProperty<String?>()
-    var level: ImmutableObservableProperty<LevelProtocol> {
-        return _level
+    lazy var level = ObservableProperty<LevelProtocol>(levelRepository.emptyLevel)
+    var player: Entity {
+        return level.value.entityManager.player
     }
     
     init(levelRepository: LevelRepository) {
@@ -27,9 +28,9 @@ class ExampleProgramViewModel: ExampleProgramViewModeling {
                 let self = self else { return }
             
             if (card == "pickup" || card == "drop") {
-                self._level.value = self.levelRepository.levelWithItem
+                self.level.value = self.levelRepository.levelWithItem
             } else {
-                self._level.value = self.levelRepository.emptyLevel
+                self.level.value = self.levelRepository.emptyLevel
             }
         }
     }
@@ -37,9 +38,24 @@ class ExampleProgramViewModel: ExampleProgramViewModeling {
     deinit {
         cardObserver.release()
     }
+    
+    func reset() {
+        let levelNumber = level.value.levelNumber
+        if let newLevel = try? levelRepository.loadLevel(withNumber: levelNumber) {
+            self.level.value = newLevel
+        }
+    }
+    
+    //MARK: - UpdateDelegate
+    func update(currentTime: TimeInterval) {
+        self.level.value.update(currentTime: currentTime)
+    }
 }
 
-protocol ExampleProgramViewModeling {
+protocol ExampleProgramViewModeling: UpdateDelegate {
     var cardName: ObservableProperty<String?> { get }
-    var level: ImmutableObservableProperty<LevelProtocol> { get }
+    var level: ObservableProperty<LevelProtocol> { get }
+    var player: Entity { get }
+    
+    func reset()
 }

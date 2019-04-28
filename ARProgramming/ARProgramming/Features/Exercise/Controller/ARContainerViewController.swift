@@ -16,10 +16,10 @@ import Level
 ///
 /// This controller is responsible for creating the ARSCNView which, for technical reasons, must be shared between all other controllers for the game views. This is accomplished by using a ContainerView to place the views of other controllers on top of this shared ARSCNView.
 class ARContainerViewController: UIViewController, GameplayController {
-    
+
     @IBOutlet weak var arSceneView: ARSCNView! {
         didSet {
-            arController.sceneView = arSceneView
+            viewModel.arController.sceneView = arSceneView
         }
     }
     @IBOutlet weak var cardDetectionView: CardDetectionView! {
@@ -31,28 +31,35 @@ class ARContainerViewController: UIViewController, GameplayController {
     
     private var coordinationController: GameCoordinationViewController!
     
+    //MARK: - Observers
+    private var editedCardsObserver: Observer!
+    
     //MARK: - Injected properties
-    var levelViewModel: LevelViewModeling? {
+    var viewModel: ARContainerViewModeling! {
         didSet {
-            arController.updateDelegate = levelViewModel
-        }
-    }
-    var programEditorViewModel: ProgramEditorViewModeling! {
-        didSet {
-            programEditorViewModel.editedCards.onValue = { [weak self] programs in
-                self?.cardDetectionView.display(nodes: self!.programEditorViewModel.editedCards.value,
-                                          program: self?.programEditorViewModel.editedProgram.value)
-                self?.dragDelegate.currentProgram = self?.programEditorViewModel.editedProgram.value
+            editedCardsObserver = viewModel.editedCards.observeFuture { [weak self] cards in
+                self?.cardDetectionView.display(nodes: cards, program: self!.viewModel.editedProgram.value)
+                self?.dragDelegate.currentProgram = self?.viewModel.editedProgram.value
             }
         }
     }
-    var arController: ARController!
     var dragDelegate: ProgramDragInteractionDelegate!
+    var level: ObservableProperty<LevelProtocol>? {
+        didSet {
+            if let level = level {
+                viewModel.setLevel(level: level)
+            }
+        }
+    }
+    
+    deinit {
+        editedCardsObserver.release()
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let overlayController = segue.destination as? GameCoordinationViewController {
-            overlayController.levelViewModel = levelViewModel
-            coordinationController = overlayController
+        if let coordinator = segue.destination as? GameCoordinationViewController {
+            coordinator.level = level
+            coordinationController = coordinator
         }
     }
     
@@ -63,13 +70,13 @@ class ARContainerViewController: UIViewController, GameplayController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        arController?.start()
+        viewModel.start()
         self.navigationController?.navigationBar.isHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        arController?.stop()
+        viewModel.stop()
         self.navigationController?.navigationBar.isHidden = false
     }
 }

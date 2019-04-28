@@ -1,5 +1,5 @@
 //
-//  PlaneViewModel.swift
+//  SurfaceDetectionViewModel.swift
 //  ARProgramming
 //  
 //  Created by Kasper Schultz Davidsen on 12/04/2019.
@@ -9,9 +9,9 @@
 import Foundation
 import SceneKit
 
-/// View model that acts as a data source and delegate for AR plane detection.
-class PlaneViewModel: PlaneDetectorDelegate {
+class SurfaceDetectionViewModel: SurfaceDetectionViewModeling {
     
+    private let _planeDetected = ObservableProperty<Void>(())
     private lazy var root: SCNNode = {
         let node = SCNNode()
         node.addChildNode(ground)
@@ -24,14 +24,14 @@ class PlaneViewModel: PlaneDetectorDelegate {
         return node
     }()
     
-    //MARK: - State
-    func placeLevel(_ level: LevelViewModeling) {
+    var planeDetected: ImmutableObservableProperty<Void> {
+        return _planeDetected
+    }
+    
+    func placeLevel(_ level: LevelSceneViewModeling) {
         ground.removeFromParentNode()
         level.anchor(at: root)
     }
-    
-    //MARK: - Bindings
-    var planeDetected: (() -> Void)?
     
     //MARK: - PlaneDetectorDelegate
     func shouldDetectPlanes(_ detector: ARController) -> Bool {
@@ -40,8 +40,16 @@ class PlaneViewModel: PlaneDetectorDelegate {
     
     func createPlaneNode(_ detector: ARController) -> SCNNode {
         DispatchQueue.main.async { [weak self] in
-            self?.planeDetected?()
+            self?._planeDetected.value = ()
         }
         return root
     }
+}
+
+/// View model that acts as a data source and delegate for AR plane detection.
+protocol SurfaceDetectionViewModeling: PlaneDetectorDelegate {
+    
+    var planeDetected: ImmutableObservableProperty<Void> { get }
+    
+    func placeLevel(_ level: LevelSceneViewModeling)
 }

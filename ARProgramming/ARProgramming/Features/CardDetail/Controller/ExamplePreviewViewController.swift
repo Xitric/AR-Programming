@@ -44,19 +44,14 @@ class ExamplePreviewViewController: UIViewController {
     //MARK: - Observers
     private var levelObserver: Observer!
     private var runningObserver: Observer!
-    private var levelModelObserver: Observer!
     
     //MARK: - Injected properties
-    var viewModel: ExampleProgramViewModeling! {
+    var viewModel: ExampleProgramViewModeling!
+    var levelViewModel: LevelSceneViewModeling! {
         didSet {
-            levelObserver = viewModel.level.observeFuture { [weak self] level in
-                self?.levelViewModel.display(level: level)
-            }
-        }
-    }
-    var levelViewModel: LevelViewModeling! {
-        didSet {
-            levelModelObserver = levelViewModel.level.observeFuture { [weak self] level in
+            levelViewModel.setLevel(level: viewModel.level)
+            
+            levelObserver = levelViewModel.levelRedrawn.observeFuture { [weak self] in
                 //Add grid floor
                 let ground = SCNNode(geometry: SCNPlane(width: 5, height: 5))
                 ground.eulerAngles.x = -.pi / 2
@@ -77,7 +72,6 @@ class ExamplePreviewViewController: UIViewController {
     deinit {
         levelObserver.release()
         runningObserver.release()
-        levelModelObserver.release()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -86,7 +80,7 @@ class ExamplePreviewViewController: UIViewController {
     }
     
     @IBAction func onPlay(_ sender: UIButton) {
-        levelViewModel.reset()
+        viewModel.reset()
         playButton.isEnabled = false
         runProgram()
     }
@@ -101,7 +95,7 @@ class ExamplePreviewViewController: UIViewController {
     
     private func runProgram() {
         DispatchQueue.main.asyncAfter(wallDeadline: DispatchWallTime.now() + 0.5) { [weak self] in
-            if let entity = self?.levelViewModel.player {
+            if let entity = self?.viewModel.player {
                 self?.programsViewModel.start(on: entity)
             } else {
                 self?.playButton.isEnabled = true
@@ -113,6 +107,6 @@ class ExamplePreviewViewController: UIViewController {
 //MARK: - SCNSceneRendererDelegate
 extension ExamplePreviewViewController: SCNSceneRendererDelegate {
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
-        levelViewModel.update(currentTime: time)
+        viewModel.update(currentTime: time)
     }
 }

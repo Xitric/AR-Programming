@@ -10,14 +10,30 @@ import UIKit
 import Level
 
 class BranchLevelSelectViewController: UIViewController {
-
-    var levelRepository: LevelRepository!
-    var levelViewModel: LevelViewModeling!
+    
+    //MARK: - Observers
+    private var levelObserver: Observer!
+    
+    //MARK: - Injected properties
+    var viewModel: LevelSelectViewModeling! {
+        didSet {
+            levelObserver = viewModel.level.observeFuture { [weak self] level in
+                self?.performSegue(withIdentifier: "freePlaySegue", sender: self)
+            }
+        }
+    }
+    
+    deinit {
+        levelObserver.release()
+    }
+    
+    @IBAction func onFreePlay(_ sender: Any) {
+        viewModel.loadLevel(withNumber: 9000)
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let arContainer = segue.destination as? ARContainerViewController {
-            levelViewModel.display(level: levelRepository.levelWithItem)
-            arContainer.levelViewModel = levelViewModel
+            arContainer.level = viewModel.level
         }
     }
 }

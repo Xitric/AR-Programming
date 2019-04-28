@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Level
 
 /// A controller for performing surface detection before an exercise can begin.
 class SurfaceDetectionViewController: UIViewController, GameplayController {
@@ -17,15 +18,29 @@ class SurfaceDetectionViewController: UIViewController, GameplayController {
     @IBOutlet weak var placeButton: UIButton!
     @IBOutlet var surfacePlacementGesture: UITapGestureRecognizer!
     
+    //MARK: - Observers
+    private var planeObserver: Observer!
+    
     //MARK: - Injected properties
-    weak var delegate: AuxiliaryExerciseViewDelegate?
-    var levelViewModel: LevelViewModeling?
-    var planeViewModel: PlaneViewModel! {
+    var viewModel: SurfaceDetectionViewModeling! {
         didSet {
-            planeViewModel.planeDetected = { [weak self] in
+            planeObserver = viewModel.planeDetected.observeFuture { [weak self] in
                 self?.onPlaneDetected()
             }
         }
+    }
+    var levelViewModel: LevelSceneViewModeling!
+    var level: ObservableProperty<LevelProtocol>? {
+        didSet {
+            if let level = level {
+                levelViewModel.setLevel(level: level)
+            }
+        }
+    }
+    weak var delegate: AuxiliaryExerciseViewDelegate?
+    
+    deinit {
+        planeObserver.release()
     }
     
     //MARK: - Control
@@ -41,7 +56,7 @@ class SurfaceDetectionViewController: UIViewController, GameplayController {
     
     @IBAction func onPlaceAction(_ sender: Any) {
         if let levelViewModel = levelViewModel {
-            planeViewModel.placeLevel(levelViewModel)
+            viewModel.placeLevel(levelViewModel)
             delegate?.auxiliaryViewCompleted(self)
         }
     }
