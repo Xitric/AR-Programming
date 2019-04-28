@@ -50,7 +50,6 @@ class EntityModelLoader: EntityManagerDelegate {
             }
             nodeComponent = SCNNodeComponent(node: node)
         } else {
-            //TODO: Better placeholder
             let geometry = SCNSphere(radius: 0.25)
             nodeComponent = SCNNodeComponent(node: SCNNode(geometry: geometry))
         }

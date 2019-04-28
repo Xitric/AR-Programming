@@ -13,7 +13,7 @@ import AVFoundation
 import ProgramModel
 import Level
 
-class LevelViewController: UIViewController, GameplayController {
+class LevelViewController: UIViewController, GameplayController, InteractiveProgramDelegate {
     
     //MARK: - View
     @IBOutlet weak var levelInfo: SubtitleLabel!
@@ -27,6 +27,7 @@ class LevelViewController: UIViewController, GameplayController {
     @IBOutlet weak var programView: InteractiveProgramView! {
         didSet {
             programView.viewModel = programsViewModel
+            programView.delegate = self
         }
     }
     @IBOutlet weak var exerciseCompletionView: UIView!
@@ -63,6 +64,7 @@ class LevelViewController: UIViewController, GameplayController {
             runningObserver = programsViewModel.running.observeFuture { [weak self] running in
                 self?.resetButton.isEnabled = !running
                 self?.playButton.isEnabled = !running
+                self?.programView.isUserInteractionEnabled = !running
             }
             
             executedCardsObserver = programsViewModel.executedCards.observeFuture { [weak self] cardCount in
@@ -87,6 +89,7 @@ class LevelViewController: UIViewController, GameplayController {
                 levelObserver = level.observe { [weak self] level in
                     self?.resetButton.isEnabled = true
                     self?.playButton.isEnabled = true
+                    self?.programView.isUserInteractionEnabled = true
                     self?.programsViewModel.reset()
                 }
             }
@@ -129,6 +132,13 @@ class LevelViewController: UIViewController, GameplayController {
     }
     
     @IBAction func onPlay(_ sender: UIButton) {
+        if let player = viewModel.player {
+            programsViewModel.start(on: player)
+        }
+    }
+    
+    // MARK: - InteractiveProgramDelegate
+    func interactiveProgram(_ view: InteractiveProgramView, pressed program: ProgramProtocol) {
         if let player = viewModel.player {
             programsViewModel.start(on: player)
         }

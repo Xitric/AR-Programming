@@ -83,7 +83,7 @@ class ProgramView: UIStackView {
         }
     }
     
-    private func createFunctionView(withProgram program: ProgramProtocol) -> FunctionView {
+    func createFunctionView(withProgram program: ProgramProtocol) -> FunctionView {
         let fv = FunctionView()
         fv.setContentHuggingPriority(.required, for: .vertical)
         fv.setContentCompressionResistancePriority(.required, for: .vertical)

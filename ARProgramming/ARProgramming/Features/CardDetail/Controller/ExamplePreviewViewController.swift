@@ -6,10 +6,10 @@
 //  Copyright © 2019 Emil Nielsen and Kasper Schultz Davidsen. All rights reserved.
 //
 
-import Foundation
 import UIKit
 import SceneKit
 import Level
+import ProgramModel
 
 class ExamplePreviewViewController: UIViewController {
     
@@ -38,6 +38,7 @@ class ExamplePreviewViewController: UIViewController {
     @IBOutlet weak var programView: InteractiveProgramView! {
         didSet {
             programView.viewModel = programsViewModel
+            programView.delegate = self
         }
     }
     
@@ -65,6 +66,7 @@ class ExamplePreviewViewController: UIViewController {
             programsViewModel.cardSize.value = 100
             runningObserver = programsViewModel.running.observeFuture { [weak self] running in
                 self?.playButton.isEnabled = !running
+                self?.programView.isUserInteractionEnabled = !running
             }
         }
     }
@@ -74,14 +76,13 @@ class ExamplePreviewViewController: UIViewController {
         runningObserver?.release()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         runProgram()
     }
     
     @IBAction func onPlay(_ sender: UIButton) {
         viewModel.reset()
-        playButton.isEnabled = false
         runProgram()
     }
     
@@ -89,16 +90,16 @@ class ExamplePreviewViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        playButton.isEnabled = false
-    }
-    
     private func runProgram() {
+        playButton.isEnabled = false
+        programView.isUserInteractionEnabled = false
+        
         DispatchQueue.main.asyncAfter(wallDeadline: DispatchWallTime.now() + 0.5) { [weak self] in
             if let entity = self?.viewModel.player {
                 self?.programsViewModel.start(on: entity)
             } else {
                 self?.playButton.isEnabled = true
+                self?.programView.isUserInteractionEnabled = true
             }
         }
     }
@@ -108,5 +109,13 @@ class ExamplePreviewViewController: UIViewController {
 extension ExamplePreviewViewController: SCNSceneRendererDelegate {
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
         viewModel.update(currentTime: time)
+    }
+}
+
+//MARK: - InteractiveProgramDelegate
+extension ExamplePreviewViewController: InteractiveProgramDelegate {
+    func interactiveProgram(_ view: InteractiveProgramView, pressed program: ProgramProtocol) {
+        viewModel.reset()
+        runProgram()
     }
 }

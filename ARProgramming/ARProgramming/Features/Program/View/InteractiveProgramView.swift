@@ -11,6 +11,8 @@ import ProgramModel
 
 class InteractiveProgramView: ProgramView {
     
+    weak var delegate: InteractiveProgramDelegate?
+    
     //MARK: - Observers
     private var activeCardObserver: Observer?
     
@@ -39,5 +41,30 @@ class InteractiveProgramView: ProgramView {
         }
     }
     
-    //TODO: Touch gesture on cards and callback to delegate?
+    override func createFunctionView(withProgram program: ProgramProtocol) -> FunctionView {
+        let fv = super.createFunctionView(withProgram: program)
+        fv.addGestureRecognizer(FunctionTapGestureRecognizer(target: self,
+                                                             action: #selector(onFunctionViewTapped(_:)),
+                                                             program: program))
+        return fv
+    }
+    
+    @objc private func onFunctionViewTapped(_ sender: FunctionTapGestureRecognizer) {
+        delegate?.interactiveProgram(self, pressed: sender.program)
+    }
+}
+
+protocol InteractiveProgramDelegate: class {
+    
+    func interactiveProgram(_ view: InteractiveProgramView, pressed program: ProgramProtocol)
+}
+
+private class FunctionTapGestureRecognizer: UITapGestureRecognizer {
+    
+    let program: ProgramProtocol
+    
+    init(target: Any?, action: Selector?, program: ProgramProtocol) {
+        self.program = program
+        super.init(target: target, action: action)
+    }
 }
