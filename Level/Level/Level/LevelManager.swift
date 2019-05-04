@@ -19,7 +19,7 @@ class LevelManager: LevelRepository {
         return Bundle(for: type(of: self)).resourceURL?.appendingPathComponent("Levels", isDirectory: true)
     }
     
-    var emptylevel: LevelProtocol {
+    var emptyLevel: LevelProtocol {
         //This should absolutely never fail
         return try! loadLevel(withNumber: 0)
     }

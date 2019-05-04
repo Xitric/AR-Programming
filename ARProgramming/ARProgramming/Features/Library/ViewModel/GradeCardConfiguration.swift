@@ -15,12 +15,12 @@ protocol GradeCardConfiguration {
     func isIncluded(cardName: String, forGrade grade: Int) -> Bool
 }
 
-struct GradeConfig: Decodable, GradeCardConfiguration {
+struct CardConfig: Decodable, GradeCardConfiguration {
     
-    let includedCards: [[String]]
+    private let includedCards: [[String]]
     
     init() {
-        self = Config.read(configFile: "cardClasses", toType: GradeConfig.self)!
+        self = Config.read(configFile: "cardClasses", toType: CardConfig.self)!
     }
     
     func isIncluded(cardName: String, forGrade grade: Int) -> Bool {

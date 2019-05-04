@@ -6,10 +6,10 @@
 //  Copyright © 2019 Emil Nielsen and Kasper Schultz Davidsen. All rights reserved.
 //
 
-import Foundation
 import UIKit
 import SceneKit
 import Level
+import ProgramModel
 
 class ExamplePreviewViewController: UIViewController {
     
@@ -21,8 +21,8 @@ class ExamplePreviewViewController: UIViewController {
             previewScene.delegate = self
             previewScene.isPlaying = true
             
-            //Load empty level for preview
-            previewLevelViewModel.anchor(at: previewScene.scene?.rootNode)
+            //Display empty level for preview
+            levelViewModel.anchor(at: previewScene.scene?.rootNode)
             
             //Set up camera
             let camera = SCNNode()
@@ -34,49 +34,55 @@ class ExamplePreviewViewController: UIViewController {
             previewScene.pointOfView = camera
         }
     }
-    @IBOutlet weak var programView: ProgramView! {
-        didSet {
-            programView.scale = 100
-            programView.programsViewModel = viewModel
-        }
-    }
     @IBOutlet weak var playButton: UIButton!
-    
-    var currentCard: String? {
+    @IBOutlet weak var programView: InteractiveProgramView! {
         didSet {
-            if (self.currentCard == "pickup" || self.currentCard == "drop") {
-                previewLevelViewModel.display(level: levelRepository.levelWithItem)
-            } else {
-                previewLevelViewModel.display(level: levelRepository.emptylevel)
-            }
-            runProgram()
+            programView.viewModel = programsViewModel
+            programView.delegate = self
         }
     }
+    
+    //MARK: - Observers
+    private var levelObserver: Observer?
+    private var runningObserver: Observer?
     
     //MARK: - Injected properties
-    var levelRepository: LevelRepository!
-    var previewLevelViewModel: LevelViewModeling! {
+    var viewModel: ExampleProgramViewModeling!
+    var levelViewModel: LevelSceneViewModeling! {
         didSet {
-            previewLevelViewModel.level.onValue = { [weak self] level in
+            levelViewModel.setLevel(level: viewModel.level)
+            
+            levelObserver = levelViewModel.levelRedrawn.observeFuture { [weak self] in
                 //Add grid floor
                 let ground = SCNNode(geometry: SCNPlane(width: 5, height: 5))
                 ground.eulerAngles.x = -.pi / 2
                 ground.geometry?.materials.first?.diffuse.contents = UIImage(named: "ExampleProgramGridFloor.png")
-                self?.previewLevelViewModel.addNode(ground)
+                self?.levelViewModel.addNode(ground)
             }
         }
     }
-    var viewModel: ProgramsViewModeling! {
+    var programsViewModel: ProgramsViewModeling! {
         didSet {
-            viewModel.running.onValue = { [weak self] running in
+            programsViewModel.cardSize.value = 100
+            runningObserver = programsViewModel.running.observeFuture { [weak self] running in
                 self?.playButton.isEnabled = !running
+                self?.programView.isUserInteractionEnabled = !running
             }
         }
     }
     
+    deinit {
+        levelObserver?.release()
+        runningObserver?.release()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        runProgram()
+    }
+    
     @IBAction func onPlay(_ sender: UIButton) {
-        previewLevelViewModel.reset()
-        playButton.isEnabled = false
+        viewModel.reset()
         runProgram()
     }
     
@@ -84,16 +90,16 @@ class ExamplePreviewViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        playButton.isEnabled = false
-    }
-    
     private func runProgram() {
+        playButton.isEnabled = false
+        programView.isUserInteractionEnabled = false
+        
         DispatchQueue.main.asyncAfter(wallDeadline: DispatchWallTime.now() + 0.5) { [weak self] in
-            if let entity = self?.previewLevelViewModel.player {
-                self?.viewModel.start(on: entity)
+            if let entity = self?.viewModel.player {
+                self?.programsViewModel.start(on: entity)
             } else {
                 self?.playButton.isEnabled = true
+                self?.programView.isUserInteractionEnabled = true
             }
         }
     }
@@ -102,6 +108,14 @@ class ExamplePreviewViewController: UIViewController {
 //MARK: - SCNSceneRendererDelegate
 extension ExamplePreviewViewController: SCNSceneRendererDelegate {
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
-        previewLevelViewModel.update(currentTime: time)
+        viewModel.update(currentTime: time)
+    }
+}
+
+//MARK: - InteractiveProgramDelegate
+extension ExamplePreviewViewController: InteractiveProgramDelegate {
+    func interactiveProgram(_ view: InteractiveProgramView, pressed program: ProgramProtocol) {
+        viewModel.reset()
+        runProgram()
     }
 }

@@ -11,18 +11,7 @@ import Level
 
 class LevelSelectViewController: UIViewController, GradeViewController {
     
-    //MARK: - Injected properties
-    var grade: Int! {
-        didSet {
-            self.dataSource.grade = grade
-        }
-    }
-    var levelRepository: LevelRepository!
-    var dataSource: LevelDataSource!
-    var levelViewModel: LevelViewModeling!
-    
     @IBOutlet weak var collectionView: UICollectionView!
-    
     @IBOutlet weak var levelSelectCollectionView: UICollectionView! {
         didSet {
             levelSelectCollectionView.dataSource = dataSource
@@ -30,27 +19,50 @@ class LevelSelectViewController: UIViewController, GradeViewController {
         }
     }
     
+    //MARK: - Observers
+    private var levelObserver: Observer?
+    
+    //MARK: - Injected properties
+    var grade: Int! {
+        didSet {
+            self.dataSource.grade = grade
+        }
+    }
+    var viewModel: LevelSelectViewModeling!
+    var dataSource: LevelDataSource!
+    
+    deinit {
+        levelObserver?.release()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         dataSource.reloadData()
         collectionView.reloadData()
+        
+        levelObserver = viewModel.level.observeFuture { [weak self] level in
+            self?.performSegue(withIdentifier: "arContainerSegue", sender: self)
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        levelObserver?.release()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let gameplayController = segue.destination as? GameplayController {
-            gameplayController.levelViewModel = levelViewModel
+            gameplayController.level = viewModel.level
         }
     }
 }
 
 // MARK: - UICollectionViewDelegate
 extension LevelSelectViewController: UICollectionViewDelegate {
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let levelCell = collectionView.cellForItem(at: indexPath) as? LevelCollectionViewCell {
-            if let level = try? levelRepository.loadLevel(withNumber: levelCell.levelNumber!) {
-                levelViewModel.display(level: level)
-                performSegue(withIdentifier: "arContainerSegue", sender: self)
-            }
+            viewModel.loadLevel(withNumber: levelCell.levelNumber!)
         }
     }
 }

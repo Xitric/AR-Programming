@@ -10,29 +10,33 @@ import Foundation
 import UIKit
 import Level
 
-class ExerciseCompletionViewController: UIViewController {
+class ExerciseCompletionViewController: UIViewController, GameplayController {
     
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var noMoreExercisesLabel: UILabel!
     
     //MARK: - Injected properties
-    var levelViewModel: LevelViewModeling? {
+    var viewModel: ExerciseCompletionViewModeling!
+    var level: ObservableProperty<LevelProtocol>? {
         didSet {
-            let hasNextLevel = levelViewModel?.level.value?.unlocks != nil
-            nextButton.isHidden = !hasNextLevel
-            noMoreExercisesLabel.isHidden = hasNextLevel
+            if let level = level {
+                viewModel.setLevel(level: level)
+                nextButton.isHidden = !viewModel.hasNextLevel
+                noMoreExercisesLabel.isHidden = viewModel.hasNextLevel
+            }
         }
     }
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         view.translatesAutoresizingMaskIntoConstraints = false
     }
     
     @IBAction func onNext() {
-        levelViewModel?.goToNext()
+        viewModel.goToNext()
     }
     
     @IBAction func onRestart() {
-        levelViewModel?.reset()
+        viewModel.reset()
     }
 }

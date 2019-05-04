@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import ProgramModel
 
-class CardDetectionView: PassThroughView {
+class CardDetectionView: UIView {
     
     private var overlays = [CardOverlay]()
     private var nextOverlay = 0

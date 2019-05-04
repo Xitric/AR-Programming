@@ -9,7 +9,7 @@
 import Foundation
 
 public protocol LevelRepository {
-    var emptylevel: LevelProtocol { get }
+    var emptyLevel: LevelProtocol { get }
     var levelWithItem: LevelProtocol { get }
     
     func loadLevel(withNumber id: Int) throws -> LevelProtocol
