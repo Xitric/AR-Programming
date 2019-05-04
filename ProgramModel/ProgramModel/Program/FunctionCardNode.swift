@@ -10,10 +10,10 @@ import Foundation
 import EntityComponentSystem
 
 class FunctionCardNode: CardNode {
-    
+
     private let functionNumber: Int
     private let isCaller: Bool
-    
+
     init(functionNumber: Int, isCaller: Bool) {
         self.functionNumber = functionNumber
         self.isCaller = isCaller
@@ -24,11 +24,11 @@ class FunctionCardNode: CardNode {
             requiresParameter: false,
             connectionAngles: [0]))
     }
-    
+
     override func clone() -> CardNode {
         return FunctionCardNode(functionNumber: functionNumber, isCaller: isCaller)
     }
-    
+
     override func getAction(forEntity entity: Entity, withProgramState state: ProgramState) -> Action? {
         if isCaller {
             let functionName = "function\(functionNumber)a"
@@ -38,7 +38,7 @@ class FunctionCardNode: CardNode {
                     ProgramAction(program: function))
             }
         }
-        
+
         return WaitAction(waitTime: 1)
     }
 }

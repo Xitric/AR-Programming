@@ -9,7 +9,7 @@
 import Foundation
 
 class DropAction: ComponentAction {
-    
+
     override func getActionComponent() -> ActionComponent? {
         return DropActionComponent()
     }

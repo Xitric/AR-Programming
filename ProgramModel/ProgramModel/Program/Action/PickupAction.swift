@@ -9,7 +9,7 @@
 import Foundation
 
 class PickupAction: ComponentAction {
-    
+
     override func getActionComponent() -> ActionComponent? {
         return PickupActionComponent()
     }

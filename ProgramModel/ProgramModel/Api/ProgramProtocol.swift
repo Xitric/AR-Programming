@@ -15,7 +15,7 @@ import EntityComponentSystem
 public protocol ProgramProtocol: class {
     var delegate: ProgramDelegate? { get set }
     var start: CardNodeProtocol? { get }
-    
+
     /// Executes the statements of this program on the supplied Entity.
     ///
     /// To increase flexibility, any statement that is not meaningful for the supplied Entiy will simply be skipped rather than throwing an error. For instance, executing a movement action on an Entity with no position will simply do nothing.
@@ -31,4 +31,3 @@ public protocol ProgramDelegate: class {
     func program(_ program: ProgramProtocol, executed cardNode: CardNodeProtocol)
     func programEnded(_ program: ProgramProtocol)
 }
-

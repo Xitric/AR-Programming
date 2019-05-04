@@ -9,28 +9,28 @@
 import Foundation
 
 class CompoundActionComponent: ActionComponent {
-    
+
     let firstAction: ActionComponent
     let secondAction: ActionComponent
-    
+
     init(_ first: ActionComponent, _ second: ActionComponent) {
         firstAction = first
         secondAction = second
         super.init()
-        
+
         firstAction.onComplete = { [weak self] in
             self?.entity?.addComponent(self!.secondAction)
         }
-        
+
         secondAction.onComplete = { [weak self] in
             self?.complete()
         }
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func didAddToEntity() {
         entity?.addComponent(firstAction)
     }
