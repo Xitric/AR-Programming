@@ -9,7 +9,7 @@
 import Foundation
 
 public protocol LevelInfoProtocol {
-    
+
     var name: String { get }
     var levelNumber: Int { get }
     var levelType: String { get }
