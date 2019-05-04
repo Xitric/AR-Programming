@@ -56,9 +56,13 @@ class LevelViewModel: LevelViewModeling, LevelDelegate {
     
     func reset() {
         if let levelNumber = levelContainer.level.value?.levelNumber {
-            if let newLevel = try? repository.loadLevel(withNumber: levelNumber) {
-                levelContainer.level.value = newLevel
-                scoreManager.resetScore()
+            repository.loadLevel(withNumber: levelNumber) { [weak self] newLevel, error in
+                if let newLevel = newLevel {
+                    DispatchQueue.main.async {
+                        self?.levelContainer.level.value = newLevel
+                        self?.scoreManager.resetScore()
+                    }
+                }
             }
         }
     }

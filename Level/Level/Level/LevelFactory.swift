@@ -12,9 +12,3 @@ protocol LevelFactory {
     func canReadLevel(ofType levelType: String) -> Bool
     func initLevel(json: Data) throws -> Level
 }
-
-enum LevelLoadingError: Error, Equatable {
-    case noSuchLevel(levelNumber: Int)
-    case unsupportedLevelType(type: String)
-    case badFormat()
-}

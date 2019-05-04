@@ -26,7 +26,14 @@ class LevelDataSource: NSObject, UICollectionViewDataSource {
     func reloadData() {
         if let grade = grade {
             let levelGradeConfig = Config.read(configFile: "LevelClasses", toType: LevelGradeConfig.self)!
-            levelPreviews = try? levelRepository.loadPreviews(forLevels: levelGradeConfig.levels[grade-1])
+            
+            levelRepository.loadPreviews(forLevels: levelGradeConfig.levels[grade-1]) { [weak self] previews, error in
+                DispatchQueue.main.async {
+                    if let previews = previews {
+                        self?.levelPreviews = previews
+                    }
+                }
+            }
         }
     }
     

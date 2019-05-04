@@ -24,16 +24,24 @@ class ExerciseCompletionViewModel: ExerciseCompletionViewModeling {
     
     func reset() {
         if let levelNumber = levelContainer.level.value?.levelNumber {
-            if let newLevel = try? repository.loadLevel(withNumber: levelNumber) {
-                levelContainer.level.value = newLevel
+            repository.loadLevel(withNumber: levelNumber) { [weak self] level, error in
+                self?.handleLevelLoaded(level: level)
             }
         }
     }
     
     func goToNext() {
         if let nextLevelNumber = levelContainer.level.value?.unlocks {
-            if let nextLevel = try? repository.loadLevel(withNumber: nextLevelNumber) {
-                levelContainer.level.value = nextLevel
+            repository.loadLevel(withNumber: nextLevelNumber) { [weak self] level, error in
+                self?.handleLevelLoaded(level: level)
+            }
+        }
+    }
+    
+    private func handleLevelLoaded(level: LevelProtocol?) {
+        if let level = level {
+            DispatchQueue.main.async { [weak self] in
+                self?.levelContainer.level.value = level
             }
         }
     }

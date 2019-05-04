@@ -26,13 +26,14 @@ class ExampleProgramViewModel: ExampleProgramViewModeling {
         self.levelRepository = levelRepository
         
         cardObserver = cardName.observeFuture { [weak self] card in
-            guard let card = card,
-                let self = self else { return }
-            
             if (card == "pickup" || card == "drop") {
-                self.levelContainer.level.value = self.levelRepository.levelWithItem
+                self?.levelRepository.loadItemLevel {
+                    self?.handleLevelLoaded(level: $0)
+                }
             } else {
-                self.levelContainer.level.value = self.levelRepository.emptyLevel
+                self?.levelRepository.loadEmptyLevel {
+                    self?.handleLevelLoaded(level: $0)
+                }
             }
         }
     }
@@ -43,9 +44,17 @@ class ExampleProgramViewModel: ExampleProgramViewModeling {
     
     func reset() {
         if let levelNumber = levelContainer.level.value?.levelNumber {
-            if let newLevel = try? levelRepository.loadLevel(withNumber: levelNumber) {
-                self.levelContainer.level.value = newLevel
+            levelRepository.loadLevel(withNumber: levelNumber) { [weak self] level, error in
+                if let level = level {
+                    self?.handleLevelLoaded(level: level)
+                }
             }
+        }
+    }
+    
+    private func handleLevelLoaded(level: LevelProtocol) {
+        DispatchQueue.main.async { [weak self] in
+            self?.levelContainer.level.value = level
         }
     }
     
