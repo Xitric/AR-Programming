@@ -23,7 +23,7 @@ class LevelDataSource: NSObject, UICollectionViewDataSource {
         self.scoreManager = scoreManager
     }
     
-    func reloadData() {
+    func reloadData(completion: @escaping () -> Void) {
         if let grade = grade {
             let levelGradeConfig = Config.read(configFile: "LevelClasses", toType: LevelGradeConfig.self)!
             
@@ -32,6 +32,8 @@ class LevelDataSource: NSObject, UICollectionViewDataSource {
                     if let previews = previews {
                         self?.levelPreviews = previews
                     }
+                    
+                    completion()
                 }
             }
         }

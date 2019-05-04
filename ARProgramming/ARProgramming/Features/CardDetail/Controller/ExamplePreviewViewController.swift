@@ -21,9 +21,6 @@ class ExamplePreviewViewController: UIViewController {
             previewScene.delegate = self
             previewScene.isPlaying = true
             
-            //Display empty level for preview
-            levelViewModel.anchor(at: previewScene.scene?.rootNode)
-            
             //Set up camera
             let camera = SCNNode()
             camera.camera = SCNCamera()
@@ -56,6 +53,7 @@ class ExamplePreviewViewController: UIViewController {
                 ground.eulerAngles.x = -.pi / 2
                 ground.geometry?.materials.first?.diffuse.contents = UIImage(named: "ExampleProgramGridFloor.png")
                 self?.levelViewModel.addNode(ground)
+                self?.levelViewModel.anchor(at: self!.previewScene.scene?.rootNode)
             }
         }
     }
