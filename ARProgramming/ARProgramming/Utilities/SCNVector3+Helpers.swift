@@ -10,7 +10,7 @@ import Foundation
 import SceneKit
 
 extension SCNVector3 {
-    
+
     init(_ simdVector: simd_float3) {
         self.init(simdVector.x, simdVector.y, simdVector.z)
     }

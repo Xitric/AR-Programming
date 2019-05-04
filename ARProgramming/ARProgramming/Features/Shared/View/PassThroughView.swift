@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class PassThroughView: UIView {
-    
+
     //By courtesy of:
     //https://stackoverflow.com/questions/3046813/how-can-i-click-a-button-behind-a-transparent-uiview
     override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {

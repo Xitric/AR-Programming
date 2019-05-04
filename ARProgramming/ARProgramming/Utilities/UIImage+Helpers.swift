@@ -10,16 +10,16 @@ import Foundation
 import UIKit
 
 extension UIImage {
-    
+
     static func loadAnimation(named name: String, withFrames frameCount: Int) -> [UIImage] {
         var images = [UIImage]()
-        
+
         for i in 1...frameCount {
             if let frame = UIImage(named: "\(name)\(i).png") {
                 images.append(frame)
             }
         }
-        
+
         return images
     }
 }

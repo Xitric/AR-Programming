@@ -10,13 +10,13 @@ import UIKit
 import SceneKit
 
 class WardrobeViewController: UIViewController {
-    
+
     @IBOutlet weak var robotChoiceLabel: UILabel!
     @IBOutlet weak var sceneView: SCNView!
-    
-    //MARK: - Injected properties
+
+    // MARK: - Injected properties
     var wardrobe: WardrobeProtocol!
-    
+
     private var robotChoice = 0 {
         didSet {
             updateChoiceLabel()
@@ -27,7 +27,7 @@ class WardrobeViewController: UIViewController {
             updateChoiceLabel()
         }
     }
-    
+
     private var robotFiles: [String] = [] {
         didSet {
             robotChoice = robotFiles.firstIndex(of: wardrobe.selectedRobotSkin()) ?? 0
@@ -35,44 +35,44 @@ class WardrobeViewController: UIViewController {
             setRobot(daeFile: robotFiles[robotChoice])
         }
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         robotFiles = wardrobe.getFileNames()
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         sceneView.allowsCameraControl = true
         sceneView.autoenablesDefaultLighting = true
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         wardrobe.setRobotChoice(choice: robotFiles[robotChoice], callback: nil)
     }
-    
+
     @IBAction func nextRobot(_ sender: UIButton) {
         robotChoice = (robotChoice + 1) % robotFiles.count
         setRobot(daeFile: robotFiles[robotChoice])
     }
-    
+
     @IBAction func previousRobot(_ sender: UIButton) {
         robotChoice = (robotChoice - 1 + robotFiles.count) % robotFiles.count
         setRobot(daeFile: robotFiles[robotChoice])
     }
-    
+
     @IBAction func pickRobot(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
     }
-    
+
     private func setRobot(daeFile: String) {
         let scene = SCNScene(named: "Meshes.scnassets/" + daeFile)
         scene?.rootNode.rotation = SCNVector4(0, -1, 0, 1)
         scene?.rootNode.position = SCNVector3(0.025, 0, -0.5)
         sceneView.scene = scene
     }
-    
+
     private func updateChoiceLabel() {
         robotChoiceLabel.text = "\(robotChoice + 1)/\(robotCount)"
     }

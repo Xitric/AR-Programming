@@ -27,14 +27,14 @@ class ARContainerViewController: UIViewController {
             cardDetectionView.addInteraction(UIDragInteraction(delegate: dragDelegate))
         }
     }
-    
+
     private var coordinationController: GameCoordinationViewController!
-    
-    //MARK: - Observers
+
+    // MARK: - Observers
     private var editedCardsObserver: Observer?
     private var dragObserver: Observer?
-    
-    //MARK: - Injected properties
+
+    // MARK: - Injected properties
     var viewModel: ARContainerViewModeling! {
         didSet {
             editedCardsObserver = viewModel.editedCards.observeFuture { [weak self] cards in
@@ -50,34 +50,34 @@ class ARContainerViewController: UIViewController {
             }
         }
     }
-    
+
     deinit {
         editedCardsObserver?.release()
         dragObserver?.release()
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let coordinator = segue.destination as? GameCoordinationViewController {
             coordinationController = coordinator
         }
     }
-    
+
     @IBAction func onBack(_ sender: Any) {
         dismiss(animated: true, completion: nil)
         navigationController?.popViewController(animated: true)
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel.start()
         self.navigationController?.navigationBar.isHidden = true
-        
+
         //The children seemed to have difficulty using drag-n-drop, so we made the delay for picking up the cards much shorter
         if let longPressRecognizer = cardDetectionView.gestureRecognizers?.compactMap({ $0 as? UILongPressGestureRecognizer}).first {
             longPressRecognizer.minimumPressDuration = 0.2
         }
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         viewModel.stop()

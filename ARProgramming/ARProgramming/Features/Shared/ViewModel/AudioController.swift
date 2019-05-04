@@ -10,7 +10,7 @@ import Foundation
 import AVFoundation
 
 class AudioController {
-    
+
     public func makeSound(withName name: String) -> AVAudioPlayer? {
         if let soundUrl = Bundle.main.url(forResource: name, withExtension: "") {
             if let audioPlayer = try? AVAudioPlayer(contentsOf: soundUrl) {

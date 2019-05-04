@@ -9,6 +9,6 @@
 import UIKit
 
 class ExampleProgramTableViewCell: UITableViewCell {
-    
+
     @IBOutlet weak var programView: ProgramView!
 }

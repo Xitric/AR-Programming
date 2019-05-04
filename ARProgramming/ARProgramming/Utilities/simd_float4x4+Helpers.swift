@@ -10,7 +10,7 @@ import Foundation
 import simd
 
 extension simd_float4x4 {
-    
+
     var xAxis: simd_float3 {
         get {
             return simd_float3(x: columns.0.x,

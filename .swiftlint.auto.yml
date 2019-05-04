@@ -1,0 +1,6 @@
+disabled_rules: # rule identifiers to exclude from running
+- identifier_name
+- line_length
+- force_cast
+- weak_delegate
+- function_body_length

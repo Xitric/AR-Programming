@@ -10,7 +10,7 @@ import UIKit
 import Level
 
 class LevelSelectViewController: UIViewController, GradeViewController {
-    
+
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var levelSelectCollectionView: UICollectionView! {
         didSet {
@@ -18,11 +18,11 @@ class LevelSelectViewController: UIViewController, GradeViewController {
             levelSelectCollectionView.delegate = self
         }
     }
-    
-    //MARK: - Observers
+
+    // MARK: - Observers
     private var levelObserver: Observer?
-    
-    //MARK: - Injected properties
+
+    // MARK: - Injected properties
     var grade: Int! {
         didSet {
             self.dataSource.grade = grade
@@ -30,22 +30,22 @@ class LevelSelectViewController: UIViewController, GradeViewController {
     }
     var viewModel: LevelSelectViewModeling!
     var dataSource: LevelDataSource!
-    
+
     deinit {
         levelObserver?.release()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        dataSource.reloadData() { [weak self] in
+        dataSource.reloadData { [weak self] in
             self?.collectionView.reloadData()
         }
-        
-        levelObserver = viewModel.level.observeFuture { [weak self] level in
+
+        levelObserver = viewModel.level.observeFuture { [weak self] _ in
             self?.performSegue(withIdentifier: "arContainerSegue", sender: self)
         }
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         levelObserver?.release()
@@ -54,7 +54,7 @@ class LevelSelectViewController: UIViewController, GradeViewController {
 
 // MARK: - UICollectionViewDelegate
 extension LevelSelectViewController: UICollectionViewDelegate {
-    
+
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let levelCell = collectionView.cellForItem(at: indexPath) as? LevelCollectionViewCell {
             viewModel.loadLevel(withNumber: levelCell.levelNumber!)

@@ -66,8 +66,8 @@
 		566875012274F8B800DC3ABD /* ARContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566875002274F8B800DC3ABD /* ARContainerViewModel.swift */; };
 		566875032275B10B00DC3ABD /* LevelSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566875022275B10B00DC3ABD /* LevelSceneViewModel.swift */; };
 		566875052275D3BD00DC3ABD /* ExerciseCompletionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566875042275D3BD00DC3ABD /* ExerciseCompletionViewModel.swift */; };
-		5668750922762DF000DC3ABD /* CurrentLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5668750822762DF000DC3ABD /* CurrentLevel.swift */; };
 		566875072276064100DC3ABD /* GameCoordinationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566875062276064000DC3ABD /* GameCoordinationViewModel.swift */; };
+		5668750922762DF000DC3ABD /* CurrentLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5668750822762DF000DC3ABD /* CurrentLevel.swift */; };
 		5672096C2260956E0054BD52 /* Exercise.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5672096B2260956E0054BD52 /* Exercise.storyboard */; };
 		56720970226097250054BD52 /* MainMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5672096F226097250054BD52 /* MainMenu.storyboard */; };
 		5672097222609C340054BD52 /* SurfaceDetectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5672097122609C340054BD52 /* SurfaceDetectionViewModel.swift */; };
@@ -201,8 +201,8 @@
 		566875002274F8B800DC3ABD /* ARContainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARContainerViewModel.swift; sourceTree = "<group>"; };
 		566875022275B10B00DC3ABD /* LevelSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSceneViewModel.swift; sourceTree = "<group>"; };
 		566875042275D3BD00DC3ABD /* ExerciseCompletionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCompletionViewModel.swift; sourceTree = "<group>"; };
-		5668750822762DF000DC3ABD /* CurrentLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLevel.swift; sourceTree = "<group>"; };
 		566875062276064000DC3ABD /* GameCoordinationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCoordinationViewModel.swift; sourceTree = "<group>"; };
+		5668750822762DF000DC3ABD /* CurrentLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLevel.swift; sourceTree = "<group>"; };
 		5672096B2260956E0054BD52 /* Exercise.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Exercise.storyboard; sourceTree = "<group>"; };
 		5672096F226097250054BD52 /* MainMenu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainMenu.storyboard; sourceTree = "<group>"; };
 		5672097122609C340054BD52 /* SurfaceDetectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfaceDetectionViewModel.swift; sourceTree = "<group>"; };
@@ -728,6 +728,7 @@
 				90DF732A216F441E00F51E0C /* Resources */,
 				56EB87AE2258B0CB00B4894D /* Embed Frameworks */,
 				1D43E1CF20112A6BFE85B1C1 /* [CP] Embed Pods Frameworks */,
+				568087B7227DE10000CB9791 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -857,6 +858,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-ARProgramming/Pods-ARProgramming-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		568087B7227DE10000CB9791 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint autocorrect --config \"../.swiftlint.auto.yml\" && swiftlint --config \"../.swiftlint.yml\"\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		C912703A9A52D7E658CD3570 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

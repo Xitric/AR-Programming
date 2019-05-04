@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 extension CGImagePropertyOrientation {
-    
+
     //From
     //https://developer.apple.com/documentation/imageio/cgimagepropertyorientation
     init(_ uiOrientation: UIImage.Orientation) {
@@ -24,7 +24,7 @@ extension CGImagePropertyOrientation {
         case .rightMirrored: self = .rightMirrored
         }
     }
-    
+
     //Adapted from
     //https://developer.apple.com/documentation/arkit/using_vision_in_real_time_with_arkit
     init(_ deviceOrientation: UIDeviceOrientation) {

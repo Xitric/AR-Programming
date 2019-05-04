@@ -10,21 +10,21 @@ import Foundation
 import Level
 
 class LevelSelectViewModel: LevelSelectViewModeling {
-    
+
     private let levelContainer: CurrentLevelProtocol
     private let levelRepository: LevelRepository
-    
+
     var level: ObservableProperty<LevelProtocol?> {
         return levelContainer.level
     }
-    
+
     init(level: CurrentLevelProtocol, levelRepository: LevelRepository) {
         self.levelContainer = level
         self.levelRepository = levelRepository
     }
-    
+
     func loadLevel(withNumber levelNumber: Int) {
-        levelRepository.loadLevel(withNumber: levelNumber) { [weak self] level, error in
+        levelRepository.loadLevel(withNumber: levelNumber) { [weak self] level, _ in
             if let level = level {
                 DispatchQueue.main.async {
                     self?.levelContainer.level.value = level
@@ -35,8 +35,8 @@ class LevelSelectViewModel: LevelSelectViewModeling {
 }
 
 protocol LevelSelectViewModeling {
-    
+
     var level: ObservableProperty<LevelProtocol?> { get }
-    
+
     func loadLevel(withNumber: Int)
 }
