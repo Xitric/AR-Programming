@@ -19,6 +19,7 @@ class ExerciseCompletionViewController: UIViewController {
     var viewModel: ExerciseCompletionViewModeling!
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         view.translatesAutoresizingMaskIntoConstraints = false
     }
     

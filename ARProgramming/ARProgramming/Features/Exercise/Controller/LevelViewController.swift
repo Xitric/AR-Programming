@@ -62,7 +62,6 @@ class LevelViewController: UIViewController, InteractiveProgramDelegate {
     var programsViewModel: ProgramsViewModeling! {
         didSet {
             runningObserver = programsViewModel.running.observeFuture { [weak self] running in
-                self?.resetButton.isEnabled = !running
                 self?.playButton.isEnabled = !running
                 self?.programView.isUserInteractionEnabled = !running
             }

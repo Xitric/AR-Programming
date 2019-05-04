@@ -33,6 +33,8 @@
 		562ACDC72249726C00D2DA7C /* CardCollectionViewSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562ACDC62249726C00D2DA7C /* CardCollectionViewSectionHeader.swift */; };
 		562ACDCB22497F3400D2DA7C /* CardCollectionFlowLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562ACDCA22497F3400D2DA7C /* CardCollectionFlowLayoutDelegate.swift */; };
 		562ACDCD224986F300D2DA7C /* GradesTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562ACDCC224986F300D2DA7C /* GradesTabBarController.swift */; };
+		562ADC912270EA0700A94DA7 /* CardDragOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562ADC902270EA0700A94DA7 /* CardDragOnboardingViewController.swift */; };
+		562ADC932270EB9700A94DA7 /* GradeLevelConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562ADC922270EB9700A94DA7 /* GradeLevelConfiguration.swift */; };
 		562CCA7F220D750100BF6A8D /* CGImagePropertyOrientation+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CCA7D220D750100BF6A8D /* CGImagePropertyOrientation+Helpers.swift */; };
 		562D86F7226A1242001A154E /* ScoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D86F6226A1242001A154E /* ScoreManager.swift */; };
 		562D86F9226A128E001A154E /* CardsForMaxScore.json in Resources */ = {isa = PBXBuildFile; fileRef = 562D86F8226A128E001A154E /* CardsForMaxScore.json */; };
@@ -65,6 +67,7 @@
 		566875032275B10B00DC3ABD /* LevelSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566875022275B10B00DC3ABD /* LevelSceneViewModel.swift */; };
 		566875052275D3BD00DC3ABD /* ExerciseCompletionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566875042275D3BD00DC3ABD /* ExerciseCompletionViewModel.swift */; };
 		5668750922762DF000DC3ABD /* CurrentLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5668750822762DF000DC3ABD /* CurrentLevel.swift */; };
+		566875072276064100DC3ABD /* GameCoordinationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566875062276064000DC3ABD /* GameCoordinationViewModel.swift */; };
 		5672096C2260956E0054BD52 /* Exercise.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5672096B2260956E0054BD52 /* Exercise.storyboard */; };
 		56720970226097250054BD52 /* MainMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5672096F226097250054BD52 /* MainMenu.storyboard */; };
 		5672097222609C340054BD52 /* SurfaceDetectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5672097122609C340054BD52 /* SurfaceDetectionViewModel.swift */; };
@@ -165,6 +168,8 @@
 		562ACDC62249726C00D2DA7C /* CardCollectionViewSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewSectionHeader.swift; sourceTree = "<group>"; };
 		562ACDCA22497F3400D2DA7C /* CardCollectionFlowLayoutDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionFlowLayoutDelegate.swift; sourceTree = "<group>"; };
 		562ACDCC224986F300D2DA7C /* GradesTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradesTabBarController.swift; sourceTree = "<group>"; };
+		562ADC902270EA0700A94DA7 /* CardDragOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDragOnboardingViewController.swift; sourceTree = "<group>"; };
+		562ADC922270EB9700A94DA7 /* GradeLevelConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeLevelConfiguration.swift; sourceTree = "<group>"; };
 		562CCA7D220D750100BF6A8D /* CGImagePropertyOrientation+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGImagePropertyOrientation+Helpers.swift"; sourceTree = "<group>"; };
 		562D86F6226A1242001A154E /* ScoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreManager.swift; sourceTree = "<group>"; };
 		562D86F8226A128E001A154E /* CardsForMaxScore.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CardsForMaxScore.json; sourceTree = "<group>"; };
@@ -197,6 +202,7 @@
 		566875022275B10B00DC3ABD /* LevelSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSceneViewModel.swift; sourceTree = "<group>"; };
 		566875042275D3BD00DC3ABD /* ExerciseCompletionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCompletionViewModel.swift; sourceTree = "<group>"; };
 		5668750822762DF000DC3ABD /* CurrentLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLevel.swift; sourceTree = "<group>"; };
+		566875062276064000DC3ABD /* GameCoordinationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCoordinationViewModel.swift; sourceTree = "<group>"; };
 		5672096B2260956E0054BD52 /* Exercise.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Exercise.storyboard; sourceTree = "<group>"; };
 		5672096F226097250054BD52 /* MainMenu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainMenu.storyboard; sourceTree = "<group>"; };
 		5672097122609C340054BD52 /* SurfaceDetectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfaceDetectionViewModel.swift; sourceTree = "<group>"; };
@@ -474,6 +480,7 @@
 				566874FE2274F33C00DC3ABD /* LevelSelectViewModel.swift */,
 				905A3C93217A09D0005E3AA5 /* LevelCollectionViewCell.swift */,
 				20D9BAD5225C7EF300DCB87D /* LevelDataSource.swift */,
+				562ADC922270EB9700A94DA7 /* GradeLevelConfiguration.swift */,
 				563B0FD62263CEF500BFEAA4 /* LevelClasses.json */,
 			);
 			path = ViewModel;
@@ -597,6 +604,7 @@
 			isa = PBXGroup;
 			children = (
 				566875002274F8B800DC3ABD /* ARContainerViewModel.swift */,
+				566875062276064000DC3ABD /* GameCoordinationViewModel.swift */,
 				5672097122609C340054BD52 /* SurfaceDetectionViewModel.swift */,
 				566875022275B10B00DC3ABD /* LevelSceneViewModel.swift */,
 				56431D3C2232B5DB00BFAC36 /* LevelViewModel.swift */,
@@ -624,6 +632,7 @@
 				901584C72199BDF400450E0B /* LevelViewController.swift */,
 				901584C92199BE0200450E0B /* CardDescriptionViewController.swift */,
 				56B3664D226F0A1100F32153 /* ExerciseCompletionViewController.swift */,
+				562ADC902270EA0700A94DA7 /* CardDragOnboardingViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -948,9 +957,11 @@
 				90DF7330216F441E00F51E0C /* AppDelegate.swift in Sources */,
 				562F2F2922538ABA00C46D83 /* MainMenuViewController.swift in Sources */,
 				5672097222609C340054BD52 /* SurfaceDetectionViewModel.swift in Sources */,
+				566875072276064100DC3ABD /* GameCoordinationViewModel.swift in Sources */,
 				56A62B1822310E8D009D0E83 /* simd_quatd+Helpers.swift in Sources */,
 				562CCA7F220D750100BF6A8D /* CGImagePropertyOrientation+Helpers.swift in Sources */,
 				563B0FC5226374A200BFEAA4 /* ProgramsViewModel.swift in Sources */,
+				562ADC932270EB9700A94DA7 /* GradeLevelConfiguration.swift in Sources */,
 				566874FF2274F33C00DC3ABD /* LevelSelectViewModel.swift in Sources */,
 				566874EC2274685A00DC3ABD /* Observer.swift in Sources */,
 				562ACDCD224986F300D2DA7C /* GradesTabBarController.swift in Sources */,
@@ -964,6 +975,7 @@
 				90A55B0921A83B0700FD7CDD /* AudioController.swift in Sources */,
 				562ACDC522496BD400D2DA7C /* CardCollectionDataSource.swift in Sources */,
 				561083F8224A7607009A0039 /* ExampleProgramTableDataSource.swift in Sources */,
+				562ADC912270EA0700A94DA7 /* CardDragOnboardingViewController.swift in Sources */,
 				56431D392232A82700BFAC36 /* UpdateDelegate.swift in Sources */,
 				5668750922762DF000DC3ABD /* CurrentLevel.swift in Sources */,
 				20D9BAD1225BF45400DCB87D /* LibraryGradesTabBarController.swift in Sources */,
