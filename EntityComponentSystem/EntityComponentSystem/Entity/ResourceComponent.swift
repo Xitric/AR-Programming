@@ -10,14 +10,14 @@ import Foundation
 import GameplayKit
 
 public class ResourceComponent: GKComponent {
-    
+
     public let resourceIdentifier: String
-    
+
     public init(resourceIdentifier: String) {
         self.resourceIdentifier = resourceIdentifier
         super.init()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

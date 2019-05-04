@@ -10,5 +10,5 @@ import Foundation
 import GameplayKit
 
 public class CollectibleComponent: GKComponent {
-    
+
 }

@@ -16,19 +16,19 @@ public extension GKEntity {
                 return component as? ComponentType
             }
         }
-        
+
         return nil
     }
-    
+
     func components<ComponentType>(subclassOf superClass: ComponentType.Type) -> [ComponentType] where ComponentType: GKComponent {
         var result = [ComponentType]()
-        
+
         for component in components {
             if let matchingComponent = component as? ComponentType {
                 result.append(matchingComponent)
             }
         }
-        
+
         return result
     }
 }
