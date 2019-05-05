@@ -77,6 +77,8 @@
 		56720980226274DC0054BD52 /* ProgramDropInteractionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5672097F226274DC0054BD52 /* ProgramDropInteractionDelegate.swift */; };
 		56720982226278FE0054BD52 /* DataItemProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56720981226278FE0054BD52 /* DataItemProvider.swift */; };
 		568087BF227E1AFE00CB9791 /* ProgramsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568087BE227E1AFE00CB9791 /* ProgramsViewModelTests.swift */; };
+		568087C3227EE8ED00CB9791 /* GradeCardConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568087C2227EE8ED00CB9791 /* GradeCardConfigurationTests.swift */; };
+		568087C6227EEB9100CB9791 /* GradesTabBarControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568087C5227EEB9100CB9791 /* GradesTabBarControllerTests.swift */; };
 		56A62B0E22310727009D0E83 /* EntityModelLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A62B0D22310727009D0E83 /* EntityModelLoader.swift */; };
 		56A62B122231097E009D0E83 /* SCNNodeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A62B112231097E009D0E83 /* SCNNodeComponent.swift */; };
 		56A62B1622310DA2009D0E83 /* simd_double3+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A62B1522310DA2009D0E83 /* simd_double3+Helpers.swift */; };
@@ -213,6 +215,8 @@
 		5672097F226274DC0054BD52 /* ProgramDropInteractionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramDropInteractionDelegate.swift; sourceTree = "<group>"; };
 		56720981226278FE0054BD52 /* DataItemProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataItemProvider.swift; sourceTree = "<group>"; };
 		568087BE227E1AFE00CB9791 /* ProgramsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramsViewModelTests.swift; sourceTree = "<group>"; };
+		568087C2227EE8ED00CB9791 /* GradeCardConfigurationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeCardConfigurationTests.swift; sourceTree = "<group>"; };
+		568087C5227EEB9100CB9791 /* GradesTabBarControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradesTabBarControllerTests.swift; sourceTree = "<group>"; };
 		56A62B0D22310727009D0E83 /* EntityModelLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityModelLoader.swift; sourceTree = "<group>"; };
 		56A62B112231097E009D0E83 /* SCNNodeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNNodeComponent.swift; sourceTree = "<group>"; };
 		56A62B1522310DA2009D0E83 /* simd_double3+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "simd_double3+Helpers.swift"; sourceTree = "<group>"; };
@@ -500,6 +504,7 @@
 		566874E222745A0600DC3ABD /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				568087C0227EE8D200CB9791 /* Library */,
 				568087BC227E1AD200CB9791 /* Program */,
 				566874E522745A8900DC3ABD /* Shared */,
 				566874E322745A0E00DC3ABD /* Wardrobe */,
@@ -526,6 +531,7 @@
 		566874E522745A8900DC3ABD /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				568087C4227EEB8200CB9791 /* Controller */,
 				566874E622745A9100DC3ABD /* ViewModel */,
 			);
 			path = Shared;
@@ -663,6 +669,30 @@
 				568087BE227E1AFE00CB9791 /* ProgramsViewModelTests.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		568087C0227EE8D200CB9791 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				568087C1227EE8E000CB9791 /* ViewModel */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		568087C1227EE8E000CB9791 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				568087C2227EE8ED00CB9791 /* GradeCardConfigurationTests.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		568087C4227EEB8200CB9791 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				568087C5227EEB9100CB9791 /* GradesTabBarControllerTests.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		6E2B9FA02C20809CF828356C /* Pods */ = {
@@ -1029,6 +1059,8 @@
 				568087BF227E1AFE00CB9791 /* ProgramsViewModelTests.swift in Sources */,
 				566874E822745AB000DC3ABD /* ObservablePropertyTests.swift in Sources */,
 				566874EE22746E5000DC3ABD /* ObserverTests.swift in Sources */,
+				568087C3227EE8ED00CB9791 /* GradeCardConfigurationTests.swift in Sources */,
+				568087C6227EEB9100CB9791 /* GradesTabBarControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
