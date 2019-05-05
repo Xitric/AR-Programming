@@ -255,23 +255,3 @@ private struct CardStub: Card {
     var requiresParameter = false
     var connectionAngles = [Double]()
 }
-
-private extension ImmutableObservableProperty {
-
-    func waitForValueUpdate() {
-        let expectation = XCTestExpectation(description: "Observable value updated")
-        let observer = observeFuture { _ in
-            expectation.fulfill()
-        }
-
-        let result = XCTWaiter.wait(for: [expectation], timeout: 0.1)
-        observer.release()
-
-        switch result {
-        case .completed:
-            return
-        default:
-            XCTFail("Something went wrong when waiting for property value to be updated")
-        }
-    }
-}
