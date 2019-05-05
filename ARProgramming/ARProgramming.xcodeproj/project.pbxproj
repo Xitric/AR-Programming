@@ -81,6 +81,7 @@
 		568087C6227EEB9100CB9791 /* GradesTabBarControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568087C5227EEB9100CB9791 /* GradesTabBarControllerTests.swift */; };
 		568087CA227EF9E800CB9791 /* LevelViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568087C9227EF9E800CB9791 /* LevelViewModelTests.swift */; };
 		568087CC227EFBAE00CB9791 /* ImmutableObservableProperty+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568087CB227EFBAE00CB9791 /* ImmutableObservableProperty+Helpers.swift */; };
+		568087D8227F3C4400CB9791 /* GameCoordinationViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568087D7227F3C4400CB9791 /* GameCoordinationViewModelTests.swift */; };
 		56A62B0E22310727009D0E83 /* EntityModelLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A62B0D22310727009D0E83 /* EntityModelLoader.swift */; };
 		56A62B122231097E009D0E83 /* SCNNodeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A62B112231097E009D0E83 /* SCNNodeComponent.swift */; };
 		56A62B1622310DA2009D0E83 /* simd_double3+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A62B1522310DA2009D0E83 /* simd_double3+Helpers.swift */; };
@@ -221,6 +222,7 @@
 		568087C5227EEB9100CB9791 /* GradesTabBarControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradesTabBarControllerTests.swift; sourceTree = "<group>"; };
 		568087C9227EF9E800CB9791 /* LevelViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelViewModelTests.swift; sourceTree = "<group>"; };
 		568087CB227EFBAE00CB9791 /* ImmutableObservableProperty+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImmutableObservableProperty+Helpers.swift"; sourceTree = "<group>"; };
+		568087D7227F3C4400CB9791 /* GameCoordinationViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCoordinationViewModelTests.swift; sourceTree = "<group>"; };
 		56A62B0D22310727009D0E83 /* EntityModelLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityModelLoader.swift; sourceTree = "<group>"; };
 		56A62B112231097E009D0E83 /* SCNNodeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNNodeComponent.swift; sourceTree = "<group>"; };
 		56A62B1522310DA2009D0E83 /* simd_double3+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "simd_double3+Helpers.swift"; sourceTree = "<group>"; };
@@ -712,6 +714,7 @@
 			isa = PBXGroup;
 			children = (
 				568087C9227EF9E800CB9791 /* LevelViewModelTests.swift */,
+				568087D7227F3C4400CB9791 /* GameCoordinationViewModelTests.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1079,6 +1082,7 @@
 			files = (
 				206A0CB822410FD80018E6B7 /* WardrobeManagerTests.swift in Sources */,
 				568087CA227EF9E800CB9791 /* LevelViewModelTests.swift in Sources */,
+				568087D8227F3C4400CB9791 /* GameCoordinationViewModelTests.swift in Sources */,
 				568087BF227E1AFE00CB9791 /* ProgramsViewModelTests.swift in Sources */,
 				566874E822745AB000DC3ABD /* ObservablePropertyTests.swift in Sources */,
 				568087CC227EFBAE00CB9791 /* ImmutableObservableProperty+Helpers.swift in Sources */,
