@@ -54,7 +54,7 @@ class ProgramTests: XCTestCase {
     // MARK: run
     func testRun_SimpleProgram() {
         //Arrange
-        let delegate = TestProgramDelegate(entity: entity, expectedCallbacks: "move", "right", "jump")
+        let delegate = TestProgramDelegate(expectedCallbacks: "move", "right", "jump")
         program.delegate = delegate
 
         //Act
@@ -68,15 +68,12 @@ class ProgramTests: XCTestCase {
 
 private class TestProgramDelegate: ProgramDelegate {
 
-    private var entity: Entity
-
     var startExpectation: XCTestExpectation
     var stopExpectation: XCTestExpectation
     var callbackExpectation: XCTestExpectation
     private var expectedCards: [String]
 
-    init(entity: Entity, expectedCallbacks: String...) {
-        self.entity = entity
+    init(expectedCallbacks: String...) {
 
         startExpectation = XCTestExpectation(description: "Program delegate started")
         stopExpectation = XCTestExpectation(description: "Program delegate stopped")
