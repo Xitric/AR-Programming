@@ -28,7 +28,7 @@ class WardrobeManagerTests: XCTestCase {
         }
 
         //Assert
-        wait(for: [blueExpectation], timeout: 1)
+        wait(for: [blueExpectation], timeout: 0.1)
         XCTAssertTrue(wardrobe.selectedRobotSkin() == blueRobotFile)
 
         //Act
@@ -37,7 +37,7 @@ class WardrobeManagerTests: XCTestCase {
         }
 
         //Assert
-        wait(for: [greenExpectation], timeout: 1)
+        wait(for: [greenExpectation], timeout: 0.1)
         XCTAssertTrue(wardrobe.selectedRobotSkin() == greenRobotFile)
     }
 }

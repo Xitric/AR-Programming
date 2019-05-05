@@ -97,7 +97,7 @@ class QuantityLevelTests: XCTestCase {
         level.update(currentTime: 2)
 
         //Assert
-        wait(for: [delegate.infoExpectation], timeout: 1)
+        wait(for: [delegate.infoExpectation], timeout: 0.1)
         XCTAssertEqual(entityManager.getEntities(withComponents: QuantityComponent.self).count, 7)
         XCTAssertEqual(playerInventory.quantities["rubiner"], 1)
     }
@@ -117,8 +117,8 @@ class QuantityLevelTests: XCTestCase {
         level.update(delta: 2)
 
         //Assert
-        wait(for: [delegate.infoExpectation], timeout: 1)
-        wait(for: [delegate.completionExpectation], timeout: 1)
+        wait(for: [delegate.infoExpectation], timeout: 0.1)
+        wait(for: [delegate.completionExpectation], timeout: 0.1)
         XCTAssertTrue(level.isComplete())
     }
 }

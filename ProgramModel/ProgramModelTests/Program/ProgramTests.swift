@@ -62,7 +62,7 @@ class ProgramTests: XCTestCase {
         updateManager()
 
         //Assert
-        wait(for: [delegate.startExpectation, delegate.callbackExpectation, delegate.stopExpectation], timeout: 1)
+        wait(for: [delegate.startExpectation, delegate.callbackExpectation, delegate.stopExpectation], timeout: 0.1)
     }
 }
 

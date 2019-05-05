@@ -60,7 +60,7 @@ class MovementActionComponentTests: XCTestCase {
         manager.update(delta: 3)
 
         //Assert
-        wait(for: [completionHandlerExpectation], timeout: 1)
+        wait(for: [completionHandlerExpectation], timeout: 0.1)
         XCTAssertFalse(entity.components.contains(moveComponent))
     }
 }

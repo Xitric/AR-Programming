@@ -45,7 +45,7 @@ class LevelTests: XCTestCase {
         level.update(currentTime: 5)
 
         //Assert
-        wait(for: [level.updateExpectation], timeout: 1)
+        wait(for: [level.updateExpectation], timeout: 0.1)
     }
 
     func testUpdate_SecondTime() {
@@ -56,7 +56,7 @@ class LevelTests: XCTestCase {
         level.update(currentTime: 15)
 
         //Assert
-        wait(for: [level.updateExpectation], timeout: 1)
+        wait(for: [level.updateExpectation], timeout: 0.1)
     }
 }
 
