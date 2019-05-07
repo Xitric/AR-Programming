@@ -12,20 +12,22 @@ import EntityComponentSystem
 
 class EntityModelLoader: EntityManagerDelegate {
 
-    private let wardrobe: WardrobeProtocol
+    private let wardrobe: WardrobeRepository
     private let root: SCNNode
 
-    init(entityManager: EntityManager, wardrobe: WardrobeProtocol, root: SCNNode) {
+    init(entityManager: EntityManager, wardrobe: WardrobeRepository, root: SCNNode) {
         self.wardrobe = wardrobe
         self.root = root
 
         entityManager.delegate = self
 
-        let playerResource = ResourceComponent(resourceIdentifier: wardrobe.selectedRobotSkin())
-        entityManager.player.addComponent(playerResource)
+        wardrobe.selectedRobotSkin { [weak self] skin, _ in
+            let playerResource = ResourceComponent(resourceIdentifier: skin ?? "")
+            entityManager.player.addComponent(playerResource)
 
-        for entity in entityManager.getEntities(withComponents: ResourceComponent.self) {
-            tryLoadModel(forEntity: entity)
+            for entity in entityManager.getEntities(withComponents: ResourceComponent.self) {
+                self?.tryLoadModel(forEntity: entity)
+            }
         }
     }
 

@@ -15,7 +15,7 @@ import Foundation
 class LevelSceneViewModelTests: XCTestCase {
 
     private var levelContainer: CurrentLevelProtocol!
-    private var wardrobe: WardrobeProtocol!
+    private var wardrobe: WardrobeRepository!
     private var level: LevelProtocol!
     private var levelSceneViewModel: LevelSceneViewModeling!
 
@@ -94,18 +94,18 @@ class LevelSceneViewModelTests: XCTestCase {
         }
     }
 
-    private class WardrobeMock: WardrobeProtocol {
-
-        func selectedRobotSkin() -> String {
-            return ""
-        }
+    private class WardrobeMock: WardrobeRepository {
 
         func getFileNames() -> [String] {
             return [""]
         }
 
-        func setRobotChoice(choice: String, callback: (() -> Void)?) {
+        func selectedRobotSkin(completion: @escaping (String?, Error?) -> Void) {
+            completion(nil, nil)
+        }
 
+        func setRobotSkin(named choice: String, completion: @escaping (Error?) -> Void) {
+            completion(nil)
         }
     }
 
@@ -118,7 +118,7 @@ class LevelSceneViewModelTests: XCTestCase {
         var unlocks: Int?
         var infoLabel: String?
         var entityManager: EntityManager
-        var delegate: LevelDelegate?
+        weak var delegate: LevelDelegate?
 
         init() {
             self.name = "TestLevel"
@@ -129,7 +129,7 @@ class LevelSceneViewModelTests: XCTestCase {
         }
 
         func update(currentTime: TimeInterval) {
-
+            //Ignored
         }
 
         func isComplete() -> Bool {
