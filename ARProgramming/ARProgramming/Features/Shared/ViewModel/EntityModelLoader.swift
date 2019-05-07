@@ -22,10 +22,8 @@ class EntityModelLoader: EntityManagerDelegate {
         entityManager.delegate = self
 
         wardrobe.selectedRobotSkin { [weak self] skin, _ in
-            if let skin = skin {
-                let playerResource = ResourceComponent(resourceIdentifier: skin)
-                entityManager.player.addComponent(playerResource)
-            }
+            let playerResource = ResourceComponent(resourceIdentifier: skin ?? "")
+            entityManager.player.addComponent(playerResource)
 
             for entity in entityManager.getEntities(withComponents: ResourceComponent.self) {
                 self?.tryLoadModel(forEntity: entity)
