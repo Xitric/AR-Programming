@@ -10,10 +10,12 @@
 		202219A7223BC07000A2A8EA /* WardrobeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202219A6223BC07000A2A8EA /* WardrobeViewController.swift */; };
 		204AEC14220DCA1E00E0F624 /* ARContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204AEC13220DCA1E00E0F624 /* ARContainerViewController.swift */; };
 		2050095522816F240002B6A4 /* LevelSceneViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050095422816F240002B6A4 /* LevelSceneViewModelTests.swift */; };
+		20500957228187000002B6A4 /* ScoreManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20500956228187000002B6A4 /* ScoreManagerTests.swift */; };
 		206A0CB52240E5120018E6B7 /* WardrobeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206A0CB42240E5120018E6B7 /* WardrobeManager.swift */; };
 		206A0CB822410FD80018E6B7 /* WardrobeManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206A0CB722410FD80018E6B7 /* WardrobeManagerTests.swift */; };
 		207DA723225F2891003AE8EC /* GradeCardConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207DA722225F2891003AE8EC /* GradeCardConfiguration.swift */; };
 		207DA725225F2934003AE8EC /* SwinjectStoryboard+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207DA724225F2933003AE8EC /* SwinjectStoryboard+Setup.swift */; };
+		20D970752281AAB0005077A2 /* EntityModelLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D970742281AAB0005077A2 /* EntityModelLoaderTests.swift */; };
 		20D9BAD1225BF45400DCB87D /* LibraryGradesTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D9BAD0225BF45300DCB87D /* LibraryGradesTabBarController.swift */; };
 		20D9BAD6225C7EF300DCB87D /* LevelDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D9BAD5225C7EF300DCB87D /* LevelDataSource.swift */; };
 		5603A2AD2273911D001B4E83 /* ObservableProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5603A2AC2273911D001B4E83 /* ObservableProperty.swift */; };
@@ -151,10 +153,12 @@
 		202219A6223BC07000A2A8EA /* WardrobeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeViewController.swift; sourceTree = "<group>"; };
 		204AEC13220DCA1E00E0F624 /* ARContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARContainerViewController.swift; sourceTree = "<group>"; };
 		2050095422816F240002B6A4 /* LevelSceneViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSceneViewModelTests.swift; sourceTree = "<group>"; };
+		20500956228187000002B6A4 /* ScoreManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreManagerTests.swift; sourceTree = "<group>"; };
 		206A0CB42240E5120018E6B7 /* WardrobeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeManager.swift; sourceTree = "<group>"; };
 		206A0CB722410FD80018E6B7 /* WardrobeManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeManagerTests.swift; sourceTree = "<group>"; };
 		207DA722225F2891003AE8EC /* GradeCardConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradeCardConfiguration.swift; sourceTree = "<group>"; };
 		207DA724225F2933003AE8EC /* SwinjectStoryboard+Setup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SwinjectStoryboard+Setup.swift"; path = "ARProgramming/SwinjectStoryboard+Setup.swift"; sourceTree = SOURCE_ROOT; };
+		20D970742281AAB0005077A2 /* EntityModelLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityModelLoaderTests.swift; sourceTree = "<group>"; };
 		20D9BAD0225BF45300DCB87D /* LibraryGradesTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryGradesTabBarController.swift; sourceTree = "<group>"; };
 		20D9BAD5225C7EF300DCB87D /* LevelDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelDataSource.swift; sourceTree = "<group>"; };
 		2777F7558E4CBDF869F88EFD /* Pods-ARProgrammingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARProgrammingTests.release.xcconfig"; path = "../Pods/Target Support Files/Pods-ARProgrammingTests/Pods-ARProgrammingTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -557,6 +561,7 @@
 			children = (
 				566874E722745AB000DC3ABD /* ObservablePropertyTests.swift */,
 				566874ED22746E5000DC3ABD /* ObserverTests.swift */,
+				20D970742281AAB0005077A2 /* EntityModelLoaderTests.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -724,6 +729,7 @@
 				568087C9227EF9E800CB9791 /* LevelViewModelTests.swift */,
 				568087D7227F3C4400CB9791 /* GameCoordinationViewModelTests.swift */,
 				2050095422816F240002B6A4 /* LevelSceneViewModelTests.swift */,
+				20500956228187000002B6A4 /* ScoreManagerTests.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1090,6 +1096,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20500957228187000002B6A4 /* ScoreManagerTests.swift in Sources */,
 				206A0CB822410FD80018E6B7 /* WardrobeManagerTests.swift in Sources */,
 				568087CA227EF9E800CB9791 /* LevelViewModelTests.swift in Sources */,
 				568087D8227F3C4400CB9791 /* GameCoordinationViewModelTests.swift in Sources */,
@@ -1101,6 +1108,7 @@
 				566874EE22746E5000DC3ABD /* ObserverTests.swift in Sources */,
 				568087C3227EE8ED00CB9791 /* GradeCardConfigurationTests.swift in Sources */,
 				568087C6227EEB9100CB9791 /* GradesTabBarControllerTests.swift in Sources */,
+				20D970752281AAB0005077A2 /* EntityModelLoaderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
