@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		202219A7223BC07000A2A8EA /* WardrobeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202219A6223BC07000A2A8EA /* WardrobeViewController.swift */; };
 		204AEC14220DCA1E00E0F624 /* ARContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204AEC13220DCA1E00E0F624 /* ARContainerViewController.swift */; };
+		204D960B2281C30A001A5F3E /* CardCollectionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D960A2281C30A001A5F3E /* CardCollectionViewModelTests.swift */; };
 		2050095522816F240002B6A4 /* LevelSceneViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050095422816F240002B6A4 /* LevelSceneViewModelTests.swift */; };
 		20500957228187000002B6A4 /* ScoreManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20500956228187000002B6A4 /* ScoreManagerTests.swift */; };
 		206A0CB52240E5120018E6B7 /* WardrobeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206A0CB42240E5120018E6B7 /* WardrobeManager.swift */; };
@@ -152,6 +153,7 @@
 		0D460CD1A0ADB708EBA3149E /* Pods-ARProgramming.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARProgramming.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-ARProgramming/Pods-ARProgramming.debug.xcconfig"; sourceTree = "<group>"; };
 		202219A6223BC07000A2A8EA /* WardrobeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeViewController.swift; sourceTree = "<group>"; };
 		204AEC13220DCA1E00E0F624 /* ARContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARContainerViewController.swift; sourceTree = "<group>"; };
+		204D960A2281C30A001A5F3E /* CardCollectionViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewModelTests.swift; sourceTree = "<group>"; };
 		2050095422816F240002B6A4 /* LevelSceneViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSceneViewModelTests.swift; sourceTree = "<group>"; };
 		20500956228187000002B6A4 /* ScoreManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreManagerTests.swift; sourceTree = "<group>"; };
 		206A0CB42240E5120018E6B7 /* WardrobeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeManager.swift; sourceTree = "<group>"; };
@@ -703,6 +705,7 @@
 			isa = PBXGroup;
 			children = (
 				568087C2227EE8ED00CB9791 /* GradeCardConfigurationTests.swift */,
+				204D960A2281C30A001A5F3E /* CardCollectionViewModelTests.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1108,6 +1111,7 @@
 				566874EE22746E5000DC3ABD /* ObserverTests.swift in Sources */,
 				568087C3227EE8ED00CB9791 /* GradeCardConfigurationTests.swift in Sources */,
 				568087C6227EEB9100CB9791 /* GradesTabBarControllerTests.swift in Sources */,
+				204D960B2281C30A001A5F3E /* CardCollectionViewModelTests.swift in Sources */,
 				20D970752281AAB0005077A2 /* EntityModelLoaderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
