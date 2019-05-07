@@ -76,6 +76,8 @@
 		5672097E226274CF0054BD52 /* ProgramDragInteractionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5672097D226274CF0054BD52 /* ProgramDragInteractionDelegate.swift */; };
 		56720980226274DC0054BD52 /* ProgramDropInteractionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5672097F226274DC0054BD52 /* ProgramDropInteractionDelegate.swift */; };
 		56720982226278FE0054BD52 /* DataItemProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56720981226278FE0054BD52 /* DataItemProvider.swift */; };
+		5676973D2281857700FDEF5B /* WardrobeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5676973C2281857700FDEF5B /* WardrobeViewModel.swift */; };
+		5676973F2281923A00FDEF5B /* WardrobeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5676973E2281923900FDEF5B /* WardrobeViewModelTests.swift */; };
 		568087BF227E1AFE00CB9791 /* ProgramsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568087BE227E1AFE00CB9791 /* ProgramsViewModelTests.swift */; };
 		568087C3227EE8ED00CB9791 /* GradeCardConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568087C2227EE8ED00CB9791 /* GradeCardConfigurationTests.swift */; };
 		568087C6227EEB9100CB9791 /* GradesTabBarControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568087C5227EEB9100CB9791 /* GradesTabBarControllerTests.swift */; };
@@ -217,6 +219,8 @@
 		5672097D226274CF0054BD52 /* ProgramDragInteractionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramDragInteractionDelegate.swift; sourceTree = "<group>"; };
 		5672097F226274DC0054BD52 /* ProgramDropInteractionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramDropInteractionDelegate.swift; sourceTree = "<group>"; };
 		56720981226278FE0054BD52 /* DataItemProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataItemProvider.swift; sourceTree = "<group>"; };
+		5676973C2281857700FDEF5B /* WardrobeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeViewModel.swift; sourceTree = "<group>"; };
+		5676973E2281923900FDEF5B /* WardrobeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeViewModelTests.swift; sourceTree = "<group>"; };
 		568087BE227E1AFE00CB9791 /* ProgramsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramsViewModelTests.swift; sourceTree = "<group>"; };
 		568087C2227EE8ED00CB9791 /* GradeCardConfigurationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeCardConfigurationTests.swift; sourceTree = "<group>"; };
 		568087C5227EEB9100CB9791 /* GradesTabBarControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradesTabBarControllerTests.swift; sourceTree = "<group>"; };
@@ -456,6 +460,7 @@
 			isa = PBXGroup;
 			children = (
 				206A0CB42240E5120018E6B7 /* WardrobeManager.swift */,
+				5676973C2281857700FDEF5B /* WardrobeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -531,6 +536,7 @@
 			isa = PBXGroup;
 			children = (
 				206A0CB722410FD80018E6B7 /* WardrobeManagerTests.swift */,
+				5676973E2281923900FDEF5B /* WardrobeViewModelTests.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1065,6 +1071,7 @@
 				566875012274F8B800DC3ABD /* ARContainerViewModel.swift in Sources */,
 				566874FD2274B5C200DC3ABD /* InteractiveProgramView.swift in Sources */,
 				90A55B0921A83B0700FD7CDD /* AudioController.swift in Sources */,
+				5676973D2281857700FDEF5B /* WardrobeViewModel.swift in Sources */,
 				562ACDC522496BD400D2DA7C /* CardCollectionDataSource.swift in Sources */,
 				561083F8224A7607009A0039 /* ExampleProgramTableDataSource.swift in Sources */,
 				562ADC912270EA0700A94DA7 /* CardDragOnboardingViewController.swift in Sources */,
@@ -1086,6 +1093,7 @@
 				568087BF227E1AFE00CB9791 /* ProgramsViewModelTests.swift in Sources */,
 				566874E822745AB000DC3ABD /* ObservablePropertyTests.swift in Sources */,
 				568087CC227EFBAE00CB9791 /* ImmutableObservableProperty+Helpers.swift in Sources */,
+				5676973F2281923A00FDEF5B /* WardrobeViewModelTests.swift in Sources */,
 				566874EE22746E5000DC3ABD /* ObserverTests.swift in Sources */,
 				568087C3227EE8ED00CB9791 /* GradeCardConfigurationTests.swift in Sources */,
 				568087C6227EEB9100CB9791 /* GradesTabBarControllerTests.swift in Sources */,

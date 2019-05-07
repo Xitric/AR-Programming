@@ -14,66 +14,61 @@ class WardrobeViewController: UIViewController {
     @IBOutlet weak var robotChoiceLabel: UILabel!
     @IBOutlet weak var sceneView: SCNView!
 
+    // MARK: - Observers
+    private var choiceObserver: Observer?
+    private var countObserver: Observer?
+    private var robotObserver: Observer?
+
     // MARK: - Injected properties
-    var wardrobe: WardrobeProtocol!
+    var viewModel: WardrobeViewModeling!
 
-    private var robotChoice = 0 {
-        didSet {
-            updateChoiceLabel()
-        }
-    }
-    private var robotCount = 0 {
-        didSet {
-            updateChoiceLabel()
-        }
-    }
-
-    private var robotFiles: [String] = [] {
-        didSet {
-            robotChoice = robotFiles.firstIndex(of: wardrobe.selectedRobotSkin()) ?? 0
-            robotCount = robotFiles.count
-            setRobot(daeFile: robotFiles[robotChoice])
-        }
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        robotFiles = wardrobe.getFileNames()
+    deinit {
+        choiceObserver?.release()
+        countObserver?.release()
+        robotObserver?.release()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         sceneView.allowsCameraControl = true
         sceneView.autoenablesDefaultLighting = true
-    }
 
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        wardrobe.setRobotChoice(choice: robotFiles[robotChoice], callback: nil)
+        choiceObserver = viewModel.robotChoice.observe { [weak self] _ in
+            self?.updateChoiceLabel()
+        }
+
+        countObserver = viewModel.skinCount.observe { [weak self] _ in
+            self?.updateChoiceLabel()
+        }
+
+        robotObserver = viewModel.currentRobot.observe { [weak self] robot in
+            guard let robot = robot else { return }
+            self?.setRobot(named: robot)
+        }
     }
 
     @IBAction func nextRobot(_ sender: UIButton) {
-        robotChoice = (robotChoice + 1) % robotFiles.count
-        setRobot(daeFile: robotFiles[robotChoice])
+        viewModel.next()
     }
 
     @IBAction func previousRobot(_ sender: UIButton) {
-        robotChoice = (robotChoice - 1 + robotFiles.count) % robotFiles.count
-        setRobot(daeFile: robotFiles[robotChoice])
+        viewModel.previous()
     }
 
     @IBAction func pickRobot(_ sender: UIButton) {
-        navigationController?.popViewController(animated: true)
+        viewModel.save { [weak self] in
+            self?.navigationController?.popViewController(animated: true)
+        }
     }
 
-    private func setRobot(daeFile: String) {
-        let scene = SCNScene(named: "Meshes.scnassets/" + daeFile)
+    private func setRobot(named name: String) {
+        let scene = SCNScene(named: "Meshes.scnassets/" + name)
         scene?.rootNode.rotation = SCNVector4(0, -1, 0, 1)
         scene?.rootNode.position = SCNVector3(0.025, 0, -0.5)
         sceneView.scene = scene
     }
 
     private func updateChoiceLabel() {
-        robotChoiceLabel.text = "\(robotChoice + 1)/\(robotCount)"
+        robotChoiceLabel.text = "\(viewModel.robotChoice.value + 1)/\(viewModel.skinCount.value)"
     }
 }
