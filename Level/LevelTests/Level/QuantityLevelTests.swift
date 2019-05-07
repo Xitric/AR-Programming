@@ -123,24 +123,18 @@ class QuantityLevelTests: XCTestCase {
     }
 }
 
-class LevelDelegateMock: LevelDelegate {
+private class LevelDelegateMock: LevelDelegate {
 
     let completionExpectation: XCTestExpectation
-    let resetExpectation: XCTestExpectation
     let infoExpectation: XCTestExpectation
 
     init() {
         completionExpectation = XCTestExpectation(description: "Completion called")
-        resetExpectation = XCTestExpectation(description: "Reset called")
         infoExpectation = XCTestExpectation(description: "Info changed")
     }
 
     func levelCompleted(_ level: LevelProtocol) {
         completionExpectation.fulfill()
-    }
-
-    func levelReset(_ level: LevelProtocol) {
-        resetExpectation.fulfill()
     }
 
     func levelInfoChanged(_ level: LevelProtocol, info: String?) {
