@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		202219A7223BC07000A2A8EA /* WardrobeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202219A6223BC07000A2A8EA /* WardrobeViewController.swift */; };
 		204AEC14220DCA1E00E0F624 /* ARContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204AEC13220DCA1E00E0F624 /* ARContainerViewController.swift */; };
+		2050095522816F240002B6A4 /* LevelSceneViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050095422816F240002B6A4 /* LevelSceneViewModelTests.swift */; };
 		206A0CB52240E5120018E6B7 /* WardrobeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206A0CB42240E5120018E6B7 /* WardrobeManager.swift */; };
 		206A0CB822410FD80018E6B7 /* WardrobeManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206A0CB722410FD80018E6B7 /* WardrobeManagerTests.swift */; };
 		207DA723225F2891003AE8EC /* GradeCardConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207DA722225F2891003AE8EC /* GradeCardConfiguration.swift */; };
@@ -149,6 +150,7 @@
 		0D460CD1A0ADB708EBA3149E /* Pods-ARProgramming.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARProgramming.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-ARProgramming/Pods-ARProgramming.debug.xcconfig"; sourceTree = "<group>"; };
 		202219A6223BC07000A2A8EA /* WardrobeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeViewController.swift; sourceTree = "<group>"; };
 		204AEC13220DCA1E00E0F624 /* ARContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARContainerViewController.swift; sourceTree = "<group>"; };
+		2050095422816F240002B6A4 /* LevelSceneViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSceneViewModelTests.swift; sourceTree = "<group>"; };
 		206A0CB42240E5120018E6B7 /* WardrobeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeManager.swift; sourceTree = "<group>"; };
 		206A0CB722410FD80018E6B7 /* WardrobeManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeManagerTests.swift; sourceTree = "<group>"; };
 		207DA722225F2891003AE8EC /* GradeCardConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradeCardConfiguration.swift; sourceTree = "<group>"; };
@@ -721,6 +723,7 @@
 			children = (
 				568087C9227EF9E800CB9791 /* LevelViewModelTests.swift */,
 				568087D7227F3C4400CB9791 /* GameCoordinationViewModelTests.swift */,
+				2050095422816F240002B6A4 /* LevelSceneViewModelTests.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1091,6 +1094,7 @@
 				568087CA227EF9E800CB9791 /* LevelViewModelTests.swift in Sources */,
 				568087D8227F3C4400CB9791 /* GameCoordinationViewModelTests.swift in Sources */,
 				568087BF227E1AFE00CB9791 /* ProgramsViewModelTests.swift in Sources */,
+				2050095522816F240002B6A4 /* LevelSceneViewModelTests.swift in Sources */,
 				566874E822745AB000DC3ABD /* ObservablePropertyTests.swift in Sources */,
 				568087CC227EFBAE00CB9791 /* ImmutableObservableProperty+Helpers.swift in Sources */,
 				5676973F2281923A00FDEF5B /* WardrobeViewModelTests.swift in Sources */,
