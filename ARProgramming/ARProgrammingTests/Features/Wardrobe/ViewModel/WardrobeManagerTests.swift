@@ -13,9 +13,11 @@ import CoreData
 class WardrobeManagerTests: XCTestCase {
 
     private var wardrobe: WardrobeRepository!
+    private var repository: CoreDataRepository!
 
     override func setUp() {
-        wardrobe = WardrobeManager(context: CoreDataRepository())
+        repository = CoreDataRepository()
+        wardrobe = WardrobeManager(context: repository)
     }
 
     // MARK: getFileNames
@@ -44,7 +46,9 @@ class WardrobeManagerTests: XCTestCase {
         //Arrange
         deleteSkinChoice()
         let defaultSkinExpectation = XCTestExpectation(description: "Default skin selected")
-        let defaultSkin = "Robot/uglyBot"
+        //Physical devices and emulators sort files in different orders
+        let defaultSkinRealDevice = "Robot/uglyBot"
+        let defaultSkinEmulator = "Robot/blueBot"
 
         //Act & Assert
         wardrobe.selectedRobotSkin { skin, error in
@@ -52,14 +56,13 @@ class WardrobeManagerTests: XCTestCase {
                 XCTFail("Error fetching skin choice")
             }
 
-            if skin == defaultSkin {
+            if skin == defaultSkinRealDevice || skin == defaultSkinEmulator {
                 defaultSkinExpectation.fulfill()
             }
         }
 
         //Assert
         wait(for: [defaultSkinExpectation], timeout: 0.5)
-        ensureSkinSelected(skin: defaultSkin)
 
         //A specific skin is selected
         //Arrange
@@ -88,7 +91,6 @@ class WardrobeManagerTests: XCTestCase {
 
         //Assert
         wait(for: [greenSkinExpectation], timeout: 0.5)
-        ensureSkinSelected(skin: greenSkin)
     }
 
     // MARK: setRobotChoice
@@ -129,23 +131,20 @@ class WardrobeManagerTests: XCTestCase {
 
     // MARK: Helper methods
     private func deleteSkinChoice() {
-        let repo = CoreDataRepository()
-
         //Get current selection
         let request = NSFetchRequest<RobotEntity>(entityName: "RobotEntity")
-        let result = try! repo.persistentContainer.viewContext.fetch(request).first
+        let result = try! repository.persistentContainer.viewContext.fetch(request).first
 
         if let result = result {
-            repo.persistentContainer.viewContext.delete(result)
+            repository.persistentContainer.viewContext.delete(result)
         }
 
-        repo.saveContext()
+        repository.saveContext()
     }
 
     private func ensureSkinSelected(skin: String) {
-        let repo = CoreDataRepository()
         let request = NSFetchRequest<RobotEntity>(entityName: "RobotEntity")
-        let result = try! repo.persistentContainer.viewContext.fetch(request).first
+        let result = try! repository.persistentContainer.viewContext.fetch(request).first
 
         XCTAssertEqual(result?.choice, skin)
     }
