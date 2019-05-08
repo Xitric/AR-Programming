@@ -10,6 +10,7 @@
 		202219A7223BC07000A2A8EA /* WardrobeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202219A6223BC07000A2A8EA /* WardrobeViewController.swift */; };
 		204AEC14220DCA1E00E0F624 /* ARContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204AEC13220DCA1E00E0F624 /* ARContainerViewController.swift */; };
 		204D960B2281C30A001A5F3E /* CardCollectionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D960A2281C30A001A5F3E /* CardCollectionViewModelTests.swift */; };
+		204D96112282CD96001A5F3E /* GradeLevelConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D96102282CD96001A5F3E /* GradeLevelConfigurationTests.swift */; };
 		2050095522816F240002B6A4 /* LevelSceneViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050095422816F240002B6A4 /* LevelSceneViewModelTests.swift */; };
 		20500957228187000002B6A4 /* ScoreManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20500956228187000002B6A4 /* ScoreManagerTests.swift */; };
 		206A0CB52240E5120018E6B7 /* WardrobeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206A0CB42240E5120018E6B7 /* WardrobeManager.swift */; };
@@ -154,6 +155,7 @@
 		202219A6223BC07000A2A8EA /* WardrobeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeViewController.swift; sourceTree = "<group>"; };
 		204AEC13220DCA1E00E0F624 /* ARContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARContainerViewController.swift; sourceTree = "<group>"; };
 		204D960A2281C30A001A5F3E /* CardCollectionViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewModelTests.swift; sourceTree = "<group>"; };
+		204D96102282CD96001A5F3E /* GradeLevelConfigurationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeLevelConfigurationTests.swift; sourceTree = "<group>"; };
 		2050095422816F240002B6A4 /* LevelSceneViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSceneViewModelTests.swift; sourceTree = "<group>"; };
 		20500956228187000002B6A4 /* ScoreManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreManagerTests.swift; sourceTree = "<group>"; };
 		206A0CB42240E5120018E6B7 /* WardrobeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeManager.swift; sourceTree = "<group>"; };
@@ -296,6 +298,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		204D960C2282C99A001A5F3E /* LevelSelect */ = {
+			isa = PBXGroup;
+			children = (
+				204D960F2282C9D2001A5F3E /* ViewModel */,
+			);
+			path = LevelSelect;
+			sourceTree = "<group>";
+		};
+		204D960F2282C9D2001A5F3E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				204D96102282CD96001A5F3E /* GradeLevelConfigurationTests.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		303DB45C8FD81C058632CA1B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -523,6 +541,7 @@
 		566874E222745A0600DC3ABD /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				204D960C2282C99A001A5F3E /* LevelSelect */,
 				568087C7227EF9CD00CB9791 /* Exercise */,
 				568087C0227EE8D200CB9791 /* Library */,
 				568087BC227E1AD200CB9791 /* Program */,
@@ -1113,6 +1132,7 @@
 				568087C6227EEB9100CB9791 /* GradesTabBarControllerTests.swift in Sources */,
 				204D960B2281C30A001A5F3E /* CardCollectionViewModelTests.swift in Sources */,
 				20D970752281AAB0005077A2 /* EntityModelLoaderTests.swift in Sources */,
+				204D96112282CD96001A5F3E /* GradeLevelConfigurationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
