@@ -10,13 +10,13 @@ import UIKit
 import ProgramModel
 
 class InteractiveProgramView: ProgramView {
-    
+
     weak var delegate: InteractiveProgramDelegate?
-    
-    //MARK: - Observers
+
+    // MARK: - Observers
     private var activeCardObserver: Observer?
-    
-    //MARK: - Injected properties
+
+    // MARK: - Injected properties
     override var viewModel: ProgramsViewModeling! {
         get {
             return super.viewModel
@@ -28,11 +28,11 @@ class InteractiveProgramView: ProgramView {
             }
         }
     }
-    
+
     deinit {
         activeCardObserver?.release()
     }
-    
+
     private func highlight(cardNode: CardNodeProtocol?) {
         for subview in self.arrangedSubviews {
             if let functionView = subview as? FunctionView {
@@ -40,7 +40,7 @@ class InteractiveProgramView: ProgramView {
             }
         }
     }
-    
+
     override func createFunctionView(withProgram program: ProgramProtocol) -> FunctionView {
         let fv = super.createFunctionView(withProgram: program)
         fv.addGestureRecognizer(FunctionTapGestureRecognizer(target: self,
@@ -48,21 +48,21 @@ class InteractiveProgramView: ProgramView {
                                                              program: program))
         return fv
     }
-    
+
     @objc private func onFunctionViewTapped(_ sender: FunctionTapGestureRecognizer) {
         delegate?.interactiveProgram(self, pressed: sender.program)
     }
 }
 
 protocol InteractiveProgramDelegate: class {
-    
+
     func interactiveProgram(_ view: InteractiveProgramView, pressed program: ProgramProtocol)
 }
 
 private class FunctionTapGestureRecognizer: UITapGestureRecognizer {
-    
+
     let program: ProgramProtocol
-    
+
     init(target: Any?, action: Selector?, program: ProgramProtocol) {
         self.program = program
         super.init(target: target, action: action)

@@ -15,12 +15,12 @@ class ShadowedButton: UIButton {
         super.init(coder: aDecoder)
         commonInit()
     }
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
     }
-    
+
     private func commonInit() {
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOffset = CGSize()

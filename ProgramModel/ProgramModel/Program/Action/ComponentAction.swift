@@ -10,9 +10,9 @@ import Foundation
 import EntityComponentSystem
 
 class ComponentAction: Action {
-    
+
     var strength = 1.0
-    
+
     func run(onEntity entity: Entity, withProgramDelegate delegate: ProgramDelegate?, onCompletion: (() -> Void)?) {
         if let component = getActionComponent() {
             component.onComplete = {
@@ -23,7 +23,7 @@ class ComponentAction: Action {
             onCompletion?()
         }
     }
-    
+
     func getActionComponent() -> ActionComponent? {
         return nil
     }

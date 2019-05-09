@@ -13,6 +13,6 @@ import ProgramModel
 class CardCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var image: UIImageView!
-    
+
     var card: Card?
 }

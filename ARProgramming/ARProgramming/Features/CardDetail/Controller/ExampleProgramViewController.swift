@@ -13,7 +13,7 @@ import ProgramModel
 import Level
 
 class ExampleProgramViewController: UIViewController {
-    
+
     @IBOutlet weak var exampleProgramTable: UITableView! {
         didSet {
             tableDataSource?.delegate = self
@@ -21,11 +21,11 @@ class ExampleProgramViewController: UIViewController {
             exampleProgramTable.delegate = tableDataSource
         }
     }
-    
-    //MARK: - Observers
+
+    // MARK: - Observers
     private var cardObserver: Observer?
-    
-    //MARK: - Injected properties
+
+    // MARK: - Injected properties
     var tableDataSource: ExampleProgramTableDataSource!
     var viewModel: ExampleProgramViewModeling! {
         didSet {
@@ -35,11 +35,11 @@ class ExampleProgramViewController: UIViewController {
             }
         }
     }
-    
+
     deinit {
         cardObserver?.release()
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.destination {
         case let exampleController as ExamplePreviewViewController:
@@ -51,7 +51,7 @@ class ExampleProgramViewController: UIViewController {
     }
 }
 
-//MARK: - ExampleProgramSelectorDelegate
+// MARK: - ExampleProgramSelectorDelegate
 extension ExampleProgramViewController: ExampleProgramSelectorDelegate {
     func editorSelected(editor: ProgramsViewModeling) {
         performSegue(withIdentifier: "showProgramExample", sender: editor)

@@ -12,32 +12,32 @@ import XCTest
 class ObservablePropertyTests: XCTestCase {
 
     private var property: ObservableProperty<Int>!
-    
+
     override func setUp() {
         property = ObservableProperty<Int>(5)
     }
-    
-    //MARK: init
+
+    // MARK: init
     func testInit_WithInitial() {
         //Assert
         XCTAssertEqual(property.value, 5)
     }
-    
+
     func testInit_WithOptional() {
         //Act
         var optionalProperty = ObservableProperty<Int?>()
-        
+
         //Assert
         XCTAssertNil(optionalProperty.value)
-        
+
         //Act
         optionalProperty = ObservableProperty<Int?>(-4)
-        
+
         //Assert
         XCTAssertEqual(optionalProperty.value, -4)
     }
 
-    //MARK: observe
+    // MARK: observe
     func testObserve() {
         //Arrange
         var mostRecentlyObservedValue: Int?
@@ -46,33 +46,33 @@ class ObservablePropertyTests: XCTestCase {
             mostRecentlyObservedValue = newValue
             callbackCount += 1
         }
-        
+
         //Set up to get initial value
         //Act
-        let _ = property.observe(withClosure: observer)
-        
+        _ = property.observe(withClosure: observer)
+
         //Assert
         XCTAssertEqual(mostRecentlyObservedValue, 5)
         XCTAssertEqual(callbackCount, 1)
-        
+
         //Call with new value
         //Act
         property.value = 7
-        
+
         //Assert
         XCTAssertEqual(mostRecentlyObservedValue, 7)
         XCTAssertEqual(callbackCount, 2)
-        
+
         //Call with same value again
         //Act
         property.value = 7
-        
+
         //Assert
         XCTAssertEqual(mostRecentlyObservedValue, 7)
         XCTAssertEqual(callbackCount, 3)
     }
-    
-    //MARK: observeFuture
+
+    // MARK: observeFuture
     func testObserveFuture() {
         //Arrange
         var mostRecentlyObservedValue: Int?
@@ -81,27 +81,27 @@ class ObservablePropertyTests: XCTestCase {
             mostRecentlyObservedValue = newValue
             callbackCount += 1
         }
-        
+
         //Set up and get no value
         //Act
-        let _ = property.observeFuture(withClosure: observer)
-        
+        _ = property.observeFuture(withClosure: observer)
+
         //Assert
         XCTAssertNil(mostRecentlyObservedValue)
         XCTAssertEqual(callbackCount, 0)
-        
+
         //Call with new value
         //Act
         property.value = 7
-        
+
         //Assert
         XCTAssertEqual(mostRecentlyObservedValue, 7)
         XCTAssertEqual(callbackCount, 1)
-        
+
         //Call with same value again
         //Act
         property.value = 7
-        
+
         //Assert
         XCTAssertEqual(mostRecentlyObservedValue, 7)
         XCTAssertEqual(callbackCount, 2)

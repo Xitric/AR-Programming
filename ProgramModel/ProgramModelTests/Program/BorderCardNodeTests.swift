@@ -14,7 +14,7 @@ class BorderCardNodeTests: XCTestCase {
 
     private var factory: CardNodeFactory!
     private var programBuilder: ObservationGraphCardNodeBuilder!
-    
+
     private var nodeStart: ObservationNode!
     private var nodeJump: ObservationNode!
     private var nodeParameter: ObservationNode!
@@ -23,34 +23,34 @@ class BorderCardNodeTests: XCTestCase {
     private var borderCardNode: BorderCardNode!
     private var moveCardNode: CardNode!
     private var jumpCardNode: CardNode!
-    
+
     override func setUp() {
         factory = CardNodeFactory()
         programBuilder = ObservationGraphCardNodeBuilder()
-        
+
         nodeStart = ObservationNode(payload: "0", position: simd_double2(0, 0), width: 0.8, height: 0.8)
         nodeJump = ObservationNode(payload: "4", position: simd_double2(2, 0), width: 0.8, height: 0.8)
         nodeParameter = ObservationNode(payload: "11", position: simd_double2(1.2, 1), width: 0.8, height: 0.8)
-        
+
         loopCardNode = LoopCardNode()
         borderCardNode = BorderCardNode()
         moveCardNode = SimpleActionCardNode(name: "move", action: MoveAction())
         jumpCardNode = SimpleActionCardNode(name: "jump", action: JumpAction())
     }
-    
-    //MARK: create
-    func testCreateWithoutParameter(){
+
+    // MARK: create
+    func testCreateWithoutParameter() {
         //Arrange: Loop, Jump, Border
         let nodeLoop = ObservationNode(payload: "6", position: simd_double2(1, 0), width: 0.8, height: 0.8)
         let nodeBorder = ObservationNode(payload: "7", position: simd_double2(3, 0), width: 0.8, height: 0.8)
-        
+
         var observationSet = ObservationSet()
         observationSet.add(nodeStart)
         observationSet.add(nodeLoop)
         observationSet.add(nodeBorder)
         observationSet.add(nodeJump)
         let graph = ObservationGraph(observationSet: observationSet)
-        
+
         //Act & Assert
         let startObservation = graph.firstNode(withPayloadIn: factory.functionDeclarationCodes)!
         XCTAssertThrowsError(try programBuilder
@@ -61,13 +61,13 @@ class BorderCardNodeTests: XCTestCase {
             XCTAssertNotNil(error as? CardSequenceError)
         }
     }
-    
-    //MARK: findLoop
+
+    // MARK: findLoop
     func testFindLoop() {
         //Arrange
         let nodeLoop = ObservationNode(payload: "6", position: simd_double2(1, 0), width: 0.8, height: 0.8)
         let nodeBorder = ObservationNode(payload: "7", position: simd_double2(3, 0), width: 0.8, height: 0.8)
-        
+
         var observationSet = ObservationSet()
         observationSet.add(nodeStart)
         observationSet.add(nodeLoop)
@@ -75,7 +75,7 @@ class BorderCardNodeTests: XCTestCase {
         observationSet.add(nodeBorder)
         observationSet.add(nodeParameter)
         let graph = ObservationGraph(observationSet: observationSet)
-        
+
         let start = try? programBuilder
             .using(factory: factory)
             .createFrom(graph: graph)
@@ -83,7 +83,7 @@ class BorderCardNodeTests: XCTestCase {
         let loop = start?.successors[0]
         let jump = loop?.successors[0]
         let border = (jump?.successors[0]) as! BorderCardNode
-        
+
         //Act
         try? border.findLoop()
         let resultLoopCard = border.loopCardNode
@@ -93,12 +93,12 @@ class BorderCardNodeTests: XCTestCase {
         XCTAssertTrue(resultLoopCard!.card.internalName == "loop")
         XCTAssertTrue(resultLoopCard! === loop)
     }
-    
-    func testFindLoop_Invalid(){
+
+    func testFindLoop_Invalid() {
         //Arrange
         let nodeLoop = ObservationNode(payload: "6", position: simd_double2(3, 0), width: 0.8, height: 0.8)
         let nodeBorder = ObservationNode(payload: "7", position: simd_double2(1, 0), width: 0.8, height: 0.8)
-        
+
         var observationSet = ObservationSet()
         observationSet.add(nodeStart)
         observationSet.add(nodeLoop)
@@ -106,7 +106,7 @@ class BorderCardNodeTests: XCTestCase {
         observationSet.add(nodeBorder)
         observationSet.add(nodeParameter)
         let graph = ObservationGraph(observationSet: observationSet)
-        
+
         //Act & Assert
         XCTAssertThrowsError(try programBuilder
             .using(factory: factory)
@@ -115,7 +115,7 @@ class BorderCardNodeTests: XCTestCase {
             XCTAssertNotNil(error as? CardSequenceError)
         }
     }
-    
+
     func testFindLoop_Nested() {
         //Arrange
         //Arrange
@@ -124,7 +124,7 @@ class BorderCardNodeTests: XCTestCase {
         let nodeInnerParameter = ObservationNode(payload: "11", position: simd_double2(3, 1), width: 0.8, height: 0.8)
         let nodeInnerBorder = ObservationNode(payload: "7", position: simd_double2(4, 0), width: 0.8, height: 0.8)
         let nodeOuterBorder = ObservationNode(payload: "7", position: simd_double2(5, 0), width: 0.8, height: 0.8)
-        
+
         var observationSet = ObservationSet()
         observationSet.add(nodeStart)
         observationSet.add(nodeOuterLoop)
@@ -135,7 +135,7 @@ class BorderCardNodeTests: XCTestCase {
         observationSet.add(nodeInnerBorder)
         observationSet.add(nodeOuterBorder)
         let graph = ObservationGraph(observationSet: observationSet)
-        
+
         let start = try? programBuilder
             .using(factory: factory)
             .createFrom(graph: graph)
@@ -145,26 +145,26 @@ class BorderCardNodeTests: XCTestCase {
         let innerLoop = jump?.successors[0]
         let innerBorder = (innerLoop?.successors[0]) as! BorderCardNode
         let outerBorder = (innerBorder.successors[0]) as! BorderCardNode
-        
+
         //Act
         try? outerBorder.findLoop()
         let resultOuterLoopCard = outerBorder.loopCardNode
-        
+
         try? innerBorder.findLoop()
         let resultInnerLoopCard = innerBorder.loopCardNode
-        
+
         //Assert
         XCTAssertNotNil(resultOuterLoopCard)
         XCTAssertTrue(resultOuterLoopCard?.card.internalName == "loop")
         XCTAssertTrue(resultOuterLoopCard === outerLoop)
-        
+
         XCTAssertNotNil(resultInnerLoopCard)
         XCTAssertTrue(resultInnerLoopCard?.card.internalName == "loop")
         XCTAssertTrue(resultInnerLoopCard === innerLoop)
     }
-    
-    //MARK: next
-    func testNextWithLoopAsParent(){
+
+    // MARK: next
+    func testNextWithLoopAsParent() {
         //Arrange: Loop, Border, Move
         borderCardNode.loopCardNode = loopCardNode
         borderCardNode.parent = loopCardNode
@@ -172,45 +172,45 @@ class BorderCardNodeTests: XCTestCase {
         loopCardNode.parameter = 2
         loopCardNode.addSuccessor(borderCardNode)
         try? borderCardNode.findLoop()
-        
+
         //Act
         let result = borderCardNode.next()
-        
+
         //Assert
         XCTAssertTrue(borderCardNode.parent?.card.internalName == "loop")
         XCTAssertTrue(result === loopCardNode)
         XCTAssertTrue(borderCardNode.remainingRepeats == 1)
     }
-    
-    func testNextWithParameter(){
+
+    func testNextWithParameter() {
         //Arrange: Loop, Move, Border, Jump
         moveCardNode.parent = loopCardNode
         borderCardNode.parent = moveCardNode
         borderCardNode.addSuccessor(jumpCardNode)
         moveCardNode.addSuccessor(borderCardNode)
         loopCardNode.addSuccessor(moveCardNode)
-        
+
         //Act
         loopCardNode.parameter = 1
         try? borderCardNode.findLoop()
         var result = borderCardNode.next()
-        
+
         //Assert
         XCTAssertTrue(result === jumpCardNode)
-        
+
         //Act
         loopCardNode.parameter = 1
         try? borderCardNode.findLoop()
         result = borderCardNode.next()
-        
+
         //Assert
         XCTAssertTrue(result === jumpCardNode)
-        
+
         //Act
         loopCardNode.parameter = 4
         try? borderCardNode.findLoop()
         result = borderCardNode.next()
-        
+
         //Assert
         XCTAssertTrue(result === loopCardNode)
     }

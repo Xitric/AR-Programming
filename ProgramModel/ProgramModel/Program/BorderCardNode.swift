@@ -10,7 +10,7 @@ import Foundation
 import simd
 
 class BorderCardNode: CardNode {
-    
+
     var remainingRepeats: Int!
     var loopCardNode: LoopCardNode! {
         didSet {
@@ -19,7 +19,7 @@ class BorderCardNode: CardNode {
             }
         }
     }
-    
+
     init() {
         super.init(card: BasicCard(
             internalName: "block",
@@ -28,16 +28,16 @@ class BorderCardNode: CardNode {
             requiresParameter: false,
             connectionAngles: [0]))
     }
-    
+
     override func link() throws {
         try findLoop()
     }
-    
+
     func findLoop() throws {
         var p = parent
         var nestingDepth = 0
-        
-        while(p != nil) {
+
+        while p != nil {
             if p is BorderCardNode { // This loop contains a nested loop, ignore the next loop card
                 nestingDepth += 1
             } else if let p = p as? LoopCardNode {
@@ -45,35 +45,35 @@ class BorderCardNode: CardNode {
                     loopCardNode = p
                     return
                 }
-                
+
                 nestingDepth -= 1
             }
-            
+
             p = p?.parent
         }
-        
+
         //We have reached a card with no parent
         throw CardSequenceError.syntax(message: "Border card is missing a corresponding loop card")
     }
-    
+
     override func clone() -> CardNode {
         return BorderCardNode()
     }
-    
+
     override func next() -> CardNode? {
-        remainingRepeats = remainingRepeats - 1
-        
+        remainingRepeats -= 1
+
         if remainingRepeats > 0 {
             // We iterate back to the loop card
             return loopCardNode
         }
-        
+
         // We are done iterating
         remainingRepeats = loopCardNode.parameter
         if successors.count > 0 {
             return successors[0]
         }
-        
+
         return nil
     }
 }

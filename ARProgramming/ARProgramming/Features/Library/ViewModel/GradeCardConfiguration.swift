@@ -16,20 +16,20 @@ protocol GradeCardConfiguration {
 }
 
 struct CardConfig: Decodable, GradeCardConfiguration {
-    
+
     private let includedCards: [[String]]
-    
+
     init() {
         self = Config.read(configFile: "cardClasses", toType: CardConfig.self)!
     }
-    
+
     func isIncluded(cardName: String, forGrade grade: Int) -> Bool {
         for i in 0 ..< grade {
             if includedCards[i].contains(cardName) {
                 return true
             }
         }
-        
+
         return false
     }
 }

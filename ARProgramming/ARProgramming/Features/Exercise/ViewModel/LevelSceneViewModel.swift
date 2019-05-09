@@ -14,11 +14,11 @@ import Level
 ///
 /// This view model will synchronize the state of the Level model with a SceneKit representation.
 class LevelSceneViewModel: LevelSceneViewModeling {
-    
-    //MARK: - Observers
+
+    // MARK: - Observers
     private var levelObserver: Observer?
-    
-    //MARK: - State
+
+    // MARK: - State
     private let levelContainer: CurrentLevelProtocol
     private let wardrobe: WardrobeProtocol
     private var modelLoader: EntityModelLoader?
@@ -28,46 +28,46 @@ class LevelSceneViewModel: LevelSceneViewModeling {
         return node
     }()
     private let _levelRedrawn = ObservableProperty<Void>(())
-    
+
     var levelRedrawn: ImmutableObservableProperty<Void> {
         return _levelRedrawn
     }
-    
+
     init(level: CurrentLevelProtocol, wardrobe: WardrobeProtocol) {
         self.levelContainer = level
         self.wardrobe = wardrobe
-        
+
         levelObserver = levelContainer.level.observe { [weak self] level in
             self?.display(level: level)
         }
     }
-    
+
     deinit {
         levelObserver?.release()
     }
-    
-    //MARK: - Functionality
+
+    // MARK: - Functionality
     func anchor(at parent: SCNNode?) {
         //Bugfix: com.apple.scenekit.scnview-renderer (89): EXC_BAD_ACCESS (code=1, address=0x4874176c0)
         levelContainer.level.value?.entityManager.invokeAfterUpdate { [weak self] in
             guard let self = self else { return }
-            
+
             for child in parent?.childNodes ?? [] {
                 child.removeFromParentNode()
             }
             self.levelView.removeFromParentNode()
-            
+
             parent?.addChildNode(self.levelView)
         }
     }
-    
+
     func addNode(_ node: SCNNode) {
         levelView.addChildNode(node)
     }
-    
+
     private func display(level: LevelProtocol?) {
         clearSceneNode()
-        
+
         if let level = level {
             modelLoader = EntityModelLoader(entityManager: level.entityManager,
                                             wardrobe: wardrobe,
@@ -75,10 +75,10 @@ class LevelSceneViewModel: LevelSceneViewModeling {
         } else {
             modelLoader = nil
         }
-        
+
         _levelRedrawn.value = ()
     }
-    
+
     private func clearSceneNode() {
         for child in levelView.childNodes {
             child.removeFromParentNode()
@@ -87,14 +87,14 @@ class LevelSceneViewModel: LevelSceneViewModeling {
 }
 
 protocol LevelSceneViewModeling {
-    
+
     var levelRedrawn: ImmutableObservableProperty<Void> { get }
-    
+
     /// Inform this view model about where to place the level in the SceneKit or AR scene.
     ///
     /// - Parameter parent: The node to anchor this level to, or nil to remove the level from its current anchor.
     func anchor(at parent: SCNNode?)
-    
+
     /// Add a SCNNode to be displayed as part of this level.
     ///
     /// - Parameter node: The node to add.

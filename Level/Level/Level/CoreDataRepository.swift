@@ -10,17 +10,17 @@ import Foundation
 import CoreData
 
 class CoreDataRepository {
-    
+
     lazy var persistentContainer: NSPersistentContainer = {
         let container = LevelPersistentContainer(name: "LevelModel")
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+        container.loadPersistentStores(completionHandler: { (_, error) in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         })
         return container
     }()
-    
+
     func saveContext () {
         let context = persistentContainer.viewContext
         if context.hasChanges {

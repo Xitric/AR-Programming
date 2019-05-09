@@ -13,20 +13,20 @@ import simd
 ///
 /// This class implements the factory pattern to provide a method for constructing CardNode objects. To encapsulate the concrete types of CardNodes constructed, the class further makes use of the prototype pattern.
 class CardNodeFactory: CardCollection {
-    
-    private var cardNodePrototypes = [String:CardNode]()
-    
+
+    private var cardNodePrototypes = [String: CardNode]()
+
     /// An array of codes for cards that define the beginnings of functions.
     let functionDeclarationCodes: [String]
-    
+
     /// An array of all Cards available for making programs.
     var cards: [Card] {
-        return cardNodePrototypes.map{$0.value.card}
+        return cardNodePrototypes.map {$0.value.card}
     }
-    
+
     init() {
         functionDeclarationCodes = ["0", "13", "15", "17", "19"]
-        
+
         // Control
         register(cardNode: FunctionCardNode(functionNumber: 0, isCaller: false), withCode: "0")
         register(cardNode: FunctionCardNode(functionNumber: 1, isCaller: true), withCode: "12")
@@ -37,11 +37,11 @@ class CardNodeFactory: CardCollection {
         register(cardNode: FunctionCardNode(functionNumber: 3, isCaller: false), withCode: "17")
         register(cardNode: FunctionCardNode(functionNumber: 4, isCaller: true), withCode: "18")
         register(cardNode: FunctionCardNode(functionNumber: 4, isCaller: false), withCode: "19")
-        
+
         // Loop
         register(cardNode: LoopCardNode(), withCode: "6")
         register(cardNode: BorderCardNode(), withCode: "7")
-        
+
         // Actions
         register(cardNode: SimpleActionCardNode(name: "move", action: MoveAction()), withCode: "1")
         register(cardNode: SimpleActionCardNode(name: "left", action: RotationAction(direction: .left)), withCode: "2")
@@ -49,7 +49,7 @@ class CardNodeFactory: CardCollection {
         register(cardNode: SimpleActionCardNode(name: "jump", action: JumpAction()), withCode: "4")
         register(cardNode: SimpleActionCardNode(name: "pickup", action: PickupAction()), withCode: "20")
         register(cardNode: SimpleActionCardNode(name: "drop", action: DropAction()), withCode: "21")
-        
+
         // Parameters
         register(cardNode: CardNode(card: ParameterCard(parameter: 1)), withCode: "8")
         register(cardNode: CardNode(card: ParameterCard(parameter: 2)), withCode: "9")
@@ -68,10 +68,10 @@ class CardNodeFactory: CardCollection {
         if let node = cardNodePrototypes[code] {
             return node.clone()
         }
-        
+
         throw CardSequenceError.unknownCode(code: code)
     }
-    
+
     /// Register a new prototype CardNode with the specified code.
     ///
     /// - Parameters:
@@ -80,18 +80,16 @@ class CardNodeFactory: CardCollection {
     func register(cardNode node: CardNode, withCode code: String) {
         cardNodePrototypes[code] = node
     }
-    
+
     /// Get the code or payload associated with the specified internal name.
     ///
     /// - Parameter internalName: The internal name of the card to look up, which is assumed to be unique.
     /// - Returns: The code of the card associated with the internal name, or nil if no such card was found
     func cardCode(fromInternalName internalName: String) -> String? {
-        for (code, prototype) in cardNodePrototypes {
-            if prototype.card.internalName == internalName {
-                return code
-            }
+        for (code, prototype) in cardNodePrototypes where prototype.card.internalName == internalName {
+            return code
         }
-        
+
         return nil
     }
 }

@@ -11,7 +11,7 @@ import SceneKit
 import EntityComponentSystem
 
 class SCNNodeComponent: TransformComponent {
-    
+
     let node: SCNNode
     override var location: simd_double3 {
         get {
@@ -41,12 +41,12 @@ class SCNNodeComponent: TransformComponent {
                                               r: Float(newValue.real))
         }
     }
-    
+
     init(node: SCNNode) {
         self.node = node
         super.init()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

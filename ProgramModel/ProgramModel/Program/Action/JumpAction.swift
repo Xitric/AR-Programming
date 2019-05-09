@@ -10,7 +10,7 @@ import Foundation
 import simd
 
 class JumpAction: ComponentAction {
-    
+
     override func getActionComponent() -> ActionComponent? {
         let jump = MovementActionComponent(movement: simd_double3(0, 1 * strength, 0), duration: 0.3 * strength)
         let gravity = MovementActionComponent(movement: simd_double3(0, -1 * strength, 0), duration: 0.3 * strength)

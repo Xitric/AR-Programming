@@ -18,21 +18,21 @@ import Foundation
 ///
 /// A property will not retain itself just because it has active observers. As such, to prevent the property from being deallocated, it should be retained strongly by a client object.
 class ImmutableObservableProperty<T> {
-    
+
     fileprivate(set) var value: T {
         didSet {
             notifyObservers()
         }
     }
-    private lazy var observers = [UUID:(T) -> Void]()
-    
+    private lazy var observers = [UUID: (T) -> Void]()
+
     /// Constructs a new property with the specified initial value. This property has no observers yet.
     ///
     /// - Parameter initial: The initial value wrapped by this property.
     init(_ initial: T) {
         value = initial
     }
-    
+
     /// Start listening for changes to the value wrapped inside this property.
     ///
     /// The closure is automatically notified of the current value wrapped by this property. Thus, the closure will be called before this method returns.
@@ -44,7 +44,7 @@ class ImmutableObservableProperty<T> {
         closure(value)
         return observer
     }
-    
+
     /// Start listening for changes to the value wrapped inside this property.
     ///
     /// The closure is not notified of the current value wrapped by this property.
@@ -54,13 +54,13 @@ class ImmutableObservableProperty<T> {
     func observeFuture(withClosure closure: @escaping (T) -> Void) -> Observer {
         let uuid = UUID()
         observers[uuid] = closure
-        
+
         //Return an object that can be used to remove the observer again, but without retaining this porperty in memory. If the property is released, so are the observers, and then there is not need to release them explicitly.
         return PropertyObserver { [weak self] in
             self?.removeObserver(withKey: uuid)
         }
     }
-    
+
     /// Remove an observer from this property.
     ///
     /// The observer will no longer receive updates when the value wrapped in this property is changed.
@@ -69,7 +69,7 @@ class ImmutableObservableProperty<T> {
     private func removeObserver(withKey key: UUID) {
         observers[key] = nil
     }
-    
+
     private func notifyObservers() {
         for observer in observers.values {
             observer(value)
@@ -78,7 +78,7 @@ class ImmutableObservableProperty<T> {
 }
 
 extension ImmutableObservableProperty where T: ExpressibleByNilLiteral {
-    
+
     /// Constructs a new property with the initial value nil. This property has no observers yet.
     convenience init() {
         self.init(nil)
@@ -89,7 +89,7 @@ extension ImmutableObservableProperty where T: ExpressibleByNilLiteral {
 ///
 /// If an observer changes the value of this property, it will also be notified of the change.
 class ObservableProperty<T>: ImmutableObservableProperty<T> {
-    
+
     override var value: T {
         get {
             return super.value

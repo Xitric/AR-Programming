@@ -12,11 +12,11 @@ import Foundation
 
 // MARK: - LevelFactory
 class EmptyLevelFactory: LevelFactory {
-    
+
     func canReadLevel(ofType levelType: String) -> Bool {
         return "empty" == levelType
     }
-    
+
     func initLevel(json: Data) throws -> Level {
         return try JSONDecoder().decode(Level.self, from: json)
     }

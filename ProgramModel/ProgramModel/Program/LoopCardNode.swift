@@ -9,7 +9,7 @@
 import Foundation
 
 class LoopCardNode: CardNode {
-    
+
     init() {
         super.init(card: BasicCard(
             internalName: "loop",
@@ -18,7 +18,7 @@ class LoopCardNode: CardNode {
             requiresParameter: true,
             connectionAngles: [0]))
     }
-    
+
     override func clone() -> CardNode {
         return LoopCardNode()
     }

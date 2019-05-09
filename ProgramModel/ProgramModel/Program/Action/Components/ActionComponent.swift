@@ -10,9 +10,9 @@ import Foundation
 import EntityComponentSystem
 
 class ActionComponent: Component {
-    
+
     var onComplete: (() -> Void)?
-    
+
     func complete() {
         entityManager?.invokeAfterUpdate { [weak self] in
             if let self = self {
