@@ -1,39 +1,25 @@
 {
     "number":3,
     "type":"quantity",
-    "name":"Lidt men godt",
+    "name":"Saml mønter",
     "unlocks":4,
     "doCollect":[
-        {"type":"mønter", "quantity":7}
+        {"type":"mønter", "quantity":2}
     ],
     "dontCollect":[],
     "collectibles":[
         {
             "x":1,
             "y":0,
-            "quantity":2,
-            "resourceIdentifier":"Coins/Coin2",
-            "type":"mønter"
-        },
-        {
-            "x":2,
-            "y":0,
-            "quantity":3,
-            "resourceIdentifier":"Coins/Coin3",
-            "type":"mønter"
-        },
-        {
-            "x":3,
-            "y":0,
             "quantity":1,
             "resourceIdentifier":"Coins/Coin1",
             "type":"mønter"
         },
         {
-            "x":3,
-            "y":1,
-            "quantity":2,
-            "resourceIdentifier":"Coins/Coin2",
+            "x":-1,
+            "y":0,
+            "quantity":1,
+            "resourceIdentifier":"Coins/Coin1",
             "type":"mønter"
         }
     ],
