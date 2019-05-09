@@ -20,7 +20,7 @@ class GradeLevelConfigurationTests: XCTestCase {
 
     func testLevelsForGrade_1() {
         // Arrange
-        let expectedLevels = [1, 2]
+        let expectedLevels = [1, 2, 3, 4, 5, 6]
 
         // Act
         let actualLevels = levelConfig.levels(forGrade: 1)
@@ -31,7 +31,7 @@ class GradeLevelConfigurationTests: XCTestCase {
 
     func testLevelsForGrade_2() {
         // Arrange
-        let expectedLevels = [3, 4]
+        let expectedLevels = [7]
 
         // Act
         let actualLevels = levelConfig.levels(forGrade: 2)
@@ -42,7 +42,7 @@ class GradeLevelConfigurationTests: XCTestCase {
 
     func testLevelsForGrade_3() {
         // Arrange
-        let expectedLevels = [5, 6]
+        let expectedLevels = [8, 9, 100, 10, 11]
 
         // Act
         let actualLevels = levelConfig.levels(forGrade: 3)
@@ -53,7 +53,7 @@ class GradeLevelConfigurationTests: XCTestCase {
 
     func testLevelsForGrade_4() {
         // Arrange
-        let expectedLevels = [7, 8]
+        let expectedLevels = [12, 13]
 
         // Act
         let actualLevels = levelConfig.levels(forGrade: 4)
