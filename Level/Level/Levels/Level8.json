@@ -1,7 +1,7 @@
 {
     "number":8,
     "type":"quantity",
-    "name":"Gentag?",
+    "name":"Gå i ring",
     "unlocks":9,
     "doCollect":[
         {"type":"mønter", "quantity":7}

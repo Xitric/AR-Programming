@@ -1,10 +1,10 @@
 {
-    "number":10,
+    "number":102,
     "type":"quantity",
-    "name":"Så blev det svært",
-    "unlocks":102,
+    "name":"Kringlet",
+    "unlocks":11,
     "doCollect":[
-        {"type":"mønter", "quantity":14}
+        {"type":"mønter", "quantity":12}
     ],
     "dontCollect":[],
     "collectibles":[
@@ -23,89 +23,77 @@
             "type":"mønter"
         },
         {
-            "x":2,
-            "y":1,
-            "quantity":1,
-            "resourceIdentifier":"Coins/Coin1",
-            "type":"mønter"
-        },
-        {
-            "x":2,
-            "y":2,
-            "quantity":1,
-            "resourceIdentifier":"Coins/Coin1",
-            "type":"mønter"
-        },
-        {
-            "x":1,
-            "y":2,
-            "quantity":1,
-            "resourceIdentifier":"Coins/Coin1",
-            "type":"mønter"
-        },
-        {
-            "x":0,
-            "y":2,
-            "quantity":1,
-            "resourceIdentifier":"Coins/Coin1",
-            "type":"mønter"
-        },
-        {
-            "x":0,
-            "y":1,
-            "quantity":1,
-            "resourceIdentifier":"Coins/Coin1",
-            "type":"mønter"
-        },
-        {
-            "x":-1,
+            "x":3,
             "y":0,
             "quantity":1,
             "resourceIdentifier":"Coins/Coin1",
             "type":"mønter"
         },
         {
-            "x":-2,
+            "x":4,
+            "y":-1,
+            "quantity":1,
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
+        },
+        {
+            "x":4,
             "y":0,
             "quantity":1,
             "resourceIdentifier":"Coins/Coin1",
             "type":"mønter"
         },
         {
-            "x":-2,
-            "y":-1,
+            "x":4,
+            "y":1,
             "quantity":1,
             "resourceIdentifier":"Coins/Coin1",
             "type":"mønter"
         },
         {
-            "x":-2,
-            "y":-2,
+            "x":5,
+            "y":2,
             "quantity":1,
             "resourceIdentifier":"Coins/Coin1",
             "type":"mønter"
         },
         {
-            "x":-1,
-            "y":-2,
+            "x":4,
+            "y":2,
             "quantity":1,
             "resourceIdentifier":"Coins/Coin1",
             "type":"mønter"
         },
         {
-            "x":0,
-            "y":-2,
+            "x":3,
+            "y":2,
             "quantity":1,
             "resourceIdentifier":"Coins/Coin1",
             "type":"mønter"
         },
         {
-            "x":0,
-            "y":-1,
+            "x":2,
+            "y":3,
             "quantity":1,
             "resourceIdentifier":"Coins/Coin1",
             "type":"mønter"
-        }
+        },
+        {
+            "x":2,
+            "y":2,
+            "quantity":1,
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
+        },
+        {
+            "x":2,
+            "y":1,
+            "quantity":1,
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
+        },
     ],
     "props":[]
 }
+
+

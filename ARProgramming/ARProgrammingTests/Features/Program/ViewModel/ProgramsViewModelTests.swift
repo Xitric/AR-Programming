@@ -169,10 +169,11 @@ class ProgramsViewModelTests: XCTestCase {
 
         //Arrange
         main.delegate?.programBegan(main)
+        main.delegate?.program(main, willExecute: node1)
 
         //Assert
         viewModel.executedCards.waitForValueUpdate()
-        XCTAssertEqual(viewModel.executedCards.value, 0)
+        XCTAssertEqual(viewModel.executedCards.value, 2)
     }
 
     func testExecutedCards_Reset() {
