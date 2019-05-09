@@ -7,10 +7,9 @@
 //
 
 import UIKit
-import Level
 
 /// A controller for performing surface detection before an exercise can begin.
-class SurfaceDetectionViewController: UIViewController, GameplayController {
+class SurfaceDetectionViewController: UIViewController {
 
     @IBOutlet weak var surfaceDetectionAnimation: UIImageView!
     @IBOutlet weak var surfaceDetectionLabel: SubtitleLabel!
@@ -30,13 +29,6 @@ class SurfaceDetectionViewController: UIViewController, GameplayController {
         }
     }
     var levelViewModel: LevelSceneViewModeling!
-    var level: ObservableProperty<LevelProtocol>? {
-        didSet {
-            if let level = level {
-                levelViewModel.setLevel(level: level)
-            }
-        }
-    }
     weak var delegate: AuxiliaryExerciseViewDelegate?
     
     deinit {

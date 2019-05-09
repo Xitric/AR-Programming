@@ -25,9 +25,17 @@ class LevelDataSource: NSObject, UICollectionViewDataSource {
         self.configuration = configuration
     }
     
-    func reloadData() {
+    func reloadData(completion: @escaping () -> Void) {
         if let grade = grade {
-            levelPreviews = try? levelRepository.loadPreviews(forLevels: configuration.levels(forGrade: grade))
+            levelRepository.loadPreviews(forLevels: configuration.levels(forGrade: grade)) { [weak self] previews, error in
+                DispatchQueue.main.async {
+                    if let previews = previews {
+                        self?.levelPreviews = previews
+                    }
+                    
+                    completion()
+                }
+            }
         }
     }
     

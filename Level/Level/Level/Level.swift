@@ -25,6 +25,14 @@ class Level: LevelProtocol, Decodable {
     private var lastUpdate = TimeInterval(0)
     var levelRepository: LevelRepository?
     
+    init(name: String, levelNumber: Int, levelType: String, unlocks: Int?) {
+        self.name = name
+        self.levelNumber = levelNumber
+        self.levelType = levelType
+        self.unlocks = unlocks
+        self.entityManager = EntityManager()
+    }
+    
     public final func update(currentTime: TimeInterval) {
         objc_sync_enter(entityManager)
         defer {

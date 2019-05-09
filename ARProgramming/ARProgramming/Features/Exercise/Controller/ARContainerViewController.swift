@@ -10,12 +10,11 @@ import Foundation
 import UIKit
 import ARKit
 import ProgramModel
-import Level
 
 /// The root controller for the game view.
 ///
 /// This controller is responsible for creating the ARSCNView which, for technical reasons, must be shared between all other controllers for the game views. This is accomplished by using a ContainerView to place the views of other controllers on top of this shared ARSCNView.
-class ARContainerViewController: UIViewController, GameplayController {
+class ARContainerViewController: UIViewController {
 
     @IBOutlet weak var arSceneView: ARSCNView! {
         didSet {
@@ -51,13 +50,6 @@ class ARContainerViewController: UIViewController, GameplayController {
             }
         }
     }
-    var level: ObservableProperty<LevelProtocol>? {
-        didSet {
-            if let level = level {
-                viewModel.setLevel(level: level)
-            }
-        }
-    }
     
     deinit {
         editedCardsObserver?.release()
@@ -66,7 +58,6 @@ class ARContainerViewController: UIViewController, GameplayController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let coordinator = segue.destination as? GameCoordinationViewController {
-            coordinator.level = level
             coordinationController = coordinator
         }
     }
@@ -83,7 +74,7 @@ class ARContainerViewController: UIViewController, GameplayController {
         
         //The children seemed to have difficulty using drag-n-drop, so we made the delay for picking up the cards much shorter
         if let longPressRecognizer = cardDetectionView.gestureRecognizers?.compactMap({ $0 as? UILongPressGestureRecognizer}).first {
-            longPressRecognizer.minimumPressDuration = 0.1
+            longPressRecognizer.minimumPressDuration = 0.2
         }
     }
     

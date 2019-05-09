@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import CoreData
 
-class LevelManager: LevelRepository {    
+class LevelManager: LevelRepository {
     
     private let context: CoreDataRepository
     private let levelFactories: [LevelFactory]
@@ -19,21 +19,48 @@ class LevelManager: LevelRepository {
         return Bundle(for: type(of: self)).resourceURL?.appendingPathComponent("Levels", isDirectory: true)
     }
     
-    var emptyLevel: LevelProtocol {
-        //This should absolutely never fail
-        return try! loadLevel(withNumber: 0)
-    }
-    
-    var levelWithItem: LevelProtocol {
-        return try! loadLevel(withNumber: 9000)
-    }
-    
     init(context: CoreDataRepository, factories: [LevelFactory]) {
         self.context = context
         self.levelFactories = factories
     }
     
-    func loadLevel(withNumber id: Int) throws -> LevelProtocol {
+    //MARK: - Load levels
+    func loadEmptyLevel(completion: @escaping (LevelProtocol) -> Void) {
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            guard let self = self else { return }
+            
+            //This should absolutely never fail
+            let level = try! self.loadLevelSync(withNumber: 0)
+            completion(level)
+        }
+    }
+    
+    func loadItemLevel(completion: @escaping (LevelProtocol) -> Void) {
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            guard let self = self else { return }
+            
+            //This should absolutely never fail
+            let level = try! self.loadLevelSync(withNumber: 9000)
+            completion(level)
+        }
+    }
+    
+    func loadLevel(withNumber id: Int, completion:  @escaping (LevelProtocol?, LevelLoadingError?) -> Void) {
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            guard let self = self else { return }
+            
+            do {
+                let level = try self.loadLevelSync(withNumber: id)
+                completion(level, nil)
+            } catch let error as LevelLoadingError {
+                completion(nil, error)
+            } catch {
+                completion(nil, LevelLoadingError.noSuchLevel(levelNumber: id))
+            }
+        }
+    }
+    
+    private func loadLevelSync(withNumber id: Int) throws -> LevelProtocol {
         guard let levelDirectoryUrl = levelDirectoryUrl
             else { throw LevelLoadingError.noSuchLevel(levelNumber: id) }
         
@@ -41,6 +68,8 @@ class LevelManager: LevelRepository {
         do {
             let jsonData = try Data(contentsOf: url)
             return try loadLevel(fromData: jsonData)
+        } catch let error as LevelLoadingError {
+            throw error
         } catch {
             throw LevelLoadingError.noSuchLevel(levelNumber: id)
         }
@@ -70,7 +99,21 @@ class LevelManager: LevelRepository {
         throw LevelLoadingError.unsupportedLevelType(type: levelType)
     }
     
-    func loadPreviews(forLevels levelIds: [Int]) throws -> [LevelInfoProtocol] {
+    //MARK: - Load previews
+    func loadPreviews(forLevels levelIds: [Int], completion: @escaping ([LevelInfoProtocol]?, LevelLoadingError?) -> Void) {
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            guard let self = self else { return }
+            
+            do {
+                let levelPreviews = try self.loadPreviewsSync(forLevels: levelIds)
+                completion(levelPreviews, nil)
+            } catch {
+                completion(nil, LevelLoadingError.badFormat())
+            }
+        }
+    }
+    
+    private func loadPreviewsSync(forLevels levelIds: [Int]) throws -> [LevelInfoProtocol] {
         var levelPreviews = [LevelInfo]()
         
         guard let levelDirectoryUrl = levelDirectoryUrl
@@ -95,6 +138,7 @@ class LevelManager: LevelRepository {
         return levelPreviews
     }
     
+    //MARK: - Locked/unlocked state
     private func isLevelUnlocked(withNumber levelNumber: Int) -> Bool {
         let managedObjectContext = context.persistentContainer.viewContext
         let request = NSFetchRequest<LevelEntity>(entityName: "LevelEntity")

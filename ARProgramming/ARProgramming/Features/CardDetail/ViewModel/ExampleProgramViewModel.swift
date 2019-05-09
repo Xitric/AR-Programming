@@ -12,25 +12,28 @@ import EntityComponentSystem
 
 class ExampleProgramViewModel: ExampleProgramViewModeling {
     
+    private let levelContainer: CurrentLevelProtocol
     private let levelRepository: LevelRepository
     private var cardObserver: Observer?
     
     let cardName = ObservableProperty<String?>()
-    lazy var level = ObservableProperty<LevelProtocol>(levelRepository.emptyLevel)
-    var player: Entity {
-        return level.value.entityManager.player
+    var player: Entity? {
+        return levelContainer.level.value?.entityManager.player
     }
     
-    init(levelRepository: LevelRepository) {
+    init(level: CurrentLevelProtocol, levelRepository: LevelRepository) {
+        self.levelContainer = level
         self.levelRepository = levelRepository
+        
         cardObserver = cardName.observeFuture { [weak self] card in
-            guard let card = card,
-                let self = self else { return }
-            
             if (card == "pickup" || card == "drop") {
-                self.level.value = self.levelRepository.levelWithItem
+                self?.levelRepository.loadItemLevel {
+                    self?.handleLevelLoaded(level: $0)
+                }
             } else {
-                self.level.value = self.levelRepository.emptyLevel
+                self?.levelRepository.loadEmptyLevel {
+                    self?.handleLevelLoaded(level: $0)
+                }
             }
         }
     }
@@ -40,22 +43,30 @@ class ExampleProgramViewModel: ExampleProgramViewModeling {
     }
     
     func reset() {
-        let levelNumber = level.value.levelNumber
-        if let newLevel = try? levelRepository.loadLevel(withNumber: levelNumber) {
-            self.level.value = newLevel
+        if let levelNumber = levelContainer.level.value?.levelNumber {
+            levelRepository.loadLevel(withNumber: levelNumber) { [weak self] level, error in
+                if let level = level {
+                    self?.handleLevelLoaded(level: level)
+                }
+            }
+        }
+    }
+    
+    private func handleLevelLoaded(level: LevelProtocol) {
+        DispatchQueue.main.async { [weak self] in
+            self?.levelContainer.level.value = level
         }
     }
     
     //MARK: - UpdateDelegate
     func update(currentTime: TimeInterval) {
-        self.level.value.update(currentTime: currentTime)
+        self.levelContainer.level.value?.update(currentTime: currentTime)
     }
 }
 
 protocol ExampleProgramViewModeling: UpdateDelegate {
     var cardName: ObservableProperty<String?> { get }
-    var level: ObservableProperty<LevelProtocol> { get }
-    var player: Entity { get }
+    var player: Entity? { get }
     
     func reset()
 }

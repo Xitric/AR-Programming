@@ -37,8 +37,9 @@ class LevelSelectViewController: UIViewController, GradeViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        dataSource.reloadData()
-        collectionView.reloadData()
+        dataSource.reloadData() { [weak self] in
+            self?.collectionView.reloadData()
+        }
         
         levelObserver = viewModel.level.observeFuture { [weak self] level in
             self?.performSegue(withIdentifier: "arContainerSegue", sender: self)
@@ -48,12 +49,6 @@ class LevelSelectViewController: UIViewController, GradeViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         levelObserver?.release()
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let gameplayController = segue.destination as? GameplayController {
-            gameplayController.level = viewModel.level
-        }
     }
 }
 

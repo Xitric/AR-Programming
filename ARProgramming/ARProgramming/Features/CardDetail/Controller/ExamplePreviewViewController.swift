@@ -21,9 +21,6 @@ class ExamplePreviewViewController: UIViewController {
             previewScene.delegate = self
             previewScene.isPlaying = true
             
-            //Display empty level for preview
-            levelViewModel.anchor(at: previewScene.scene?.rootNode)
-            
             //Set up camera
             let camera = SCNNode()
             camera.camera = SCNCamera()
@@ -50,14 +47,13 @@ class ExamplePreviewViewController: UIViewController {
     var viewModel: ExampleProgramViewModeling!
     var levelViewModel: LevelSceneViewModeling! {
         didSet {
-            levelViewModel.setLevel(level: viewModel.level)
-            
             levelObserver = levelViewModel.levelRedrawn.observeFuture { [weak self] in
                 //Add grid floor
                 let ground = SCNNode(geometry: SCNPlane(width: 5, height: 5))
                 ground.eulerAngles.x = -.pi / 2
                 ground.geometry?.materials.first?.diffuse.contents = UIImage(named: "ExampleProgramGridFloor.png")
                 self?.levelViewModel.addNode(ground)
+                self?.levelViewModel.anchor(at: self!.previewScene.scene?.rootNode)
             }
         }
     }
