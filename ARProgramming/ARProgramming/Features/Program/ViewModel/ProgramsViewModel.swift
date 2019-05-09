@@ -68,7 +68,6 @@ class ProgramsViewModel: ProgramsViewModeling, ProgramDelegate {
     // MARK: - ProgramDelegate
     func programBegan(_ program: ProgramProtocol) {
         DispatchQueue.main.async { [weak self] in
-            self?._executedCards.value = 0
             self?._running.value = true
         }
     }

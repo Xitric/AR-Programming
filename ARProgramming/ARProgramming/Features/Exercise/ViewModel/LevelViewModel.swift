@@ -68,7 +68,11 @@ class LevelViewModel: LevelViewModeling, LevelDelegate {
     }
 
     func scoreUpdated(newScore: Int) {
-        scoreManager.incrementCardCount()
+        if newScore == 0 {
+            scoreManager.resetScore()
+        } else {
+            scoreManager.incrementCardCount()
+        }
     }
 
     // MARK: - LevelDelegate
