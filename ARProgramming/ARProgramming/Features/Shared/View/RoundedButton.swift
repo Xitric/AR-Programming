@@ -15,12 +15,12 @@ class RoundedButton: UIButton {
         super.init(coder: aDecoder)
         commonInit()
     }
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
     }
-    
+
     private func commonInit() {
         layer.cornerRadius = frame.size.height / 2
     }

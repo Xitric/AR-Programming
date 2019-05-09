@@ -13,9 +13,9 @@ import AVFoundation
 import ProgramModel
 import Level
 
-class LevelViewController: UIViewController, GameplayController, InteractiveProgramDelegate {
-    
-    //MARK: - View
+class LevelViewController: UIViewController, InteractiveProgramDelegate {
+
+    // MARK: - View
     @IBOutlet weak var levelInfo: SubtitleLabel!
     @IBOutlet weak var resetButton: UIButton!
     @IBOutlet weak var playButton: UIButton!
@@ -31,30 +31,30 @@ class LevelViewController: UIViewController, GameplayController, InteractiveProg
         }
     }
     @IBOutlet weak var exerciseCompletionView: UIView!
-    
-    private var exerciseCompletionController: GameplayController?
-    
-    //MARK: - Observers
+
+    // MARK: - Observers
+    private var levelObserver: Observer?
     private var infoObserver: Observer?
     private var completeObserver: Observer?
-    private var levelObserver: Observer?
     private var runningObserver: Observer?
     private var executedCardsObserver: Observer?
     private var droppedProgramObserver: Observer?
-    
-    //MARK: - Injected properties
+
+    // MARK: - Injected properties
     var viewModel: LevelViewModeling! {
         didSet {
-            infoObserver = viewModel.levelInfo.observeFuture { [weak self] info in
-                self?.levelInfo.text = info
-                self?.levelInfo.isHidden = (info == nil)
+            levelObserver = viewModel.level.observeFuture { [weak self] _ in
+                self?.resetButton.isEnabled = true
+                self?.playButton.isEnabled = true
+                self?.programView.isUserInteractionEnabled = true
+                self?.programsViewModel.reset()
             }
-            
+
             completeObserver = viewModel.complete.observeFuture { [weak self] complete in
                 if complete {
                     self?.winSound?.play()
                 }
-                
+
                 self?.exerciseCompletionView.isHidden = !complete
             }
         }
@@ -65,7 +65,7 @@ class LevelViewController: UIViewController, GameplayController, InteractiveProg
                 self?.playButton.isEnabled = !running
                 self?.programView.isUserInteractionEnabled = !running
             }
-            
+
             executedCardsObserver = programsViewModel.executedCards.observeFuture { [weak self] cardCount in
                 self?.viewModel.scoreUpdated(newScore: cardCount)
             }
@@ -80,40 +80,19 @@ class LevelViewController: UIViewController, GameplayController, InteractiveProg
             }
         }
     }
-    var level: ObservableProperty<LevelProtocol>? {
-        didSet {
-            if let level = level {
-                viewModel?.setLevel(level: level)
-                
-                levelObserver = level.observe { [weak self] level in
-                    self?.playButton.isEnabled = true
-                    self?.programView.isUserInteractionEnabled = true
-                    self?.programsViewModel.reset()
-                }
-            }
-            
-            exerciseCompletionController?.level = level
-        }
-    }
-    
+
     deinit {
         programsViewModel.reset()
-        
+
+        levelObserver?.release()
         infoObserver?.release()
         completeObserver?.release()
-        levelObserver?.release()
         runningObserver?.release()
         executedCardsObserver?.release()
         droppedProgramObserver?.release()
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let controller = segue.destination as? GameplayController {
-            exerciseCompletionController = controller
-        }
-    }
-    
-    //MARK: - Sound
+
+    // MARK: - Sound
     var audioController: AudioController! {
         didSet {
             winSound = audioController.makeSound(withName: "Sounds/win.wav")
@@ -122,19 +101,26 @@ class LevelViewController: UIViewController, GameplayController, InteractiveProg
     }
     private var winSound: AVAudioPlayer?
     private var pickupSound: AVAudioPlayer?
-    
-    // MARK: - Button actions
+
+    // MARK: - Functionality
+    override func viewWillAppear(_ animated: Bool) {
+        infoObserver = viewModel.levelInfo.observe { [weak self] info in
+            self?.levelInfo.text = info
+            self?.levelInfo.isHidden = (info == nil)
+        }
+    }
+
     @IBAction func onReset(_ sender: UIButton) {
         programsViewModel.reset()
         viewModel.reset()
     }
-    
+
     @IBAction func onPlay(_ sender: UIButton) {
         if let player = viewModel.player {
             programsViewModel.start(on: player)
         }
     }
-    
+
     // MARK: - InteractiveProgramDelegate
     func interactiveProgram(_ view: InteractiveProgramView, pressed program: ProgramProtocol) {
         if let player = viewModel.player {

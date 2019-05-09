@@ -12,7 +12,7 @@ import Level
 import ProgramModel
 
 class ExamplePreviewViewController: UIViewController {
-    
+
     @IBOutlet weak var previewScene: SCNView! {
         didSet {
             previewScene.autoenablesDefaultLighting = true
@@ -20,10 +20,7 @@ class ExamplePreviewViewController: UIViewController {
             previewScene.scene?.rootNode.rotation = SCNVector4(0, -1, 0, 1)
             previewScene.delegate = self
             previewScene.isPlaying = true
-            
-            //Display empty level for preview
-            levelViewModel.anchor(at: previewScene.scene?.rootNode)
-            
+
             //Set up camera
             let camera = SCNNode()
             camera.camera = SCNCamera()
@@ -41,23 +38,22 @@ class ExamplePreviewViewController: UIViewController {
             programView.delegate = self
         }
     }
-    
-    //MARK: - Observers
+
+    // MARK: - Observers
     private var levelObserver: Observer?
     private var runningObserver: Observer?
-    
-    //MARK: - Injected properties
+
+    // MARK: - Injected properties
     var viewModel: ExampleProgramViewModeling!
     var levelViewModel: LevelSceneViewModeling! {
         didSet {
-            levelViewModel.setLevel(level: viewModel.level)
-            
             levelObserver = levelViewModel.levelRedrawn.observeFuture { [weak self] in
                 //Add grid floor
                 let ground = SCNNode(geometry: SCNPlane(width: 5, height: 5))
                 ground.eulerAngles.x = -.pi / 2
                 ground.geometry?.materials.first?.diffuse.contents = UIImage(named: "ExampleProgramGridFloor.png")
                 self?.levelViewModel.addNode(ground)
+                self?.levelViewModel.anchor(at: self!.previewScene.scene?.rootNode)
             }
         }
     }
@@ -70,30 +66,30 @@ class ExamplePreviewViewController: UIViewController {
             }
         }
     }
-    
+
     deinit {
         levelObserver?.release()
         runningObserver?.release()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         runProgram()
     }
-    
+
     @IBAction func onPlay(_ sender: UIButton) {
         viewModel.reset()
         runProgram()
     }
-    
+
     @IBAction func onDismiss(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
-    
+
     private func runProgram() {
         playButton.isEnabled = false
         programView.isUserInteractionEnabled = false
-        
+
         DispatchQueue.main.asyncAfter(wallDeadline: DispatchWallTime.now() + 0.5) { [weak self] in
             if let entity = self?.viewModel.player {
                 self?.programsViewModel.start(on: entity)
@@ -105,14 +101,14 @@ class ExamplePreviewViewController: UIViewController {
     }
 }
 
-//MARK: - SCNSceneRendererDelegate
+// MARK: - SCNSceneRendererDelegate
 extension ExamplePreviewViewController: SCNSceneRendererDelegate {
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
         viewModel.update(currentTime: time)
     }
 }
 
-//MARK: - InteractiveProgramDelegate
+// MARK: - InteractiveProgramDelegate
 extension ExamplePreviewViewController: InteractiveProgramDelegate {
     func interactiveProgram(_ view: InteractiveProgramView, pressed program: ProgramProtocol) {
         viewModel.reset()

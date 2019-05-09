@@ -340,7 +340,7 @@
                                     <constraint firstAttribute="height" constant="64" id="rwQ-V1-Poa"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="Prøv det af!">
+                                <state key="normal" title="Frit spil">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>

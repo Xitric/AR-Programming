@@ -10,7 +10,7 @@ import Foundation
 import simd
 
 class MoveAction: ComponentAction {
-    
+
     override func getActionComponent() -> ActionComponent? {
         return MovementActionComponent(movement: simd_double3(strength, 0, 0), duration: 1.5 * strength)
     }

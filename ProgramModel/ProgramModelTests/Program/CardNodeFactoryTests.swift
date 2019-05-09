@@ -13,29 +13,29 @@ import simd
 class CardNodeFactoryTests: XCTestCase {
 
     private var factory: CardNodeFactory!
-    
+
     override func setUp() {
         factory = CardNodeFactory()
     }
-    
-    //MARK: cardNodeWithCode
+
+    // MARK: cardNodeWithCode
     func testCardNodeWithCode_ValidCode() {
         //Act
         let result = try? factory.cardNode(withCode: "3")
-        
+
         //Assert
         XCTAssertNotNil(result)
         XCTAssertEqual(result?.card.internalName, "right")
     }
-    
+
     func testCardNodeWithCode_UnknownCode() {
         //Act & Assert
         XCTAssertThrowsError(try factory.cardNode(withCode: "-1")) { error in
             XCTAssertEqual(error as! CardSequenceError, CardSequenceError.unknownCode(code: "-1"))
         }
     }
-    
-    //MARK: register
+
+    // MARK: register
     func testRegister_NewNode() {
         //Act
         factory.register(cardNode: CardNode(
@@ -50,17 +50,17 @@ class CardNodeFactoryTests: XCTestCase {
                             supportsParameter: true,
                             requiresParameter: false,
                             connectionAngles: [0])), withCode: "-6")
-        
+
         //Assert
         let leftCard = try? factory.cardNode(withCode: "200")
         XCTAssertNotNil(leftCard)
         XCTAssertEqual(leftCard?.card.internalName, "left")
-        
+
         let jumpCard = try? factory.cardNode(withCode: "-6")
         XCTAssertNotNil(jumpCard)
         XCTAssertEqual(jumpCard?.card.internalName, "jump")
     }
-    
+
     func testRegister_ExistingNode() {
         //Act
         let cardNode = CardNode(
@@ -70,14 +70,14 @@ class CardNodeFactoryTests: XCTestCase {
                             requiresParameter: false,
                             connectionAngles: [0]))
         factory.register(cardNode: cardNode, withCode: "3")
-        
+
         //Assert
         let result = try? factory.cardNode(withCode: "3")
         XCTAssertNotNil(result)
         XCTAssertEqual(result?.card.internalName, cardNode.card.internalName)
     }
-    
-    //MARK: cardCode
+
+    // MARK: cardCode
     func testCardCode() {
         XCTAssertEqual(factory.cardCode(fromInternalName: "move"), "1")
         XCTAssertEqual(factory.cardCode(fromInternalName: "block"), "7")

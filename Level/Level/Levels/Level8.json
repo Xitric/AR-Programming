@@ -1,66 +1,62 @@
 {
     "number":8,
-    "type":"cleanup",
-    "name":"Sorter tingene",
-    "unlocks":null,
-    "dropSpots":[
+    "type":"quantity",
+    "name":"Gentag?",
+    "unlocks":9,
+    "doCollect":[
+        {"type":"mønter", "quantity":7}
+    ],
+    "dontCollect":[],
+    "collectibles":[
         {
             "x":1,
             "y":0,
-            "resourceIdentifier":"DropSpots/DropSpotBlue",
-            "collectiveGoals": {
-                "Blå":1
-            }
+            "quantity":1,
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
         },
         {
             "x":2,
             "y":0,
-            "resourceIdentifier":"DropSpots/DropSpotGreen",
-            "collectiveGoals": {
-                "Grøn":1
-            }
+            "quantity":1,
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
         },
         {
-            "x":3,
-            "y":0,
-            "resourceIdentifier":"DropSpots/DropSpotRed",
-            "collectiveGoals": {
-                "Rød":2
-            }
-        }
-    ],
-    "items":[
+            "x":2,
+            "y":1,
+            "quantity":1,
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
+        },
         {
-            "type":"Blå",
+            "x":2,
+            "y":2,
+            "quantity":1,
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
+        },
+        {
+            "x":1,
+            "y":2,
+            "quantity":1,
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
+        },
+        {
             "x":0,
-            "y":0,
+            "y":2,
             "quantity":1,
-            "resourceIdentifier":"Polygons/PolygonBlue"
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
         },
         {
-            "type":"Grøn",
-            "x":1,
-            "y":0,
+            "x":0,
+            "y":1,
             "quantity":1,
-            "resourceIdentifier":"Polygons/PolygonGreen"
-        },
-        {
-            "type":"Rød",
-            "x":2,
-            "y":0,
-            "quantity":1,
-            "resourceIdentifier":"Polygons/PolygonRed"
-        },
-        {
-            "type":"Rød",
-            "x":4,
-            "y":0,
-            "quantity":1,
-            "resourceIdentifier":"Polygons/PolygonRed"
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
         }
     ],
-    
-    "props":[
-    ]
+    "props":[]
 }
-

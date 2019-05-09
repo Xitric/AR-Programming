@@ -10,49 +10,50 @@ import Foundation
 import Level
 
 class ExerciseCompletionViewModel: ExerciseCompletionViewModeling {
-    
+
+    private let levelContainer: CurrentLevelProtocol
     private let repository: LevelRepository
-    private var level: ObservableProperty<LevelProtocol>?
-    private(set) var hasNextLevel = false
-    
-    init(repository: LevelRepository) {
+    let hasNextLevel: Bool
+
+    init(level: CurrentLevelProtocol, repository: LevelRepository) {
+        self.levelContainer = level
         self.repository = repository
+
+        hasNextLevel = levelContainer.level.value?.unlocks != nil
     }
-    
-    func setLevel(level: ObservableProperty<LevelProtocol>) {
-        self.level = level
-        hasNextLevel = level.value.unlocks != nil
-    }
-    
+
     func reset() {
-        if let levelNumber = level?.value.levelNumber {
-            if let newLevel = try? repository.loadLevel(withNumber: levelNumber) {
-                level?.value = newLevel
+        if let levelNumber = levelContainer.level.value?.levelNumber {
+            repository.loadLevel(withNumber: levelNumber) { [weak self] level, _ in
+                self?.handleLevelLoaded(level: level)
             }
         }
     }
-    
+
     func goToNext() {
-        if let nextLevelNumber = level?.value.unlocks {
-            if let nextLevel = try? repository.loadLevel(withNumber: nextLevelNumber) {
-                level?.value = nextLevel
+        if let nextLevelNumber = levelContainer.level.value?.unlocks {
+            repository.loadLevel(withNumber: nextLevelNumber) { [weak self] level, _ in
+                self?.handleLevelLoaded(level: level)
+            }
+        }
+    }
+
+    private func handleLevelLoaded(level: LevelProtocol?) {
+        if let level = level {
+            DispatchQueue.main.async { [weak self] in
+                self?.levelContainer.level.value = level
             }
         }
     }
 }
 
 protocol ExerciseCompletionViewModeling {
-    
+
     var hasNextLevel: Bool { get }
-    
-    /// Since the concrete level is not available when this view model is constructed, it is the responsibility of the client to finalize its initialization by setting the level property.
-    ///
-    /// - Parameter level: The currently active level.
-    func setLevel(level: ObservableProperty<LevelProtocol>)
-    
+
     /// Reset the current level.
     func reset()
-    
+
     /// Load and display the level that follows the currently displayed level.
     func goToNext()
 }

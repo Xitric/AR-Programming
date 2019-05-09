@@ -10,7 +10,7 @@ import Foundation
 import simd
 
 extension simd_quatd {
-    
+
     init(_ quadF: simd_quatf) {
         self.init(ix: Double(quadF.imag.x), iy: Double(quadF.imag.y), iz: Double(quadF.imag.z), r: Double(quadF.real))
     }

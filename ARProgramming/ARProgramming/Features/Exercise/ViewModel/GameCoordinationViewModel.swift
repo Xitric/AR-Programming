@@ -10,33 +10,25 @@ import Foundation
 import Level
 
 class GameCoordinationViewModel: GameCoordinationViewModeling {
-    
+
     private let levelConfig: GradeLevelConfiguration
-    private var level: ObservableProperty<LevelProtocol>?
-    
+    private let levelContainer: CurrentLevelProtocol
+
     var isFirstLevel: Bool {
         if let firstLevel = levelConfig.levels(forGrade: 1).first {
-            return level?.value.levelNumber == firstLevel
+            return levelContainer.level.value?.levelNumber == firstLevel
         }
-        
+
         return false
     }
-    
-    init(levelConfig: GradeLevelConfiguration) {
+
+    init(levelConfig: GradeLevelConfiguration, level: CurrentLevelProtocol) {
         self.levelConfig = levelConfig
-    }
-    
-    func setLevel(level: ObservableProperty<LevelProtocol>) {
-        self.level = level
+        self.levelContainer = level
     }
 }
 
 protocol GameCoordinationViewModeling {
-    
+
     var isFirstLevel: Bool { get }
-    
-    /// Since the concrete level is not available when this view model is constructed, it is the responsibility of the client to finalize its initialization by setting the level property.
-    ///
-    /// - Parameter level: The currently active level.
-    func setLevel(level: ObservableProperty<LevelProtocol>)
 }

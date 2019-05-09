@@ -10,7 +10,7 @@ import Foundation
 import simd
 
 extension simd_double3 {
-    
+
     init(_ floatSimd3: simd_float3) {
         self.init(Double(floatSimd3.x), Double(floatSimd3.y), Double(floatSimd3.z))
     }

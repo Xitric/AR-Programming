@@ -10,7 +10,7 @@ import Foundation
 import GameplayKit
 
 open class Component: GKComponent {
-    
+
     public weak var entityManager: EntityManager? {
         didSet {
             if entityManager != nil {
@@ -18,8 +18,8 @@ open class Component: GKComponent {
             }
         }
     }
-    
+
     open func didAddToEntityManager() {
-        
+
     }
 }

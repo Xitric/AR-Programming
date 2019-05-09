@@ -12,4 +12,3 @@ import Foundation
 public protocol CardCollection {
     var cards: [Card] { get }
 }
-

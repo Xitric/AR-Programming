@@ -9,18 +9,18 @@
 import XCTest
 
 class AddRemoveDelegateMock<T> where T: Equatable {
-    
+
     private var expectedElement: T?
-    
+
     var addExpectation: XCTestExpectation!
     var removeExpectation: XCTestExpectation!
-    
+
     func expect(_ element: T) {
         expectedElement = element
         addExpectation = XCTestExpectation(description: "Element added")
         removeExpectation = XCTestExpectation(description: "Element removed")
     }
-    
+
     func notify(added element: T) {
         if let expectedElement = expectedElement {
             if expectedElement == element {
@@ -28,7 +28,7 @@ class AddRemoveDelegateMock<T> where T: Equatable {
             }
         }
     }
-    
+
     func notify(removed element: T) {
         if let expectedElement = expectedElement {
             if expectedElement == element {

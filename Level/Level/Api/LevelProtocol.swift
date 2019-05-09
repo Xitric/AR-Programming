@@ -18,7 +18,7 @@ public protocol LevelProtocol: class {
     var infoLabel: String? { get }
     var entityManager: EntityManager { get }
     var delegate: LevelDelegate? { get set }
-    
+
     func update(currentTime: TimeInterval)
     func isComplete() -> Bool
 }

@@ -8,30 +8,30 @@
 import Foundation
 import CoreData
 class ScoreManager: ScoreProtocol {
-    
+
     private var cardsUsed = 0
     private let context: CoreDataRepository
-    
-    private var minCardsForMaxScoreInLevel = [Int:Int]()
-    
+
+    private var minCardsForMaxScoreInLevel = [Int: Int]()
+
     init(context: CoreDataRepository) {
         self.context = context
         loadScoreConfigurations()
     }
-    
+
     private func loadScoreConfigurations() {
         let data = Config.read(configFile: "CardsForMaxScore", toType: CardsForMaxScore.self)!
         minCardsForMaxScoreInLevel = data.cardsForMaxScore
     }
-    
+
     public func incrementCardCount() {
         cardsUsed += 1
     }
-    
+
     public func resetScore() {
         cardsUsed = 0
     }
-    
+
     public func computeScore(level: Int) {
         var score = 1
         if let minCardsInLevel = minCardsForMaxScoreInLevel[level] {
@@ -43,21 +43,21 @@ class ScoreManager: ScoreProtocol {
         }
         save(score: score, forLevel: level)
     }
-    
+
     public func getScore(forLevel: Int) -> Int {
         let managedObjectContext = context.persistentContainer.viewContext
         let request = NSFetchRequest<ScoreEntity>(entityName: "ScoreEntity")
         request.predicate = NSPredicate(format: "levelNumber = %d", forLevel)
-        
-        if let result = try? managedObjectContext.fetch(request){
+
+        if let result = try? managedObjectContext.fetch(request) {
             if result.count != 0 {
                 return Int(result[0].score)
             }
         }
         return 0
     }
-    
-    private func save(score: Int, forLevel: Int){
+
+    private func save(score: Int, forLevel: Int) {
         if getScore(forLevel: forLevel) < score {
             let managedObjectContext = context.persistentContainer.viewContext
             managedObjectContext.perform {
@@ -77,7 +77,7 @@ class ScoreManager: ScoreProtocol {
             }
         }
     }
-    
+
 }
 
 protocol ScoreProtocol {
@@ -88,5 +88,5 @@ protocol ScoreProtocol {
 }
 
 struct CardsForMaxScore: Decodable {
-    let cardsForMaxScore: [Int:Int]
+    let cardsForMaxScore: [Int: Int]
 }

@@ -1,0 +1,41 @@
+{
+    "number":100,
+    "type":"quantity",
+    "name":"Gentag?",
+    "unlocks":10,
+    "doCollect":[
+        {"type":"mønter", "quantity":4}
+    ],
+    "dontCollect":[],
+    "collectibles":[
+        {
+            "x":1,
+            "y":1,
+            "quantity":1,
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
+        },
+        {
+            "x":2,
+            "y":2,
+            "quantity":1,
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
+        },
+        {
+            "x":3,
+            "y":3,
+            "quantity":1,
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
+        },
+        {
+            "x":4,
+            "y":4,
+            "quantity":1,
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
+        }
+    ],
+    "props":[]
+}

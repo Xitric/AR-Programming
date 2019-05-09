@@ -10,18 +10,18 @@ import Foundation
 import UIKit
 
 class GradesTabBarController: UITabBarController {
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureChildViewControllers()
     }
-    
+
     private func configureChildViewControllers() {
         for i in 0 ..< self.children.count {
             let grade = i + 1
-            
+
             tabBar.items?[i].title = "\(grade). Klasse"
-            
+
             if var child = children[i] as? GradeViewController {
                 child.grade = grade
             }

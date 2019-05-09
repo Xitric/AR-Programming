@@ -10,13 +10,13 @@ import Foundation
 import EntityComponentSystem
 
 class WaitAction: Action {
-    
+
     private let waitTime: Double
-    
+
     init(waitTime: Double) {
         self.waitTime = waitTime
     }
-    
+
     func run(onEntity entity: Entity, withProgramDelegate delegate: ProgramDelegate?, onCompletion: (() -> Void)?) {
         DispatchQueue.main.asyncAfter(wallDeadline: DispatchWallTime.now() + waitTime) {
             onCompletion?()

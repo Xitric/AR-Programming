@@ -10,7 +10,7 @@ import Foundation
 import SceneKit
 
 class SurfaceDetectionViewModel: SurfaceDetectionViewModeling {
-    
+
     private let _planeDetected = ObservableProperty<Void>(())
     private lazy var root: SCNNode = {
         let node = SCNNode()
@@ -23,21 +23,20 @@ class SurfaceDetectionViewModel: SurfaceDetectionViewModeling {
         node.geometry?.materials.first?.diffuse.contents = UIImage(named: "SurfaceArea.png")
         return node
     }()
-    
+
     var planeDetected: ImmutableObservableProperty<Void> {
         return _planeDetected
     }
-    
+
     func placeLevel(_ level: LevelSceneViewModeling) {
-        ground.removeFromParentNode()
         level.anchor(at: root)
     }
-    
-    //MARK: - PlaneDetectorDelegate
+
+    // MARK: - PlaneDetectorDelegate
     func shouldDetectPlanes(_ detector: ARController) -> Bool {
         return root.childNodes.count == 1 && root.childNodes.contains(ground)
     }
-    
+
     func createPlaneNode(_ detector: ARController) -> SCNNode {
         DispatchQueue.main.async { [weak self] in
             self?._planeDetected.value = ()
@@ -48,8 +47,8 @@ class SurfaceDetectionViewModel: SurfaceDetectionViewModeling {
 
 /// View model that acts as a data source and delegate for AR plane detection.
 protocol SurfaceDetectionViewModeling: PlaneDetectorDelegate {
-    
+
     var planeDetected: ImmutableObservableProperty<Void> { get }
-    
+
     func placeLevel(_ level: LevelSceneViewModeling)
 }

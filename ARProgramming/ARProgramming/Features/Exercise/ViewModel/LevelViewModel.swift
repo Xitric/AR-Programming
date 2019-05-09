@@ -13,25 +13,20 @@ import Level
 
 /// View model for binding level related data such as level completion and info labels.
 class LevelViewModel: LevelViewModeling, LevelDelegate {
-    
+
+    private let levelContainer: CurrentLevelProtocol
     private let repository: LevelRepository
     private let scoreManager: ScoreProtocol
-    private var level: ObservableProperty<LevelProtocol>? {
-        didSet {
-            levelObserver = level?.observe { [weak self] newLevel in
-                newLevel.delegate = self
-                self?._complete.value = newLevel.isComplete()
-                self?._levelInfo.value = newLevel.infoLabel
-            }
-        }
-    }
     private let _complete = ObservableProperty<Bool>(false)
     private let _levelInfo = ObservableProperty<String?>()
-    
-    //MARK: - Observers
+
+    // MARK: - Observers
     private var levelObserver: Observer?
-    
-    //MARK: - State
+
+    // MARK: - State
+    var level: ImmutableObservableProperty<LevelProtocol?> {
+        return levelContainer.level
+    }
     var complete: ImmutableObservableProperty<Bool> {
         return _complete
     }
@@ -39,47 +34,51 @@ class LevelViewModel: LevelViewModeling, LevelDelegate {
         return _levelInfo
     }
     var player: Entity? {
-        return level?.value.entityManager.player
+        return levelContainer.level.value?.entityManager.player
     }
-    
-    //MARK: - Init
-    init(levelRepository: LevelRepository, scoreManager: ScoreProtocol) {
+
+    // MARK: - Init
+    init(level: CurrentLevelProtocol, levelRepository: LevelRepository, scoreManager: ScoreProtocol) {
+        self.levelContainer = level
         self.repository = levelRepository
         self.scoreManager = scoreManager
+
+        levelObserver = levelContainer.level.observe { [weak self] newLevel in
+            newLevel?.delegate = self
+            self?._complete.value = newLevel?.isComplete() ?? false
+            self?._levelInfo.value = newLevel?.infoLabel
+        }
     }
-    
+
     deinit {
         levelObserver?.release()
     }
-    
-    func setLevel(level: ObservableProperty<LevelProtocol>) {
-        self.level = level
-    }
-    
+
     func reset() {
-        if let levelNumber = level?.value.levelNumber {
-            if let newLevel = try? repository.loadLevel(withNumber: levelNumber) {
-                level?.value = newLevel
+        if let levelNumber = levelContainer.level.value?.levelNumber {
+            repository.loadLevel(withNumber: levelNumber) { [weak self] newLevel, _ in
+                if let newLevel = newLevel {
+                    DispatchQueue.main.async {
+                        self?.levelContainer.level.value = newLevel
+                        self?.scoreManager.resetScore()
+                    }
+                }
             }
         }
     }
-    
+
     func scoreUpdated(newScore: Int) {
-        if newScore == 0 {
-            scoreManager.resetScore()
-        } else {
-            scoreManager.incrementCardCount()
-        }
+        scoreManager.incrementCardCount()
     }
-    
-    //MARK: - LevelDelegate
+
+    // MARK: - LevelDelegate
     func levelCompleted(_ level: LevelProtocol) {
         DispatchQueue.main.async { [weak self] in
             self?.scoreManager.computeScore(level: level.levelNumber)
             self?._complete.value = true
         }
     }
-    
+
     func levelInfoChanged(_ level: LevelProtocol, info: String?) {
         DispatchQueue.main.async { [weak self] in
             self?._levelInfo.value = info
@@ -88,18 +87,14 @@ class LevelViewModel: LevelViewModeling, LevelDelegate {
 }
 
 protocol LevelViewModeling {
+    var level: ImmutableObservableProperty<LevelProtocol?> { get }
     var complete: ImmutableObservableProperty<Bool> { get }
     var levelInfo: ImmutableObservableProperty<String?> { get }
     var player: Entity? { get }
-    
-    /// Since the concrete level is not available when this view model is constructed, it is the responsibility of the client to finalize its initialization by setting the level property.
-    ///
-    /// - Parameter level: The currently active level.
-    func setLevel(level: ObservableProperty<LevelProtocol>)
-    
+
     /// Reset the current level.
     func reset()
-    
+
     /// Notify this view model that the player's score has changed.
     ///
     /// - Parameter newScore: The new score.

@@ -10,9 +10,9 @@ import Foundation
 import EntityComponentSystem
 
 class SimpleActionCardNode: CardNode {
-    
+
     private let action: ComponentAction
-    
+
     init(name: String, action: ComponentAction) {
         self.action = action
         super.init(card: BasicCard(
@@ -22,11 +22,11 @@ class SimpleActionCardNode: CardNode {
             requiresParameter: false,
             connectionAngles: [0]))
     }
-    
+
     override func clone() -> CardNode {
         return SimpleActionCardNode(name: card.internalName, action: action)
     }
-    
+
     override func getAction(forEntity entity: Entity, withProgramState state: ProgramState) -> Action? {
         action.strength = Double(parameter ?? 1)
         return action

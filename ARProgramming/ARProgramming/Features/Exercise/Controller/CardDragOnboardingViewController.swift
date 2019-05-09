@@ -10,39 +10,39 @@ import Foundation
 import UIKit
 
 class CardDragOnboardingViewController: UIViewController {
-    
+
     @IBOutlet weak var cardDragAnimation: UIImageView!
-    
-    //MARK: - Injected properties
+
+    // MARK: - Injected properties
     weak var delegate: AuxiliaryExerciseViewDelegate?
-    
-    //MARK: - Life cycle
+
+    // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         createDragAnimation()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         cardDragAnimation.startAnimating()
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         cardDragAnimation.stopAnimating()
     }
-    
+
     private func createDragAnimation() {
         var animationImages = UIImage.loadAnimation(named: "SwipeCard", withFrames: 50)
         //Simulate a delay by repeating the last frame 15 times
         for _ in 0..<15 {
             animationImages.append(animationImages[49])
         }
-        
+
         cardDragAnimation.animationImages = animationImages
         cardDragAnimation.animationDuration = 2.8
     }
-    
+
     @IBAction func onDismiss() {
         delegate?.auxiliaryViewCompleted(self)
     }

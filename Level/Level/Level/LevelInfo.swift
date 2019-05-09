@@ -9,12 +9,12 @@
 import Foundation
 
 struct LevelInfo: LevelInfoProtocol, Decodable {
-    
+
     var name: String
     var levelNumber: Int
     var levelType: String
     var unlocked = false
-    
+
     private enum CodingKeys: String, CodingKey {
         case name
         case levelNumber = "number"

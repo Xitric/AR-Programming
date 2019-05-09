@@ -11,7 +11,7 @@ import UIKit
 import ProgramModel
 
 class CardDetailViewController: UIViewController {
-    
+
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var summaryLabel: UILabel!
@@ -19,19 +19,19 @@ class CardDetailViewController: UIViewController {
     @IBOutlet weak var previewImage: UIImageView!
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var parameterLabel: UILabel!
-    
-    //MARK: - Injected properties
+
+    // MARK: - Injected properties
     var card: Card!
     var cardPreview: UIImage?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         titleLabel.text = NSLocalizedString("\(card.internalName).name", comment: "")
         summaryLabel.text = NSLocalizedString("\(card.internalName).summary", comment: "")
         descriptionLabel.text = NSLocalizedString("\(card.internalName).longDescription", comment: "")
         previewImage.image = cardPreview
-        
+
         typeLabel.text = NSLocalizedString("cardType.\(card.type)", comment: "")
         if card.supportsParameter {
             parameterLabel.text = NSLocalizedString("card.parameterSupported", comment: "") + " "
@@ -40,7 +40,7 @@ class CardDetailViewController: UIViewController {
             parameterLabel.text = NSLocalizedString("card.parameterUnsupported", comment: "")
         }
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.destination {
         case let exampleProgram as ExampleProgramViewController:

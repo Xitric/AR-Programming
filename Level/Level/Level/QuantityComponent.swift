@@ -10,16 +10,16 @@ import Foundation
 import GameplayKit
 
 class QuantityComponent: GKComponent {
-    
+
     let type: String
     var quantity: Int
-    
+
     init(type: String, quantity: Int) {
         self.type = type
         self.quantity = quantity
         super.init()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
