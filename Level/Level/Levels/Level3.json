@@ -1,7 +1,7 @@
 {
     "number":3,
     "type":"quantity",
-    "name":"Saml mønter",
+    "name":"Frem og tilbage",
     "unlocks":4,
     "doCollect":[
         {"type":"mønter", "quantity":2}

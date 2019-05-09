@@ -1,7 +1,7 @@
 {
     "number":100,
     "type":"quantity",
-    "name":"Gentag?",
+    "name":"Skråplan",
     "unlocks":10,
     "doCollect":[
         {"type":"mønter", "quantity":4}

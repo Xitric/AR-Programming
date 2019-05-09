@@ -1,7 +1,7 @@
 {
     "number":5,
     "type":"quantity",
-    "name":"Saml mønten2",
+    "name":"Se bagud",
     "unlocks":6,
     "doCollect":[
         {"type":"mønter", "quantity":2}

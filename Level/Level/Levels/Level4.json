@@ -1,7 +1,7 @@
 {
     "number":4,
     "type":"quantity",
-    "name":"Saml mønten",
+    "name":"Hvor blev den af?",
     "unlocks":5,
     "doCollect":[
         {"type":"mønter", "quantity":1}
