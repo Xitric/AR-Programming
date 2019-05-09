@@ -54,7 +54,7 @@ class DropActionComponentTests: XCTestCase {
         let linkAfter = owner.component(ofType: LinkComponent.self)
         XCTAssertNil(linkAfter)
 
-        wait(for: [completionHandlerExpectation], timeout: 1)
+        wait(for: [completionHandlerExpectation], timeout: 0.1)
         XCTAssertFalse(owner.components.contains(dropActionComponent))
     }
 
@@ -69,7 +69,7 @@ class DropActionComponentTests: XCTestCase {
         let link = owner.component(ofType: LinkComponent.self)
         XCTAssertNil(link)
 
-        wait(for: [completionHandlerExpectation], timeout: 1)
+        wait(for: [completionHandlerExpectation], timeout: 0.1)
         XCTAssertFalse(owner.components.contains(dropActionComponent))
     }
 }

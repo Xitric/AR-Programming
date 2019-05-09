@@ -97,7 +97,7 @@ class QuantityLevelTests: XCTestCase {
         level.update(currentTime: 2)
 
         //Assert
-        wait(for: [delegate.infoExpectation], timeout: 1)
+        wait(for: [delegate.infoExpectation], timeout: 0.1)
         XCTAssertEqual(entityManager.getEntities(withComponents: QuantityComponent.self).count, 7)
         XCTAssertEqual(playerInventory.quantities["rubiner"], 1)
     }
@@ -117,30 +117,24 @@ class QuantityLevelTests: XCTestCase {
         level.update(delta: 2)
 
         //Assert
-        wait(for: [delegate.infoExpectation], timeout: 1)
-        wait(for: [delegate.completionExpectation], timeout: 1)
+        wait(for: [delegate.infoExpectation], timeout: 0.1)
+        wait(for: [delegate.completionExpectation], timeout: 0.1)
         XCTAssertTrue(level.isComplete())
     }
 }
 
-class LevelDelegateMock: LevelDelegate {
+private class LevelDelegateMock: LevelDelegate {
 
     let completionExpectation: XCTestExpectation
-    let resetExpectation: XCTestExpectation
     let infoExpectation: XCTestExpectation
 
     init() {
         completionExpectation = XCTestExpectation(description: "Completion called")
-        resetExpectation = XCTestExpectation(description: "Reset called")
         infoExpectation = XCTestExpectation(description: "Info changed")
     }
 
     func levelCompleted(_ level: LevelProtocol) {
         completionExpectation.fulfill()
-    }
-
-    func levelReset(_ level: LevelProtocol) {
-        resetExpectation.fulfill()
     }
 
     func levelInfoChanged(_ level: LevelProtocol, info: String?) {

@@ -45,7 +45,7 @@ class LevelTests: XCTestCase {
         level.update(currentTime: 5)
 
         //Assert
-        wait(for: [level.updateExpectation], timeout: 1)
+        wait(for: [level.updateExpectation], timeout: 0.1)
     }
 
     func testUpdate_SecondTime() {
@@ -56,23 +56,94 @@ class LevelTests: XCTestCase {
         level.update(currentTime: 15)
 
         //Assert
-        wait(for: [level.updateExpectation], timeout: 1)
+        wait(for: [level.updateExpectation], timeout: 0.1)
+    }
+
+    // MARK: complete
+    func testComplete() {
+        //Arrange
+        let repository = LevelRepositoryMock()
+        repository.expectedLevelId = level.unlocks
+        level.levelRepository = repository
+
+        let delegate = LevelDelegateMock()
+        level.delegate = delegate
+
+        //Act
+        level.complete()
+
+        //Assert
+        wait(for: [repository.markExpectation, delegate.completeExpectation], timeout: 0.1, enforceOrder: true)
+    }
+
+    func testComplete_UnlocksNothing() {
+        //Arrange
+        let unlocksNilLevel = Level(name: "", levelNumber: 0, levelType: "", unlocks: nil)
+
+        let repository = LevelRepositoryMock()
+        repository.markExpectation.isInverted = true
+        unlocksNilLevel.levelRepository = repository
+
+        let delegate = LevelDelegateMock()
+        unlocksNilLevel.delegate = delegate
+
+        //Act
+        unlocksNilLevel.complete()
+
+        //Assert
+        wait(for: [repository.markExpectation, delegate.completeExpectation], timeout: 0.1)
     }
 }
 
-class LevelMock: Level {
+private class LevelMock: Level {
 
-    let updateExpectation: XCTestExpectation!
-    var expectedDelta = 0.0
-
-    required init(from decoder: Decoder) throws {
-        updateExpectation = XCTestExpectation(description: "Update with delta called")
-        try super.init(from: decoder)
-    }
+    let updateExpectation = XCTestExpectation(description: "Update with delta called")
+    var expectedDelta: Double?
 
     override func update(delta: TimeInterval) {
         if delta == expectedDelta {
             updateExpectation.fulfill()
         }
+    }
+}
+
+private class LevelRepositoryMock: LevelRepository {
+
+    let markExpectation = XCTestExpectation(description: "Mark level called")
+    var expectedLevelId: Int?
+
+    func loadEmptyLevel(completion: @escaping (LevelProtocol) -> Void) {
+        //Ignored
+    }
+
+    func loadItemLevel(completion: @escaping (LevelProtocol) -> Void) {
+        //Ignored
+    }
+
+    func loadLevel(withNumber id: Int, completion: @escaping (LevelProtocol?, LevelLoadingError?) -> Void) {
+        //Ignored
+    }
+
+    func markLevel(withNumber id: Int, asUnlocked unlocked: Bool, completion: (() -> Void)?) {
+        if id == expectedLevelId && unlocked {
+            markExpectation.fulfill()
+        }
+    }
+
+    func loadPreviews(forLevels levelIds: [Int], completion: @escaping ([LevelInfoProtocol]?, LevelLoadingError?) -> Void) {
+        //Ignored
+    }
+}
+
+private class LevelDelegateMock: LevelDelegate {
+
+    let completeExpectation = XCTestExpectation(description: "Level delegate completion called")
+
+    func levelCompleted(_ level: LevelProtocol) {
+        completeExpectation.fulfill()
+    }
+
+    func levelInfoChanged(_ level: LevelProtocol, info: String?) {
+        //Ignored
     }
 }

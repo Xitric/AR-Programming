@@ -57,7 +57,7 @@ class PickupActionComponentTests: XCTestCase {
         XCTAssertNotNil(link)
         XCTAssertEqual(link?.otherEntity, collectible)
 
-        wait(for: [completionHandlerExpectation], timeout: 1)
+        wait(for: [completionHandlerExpectation], timeout: 0.1)
         XCTAssertFalse(owner.components.contains(pickupActionComponent))
     }
 
@@ -73,7 +73,7 @@ class PickupActionComponentTests: XCTestCase {
         let link = owner.component(ofType: LinkComponent.self)
         XCTAssertNil(link)
 
-        wait(for: [completionHandlerExpectation], timeout: 1)
+        wait(for: [completionHandlerExpectation], timeout: 0.1)
         XCTAssertFalse(owner.components.contains(pickupActionComponent))
     }
 
@@ -102,9 +102,9 @@ class PickupActionComponentTests: XCTestCase {
         XCTAssertNotNil(link)
         XCTAssertEqual(link?.otherEntity, collectible)
 
-        wait(for: [completionHandlerExpectation], timeout: 1)
+        wait(for: [completionHandlerExpectation], timeout: 0.1)
         XCTAssertFalse(owner.components.contains(pickupActionComponent))
-        wait(for: [completionHandlerExpectation2], timeout: 1)
+        wait(for: [completionHandlerExpectation2], timeout: 0.1)
         XCTAssertFalse(owner.components.contains(pickupActionComponent2))
     }
 }

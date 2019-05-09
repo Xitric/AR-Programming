@@ -14,6 +14,14 @@
 		562D8713226CAD91001A154E /* WaitAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D8712226CAD91001A154E /* WaitAction.swift */; };
 		562D8715226CB145001A154E /* CompoundAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D8714226CB145001A154E /* CompoundAction.swift */; };
 		564553DA225CA98A0084D97F /* ObservationGraphCardNodeBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564553D9225CA98A0084D97F /* ObservationGraphCardNodeBuilderTests.swift */; };
+		567697412281BDBC00FDEF5B /* CardGraphDeserializerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567697402281BDBC00FDEF5B /* CardGraphDeserializerTests.swift */; };
+		568087D2227F291800CB9791 /* ProgramActionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568087D1227F291800CB9791 /* ProgramActionTests.swift */; };
+		568087D4227F2D4000CB9791 /* FunctionCardNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568087D3227F2D4000CB9791 /* FunctionCardNodeTests.swift */; };
+		568087D6227F308B00CB9791 /* ProgramEditorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568087D5227F308B00CB9791 /* ProgramEditorTests.swift */; };
+		568B0DA52281C9B9003B942F /* SerializedProgram.json in Resources */ = {isa = PBXBuildFile; fileRef = 568B0DA42281C9B9003B942F /* SerializedProgram.json */; };
+		568B0DA72281CA1E003B942F /* SerializedComplexProgram.json in Resources */ = {isa = PBXBuildFile; fileRef = 568B0DA62281CA1E003B942F /* SerializedComplexProgram.json */; };
+		568B0DAB2281D0FB003B942F /* CorruptedSerializedProgram1.json in Resources */ = {isa = PBXBuildFile; fileRef = 568B0DAA2281D0FB003B942F /* CorruptedSerializedProgram1.json */; };
+		568B0DAF2281D254003B942F /* CorruptedSerializedProgram2.json in Resources */ = {isa = PBXBuildFile; fileRef = 568B0DAE2281D254003B942F /* CorruptedSerializedProgram2.json */; };
 		56D8CAEA225778C8004EE8B1 /* ProgramModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56D8CAE0225778C8004EE8B1 /* ProgramModel.framework */; };
 		56D8CAF1225778C8004EE8B1 /* ProgramModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 56D8CAE3225778C8004EE8B1 /* ProgramModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		56D8CB9122577AD4004EE8B1 /* BasicCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D8CB7222577AD3004EE8B1 /* BasicCard.swift */; };
@@ -97,6 +105,14 @@
 		562D8712226CAD91001A154E /* WaitAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitAction.swift; sourceTree = "<group>"; };
 		562D8714226CB145001A154E /* CompoundAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompoundAction.swift; sourceTree = "<group>"; };
 		564553D9225CA98A0084D97F /* ObservationGraphCardNodeBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservationGraphCardNodeBuilderTests.swift; sourceTree = "<group>"; };
+		567697402281BDBC00FDEF5B /* CardGraphDeserializerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGraphDeserializerTests.swift; sourceTree = "<group>"; };
+		568087D1227F291800CB9791 /* ProgramActionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramActionTests.swift; sourceTree = "<group>"; };
+		568087D3227F2D4000CB9791 /* FunctionCardNodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionCardNodeTests.swift; sourceTree = "<group>"; };
+		568087D5227F308B00CB9791 /* ProgramEditorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramEditorTests.swift; sourceTree = "<group>"; };
+		568B0DA42281C9B9003B942F /* SerializedProgram.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SerializedProgram.json; sourceTree = "<group>"; };
+		568B0DA62281CA1E003B942F /* SerializedComplexProgram.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SerializedComplexProgram.json; sourceTree = "<group>"; };
+		568B0DAA2281D0FB003B942F /* CorruptedSerializedProgram1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CorruptedSerializedProgram1.json; sourceTree = "<group>"; };
+		568B0DAE2281D254003B942F /* CorruptedSerializedProgram2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CorruptedSerializedProgram2.json; sourceTree = "<group>"; };
 		56D8CAE0225778C8004EE8B1 /* ProgramModel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ProgramModel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56D8CAE3225778C8004EE8B1 /* ProgramModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProgramModel.h; sourceTree = "<group>"; };
 		56D8CAE4225778C8004EE8B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -327,10 +343,12 @@
 			children = (
 				56D8CBB022577B5C004EE8B1 /* Action */,
 				56D8CBB922577B5C004EE8B1 /* BorderCardNodeTests.swift */,
+				568087D3227F2D4000CB9791 /* FunctionCardNodeTests.swift */,
 				56D8CBAF22577B5C004EE8B1 /* CardNodeFactoryTests.swift */,
 				56D8CBBA22577B5C004EE8B1 /* CardNodeTests.swift */,
 				56D8CBB822577B5C004EE8B1 /* ProgramTests.swift */,
 				564553D9225CA98A0084D97F /* ObservationGraphCardNodeBuilderTests.swift */,
+				568087D5227F308B00CB9791 /* ProgramEditorTests.swift */,
 			);
 			path = Program;
 			sourceTree = "<group>";
@@ -340,6 +358,7 @@
 			children = (
 				56D8CBB122577B5C004EE8B1 /* Components */,
 				56D8CBB722577B5C004EE8B1 /* RotationActionTests.swift */,
+				568087D1227F291800CB9791 /* ProgramActionTests.swift */,
 			);
 			path = Action;
 			sourceTree = "<group>";
@@ -376,6 +395,11 @@
 				56D8CC2422577ECA004EE8B1 /* ObservationNodeTests.swift */,
 				56D8CC2522577ECA004EE8B1 /* ObservationSetTests.swift */,
 				56D8CC2622577ECA004EE8B1 /* ObservationEdgeTests.swift */,
+				567697402281BDBC00FDEF5B /* CardGraphDeserializerTests.swift */,
+				568B0DA42281C9B9003B942F /* SerializedProgram.json */,
+				568B0DA62281CA1E003B942F /* SerializedComplexProgram.json */,
+				568B0DAA2281D0FB003B942F /* CorruptedSerializedProgram1.json */,
+				568B0DAE2281D254003B942F /* CorruptedSerializedProgram2.json */,
 			);
 			path = ImageAnalysis;
 			sourceTree = "<group>";
@@ -498,6 +522,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				568B0DAF2281D254003B942F /* CorruptedSerializedProgram2.json in Resources */,
+				568B0DAB2281D0FB003B942F /* CorruptedSerializedProgram1.json in Resources */,
+				568B0DA52281C9B9003B942F /* SerializedProgram.json in Resources */,
+				568B0DA72281CA1E003B942F /* SerializedComplexProgram.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -655,10 +683,14 @@
 				560D20602257AD190015EC95 /* XCTestCase+Helpers.swift in Sources */,
 				56D8CC2922577ECA004EE8B1 /* ObservationSetTests.swift in Sources */,
 				56D8CC2722577ECA004EE8B1 /* ObservationGraphTests.swift in Sources */,
+				567697412281BDBC00FDEF5B /* CardGraphDeserializerTests.swift in Sources */,
 				56D8CBC122577B5C004EE8B1 /* RotationActionTests.swift in Sources */,
+				568087D2227F291800CB9791 /* ProgramActionTests.swift in Sources */,
+				568087D4227F2D4000CB9791 /* FunctionCardNodeTests.swift in Sources */,
 				564553DA225CA98A0084D97F /* ObservationGraphCardNodeBuilderTests.swift in Sources */,
 				56D8CC2822577ECA004EE8B1 /* ObservationNodeTests.swift in Sources */,
 				56D8CBBE22577B5C004EE8B1 /* MovementActionComponentTests.swift in Sources */,
+				568087D6227F308B00CB9791 /* ProgramEditorTests.swift in Sources */,
 				56D8CBBC22577B5C004EE8B1 /* DropActionComponentTests.swift in Sources */,
 				56D8CBC322577B5C004EE8B1 /* BorderCardNodeTests.swift in Sources */,
 			);

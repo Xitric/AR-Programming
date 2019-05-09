@@ -27,7 +27,7 @@ class LevelManagerTests: XCTestCase {
         }
 
         //Assert
-        wait(for: [expectation], timeout: 1)
+        wait(for: [expectation], timeout: 0.1)
     }
 
     // MARK: loadItemLevel
@@ -44,7 +44,7 @@ class LevelManagerTests: XCTestCase {
         }
 
         //Assert
-        wait(for: [expectation], timeout: 1)
+        wait(for: [expectation], timeout: 0.1)
     }
 
     // MARK: loadLevel
@@ -63,7 +63,7 @@ class LevelManagerTests: XCTestCase {
         }
 
         //Assert
-        wait(for: [expectation], timeout: 1)
+        wait(for: [expectation], timeout: 0.1)
     }
 
     func testLoadLevel_InvalidId() {
@@ -85,7 +85,7 @@ class LevelManagerTests: XCTestCase {
         }
 
         //Assert
-        wait(for: [expectation], timeout: 1)
+        wait(for: [expectation], timeout: 0.1)
     }
 
     func testLoadLevel_FailingFactory() {
@@ -105,7 +105,7 @@ class LevelManagerTests: XCTestCase {
         }
 
         //Assert
-        wait(for: [expectation], timeout: 1)
+        wait(for: [expectation], timeout: 0.1)
     }
 
     func testLoadLevel_UnsupportedFormat() {
@@ -125,7 +125,7 @@ class LevelManagerTests: XCTestCase {
         }
 
         //Assert
-        wait(for: [expectation], timeout: 1)
+        wait(for: [expectation], timeout: 0.1)
     }
 }
 

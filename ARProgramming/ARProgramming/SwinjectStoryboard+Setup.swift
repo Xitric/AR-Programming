@@ -15,20 +15,13 @@ import Level
 // swiftlint:disable function_body_length
 extension SwinjectStoryboard {
     class func setup() {
-        defaultContainer.storyboardInitCompleted(WardrobeViewController.self) { container, controller in
-            controller.wardrobe = container.resolve(WardrobeProtocol.self)
-        }
-
         defaultContainer.register(AudioController.self) { _ in AudioController() }
             .inObjectScope(.container)
-
-        defaultContainer.register(WardrobeProtocol.self) { _ in
-            WardrobeManager(context: CoreDataRepository())
-        }
 
         defaultContainer.addProgram()
         defaultContainer.addLevel()
 
+        addWardrobe()
         addLibrary()
         addCardDetail()
         addLevel()
@@ -36,6 +29,20 @@ extension SwinjectStoryboard {
         //Response to:
         //https://github.com/Swinject/Swinject/issues/213
         Container.loggingFunction = nil
+    }
+
+    private class func addWardrobe() {
+        defaultContainer.register(WardrobeRepository.self) { _ in
+            WardrobeManager(context: CoreDataRepository())
+        }
+
+        defaultContainer.register(WardrobeViewModeling.self) { container in
+            WardrobeViewModel(repository: container.resolve(WardrobeRepository.self)!)
+        }
+
+        defaultContainer.storyboardInitCompleted(WardrobeViewController.self) { container, controller in
+            controller.viewModel = container.resolve(WardrobeViewModeling.self)
+        }
     }
 
     private class func addLibrary() {
@@ -86,7 +93,7 @@ extension SwinjectStoryboard {
 
         defaultContainer.register(LevelSceneViewModeling.self) { container in
             LevelSceneViewModel(level: container.resolve(CurrentLevelProtocol.self)!,
-                                wardrobe: container.resolve(WardrobeProtocol.self)!)
+                                wardrobe: container.resolve(WardrobeRepository.self)!)
         }
 
         let programEditor = defaultContainer.resolve(ProgramEditorProtocol.self)!

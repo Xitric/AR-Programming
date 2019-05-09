@@ -9,10 +9,15 @@
 /* Begin PBXBuildFile section */
 		202219A7223BC07000A2A8EA /* WardrobeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202219A6223BC07000A2A8EA /* WardrobeViewController.swift */; };
 		204AEC14220DCA1E00E0F624 /* ARContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204AEC13220DCA1E00E0F624 /* ARContainerViewController.swift */; };
+		204D960B2281C30A001A5F3E /* CardCollectionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D960A2281C30A001A5F3E /* CardCollectionViewModelTests.swift */; };
+		204D96112282CD96001A5F3E /* GradeLevelConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D96102282CD96001A5F3E /* GradeLevelConfigurationTests.swift */; };
+		2050095522816F240002B6A4 /* LevelSceneViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050095422816F240002B6A4 /* LevelSceneViewModelTests.swift */; };
+		20500957228187000002B6A4 /* ScoreManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20500956228187000002B6A4 /* ScoreManagerTests.swift */; };
 		206A0CB52240E5120018E6B7 /* WardrobeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206A0CB42240E5120018E6B7 /* WardrobeManager.swift */; };
 		206A0CB822410FD80018E6B7 /* WardrobeManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206A0CB722410FD80018E6B7 /* WardrobeManagerTests.swift */; };
 		207DA723225F2891003AE8EC /* GradeCardConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207DA722225F2891003AE8EC /* GradeCardConfiguration.swift */; };
 		207DA725225F2934003AE8EC /* SwinjectStoryboard+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207DA724225F2933003AE8EC /* SwinjectStoryboard+Setup.swift */; };
+		20D970752281AAB0005077A2 /* EntityModelLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D970742281AAB0005077A2 /* EntityModelLoaderTests.swift */; };
 		20D9BAD1225BF45400DCB87D /* LibraryGradesTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D9BAD0225BF45300DCB87D /* LibraryGradesTabBarController.swift */; };
 		20D9BAD6225C7EF300DCB87D /* LevelDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D9BAD5225C7EF300DCB87D /* LevelDataSource.swift */; };
 		5603A2AD2273911D001B4E83 /* ObservableProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5603A2AC2273911D001B4E83 /* ObservableProperty.swift */; };
@@ -76,6 +81,14 @@
 		5672097E226274CF0054BD52 /* ProgramDragInteractionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5672097D226274CF0054BD52 /* ProgramDragInteractionDelegate.swift */; };
 		56720980226274DC0054BD52 /* ProgramDropInteractionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5672097F226274DC0054BD52 /* ProgramDropInteractionDelegate.swift */; };
 		56720982226278FE0054BD52 /* DataItemProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56720981226278FE0054BD52 /* DataItemProvider.swift */; };
+		5676973D2281857700FDEF5B /* WardrobeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5676973C2281857700FDEF5B /* WardrobeViewModel.swift */; };
+		5676973F2281923A00FDEF5B /* WardrobeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5676973E2281923900FDEF5B /* WardrobeViewModelTests.swift */; };
+		568087BF227E1AFE00CB9791 /* ProgramsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568087BE227E1AFE00CB9791 /* ProgramsViewModelTests.swift */; };
+		568087C3227EE8ED00CB9791 /* GradeCardConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568087C2227EE8ED00CB9791 /* GradeCardConfigurationTests.swift */; };
+		568087C6227EEB9100CB9791 /* GradesTabBarControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568087C5227EEB9100CB9791 /* GradesTabBarControllerTests.swift */; };
+		568087CA227EF9E800CB9791 /* LevelViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568087C9227EF9E800CB9791 /* LevelViewModelTests.swift */; };
+		568087CC227EFBAE00CB9791 /* ImmutableObservableProperty+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568087CB227EFBAE00CB9791 /* ImmutableObservableProperty+Helpers.swift */; };
+		568087D8227F3C4400CB9791 /* GameCoordinationViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568087D7227F3C4400CB9791 /* GameCoordinationViewModelTests.swift */; };
 		56A62B0E22310727009D0E83 /* EntityModelLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A62B0D22310727009D0E83 /* EntityModelLoader.swift */; };
 		56A62B122231097E009D0E83 /* SCNNodeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A62B112231097E009D0E83 /* SCNNodeComponent.swift */; };
 		56A62B1622310DA2009D0E83 /* simd_double3+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A62B1522310DA2009D0E83 /* simd_double3+Helpers.swift */; };
@@ -141,10 +154,15 @@
 		0D460CD1A0ADB708EBA3149E /* Pods-ARProgramming.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARProgramming.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-ARProgramming/Pods-ARProgramming.debug.xcconfig"; sourceTree = "<group>"; };
 		202219A6223BC07000A2A8EA /* WardrobeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeViewController.swift; sourceTree = "<group>"; };
 		204AEC13220DCA1E00E0F624 /* ARContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARContainerViewController.swift; sourceTree = "<group>"; };
+		204D960A2281C30A001A5F3E /* CardCollectionViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewModelTests.swift; sourceTree = "<group>"; };
+		204D96102282CD96001A5F3E /* GradeLevelConfigurationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeLevelConfigurationTests.swift; sourceTree = "<group>"; };
+		2050095422816F240002B6A4 /* LevelSceneViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSceneViewModelTests.swift; sourceTree = "<group>"; };
+		20500956228187000002B6A4 /* ScoreManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreManagerTests.swift; sourceTree = "<group>"; };
 		206A0CB42240E5120018E6B7 /* WardrobeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeManager.swift; sourceTree = "<group>"; };
 		206A0CB722410FD80018E6B7 /* WardrobeManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeManagerTests.swift; sourceTree = "<group>"; };
 		207DA722225F2891003AE8EC /* GradeCardConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradeCardConfiguration.swift; sourceTree = "<group>"; };
 		207DA724225F2933003AE8EC /* SwinjectStoryboard+Setup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SwinjectStoryboard+Setup.swift"; path = "ARProgramming/SwinjectStoryboard+Setup.swift"; sourceTree = SOURCE_ROOT; };
+		20D970742281AAB0005077A2 /* EntityModelLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityModelLoaderTests.swift; sourceTree = "<group>"; };
 		20D9BAD0225BF45300DCB87D /* LibraryGradesTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryGradesTabBarController.swift; sourceTree = "<group>"; };
 		20D9BAD5225C7EF300DCB87D /* LevelDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelDataSource.swift; sourceTree = "<group>"; };
 		2777F7558E4CBDF869F88EFD /* Pods-ARProgrammingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARProgrammingTests.release.xcconfig"; path = "../Pods/Target Support Files/Pods-ARProgrammingTests/Pods-ARProgrammingTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -211,6 +229,14 @@
 		5672097D226274CF0054BD52 /* ProgramDragInteractionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramDragInteractionDelegate.swift; sourceTree = "<group>"; };
 		5672097F226274DC0054BD52 /* ProgramDropInteractionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramDropInteractionDelegate.swift; sourceTree = "<group>"; };
 		56720981226278FE0054BD52 /* DataItemProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataItemProvider.swift; sourceTree = "<group>"; };
+		5676973C2281857700FDEF5B /* WardrobeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeViewModel.swift; sourceTree = "<group>"; };
+		5676973E2281923900FDEF5B /* WardrobeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeViewModelTests.swift; sourceTree = "<group>"; };
+		568087BE227E1AFE00CB9791 /* ProgramsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramsViewModelTests.swift; sourceTree = "<group>"; };
+		568087C2227EE8ED00CB9791 /* GradeCardConfigurationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeCardConfigurationTests.swift; sourceTree = "<group>"; };
+		568087C5227EEB9100CB9791 /* GradesTabBarControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradesTabBarControllerTests.swift; sourceTree = "<group>"; };
+		568087C9227EF9E800CB9791 /* LevelViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelViewModelTests.swift; sourceTree = "<group>"; };
+		568087CB227EFBAE00CB9791 /* ImmutableObservableProperty+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImmutableObservableProperty+Helpers.swift"; sourceTree = "<group>"; };
+		568087D7227F3C4400CB9791 /* GameCoordinationViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCoordinationViewModelTests.swift; sourceTree = "<group>"; };
 		56A62B0D22310727009D0E83 /* EntityModelLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityModelLoader.swift; sourceTree = "<group>"; };
 		56A62B112231097E009D0E83 /* SCNNodeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNNodeComponent.swift; sourceTree = "<group>"; };
 		56A62B1522310DA2009D0E83 /* simd_double3+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "simd_double3+Helpers.swift"; sourceTree = "<group>"; };
@@ -272,6 +298,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		204D960C2282C99A001A5F3E /* LevelSelect */ = {
+			isa = PBXGroup;
+			children = (
+				204D960F2282C9D2001A5F3E /* ViewModel */,
+			);
+			path = LevelSelect;
+			sourceTree = "<group>";
+		};
+		204D960F2282C9D2001A5F3E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				204D96102282CD96001A5F3E /* GradeLevelConfigurationTests.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		303DB45C8FD81C058632CA1B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -444,6 +486,7 @@
 			isa = PBXGroup;
 			children = (
 				206A0CB42240E5120018E6B7 /* WardrobeManager.swift */,
+				5676973C2281857700FDEF5B /* WardrobeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -498,6 +541,10 @@
 		566874E222745A0600DC3ABD /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				204D960C2282C99A001A5F3E /* LevelSelect */,
+				568087C7227EF9CD00CB9791 /* Exercise */,
+				568087C0227EE8D200CB9791 /* Library */,
+				568087BC227E1AD200CB9791 /* Program */,
 				566874E522745A8900DC3ABD /* Shared */,
 				566874E322745A0E00DC3ABD /* Wardrobe */,
 			);
@@ -516,6 +563,7 @@
 			isa = PBXGroup;
 			children = (
 				206A0CB722410FD80018E6B7 /* WardrobeManagerTests.swift */,
+				5676973E2281923900FDEF5B /* WardrobeViewModelTests.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -523,6 +571,7 @@
 		566874E522745A8900DC3ABD /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				568087C4227EEB8200CB9791 /* Controller */,
 				566874E622745A9100DC3ABD /* ViewModel */,
 			);
 			path = Shared;
@@ -533,6 +582,7 @@
 			children = (
 				566874E722745AB000DC3ABD /* ObservablePropertyTests.swift */,
 				566874ED22746E5000DC3ABD /* ObserverTests.swift */,
+				20D970742281AAB0005077A2 /* EntityModelLoaderTests.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -646,6 +696,66 @@
 			path = MainMenu;
 			sourceTree = "<group>";
 		};
+		568087BC227E1AD200CB9791 /* Program */ = {
+			isa = PBXGroup;
+			children = (
+				568087BD227E1AE500CB9791 /* ViewModel */,
+			);
+			path = Program;
+			sourceTree = "<group>";
+		};
+		568087BD227E1AE500CB9791 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				568087BE227E1AFE00CB9791 /* ProgramsViewModelTests.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		568087C0227EE8D200CB9791 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				568087C1227EE8E000CB9791 /* ViewModel */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		568087C1227EE8E000CB9791 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				568087C2227EE8ED00CB9791 /* GradeCardConfigurationTests.swift */,
+				204D960A2281C30A001A5F3E /* CardCollectionViewModelTests.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		568087C4227EEB8200CB9791 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				568087C5227EEB9100CB9791 /* GradesTabBarControllerTests.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		568087C7227EF9CD00CB9791 /* Exercise */ = {
+			isa = PBXGroup;
+			children = (
+				568087C8227EF9D500CB9791 /* ViewModel */,
+			);
+			path = Exercise;
+			sourceTree = "<group>";
+		};
+		568087C8227EF9D500CB9791 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				568087C9227EF9E800CB9791 /* LevelViewModelTests.swift */,
+				568087D7227F3C4400CB9791 /* GameCoordinationViewModelTests.swift */,
+				2050095422816F240002B6A4 /* LevelSceneViewModelTests.swift */,
+				20500956228187000002B6A4 /* ScoreManagerTests.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		6E2B9FA02C20809CF828356C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -703,6 +813,7 @@
 			children = (
 				566874E222745A0600DC3ABD /* Features */,
 				90DF7348216F442100F51E0C /* Info.plist */,
+				568087CB227EFBAE00CB9791 /* ImmutableObservableProperty+Helpers.swift */,
 			);
 			path = ARProgrammingTests;
 			sourceTree = "<group>";
@@ -991,6 +1102,7 @@
 				566875012274F8B800DC3ABD /* ARContainerViewModel.swift in Sources */,
 				566874FD2274B5C200DC3ABD /* InteractiveProgramView.swift in Sources */,
 				90A55B0921A83B0700FD7CDD /* AudioController.swift in Sources */,
+				5676973D2281857700FDEF5B /* WardrobeViewModel.swift in Sources */,
 				562ACDC522496BD400D2DA7C /* CardCollectionDataSource.swift in Sources */,
 				561083F8224A7607009A0039 /* ExampleProgramTableDataSource.swift in Sources */,
 				562ADC912270EA0700A94DA7 /* CardDragOnboardingViewController.swift in Sources */,
@@ -1006,9 +1118,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20500957228187000002B6A4 /* ScoreManagerTests.swift in Sources */,
 				206A0CB822410FD80018E6B7 /* WardrobeManagerTests.swift in Sources */,
+				568087CA227EF9E800CB9791 /* LevelViewModelTests.swift in Sources */,
+				568087D8227F3C4400CB9791 /* GameCoordinationViewModelTests.swift in Sources */,
+				568087BF227E1AFE00CB9791 /* ProgramsViewModelTests.swift in Sources */,
+				2050095522816F240002B6A4 /* LevelSceneViewModelTests.swift in Sources */,
 				566874E822745AB000DC3ABD /* ObservablePropertyTests.swift in Sources */,
+				568087CC227EFBAE00CB9791 /* ImmutableObservableProperty+Helpers.swift in Sources */,
+				5676973F2281923A00FDEF5B /* WardrobeViewModelTests.swift in Sources */,
 				566874EE22746E5000DC3ABD /* ObserverTests.swift in Sources */,
+				568087C3227EE8ED00CB9791 /* GradeCardConfigurationTests.swift in Sources */,
+				568087C6227EEB9100CB9791 /* GradesTabBarControllerTests.swift in Sources */,
+				204D960B2281C30A001A5F3E /* CardCollectionViewModelTests.swift in Sources */,
+				20D970752281AAB0005077A2 /* EntityModelLoaderTests.swift in Sources */,
+				204D96112282CD96001A5F3E /* GradeLevelConfigurationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

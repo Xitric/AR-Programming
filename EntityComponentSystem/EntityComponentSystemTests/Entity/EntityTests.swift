@@ -45,7 +45,7 @@ class EntityTests: XCTestCase {
         entity.addComponent(superComponent)
 
         //Assert
-        wait(for: [entityDelegate.addExpectation], timeout: 1)
+        wait(for: [entityDelegate.addExpectation], timeout: 0.1)
         XCTAssertEqual(entity.components.count, 1)
         XCTAssertTrue(entity.components.contains(superComponent))
     }
@@ -59,7 +59,7 @@ class EntityTests: XCTestCase {
         entity.addComponent(subComponent)
 
         //Assert
-        wait(for: [entityDelegate.addExpectation], timeout: 1)
+        wait(for: [entityDelegate.addExpectation], timeout: 0.1)
         XCTAssertEqual(entity.components.count, 2)
         XCTAssertTrue(entity.components.contains(subComponent))
     }
@@ -74,7 +74,7 @@ class EntityTests: XCTestCase {
         entity.removeComponent(ofType: SuperComponent.self)
 
         //Assert
-        wait(for: [entityDelegate.removeExpectation], timeout: 1)
+        wait(for: [entityDelegate.removeExpectation], timeout: 0.1)
         XCTAssertEqual(entity.components.count, 0)
     }
 
@@ -88,7 +88,7 @@ class EntityTests: XCTestCase {
         entity.removeComponent(ofType: SuperComponent.self)
 
         //Assert
-        wait(for: [entityDelegate.removeExpectation], timeout: 1)
+        wait(for: [entityDelegate.removeExpectation], timeout: 0.1)
         XCTAssertEqual(entity.components.count, 1)
         XCTAssertTrue(entity.components.contains(subComponent))
     }
@@ -103,7 +103,7 @@ class EntityTests: XCTestCase {
         entity.removeComponent(ofType: SubComponent.self)
 
         //Assert
-        wait(for: [entityDelegate.removeExpectation], timeout: 1)
+        wait(for: [entityDelegate.removeExpectation], timeout: 0.1)
         XCTAssertEqual(entity.components.count, 1)
         XCTAssertTrue(entity.components.contains(superComponent))
     }

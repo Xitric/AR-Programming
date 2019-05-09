@@ -38,7 +38,7 @@ class ActionComponentTests: XCTestCase {
         manager.update(delta: 1)
 
         //Assert
-        wait(for: [completionHandlerExpectation], timeout: 1)
+        wait(for: [completionHandlerExpectation], timeout: 0.1)
         XCTAssertFalse(entity.components.contains(component))
     }
 }

@@ -20,7 +20,7 @@ class LevelSceneViewModel: LevelSceneViewModeling {
 
     // MARK: - State
     private let levelContainer: CurrentLevelProtocol
-    private let wardrobe: WardrobeProtocol
+    private let wardrobe: WardrobeRepository
     private var modelLoader: EntityModelLoader?
     private let levelView: SCNNode = {
         let node = SCNNode()
@@ -33,7 +33,7 @@ class LevelSceneViewModel: LevelSceneViewModeling {
         return _levelRedrawn
     }
 
-    init(level: CurrentLevelProtocol, wardrobe: WardrobeProtocol) {
+    init(level: CurrentLevelProtocol, wardrobe: WardrobeRepository) {
         self.levelContainer = level
         self.wardrobe = wardrobe
 

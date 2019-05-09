@@ -35,7 +35,7 @@ class EntityManagerTests: XCTestCase {
         entityManager.addEntity(entity1)
 
         //Assert
-        wait(for: [entityManagerDelegate.addExpectation], timeout: 1)
+        wait(for: [entityManagerDelegate.addExpectation], timeout: 0.1)
 
         //Second entity
         //Arrange
@@ -48,10 +48,10 @@ class EntityManagerTests: XCTestCase {
         entityManager.addEntity(entity2)
 
         //Assert
-        wait(for: [entityManagerDelegate.addExpectation], timeout: 1)
+        wait(for: [entityManagerDelegate.addExpectation], timeout: 0.1)
         entityManager.update(delta: 1)
-        wait(for: [component1.updateExpectation], timeout: 1)
-        wait(for: [component2.updateExpectation], timeout: 1)
+        wait(for: [component1.updateExpectation], timeout: 0.1)
+        wait(for: [component2.updateExpectation], timeout: 0.1)
     }
 
     func testAddEntity_WithComponentWithEntityManager() {
@@ -78,7 +78,7 @@ class EntityManagerTests: XCTestCase {
         entityManager.addEntity(entity)
 
         //Assert
-        wait(for: [component.updateExpectation], timeout: 1)
+        wait(for: [component.updateExpectation], timeout: 0.1)
     }
 
     func testManagerNotifiedOnEntityChanges() {
@@ -92,7 +92,7 @@ class EntityManagerTests: XCTestCase {
 
         //Assert
         entityManager.update(delta: 1)
-        wait(for: [component.updateExpectation], timeout: 1)
+        wait(for: [component.updateExpectation], timeout: 0.1)
     }
 
     // MARK: removeEntity
@@ -110,9 +110,9 @@ class EntityManagerTests: XCTestCase {
         entityManager.removeEntity(entity)
 
         //Assert
-        wait(for: [entityManagerDelegate.removeExpectation], timeout: 1)
+        wait(for: [entityManagerDelegate.removeExpectation], timeout: 0.1)
         entityManager.update(delta: 1)
-        wait(for: [component.updateExpectation], timeout: 1)
+        wait(for: [component.updateExpectation], timeout: 0.1)
     }
 
     func testRemoveEntity_WithComponentWithEntityManager() {
@@ -143,7 +143,7 @@ class EntityManagerTests: XCTestCase {
 
         //Assert
         entityManager.update(delta: 1)
-        wait(for: [component.updateExpectation], timeout: 1)
+        wait(for: [component.updateExpectation], timeout: 0.1)
     }
 
     // MARK: addSystem
@@ -189,8 +189,8 @@ class EntityManagerTests: XCTestCase {
 
         //Assert
         entityManager.update(delta: 1)
-        wait(for: [component1.updateExpectation], timeout: 1)
-        wait(for: [component2.updateExpectation], timeout: 1)
+        wait(for: [component1.updateExpectation], timeout: 0.1)
+        wait(for: [component2.updateExpectation], timeout: 0.1)
         XCTAssertTrue(system.components.isEmpty)
     }
 
