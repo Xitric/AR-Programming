@@ -29,7 +29,7 @@ class CardDetailViewController: UIViewController {
         
         titleLabel.text = NSLocalizedString("\(card.internalName).name", comment: "")
         summaryLabel.text = NSLocalizedString("\(card.internalName).summary", comment: "")
-        descriptionLabel.text = NSLocalizedString("\(card.internalName).description", comment: "")
+        descriptionLabel.text = NSLocalizedString("\(card.internalName).longDescription", comment: "")
         previewImage.image = cardPreview
         
         typeLabel.text = NSLocalizedString("cardType.\(card.type)", comment: "")

@@ -42,7 +42,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NiK-sB-k8X">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NiK-sB-k8X">
                                                 <rect key="frame" x="367" y="123.5" width="88" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -141,7 +141,7 @@
                                             <constraint firstItem="Tzs-hP-f2R" firstAttribute="top" secondItem="ePW-B4-8Ni" secondAttribute="bottom" constant="20" id="Ar1-3u-tqy"/>
                                             <constraint firstItem="c9Z-Xg-0QT" firstAttribute="trailing" secondItem="zS5-sz-VYO" secondAttribute="trailing" id="BtX-it-hcq"/>
                                             <constraint firstItem="gEs-Av-2Nk" firstAttribute="leading" secondItem="j9h-Ll-0Ru" secondAttribute="leading" id="C4t-pc-1tV"/>
-                                            <constraint firstItem="j9h-Ll-0Ru" firstAttribute="top" secondItem="gEs-Av-2Nk" secondAttribute="bottom" constant="30" id="DCB-7j-Dtm"/>
+                                            <constraint firstItem="j9h-Ll-0Ru" firstAttribute="top" secondItem="gEs-Av-2Nk" secondAttribute="bottom" priority="750" constant="30" id="DCB-7j-Dtm"/>
                                             <constraint firstItem="Mpv-Np-I74" firstAttribute="leading" secondItem="ua9-85-1lt" secondAttribute="trailing" constant="40" id="DUT-9k-MVp"/>
                                             <constraint firstItem="8nj-K6-hLG" firstAttribute="top" secondItem="eBa-tg-qU3" secondAttribute="top" id="F6S-g5-rQj"/>
                                             <constraint firstItem="ua9-85-1lt" firstAttribute="top" secondItem="j9h-Ll-0Ru" secondAttribute="bottom" constant="20" id="FGl-d6-2B5"/>
@@ -160,6 +160,7 @@
                                             <constraint firstItem="K6l-AE-IqM" firstAttribute="leading" secondItem="eBa-tg-qU3" secondAttribute="leading" id="ZBs-j1-gO4"/>
                                             <constraint firstItem="ePW-B4-8Ni" firstAttribute="leading" secondItem="gEs-Av-2Nk" secondAttribute="trailing" constant="20" id="ZrX-My-KdA"/>
                                             <constraint firstItem="SAX-h3-jy3" firstAttribute="top" secondItem="K6l-AE-IqM" secondAttribute="top" id="baV-xR-FDm"/>
+                                            <constraint firstItem="j9h-Ll-0Ru" firstAttribute="top" relation="greaterThanOrEqual" secondItem="NiK-sB-k8X" secondAttribute="bottom" constant="30" id="d6n-yV-PgS"/>
                                             <constraint firstItem="8nj-K6-hLG" firstAttribute="trailing" secondItem="j9h-Ll-0Ru" secondAttribute="trailing" id="dqd-85-eCb"/>
                                             <constraint firstItem="c9Z-Xg-0QT" firstAttribute="leading" secondItem="zS5-sz-VYO" secondAttribute="leading" id="eIZ-ZC-f6z"/>
                                             <constraint firstItem="ua9-85-1lt" firstAttribute="leading" secondItem="j9h-Ll-0Ru" secondAttribute="leading" id="hXV-Mm-oBC"/>
@@ -289,7 +290,7 @@
                                     <constraint firstAttribute="width" secondItem="ZqU-ys-R9J" secondAttribute="height" multiplier="2:1" id="F3j-rB-Nbn"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ProgramExampleCell" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProgramExampleCell" id="w54-Sf-dAF" customClass="ExampleProgramTableViewCell" customModule="ARProgramming" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="ProgramExampleCell" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProgramExampleCell" id="w54-Sf-dAF" customClass="ExampleProgramTableViewCell" customModule="ARProgramming" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="924" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="w54-Sf-dAF" id="jUa-lG-ld2">
@@ -297,7 +298,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="390" placeholderIntrinsicHeight="64" translatesAutoresizingMaskIntoConstraints="NO" id="LGT-ef-wCa" customClass="ProgramView" customModule="ARProgramming" customModuleProvider="target">
-                                                    <rect key="frame" x="84" y="16" width="825" height="11.5"/>
+                                                    <rect key="frame" x="84" y="16" width="725" height="11.5"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
                                                 <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Km-jQ-DSe" customClass="RoundedButton" customModule="ARProgramming" customModuleProvider="target">
