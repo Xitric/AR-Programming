@@ -54,6 +54,7 @@
 		562F2F23225355E100C46D83 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562F2F22225355E100C46D83 /* Config.swift */; };
 		562F2F27225358CA00C46D83 /* cardClasses.json in Resources */ = {isa = PBXBuildFile; fileRef = 562F2F26225358CA00C46D83 /* cardClasses.json */; };
 		562F2F2922538ABA00C46D83 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562F2F2822538ABA00C46D83 /* MainMenuViewController.swift */; };
+		562F43932286CD2D0002CCC9 /* ExampleProgramViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562F43922286CD2D0002CCC9 /* ExampleProgramViewModelTests.swift */; };
 		562FC97D224FCD87001678B2 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562FC97C224FCD87001678B2 /* RoundedButton.swift */; };
 		563B0FC5226374A200BFEAA4 /* ProgramsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563B0FC4226374A200BFEAA4 /* ProgramsViewModel.swift */; };
 		563B0FC7226388D200BFEAA4 /* ShadowedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563B0FC6226388D200BFEAA4 /* ShadowedButton.swift */; };
@@ -202,6 +203,7 @@
 		562F2F22225355E100C46D83 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		562F2F26225358CA00C46D83 /* cardClasses.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = cardClasses.json; sourceTree = "<group>"; };
 		562F2F2822538ABA00C46D83 /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
+		562F43922286CD2D0002CCC9 /* ExampleProgramViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleProgramViewModelTests.swift; sourceTree = "<group>"; };
 		562FC97C224FCD87001678B2 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		563B0FC4226374A200BFEAA4 /* ProgramsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramsViewModel.swift; sourceTree = "<group>"; };
 		563B0FC6226388D200BFEAA4 /* ShadowedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowedButton.swift; sourceTree = "<group>"; };
@@ -338,6 +340,22 @@
 				56AEACA0221F5DC500ACED36 /* UIImage+Helpers.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		562F43902286CCFC0002CCC9 /* CardDetail */ = {
+			isa = PBXGroup;
+			children = (
+				562F43912286CD0A0002CCC9 /* ViewModel */,
+			);
+			path = CardDetail;
+			sourceTree = "<group>";
+		};
+		562F43912286CD0A0002CCC9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				562F43922286CD2D0002CCC9 /* ExampleProgramViewModelTests.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		563B0FCA2263CC9D00BFEAA4 /* Library */ = {
@@ -541,6 +559,7 @@
 		566874E222745A0600DC3ABD /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				562F43902286CCFC0002CCC9 /* CardDetail */,
 				204D960C2282C99A001A5F3E /* LevelSelect */,
 				568087C7227EF9CD00CB9791 /* Exercise */,
 				568087C0227EE8D200CB9791 /* Library */,
@@ -1118,6 +1137,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				562F43932286CD2D0002CCC9 /* ExampleProgramViewModelTests.swift in Sources */,
 				20500957228187000002B6A4 /* ScoreManagerTests.swift in Sources */,
 				206A0CB822410FD80018E6B7 /* WardrobeManagerTests.swift in Sources */,
 				568087CA227EF9E800CB9791 /* LevelViewModelTests.swift in Sources */,
