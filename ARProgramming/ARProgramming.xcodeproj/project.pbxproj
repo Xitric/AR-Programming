@@ -55,6 +55,7 @@
 		562F2F27225358CA00C46D83 /* cardClasses.json in Resources */ = {isa = PBXBuildFile; fileRef = 562F2F26225358CA00C46D83 /* cardClasses.json */; };
 		562F2F2922538ABA00C46D83 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562F2F2822538ABA00C46D83 /* MainMenuViewController.swift */; };
 		562F43932286CD2D0002CCC9 /* ExampleProgramViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562F43922286CD2D0002CCC9 /* ExampleProgramViewModelTests.swift */; };
+		562F439B2286E6510002CCC9 /* ExerciseCompletionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562F439A2286E6510002CCC9 /* ExerciseCompletionViewModelTests.swift */; };
 		562FC97D224FCD87001678B2 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562FC97C224FCD87001678B2 /* RoundedButton.swift */; };
 		563B0FC5226374A200BFEAA4 /* ProgramsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563B0FC4226374A200BFEAA4 /* ProgramsViewModel.swift */; };
 		563B0FC7226388D200BFEAA4 /* ShadowedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563B0FC6226388D200BFEAA4 /* ShadowedButton.swift */; };
@@ -204,6 +205,7 @@
 		562F2F26225358CA00C46D83 /* cardClasses.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = cardClasses.json; sourceTree = "<group>"; };
 		562F2F2822538ABA00C46D83 /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		562F43922286CD2D0002CCC9 /* ExampleProgramViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleProgramViewModelTests.swift; sourceTree = "<group>"; };
+		562F439A2286E6510002CCC9 /* ExerciseCompletionViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCompletionViewModelTests.swift; sourceTree = "<group>"; };
 		562FC97C224FCD87001678B2 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		563B0FC4226374A200BFEAA4 /* ProgramsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramsViewModel.swift; sourceTree = "<group>"; };
 		563B0FC6226388D200BFEAA4 /* ShadowedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowedButton.swift; sourceTree = "<group>"; };
@@ -771,6 +773,7 @@
 				568087D7227F3C4400CB9791 /* GameCoordinationViewModelTests.swift */,
 				2050095422816F240002B6A4 /* LevelSceneViewModelTests.swift */,
 				20500956228187000002B6A4 /* ScoreManagerTests.swift */,
+				562F439A2286E6510002CCC9 /* ExerciseCompletionViewModelTests.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1144,6 +1147,7 @@
 				568087D8227F3C4400CB9791 /* GameCoordinationViewModelTests.swift in Sources */,
 				568087BF227E1AFE00CB9791 /* ProgramsViewModelTests.swift in Sources */,
 				2050095522816F240002B6A4 /* LevelSceneViewModelTests.swift in Sources */,
+				562F439B2286E6510002CCC9 /* ExerciseCompletionViewModelTests.swift in Sources */,
 				566874E822745AB000DC3ABD /* ObservablePropertyTests.swift in Sources */,
 				568087CC227EFBAE00CB9791 /* ImmutableObservableProperty+Helpers.swift in Sources */,
 				5676973F2281923A00FDEF5B /* WardrobeViewModelTests.swift in Sources */,
