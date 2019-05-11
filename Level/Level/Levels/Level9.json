@@ -1,30 +1,16 @@
 {
     "number":9,
     "type":"quantity",
-    "name":"Næsten det samme?",
-    "unlocks":100,
+    "name":"Gå i ring",
+    "unlocks":10,
     "doCollect":[
         {"type":"mønter", "quantity":7}
     ],
     "dontCollect":[],
     "collectibles":[
         {
-            "x":0,
-            "y":1,
-            "quantity":1,
-            "resourceIdentifier":"Coins/Coin1",
-            "type":"mønter"
-        },
-        {
             "x":1,
-            "y":1,
-            "quantity":1,
-            "resourceIdentifier":"Coins/Coin1",
-            "type":"mønter"
-        },
-        {
-            "x":2,
-            "y":1,
+            "y":0,
             "quantity":1,
             "resourceIdentifier":"Coins/Coin1",
             "type":"mønter"
@@ -38,21 +24,35 @@
         },
         {
             "x":2,
-            "y":-1,
+            "y":1,
+            "quantity":1,
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
+        },
+        {
+            "x":2,
+            "y":2,
             "quantity":1,
             "resourceIdentifier":"Coins/Coin1",
             "type":"mønter"
         },
         {
             "x":1,
-            "y":-1,
+            "y":2,
             "quantity":1,
             "resourceIdentifier":"Coins/Coin1",
             "type":"mønter"
         },
         {
             "x":0,
-            "y":-1,
+            "y":2,
+            "quantity":1,
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
+        },
+        {
+            "x":0,
+            "y":1,
             "quantity":1,
             "resourceIdentifier":"Coins/Coin1",
             "type":"mønter"

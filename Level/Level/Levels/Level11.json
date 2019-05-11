@@ -1,29 +1,15 @@
 {
     "number":11,
     "type":"quantity",
-    "name":"Sagde du gentagelser?",
+    "name":"Skråplan",
     "unlocks":12,
     "doCollect":[
-        {"type":"mønter", "quantity":20}
+        {"type":"mønter", "quantity":4}
     ],
     "dontCollect":[],
     "collectibles":[
         {
             "x":1,
-            "y":0,
-            "quantity":1,
-            "resourceIdentifier":"Coins/Coin1",
-            "type":"mønter"
-        },
-        {
-            "x":2,
-            "y":0,
-            "quantity":1,
-            "resourceIdentifier":"Coins/Coin1",
-            "type":"mønter"
-        },
-        {
-            "x":2,
             "y":1,
             "quantity":1,
             "resourceIdentifier":"Coins/Coin1",
@@ -31,119 +17,21 @@
         },
         {
             "x":2,
-            "y":-1,
-            "quantity":1,
-            "resourceIdentifier":"Coins/Coin1",
-            "type":"mønter"
-        },
-        {
-            "x":-1,
-            "y":0,
-            "quantity":1,
-            "resourceIdentifier":"Coins/Coin1",
-            "type":"mønter"
-        },
-        {
-            "x":-2,
-            "y":0,
-            "quantity":1,
-            "resourceIdentifier":"Coins/Coin1",
-            "type":"mønter"
-        },
-        {
-            "x":-2,
-            "y":1,
-            "quantity":1,
-            "resourceIdentifier":"Coins/Coin1",
-            "type":"mønter"
-        },
-        {
-            "x":-2,
-            "y":-1,
-            "quantity":1,
-            "resourceIdentifier":"Coins/Coin1",
-            "type":"mønter"
-        },
-        {
-            "x":0,
-            "y":1,
-            "quantity":1,
-            "resourceIdentifier":"Coins/Coin1",
-            "type":"mønter"
-        },
-        {
-            "x":0,
-            "y":-1,
-            "quantity":1,
-            "resourceIdentifier":"Coins/Coin1",
-            "type":"mønter"
-        },
-        {
-            "x":-2,
             "y":2,
             "quantity":1,
             "resourceIdentifier":"Coins/Coin1",
             "type":"mønter"
         },
         {
-            "x":-1,
-            "y":2,
+            "x":3,
+            "y":3,
             "quantity":1,
             "resourceIdentifier":"Coins/Coin1",
             "type":"mønter"
         },
         {
-            "x":0,
-            "y":2,
-            "quantity":1,
-            "resourceIdentifier":"Coins/Coin1",
-            "type":"mønter"
-        },
-        {
-            "x":1,
-            "y":2,
-            "quantity":1,
-            "resourceIdentifier":"Coins/Coin1",
-            "type":"mønter"
-        },
-        {
-            "x":2,
-            "y":2,
-            "quantity":1,
-            "resourceIdentifier":"Coins/Coin1",
-            "type":"mønter"
-        },
-        {
-            "x":-2,
-            "y":-2,
-            "quantity":1,
-            "resourceIdentifier":"Coins/Coin1",
-            "type":"mønter"
-        },
-        {
-            "x":-1,
-            "y":-2,
-            "quantity":1,
-            "resourceIdentifier":"Coins/Coin1",
-            "type":"mønter"
-        },
-        {
-            "x":0,
-            "y":-2,
-            "quantity":1,
-            "resourceIdentifier":"Coins/Coin1",
-            "type":"mønter"
-        },
-        {
-            "x":1,
-            "y":-2,
-            "quantity":1,
-            "resourceIdentifier":"Coins/Coin1",
-            "type":"mønter"
-        },
-        {
-            "x":2,
-            "y":-2,
+            "x":4,
+            "y":4,
             "quantity":1,
             "resourceIdentifier":"Coins/Coin1",
             "type":"mønter"

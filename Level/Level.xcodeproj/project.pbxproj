@@ -10,6 +10,7 @@
 		1C02092AC18E8DF78D56F4B9 /* Pods_LevelTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D669D1B9F5300FC07B15E3D4 /* Pods_LevelTests.framework */; };
 		562D870B226A2317001A154E /* LevelInfoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D870A226A2317001A154E /* LevelInfoProtocol.swift */; };
 		562D870D226A233C001A154E /* LevelInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D870C226A233C001A154E /* LevelInfo.swift */; };
+		562F43992286D66C0002CCC9 /* LevelFileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562F43982286D66C0002CCC9 /* LevelFileTests.swift */; };
 		564553D0225C8A070084D97F /* CoreDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564553CF225C8A070084D97F /* CoreDataRepository.swift */; };
 		564553D3225C8A310084D97F /* LevelModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 564553D1225C8A310084D97F /* LevelModel.xcdatamodeld */; };
 		564553D8225C9E300084D97F /* XCTestCase+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564553D7225C9E300084D97F /* XCTestCase+Helpers.swift */; };
@@ -53,6 +54,7 @@
 		005380AE98BBA8ECCE8AE3AC /* Pods_Level.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Level.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		562D870A226A2317001A154E /* LevelInfoProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelInfoProtocol.swift; sourceTree = "<group>"; };
 		562D870C226A233C001A154E /* LevelInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelInfo.swift; sourceTree = "<group>"; };
+		562F43982286D66C0002CCC9 /* LevelFileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelFileTests.swift; sourceTree = "<group>"; };
 		564553CF225C8A070084D97F /* CoreDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataRepository.swift; sourceTree = "<group>"; };
 		564553D2225C8A310084D97F /* LevelModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LevelModel.xcdatamodel; sourceTree = "<group>"; };
 		564553D7225C9E300084D97F /* XCTestCase+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Helpers.swift"; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 			children = (
 				566066EA225C843000FB0FB0 /* Level */,
 				566066F5225C843800FB0FB0 /* Levels */,
+				562F43982286D66C0002CCC9 /* LevelFileTests.swift */,
 				564553D7225C9E300084D97F /* XCTestCase+Helpers.swift */,
 				566066E0225C838C00FB0FB0 /* Info.plist */,
 			);
@@ -457,6 +460,7 @@
 			files = (
 				564553D8225C9E300084D97F /* XCTestCase+Helpers.swift in Sources */,
 				566066F2225C843000FB0FB0 /* InventoryComponentTests.swift in Sources */,
+				562F43992286D66C0002CCC9 /* LevelFileTests.swift in Sources */,
 				566066F1225C843000FB0FB0 /* QuantityLevelTests.swift in Sources */,
 				566066F3225C843000FB0FB0 /* LevelTests.swift in Sources */,
 				566066F0225C843000FB0FB0 /* SimpleLevelLoader.swift in Sources */,
