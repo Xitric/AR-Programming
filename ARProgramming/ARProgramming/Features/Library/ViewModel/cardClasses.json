@@ -1,0 +1,8 @@
+{
+    "includedCards":[
+        ["function0a", "move", "left", "right", "jump"],
+        ["loop", "block", "param1", "param2", "param3", "param4"],
+        ["pickup", "drop", "function1a", "function2a", "function3a", "function4a"],
+        []
+    ]
+}

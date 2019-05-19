@@ -1,0 +1,21 @@
+{
+    "number":9000,
+    "type":"cleanup",
+    "name":"Empty with item",
+    "unlocks":null,
+    "dropSpots":[
+    ],
+    "items":[
+        {
+            "type":"Blå",
+            "x":1,
+            "y":0,
+            "quantity":1,
+            "resourceIdentifier":"Polygons/PolygonBlue"
+        }
+    ],
+    
+    "props":[
+    ]
+}
+

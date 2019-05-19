@@ -1,0 +1,27 @@
+{
+    "number":3,
+    "type":"quantity",
+    "name":"Frem og tilbage",
+    "unlocks":4,
+    "doCollect":[
+        {"type":"mønter", "quantity":2}
+    ],
+    "dontCollect":[],
+    "collectibles":[
+        {
+            "x":1,
+            "y":0,
+            "quantity":1,
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
+        },
+        {
+            "x":-1,
+            "y":0,
+            "quantity":1,
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
+        }
+    ],
+    "props":[]
+}

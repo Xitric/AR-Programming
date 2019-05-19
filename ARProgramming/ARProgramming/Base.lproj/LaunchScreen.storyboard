@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="ipad9_7" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LandingPageBackground" translatesAutoresizingMaskIntoConstraints="NO" id="kFI-wK-vdu">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                            </imageView>
+                            <view alpha="0.40000000596046448" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TuI-5g-MFc">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AR Programming" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="25T-Di-iQ0">
+                                <rect key="frame" x="312" y="177.5" width="400" height="67"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="56"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vent venligst mens applikationen indlæser..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gdb-GF-IDx">
+                                <rect key="frame" x="176" y="362.5" width="672" height="43"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="kFI-wK-vdu" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="0BT-LT-zCQ"/>
+                            <constraint firstItem="TuI-5g-MFc" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="8pm-QR-xhD"/>
+                            <constraint firstAttribute="bottom" secondItem="kFI-wK-vdu" secondAttribute="bottom" id="Azh-0v-dpm"/>
+                            <constraint firstItem="kFI-wK-vdu" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="LKf-86-pSR"/>
+                            <constraint firstItem="25T-Di-iQ0" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Mdb-HY-o6Z"/>
+                            <constraint firstAttribute="bottom" secondItem="TuI-5g-MFc" secondAttribute="bottom" id="O0j-z1-qFy"/>
+                            <constraint firstAttribute="trailing" secondItem="TuI-5g-MFc" secondAttribute="trailing" id="XY0-mn-OtL"/>
+                            <constraint firstAttribute="trailing" secondItem="kFI-wK-vdu" secondAttribute="trailing" id="Yhw-eD-R5p"/>
+                            <constraint firstItem="TuI-5g-MFc" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="Z34-Fn-OYY"/>
+                            <constraint firstItem="Gdb-GF-IDx" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="jLJ-3K-spc"/>
+                            <constraint firstItem="Gdb-GF-IDx" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="jp3-BS-39A"/>
+                            <constraint firstItem="25T-Di-iQ0" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" multiplier="0.55" id="rqb-Tv-zfD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53" y="375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="LandingPageBackground" width="960" height="540"/>
+    </resources>
+</document>

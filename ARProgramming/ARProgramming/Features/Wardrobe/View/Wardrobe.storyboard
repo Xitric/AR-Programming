@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="ipad9_7" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Wardrobe View Controller-->
+        <scene sceneID="v9f-SA-hYL">
+            <objects>
+                <viewController storyboardIdentifier="UIViewController-wB7-4i-evA" id="wB7-4i-evA" customClass="WardrobeViewController" customModule="ARProgramming" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="x6c-iF-ilh">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dmF-0S-RLO">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                            </sceneKitView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="af7-rH-0kZ">
+                                <rect key="frame" x="939" y="318" width="61" height="132"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="100"/>
+                                <state key="normal" title="&gt;">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextRobot:" destination="wB7-4i-evA" eventType="touchUpInside" id="wSM-fv-K54"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8wM-cg-kyM">
+                                <rect key="frame" x="24" y="318" width="61" height="132"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="100"/>
+                                <state key="normal" title="&lt;">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="previousRobot:" destination="wB7-4i-evA" eventType="touchUpInside" id="KZO-M0-hky"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rgJ-fd-fVa">
+                                <rect key="frame" x="483.5" y="44" width="57" height="43"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mkl-Ou-vWI">
+                                <rect key="frame" x="416.5" y="683" width="191" height="61"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="41"/>
+                                <state key="normal" title="Vælg robot"/>
+                                <connections>
+                                    <action selector="pickRobot:" destination="wB7-4i-evA" eventType="touchUpInside" id="P4y-gD-PJA"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="af7-rH-0kZ" firstAttribute="centerY" secondItem="dmF-0S-RLO" secondAttribute="centerY" id="8qQ-TS-u68"/>
+                            <constraint firstItem="8wM-cg-kyM" firstAttribute="centerY" secondItem="dmF-0S-RLO" secondAttribute="centerY" id="EKi-yN-efL"/>
+                            <constraint firstItem="8wM-cg-kyM" firstAttribute="leading" secondItem="pFy-NT-Dg5" secondAttribute="leading" constant="24" id="FYX-mj-260"/>
+                            <constraint firstItem="rgJ-fd-fVa" firstAttribute="centerX" secondItem="x6c-iF-ilh" secondAttribute="centerX" id="IEh-NK-VHn"/>
+                            <constraint firstItem="dmF-0S-RLO" firstAttribute="bottom" secondItem="pFy-NT-Dg5" secondAttribute="bottom" id="IlZ-ao-waB"/>
+                            <constraint firstItem="dmF-0S-RLO" firstAttribute="trailing" secondItem="pFy-NT-Dg5" secondAttribute="trailing" id="XRy-in-Vge"/>
+                            <constraint firstItem="dmF-0S-RLO" firstAttribute="top" secondItem="x6c-iF-ilh" secondAttribute="top" id="ecF-5t-Hkr"/>
+                            <constraint firstItem="rgJ-fd-fVa" firstAttribute="top" secondItem="pFy-NT-Dg5" secondAttribute="top" constant="24" id="jX5-VK-w5Y"/>
+                            <constraint firstItem="pFy-NT-Dg5" firstAttribute="bottom" secondItem="Mkl-Ou-vWI" secondAttribute="bottom" constant="24" id="jr1-xV-4BI"/>
+                            <constraint firstItem="dmF-0S-RLO" firstAttribute="leading" secondItem="pFy-NT-Dg5" secondAttribute="leading" id="t5f-Or-KxO"/>
+                            <constraint firstItem="pFy-NT-Dg5" firstAttribute="trailing" secondItem="af7-rH-0kZ" secondAttribute="trailing" constant="24" id="uQT-Xc-xEF"/>
+                            <constraint firstItem="Mkl-Ou-vWI" firstAttribute="centerX" secondItem="dmF-0S-RLO" secondAttribute="centerX" id="ziU-FG-bA2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="pFy-NT-Dg5"/>
+                    </view>
+                    <connections>
+                        <outlet property="robotChoiceLabel" destination="rgJ-fd-fVa" id="GT5-y5-LZi"/>
+                        <outlet property="sceneView" destination="dmF-0S-RLO" id="FjI-HW-0YI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xhL-J5-S2c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1071" y="1010"/>
+        </scene>
+    </scenes>
+</document>

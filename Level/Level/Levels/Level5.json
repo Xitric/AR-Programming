@@ -1,0 +1,28 @@
+{
+    "number":5,
+    "type":"quantity",
+    "name":"Se bagud",
+    "unlocks":6,
+    "doCollect":[
+        {"type":"mønter", "quantity":2}
+    ],
+    "dontCollect":[],
+    "collectibles":[
+        {
+            "x":-1,
+            "y":1,
+            "quantity":1,
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
+        },
+        {
+            "x":-2,
+            "y":1,
+            "quantity":1,
+            "resourceIdentifier":"Coins/Coin1",
+            "type":"mønter"
+        },
+    ],
+    "props":[]
+}
+
