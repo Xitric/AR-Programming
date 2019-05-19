@@ -1,0 +1,52 @@
+{
+    "number":15,
+    "type":"cleanup",
+    "name":"Sæt tingene på plads",
+    "unlocks":16,
+    "dropSpots":[
+        {
+            "x":0,
+            "y":0,
+            "resourceIdentifier":"DropSpots/DropSpotGrey",
+            "collectiveGoals": {
+                "Blå":1,
+                "Rød":1,
+                "Grøn":1,
+                "Gul":1
+            }
+        }
+    ],
+    "items":[
+        {
+            "type":"Blå",
+            "x":-1,
+            "y":0,
+            "quantity":1,
+            "resourceIdentifier":"Polygons/PolygonBlue"
+        },
+        {
+            "type":"Grøn",
+            "x":1,
+            "y":0,
+            "quantity":1,
+            "resourceIdentifier":"Polygons/PolygonGreen"
+        },
+        {
+            "type":"Rød",
+            "x":0,
+            "y":-1,
+            "quantity":1,
+            "resourceIdentifier":"Polygons/PolygonRed"
+        },
+        {
+            "type":"Gul",
+            "x":0,
+            "y":1,
+            "quantity":1,
+            "resourceIdentifier":"Polygons/PolygonYellow"
+        }
+    ],
+    
+    "props":[
+    ]
+}

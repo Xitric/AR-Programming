@@ -13,6 +13,8 @@
 		560D20602257AD190015EC95 /* XCTestCase+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560D205F2257AD190015EC95 /* XCTestCase+Helpers.swift */; };
 		562D8713226CAD91001A154E /* WaitAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D8712226CAD91001A154E /* WaitAction.swift */; };
 		562D8715226CB145001A154E /* CompoundAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D8714226CB145001A154E /* CompoundAction.swift */; };
+		562F439D2286EDC40002CCC9 /* ComponentActionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562F439C2286EDC40002CCC9 /* ComponentActionTests.swift */; };
+		562F43A12286EDF60002CCC9 /* CompoundActionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562F43A02286EDF60002CCC9 /* CompoundActionTests.swift */; };
 		564553DA225CA98A0084D97F /* ObservationGraphCardNodeBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564553D9225CA98A0084D97F /* ObservationGraphCardNodeBuilderTests.swift */; };
 		567697412281BDBC00FDEF5B /* CardGraphDeserializerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567697402281BDBC00FDEF5B /* CardGraphDeserializerTests.swift */; };
 		568087D2227F291800CB9791 /* ProgramActionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568087D1227F291800CB9791 /* ProgramActionTests.swift */; };
@@ -104,6 +106,8 @@
 		560D205F2257AD190015EC95 /* XCTestCase+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Helpers.swift"; sourceTree = "<group>"; };
 		562D8712226CAD91001A154E /* WaitAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitAction.swift; sourceTree = "<group>"; };
 		562D8714226CB145001A154E /* CompoundAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompoundAction.swift; sourceTree = "<group>"; };
+		562F439C2286EDC40002CCC9 /* ComponentActionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentActionTests.swift; sourceTree = "<group>"; };
+		562F43A02286EDF60002CCC9 /* CompoundActionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompoundActionTests.swift; sourceTree = "<group>"; };
 		564553D9225CA98A0084D97F /* ObservationGraphCardNodeBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservationGraphCardNodeBuilderTests.swift; sourceTree = "<group>"; };
 		567697402281BDBC00FDEF5B /* CardGraphDeserializerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGraphDeserializerTests.swift; sourceTree = "<group>"; };
 		568087D1227F291800CB9791 /* ProgramActionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramActionTests.swift; sourceTree = "<group>"; };
@@ -359,6 +363,8 @@
 				56D8CBB122577B5C004EE8B1 /* Components */,
 				56D8CBB722577B5C004EE8B1 /* RotationActionTests.swift */,
 				568087D1227F291800CB9791 /* ProgramActionTests.swift */,
+				562F439C2286EDC40002CCC9 /* ComponentActionTests.swift */,
+				562F43A02286EDF60002CCC9 /* CompoundActionTests.swift */,
 			);
 			path = Action;
 			sourceTree = "<group>";
@@ -678,6 +684,7 @@
 				56D8CBBB22577B5C004EE8B1 /* CardNodeFactoryTests.swift in Sources */,
 				56D8CBBD22577B5C004EE8B1 /* RotationActionComponentTests.swift in Sources */,
 				56D8CC2A22577ECA004EE8B1 /* ObservationEdgeTests.swift in Sources */,
+				562F43A12286EDF60002CCC9 /* CompoundActionTests.swift in Sources */,
 				56D8CBBF22577B5C004EE8B1 /* ActionComponentTests.swift in Sources */,
 				56D8CBC022577B5C004EE8B1 /* PickupActionComponentTests.swift in Sources */,
 				560D20602257AD190015EC95 /* XCTestCase+Helpers.swift in Sources */,
@@ -689,6 +696,7 @@
 				568087D4227F2D4000CB9791 /* FunctionCardNodeTests.swift in Sources */,
 				564553DA225CA98A0084D97F /* ObservationGraphCardNodeBuilderTests.swift in Sources */,
 				56D8CC2822577ECA004EE8B1 /* ObservationNodeTests.swift in Sources */,
+				562F439D2286EDC40002CCC9 /* ComponentActionTests.swift in Sources */,
 				56D8CBBE22577B5C004EE8B1 /* MovementActionComponentTests.swift in Sources */,
 				568087D6227F308B00CB9791 /* ProgramEditorTests.swift in Sources */,
 				56D8CBBC22577B5C004EE8B1 /* DropActionComponentTests.swift in Sources */,
