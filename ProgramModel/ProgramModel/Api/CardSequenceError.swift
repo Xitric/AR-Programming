@@ -14,7 +14,6 @@ import Foundation
 /// - unknownCode: Thrown when an unknown code is encountered in a program sequence.
 /// - syntax: Thrown when the program sequence is malformed.
 public enum CardSequenceError: Error, Equatable {
-    //TODO: We could probably pass the CardNode that threw this error as part of the error itself to make it easier to display on the screen
     case missingStart
     case unknownCode(code: String)
     case syntax(message: String)
