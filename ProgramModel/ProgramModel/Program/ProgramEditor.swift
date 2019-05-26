@@ -81,7 +81,7 @@ class ProgramEditor: ProgramEditorProtocol, ProgramState, BarcodeDetectorDelegat
 
             detectedProgram = Program(startNode: start)
         } catch CardSequenceError.missingStart {
-           print("Missing start or function card")
+           //Ignore
         } catch CardSequenceError.unknownCode(let code) {
             print("Found unexpected code: \(code)")
         } catch CardSequenceError.syntax(let message) {
