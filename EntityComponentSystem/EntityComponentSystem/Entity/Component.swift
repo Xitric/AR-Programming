@@ -20,6 +20,6 @@ open class Component: GKComponent {
     }
 
     open func didAddToEntityManager() {
-
+        //Can be overridden by subclasses
     }
 }
